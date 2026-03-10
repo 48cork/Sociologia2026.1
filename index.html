@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sociologia 2026.1</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0a0a0f;
+      --surface:   #12121c;
+      --card:      #1a1a2e;
+      --border:    #2a2a4a;
+      --purple:    #7c3aed;
+      --purple-lt: #a855f7;
+      --blue:      #4f46e5;
+      --blue-lt:   #818cf8;
+      --text:      #e2e8f0;
+      --muted:     #94a3b8;
+      --radius:    14px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 2rem;
+      background: rgba(10,10,15,.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-weight: 700; font-size: 1.1rem;
+      background: linear-gradient(135deg, var(--purple-lt), var(--blue-lt));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none; font-size: .9rem;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center;
+      padding: 7rem 1.5rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 20% 40%, rgba(124,58,237,.25) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 80% 60%, rgba(79,70,229,.2) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(124,58,237,.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(124,58,237,.07) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .hero-content { position: relative; max-width: 780px; }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(124,58,237,.2);
+      border: 1px solid rgba(168,85,247,.4);
+      color: var(--purple-lt);
+      padding: .35rem 1rem;
+      border-radius: 999px;
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+      background: linear-gradient(135deg, #fff 30%, var(--purple-lt) 65%, var(--blue-lt) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 560px;
+      margin: 0 auto 2.5rem;
+    }
+    .hero-cta { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .75rem 1.75rem;
+      border-radius: var(--radius);
+      font-weight: 600; font-size: .95rem;
+      text-decoration: none;
+      transition: transform .2s, box-shadow .2s;
+      cursor: pointer; border: none;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--purple), var(--blue));
+      color: #fff;
+      box-shadow: 0 4px 24px rgba(124,58,237,.4);
+    }
+    .btn-primary:hover { box-shadow: 0 8px 32px rgba(124,58,237,.6); }
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-secondary:hover { border-color: var(--purple-lt); color: var(--purple-lt); }
+
+    .hero-stats {
+      display: flex; justify-content: center; gap: 3rem;
+      margin-top: 4rem; flex-wrap: wrap;
+    }
+    .stat { text-align: center; }
+    .stat-num {
+      font-size: 2rem; font-weight: 800;
+      background: linear-gradient(135deg, var(--purple-lt), var(--blue-lt));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .stat-label { font-size: .8rem; color: var(--muted); margin-top: .2rem; }
+
+    /* ── SECTIONS ── */
+    section { padding: 5rem 1.5rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    .section-tag {
+      font-size: .75rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--purple-lt);
+      margin-bottom: .75rem;
+    }
+    .section-title {
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 800; margin-bottom: 1rem;
+    }
+    .section-sub { color: var(--muted); font-size: 1.05rem; max-width: 540px; }
+
+    /* ── FEATURES ── */
+    #features { background: var(--surface); }
+    .features-header { text-align: center; margin-bottom: 3.5rem; }
+    .features-header .section-sub { margin: 0 auto; }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .feature-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform .25s, border-color .25s;
+    }
+    .feature-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--purple), var(--blue));
+      opacity: 0; transition: opacity .25s;
+    }
+    .feature-card:hover { transform: translateY(-4px); border-color: rgba(168,85,247,.4); }
+    .feature-card:hover::before { opacity: 1; }
+
+    .feature-icon {
+      width: 52px; height: 52px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .icon-purple { background: rgba(124,58,237,.2); }
+    .icon-blue   { background: rgba(79,70,229,.2); }
+    .icon-teal   { background: rgba(20,184,166,.2); }
+
+    .feature-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: .6rem; }
+    .feature-card p  { color: var(--muted); font-size: .95rem; }
+
+    .feature-list {
+      list-style: none; margin-top: 1.25rem; display: flex; flex-direction: column; gap: .5rem;
+    }
+    .feature-list li {
+      display: flex; align-items: flex-start; gap: .6rem;
+      color: var(--muted); font-size: .875rem;
+    }
+    .feature-list li::before {
+      content: '✦';
+      color: var(--purple-lt); font-size: .6rem; margin-top: .3rem; flex-shrink: 0;
+    }
+
+    /* ── DISCIPLINAS / CTA ── */
+    #turmas { background: var(--bg); }
+    .turmas-header { text-align: center; margin-bottom: 3.5rem; }
+    .turmas-header .section-sub { margin: 0 auto; }
+
+    .turmas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .turma-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      display: flex; flex-direction: column;
+      transition: transform .25s, border-color .25s;
+    }
+    .turma-card:hover { transform: translateY(-4px); border-color: rgba(96,165,250,.35); }
+    .turma-badge {
+      display: inline-block;
+      padding: .25rem .75rem;
+      border-radius: 999px;
+      font-size: .72rem; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 1rem; width: fit-content;
+    }
+    .badge-purple { background: rgba(124,58,237,.2); color: var(--purple-lt); border: 1px solid rgba(168,85,247,.3); }
+    .badge-blue   { background: rgba(79,70,229,.2);  color: var(--blue-lt);   border: 1px solid rgba(129,140,248,.3); }
+    .badge-teal   { background: rgba(20,184,166,.15); color: #2dd4bf;          border: 1px solid rgba(45,212,191,.3); }
+
+    .turma-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: .4rem; }
+    .turma-card .codigo { font-size: .8rem; color: var(--muted); margin-bottom: .75rem; }
+    .turma-card p { color: var(--muted); font-size: .9rem; flex: 1; }
+
+    .turma-meta {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      margin: 1.25rem 0;
+    }
+    .meta-item {
+      display: flex; align-items: center; gap: .4rem;
+      font-size: .8rem; color: var(--muted);
+    }
+    .meta-icon { font-size: .9rem; }
+
+    .turma-card .btn { margin-top: 1.25rem; width: 100%; justify-content: center; }
+
+    /* ── DEPOIMENTOS ── */
+    #depoimentos { background: var(--surface); }
+    .dep-header { text-align: center; margin-bottom: 3.5rem; }
+    .dep-header .section-sub { margin: 0 auto; }
+
+    .dep-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .dep-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      position: relative;
+      transition: transform .25s;
+    }
+    .dep-card:hover { transform: translateY(-3px); }
+    .dep-quote {
+      font-size: 3rem; line-height: 1;
+      background: linear-gradient(135deg, var(--purple-lt), var(--blue-lt));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      margin-bottom: .5rem;
+    }
+    .dep-text {
+      color: var(--muted); font-size: .925rem; font-style: italic;
+      margin-bottom: 1.25rem; line-height: 1.7;
+    }
+    .dep-author { display: flex; align-items: center; gap: .75rem; }
+    .dep-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: .9rem; color: #fff; flex-shrink: 0;
+    }
+    .av-1 { background: linear-gradient(135deg, #7c3aed, #4f46e5); }
+    .av-2 { background: linear-gradient(135deg, #818cf8, #6366f1); }
+    .av-3 { background: linear-gradient(135deg, #8b5cf6, #14b8a6); }
+    .av-4 { background: linear-gradient(135deg, #f59e0b, #ef4444); }
+    .av-5 { background: linear-gradient(135deg, #10b981, #818cf8); }
+
+    .dep-name { font-weight: 700; font-size: .9rem; }
+    .dep-role { font-size: .78rem; color: var(--muted); }
+    .dep-stars { color: #fbbf24; font-size: .85rem; margin-left: auto; }
+
+    /* ── CTA FINAL ── */
+    #cta {
+      background: var(--bg);
+      text-align: center;
+      padding: 6rem 1.5rem;
+    }
+    .cta-box {
+      max-width: 680px; margin: 0 auto;
+      background: linear-gradient(135deg, rgba(124,58,237,.12), rgba(79,70,229,.12));
+      border: 1px solid rgba(168,85,247,.25);
+      border-radius: 20px;
+      padding: 3.5rem 2rem;
+      position: relative; overflow: hidden;
+    }
+    .cta-box::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(124,58,237,.15), transparent 70%);
+    }
+    .cta-box > * { position: relative; }
+    .cta-box h2 {
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 800; margin-bottom: .75rem;
+    }
+    .cta-box p { color: var(--muted); margin-bottom: 2rem; }
+    .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: .85rem;
+    }
+    footer span {
+      background: linear-gradient(135deg, var(--purple-lt), var(--blue-lt));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      font-weight: 700;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      nav { padding: .75rem 1rem; }
+      .nav-links { display: none; }
+      .hero-stats { gap: 1.5rem; }
+      section { padding: 3.5rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Sociologia 2026.1</div>
+  <ul class="nav-links">
+    <li><a href="#features">Recursos</a></li>
+    <li><a href="#turmas">Turmas</a></li>
+    <li><a href="#depoimentos">Depoimentos</a></li>
+    <li><a href="#cta">Acesso</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Semestre 2026.1 · Abril — Agosto</div>
+    <h1>Sociologia para entender o mundo que você vive</h1>
+    <p>Disciplinas de graduação com planos de aula estruturados, seminários em grupo e materiais de apoio para uma formação sociológica sólida e crítica.</p>
+    <div class="hero-cta">
+      <a href="#turmas" class="btn btn-primary">Ver turmas disponíveis</a>
+      <a href="#features" class="btn btn-secondary">Conhecer o programa</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Turmas ativas</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">60h</div>
+        <div class="stat-label">Carga horária</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">2</div>
+        <div class="stat-label">Disciplinas</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Avaliação por seminário</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="container">
+    <div class="features-header">
+      <div class="section-tag">Recursos do curso</div>
+      <h2 class="section-title">Tudo que você precisa em um só lugar</h2>
+      <p class="section-sub">Materiais organizados, cronograma claro e metodologia ativa para uma experiência de aprendizagem significativa.</p>
+    </div>
+    <div class="features-grid">
+
+      <div class="feature-card">
+        <div class="feature-icon icon-purple">📅</div>
+        <h3>Plano de Aulas</h3>
+        <p>Cronograma detalhado com datas, conteúdos e feriados já mapeados para todo o semestre.</p>
+        <ul class="feature-list">
+          <li>Blocos temáticos organizados por progressão</li>
+          <li>Datas de entrega claramente definidas</li>
+          <li>Feriados e dias de reposição sinalizados</li>
+          <li>Distribuição de horas por bloco</li>
+        </ul>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon icon-blue">🎓</div>
+        <h3>Atividades e Seminários</h3>
+        <p>Metodologia 100% baseada em seminário em grupo, com quatro entregas avaliadas de forma independente.</p>
+        <ul class="feature-list">
+          <li>Grupos de até 5 alunos</li>
+          <li>Pesquisa bibliográfica (25%)</li>
+          <li>Apresentação oral (25%)</li>
+          <li>Relatório escrito até 7 laudas (25%) e vídeo 5–10 min (25%)</li>
+        </ul>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon icon-teal">📚</div>
+        <h3>Materiais de Apoio</h3>
+        <p>Bibliografia básica e complementar selecionada para cada disciplina, com os principais clássicos da Sociologia.</p>
+        <ul class="feature-list">
+          <li>Durkheim, Marx e Weber — textos originais</li>
+          <li>Autores contemporâneos: Bourdieu, Giddens</li>
+          <li>Leituras introdutórias acessíveis</li>
+          <li>Teoria crítica e perspectivas decoloniais</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TURMAS / CTA LINKS -->
+<section id="turmas">
+  <div class="container">
+    <div class="turmas-header">
+      <div class="section-tag">Turmas 2026.1</div>
+      <h2 class="section-title">Encontre sua turma</h2>
+      <p class="section-sub">Três turmas com horários distintos, adaptadas à sua rotina — noite, manhã ou tarde.</p>
+    </div>
+    <div class="turmas-grid">
+
+      <div class="turma-card">
+        <div class="turma-badge badge-purple">Turma 1</div>
+        <h3>Introdução à Sociologia</h3>
+        <p class="codigo">Cód. 2101107</p>
+        <p>Turma de terças e quartas-feiras com aulas de 2h cada, cobrindo os fundamentos da Sociologia desde a origem histórica até movimentos sociais contemporâneos.</p>
+        <div class="turma-meta">
+          <div class="meta-item"><span class="meta-icon">📅</span> Ter/Qua — 2h cada</div>
+          <div class="meta-item"><span class="meta-icon">🕐</span> 14/04 a 29/07</div>
+          <div class="meta-item"><span class="meta-icon">⏱</span> 60h · 30 encontros</div>
+        </div>
+        <a href="introducao-sociologia/turma1/plano_aulas.md" class="btn btn-primary">Ver plano de aulas</a>
+      </div>
+
+      <div class="turma-card">
+        <div class="turma-badge badge-blue">Turma 2</div>
+        <h3>Introdução à Sociologia</h3>
+        <p class="codigo">Cód. 2101000 · Noite</p>
+        <p>Turma noturna de segunda-feira com encontros longos de 3h20, permitindo imersão mais profunda nos conteúdos a cada semana.</p>
+        <div class="turma-meta">
+          <div class="meta-item"><span class="meta-icon">📅</span> Segunda — 3h20</div>
+          <div class="meta-item"><span class="meta-icon">🕐</span> 13/04 a 10/08</div>
+          <div class="meta-item"><span class="meta-icon">⏱</span> 60h · 18 encontros</div>
+        </div>
+        <a href="introducao-sociologia/turma2/plano_aulas.md" class="btn btn-primary">Ver plano de aulas</a>
+      </div>
+
+      <div class="turma-card">
+        <div class="turma-badge badge-teal">Turma 3</div>
+        <h3>Fundamentos do Pensamento Sociológico</h3>
+        <p class="codigo">Cód. 2101106 · Manhã</p>
+        <p>Disciplina avançada com foco na história do pensamento sociológico — de Comte a Bourdieu — para uma compreensão profunda da teoria social.</p>
+        <div class="turma-meta">
+          <div class="meta-item"><span class="meta-icon">📅</span> Segunda — 3h20</div>
+          <div class="meta-item"><span class="meta-icon">🕐</span> 13/04 a 10/08</div>
+          <div class="meta-item"><span class="meta-icon">⏱</span> 60h · 18 encontros</div>
+        </div>
+        <a href="fundamentos-pensamento-sociologico/turma3/plano_aulas.md" class="btn btn-primary">Ver plano de aulas</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section id="depoimentos">
+  <div class="container">
+    <div class="dep-header">
+      <div class="section-tag">Depoimentos</div>
+      <h2 class="section-title">O que dizem nossos alunos</h2>
+      <p class="section-sub">Experiências de quem já passou pela disciplina e encontrou na Sociologia uma nova forma de ver o mundo.</p>
+    </div>
+    <div class="dep-grid">
+
+      <div class="dep-card">
+        <div class="dep-quote">"</div>
+        <p class="dep-text">Na Geografia a gente estuda o espaço, mas faltava entender as relações sociais que o produzem. Durkheim me ajudou a perceber que a segregação urbana não é acidente — é fato social. Conexão imediata com o que estudo.</p>
+        <div class="dep-author">
+          <div class="dep-avatar av-1">LB</div>
+          <div>
+            <div class="dep-name">Larissa Borges</div>
+            <div class="dep-role">Geografia · 3º período</div>
+          </div>
+          <div class="dep-stars">★★★★★</div>
+        </div>
+      </div>
+
+      <div class="dep-card">
+        <div class="dep-quote">"</div>
+        <p class="dep-text">Estudar Marx em Introdução à Sociologia foi como ganhar uma lente nova para ler os documentos históricos. De repente, as fontes primárias que eu analisava ganharam camadas que eu simplesmente não enxergava antes.</p>
+        <div class="dep-author">
+          <div class="dep-avatar av-2">RS</div>
+          <div>
+            <div class="dep-name">Rafael Souza</div>
+            <div class="dep-role">História · 2º período</div>
+          </div>
+          <div class="dep-stars">★★★★★</div>
+        </div>
+      </div>
+
+      <div class="dep-card">
+        <div class="dep-quote">"</div>
+        <p class="dep-text">Em Letras a gente debate representação e discurso, mas foi na Sociologia que entendi como a linguagem também é uma instituição social. O seminário sobre cultura e identidade foi direto ao coração do que pesquiso.</p>
+        <div class="dep-author">
+          <div class="dep-avatar av-3">CM</div>
+          <div>
+            <div class="dep-name">Camila Moura</div>
+            <div class="dep-role">Letras · 4º período</div>
+          </div>
+          <div class="dep-stars">★★★★★</div>
+        </div>
+      </div>
+
+      <div class="dep-card">
+        <div class="dep-quote">"</div>
+        <p class="dep-text">Pedagogia sem Sociologia é incompleta. Entender a escola como instituição social, o papel da socialização e as desigualdades que chegam com os alunos na sala faz toda diferença na minha formação como futura professora.</p>
+        <div class="dep-author">
+          <div class="dep-avatar av-4">JP</div>
+          <div>
+            <div class="dep-name">Juliana Pacheco</div>
+            <div class="dep-role">Pedagogia · 3º período</div>
+          </div>
+          <div class="dep-stars">★★★★★</div>
+        </div>
+      </div>
+
+      <div class="dep-card">
+        <div class="dep-quote">"</div>
+        <p class="dep-text">Achei que Sociologia não teria nada a ver com Biologia. Errei feio. Weber e o conceito de racionalização me fizeram refletir sobre como a ciência é também uma prática social — cheio de hierarquias, poder e escolhas políticas.</p>
+        <div class="dep-author">
+          <div class="dep-avatar av-5">TO</div>
+          <div>
+            <div class="dep-name">Tiago Oliveira</div>
+            <div class="dep-role">Biologia · 2º período</div>
+          </div>
+          <div class="dep-stars">★★★★★</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section id="cta">
+  <div class="container">
+    <div class="cta-box">
+      <div class="section-tag" style="text-align:center">Comece agora</div>
+      <h2>Pronto para o semestre 2026.1?</h2>
+      <p>Acesse o plano de aulas da sua turma e organize sua jornada acadêmica desde o primeiro encontro.</p>
+      <div class="cta-buttons">
+        <a href="introducao-sociologia/turma1/plano_aulas.md" class="btn btn-primary">Turma 1 — Introdução</a>
+        <a href="introducao-sociologia/turma2/plano_aulas.md" class="btn btn-secondary">Turma 2 — Noite</a>
+        <a href="fundamentos-pensamento-sociologico/turma3/plano_aulas.md" class="btn btn-secondary">Turma 3 — Fundamentos</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 <span>Sociologia 2026.1</span> · Semestre Março–Agosto · Desenvolvido com dedicação ao ensino de Sociologia</p>
+</footer>
+
+</body>
+</html>
