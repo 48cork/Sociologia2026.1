@@ -16,340 +16,208 @@
       --purple-lt: #a855f7;
       --blue:      #4f46e5;
       --blue-lt:   #818cf8;
+      --teal:      #14b8a6;
+      --teal-lt:   #2dd4bf;
+      --amber-lt:  #fbbf24;
       --text:      #e2e8f0;
       --muted:     #94a3b8;
-      --radius:    14px;
+      --radius:    12px;
     }
 
     html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
+    body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; line-height: 1.6; overflow-x: hidden; }
 
     /* ── NAV ── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 1rem 2rem;
-      background: rgba(10,10,15,.85);
-      backdrop-filter: blur(16px);
+      padding: .9rem 2rem;
+      background: rgba(10,10,15,.9); backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
     }
-    .nav-logo {
-      font-weight: 700; font-size: 1.1rem;
-      background: linear-gradient(135deg, var(--purple-lt), var(--blue-lt));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    }
+    .nav-logo { font-weight: 700; font-size: 1rem; color: var(--text); letter-spacing: .01em; }
+    .nav-logo span { color: var(--purple-lt); }
     .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a {
-      color: var(--muted); text-decoration: none; font-size: .9rem;
-      transition: color .2s;
-    }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: .875rem; transition: color .2s; }
     .nav-links a:hover { color: var(--text); }
 
     /* ── HERO ── */
     .hero {
-      min-height: 100vh;
-      display: flex; align-items: center; justify-content: center;
-      text-align: center;
-      padding: 7rem 1.5rem 4rem;
-      position: relative;
-      overflow: hidden;
+      padding: 8rem 2rem 5rem;
+      position: relative; overflow: hidden;
+      border-bottom: 1px solid var(--border);
     }
     .hero::before {
-      content: '';
-      position: absolute; inset: 0;
+      content: ''; position: absolute; inset: 0;
       background:
-        radial-gradient(ellipse 70% 60% at 20% 40%, rgba(124,58,237,.25) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 50% at 80% 60%, rgba(79,70,229,.2) 0%, transparent 60%);
+        radial-gradient(ellipse 55% 60% at 10% 50%, rgba(124,58,237,.18) 0%, transparent 60%),
+        radial-gradient(ellipse 45% 50% at 90% 30%, rgba(79,70,229,.12) 0%, transparent 60%);
       pointer-events: none;
     }
     .hero-grid {
       position: absolute; inset: 0;
       background-image:
-        linear-gradient(rgba(124,58,237,.07) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(124,58,237,.07) 1px, transparent 1px);
+        linear-gradient(rgba(124,58,237,.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(124,58,237,.05) 1px, transparent 1px);
       background-size: 60px 60px;
     }
-    .hero-content { position: relative; max-width: 780px; }
-    .hero-badge {
-      display: inline-block;
-      background: rgba(124,58,237,.2);
-      border: 1px solid rgba(168,85,247,.4);
-      color: var(--purple-lt);
-      padding: .35rem 1rem;
-      border-radius: 999px;
-      font-size: .8rem;
-      font-weight: 600;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      margin-bottom: 1.5rem;
+    .hero-inner { position: relative; max-width: 860px; }
+    .hero-label {
+      font-size: .75rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--purple-lt); margin-bottom: 1rem;
     }
     .hero h1 {
-      font-size: clamp(2.4rem, 6vw, 4rem);
-      font-weight: 800;
-      line-height: 1.15;
-      margin-bottom: 1.25rem;
-      background: linear-gradient(135deg, #fff 30%, var(--purple-lt) 65%, var(--blue-lt) 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; line-height: 1.2;
+      margin-bottom: 1rem; color: var(--text);
     }
-    .hero p {
-      font-size: 1.15rem;
-      color: var(--muted);
-      max-width: 560px;
-      margin: 0 auto 2.5rem;
-    }
-    .hero-cta { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-    .btn {
-      display: inline-flex; align-items: center; gap: .5rem;
-      padding: .75rem 1.75rem;
-      border-radius: var(--radius);
-      font-weight: 600; font-size: .95rem;
-      text-decoration: none;
-      transition: transform .2s, box-shadow .2s;
-      cursor: pointer; border: none;
-    }
-    .btn:hover { transform: translateY(-2px); }
-    .btn-primary {
-      background: linear-gradient(135deg, var(--purple), var(--blue));
-      color: #fff;
-      box-shadow: 0 4px 24px rgba(124,58,237,.4);
-    }
-    .btn-primary:hover { box-shadow: 0 8px 32px rgba(124,58,237,.6); }
-    .btn-secondary {
-      background: transparent;
-      color: var(--text);
-      border: 1px solid var(--border);
-    }
-    .btn-secondary:hover { border-color: var(--purple-lt); color: var(--purple-lt); }
-
-    .hero-stats {
-      display: flex; justify-content: center; gap: 3rem;
-      margin-top: 4rem; flex-wrap: wrap;
-    }
-    .stat { text-align: center; }
-    .stat-num {
-      font-size: 2rem; font-weight: 800;
-      background: linear-gradient(135deg, var(--purple-lt), var(--blue-lt));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    }
-    .stat-label { font-size: .8rem; color: var(--muted); margin-top: .2rem; }
+    .hero h1 em { font-style: normal; color: var(--purple-lt); }
+    .hero-desc { font-size: 1.05rem; color: var(--muted); max-width: 600px; margin-bottom: 2.5rem; }
+    .hero-stats { display: flex; gap: 2.5rem; flex-wrap: wrap; }
+    .stat { display: flex; flex-direction: column; }
+    .stat-num { font-size: 1.75rem; font-weight: 800; color: var(--purple-lt); line-height: 1; }
+    .stat-label { font-size: .78rem; color: var(--muted); margin-top: .25rem; }
 
     /* ── SECTIONS ── */
-    section { padding: 5rem 1.5rem; }
+    section { padding: 4.5rem 2rem; }
     .container { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: .72rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: .6rem;
+    }
+    .section-title { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 800; margin-bottom: .75rem; }
+    .section-desc { color: var(--muted); font-size: .95rem; max-width: 580px; }
 
-    .section-tag {
-      font-size: .75rem; font-weight: 700; letter-spacing: .12em;
-      text-transform: uppercase; color: var(--purple-lt);
-      margin-bottom: .75rem;
+    /* ── DISCIPLINAS ── */
+    #disciplinas { background: var(--surface); border-bottom: 1px solid var(--border); }
+    .disc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
+    .disc-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.75rem;
+      border-left: 3px solid transparent; transition: border-color .2s;
     }
-    .section-title {
-      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
-      font-weight: 800; margin-bottom: 1rem;
-    }
-    .section-sub { color: var(--muted); font-size: 1.05rem; max-width: 540px; }
-
-    /* ── FEATURES ── */
-    #features { background: var(--surface); }
-    .features-header { text-align: center; margin-bottom: 3.5rem; }
-    .features-header .section-sub { margin: 0 auto; }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-    }
-    .feature-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 2rem;
-      position: relative;
-      overflow: hidden;
-      transition: transform .25s, border-color .25s;
-    }
-    .feature-card::before {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0; height: 3px;
-      background: linear-gradient(90deg, var(--purple), var(--blue));
-      opacity: 0; transition: opacity .25s;
-    }
-    .feature-card:hover { transform: translateY(-4px); border-color: rgba(168,85,247,.4); }
-    .feature-card:hover::before { opacity: 1; }
-
-    .feature-icon {
-      width: 52px; height: 52px;
-      border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.5rem;
-      margin-bottom: 1.25rem;
-    }
-    .icon-purple { background: rgba(124,58,237,.2); }
-    .icon-blue   { background: rgba(79,70,229,.2); }
-    .icon-teal   { background: rgba(20,184,166,.2); }
-
-    .feature-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: .6rem; }
-    .feature-card p  { color: var(--muted); font-size: .95rem; }
-
-    .feature-list {
-      list-style: none; margin-top: 1.25rem; display: flex; flex-direction: column; gap: .5rem;
-    }
-    .feature-list li {
-      display: flex; align-items: flex-start; gap: .6rem;
-      color: var(--muted); font-size: .875rem;
-    }
-    .feature-list li::before {
-      content: '✦';
-      color: var(--purple-lt); font-size: .6rem; margin-top: .3rem; flex-shrink: 0;
+    .disc-card:nth-child(1) { border-left-color: var(--purple-lt); }
+    .disc-card:nth-child(2) { border-left-color: var(--teal-lt); }
+    .disc-card:nth-child(3) { border-left-color: var(--blue-lt); }
+    .disc-code { font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: .5rem; }
+    .disc-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: .6rem; }
+    .disc-card p { font-size: .875rem; color: var(--muted); line-height: 1.7; margin-bottom: 1rem; }
+    .disc-meta { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .disc-tag {
+      font-size: .72rem; padding: .2rem .6rem; border-radius: 6px;
+      background: rgba(124,58,237,.12); border: 1px solid rgba(168,85,247,.2); color: var(--muted);
     }
 
-    /* ── DISCIPLINAS / CTA ── */
-    #turmas { background: var(--bg); }
-    .turmas-header { text-align: center; margin-bottom: 3.5rem; }
-    .turmas-header .section-sub { margin: 0 auto; }
+    /* ── TURMAS ── */
+    #turmas { background: var(--bg); border-bottom: 1px solid var(--border); }
+    .turmas-table-wrap { overflow-x: auto; border-radius: var(--radius); border: 1px solid var(--border); margin-top: 2rem; }
+    table { width: 100%; border-collapse: collapse; font-size: .875rem; }
+    thead tr { background: rgba(124,58,237,.1); }
+    thead th { padding: .75rem 1.25rem; text-align: left; font-weight: 700; color: var(--purple-lt); font-size: .75rem; text-transform: uppercase; letter-spacing: .07em; border-bottom: 1px solid var(--border); }
+    tbody tr { border-bottom: 1px solid rgba(42,42,74,.5); transition: background .15s; }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: rgba(124,58,237,.04); }
+    tbody td { padding: .8rem 1.25rem; vertical-align: middle; }
+    td.td-turma { font-weight: 700; white-space: nowrap; }
+    td.td-code { color: var(--muted); font-size: .8rem; white-space: nowrap; }
+    td.td-link a {
+      color: var(--blue-lt); text-decoration: none; font-size: .85rem; font-weight: 600;
+      display: inline-flex; align-items: center; gap: .35rem;
+      transition: color .2s;
+    }
+    td.td-link a:hover { color: var(--purple-lt); }
+    .badge-t {
+      display: inline-block; padding: .15rem .6rem; border-radius: 6px;
+      font-size: .7rem; font-weight: 700; letter-spacing: .05em; white-space: nowrap;
+    }
+    .bt-1 { background: rgba(124,58,237,.15); color: var(--purple-lt); border: 1px solid rgba(168,85,247,.25); }
+    .bt-2 { background: rgba(79,70,229,.15);  color: var(--blue-lt);   border: 1px solid rgba(129,140,248,.25); }
+    .bt-3 { background: rgba(20,184,166,.12); color: var(--teal-lt);   border: 1px solid rgba(45,212,191,.25); }
 
-    .turmas-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.5rem;
-      margin-bottom: 3rem;
-    }
-    .turma-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 2rem;
-      display: flex; flex-direction: column;
-      transition: transform .25s, border-color .25s;
-    }
-    .turma-card:hover { transform: translateY(-4px); border-color: rgba(96,165,250,.35); }
-    .turma-badge {
-      display: inline-block;
-      padding: .25rem .75rem;
-      border-radius: 999px;
-      font-size: .72rem; font-weight: 700; letter-spacing: .08em;
-      text-transform: uppercase;
-      margin-bottom: 1rem; width: fit-content;
-    }
-    .badge-purple { background: rgba(124,58,237,.2); color: var(--purple-lt); border: 1px solid rgba(168,85,247,.3); }
-    .badge-blue   { background: rgba(79,70,229,.2);  color: var(--blue-lt);   border: 1px solid rgba(129,140,248,.3); }
-    .badge-teal   { background: rgba(20,184,166,.15); color: #2dd4bf;          border: 1px solid rgba(45,212,191,.3); }
+    /* ── ROTEIROS ── */
+    #roteiros { background: var(--surface); border-bottom: 1px solid var(--border); }
+    .roteiros-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
 
-    .turma-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: .4rem; }
-    .turma-card .codigo { font-size: .8rem; color: var(--muted); margin-bottom: .75rem; }
-    .turma-card p { color: var(--muted); font-size: .9rem; flex: 1; }
+    .turma-panel {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); overflow: hidden;
+    }
+    .turma-panel-header {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .turma-panel-header h3 { font-size: .95rem; font-weight: 700; }
+    .turma-panel-header .tp-meta { font-size: .75rem; color: var(--muted); }
+    .tp-1 .turma-panel-header { background: rgba(124,58,237,.08); border-left: 3px solid var(--purple-lt); }
+    .tp-2 .turma-panel-header { background: rgba(79,70,229,.08);  border-left: 3px solid var(--blue-lt); }
+    .tp-3 .turma-panel-header { background: rgba(20,184,166,.07); border-left: 3px solid var(--teal-lt); }
+    .tp-1 .turma-panel-header h3 { color: var(--purple-lt); }
+    .tp-2 .turma-panel-header h3 { color: var(--blue-lt); }
+    .tp-3 .turma-panel-header h3 { color: var(--teal-lt); }
 
-    .turma-meta {
-      display: flex; gap: 1rem; flex-wrap: wrap;
-      margin: 1.25rem 0;
-    }
-    .meta-item {
-      display: flex; align-items: center; gap: .4rem;
-      font-size: .8rem; color: var(--muted);
-    }
-    .meta-icon { font-size: .9rem; }
+    .bloco-details { border-bottom: 1px solid rgba(42,42,74,.5); }
+    .bloco-details:last-child { border-bottom: none; }
 
-    .turma-card .btn { margin-top: 1.25rem; width: 100%; justify-content: center; }
+    .bloco-summary {
+      list-style: none; padding: .7rem 1.25rem;
+      display: flex; align-items: center; justify-content: space-between;
+      cursor: pointer; user-select: none;
+      font-size: .8rem; font-weight: 600; color: var(--muted);
+      transition: background .15s, color .15s;
+    }
+    .bloco-summary:hover { background: rgba(124,58,237,.05); color: var(--text); }
+    .bloco-details[open] > .bloco-summary { color: var(--text); background: rgba(124,58,237,.05); }
+    .bloco-summary::-webkit-details-marker { display: none; }
+    .bloco-name { display: flex; align-items: center; gap: .5rem; }
+    .bloco-roman {
+      font-size: .65rem; font-weight: 800; letter-spacing: .06em;
+      background: rgba(124,58,237,.2); color: var(--purple-lt);
+      padding: .1rem .4rem; border-radius: 4px;
+    }
+    .tp-2 .bloco-roman { background: rgba(79,70,229,.2); color: var(--blue-lt); }
+    .tp-3 .bloco-roman { background: rgba(20,184,166,.15); color: var(--teal-lt); }
+    .bloco-chevron { font-size: .65rem; color: var(--muted); transition: transform .2s; }
+    .bloco-details[open] .bloco-chevron { transform: rotate(90deg); }
+    .bloco-enc-count { font-size: .7rem; color: var(--muted); }
 
-    /* ── DEPOIMENTOS ── */
-    #depoimentos { background: var(--surface); }
-    .dep-header { text-align: center; margin-bottom: 3.5rem; }
-    .dep-header .section-sub { margin: 0 auto; }
-
-    .dep-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
+    .aula-list { list-style: none; border-top: 1px solid rgba(42,42,74,.4); }
+    .aula-item a {
+      display: flex; align-items: baseline; gap: .75rem;
+      padding: .55rem 1.25rem .55rem 2.5rem;
+      text-decoration: none; color: var(--muted); font-size: .8rem;
+      transition: background .15s, color .15s;
+      border-bottom: 1px solid rgba(42,42,74,.3);
     }
-    .dep-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.75rem;
-      position: relative;
-      transition: transform .25s;
-    }
-    .dep-card:hover { transform: translateY(-3px); }
-    .dep-quote {
-      font-size: 3rem; line-height: 1;
-      background: linear-gradient(135deg, var(--purple-lt), var(--blue-lt));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      margin-bottom: .5rem;
-    }
-    .dep-text {
-      color: var(--muted); font-size: .925rem; font-style: italic;
-      margin-bottom: 1.25rem; line-height: 1.7;
-    }
-    .dep-author { display: flex; align-items: center; gap: .75rem; }
-    .dep-avatar {
-      width: 40px; height: 40px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 700; font-size: .9rem; color: #fff; flex-shrink: 0;
-    }
-    .av-1 { background: linear-gradient(135deg, #7c3aed, #4f46e5); }
-    .av-2 { background: linear-gradient(135deg, #818cf8, #6366f1); }
-    .av-3 { background: linear-gradient(135deg, #8b5cf6, #14b8a6); }
-    .av-4 { background: linear-gradient(135deg, #f59e0b, #ef4444); }
-    .av-5 { background: linear-gradient(135deg, #10b981, #818cf8); }
-
-    .dep-name { font-weight: 700; font-size: .9rem; }
-    .dep-role { font-size: .78rem; color: var(--muted); }
-    .dep-stars { color: #fbbf24; font-size: .85rem; margin-left: auto; }
-
-    /* ── CTA FINAL ── */
-    #cta {
-      background: var(--bg);
-      text-align: center;
-      padding: 6rem 1.5rem;
-    }
-    .cta-box {
-      max-width: 680px; margin: 0 auto;
-      background: linear-gradient(135deg, rgba(124,58,237,.12), rgba(79,70,229,.12));
-      border: 1px solid rgba(168,85,247,.25);
-      border-radius: 20px;
-      padding: 3.5rem 2rem;
-      position: relative; overflow: hidden;
-    }
-    .cta-box::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(124,58,237,.15), transparent 70%);
-    }
-    .cta-box > * { position: relative; }
-    .cta-box h2 {
-      font-size: clamp(1.5rem, 3vw, 2.2rem);
-      font-weight: 800; margin-bottom: .75rem;
-    }
-    .cta-box p { color: var(--muted); margin-bottom: 2rem; }
-    .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .aula-item:last-child a { border-bottom: none; }
+    .aula-item a:hover { background: rgba(124,58,237,.05); color: var(--text); }
+    .aula-num { font-weight: 700; font-size: .7rem; color: var(--purple-lt); flex-shrink: 0; min-width: 1.6rem; }
+    .tp-2 .aula-num { color: var(--blue-lt); }
+    .tp-3 .aula-num { color: var(--teal-lt); }
+    .aula-date { font-size: .7rem; color: var(--muted); flex-shrink: 0; min-width: 5.5rem; font-variant-numeric: tabular-nums; }
+    .aula-topic { flex: 1; line-height: 1.4; }
+    .aula-special { color: var(--amber-lt) !important; }
 
     /* ── FOOTER ── */
     footer {
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-      padding: 2rem 1.5rem;
-      text-align: center;
-      color: var(--muted);
-      font-size: .85rem;
+      background: var(--card); border-top: 1px solid var(--border);
+      padding: 1.75rem 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+      font-size: .8rem; color: var(--muted);
     }
-    footer span {
-      background: linear-gradient(135deg, var(--purple-lt), var(--blue-lt));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      font-weight: 700;
-    }
+    .footer-left { display: flex; flex-direction: column; gap: .2rem; }
+    .footer-left strong { color: var(--text); font-size: .875rem; }
+    .footer-right { display: flex; gap: 1.5rem; }
+    .footer-right a { color: var(--muted); text-decoration: none; transition: color .2s; }
+    .footer-right a:hover { color: var(--text); }
 
-    /* ── RESPONSIVE ── */
     @media (max-width: 640px) {
       nav { padding: .75rem 1rem; }
       .nav-links { display: none; }
+      section { padding: 3rem 1rem; }
+      .hero { padding: 6rem 1rem 3rem; }
       .hero-stats { gap: 1.5rem; }
-      section { padding: 3.5rem 1rem; }
+      footer { flex-direction: column; }
     }
   </style>
 </head>
@@ -357,248 +225,419 @@
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">Sociologia 2026.1</div>
+  <div class="nav-logo">Sociologia <span>2026.1</span></div>
   <ul class="nav-links">
-    <li><a href="#features">Recursos</a></li>
+    <li><a href="#disciplinas">Disciplinas</a></li>
     <li><a href="#turmas">Turmas</a></li>
-    <li><a href="#depoimentos">Depoimentos</a></li>
-    <li><a href="#cta">Acesso</a></li>
+    <li><a href="#roteiros">Roteiros de Aula</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-grid"></div>
-  <div class="hero-content">
-    <div class="hero-badge">Semestre 2026.1 · Abril — Agosto</div>
-    <h1>Sociologia para entender o mundo que você vive</h1>
-    <p>Disciplinas de graduação com planos de aula estruturados, seminários em grupo e materiais de apoio para uma formação sociológica sólida e crítica.</p>
-    <div class="hero-cta">
-      <a href="#turmas" class="btn btn-primary">Ver turmas disponíveis</a>
-      <a href="#features" class="btn btn-secondary">Conhecer o programa</a>
-    </div>
+  <div class="hero-inner">
+    <div class="hero-label">Repositório acadêmico · Semestre 2026.1</div>
+    <h1>Disciplinas de <em>Sociologia</em><br>— Semestre 2026.1</h1>
+    <p class="hero-desc">Material de referência para as disciplinas Introdução à Sociologia e Fundamentos do Pensamento Sociológico. Planos de aula, cronogramas, critérios de avaliação e roteiros por encontro.</p>
     <div class="hero-stats">
       <div class="stat">
-        <div class="stat-num">3</div>
-        <div class="stat-label">Turmas ativas</div>
+        <span class="stat-num">2</span>
+        <span class="stat-label">Disciplinas</span>
       </div>
       <div class="stat">
-        <div class="stat-num">60h</div>
-        <div class="stat-label">Carga horária</div>
+        <span class="stat-num">3</span>
+        <span class="stat-label">Turmas</span>
       </div>
       <div class="stat">
-        <div class="stat-num">2</div>
-        <div class="stat-label">Disciplinas</div>
+        <span class="stat-num">60h</span>
+        <span class="stat-label">Carga horária</span>
       </div>
       <div class="stat">
-        <div class="stat-num">100%</div>
-        <div class="stat-label">Avaliação por seminário</div>
+        <span class="stat-num">66</span>
+        <span class="stat-label">Encontros no semestre</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FEATURES -->
-<section id="features">
+<!-- DISCIPLINAS -->
+<section id="disciplinas">
   <div class="container">
-    <div class="features-header">
-      <div class="section-tag">Recursos do curso</div>
-      <h2 class="section-title">Tudo que você precisa em um só lugar</h2>
-      <p class="section-sub">Materiais organizados, cronograma claro e metodologia ativa para uma experiência de aprendizagem significativa.</p>
-    </div>
-    <div class="features-grid">
+    <div class="section-label">Disciplinas</div>
+    <h2 class="section-title">Estrutura curricular</h2>
+    <p class="section-desc">Duas disciplinas com abordagens complementares: uma introdução ampla à Sociologia como ciência e um aprofundamento nos fundamentos do pensamento sociológico.</p>
+    <div class="disc-grid">
 
-      <div class="feature-card">
-        <div class="feature-icon icon-purple">📅</div>
-        <h3>Plano de Aulas</h3>
-        <p>Cronograma detalhado com datas, conteúdos e feriados já mapeados para todo o semestre.</p>
-        <ul class="feature-list">
-          <li>Blocos temáticos organizados por progressão</li>
-          <li>Datas de entrega claramente definidas</li>
-          <li>Feriados e dias de reposição sinalizados</li>
-          <li>Distribuição de horas por bloco</li>
-        </ul>
+      <div class="disc-card">
+        <div class="disc-code">Cód. 2101107 / 2101000</div>
+        <h3>Introdução à Sociologia</h3>
+        <p>Apresentação dos conceitos fundamentais da Sociologia como ciência, seus métodos de investigação e a relação entre indivíduo e sociedade. Aborda cultura, socialização, instituições, estratificação e mudança social.</p>
+        <div class="disc-meta">
+          <span class="disc-tag">Cultura</span>
+          <span class="disc-tag">Socialização</span>
+          <span class="disc-tag">Estratificação</span>
+          <span class="disc-tag">Durkheim · Marx · Weber</span>
+        </div>
       </div>
 
-      <div class="feature-card">
-        <div class="feature-icon icon-blue">🎓</div>
-        <h3>Atividades e Seminários</h3>
-        <p>Metodologia 100% baseada em seminário em grupo, com quatro entregas avaliadas de forma independente.</p>
-        <ul class="feature-list">
-          <li>Grupos de até 5 alunos</li>
-          <li>Pesquisa bibliográfica (25%)</li>
-          <li>Apresentação oral (25%)</li>
-          <li>Relatório escrito até 7 laudas (25%) e vídeo 5–10 min (25%)</li>
-        </ul>
+      <div class="disc-card">
+        <div class="disc-code">Cód. 2101106</div>
+        <h3>Fundamentos do Pensamento Sociológico</h3>
+        <p>Estudo das origens e do desenvolvimento do pensamento sociológico, dos pré-clássicos aos contemporâneos. Examina as contribuições de Durkheim, Marx e Weber e as correntes do século XX.</p>
+        <div class="disc-meta">
+          <span class="disc-tag">Epistemologia</span>
+          <span class="disc-tag">Clássicos</span>
+          <span class="disc-tag">Teoria Crítica</span>
+          <span class="disc-tag">Bourdieu · Giddens</span>
+        </div>
       </div>
 
-      <div class="feature-card">
-        <div class="feature-icon icon-teal">📚</div>
-        <h3>Materiais de Apoio</h3>
-        <p>Bibliografia básica e complementar selecionada para cada disciplina, com os principais clássicos da Sociologia.</p>
-        <ul class="feature-list">
-          <li>Durkheim, Marx e Weber — textos originais</li>
-          <li>Autores contemporâneos: Bourdieu, Giddens</li>
-          <li>Leituras introdutórias acessíveis</li>
-          <li>Teoria crítica e perspectivas decoloniais</li>
-        </ul>
+      <div class="disc-card">
+        <div class="disc-code">Avaliação — todas as turmas</div>
+        <h3>Seminário em Grupo</h3>
+        <p>Metodologia avaliativa única para todas as turmas. Grupos de até 5 alunos com quatro entregas independentes ao longo do semestre, cada uma com peso de 25%.</p>
+        <div class="disc-meta">
+          <span class="disc-tag">Pesquisa bibliográfica</span>
+          <span class="disc-tag">Apresentação oral</span>
+          <span class="disc-tag">Relatório escrito</span>
+          <span class="disc-tag">Vídeo 5–10 min</span>
+        </div>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- TURMAS / CTA LINKS -->
+<!-- TURMAS -->
 <section id="turmas">
   <div class="container">
-    <div class="turmas-header">
-      <div class="section-tag">Turmas 2026.1</div>
-      <h2 class="section-title">Encontre sua turma</h2>
-      <p class="section-sub">Três turmas com horários distintos, adaptadas à sua rotina — noite, manhã ou tarde.</p>
-    </div>
-    <div class="turmas-grid">
-
-      <div class="turma-card">
-        <div class="turma-badge badge-purple">Turma 1</div>
-        <h3>Introdução à Sociologia</h3>
-        <p class="codigo">Cód. 2101107</p>
-        <p>Turma de terças e quartas-feiras com aulas de 2h cada, cobrindo os fundamentos da Sociologia desde a origem histórica até movimentos sociais contemporâneos.</p>
-        <div class="turma-meta">
-          <div class="meta-item"><span class="meta-icon">📅</span> Ter/Qua — 2h cada</div>
-          <div class="meta-item"><span class="meta-icon">🕐</span> 14/04 a 29/07</div>
-          <div class="meta-item"><span class="meta-icon">⏱</span> 60h · 30 encontros</div>
-        </div>
-        <a href="introducao-sociologia/turma1/plano_aulas.md" class="btn btn-primary">Ver plano de aulas</a>
-      </div>
-
-      <div class="turma-card">
-        <div class="turma-badge badge-blue">Turma 2</div>
-        <h3>Introdução à Sociologia</h3>
-        <p class="codigo">Cód. 2101000 · Noite</p>
-        <p>Turma noturna de segunda-feira com encontros longos de 3h20, permitindo imersão mais profunda nos conteúdos a cada semana.</p>
-        <div class="turma-meta">
-          <div class="meta-item"><span class="meta-icon">📅</span> Segunda — 3h20</div>
-          <div class="meta-item"><span class="meta-icon">🕐</span> 13/04 a 10/08</div>
-          <div class="meta-item"><span class="meta-icon">⏱</span> 60h · 18 encontros</div>
-        </div>
-        <a href="introducao-sociologia/turma2/plano_aulas.md" class="btn btn-primary">Ver plano de aulas</a>
-      </div>
-
-      <div class="turma-card">
-        <div class="turma-badge badge-teal">Turma 3</div>
-        <h3>Fundamentos do Pensamento Sociológico</h3>
-        <p class="codigo">Cód. 2101106 · Manhã</p>
-        <p>Disciplina avançada com foco na história do pensamento sociológico — de Comte a Bourdieu — para uma compreensão profunda da teoria social.</p>
-        <div class="turma-meta">
-          <div class="meta-item"><span class="meta-icon">📅</span> Segunda — 3h20</div>
-          <div class="meta-item"><span class="meta-icon">🕐</span> 13/04 a 10/08</div>
-          <div class="meta-item"><span class="meta-icon">⏱</span> 60h · 18 encontros</div>
-        </div>
-        <a href="fundamentos-pensamento-sociologico/turma3/plano_aulas.md" class="btn btn-primary">Ver plano de aulas</a>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- DEPOIMENTOS -->
-<section id="depoimentos">
-  <div class="container">
-    <div class="dep-header">
-      <div class="section-tag">Depoimentos</div>
-      <h2 class="section-title">O que dizem nossos alunos</h2>
-      <p class="section-sub">Experiências de quem já passou pela disciplina e encontrou na Sociologia uma nova forma de ver o mundo.</p>
-    </div>
-    <div class="dep-grid">
-
-      <div class="dep-card">
-        <div class="dep-quote">"</div>
-        <p class="dep-text">Na Geografia a gente estuda o espaço, mas faltava entender as relações sociais que o produzem. Durkheim me ajudou a perceber que a segregação urbana não é acidente — é fato social. Conexão imediata com o que estudo.</p>
-        <div class="dep-author">
-          <div class="dep-avatar av-1">LB</div>
-          <div>
-            <div class="dep-name">Larissa Borges</div>
-            <div class="dep-role">Geografia · 3º período</div>
-          </div>
-          <div class="dep-stars">★★★★★</div>
-        </div>
-      </div>
-
-      <div class="dep-card">
-        <div class="dep-quote">"</div>
-        <p class="dep-text">Estudar Marx em Introdução à Sociologia foi como ganhar uma lente nova para ler os documentos históricos. De repente, as fontes primárias que eu analisava ganharam camadas que eu simplesmente não enxergava antes.</p>
-        <div class="dep-author">
-          <div class="dep-avatar av-2">RS</div>
-          <div>
-            <div class="dep-name">Rafael Souza</div>
-            <div class="dep-role">História · 2º período</div>
-          </div>
-          <div class="dep-stars">★★★★★</div>
-        </div>
-      </div>
-
-      <div class="dep-card">
-        <div class="dep-quote">"</div>
-        <p class="dep-text">Em Letras a gente debate representação e discurso, mas foi na Sociologia que entendi como a linguagem também é uma instituição social. O seminário sobre cultura e identidade foi direto ao coração do que pesquiso.</p>
-        <div class="dep-author">
-          <div class="dep-avatar av-3">CM</div>
-          <div>
-            <div class="dep-name">Camila Moura</div>
-            <div class="dep-role">Letras · 4º período</div>
-          </div>
-          <div class="dep-stars">★★★★★</div>
-        </div>
-      </div>
-
-      <div class="dep-card">
-        <div class="dep-quote">"</div>
-        <p class="dep-text">Pedagogia sem Sociologia é incompleta. Entender a escola como instituição social, o papel da socialização e as desigualdades que chegam com os alunos na sala faz toda diferença na minha formação como futura professora.</p>
-        <div class="dep-author">
-          <div class="dep-avatar av-4">JP</div>
-          <div>
-            <div class="dep-name">Juliana Pacheco</div>
-            <div class="dep-role">Pedagogia · 3º período</div>
-          </div>
-          <div class="dep-stars">★★★★★</div>
-        </div>
-      </div>
-
-      <div class="dep-card">
-        <div class="dep-quote">"</div>
-        <p class="dep-text">Achei que Sociologia não teria nada a ver com Biologia. Errei feio. Weber e o conceito de racionalização me fizeram refletir sobre como a ciência é também uma prática social — cheio de hierarquias, poder e escolhas políticas.</p>
-        <div class="dep-author">
-          <div class="dep-avatar av-5">TO</div>
-          <div>
-            <div class="dep-name">Tiago Oliveira</div>
-            <div class="dep-role">Biologia · 2º período</div>
-          </div>
-          <div class="dep-stars">★★★★★</div>
-        </div>
-      </div>
-
+    <div class="section-label">Turmas 2026.1</div>
+    <h2 class="section-title">Horários e planos de aula</h2>
+    <p class="section-desc">Três turmas com formatos distintos. Acesse o plano completo de cada turma pelo link abaixo.</p>
+    <div class="turmas-table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Turma</th>
+            <th>Disciplina</th>
+            <th>Código</th>
+            <th>Horário</th>
+            <th>Período</th>
+            <th>Encontros</th>
+            <th>Plano</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="td-turma"><span class="badge-t bt-1">Turma 1</span></td>
+            <td>Introdução à Sociologia</td>
+            <td class="td-code">2101107</td>
+            <td>Ter/Qua · 2h cada</td>
+            <td>14/04 — 29/07</td>
+            <td>30 · 60h</td>
+            <td class="td-link"><a href="introducao-sociologia/turma1/index.html">Abrir plano →</a></td>
+          </tr>
+          <tr>
+            <td class="td-turma"><span class="badge-t bt-2">Turma 2</span></td>
+            <td>Introdução à Sociologia</td>
+            <td class="td-code">2101000</td>
+            <td>Segunda · 3h20 · Noite</td>
+            <td>13/04 — 10/08</td>
+            <td>18 · 60h</td>
+            <td class="td-link"><a href="introducao-sociologia/turma2/index.html">Abrir plano →</a></td>
+          </tr>
+          <tr>
+            <td class="td-turma"><span class="badge-t bt-3">Turma 3</span></td>
+            <td>Fundamentos do Pensamento Sociológico</td>
+            <td class="td-code">2101106</td>
+            <td>Segunda · 3h20 · Manhã</td>
+            <td>13/04 — 10/08</td>
+            <td>18 · 60h</td>
+            <td class="td-link"><a href="fundamentos-pensamento-sociologico/turma3/index.html">Abrir plano →</a></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>
 
-<!-- CTA FINAL -->
-<section id="cta">
+<!-- ROTEIROS DE AULA -->
+<section id="roteiros">
   <div class="container">
-    <div class="cta-box">
-      <div class="section-tag" style="text-align:center">Comece agora</div>
-      <h2>Pronto para o semestre 2026.1?</h2>
-      <p>Acesse o plano de aulas da sua turma e organize sua jornada acadêmica desde o primeiro encontro.</p>
-      <div class="cta-buttons">
-        <a href="introducao-sociologia/turma1/plano_aulas.md" class="btn btn-primary">Turma 1 — Introdução</a>
-        <a href="introducao-sociologia/turma2/plano_aulas.md" class="btn btn-secondary">Turma 2 — Noite</a>
-        <a href="fundamentos-pensamento-sociologico/turma3/plano_aulas.md" class="btn btn-secondary">Turma 3 — Fundamentos</a>
+    <div class="section-label">Roteiros de Aula</div>
+    <h2 class="section-title">Encontros por turma e bloco</h2>
+    <p class="section-desc">Todos os encontros do semestre organizados por turma e bloco temático. Clique em um bloco para expandir os encontros.</p>
+
+    <div class="roteiros-grid">
+
+      <!-- ── TURMA 1 ── -->
+      <div class="turma-panel tp-1">
+        <div class="turma-panel-header">
+          <h3>Turma 1 — Introdução à Sociologia</h3>
+          <span class="tp-meta">30 encontros · Ter/Qua</span>
+        </div>
+
+        <details class="bloco-details">
+          <summary class="bloco-summary">
+            <span class="bloco-name"><span class="bloco-roman">I</span> Origem e Identidade Científica</span>
+            <span class="bloco-enc-count">Enc. 1–5 <span class="bloco-chevron">›</span></span>
+          </summary>
+          <ul class="aula-list">
+            <li class="aula-item"><a href="introducao-sociologia/turma1/index.html"><span class="aula-num">01</span><span class="aula-date">14/04 Ter</span><span class="aula-topic">Apresentação da disciplina. O que é Sociologia? Ciência e senso comum.</span></a></li>
+            <li class="aula-item"><a href="introducao-sociologia/turma1/index.html"><span class="aula-num">02</span><span class="aula-date">15/04 Qua</span><span class="aula-topic">Contexto histórico: Revolução Francesa e Revolução Industrial.</span></a></li>
+            <li class="aula-item"><a href="introducao-sociologia/turma1/index.html"><span class="aula-num">03</span><span class="aula-date">22/04 Qua</span><span class="aula-topic">Iluminismo, modernidade e crise social. <em>(21/04 — Tiradentes)</em></span></a></li>
+            <li class="aula-item"><a href="introducao-sociologia/turma1/index.html"><span class="aula-num">04</span><span class="aula-date">28/04 Ter</span><span class="aula-topic">Auguste Comte: positivismo. Herbert Spencer e o evolucionismo social.</span></a></li>
+            <li class="aula-item"><a href="introducao-sociologia/turma1/index.html"><span class="aula-num">05</span><span class="aula-date">29/04 Qua</span><span class="aula-topic">A Sociologia como disciplina acadêmica: objeto, método e especificidade.</span></a></li>
+          </ul>
+        </details>
+
+        <details class="bloco-details">
+          <summary class="bloco-summary">
+            <span class="bloco-name"><span class="bloco-roman">II</span> Pensamento Clássico</span>
+            <span class="bloco-enc-count">Enc. 6–13 <span class="bloco-chevron">›</span></span>
+          </summary>
+          <ul class="aula-list">
+            <li class="aula-item"><a href="introducao-sociologia/turma1/index.html"><span class="aula-num">06</span><span class="aula-date">05/05 Ter</span><span class="aula-topic">Durkheim: fato social e consciência coletiva.</span></a></li>
+            <li class="aula-item"><a href="introducao-sociologia/turma1/index.html"><span class="aula-num">07</span><span class="aula-date">06/05 Qua</span><span class="aula-topic">Durkheim: solidariedade mecânica e orgânica. Divisão do trabalho.</span></a></li>
+            <li class="aula-item"><a href="introducao-sociologia/turma1/index.html"><span class="aula-num">08</span><span class="aula-date">12/05 Ter</span><span class="aula-topic">Durkheim: anomia e método sociológico. O suicídio.</span></a></li>
+            <li class="aula-item"><a href="introducao-sociologia/turma1/index.html"><span class="aula-num">09</span><span class="aula-date">13/05 Qua</span><span class="aula-topic">Marx: materialismo histórico e dialético. Estrutura e superestrutura.</span></a></li>
+            <li class="aula-item"><a href="introducao-sociologia/turma1/index.html"><span class="aula-num">10</span><span class="aula-date">19/05 Ter</span><span class="aula-topic">Marx: modo de produção, classes sociais e alienação.</span></a></li>
+            <li class="aula-item"><a href="introducao-sociologia/turma1/index.html"><span class="aula-num">11</span><span class="aula-date">20/05 Qua</span><span class="aula-topic">Weber: ação social e tipos ideais.</span></a></li>
+            <li class="aula-item"><a href="introducao-sociologia/turma1/index.html"><span class="aula-num">12</span><span class="aula-date">26/05 Ter</span><span class="aula-topic">Weber: racionalização, burocracia e ética protestante.</span></a></li>
+            <li class="aula-item"><a href="introducao-sociologia/turma1/index.html"><span class="aula-num">13</span><span class="aula-date">27/05 Qua</span><span class="aula-topic">Comparação: Durkheim, Marx e Weber.</span></a></li>
+          </ul>
+        </details>
+
+        <details class="bloco-details">
+          <summary class="bloco-summary">
+            <span class="bloco-name"><span class="bloco-roman">III</span> Orientação do Seminário</span>
+            <span class="bloco-enc-count">Enc. 14 <span class="bloco-chevron">›</span></span>
+          </summary>
+          <ul class="aula-list">
+            <li class="aula-item"><a href="introducao-sociologia/turma1/index.html"><span class="aula-num">14</span><span class="aula-date">02/06 Ter</span><span class="aula-topic aula-special">Orientação para o Seminário. Entrega da Pesquisa Bibliográfica.</span></a></li>
+          </ul>
+        </details>
+
+        <details class="bloco-details">
+          <summary class="bloco-summary">
+            <span class="bloco-name"><span class="bloco-roman">IV</span> Sociedade, Cultura e Socialização</span>
+            <span class="bloco-enc-count">Enc. 15–20 <span class="bloco-chevron">›</span></span>
+          </summary>
+          <ul class="aula-list">
+            <li class="aula-item"><a href="introducao-sociologia/turma1/index.html"><span class="aula-num">15</span><span class="aula-date">03/06 Qua</span><span class="aula-topic">Conceito de cultura. Natureza, sociedade e cultura.</span></a></li>
+            <li class="aula-item"><a href="introducao-sociologia/turma1/index.html"><span class="aula-num">16</span><span class="aula-date">09/06 Ter</span><span class="aula-topic">Etnocentrismo, relativismo cultural e diversidade.</span></a></li>
+            <li class="aula-item"><a href="introducao-sociologia/turma1/index.html"><span class="aula-num">17</span><span class="aula-date">10/06 Qua</span><span class="aula-topic">Identidade cultural e cultura de massa.</span></a></li>
+            <li class="aula-item"><a href="introducao-sociologia/turma1/index.html"><span class="aula-num">18</span><span class="aula-date">16/06 Ter</span><span class="aula-topic">Socialização primária e secundária. Agentes socializadores.</span></a></li>
+            <li class="aula-item"><a href="introducao-sociologia/turma1/index.html"><span class="aula-num">19</span><span class="aula-date">17/06 Qua</span><span class="aula-topic">Grupos sociais: primários, secundários e de referência.</span></a></li>
+            <li class="aula-item"><a href="introducao-sociologia/turma1/index.html"><span class="aula-num">20</span><span class="aula-date">23/06 Ter</span><span class="aula-topic">Desvio social, controle social e normas. <em>(24/06 — São João)</em></span></a></li>
+          </ul>
+        </details>
+
+        <details class="bloco-details">
+          <summary class="bloco-summary">
+            <span class="bloco-name"><span class="bloco-roman">V</span> Instituições, Desigualdade e Diversidade</span>
+            <span class="bloco-enc-count">Enc. 21–26 <span class="bloco-chevron">›</span></span>
+          </summary>
+          <ul class="aula-list">
+            <li class="aula-item"><a href="introducao-sociologia/turma1/index.html"><span class="aula-num">21</span><span class="aula-date">30/06 Ter</span><span class="aula-topic">Instituições sociais: família — formas, funções e transformações.</span></a></li>
+            <li class="aula-item"><a href="introducao-sociologia/turma1/index.html"><span class="aula-num">22</span><span class="aula-date">01/07 Qua</span><span class="aula-topic">Instituições sociais: escola, religião e Estado.</span></a></li>
+            <li class="aula-item"><a href="introducao-sociologia/turma1/index.html"><span class="aula-num">23</span><span class="aula-date">07/07 Ter</span><span class="aula-topic">Estratificação social: castas, estamentos e classes.</span></a></li>
+            <li class="aula-item"><a href="introducao-sociologia/turma1/index.html"><span class="aula-num">24</span><span class="aula-date">08/07 Qua</span><span class="aula-topic">Desigualdade social no Brasil: renda, raça e território.</span></a></li>
+            <li class="aula-item"><a href="introducao-sociologia/turma1/index.html"><span class="aula-num">25</span><span class="aula-date">14/07 Ter</span><span class="aula-topic">Raça, etnia e racismo: conceitos e debate contemporâneo.</span></a></li>
+            <li class="aula-item"><a href="introducao-sociologia/turma1/index.html"><span class="aula-num">26</span><span class="aula-date">15/07 Qua</span><span class="aula-topic">Gênero, sexualidade e feminismo: perspectivas sociológicas.</span></a></li>
+          </ul>
+        </details>
+
+        <details class="bloco-details">
+          <summary class="bloco-summary">
+            <span class="bloco-name"><span class="bloco-roman">VI</span> Mudança Social e Seminários</span>
+            <span class="bloco-enc-count">Enc. 27–30 <span class="bloco-chevron">›</span></span>
+          </summary>
+          <ul class="aula-list">
+            <li class="aula-item"><a href="introducao-sociologia/turma1/index.html"><span class="aula-num">27</span><span class="aula-date">21/07 Ter</span><span class="aula-topic">Movimentos sociais: conceito, tipos e exemplos.</span></a></li>
+            <li class="aula-item"><a href="introducao-sociologia/turma1/index.html"><span class="aula-num">28</span><span class="aula-date">22/07 Qua</span><span class="aula-topic aula-special">Seminários — Apresentações orais (1ª metade).</span></a></li>
+            <li class="aula-item"><a href="introducao-sociologia/turma1/index.html"><span class="aula-num">29</span><span class="aula-date">28/07 Ter</span><span class="aula-topic aula-special">Seminários — Apresentações orais (2ª metade).</span></a></li>
+            <li class="aula-item"><a href="introducao-sociologia/turma1/index.html"><span class="aula-num">30</span><span class="aula-date">29/07 Qua</span><span class="aula-topic aula-special">Entrega do Relatório Escrito e do Vídeo. Encerramento.</span></a></li>
+          </ul>
+        </details>
       </div>
+
+      <!-- ── TURMA 2 ── -->
+      <div class="turma-panel tp-2">
+        <div class="turma-panel-header">
+          <h3>Turma 2 — Introdução à Sociologia</h3>
+          <span class="tp-meta">18 encontros · Segunda · Noite</span>
+        </div>
+
+        <details class="bloco-details">
+          <summary class="bloco-summary">
+            <span class="bloco-name"><span class="bloco-roman">I</span> Origem e Identidade Científica</span>
+            <span class="bloco-enc-count">Enc. 1–3 <span class="bloco-chevron">›</span></span>
+          </summary>
+          <ul class="aula-list">
+            <li class="aula-item"><a href="introducao-sociologia/turma2/index.html"><span class="aula-num">01</span><span class="aula-date">13/04 Seg</span><span class="aula-topic">Apresentação da disciplina. Ciência e senso comum. Contexto histórico.</span></a></li>
+            <li class="aula-item"><a href="introducao-sociologia/turma2/index.html"><span class="aula-num">02</span><span class="aula-date">20/04 Seg</span><span class="aula-topic">Iluminismo e crise da modernidade. Auguste Comte: positivismo.</span></a></li>
+            <li class="aula-item"><a href="introducao-sociologia/turma2/index.html"><span class="aula-num">03</span><span class="aula-date">27/04 Seg</span><span class="aula-topic">Herbert Spencer e o evolucionismo social. Objeto e método da Sociologia.</span></a></li>
+          </ul>
+        </details>
+
+        <details class="bloco-details">
+          <summary class="bloco-summary">
+            <span class="bloco-name"><span class="bloco-roman">II</span> Pensamento Clássico</span>
+            <span class="bloco-enc-count">Enc. 4–8 <span class="bloco-chevron">›</span></span>
+          </summary>
+          <ul class="aula-list">
+            <li class="aula-item"><a href="introducao-sociologia/turma2/index.html"><span class="aula-num">04</span><span class="aula-date">04/05 Seg</span><span class="aula-topic">Durkheim: fato social, consciência coletiva e solidariedade.</span></a></li>
+            <li class="aula-item"><a href="introducao-sociologia/turma2/index.html"><span class="aula-num">05</span><span class="aula-date">11/05 Seg</span><span class="aula-topic">Durkheim: divisão do trabalho, anomia e método. O suicídio.</span></a></li>
+            <li class="aula-item"><a href="introducao-sociologia/turma2/index.html"><span class="aula-num">06</span><span class="aula-date">18/05 Seg</span><span class="aula-topic">Marx: materialismo histórico e dialético. Estrutura, superestrutura e ideologia.</span></a></li>
+            <li class="aula-item"><a href="introducao-sociologia/turma2/index.html"><span class="aula-num">07</span><span class="aula-date">25/05 Seg</span><span class="aula-topic">Marx: modo de produção, classes sociais, luta de classes e alienação.</span></a></li>
+            <li class="aula-item"><a href="introducao-sociologia/turma2/index.html"><span class="aula-num">08</span><span class="aula-date">01/06 Seg</span><span class="aula-topic">Weber: ação social, tipos ideais, racionalização e ética protestante.</span></a></li>
+          </ul>
+        </details>
+
+        <details class="bloco-details">
+          <summary class="bloco-summary">
+            <span class="bloco-name"><span class="bloco-roman">III</span> Comparação Teórica e Orientação</span>
+            <span class="bloco-enc-count">Enc. 9 <span class="bloco-chevron">›</span></span>
+          </summary>
+          <ul class="aula-list">
+            <li class="aula-item"><a href="introducao-sociologia/turma2/index.html"><span class="aula-num">09</span><span class="aula-date">08/06 Seg</span><span class="aula-topic aula-special">Comparação Durkheim/Marx/Weber. Orientação do Seminário. Entrega da Pesquisa Bibliográfica.</span></a></li>
+          </ul>
+        </details>
+
+        <details class="bloco-details">
+          <summary class="bloco-summary">
+            <span class="bloco-name"><span class="bloco-roman">IV</span> Sociedade, Cultura e Socialização</span>
+            <span class="bloco-enc-count">Enc. 10–13 <span class="bloco-chevron">›</span></span>
+          </summary>
+          <ul class="aula-list">
+            <li class="aula-item"><a href="introducao-sociologia/turma2/index.html"><span class="aula-num">10</span><span class="aula-date">15/06 Seg</span><span class="aula-topic">Conceito de cultura. Etnocentrismo e relativismo cultural.</span></a></li>
+            <li class="aula-item"><a href="introducao-sociologia/turma2/index.html"><span class="aula-num">11</span><span class="aula-date">22/06 Seg</span><span class="aula-topic">Diversidade cultural. Identidade cultural e cultura de massa.</span></a></li>
+            <li class="aula-item"><a href="introducao-sociologia/turma2/index.html"><span class="aula-num">12</span><span class="aula-date">29/06 Seg</span><span class="aula-topic">Socialização e agentes socializadores. Grupos sociais.</span></a></li>
+            <li class="aula-item"><a href="introducao-sociologia/turma2/index.html"><span class="aula-num">13</span><span class="aula-date">06/07 Seg</span><span class="aula-topic">Desvio social, controle social e normas.</span></a></li>
+          </ul>
+        </details>
+
+        <details class="bloco-details">
+          <summary class="bloco-summary">
+            <span class="bloco-name"><span class="bloco-roman">V</span> Instituições, Desigualdade e Diversidade</span>
+            <span class="bloco-enc-count">Enc. 14–16 <span class="bloco-chevron">›</span></span>
+          </summary>
+          <ul class="aula-list">
+            <li class="aula-item"><a href="introducao-sociologia/turma2/index.html"><span class="aula-num">14</span><span class="aula-date">13/07 Seg</span><span class="aula-topic">Instituições sociais: família, escola, religião e Estado.</span></a></li>
+            <li class="aula-item"><a href="introducao-sociologia/turma2/index.html"><span class="aula-num">15</span><span class="aula-date">20/07 Seg</span><span class="aula-topic">Estratificação social. Desigualdade no Brasil: renda, raça e território.</span></a></li>
+            <li class="aula-item"><a href="introducao-sociologia/turma2/index.html"><span class="aula-num">16</span><span class="aula-date">27/07 Seg</span><span class="aula-topic">Raça, etnia e racismo. Gênero, sexualidade e feminismo.</span></a></li>
+          </ul>
+        </details>
+
+        <details class="bloco-details">
+          <summary class="bloco-summary">
+            <span class="bloco-name"><span class="bloco-roman">VI</span> Mudança Social e Seminários</span>
+            <span class="bloco-enc-count">Enc. 17–18 <span class="bloco-chevron">›</span></span>
+          </summary>
+          <ul class="aula-list">
+            <li class="aula-item"><a href="introducao-sociologia/turma2/index.html"><span class="aula-num">17</span><span class="aula-date">03/08 Seg</span><span class="aula-topic aula-special">Movimentos sociais. Seminários — Apresentações orais (1ª metade).</span></a></li>
+            <li class="aula-item"><a href="introducao-sociologia/turma2/index.html"><span class="aula-num">18</span><span class="aula-date">10/08 Seg</span><span class="aula-topic aula-special">Seminários — Apresentações orais (2ª metade). Entrega do Relatório e Vídeo.</span></a></li>
+          </ul>
+        </details>
+      </div>
+
+      <!-- ── TURMA 3 ── -->
+      <div class="turma-panel tp-3">
+        <div class="turma-panel-header">
+          <h3>Turma 3 — Fundamentos do Pensamento Sociológico</h3>
+          <span class="tp-meta">18 encontros · Segunda · Manhã</span>
+        </div>
+
+        <details class="bloco-details">
+          <summary class="bloco-summary">
+            <span class="bloco-name"><span class="bloco-roman">I</span> Fundamentos Epistemológicos e Pré-Clássicos</span>
+            <span class="bloco-enc-count">Enc. 1–3 <span class="bloco-chevron">›</span></span>
+          </summary>
+          <ul class="aula-list">
+            <li class="aula-item"><a href="fundamentos-pensamento-sociologico/turma3/index.html"><span class="aula-num">01</span><span class="aula-date">13/04 Seg</span><span class="aula-topic">O que é teoria sociológica? Ciência, sociedade e produção do conhecimento.</span></a></li>
+            <li class="aula-item"><a href="fundamentos-pensamento-sociologico/turma3/index.html"><span class="aula-num">02</span><span class="aula-date">20/04 Seg</span><span class="aula-topic">Contexto histórico da Sociologia. Pré-clássicos: Montesquieu, Saint-Simon e Tocqueville.</span></a></li>
+            <li class="aula-item"><a href="fundamentos-pensamento-sociologico/turma3/index.html"><span class="aula-num">03</span><span class="aula-date">27/04 Seg</span><span class="aula-topic">Comte: positivismo e lei dos três estados. Spencer: evolucionismo e organicismo.</span></a></li>
+          </ul>
+        </details>
+
+        <details class="bloco-details">
+          <summary class="bloco-summary">
+            <span class="bloco-name"><span class="bloco-roman">II</span> Clássicos I — Durkheim</span>
+            <span class="bloco-enc-count">Enc. 4–6 <span class="bloco-chevron">›</span></span>
+          </summary>
+          <ul class="aula-list">
+            <li class="aula-item"><a href="fundamentos-pensamento-sociologico/turma3/index.html"><span class="aula-num">04</span><span class="aula-date">04/05 Seg</span><span class="aula-topic">Fato social, consciência coletiva e representações sociais. As regras do método.</span></a></li>
+            <li class="aula-item"><a href="fundamentos-pensamento-sociologico/turma3/index.html"><span class="aula-num">05</span><span class="aula-date">11/05 Seg</span><span class="aula-topic">Da divisão do trabalho social: solidariedade e anomia.</span></a></li>
+            <li class="aula-item"><a href="fundamentos-pensamento-sociologico/turma3/index.html"><span class="aula-num">06</span><span class="aula-date">18/05 Seg</span><span class="aula-topic">O suicídio como paradigma. Religião e vida coletiva. Legado do durkheimianismo.</span></a></li>
+          </ul>
+        </details>
+
+        <details class="bloco-details">
+          <summary class="bloco-summary">
+            <span class="bloco-name"><span class="bloco-roman">III</span> Clássicos II — Marx</span>
+            <span class="bloco-enc-count">Enc. 7–9 <span class="bloco-chevron">›</span></span>
+          </summary>
+          <ul class="aula-list">
+            <li class="aula-item"><a href="fundamentos-pensamento-sociologico/turma3/index.html"><span class="aula-num">07</span><span class="aula-date">25/05 Seg</span><span class="aula-topic">Materialismo histórico e dialético. Estrutura econômica e superestrutura ideológica.</span></a></li>
+            <li class="aula-item"><a href="fundamentos-pensamento-sociologico/turma3/index.html"><span class="aula-num">08</span><span class="aula-date">01/06 Seg</span><span class="aula-topic">Modos de produção, classes sociais e mais-valia. Manifesto do Partido Comunista.</span></a></li>
+            <li class="aula-item"><a href="fundamentos-pensamento-sociologico/turma3/index.html"><span class="aula-num">09</span><span class="aula-date">08/06 Seg</span><span class="aula-topic">Alienação, ideologia e falsa consciência. Desdobramentos do marxismo.</span></a></li>
+          </ul>
+        </details>
+
+        <details class="bloco-details">
+          <summary class="bloco-summary">
+            <span class="bloco-name"><span class="bloco-roman">IV</span> Clássicos III — Weber e Orientação</span>
+            <span class="bloco-enc-count">Enc. 10–12 <span class="bloco-chevron">›</span></span>
+          </summary>
+          <ul class="aula-list">
+            <li class="aula-item"><a href="fundamentos-pensamento-sociologico/turma3/index.html"><span class="aula-num">10</span><span class="aula-date">15/06 Seg</span><span class="aula-topic">Weber: ação social, tipos ideais e método compreensivo.</span></a></li>
+            <li class="aula-item"><a href="fundamentos-pensamento-sociologico/turma3/index.html"><span class="aula-num">11</span><span class="aula-date">22/06 Seg</span><span class="aula-topic">Racionalização, dominação e burocracia. A gaiola de ferro.</span></a></li>
+            <li class="aula-item"><a href="fundamentos-pensamento-sociologico/turma3/index.html"><span class="aula-num">12</span><span class="aula-date">29/06 Seg</span><span class="aula-topic aula-special">A ética protestante. Comparação final D/M/W. Orientação do Seminário. Entrega da Pesquisa Bibliográfica.</span></a></li>
+          </ul>
+        </details>
+
+        <details class="bloco-details">
+          <summary class="bloco-summary">
+            <span class="bloco-name"><span class="bloco-roman">V</span> Teoria Sociológica do Século XX</span>
+            <span class="bloco-enc-count">Enc. 13–16 <span class="bloco-chevron">›</span></span>
+          </summary>
+          <ul class="aula-list">
+            <li class="aula-item"><a href="fundamentos-pensamento-sociologico/turma3/index.html"><span class="aula-num">13</span><span class="aula-date">06/07 Seg</span><span class="aula-topic">Estrutural-funcionalismo: Parsons e Merton.</span></a></li>
+            <li class="aula-item"><a href="fundamentos-pensamento-sociologico/turma3/index.html"><span class="aula-num">14</span><span class="aula-date">13/07 Seg</span><span class="aula-topic">Interacionismo simbólico e fenomenologia social. Berger e Luckmann.</span></a></li>
+            <li class="aula-item"><a href="fundamentos-pensamento-sociologico/turma3/index.html"><span class="aula-num">15</span><span class="aula-date">20/07 Seg</span><span class="aula-topic">Teoria Crítica e Escola de Frankfurt. Habermas: razão comunicativa.</span></a></li>
+            <li class="aula-item"><a href="fundamentos-pensamento-sociologico/turma3/index.html"><span class="aula-num">16</span><span class="aula-date">27/07 Seg</span><span class="aula-topic">Bourdieu: habitus, campo e capitais. Giddens e perspectivas decoloniais.</span></a></li>
+          </ul>
+        </details>
+
+        <details class="bloco-details">
+          <summary class="bloco-summary">
+            <span class="bloco-name"><span class="bloco-roman">VI</span> Apresentações dos Seminários</span>
+            <span class="bloco-enc-count">Enc. 17–18 <span class="bloco-chevron">›</span></span>
+          </summary>
+          <ul class="aula-list">
+            <li class="aula-item"><a href="fundamentos-pensamento-sociologico/turma3/index.html"><span class="aula-num">17</span><span class="aula-date">03/08 Seg</span><span class="aula-topic aula-special">Seminários — Apresentações orais (1ª metade dos grupos).</span></a></li>
+            <li class="aula-item"><a href="fundamentos-pensamento-sociologico/turma3/index.html"><span class="aula-num">18</span><span class="aula-date">10/08 Seg</span><span class="aula-topic aula-special">Seminários — Apresentações orais (2ª metade). Entrega do Relatório e Vídeo. Encerramento.</span></a></li>
+          </ul>
+        </details>
+      </div>
+
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2026 <span>Sociologia 2026.1</span> · Semestre Março–Agosto · Desenvolvido com dedicação ao ensino de Sociologia</p>
+  <div class="footer-left">
+    <strong>Sociologia 2026.1</strong>
+    <span>Semestre letivo: abril a agosto de 2026</span>
+  </div>
+  <div class="footer-right">
+    <a href="#disciplinas">Disciplinas</a>
+    <a href="#turmas">Turmas</a>
+    <a href="#roteiros">Roteiros</a>
+  </div>
 </footer>
 
 </body>

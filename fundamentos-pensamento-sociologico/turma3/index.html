@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Plano de Aulas — Fundamentos do Pensamento Sociológico · Turma 3</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:        #0a0a0f;
+      --surface:   #12121c;
+      --card:      #1a1a2e;
+      --border:    #2a2a4a;
+      --purple:    #7c3aed;
+      --purple-lt: #a855f7;
+      --blue:      #4f46e5;
+      --blue-lt:   #818cf8;
+      --teal:      #14b8a6;
+      --teal-lt:   #2dd4bf;
+      --rose:      #e11d48;
+      --rose-lt:   #fb7185;
+      --amber:     #d97706;
+      --amber-lt:  #fbbf24;
+      --violet:    #7c3aed;
+      --violet-lt: #c084fc;
+      --text:      #e2e8f0;
+      --muted:     #94a3b8;
+      --radius:    12px;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; line-height: 1.6; }
+
+    nav {
+      position: sticky; top: 0; z-index: 50;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: .85rem 2rem;
+      background: rgba(10,10,15,.9); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-back { display: flex; align-items: center; gap: .5rem; color: var(--muted); text-decoration: none; font-size: .875rem; transition: color .2s; }
+    .nav-back:hover { color: var(--teal-lt); }
+    .nav-title { font-size: .875rem; color: var(--muted); }
+    .nav-badge { background: rgba(20,184,166,.15); border: 1px solid rgba(45,212,191,.3); color: var(--teal-lt); padding: .2rem .75rem; border-radius: 999px; font-size: .75rem; font-weight: 700; }
+
+    .hero {
+      padding: 3.5rem 2rem 2.5rem;
+      background: linear-gradient(135deg, rgba(20,184,166,.08) 0%, rgba(124,58,237,.1) 100%);
+      border-bottom: 1px solid var(--border);
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 0% 50%, rgba(20,184,166,.12), transparent 60%),
+        radial-gradient(ellipse 50% 60% at 100% 20%, rgba(124,58,237,.12), transparent 60%);
+      pointer-events: none;
+    }
+    .hero-inner { max-width: 900px; margin: 0 auto; position: relative; }
+    .hero-meta { display: flex; align-items: center; gap: .75rem; flex-wrap: wrap; margin-bottom: 1rem; }
+    .badge { display: inline-block; padding: .2rem .75rem; border-radius: 999px; font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+    .badge-teal   { background: rgba(20,184,166,.15); border: 1px solid rgba(45,212,191,.3);  color: var(--teal-lt); }
+    .badge-purple { background: rgba(124,58,237,.2);  border: 1px solid rgba(168,85,247,.35); color: var(--purple-lt); }
+    .badge-morn   { background: rgba(251,191,36,.08); border: 1px solid rgba(251,191,36,.2);  color: var(--amber-lt); }
+    .hero h1 { font-size: clamp(1.6rem, 4vw, 2.5rem); font-weight: 800; margin-bottom: .4rem; }
+    .hero h1 span { background: linear-gradient(135deg, var(--teal-lt), var(--purple-lt)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero-sub { color: var(--muted); font-size: 1rem; }
+    .info-grid { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.75rem; }
+    .info-pill { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: .6rem 1rem; display: flex; flex-direction: column; gap: .15rem; }
+    .info-pill-label { font-size: .7rem; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+    .info-pill-value { font-size: .875rem; font-weight: 600; }
+
+    main { max-width: 960px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+    section { margin-bottom: 3rem; }
+    .section-title { font-size: 1.25rem; font-weight: 700; margin-bottom: 1.25rem; display: flex; align-items: center; gap: .6rem; }
+    .section-title::before { content: ''; display: block; width: 4px; height: 1.2em; border-radius: 2px; flex-shrink: 0; }
+    .t-purple::before  { background: var(--purple-lt); }
+    .t-blue::before    { background: var(--blue-lt); }
+    .t-teal::before    { background: var(--teal-lt); }
+    .t-rose::before    { background: var(--rose-lt); }
+    .t-amber::before   { background: var(--amber-lt); }
+    .t-violet::before  { background: var(--violet-lt); }
+
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; }
+    .ementa-text { color: var(--muted); line-height: 1.75; }
+
+    .obs-note { margin-top: .75rem; background: rgba(20,184,166,.08); border: 1px solid rgba(45,212,191,.2); border-radius: var(--radius); padding: .75rem 1rem; font-size: .875rem; color: var(--muted); }
+    .obs-note strong { color: var(--teal-lt); }
+
+    .table-wrap { overflow-x: auto; border-radius: var(--radius); border: 1px solid var(--border); }
+    table { width: 100%; border-collapse: collapse; font-size: .875rem; }
+    thead tr { background: rgba(20,184,166,.1); }
+    thead th { padding: .75rem 1rem; text-align: left; font-weight: 700; color: var(--teal-lt); font-size: .78rem; text-transform: uppercase; letter-spacing: .06em; border-bottom: 1px solid var(--border); }
+    thead th.center { text-align: center; }
+    tbody tr { border-bottom: 1px solid rgba(42,42,74,.6); transition: background .15s; }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: rgba(20,184,166,.04); }
+    tbody td { padding: .7rem 1rem; color: var(--text); vertical-align: top; }
+    tbody td.center { text-align: center; }
+    tbody td.num { text-align: center; font-weight: 700; color: var(--teal-lt); font-size: .8rem; }
+    tbody td.horas { text-align: center; color: var(--muted); font-size: .8rem; }
+    .row-highlight td { background: rgba(20,184,166,.07) !important; }
+    .row-seminar td  { background: rgba(124,58,237,.06) !important; }
+    .row-total td    { background: rgba(20,184,166,.08) !important; font-weight: 700; }
+    em { color: var(--amber-lt); font-style: italic; }
+    strong { color: var(--text); font-weight: 700; }
+
+    .bloco { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; margin-bottom: 1.25rem; }
+    .bloco-header { padding: .9rem 1.25rem; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border); }
+    .bloco-header h3 { font-size: .95rem; font-weight: 700; }
+    .bloco-meta { font-size: .78rem; color: var(--muted); }
+    .bloco-i   .bloco-header { background: rgba(124,58,237,.1); }
+    .bloco-ii  .bloco-header { background: rgba(79,70,229,.1); }
+    .bloco-iii .bloco-header { background: rgba(20,184,166,.08); }
+    .bloco-iv  .bloco-header { background: rgba(251,191,36,.06); }
+    .bloco-v   .bloco-header { background: rgba(139,92,246,.08); }
+    .bloco-vi  .bloco-header { background: rgba(225,29,72,.08); }
+    .bloco-i   .bloco-header h3 { color: var(--purple-lt); }
+    .bloco-ii  .bloco-header h3 { color: var(--blue-lt); }
+    .bloco-iii .bloco-header h3 { color: var(--teal-lt); }
+    .bloco-iv  .bloco-header h3 { color: var(--amber-lt); }
+    .bloco-v   .bloco-header h3 { color: var(--violet-lt); }
+    .bloco-vi  .bloco-header h3 { color: var(--rose-lt); }
+    .bloco .table-wrap { border: none; border-radius: 0; }
+
+    .aval-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+    .aval-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; position: relative; overflow: hidden; }
+    .aval-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+    .aval-card:nth-child(1)::before { background: var(--teal-lt); }
+    .aval-card:nth-child(2)::before { background: var(--purple-lt); }
+    .aval-card:nth-child(3)::before { background: var(--blue-lt); }
+    .aval-card:nth-child(4)::before { background: var(--rose-lt); }
+    .aval-num { font-size: 2rem; font-weight: 800; opacity: .15; position: absolute; top: .5rem; right: 1rem; }
+    .aval-peso { font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin-bottom: .4rem; }
+    .aval-card h4 { font-size: .95rem; font-weight: 700; margin-bottom: .3rem; }
+    .aval-desc { font-size: .8rem; color: var(--muted); margin-bottom: .5rem; }
+    .aval-prazo { font-size: .78rem; color: var(--amber-lt); font-weight: 600; }
+    .criterios { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+    .criterio-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.1rem; }
+    .criterio-card h5 { font-size: .875rem; font-weight: 700; margin-bottom: .6rem; }
+    .criterio-card ul { list-style: none; display: flex; flex-direction: column; gap: .35rem; }
+    .criterio-card li { font-size: .8rem; color: var(--muted); display: flex; gap: .5rem; }
+    .criterio-card li::before { content: '✦'; color: var(--teal-lt); font-size: .55rem; margin-top: .3rem; flex-shrink: 0; }
+    .aval-footer { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.25rem; display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1.25rem; }
+    .aval-footer-item { font-size: .875rem; }
+    .aval-footer-item span { color: var(--muted); }
+    .aval-footer-item strong { color: var(--teal-lt); }
+
+    .biblio-section { margin-bottom: 1.5rem; }
+    .biblio-section h4 { font-size: .875rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; margin-bottom: .75rem; }
+    .biblio-list { display: flex; flex-direction: column; gap: .6rem; }
+    .biblio-item { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: .75rem 1rem; font-size: .875rem; color: var(--muted); line-height: 1.5; }
+    .biblio-item b { color: var(--text); font-style: italic; }
+
+    .back-section { text-align: center; padding: 2rem 0 1rem; }
+    .btn-back { display: inline-flex; align-items: center; gap: .5rem; background: rgba(20,184,166,.12); border: 1px solid rgba(45,212,191,.3); color: var(--teal-lt); padding: .65rem 1.5rem; border-radius: var(--radius); text-decoration: none; font-size: .875rem; font-weight: 600; transition: background .2s, transform .2s; }
+    .btn-back:hover { background: rgba(20,184,166,.22); transform: translateY(-1px); }
+
+    @media (max-width: 640px) {
+      nav { padding: .75rem 1rem; }
+      .hero { padding: 2rem 1rem 1.5rem; }
+      main { padding: 1.5rem 1rem 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="../../index.html" class="nav-back">← Voltar ao início</a>
+  <span class="nav-title">Plano de Aulas</span>
+  <span class="nav-badge">Turma 3</span>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-meta">
+      <span class="badge badge-teal">Cód. 2101106</span>
+      <span class="badge badge-purple">Turma 3</span>
+      <span class="badge badge-morn">☀ Segunda · Manhã · 3h20</span>
+    </div>
+    <h1><span>Fundamentos do Pensamento Sociológico</span></h1>
+    <p class="hero-sub">Semestre 2026.1 · 18 encontros · 60 horas</p>
+    <div class="info-grid">
+      <div class="info-pill">
+        <span class="info-pill-label">Início</span>
+        <span class="info-pill-value">13/04/2026</span>
+      </div>
+      <div class="info-pill">
+        <span class="info-pill-label">Término</span>
+        <span class="info-pill-value">10/08/2026</span>
+      </div>
+      <div class="info-pill">
+        <span class="info-pill-label">Período letivo</span>
+        <span class="info-pill-value">13/04 a 12/08/2026</span>
+      </div>
+      <div class="info-pill">
+        <span class="info-pill-label">Duração / encontro</span>
+        <span class="info-pill-value">3h20 (4 × 50 min)</span>
+      </div>
+      <div class="info-pill">
+        <span class="info-pill-label">Avaliação</span>
+        <span class="info-pill-value">100% Seminário</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- FERIADOS -->
+  <section>
+    <h2 class="section-title t-rose">Feriados</h2>
+    <div class="obs-note">
+      <strong>01/05/2026 (Dia do Trabalho)</strong> cai em sexta-feira — não afeta as aulas de segunda-feira. As 18 segundas do período letivo estão todas disponíveis, totalizando exatamente 60h sem necessidade de reposição.
+    </div>
+  </section>
+
+  <!-- EMENTA -->
+  <section>
+    <h2 class="section-title t-teal">Ementa</h2>
+    <div class="card">
+      <p class="ementa-text">Estudo das origens e do desenvolvimento do pensamento sociológico. Contexto histórico e intelectual de formação da Sociologia. Pensadores pré-clássicos e clássicos: Comte, Spencer, Durkheim, Marx e Weber. Correntes teóricas do século XX: funcionalismo, interacionismo simbólico, teoria crítica e perspectivas contemporâneas. Epistemologia e métodos nas ciências sociais.</p>
+    </div>
+  </section>
+
+  <!-- DISTRIBUIÇÃO DE HORAS -->
+  <section>
+    <h2 class="section-title t-blue">Distribuição de Horas</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Bloco</th><th>Conteúdo</th><th class="center">Encontros</th><th class="center">Horas</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>I</td><td>Fundamentos epistemológicos e pré-clássicos</td><td class="center">3</td><td class="center">10h</td></tr>
+          <tr><td>II</td><td>Clássicos I — Durkheim</td><td class="center">3</td><td class="center">10h</td></tr>
+          <tr><td>III</td><td>Clássicos II — Marx</td><td class="center">3</td><td class="center">10h</td></tr>
+          <tr class="row-highlight"><td>IV</td><td>Clássicos III — Weber e orientação do seminário</td><td class="center">3</td><td class="center">10h</td></tr>
+          <tr><td>V</td><td>Teoria sociológica do século XX</td><td class="center">4</td><td class="center">13h20</td></tr>
+          <tr class="row-seminar"><td>VI</td><td>Apresentações dos seminários</td><td class="center">2</td><td class="center">6h40</td></tr>
+          <tr class="row-total"><td colspan="2">Total</td><td class="center">18</td><td class="center">60h</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- CRONOGRAMA -->
+  <section>
+    <h2 class="section-title t-teal">Cronograma Detalhado</h2>
+
+    <div class="bloco bloco-i">
+      <div class="bloco-header">
+        <h3>BLOCO I — Fundamentos Epistemológicos e Pré-Clássicos</h3>
+        <span class="bloco-meta">3 encontros · 10h</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th class="center">Enc.</th><th>Data</th><th>Conteúdo</th><th class="center">H</th></tr></thead>
+          <tbody>
+            <tr><td class="num">1</td><td>13/04/2026</td><td>Apresentação da disciplina. O que é teoria sociológica? Ciência, sociedade e produção do conhecimento. A questão do método nas ciências sociais.</td><td class="horas">3h20</td></tr>
+            <tr><td class="num">2</td><td>20/04/2026</td><td>Contexto histórico de formação da Sociologia: Iluminismo, Revolução Francesa e Revolução Industrial. Pré-clássicos: Montesquieu, Saint-Simon e Tocqueville.</td><td class="horas">3h20</td></tr>
+            <tr><td class="num">3</td><td>27/04/2026</td><td>Auguste Comte: positivismo, lei dos três estados e hierarquia das ciências. Herbert Spencer: evolucionismo social e organicismo. Críticas ao positivismo.</td><td class="horas">3h20</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="bloco bloco-ii">
+      <div class="bloco-header">
+        <h3>BLOCO II — Clássicos I: Émile Durkheim</h3>
+        <span class="bloco-meta">3 encontros · 10h</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th class="center">Enc.</th><th>Data</th><th>Conteúdo</th><th class="center">H</th></tr></thead>
+          <tbody>
+            <tr><td class="num">4</td><td>04/05/2026</td><td>Durkheim e a fundação da Sociologia científica. Fato social, consciência coletiva e representações sociais. <em>As regras do método sociológico</em>.</td><td class="horas">3h20</td></tr>
+            <tr><td class="num">5</td><td>11/05/2026</td><td><em>Da divisão do trabalho social</em>: solidariedade mecânica e orgânica. Anomia e coesão social.</td><td class="horas">3h20</td></tr>
+            <tr><td class="num">6</td><td>18/05/2026</td><td><em>O suicídio</em> como paradigma do método sociológico. Religião e vida coletiva: <em>As formas elementares da vida religiosa</em>. Legado e críticas ao durkheimianismo.</td><td class="horas">3h20</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="bloco bloco-iii">
+      <div class="bloco-header">
+        <h3>BLOCO III — Clássicos II: Karl Marx</h3>
+        <span class="bloco-meta">3 encontros · 10h</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th class="center">Enc.</th><th>Data</th><th>Conteúdo</th><th class="center">H</th></tr></thead>
+          <tbody>
+            <tr><td class="num">7</td><td>25/05/2026</td><td>Materialismo histórico e dialético. Estrutura econômica e superestrutura ideológica. Forças produtivas e relações de produção.</td><td class="horas">3h20</td></tr>
+            <tr><td class="num">8</td><td>01/06/2026</td><td>Modos de produção e formações sociais. Classes sociais, luta de classes e mais-valia. <em>Manifesto do Partido Comunista</em>.</td><td class="horas">3h20</td></tr>
+            <tr><td class="num">9</td><td>08/06/2026</td><td>Alienação, ideologia e falsa consciência. Religião e Estado em Marx. Contribuições, limites e desdobramentos do marxismo.</td><td class="horas">3h20</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="bloco bloco-iv">
+      <div class="bloco-header">
+        <h3>BLOCO IV — Clássicos III: Max Weber e Orientação do Seminário</h3>
+        <span class="bloco-meta">3 encontros · 10h</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th class="center">Enc.</th><th>Data</th><th>Conteúdo</th><th class="center">H</th></tr></thead>
+          <tbody>
+            <tr><td class="num">10</td><td>15/06/2026</td><td>Weber e a sociologia compreensiva. Ação social e seus tipos. Tipos ideais como método. Relações sociais e regularidades da ação.</td><td class="horas">3h20</td></tr>
+            <tr><td class="num">11</td><td>22/06/2026</td><td>Racionalização do mundo moderno. Dominação e tipos de legitimidade. Burocracia e a gaiola de ferro.</td><td class="horas">3h20</td></tr>
+            <tr class="row-highlight"><td class="num">12</td><td>29/06/2026</td><td><em>A ética protestante e o espírito do capitalismo</em>. Comparação final: Durkheim, Marx e Weber. <strong>Orientação para o Seminário</strong> — formação dos grupos (até 5 alunos), definição dos temas. <strong>Entrega da Pesquisa Bibliográfica.</strong></td><td class="horas">3h20</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="bloco bloco-v">
+      <div class="bloco-header">
+        <h3>BLOCO V — Teoria Sociológica do Século XX</h3>
+        <span class="bloco-meta">4 encontros · 13h20</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th class="center">Enc.</th><th>Data</th><th>Conteúdo</th><th class="center">H</th></tr></thead>
+          <tbody>
+            <tr><td class="num">13</td><td>06/07/2026</td><td>Estrutural-funcionalismo: Talcott Parsons e o sistema social. Robert Merton e as funções latentes e manifestas.</td><td class="horas">3h20</td></tr>
+            <tr><td class="num">14</td><td>13/07/2026</td><td>Interacionismo simbólico: G. H. Mead e Herbert Blumer. Fenomenologia social: Alfred Schutz. Berger e Luckmann — <em>A construção social da realidade</em>.</td><td class="horas">3h20</td></tr>
+            <tr><td class="num">15</td><td>20/07/2026</td><td>Teoria Crítica e Escola de Frankfurt: Adorno, Horkheimer e a dialética do esclarecimento. Jürgen Habermas: razão comunicativa e esfera pública.</td><td class="horas">3h20</td></tr>
+            <tr><td class="num">16</td><td>27/07/2026</td><td>Pierre Bourdieu: habitus, campo e capitais. Anthony Giddens: teoria da estruturação. Perspectivas pós-coloniais e decoloniais no pensamento sociológico.</td><td class="horas">3h20</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="bloco bloco-vi">
+      <div class="bloco-header">
+        <h3>BLOCO VI — Apresentações dos Seminários</h3>
+        <span class="bloco-meta">2 encontros · 6h40</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th class="center">Enc.</th><th>Data</th><th>Conteúdo</th><th class="center">H</th></tr></thead>
+          <tbody>
+            <tr class="row-seminar"><td class="num">17</td><td>03/08/2026</td><td><strong>Seminários — Apresentações orais</strong> (1ª metade dos grupos).</td><td class="horas">3h20</td></tr>
+            <tr class="row-seminar"><td class="num">18</td><td>10/08/2026</td><td><strong>Seminários — Apresentações orais</strong> (2ª metade dos grupos). <strong>Entrega do Relatório Escrito e do Vídeo.</strong> Encerramento da disciplina.</td><td class="horas">3h20</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- AVALIAÇÕES -->
+  <section>
+    <h2 class="section-title t-violet">Avaliações</h2>
+    <p style="color:var(--muted); margin-bottom:1.25rem; font-size:.9rem;">A nota final é composta integralmente pelo <strong>Seminário em Grupo</strong>, realizado em equipes de <strong>até 5 alunos</strong>. Cada entrega tem peso igual de <strong>25%</strong>.</p>
+    <div class="aval-grid">
+      <div class="aval-card">
+        <div class="aval-num">1</div>
+        <div class="aval-peso">Entrega 1 · 25%</div>
+        <h4>Pesquisa bibliográfica</h4>
+        <p class="aval-desc">Levantamento e fichamento de referências sobre o tema do seminário.</p>
+        <div class="aval-prazo">📅 29/06/2026 · Enc. 12</div>
+      </div>
+      <div class="aval-card">
+        <div class="aval-num">2</div>
+        <div class="aval-peso">Entrega 2 · 25%</div>
+        <h4>Apresentação oral</h4>
+        <p class="aval-desc">Exposição presencial do tema para a turma.</p>
+        <div class="aval-prazo">📅 03/08 ou 10/08/2026 · Enc. 17–18</div>
+      </div>
+      <div class="aval-card">
+        <div class="aval-num">3</div>
+        <div class="aval-peso">Entrega 3 · 25%</div>
+        <h4>Relatório escrito</h4>
+        <p class="aval-desc">Texto analítico de até 7 laudas (normas ABNT).</p>
+        <div class="aval-prazo">📅 10/08/2026 · Enc. 18</div>
+      </div>
+      <div class="aval-card">
+        <div class="aval-num">4</div>
+        <div class="aval-peso">Entrega 4 · 25%</div>
+        <h4>Vídeo</h4>
+        <p class="aval-desc">Produção audiovisual de 5 a 10 minutos sobre o tema.</p>
+        <div class="aval-prazo">📅 10/08/2026 · Enc. 18</div>
+      </div>
+    </div>
+    <div class="criterios">
+      <div class="criterio-card"><h5>Pesquisa bibliográfica</h5><ul><li>Pertinência e diversidade das fontes</li><li>Qualidade dos resumos e fichamentos</li><li>Coerência com o tema escolhido</li></ul></div>
+      <div class="criterio-card"><h5>Apresentação oral</h5><ul><li>Clareza e organização da exposição</li><li>Domínio do conteúdo pelo grupo</li><li>Participação ativa de todos</li><li>Cumprimento do tempo</li></ul></div>
+      <div class="criterio-card"><h5>Relatório escrito</h5><ul><li>Desenvolvimento argumentativo</li><li>Coerência e coesão textual</li><li>Uso crítico das referências</li><li>Formatação ABNT (até 7 laudas)</li></ul></div>
+      <div class="criterio-card"><h5>Vídeo</h5><ul><li>Clareza na comunicação audiovisual</li><li>Pertinência e rigor do conteúdo</li><li>Criatividade na produção</li><li>Duração: 5 a 10 minutos</li></ul></div>
+    </div>
+    <div class="aval-footer">
+      <div class="aval-footer-item"><span>Nota mínima:</span> <strong>6,0</strong></div>
+      <div class="aval-footer-item"><span>Frequência mínima:</span> <strong>75% — 14 presenças</strong></div>
+    </div>
+  </section>
+
+  <!-- BIBLIOGRAFIA -->
+  <section>
+    <h2 class="section-title t-amber">Bibliografia</h2>
+    <div class="biblio-section">
+      <h4>Básica</h4>
+      <div class="biblio-list">
+        <div class="biblio-item">QUINTANEIRO, Tania; BARBOSA, Maria Ligia; OLIVEIRA, Márcia. <b>Um toque de clássicos: Marx, Durkheim e Weber</b>. Belo Horizonte: UFMG, 2002.</div>
+        <div class="biblio-item">COHN, Gabriel (org.). <b>Sociologia: para ler os clássicos</b>. Rio de Janeiro: Azougue, 2005.</div>
+        <div class="biblio-item">SELL, Carlos Eduardo. <b>Sociologia clássica: Marx, Durkheim e Weber</b>. Petrópolis: Vozes, 2009.</div>
+      </div>
+    </div>
+    <div class="biblio-section">
+      <h4>Complementar</h4>
+      <div class="biblio-list">
+        <div class="biblio-item">DURKHEIM, Émile. <b>As regras do método sociológico</b>. São Paulo: Martins Fontes, 2007.</div>
+        <div class="biblio-item">MARX, Karl. <b>O capital</b> (livro I, cap. 1). São Paulo: Boitempo, 2013.</div>
+        <div class="biblio-item">WEBER, Max. <b>A ética protestante e o espírito do capitalismo</b>. São Paulo: Companhia das Letras, 2004.</div>
+        <div class="biblio-item">BOURDIEU, Pierre. <b>O poder simbólico</b>. Rio de Janeiro: Bertrand Brasil, 2010.</div>
+        <div class="biblio-item">GIDDENS, Anthony; TURNER, Jonathan (orgs.). <b>Teoria social hoje</b>. São Paulo: Unesp, 1999.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="back-section">
+    <a href="../../index.html" class="btn-back">← Voltar à página inicial</a>
+  </div>
+</main>
+</body>
+</html>
