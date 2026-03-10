@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aula 18 — Fundamentos do Pensamento Sociológico | Turma 3</title>
+<style>
+  :root {
+    --bg: #0a0a0f; --surface: #12121c; --card: #1a1a2e; --border: #2a2a4a;
+    --purple: #7c3aed; --purple-lt: #a855f7; --blue: #4f46e5; --blue-lt: #818cf8;
+    --teal: #14b8a6; --teal-lt: #2dd4bf; --amber-lt: #fbbf24; --rose-lt: #fb7185;
+    --text: #e2e8f0; --muted: #94a3b8; --radius: 12px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; }
+  nav { position: sticky; top: 0; z-index: 100; background: var(--surface); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0.75rem 1.5rem; gap: 1rem; }
+  nav a { color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; white-space: nowrap; }
+  nav a:hover { color: var(--text); }
+  .nav-badge { background: var(--card); border: 1px solid var(--border); padding: 0.35rem 1rem; border-radius: 999px; font-size: 0.85rem; font-weight: 600; color: var(--text); white-space: nowrap; }
+  .nav-links { display: flex; gap: 1rem; align-items: center; }
+  .nav-left { min-width: 120px; } .nav-right { min-width: 120px; display: flex; justify-content: flex-end; }
+  header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 2.5rem 1.5rem 2rem; text-align: center; }
+  .bloco-badge { display: inline-block; background: #e11d48; color: #fff; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.3rem 0.9rem; border-radius: 999px; margin-bottom: 1rem; }
+  .eval-badge { display: inline-block; background: rgba(251,113,133,0.15); border: 1px solid rgba(251,113,133,0.4); color: var(--rose-lt); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; padding: 0.25rem 0.8rem; border-radius: 999px; margin-left: 0.5rem; }
+  header h1 { font-size: 1.9rem; font-weight: 700; margin-bottom: 0.5rem; }
+  header .meta { color: var(--muted); font-size: 0.95rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem 1.5rem; margin-top: 0.75rem; }
+  header .meta span { display: flex; align-items: center; gap: 0.35rem; }
+  main { max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  section { margin-bottom: 2.5rem; }
+  section h2 { font-size: 1.05rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--teal-lt); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-bottom: 1.25rem; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin-bottom: 0.75rem; }
+  ul.objectives { list-style: none; }
+  ul.objectives li { padding: 0.55rem 0 0.55rem 1.5rem; position: relative; border-bottom: 1px solid var(--border); font-size: 0.97rem; }
+  ul.objectives li:last-child { border-bottom: none; }
+  ul.objectives li::before { content: '→'; position: absolute; left: 0; color: var(--teal-lt); font-weight: 700; }
+  .content-block { margin-bottom: 1rem; }
+  .content-block h3 { font-size: 0.95rem; font-weight: 600; color: var(--teal-lt); margin-bottom: 0.4rem; }
+  ul.sub { list-style: none; padding-left: 1rem; }
+  ul.sub li { position: relative; padding-left: 1rem; color: var(--muted); font-size: 0.9rem; margin-bottom: 0.2rem; }
+  ul.sub li::before { content: '·'; position: absolute; left: 0; color: var(--border); }
+  .timeline { display: flex; flex-direction: column; gap: 0; }
+  .tl-item { display: flex; gap: 1rem; align-items: flex-start; position: relative; padding-bottom: 1rem; }
+  .tl-item:last-child { padding-bottom: 0; }
+  .tl-item::before { content: ''; position: absolute; left: 49px; top: 32px; bottom: 0; width: 2px; background: var(--border); }
+  .tl-item:last-child::before { display: none; }
+  .tl-time { min-width: 60px; text-align: right; font-size: 0.8rem; font-weight: 700; color: var(--amber-lt); padding-top: 0.3rem; white-space: nowrap; }
+  .tl-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--teal); border: 2px solid var(--teal-lt); margin-top: 0.4rem; flex-shrink: 0; position: relative; z-index: 1; }
+  .tl-dot.intervalo { background: var(--amber-lt); border-color: var(--amber-lt); }
+  .tl-dot.avaliacao { background: var(--rose-lt); border-color: var(--rose-lt); }
+  .tl-content { flex: 1; }
+  .tl-content strong { font-size: 0.95rem; display: block; }
+  .tl-content p { font-size: 0.88rem; color: var(--muted); margin-top: 0.2rem; }
+  .text-ref { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 0.9rem 1.25rem; margin-bottom: 0.6rem; font-size: 0.92rem; }
+  .text-ref .author { font-weight: 700; color: var(--blue-lt); }
+  .activity-card { background: var(--card); border: 1px solid var(--teal); border-radius: var(--radius); padding: 1.25rem 1.5rem; }
+  .activity-card p { font-size: 0.95rem; margin-bottom: 0.5rem; }
+  .activity-card p:last-child { margin-bottom: 0; }
+  ul.resources { list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  ul.resources li { background: var(--card); border: 1px solid var(--border); border-radius: 999px; padding: 0.3rem 0.9rem; font-size: 0.85rem; color: var(--muted); }
+  footer { text-align: center; padding: 2rem 1rem; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.85rem; }
+  footer a { color: var(--teal-lt); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-left"><a href="../index.html">← Turma 3</a></div>
+  <div class="nav-badge">Aula 18 / 18</div>
+  <div class="nav-right nav-links">
+    <a href="aula-17.html">← Anterior</a>
+    <span style="color: var(--border); font-size:0.85rem;">—</span>
+  </div>
+</nav>
+
+<header>
+  <div class="bloco-badge">Bloco VI — Apresentações dos Seminários</div>
+  <span class="eval-badge">Avaliação — Entrega Final</span>
+  <h1>Seminários — Apresentações orais (2ª metade). Entrega Final. Encerramento.</h1>
+  <div class="meta">
+    <span>📅 10/08/2026 &nbsp;·&nbsp; Segunda-feira</span>
+    <span>⏱ 3h20 (4 × 50 min)</span>
+    <span>Aula 18 de 18</span>
+  </div>
+</header>
+
+<main>
+
+  <section>
+    <h2>Objetivos da Aula</h2>
+    <div class="card">
+      <ul class="objectives">
+        <li>Realizar as apresentações orais da 2ª metade dos grupos do seminário.</li>
+        <li>Receber as entregas finais de todos os grupos: relatório escrito e vídeo.</li>
+        <li>Fazer síntese reflexiva coletiva do semestre: o percurso do pensamento sociológico.</li>
+        <li>Encerrar a disciplina com reflexão sobre o que ficou e o que se leva.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Conteúdo Programático</h2>
+    <div class="card">
+      <div class="content-block">
+        <h3>1. Apresentações orais — 2ª metade dos grupos</h3>
+        <ul class="sub">
+          <li>Continuação das apresentações conforme ordem definida na Aula 17</li>
+          <li>Cada grupo: 15 minutos + 5 minutos de perguntas</li>
+          <li>Avaliação conforme os mesmos critérios</li>
+        </ul>
+      </div>
+      <div class="content-block">
+        <h3>2. Recebimento das entregas finais</h3>
+        <ul class="sub">
+          <li>Relatório escrito: PDF ou impresso</li>
+          <li>Vídeo: link ou pen drive</li>
+          <li>Confirmação de entrega para todos os grupos</li>
+        </ul>
+      </div>
+      <div class="content-block">
+        <h3>3. Síntese reflexiva e encerramento</h3>
+        <ul class="sub">
+          <li>O percurso do semestre: dos fundamentos epistemológicos aos clássicos e ao século XX</li>
+          <li>O que a teoria sociológica nos ensina a ver de forma diferente?</li>
+          <li>Avaliação formativa da disciplina</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Plano de Aula com Tempo</h2>
+    <div class="card">
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-time">15 min</div>
+          <div class="tl-dot avaliacao"></div>
+          <div class="tl-content">
+            <strong>Recebimento das entregas finais</strong>
+            <p>Coleta dos relatórios escritos e dos vídeos (links ou pen drives). Confirmação de entrega de todos os grupos.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">10 min</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <strong>Organização e breve retomada</strong>
+            <p>Retomada dos seminários da Aula 17. Confirmação da ordem dos grupos restantes.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">80 min</div>
+          <div class="tl-dot avaliacao"></div>
+          <div class="tl-content">
+            <strong>Apresentações orais — 2ª metade (4–5 grupos × 20 min)</strong>
+            <p>Cada grupo: 15 minutos + 5 minutos de perguntas. Avaliação pelo professor.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">10 min</div>
+          <div class="tl-dot intervalo"></div>
+          <div class="tl-content">
+            <strong>Intervalo</strong>
+            <p></p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">30 min</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <strong>Síntese do semestre</strong>
+            <p>O professor percorre o trajeto do semestre: dos fundamentos epistemológicos aos clássicos e ao século XX. Quais perguntas a teoria sociológica nos deixa?</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">55 min</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <strong>Roda de conversa final e avaliação formativa</strong>
+            <p>O que ficou do semestre? Avaliação formativa da disciplina pelos alunos. Orientações sobre notas. Encerramento.</p>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:1rem; padding-top:1rem; border-top:1px solid var(--border); font-size:0.85rem; color:var(--amber-lt); font-weight:600;">
+        Total: 200 min (3h20)
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Textos para Leitura Prévia</h2>
+    <div class="text-ref">
+      <span class="author">Cada grupo</span> — Materiais bibliográficos do próprio tema do seminário (revisão para apresentação).
+    </div>
+  </section>
+
+  <section>
+    <h2>Atividades em Sala</h2>
+    <div class="activity-card">
+      <p><strong>Apresentações + coleta de entregas + roda de conversa final</strong></p>
+      <p>Após o recebimento das entregas e as apresentações orais da 2ª metade, o professor conduz a síntese final do semestre retomando o percurso teórico: dos fundamentos epistemológicos (positivismo, interpretativismo) aos pré-clássicos, dos três clássicos fundadores (Durkheim, Marx, Weber) às correntes do século XX (funcionalismo, interacionismo, Teoria Crítica, Bourdieu, perspectivas decoloniais).</p>
+      <p>Na roda de conversa final, a turma é convidada a responder: qual teoria ou conceito mais transformou sua forma de ver o mundo? Quais perguntas a teoria sociológica nos deixa em aberto? O professor encerra com uma reflexão sobre o papel do pensamento sociológico como ferramenta de desnaturalização do mundo social.</p>
+      <p>Cada aluno preenche a avaliação formativa da disciplina, contribuindo para seu aperfeiçoamento em edições futuras.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Recursos Necessários</h2>
+    <ul class="resources">
+      <li>Projetor e computador</li>
+      <li>Lista de verificação de entregas</li>
+      <li>Pen drive para recebimento de vídeos</li>
+      <li>Formulário de avaliação das apresentações</li>
+      <li>Instrumento de avaliação formativa da disciplina</li>
+      <li>Cronômetro</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  <p><a href="../index.html">← Voltar para Turma 3</a></p>
+  <p style="margin-top:0.5rem;">Fundamentos do Pensamento Sociológico · Turma 3 · 2026.1</p>
+</footer>
+
+</body>
+</html>

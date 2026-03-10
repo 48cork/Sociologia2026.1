@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aula 18 — Introdução à Sociologia | Turma 2</title>
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #12121c;
+    --card: #1a1a2e;
+    --border: #2a2a4a;
+    --purple: #7c3aed;
+    --purple-lt: #a855f7;
+    --blue: #4f46e5;
+    --blue-lt: #818cf8;
+    --teal-lt: #2dd4bf;
+    --amber-lt: #fbbf24;
+    --rose-lt: #fb7185;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --radius: 12px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; }
+
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0.75rem 1.5rem; gap: 1rem;
+  }
+  nav a { color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; white-space: nowrap; }
+  nav a:hover { color: var(--text); }
+  .nav-badge {
+    background: var(--card); border: 1px solid var(--border);
+    padding: 0.35rem 1rem; border-radius: 999px;
+    font-size: 0.85rem; font-weight: 600; color: var(--text);
+    white-space: nowrap;
+  }
+  .nav-links { display: flex; gap: 1rem; align-items: center; }
+  .nav-left { min-width: 120px; }
+  .nav-right { min-width: 120px; display: flex; justify-content: flex-end; }
+
+  header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 2.5rem 1.5rem 2rem;
+    text-align: center;
+  }
+  .bloco-badge {
+    display: inline-block;
+    background: #e11d48;
+    color: #fff;
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 0.3rem 0.9rem; border-radius: 999px; margin-bottom: 1rem;
+  }
+  .eval-badge {
+    display: inline-block;
+    background: rgba(251,113,133,0.15); border: 1px solid rgba(251,113,133,0.4);
+    color: var(--rose-lt);
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em;
+    padding: 0.25rem 0.8rem; border-radius: 999px; margin-left: 0.5rem;
+  }
+  header h1 { font-size: 1.9rem; font-weight: 700; margin-bottom: 0.5rem; }
+  header .meta { color: var(--muted); font-size: 0.95rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem 1.5rem; margin-top: 0.75rem; }
+  header .meta span { display: flex; align-items: center; gap: 0.35rem; }
+
+  main { max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+
+  section { margin-bottom: 2.5rem; }
+  section h2 {
+    font-size: 1.05rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--purple-lt);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.5rem; margin-bottom: 1.25rem;
+  }
+
+  .card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 1.25rem 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  ul.objectives { list-style: none; }
+  ul.objectives li {
+    padding: 0.55rem 0 0.55rem 1.5rem; position: relative;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.97rem;
+  }
+  ul.objectives li:last-child { border-bottom: none; }
+  ul.objectives li::before { content: '→'; position: absolute; left: 0; color: var(--purple-lt); font-weight: 700; }
+
+  .content-block { margin-bottom: 1rem; }
+  .content-block h3 { font-size: 0.95rem; font-weight: 600; color: var(--purple-lt); margin-bottom: 0.4rem; }
+  ul.sub { list-style: none; padding-left: 1rem; }
+  ul.sub li { position: relative; padding-left: 1rem; color: var(--muted); font-size: 0.9rem; margin-bottom: 0.2rem; }
+  ul.sub li::before { content: '·'; position: absolute; left: 0; color: var(--border); }
+
+  .timeline { display: flex; flex-direction: column; gap: 0; }
+  .tl-item {
+    display: flex; gap: 1rem; align-items: flex-start;
+    position: relative; padding-bottom: 1rem;
+  }
+  .tl-item:last-child { padding-bottom: 0; }
+  .tl-item::before {
+    content: ''; position: absolute; left: 49px; top: 32px; bottom: 0;
+    width: 2px; background: var(--border);
+  }
+  .tl-item:last-child::before { display: none; }
+  .tl-time {
+    min-width: 60px; text-align: right;
+    font-size: 0.8rem; font-weight: 700; color: var(--amber-lt);
+    padding-top: 0.3rem; white-space: nowrap;
+  }
+  .tl-dot {
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--purple); border: 2px solid var(--purple-lt);
+    margin-top: 0.4rem; flex-shrink: 0;
+    position: relative; z-index: 1;
+  }
+  .tl-dot.intervalo { background: var(--amber-lt); border-color: var(--amber-lt); }
+  .tl-dot.avaliacao { background: var(--rose-lt); border-color: var(--rose-lt); }
+  .tl-content { flex: 1; }
+  .tl-content strong { font-size: 0.95rem; display: block; }
+  .tl-content p { font-size: 0.88rem; color: var(--muted); margin-top: 0.2rem; }
+
+  .text-ref {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 0.9rem 1.25rem;
+    margin-bottom: 0.6rem; font-size: 0.92rem;
+  }
+  .text-ref .author { font-weight: 700; color: var(--blue-lt); }
+
+  .activity-card {
+    background: var(--card); border: 1px solid var(--purple);
+    border-radius: var(--radius); padding: 1.25rem 1.5rem;
+  }
+  .activity-card p { font-size: 0.95rem; margin-bottom: 0.5rem; }
+  .activity-card p:last-child { margin-bottom: 0; }
+
+  .eval-card {
+    background: rgba(251,113,133,0.07); border: 1px solid rgba(251,113,133,0.25);
+    border-radius: var(--radius); padding: 1.25rem 1.5rem; margin-bottom: 0.75rem;
+  }
+  .eval-card h3 { font-size: 0.9rem; font-weight: 700; color: var(--rose-lt); margin-bottom: 0.75rem; }
+  .eval-card ul { list-style: none; }
+  .eval-card ul li { padding: 0.3rem 0 0.3rem 1.25rem; position: relative; color: var(--muted); font-size: 0.88rem; }
+  .eval-card ul li::before { content: '→'; position: absolute; left: 0; color: var(--rose-lt); }
+
+  ul.resources { list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  ul.resources li {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 999px; padding: 0.3rem 0.9rem; font-size: 0.85rem; color: var(--muted);
+  }
+
+  footer {
+    text-align: center; padding: 2rem 1rem;
+    border-top: 1px solid var(--border);
+    color: var(--muted); font-size: 0.85rem;
+  }
+  footer a { color: var(--purple-lt); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-left">
+    <a href="../index.html">← Turma 2</a>
+  </div>
+  <div class="nav-badge">Aula 18 / 18</div>
+  <div class="nav-right nav-links">
+    <a href="aula-17.html">← Anterior</a>
+    <span style="color: var(--border); font-size:0.85rem;">—</span>
+  </div>
+</nav>
+
+<header>
+  <div class="bloco-badge">Bloco VI — Mudança Social e Apresentações dos Seminários</div>
+  <span class="eval-badge">Avaliação — Entrega Final</span>
+  <h1>Seminários — Apresentações orais (2ª metade). Entrega Final. Encerramento.</h1>
+  <div class="meta">
+    <span>📅 10/08/2026 &nbsp;·&nbsp; Segunda-feira</span>
+    <span>⏱ 3h20 (4 × 50 min)</span>
+    <span>Aula 18 de 18</span>
+  </div>
+</header>
+
+<main>
+
+  <section>
+    <h2>Objetivos da Aula</h2>
+    <div class="card">
+      <ul class="objectives">
+        <li>Realizar as apresentações orais da 2ª metade dos grupos do seminário.</li>
+        <li>Receber as entregas finais de todos os grupos: relatório escrito e vídeo.</li>
+        <li>Fazer síntese coletiva reflexiva dos temas estudados ao longo do semestre.</li>
+        <li>Encerrar a disciplina com celebração do percurso realizado.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Conteúdo Programático</h2>
+    <div class="card">
+      <div class="content-block">
+        <h3>1. Apresentações orais — 2ª metade dos grupos</h3>
+        <ul class="sub">
+          <li>Continuação das apresentações conforme ordem definida na Aula 17</li>
+          <li>Cada grupo: 15 minutos + 5 minutos de perguntas</li>
+          <li>Avaliação conforme os mesmos critérios da Aula 17</li>
+        </ul>
+      </div>
+      <div class="content-block">
+        <h3>2. Recebimento das entregas finais</h3>
+        <ul class="sub">
+          <li>Relatório escrito: PDF ou impresso, no início da aula</li>
+          <li>Vídeo: link ou pen drive, no início da aula</li>
+          <li>Confirmação de entrega para todos os grupos</li>
+        </ul>
+      </div>
+      <div class="content-block">
+        <h3>3. Encerramento da disciplina</h3>
+        <ul class="sub">
+          <li>Síntese reflexiva coletiva do semestre</li>
+          <li>Orientações sobre divulgação das notas</li>
+          <li>Despedida e encerramento</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Plano de Aula com Tempo</h2>
+    <div class="card">
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-time">15 min</div>
+          <div class="tl-dot avaliacao"></div>
+          <div class="tl-content">
+            <strong>Recebimento das entregas finais</strong>
+            <p>Coleta dos relatórios escritos e dos vídeos (links ou pen drives). Confirmação de entrega de todos os grupos. Lista de verificação.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">10 min</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <strong>Organização para as apresentações</strong>
+            <p>Breve retomada dos seminários da Aula 17. Confirmação da ordem de apresentação dos grupos restantes.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">10 min</div>
+          <div class="tl-dot intervalo"></div>
+          <div class="tl-content">
+            <strong>Intervalo</strong>
+            <p></p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">80 min</div>
+          <div class="tl-dot avaliacao"></div>
+          <div class="tl-content">
+            <strong>Apresentações orais — 2ª metade (4 grupos × 20 min)</strong>
+            <p>Cada grupo dispõe de 15 minutos para apresentação + 5 minutos para perguntas. Avaliação pelo professor com formulário de critérios.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">30 min</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <strong>Comentários gerais e síntese do semestre</strong>
+            <p>O professor faz síntese das apresentações (Aulas 17 e 18) e retoma os principais conceitos e debates do semestre.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">55 min</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <strong>Encerramento e roda de conversa final</strong>
+            <p>Roda de conversa: o que ficou da Sociologia? Avaliação formativa da disciplina pelos alunos. Orientações sobre notas. Encerramento.</p>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:1rem; padding-top:1rem; border-top:1px solid var(--border); font-size:0.85rem; color:var(--amber-lt); font-weight:600;">
+        Total: 200 min (3h20)
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Textos para Leitura Prévia</h2>
+    <div class="text-ref">
+      <span class="author">Cada grupo</span> — Materiais bibliográficos do próprio tema do seminário (revisão para a apresentação).
+    </div>
+  </section>
+
+  <section>
+    <h2>Atividades em Sala</h2>
+    <div class="activity-card">
+      <p><strong>Apresentações orais + coleta de entregas + encerramento</strong></p>
+      <p>Na primeira parte da aula, são coletadas as entregas finais (relatório e vídeo) e realizadas as apresentações orais da 2ª metade dos grupos, seguindo os mesmos critérios da Aula 17.</p>
+      <p>Após as apresentações, o professor conduz uma roda de conversa de encerramento, perguntando à turma: qual conceito sociológico estudado neste semestre mais marcou vocês? O que mudou na forma de vocês verem a sociedade? O professor articula as respostas com os blocos temáticos da disciplina.</p>
+      <p>Cada aluno preenche a avaliação formativa da disciplina (instrumento escrito), contribuindo para a melhoria da disciplina em edições futuras.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Recursos Necessários</h2>
+    <ul class="resources">
+      <li>Projetor e computador</li>
+      <li>Lista de verificação de entregas</li>
+      <li>Pen drive para recebimento de vídeos</li>
+      <li>Formulário de avaliação das apresentações</li>
+      <li>Instrumento de avaliação formativa da disciplina</li>
+      <li>Cronômetro</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  <p><a href="../index.html">← Voltar para Turma 2</a></p>
+  <p style="margin-top:0.5rem;">Introdução à Sociologia · Turma 2 · 2026.1</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aula 03 — Introdução à Sociologia | Turma 1</title>
+<style>
+  :root {
+    --bg: #0a0a0f; --surface: #12121c; --card: #1a1a2e; --border: #2a2a4a;
+    --purple: #7c3aed; --purple-lt: #a855f7; --blue: #4f46e5; --blue-lt: #818cf8;
+    --teal-lt: #2dd4bf; --amber-lt: #fbbf24; --rose-lt: #fb7185;
+    --text: #e2e8f0; --muted: #94a3b8; --radius: 12px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(18,18,28,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; white-space: nowrap; }
+  nav a:hover { color: var(--text); }
+  .nav-left { display: flex; align-items: center; gap: 10px; }
+  .nav-badge { background: var(--purple); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+  .nav-center { font-size: 0.875rem; color: var(--muted); }
+  .nav-right { display: flex; gap: 16px; align-items: center; }
+  main { max-width: 860px; margin: 0 auto; padding: 40px 24px 80px; }
+  .aula-header { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; margin-bottom: 32px; border-top: 4px solid var(--purple); }
+  .header-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; align-items: center; }
+  .bloco-badge { background: var(--purple); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .meta-chip { background: var(--surface); border: 1px solid var(--border); font-size: 0.8rem; color: var(--muted); padding: 4px 12px; border-radius: 20px; }
+  .note-chip { background: rgba(251,191,36,0.1); border: 1px solid rgba(251,191,36,0.3); font-size: 0.8rem; color: var(--amber-lt); padding: 4px 12px; border-radius: 20px; }
+  .aula-header h1 { font-size: 1.5rem; font-weight: 700; line-height: 1.3; color: var(--text); }
+  section { margin-bottom: 32px; }
+  .section-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--purple-lt); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+  .obj-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .obj-list li { display: flex; gap: 12px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
+  .obj-list li::before { content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--purple-lt); margin-top: 7px; flex-shrink: 0; }
+  .content-topic { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 12px; }
+  .content-topic h3 { font-size: 0.95rem; font-weight: 600; color: var(--purple-lt); margin-bottom: 8px; }
+  .content-topic ul { list-style: none; padding: 0; }
+  .content-topic ul li { padding: 4px 0 4px 16px; position: relative; color: var(--muted); font-size: 0.9rem; }
+  .content-topic ul li::before { content: '—'; position: absolute; left: 0; color: var(--border); }
+  .timeline { display: flex; flex-direction: column; gap: 10px; }
+  .tl-item { display: flex; gap: 16px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; border-left: 3px solid var(--purple); }
+  .tl-duration { background: var(--surface); border: 1px solid var(--border); color: var(--amber-lt); font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+  .tl-text { font-size: 0.9rem; color: var(--text); }
+  .ref-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 10px; border-left: 3px solid var(--blue-lt); }
+  .ref-author { font-size: 0.8rem; font-weight: 700; color: var(--blue-lt); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+  .ref-title { font-size: 0.9rem; color: var(--text); }
+  .ref-pages { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
+  .activity-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; font-size: 0.9rem; line-height: 1.7; border-left: 3px solid var(--teal-lt); }
+  .resources-list { display: flex; flex-wrap: wrap; gap: 10px; }
+  .res-tag { background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; }
+  footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--muted); font-size: 0.85rem; }
+  footer a { color: var(--purple-lt); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-left">
+    <a href="../index.html">← Turma 1</a>
+    <span class="nav-badge">Aula 03</span>
+  </div>
+  <span class="nav-center">Aula 03 / 30</span>
+  <div class="nav-right">
+    <a href="aula-02.html">← Anterior</a>
+    <a href="aula-04.html">Próxima →</a>
+  </div>
+</nav>
+
+<main>
+
+  <div class="aula-header">
+    <div class="header-meta">
+      <span class="bloco-badge">Bloco I</span>
+      <span class="meta-chip">Aula 03</span>
+      <span class="meta-chip">22/04/2026 — Quarta-feira</span>
+      <span class="meta-chip">2 horas</span>
+      <span class="note-chip">21/04 — Feriado de Tiradentes (terça)</span>
+    </div>
+    <h1>O pensamento iluminista e suas influências. Modernidade e crise social.</h1>
+  </div>
+
+  <section>
+    <div class="section-title">Objetivos da Aula</div>
+    <ul class="obj-list">
+      <li>Compreender o Iluminismo como contexto intelectual que possibilitou o surgimento da Sociologia.</li>
+      <li>Identificar os princípios iluministas fundamentais: razão, progresso, liberdade e crítica da tradição.</li>
+      <li>Discutir a crise da ordem tradicional e o colapso das certezas medievais.</li>
+      <li>Relacionar modernidade e pensamento crítico como dimensões inseparáveis.</li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="section-title">Conteúdo Programático</div>
+    <div class="content-topic">
+      <h3>1. O Iluminismo: razão, ciência e crítica da tradição</h3>
+      <ul>
+        <li>A razão como instrumento de emancipação e crítica</li>
+        <li>A ciência como modelo de conhecimento legítimo</li>
+        <li>Principais pensadores iluministas e suas propostas</li>
+      </ul>
+    </div>
+    <div class="content-topic">
+      <h3>2. A ideia de progresso e o projeto moderno</h3>
+      <ul>
+        <li>A crença no progresso linear e no aperfeiçoamento humano</li>
+        <li>Universalismo, individualismo e secularização</li>
+        <li>Contradições e limites do projeto moderno</li>
+      </ul>
+    </div>
+    <div class="content-topic">
+      <h3>3. Crise da ordem medieval e novos arranjos sociais</h3>
+      <ul>
+        <li>Dissolução da ordem feudal e das certezas religiosas</li>
+        <li>Emergência do Estado-nação moderno</li>
+        <li>Novas formas de organização social, política e econômica</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Plano de Aula com Tempo</div>
+    <div class="timeline">
+      <div class="tl-item">
+        <span class="tl-duration">10 min</span>
+        <span class="tl-text"><strong>Retomada</strong> — Revisão rápida das aulas anteriores. Conexão entre a dupla revolução (Aula 02) e o contexto intelectual do Iluminismo.</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-duration">35 min</span>
+        <span class="tl-text"><strong>Exposição: Iluminismo e modernidade</strong> — Apresentação dos princípios iluministas, dos principais pensadores (Voltaire, Rousseau, Locke, Kant) e da ideia de progresso. Discussão das contradições internas do projeto moderno.</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-duration">25 min</span>
+        <span class="tl-text"><strong>Leitura e discussão de trecho de Voltaire ou Rousseau</strong> — Leitura coletiva ou individual de trecho selecionado. Discussão orientada: o que esse texto propõe? Como ele se relaciona com a crítica da tradição e a defesa da razão?</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-duration">25 min</span>
+        <span class="tl-text"><strong>Atividade: linha do tempo coletiva das transformações sociohistóricas</strong> — Em grupos, os alunos posicionam eventos históricos, pensadores e transformações sociais em uma linha do tempo coletiva construída em papel kraft (1700–1900).</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-duration">15 min</span>
+        <span class="tl-text"><strong>Síntese</strong> — O professor retoma a linha do tempo produzida e articula os eventos identificados à emergência da Sociologia como necessidade histórica.</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-duration">10 min</span>
+        <span class="tl-text"><strong>Encerramento</strong> — Indicação das leituras para a Aula 04. Esclarecimento de dúvidas.</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Textos para Leitura Prévia</div>
+    <div class="ref-card">
+      <div class="ref-author">ELIAS, Norbert</div>
+      <div class="ref-title">O processo civilizador. Vol. 1 — trechos selecionados</div>
+      <div class="ref-pages">p. 13–30</div>
+    </div>
+    <div class="ref-card">
+      <div class="ref-author">GIDDENS, Anthony</div>
+      <div class="ref-title">As consequências da modernidade. Cap. 1</div>
+      <div class="ref-pages">p. 11–37</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Atividades em Sala</div>
+    <div class="activity-card">
+      <strong>Construção coletiva de linha do tempo sociohistórica</strong><br><br>
+      Os alunos recebem tiras de papel com eventos históricos, pensadores e transformações sociais do período 1700–1900 (Revolução Francesa, Revolução Industrial, Voltaire, Rousseau, Kant, Marx, Comte, surgimento das fábricas, abolição da servidão, etc.).<br><br>
+      Em grupos, devem posicionar os itens em um papel kraft afixado na parede, construindo uma linha do tempo coletiva. A atividade estimula o reconhecimento das conexões entre contexto histórico, pensamento intelectual e transformações sociais.<br><br>
+      Ao final, o professor percorre a linha do tempo com a turma, destacando como esse conjunto de transformações criou as condições para o surgimento da Sociologia como disciplina científica.
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Recursos Necessários</div>
+    <div class="resources-list">
+      <span class="res-tag">Projetor</span>
+      <span class="res-tag">Papel kraft</span>
+      <span class="res-tag">Canetas coloridas</span>
+      <span class="res-tag">Tiras de papel com eventos impressos</span>
+      <span class="res-tag">Trechos de texto impressos</span>
+      <span class="res-tag">Fita adesiva</span>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <a href="../index.html">← Voltar para Turma 1</a>
+  <span style="margin: 0 12px; color: var(--border);">|</span>
+  <span>Introdução à Sociologia — 2026.1</span>
+</footer>
+
+</body>
+</html>

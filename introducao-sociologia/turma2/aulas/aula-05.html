@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aula 05 — Introdução à Sociologia | Turma 2</title>
+<style>
+  :root {
+    --bg: #0a0a0f; --surface: #12121c; --card: #1a1a2e; --border: #2a2a4a;
+    --purple: #7c3aed; --purple-lt: #a855f7; --blue: #4f46e5; --blue-lt: #818cf8;
+    --teal-lt: #2dd4bf; --amber-lt: #fbbf24; --rose-lt: #fb7185;
+    --text: #e2e8f0; --muted: #94a3b8; --radius: 12px;
+    --accent: var(--blue); --accent-lt: var(--blue-lt);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(18,18,28,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; white-space: nowrap; }
+  nav a:hover { color: var(--text); }
+  .nav-left { display: flex; align-items: center; gap: 10px; }
+  .nav-badge { background: var(--blue); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+  .nav-center { font-size: 0.875rem; color: var(--muted); }
+  .nav-right { display: flex; gap: 16px; align-items: center; }
+  main { max-width: 860px; margin: 0 auto; padding: 40px 24px 80px; }
+  .aula-header { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; margin-bottom: 32px; border-top: 4px solid var(--blue); }
+  .header-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; align-items: center; }
+  .bloco-badge { background: var(--blue); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .meta-chip { background: var(--surface); border: 1px solid var(--border); font-size: 0.8rem; color: var(--muted); padding: 4px 12px; border-radius: 20px; }
+  .aula-header h1 { font-size: 1.5rem; font-weight: 700; line-height: 1.3; color: var(--text); }
+  section { margin-bottom: 32px; }
+  .section-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue-lt); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+  .obj-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .obj-list li { display: flex; gap: 12px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
+  .obj-list li::before { content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--blue-lt); margin-top: 7px; flex-shrink: 0; }
+  .content-topic { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 12px; }
+  .content-topic h3 { font-size: 0.95rem; font-weight: 600; color: var(--blue-lt); margin-bottom: 8px; }
+  .content-topic ul { list-style: none; padding: 0; }
+  .content-topic ul li { padding: 4px 0 4px 16px; position: relative; color: var(--muted); font-size: 0.9rem; }
+  .content-topic ul li::before { content: '—'; position: absolute; left: 0; color: var(--border); }
+  .timeline { display: flex; flex-direction: column; gap: 10px; }
+  .tl-item { display: flex; gap: 16px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; border-left: 3px solid var(--blue); }
+  .tl-item.intervalo { border-left-color: var(--amber-lt); }
+  .tl-duration { background: var(--surface); border: 1px solid var(--border); color: var(--amber-lt); font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+  .tl-text { font-size: 0.9rem; color: var(--text); }
+  .tl-text p { font-size: 0.85rem; color: var(--muted); margin-top: 4px; }
+  .ref-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 10px; border-left: 3px solid var(--teal-lt); }
+  .ref-author { font-size: 0.8rem; font-weight: 700; color: var(--blue-lt); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+  .ref-title { font-size: 0.9rem; color: var(--text); }
+  .ref-pages { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
+  .activity-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; font-size: 0.9rem; line-height: 1.7; border-left: 3px solid var(--teal-lt); }
+  .resources-list { display: flex; flex-wrap: wrap; gap: 10px; }
+  .res-tag { background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; }
+  footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--muted); font-size: 0.85rem; }
+  footer a { color: var(--blue-lt); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-left">
+    <a href="../index.html">← Turma 2</a>
+  </div>
+  <div class="nav-center">
+    <span class="nav-badge">Aula 05 / 18</span>
+  </div>
+  <div class="nav-right">
+    <a href="aula-04.html">← Anterior</a>
+    <a href="aula-06.html">Próxima →</a>
+  </div>
+</nav>
+
+<main>
+
+  <div class="aula-header">
+    <div class="header-meta">
+      <span class="bloco-badge">Bloco II</span>
+      <span class="meta-chip">11/05/2026 — Segunda-feira — noite</span>
+      <span class="meta-chip">3h20 (4 × 50 min SIGAA)</span>
+    </div>
+    <h1>Durkheim: divisão do trabalho social, anomia e método sociológico. O suicídio como estudo de caso.</h1>
+  </div>
+
+  <section>
+    <div class="section-title">Objetivos da Aula</div>
+    <ul class="obj-list">
+      <li>Compreender solidariedade mecânica e orgânica e sua relação com a divisão do trabalho.</li>
+      <li>Analisar o conceito de anomia e suas formas (anomia por divisão do trabalho anômico e forçado).</li>
+      <li>Entender o método sociológico durkheimiano aplicado em <em>O suicídio</em>.</li>
+      <li>Relacionar anomia com patologias sociais contemporâneas (isolamento, pandemia, redes sociais).</li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="section-title">Conteúdo Programático</div>
+    <div class="content-topic">
+      <h3>1. Da divisão do trabalho social</h3>
+      <ul>
+        <li>Solidariedade mecânica: sociedades simples, homogeneidade, consciência coletiva forte</li>
+        <li>Solidariedade orgânica: sociedades complexas, diferenciação, interdependência</li>
+        <li>Divisão do trabalho como base da coesão social moderna</li>
+      </ul>
+    </div>
+    <div class="content-topic">
+      <h3>2. Anomia</h3>
+      <ul>
+        <li>Conceito: ausência de regulação normativa sobre os indivíduos</li>
+        <li>Anomia por divisão do trabalho anômico (conflito industrial) e forçado (desigualdade injusta)</li>
+        <li>Anomia como patologia social — desequilíbrio entre aspirações e meios</li>
+      </ul>
+    </div>
+    <div class="content-topic">
+      <h3>3. O suicídio como paradigma</h3>
+      <ul>
+        <li>Tipos: egoísta, altruísta, anômico, fatalista</li>
+        <li>Variáveis sociais (religião, estado civil, integração) explicando fenômeno individual</li>
+        <li>Importância metodológica: uso de estatísticas para revelar causas sociais</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Plano de Aula — 200 min</div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-duration">15 min</div>
+        <div class="tl-text"><strong>Revisão da aula anterior</strong>
+          <p>Retomada dos conceitos de fato social e consciência coletiva; dúvidas dos estudantes.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-duration">40 min</div>
+        <div class="tl-text"><strong>Exposição: divisão do trabalho e solidariedade</strong>
+          <p>Solidariedade mecânica e orgânica; divisão do trabalho como fundamento da coesão; formas normais e patológicas.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-duration">35 min</div>
+        <div class="tl-text"><strong>Exposição: anomia</strong>
+          <p>Conceito de anomia; tipos; manifestações contemporâneas — isolamento, crise pós-pandemia, redes sociais e desregulação normativa.</p>
+        </div>
+      </div>
+      <div class="tl-item intervalo">
+        <div class="tl-duration">10 min</div>
+        <div class="tl-text"><strong>Intervalo</strong></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-duration">40 min</div>
+        <div class="tl-text"><strong>Análise de dados: Durkheim e <em>O suicídio</em></strong>
+          <p>Grupos analisam tabela com taxas de suicídio por religião e estado civil; aplicam tipologia durkheimiana para interpretar padrões.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-duration">40 min</div>
+        <div class="tl-text"><strong>Discussão: anomia contemporânea</strong>
+          <p>Debate sobre isolamento, impactos da pandemia e redes sociais como formas de anomia no século XXI.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-duration">20 min</div>
+        <div class="tl-text"><strong>Síntese e encaminhamentos</strong>
+          <p>Sistematização do pensamento durkheimiano; limites e contribuições; antecipação da próxima aula (Marx).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Textos para Leitura Prévia</div>
+    <div class="ref-card">
+      <div class="ref-author">DURKHEIM, Émile</div>
+      <div class="ref-title"><em>Da divisão do trabalho social</em>, Livro I, cap. 3.</div>
+    </div>
+    <div class="ref-card">
+      <div class="ref-author">DURKHEIM, Émile</div>
+      <div class="ref-title"><em>O suicídio</em>, introdução e Livro II, cap. 1.</div>
+    </div>
+    <div class="ref-card">
+      <div class="ref-author">QUINTANEIRO, Tania et al.</div>
+      <div class="ref-title"><em>Um toque de clássicos</em>.</div>
+      <div class="ref-pages">p. 25–42</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Atividade em Sala</div>
+    <div class="activity-card">
+      <p><strong>Análise de dados sobre suicídio com método durkheimiano</strong></p>
+      <p>Grupos recebem tabelas com taxas de suicídio desagregadas por religião e estado civil. A partir dos dados: (1) identificam padrões; (2) aplicam a tipologia durkheimiana (egoísta, altruísta, anômico); (3) formulam hipóteses sociológicas. Apresentação e síntese coletiva.</p>
+      <p>Na sequência, debate sobre anomia na contemporaneidade: como isolamento, pandemia e redes sociais se traduzem em ausência de regulação normativa?</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Recursos Necessários</div>
+    <div class="resources-list">
+      <span class="res-tag">Projetor e computador</span>
+      <span class="res-tag">Tabelas de dados (suicídio por religião/estado civil)</span>
+      <span class="res-tag">Fichas de análise para grupos</span>
+      <span class="res-tag">Textos impressos de Durkheim</span>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p><a href="../index.html">← Voltar para Turma 2</a></p>
+  <p style="margin-top: 8px;">Introdução à Sociologia — 2026.1</p>
+</footer>
+
+</body>
+</html>

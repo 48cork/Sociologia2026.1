@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aula 13 — Introdução à Sociologia | Turma 2</title>
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #12121c;
+    --card: #1a1a2e;
+    --border: #2a2a4a;
+    --purple: #7c3aed;
+    --purple-lt: #a855f7;
+    --blue: #4f46e5;
+    --blue-lt: #818cf8;
+    --teal-lt: #2dd4bf;
+    --amber-lt: #fbbf24;
+    --rose-lt: #fb7185;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --radius: 12px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; }
+
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0.75rem 1.5rem; gap: 1rem;
+  }
+  nav a { color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; white-space: nowrap; }
+  nav a:hover { color: var(--text); }
+  .nav-badge {
+    background: var(--card); border: 1px solid var(--border);
+    padding: 0.35rem 1rem; border-radius: 999px;
+    font-size: 0.85rem; font-weight: 600; color: var(--text);
+    white-space: nowrap;
+  }
+  .nav-links { display: flex; gap: 1rem; align-items: center; }
+  .nav-left { min-width: 120px; }
+  .nav-right { min-width: 120px; display: flex; justify-content: flex-end; }
+
+  header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 2.5rem 1.5rem 2rem;
+    text-align: center;
+  }
+  .bloco-badge {
+    display: inline-block;
+    background: var(--purple);
+    color: #fff;
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 0.3rem 0.9rem; border-radius: 999px; margin-bottom: 1rem;
+  }
+  header h1 { font-size: 1.9rem; font-weight: 700; margin-bottom: 0.5rem; }
+  header .meta { color: var(--muted); font-size: 0.95rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem 1.5rem; margin-top: 0.75rem; }
+  header .meta span { display: flex; align-items: center; gap: 0.35rem; }
+
+  main { max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+
+  section { margin-bottom: 2.5rem; }
+  section h2 {
+    font-size: 1.05rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--purple-lt);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.5rem; margin-bottom: 1.25rem;
+  }
+
+  .card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 1.25rem 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  ul.objectives { list-style: none; }
+  ul.objectives li {
+    padding: 0.55rem 0 0.55rem 1.5rem; position: relative;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.97rem;
+  }
+  ul.objectives li:last-child { border-bottom: none; }
+  ul.objectives li::before { content: '→'; position: absolute; left: 0; color: var(--purple-lt); font-weight: 700; }
+
+  .content-block { margin-bottom: 1rem; }
+  .content-block h3 { font-size: 0.95rem; font-weight: 600; color: var(--purple-lt); margin-bottom: 0.4rem; }
+  ul.sub { list-style: none; padding-left: 1rem; }
+  ul.sub li { position: relative; padding-left: 1rem; color: var(--muted); font-size: 0.9rem; margin-bottom: 0.2rem; }
+  ul.sub li::before { content: '·'; position: absolute; left: 0; color: var(--border); }
+
+  .timeline { display: flex; flex-direction: column; gap: 0; }
+  .tl-item {
+    display: flex; gap: 1rem; align-items: flex-start;
+    position: relative; padding-bottom: 1rem;
+  }
+  .tl-item:last-child { padding-bottom: 0; }
+  .tl-item::before {
+    content: ''; position: absolute; left: 49px; top: 32px; bottom: 0;
+    width: 2px; background: var(--border);
+  }
+  .tl-item:last-child::before { display: none; }
+  .tl-time {
+    min-width: 60px; text-align: right;
+    font-size: 0.8rem; font-weight: 700; color: var(--amber-lt);
+    padding-top: 0.3rem; white-space: nowrap;
+  }
+  .tl-dot {
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--purple); border: 2px solid var(--purple-lt);
+    margin-top: 0.4rem; flex-shrink: 0;
+    position: relative; z-index: 1;
+  }
+  .tl-dot.intervalo { background: var(--amber-lt); border-color: var(--amber-lt); }
+  .tl-content { flex: 1; }
+  .tl-content strong { font-size: 0.95rem; display: block; }
+  .tl-content p { font-size: 0.88rem; color: var(--muted); margin-top: 0.2rem; }
+
+  .text-ref {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 0.9rem 1.25rem;
+    margin-bottom: 0.6rem; font-size: 0.92rem;
+  }
+  .text-ref .author { font-weight: 700; color: var(--blue-lt); }
+
+  .activity-card {
+    background: var(--card); border: 1px solid var(--purple);
+    border-radius: var(--radius); padding: 1.25rem 1.5rem;
+  }
+  .activity-card p { font-size: 0.95rem; margin-bottom: 0.5rem; }
+  .activity-card p:last-child { margin-bottom: 0; }
+
+  ul.resources { list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  ul.resources li {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 999px; padding: 0.3rem 0.9rem; font-size: 0.85rem; color: var(--muted);
+  }
+
+  footer {
+    text-align: center; padding: 2rem 1rem;
+    border-top: 1px solid var(--border);
+    color: var(--muted); font-size: 0.85rem;
+  }
+  footer a { color: var(--purple-lt); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-left">
+    <a href="../index.html">← Turma 2</a>
+  </div>
+  <div class="nav-badge">Aula 13 / 18</div>
+  <div class="nav-right nav-links">
+    <a href="aula-12.html">← Anterior</a>
+    <a href="aula-14.html">Próxima →</a>
+  </div>
+</nav>
+
+<header>
+  <div class="bloco-badge">Bloco IV — Sociedade, Cultura e Socialização</div>
+  <h1>Desvio social, controle social e normas</h1>
+  <div class="meta">
+    <span>📅 06/07/2026 &nbsp;·&nbsp; Segunda-feira</span>
+    <span>⏱ 3h20 (4 × 50 min)</span>
+    <span>Aula 13 de 18</span>
+  </div>
+</header>
+
+<main>
+
+  <section>
+    <h2>Objetivos da Aula</h2>
+    <div class="card">
+      <ul class="objectives">
+        <li>Definir desvio social como conceito relacional e histórico, não como atributo natural do indivíduo.</li>
+        <li>Apresentar as principais teorias do desvio: anomia em Durkheim e teoria da rotulação em Becker.</li>
+        <li>Identificar mecanismos de controle social formal (leis, polícia, justiça) e informal (família, vizinhança, opinião pública).</li>
+        <li>Problematizar a normalização do desvio e seus usos ideológicos na manutenção da ordem social.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Conteúdo Programático</h2>
+    <div class="card">
+      <div class="content-block">
+        <h3>1. Desvio social como conceito relacional</h3>
+        <ul class="sub">
+          <li>O que é "normal"? A norma como produto social e histórico</li>
+          <li>Desvio não é uma qualidade do ato, mas da reação da sociedade</li>
+          <li>Relatividade histórica e cultural do desvio</li>
+        </ul>
+      </div>
+      <div class="content-block">
+        <h3>2. Teorias do desvio</h3>
+        <ul class="sub">
+          <li>Durkheim: anomia como desregulação normativa</li>
+          <li>Becker: teoria da rotulação (labeling theory) — quem define o desviante?</li>
+          <li>Outsiders: o papel do "empreendedor moral" na criação de regras</li>
+        </ul>
+      </div>
+      <div class="content-block">
+        <h3>3. Controle social</h3>
+        <ul class="sub">
+          <li>Controle formal: sistema jurídico, polícia, prisão, manicômio</li>
+          <li>Controle informal: família, escola, religião, gossip, exclusão social</li>
+          <li>Foucault e a disciplina dos corpos (menção introdutória)</li>
+        </ul>
+      </div>
+      <div class="content-block">
+        <h3>4. Desvio, poder e ideologia</h3>
+        <ul class="sub">
+          <li>A quem serve a definição do "desviante"?</li>
+          <li>Criminalização seletiva: raça, classe e desvio no Brasil</li>
+          <li>Desvio como resistência e contestação social</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Plano de Aula com Tempo</h2>
+    <div class="card">
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-time">15 min</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <strong>Abertura provocativa</strong>
+            <p>O professor apresenta três casos: tatuagem em 1970, homossexualidade antes da despatologização, greve operária no século XIX. Pergunta: eram "desvios"? Por quê?</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">45 min</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <strong>Exposição: desvio, norma e teorias clássicas</strong>
+            <p>Conceito de desvio como construção social; anomia em Durkheim; teoria da rotulação de Becker; o papel dos empreendedores morais.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">40 min</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <strong>Exposição: controle social e ideologia</strong>
+            <p>Formas de controle formal e informal; criminalização seletiva no Brasil; desvio como forma de resistência.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">10 min</div>
+          <div class="tl-dot intervalo"></div>
+          <div class="tl-content">
+            <strong>Intervalo</strong>
+            <p></p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">70 min</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <strong>Atividade: análise de casos de "desvio"</strong>
+            <p>A turma discute casos de comportamento classificado como "desviante" e reflete sobre quem define as normas, em que contexto e com que interesses. Apresentação das análises para a turma.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">20 min</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <strong>Síntese e encerramento</strong>
+            <p>Sistematização dos conceitos; orientações para a leitura prévia da próxima aula.</p>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:1rem; padding-top:1rem; border-top:1px solid var(--border); font-size:0.85rem; color:var(--amber-lt); font-weight:600;">
+        Total: 200 min (3h20)
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Textos para Leitura Prévia</h2>
+    <div class="text-ref">
+      <span class="author">GIDDENS, Anthony.</span> <em>Sociologia.</em> Cap. 5 (Conformidade e desvio), p. 142–165.
+    </div>
+    <div class="text-ref">
+      <span class="author">BECKER, Howard S.</span> <em>Outsiders: estudos de sociologia do desvio.</em> Cap. 1, p. 15–35.
+    </div>
+  </section>
+
+  <section>
+    <h2>Atividades em Sala</h2>
+    <div class="activity-card">
+      <p><strong>Análise de casos de comportamento classificado como "desviante"</strong></p>
+      <p>A turma é dividida em grupos de 4–5 alunos. Cada grupo recebe um caso concreto de comportamento que foi (ou é) classificado como "desviante" em determinado contexto: por exemplo, greve operária no século XIX, uso de maconha, homossexualidade, sem-teto em centros urbanos, protesto político.</p>
+      <p>Os grupos devem responder: (1) Quem define esse comportamento como desviante? (2) Em que contexto histórico e social? (3) Quais mecanismos de controle social foram/são acionados? (4) Esse comportamento poderia ser visto como resistência? Por quê?</p>
+      <p>Cada grupo apresenta sua análise em 5 minutos. O professor sistematiza as respostas articulando com as teorias de Becker e Durkheim e com a questão do poder na definição das normas.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Recursos Necessários</h2>
+    <ul class="resources">
+      <li>Projetor e slides</li>
+      <li>Fichas com os casos para análise</li>
+      <li>Lousa para síntese</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  <p><a href="../index.html">← Voltar para Turma 2</a></p>
+  <p style="margin-top:0.5rem;">Introdução à Sociologia · Turma 2 · 2026.1</p>
+</footer>
+
+</body>
+</html>

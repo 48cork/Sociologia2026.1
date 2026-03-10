@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aula 05 — Introdução à Sociologia | Turma 1</title>
+<style>
+  :root {
+    --bg: #0a0a0f; --surface: #12121c; --card: #1a1a2e; --border: #2a2a4a;
+    --purple: #7c3aed; --purple-lt: #a855f7; --blue: #4f46e5; --blue-lt: #818cf8;
+    --teal-lt: #2dd4bf; --amber-lt: #fbbf24; --rose-lt: #fb7185;
+    --text: #e2e8f0; --muted: #94a3b8; --radius: 12px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(18,18,28,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; white-space: nowrap; }
+  nav a:hover { color: var(--text); }
+  .nav-left { display: flex; align-items: center; gap: 10px; }
+  .nav-badge { background: var(--purple); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+  .nav-center { font-size: 0.875rem; color: var(--muted); }
+  .nav-right { display: flex; gap: 16px; align-items: center; }
+  main { max-width: 860px; margin: 0 auto; padding: 40px 24px 80px; }
+  .aula-header { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; margin-bottom: 32px; border-top: 4px solid var(--purple); }
+  .header-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; align-items: center; }
+  .bloco-badge { background: var(--purple); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .meta-chip { background: var(--surface); border: 1px solid var(--border); font-size: 0.8rem; color: var(--muted); padding: 4px 12px; border-radius: 20px; }
+  .aula-header h1 { font-size: 1.5rem; font-weight: 700; line-height: 1.3; color: var(--text); }
+  section { margin-bottom: 32px; }
+  .section-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--purple-lt); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+  .obj-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .obj-list li { display: flex; gap: 12px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
+  .obj-list li::before { content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--purple-lt); margin-top: 7px; flex-shrink: 0; }
+  .content-topic { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 12px; }
+  .content-topic h3 { font-size: 0.95rem; font-weight: 600; color: var(--purple-lt); margin-bottom: 8px; }
+  .content-topic ul { list-style: none; padding: 0; }
+  .content-topic ul li { padding: 4px 0 4px 16px; position: relative; color: var(--muted); font-size: 0.9rem; }
+  .content-topic ul li::before { content: '—'; position: absolute; left: 0; color: var(--border); }
+  .timeline { display: flex; flex-direction: column; gap: 10px; }
+  .tl-item { display: flex; gap: 16px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; border-left: 3px solid var(--purple); }
+  .tl-duration { background: var(--surface); border: 1px solid var(--border); color: var(--amber-lt); font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+  .tl-text { font-size: 0.9rem; color: var(--text); }
+  .ref-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 10px; border-left: 3px solid var(--blue-lt); }
+  .ref-author { font-size: 0.8rem; font-weight: 700; color: var(--blue-lt); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+  .ref-title { font-size: 0.9rem; color: var(--text); }
+  .ref-pages { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
+  .activity-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; font-size: 0.9rem; line-height: 1.7; border-left: 3px solid var(--teal-lt); }
+  .resources-list { display: flex; flex-wrap: wrap; gap: 10px; }
+  .res-tag { background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; }
+  footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--muted); font-size: 0.85rem; }
+  footer a { color: var(--purple-lt); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-left">
+    <a href="../index.html">← Turma 1</a>
+    <span class="nav-badge">Aula 05</span>
+  </div>
+  <span class="nav-center">Aula 05 / 30</span>
+  <div class="nav-right">
+    <a href="aula-04.html">← Anterior</a>
+    <a href="aula-06.html">Próxima →</a>
+  </div>
+</nav>
+
+<main>
+
+  <div class="aula-header">
+    <div class="header-meta">
+      <span class="bloco-badge">Bloco I</span>
+      <span class="meta-chip">Aula 05</span>
+      <span class="meta-chip">29/04/2026 — Quarta-feira</span>
+      <span class="meta-chip">2 horas</span>
+    </div>
+    <h1>A Sociologia como disciplina acadêmica: objeto, método e especificidade científica.</h1>
+  </div>
+
+  <section>
+    <div class="section-title">Objetivos da Aula</div>
+    <ul class="obj-list">
+      <li>Definir o objeto específico da Sociologia: estruturas, relações e processos sociais.</li>
+      <li>Compreender os principais métodos sociológicos e suas lógicas de aplicação.</li>
+      <li>Diferenciar a Sociologia de outras ciências sociais afins (Antropologia, Ciência Política, Psicologia Social).</li>
+      <li>Apresentar a especificidade do olhar sociológico e o conceito de "imaginação sociológica".</li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="section-title">Conteúdo Programático</div>
+    <div class="content-topic">
+      <h3>1. O objeto da Sociologia: estruturas, relações e processos sociais</h3>
+      <ul>
+        <li>O social como objeto: o que torna algo um fenômeno sociológico?</li>
+        <li>Estruturas sociais, instituições e relações de poder</li>
+        <li>A imaginação sociológica: articular biografia e história</li>
+      </ul>
+    </div>
+    <div class="content-topic">
+      <h3>2. Métodos sociológicos</h3>
+      <ul>
+        <li>Observação participante e etnografia</li>
+        <li>Entrevista, análise documental e survey</li>
+        <li>Pesquisa quantitativa x qualitativa: complementaridade e tensões</li>
+      </ul>
+    </div>
+    <div class="content-topic">
+      <h3>3. Sociologia e suas vizinhas: Antropologia, Ciência Política, Psicologia Social</h3>
+      <ul>
+        <li>Objetos, métodos e tradições distintas</li>
+        <li>Fronteiras porosas e diálogos interdisciplinares</li>
+        <li>O lugar da Sociologia no campo das ciências sociais</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Plano de Aula com Tempo</div>
+    <div class="timeline">
+      <div class="tl-item">
+        <span class="tl-duration">10 min</span>
+        <span class="tl-text"><strong>Retomada</strong> — Revisão dos autores fundadores (Comte, Spencer). Conexão com a consolidação da Sociologia como disciplina autônoma.</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-duration">35 min</span>
+        <span class="tl-text"><strong>Exposição: objeto e método da Sociologia</strong> — Apresentação do objeto específico, da imaginação sociológica (Mills) e dos principais métodos de investigação sociológica. Exemplos de pesquisas clássicas e contemporâneas.</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-duration">20 min</span>
+        <span class="tl-text"><strong>Análise de um estudo sociológico clássico (resumo)</strong> — Leitura comentada de um resumo de estudo clássico (ex.: estudo de comunidade, pesquisa de estratificação). O professor demonstra como o olhar sociológico opera na prática.</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-duration">30 min</span>
+        <span class="tl-text"><strong>Atividade: identificação de objetos de pesquisa sociológica em manchetes de jornal</strong> — Os alunos recebem 5 manchetes de jornal e devem identificar o fenômeno social, formular uma questão sociológica e propor o método adequado.</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-duration">15 min</span>
+        <span class="tl-text"><strong>Discussão coletiva</strong> — Socialização das questões e métodos propostos. O professor comenta e aprofunda as escolhas metodológicas.</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-duration">10 min</span>
+        <span class="tl-text"><strong>Síntese do Bloco I e preparação para o Bloco II</strong> — Recapitulação dos temas do Bloco I. Antecipação do Bloco II: os clássicos da Sociologia (Durkheim, Marx, Weber).</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Textos para Leitura Prévia</div>
+    <div class="ref-card">
+      <div class="ref-author">MILLS, C. Wright</div>
+      <div class="ref-title">A imaginação sociológica. Cap. 1</div>
+      <div class="ref-pages">p. 9–28</div>
+    </div>
+    <div class="ref-card">
+      <div class="ref-author">BECKER, Howard</div>
+      <div class="ref-title">Métodos de pesquisa em ciências sociais. Cap. 1</div>
+      <div class="ref-pages">p. 11–30</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Atividades em Sala</div>
+    <div class="activity-card">
+      <strong>Sociologia nas manchetes: do fato ao problema sociológico</strong><br><br>
+      Os alunos recebem 5 manchetes de jornal selecionadas pelo professor, abrangendo temas variados (violência, trabalho, desigualdade, saúde pública, tecnologia). Para cada manchete, devem realizar três operações:<br><br>
+      <strong>(1) Identificar o fenômeno social:</strong> O que está acontecendo? Quem são os sujeitos envolvidos? Qual é o contexto?<br><br>
+      <strong>(2) Formular uma questão sociológica:</strong> Transformar a notícia em uma pergunta de pesquisa que vá além do evento pontual, buscando padrões, causas estruturais ou consequências sociais.<br><br>
+      <strong>(3) Propor o método adequado:</strong> Justificar qual abordagem metodológica seria mais adequada para investigar a questão formulada (entrevistas, etnografia, survey, análise documental, etc.).<br><br>
+      A atividade exercita a "imaginação sociológica" no sentido millsiano: a capacidade de articular experiências individuais a estruturas sociais mais amplas.
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Recursos Necessários</div>
+    <div class="resources-list">
+      <span class="res-tag">Projetor</span>
+      <span class="res-tag">Manchetes de jornal impressas</span>
+      <span class="res-tag">Quadro branco</span>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <a href="../index.html">← Voltar para Turma 1</a>
+  <span style="margin: 0 12px; color: var(--border);">|</span>
+  <span>Introdução à Sociologia — 2026.1</span>
+</footer>
+
+</body>
+</html>

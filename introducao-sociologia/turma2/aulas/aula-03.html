@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aula 03 — Introdução à Sociologia | Turma 2</title>
+<style>
+  :root {
+    --bg: #0a0a0f; --surface: #12121c; --card: #1a1a2e; --border: #2a2a4a;
+    --purple: #7c3aed; --purple-lt: #a855f7; --blue: #4f46e5; --blue-lt: #818cf8;
+    --teal-lt: #2dd4bf; --amber-lt: #fbbf24; --rose-lt: #fb7185;
+    --text: #e2e8f0; --muted: #94a3b8; --radius: 12px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; }
+  nav { position: sticky; top: 0; z-index: 100; background: var(--surface); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0.75rem 1.5rem; gap: 1rem; }
+  nav a { color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; white-space: nowrap; }
+  nav a:hover { color: var(--text); }
+  .nav-badge { background: var(--card); border: 1px solid var(--border); padding: 0.35rem 1rem; border-radius: 999px; font-size: 0.85rem; font-weight: 600; color: var(--text); white-space: nowrap; }
+  .nav-left { min-width: 120px; }
+  .nav-right { min-width: 120px; display: flex; justify-content: flex-end; gap: 1rem; }
+  header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 2.5rem 1.5rem 2rem; text-align: center; }
+  .bloco-badge { display: inline-block; background: var(--purple); color: #fff; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.3rem 0.9rem; border-radius: 999px; margin-bottom: 1rem; }
+  header h1 { font-size: 1.9rem; font-weight: 700; margin-bottom: 0.5rem; }
+  header .meta { color: var(--muted); font-size: 0.95rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem 1.5rem; margin-top: 0.75rem; }
+  main { max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  section { margin-bottom: 2.5rem; }
+  section h2 { font-size: 1.05rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--purple-lt); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-bottom: 1.25rem; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin-bottom: 0.75rem; }
+  ul.objectives { list-style: none; }
+  ul.objectives li { padding: 0.55rem 0 0.55rem 1.5rem; position: relative; border-bottom: 1px solid var(--border); font-size: 0.97rem; }
+  ul.objectives li:last-child { border-bottom: none; }
+  ul.objectives li::before { content: '→'; position: absolute; left: 0; color: var(--purple-lt); font-weight: 700; }
+  .content-block { margin-bottom: 1rem; }
+  .content-block h3 { font-size: 0.95rem; font-weight: 600; color: var(--purple-lt); margin-bottom: 0.4rem; }
+  ul.sub { list-style: none; padding-left: 1rem; }
+  ul.sub li { position: relative; padding-left: 1rem; color: var(--muted); font-size: 0.9rem; margin-bottom: 0.2rem; }
+  ul.sub li::before { content: '·'; position: absolute; left: 0; color: var(--border); }
+  .timeline { display: flex; flex-direction: column; gap: 0; }
+  .tl-item { display: flex; gap: 1rem; align-items: flex-start; position: relative; padding-bottom: 1rem; }
+  .tl-item:last-child { padding-bottom: 0; }
+  .tl-item::before { content: ''; position: absolute; left: 49px; top: 32px; bottom: 0; width: 2px; background: var(--border); }
+  .tl-item:last-child::before { display: none; }
+  .tl-time { min-width: 60px; text-align: right; font-size: 0.8rem; font-weight: 700; color: var(--amber-lt); padding-top: 0.3rem; white-space: nowrap; }
+  .tl-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--purple); border: 2px solid var(--purple-lt); margin-top: 0.4rem; flex-shrink: 0; position: relative; z-index: 1; }
+  .tl-dot.intervalo { background: var(--amber-lt); border-color: var(--amber-lt); }
+  .tl-content { flex: 1; }
+  .tl-content strong { font-size: 0.95rem; display: block; }
+  .tl-content p { font-size: 0.88rem; color: var(--muted); margin-top: 0.2rem; }
+  .text-ref { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 0.9rem 1.25rem; margin-bottom: 0.6rem; font-size: 0.92rem; }
+  .text-ref .author { font-weight: 700; color: var(--blue-lt); }
+  .activity-card { background: var(--card); border: 1px solid var(--purple); border-radius: var(--radius); padding: 1.25rem 1.5rem; }
+  .activity-card p { font-size: 0.95rem; margin-bottom: 0.5rem; }
+  .activity-card p:last-child { margin-bottom: 0; }
+  ul.resources { list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  ul.resources li { background: var(--card); border: 1px solid var(--border); border-radius: 999px; padding: 0.3rem 0.9rem; font-size: 0.85rem; color: var(--muted); }
+  footer { text-align: center; padding: 2rem 1rem; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.85rem; }
+  footer a { color: var(--purple-lt); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-left"><a href="../index.html">← Turma 2</a></div>
+  <div class="nav-badge">Aula 03 / 18</div>
+  <div class="nav-right">
+    <a href="aula-02.html">← Anterior</a>
+    <a href="aula-04.html">Próxima →</a>
+  </div>
+</nav>
+
+<header>
+  <div class="bloco-badge">Bloco I — Origem e Identidade Científica</div>
+  <h1>Spencer, Evolucionismo e Objeto da Sociologia</h1>
+  <div class="meta">
+    <span>📅 27/04/2026 &nbsp;·&nbsp; Segunda-feira</span>
+    <span>⏱ 3h20 (4 × 50 min)</span>
+    <span>Aula 03 de 18</span>
+  </div>
+</header>
+
+<main>
+
+  <section>
+    <h2>Objetivos da Aula</h2>
+    <div class="card">
+      <ul class="objectives">
+        <li>Apresentar o pensamento de Herbert Spencer e o evolucionismo social.</li>
+        <li>Discutir os limites e problemas do evolucionismo social e do darwinismo social.</li>
+        <li>Definir o objeto específico da Sociologia como disciplina científica.</li>
+        <li>Compreender os principais métodos sociológicos e distinguir a Sociologia de suas disciplinas vizinhas.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Conteúdo Programático</h2>
+    <div class="card">
+      <div class="content-block">
+        <h3>1. Spencer: evolucionismo, organicismo e seleção social</h3>
+        <ul class="sub">
+          <li>Analogia orgânica: sociedade como organismo vivo</li>
+          <li>Evolução social: do simples ao complexo, do homogêneo ao heterogêneo</li>
+          <li>"Sobrevivência do mais apto" aplicada à sociedade</li>
+        </ul>
+      </div>
+      <div class="content-block">
+        <h3>2. Críticas ao evolucionismo e ao darwinismo social</h3>
+        <ul class="sub">
+          <li>Naturalização das desigualdades sociais</li>
+          <li>Etnocentrismo e hierarquia entre povos</li>
+          <li>Usos políticos do evolucionismo: eugenismo e colonialismo</li>
+        </ul>
+      </div>
+      <div class="content-block">
+        <h3>3. Objeto e método da Sociologia</h3>
+        <ul class="sub">
+          <li>O social como objeto irredutível ao biológico ou psicológico</li>
+          <li>Métodos: pesquisa empírica, método histórico-comparativo, etnografia</li>
+        </ul>
+      </div>
+      <div class="content-block">
+        <h3>4. Sociologia e suas vizinhas disciplinares</h3>
+        <ul class="sub">
+          <li>Sociologia, Antropologia, Ciência Política, Economia, Psicologia Social</li>
+          <li>Fronteiras e colaborações interdisciplinares</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Plano de Aula com Tempo</h2>
+    <div class="card">
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-time">15 min</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <strong>Retomada da aula anterior</strong>
+            <p>Revisão do positivismo e da lei dos três estados de Comte; perguntas e dúvidas; conexão com o tema de hoje.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">40 min</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <strong>Exposição: Spencer e o evolucionismo</strong>
+            <p>Analogia orgânica; evolução do simples ao complexo; "sobrevivência do mais apto"; diferença entre Darwin e Spencer; contexto colonial e imperialista.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">30 min</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <strong>Debate: "O que há de problemático no darwinismo social?"</strong>
+            <p>Turma dividida em grupos: um defende a perspectiva evolucionista (como era argumentada na época) e o outro aponta os problemas. Mediação e síntese pelo docente.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">10 min</div>
+          <div class="tl-dot intervalo"></div>
+          <div class="tl-content">
+            <strong>Intervalo</strong>
+            <p></p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">40 min</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <strong>Exposição: objeto e método da Sociologia</strong>
+            <p>O social como objeto irredutível; principais métodos sociológicos; como a Sociologia se distingue da Biologia, Psicologia e Filosofia social.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">35 min</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <strong>Atividade: identificação de objetos sociológicos em manchetes</strong>
+            <p>Grupos recebem 5 manchetes de jornal, formulam uma questão sociológica para cada uma e propõem o método mais adequado para investigá-la.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">30 min</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <strong>Síntese do Bloco I</strong>
+            <p>Recapitulação de Comte, Spencer e a identidade científica da Sociologia; apresentação do mapa conceitual do Bloco I; indicação das leituras para o Bloco II.</p>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:1rem; padding-top:1rem; border-top:1px solid var(--border); font-size:0.85rem; color:var(--amber-lt); font-weight:600;">
+        Total: 200 min (3h20)
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Textos para Leitura Prévia</h2>
+    <div class="text-ref">
+      <span class="author">QUINTANEIRO, Tania; BARBOSA, Maria Ligia; OLIVEIRA, Márcia Gardênia.</span> <em>Um toque de clássicos.</em> Cap. sobre Spencer.
+    </div>
+    <div class="text-ref">
+      <span class="author">MILLS, C. Wright.</span> <em>A imaginação sociológica.</em> Cap. 1, p. 9–28.
+    </div>
+  </section>
+
+  <section>
+    <h2>Atividades em Sala</h2>
+    <div class="activity-card">
+      <p><strong>Manchetes de jornal: questões e métodos sociológicos</strong></p>
+      <p>Cada grupo recebe 5 manchetes de jornais (nacionais e internacionais) cobrindo temas variados: violência urbana, desemprego, religião, eleições, meio ambiente. Para cada manchete, o grupo deve:</p>
+      <p>(1) Reformular a manchete como uma questão sociológica (ex.: "Por que...?"; "Como...?"; "Quais fatores explicam...?"); (2) Identificar qual método sociológico seria mais adequado para investigar a questão (survey, etnografia, análise documental, método comparativo); (3) Distinguir se a questão envolve fenômenos individuais ou propriamente sociais.</p>
+      <p>Ao final, cada grupo apresenta uma manchete e sua análise para a turma. O docente conduz a síntese, reforçando o que distingue a Sociologia de uma leitura jornalística ou de senso comum.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Recursos Necessários</h2>
+    <ul class="resources">
+      <li>Projetor e computador</li>
+      <li>Manchetes de jornal impressas (5 por grupo)</li>
+      <li>Mapa conceitual do Bloco I (para projeção)</li>
+      <li>Slides de apresentação</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  <p><a href="../index.html">← Voltar para Turma 2</a></p>
+  <p style="margin-top:0.5rem;">Introdução à Sociologia · Turma 2 · 2026.1</p>
+</footer>
+
+</body>
+</html>

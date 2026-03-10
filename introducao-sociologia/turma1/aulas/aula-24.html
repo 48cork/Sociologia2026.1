@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aula 24 — Introdução à Sociologia | Turma 1</title>
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #12121c;
+    --card: #1a1a2e;
+    --border: #2a2a4a;
+    --purple: #7c3aed;
+    --purple-lt: #a855f7;
+    --blue: #4f46e5;
+    --blue-lt: #818cf8;
+    --teal-lt: #2dd4bf;
+    --amber-lt: #fbbf24;
+    --rose-lt: #fb7185;
+    --violet: #c084fc;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --radius: 12px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
+
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(18,18,28,0.95); backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px; height: 56px;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  }
+  nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; white-space: nowrap; }
+  nav a:hover { color: var(--text); }
+  .nav-left { display: flex; align-items: center; gap: 10px; }
+  .nav-badge { background: var(--violet); color: #0a0a0f; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+  .nav-center { font-size: 0.875rem; color: var(--muted); }
+  .nav-right { display: flex; gap: 16px; align-items: center; }
+
+  main { max-width: 860px; margin: 0 auto; padding: 40px 24px 80px; }
+
+  .aula-header {
+    background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 32px; margin-bottom: 32px;
+    border-top: 4px solid var(--violet);
+  }
+  .header-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; align-items: center; }
+  .bloco-badge { background: var(--violet); color: #0a0a0f; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .meta-chip { background: var(--surface); border: 1px solid var(--border); font-size: 0.8rem; color: var(--muted); padding: 4px 12px; border-radius: 20px; }
+  .aula-header h1 { font-size: 1.5rem; font-weight: 700; line-height: 1.3; color: var(--text); }
+
+  section { margin-bottom: 32px; }
+  .section-title {
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--violet); margin-bottom: 16px; padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .obj-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .obj-list li { display: flex; gap: 12px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
+  .obj-list li::before { content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--violet); margin-top: 7px; flex-shrink: 0; }
+
+  .content-topic { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 12px; }
+  .content-topic h3 { font-size: 0.95rem; font-weight: 600; color: var(--violet); margin-bottom: 8px; }
+  .content-topic ul { list-style: none; padding: 0; }
+  .content-topic ul li { padding: 4px 0 4px 16px; position: relative; color: var(--muted); font-size: 0.9rem; }
+  .content-topic ul li::before { content: '—'; position: absolute; left: 0; color: var(--border); }
+
+  .timeline { display: flex; flex-direction: column; gap: 10px; }
+  .tl-item { display: flex; gap: 16px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; border-left: 3px solid var(--violet); }
+  .tl-duration { background: var(--surface); border: 1px solid var(--border); color: var(--amber-lt); font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+  .tl-text { font-size: 0.9rem; color: var(--text); }
+
+  .ref-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 10px; border-left: 3px solid var(--blue-lt); }
+  .ref-author { font-size: 0.8rem; font-weight: 700; color: var(--blue-lt); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+  .ref-title { font-size: 0.9rem; color: var(--text); }
+  .ref-pages { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
+
+  .activity-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; font-size: 0.9rem; line-height: 1.7; border-left: 3px solid var(--teal-lt); }
+
+  .resources-list { display: flex; flex-wrap: wrap; gap: 10px; }
+  .res-tag { background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; }
+
+  footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--muted); font-size: 0.85rem; }
+  footer a { color: var(--violet); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-left">
+    <a href="../index.html">← Turma 1</a>
+    <span class="nav-badge">Aula 24</span>
+  </div>
+  <span class="nav-center">Aula 24 / 30</span>
+  <div class="nav-right">
+    <a href="aula-23.html">← Anterior</a>
+    <a href="aula-25.html">Próxima →</a>
+  </div>
+</nav>
+
+<main>
+
+  <div class="aula-header">
+    <div class="header-meta">
+      <span class="bloco-badge">Bloco V — Instituições, Desigualdade e Diversidade</span>
+      <span class="meta-chip">Aula 24</span>
+      <span class="meta-chip">08/07/2026 — Quarta-feira</span>
+      <span class="meta-chip">2 horas</span>
+    </div>
+    <h1>Desigualdade social no Brasil: renda, raça e território.</h1>
+  </div>
+
+  <section>
+    <div class="section-title">Objetivos da Aula</div>
+    <ul class="obj-list">
+      <li>Analisar as dimensões da desigualdade social no Brasil com base em indicadores concretos.</li>
+      <li>Relacionar desigualdade econômica, racial e territorial como dimensões entrelaçadas.</li>
+      <li>Discutir as raízes históricas e estruturais da desigualdade brasileira.</li>
+      <li>Desenvolver a capacidade de leitura e interpretação crítica de dados sociais.</li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="section-title">Conteúdo Programático</div>
+    <div class="content-topic">
+      <h3>1. Desigualdade de renda no Brasil: Gini e concentração de riqueza</h3>
+      <ul>
+        <li>Coeficiente de Gini: o que mede e como interpretar</li>
+        <li>O Brasil entre os países mais desiguais do mundo</li>
+        <li>Concentração de renda: os 10% mais ricos versus os 50% mais pobres</li>
+      </ul>
+    </div>
+    <div class="content-topic">
+      <h3>2. Desigualdade racial: renda, escolaridade, violência e raça no Brasil</h3>
+      <ul>
+        <li>Disparidades de renda e escolaridade entre brancos e negros</li>
+        <li>Violência policial e encarceramento como fenômenos racializados</li>
+        <li>O mito da democracia racial e a realidade dos dados</li>
+      </ul>
+    </div>
+    <div class="content-topic">
+      <h3>3. Desigualdade territorial: Norte/Nordeste e periferias urbanas</h3>
+      <ul>
+        <li>Disparidades regionais: IDH, renda e infraestrutura entre estados</li>
+        <li>Periferias urbanas: segregação socioespacial nas metrópoles</li>
+        <li>A desigualdade territorial como resultado de processos históricos</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Plano de Aula com Tempo</div>
+    <div class="timeline">
+      <div class="tl-item">
+        <span class="tl-duration">10 min</span>
+        <span class="tl-text"><strong>Retomada</strong> — Revisão dos sistemas de estratificação e mobilidade social. Pergunta disparadora: "O que torna a desigualdade brasileira específica?"</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-duration">25 min</span>
+        <span class="tl-text"><strong>Exposição: Desigualdade de renda no Brasil</strong> — Apresentação do coeficiente de Gini, dados sobre concentração de riqueza, comparação internacional. Raízes históricas: escravidão, latifúndio, exclusão estrutural.</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-duration">20 min</span>
+        <span class="tl-text"><strong>Análise de infográficos e dados (PNAD, IBGE)</strong> — Os grupos analisam infográficos com dados de renda, escolaridade, mortalidade infantil e encarceramento, desagregados por raça e região. (Ver Atividades em Sala.)</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-duration">20 min</span>
+        <span class="tl-text"><strong>Exposição: Desigualdade racial e territorial</strong> — Dados sobre disparidades raciais e regionais. Crítica ao mito da democracia racial. A periferização urbana como expressão espacial da desigualdade.</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-duration">30 min</span>
+        <span class="tl-text"><strong>Debate: "A desigualdade brasileira é estrutural ou conjuntural?"</strong> — Debate mediado: a desigualdade é resultado de escolhas individuais (mérito) ou de estruturas históricas e institucionais? O que os dados indicam?</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-duration">15 min</span>
+        <span class="tl-text"><strong>Síntese</strong> — Articulação das três dimensões da desigualdade (renda, raça, território). Orientação das leituras para a aula sobre raça, etnia e racismo.</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Textos para Leitura Prévia</div>
+    <div class="ref-card">
+      <div class="ref-author">SOUZA, Jessé</div>
+      <div class="ref-title">A ralé brasileira: quem é e como vive. Introdução e Cap. 1</div>
+      <div class="ref-pages">p. 21–60</div>
+    </div>
+    <div class="ref-card">
+      <div class="ref-author">IBGE</div>
+      <div class="ref-title">Síntese de indicadores sociais 2023 (trechos selecionados)</div>
+      <div class="ref-pages">Seleção do professor</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Atividades em Sala</div>
+    <div class="activity-card">
+      <strong>Análise de dados: construindo um argumento sobre a desigualdade brasileira</strong><br><br>
+      Cada grupo recebe um conjunto de indicadores sociais desagregados por raça e região. Os indicadores incluem:
+      <br><br>
+      — <strong>Renda média mensal</strong> por cor/raça e por região;<br>
+      — <strong>Taxa de escolaridade</strong> (ensino superior) por cor/raça;<br>
+      — <strong>Taxa de mortalidade infantil</strong> por cor/raça e por estado;<br>
+      — <strong>Taxa de encarceramento</strong> por cor/raça;<br>
+      — <strong>Taxa de desemprego</strong> por cor/raça e por região.
+      <br><br>
+      <strong>Tarefa:</strong> Com base nos dados recebidos, o grupo deve:<br>
+      — Identificar as <strong>três principais evidências</strong> de desigualdade presentes nos dados;<br>
+      — Construir um <strong>argumento sociológico</strong> sobre as causas estruturais dessa desigualdade;<br>
+      — Avaliar: essa desigualdade é resultado de <strong>diferenças de mérito individual</strong> ou de <strong>processos históricos e estruturais</strong>?<br>
+      — Propor ao menos uma <strong>política pública</strong> que poderia contribuir para reduzir a desigualdade identificada.
+      <br><br>
+      Cada grupo apresenta seu argumento em 3 minutos, abrindo para debate coletivo.
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Recursos Necessários</div>
+    <div class="resources-list">
+      <span class="res-tag">Projetor</span>
+      <span class="res-tag">Infográficos e tabelas (PNAD/IBGE) impressos</span>
+      <span class="res-tag">Quadro branco</span>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <a href="../index.html">← Voltar para Turma 1</a>
+  &nbsp;·&nbsp; Introdução à Sociologia 2026.1
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aula 01 — Introdução à Sociologia | Turma 1</title>
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #12121c;
+    --card: #1a1a2e;
+    --border: #2a2a4a;
+    --purple: #7c3aed;
+    --purple-lt: #a855f7;
+    --blue: #4f46e5;
+    --blue-lt: #818cf8;
+    --teal-lt: #2dd4bf;
+    --amber-lt: #fbbf24;
+    --rose-lt: #fb7185;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --radius: 12px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(18,18,28,0.95); backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px; height: 56px;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  }
+  nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; white-space: nowrap; }
+  nav a:hover { color: var(--text); }
+  .nav-left { display: flex; align-items: center; gap: 10px; }
+  .nav-badge {
+    background: var(--purple); color: #fff;
+    font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px;
+  }
+  .nav-center { font-size: 0.875rem; color: var(--muted); }
+  .nav-right { display: flex; gap: 16px; align-items: center; }
+
+  /* MAIN */
+  main { max-width: 860px; margin: 0 auto; padding: 40px 24px 80px; }
+
+  /* HEADER */
+  .aula-header {
+    background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 32px; margin-bottom: 32px;
+    border-top: 4px solid var(--purple);
+  }
+  .header-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; align-items: center; }
+  .bloco-badge {
+    background: var(--purple); color: #fff;
+    font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase;
+  }
+  .meta-chip {
+    background: var(--surface); border: 1px solid var(--border);
+    font-size: 0.8rem; color: var(--muted); padding: 4px 12px; border-radius: 20px;
+  }
+  .aula-header h1 { font-size: 1.5rem; font-weight: 700; line-height: 1.3; color: var(--text); }
+
+  /* SECTIONS */
+  section { margin-bottom: 32px; }
+  .section-title {
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--purple-lt); margin-bottom: 16px; padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 20px; margin-bottom: 12px;
+  }
+
+  /* OBJECTIVES */
+  .obj-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .obj-list li {
+    display: flex; gap: 12px; align-items: flex-start;
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 14px 16px;
+  }
+  .obj-list li::before {
+    content: ''; display: block; width: 8px; height: 8px;
+    border-radius: 50%; background: var(--purple-lt); margin-top: 7px; flex-shrink: 0;
+  }
+
+  /* CONTENT */
+  .content-topic {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 16px 20px; margin-bottom: 12px;
+  }
+  .content-topic h3 { font-size: 0.95rem; font-weight: 600; color: var(--purple-lt); margin-bottom: 8px; }
+  .content-topic ul { list-style: none; padding: 0; }
+  .content-topic ul li {
+    padding: 4px 0 4px 16px; position: relative; color: var(--muted); font-size: 0.9rem;
+  }
+  .content-topic ul li::before {
+    content: '—'; position: absolute; left: 0; color: var(--border);
+  }
+
+  /* TIMELINE */
+  .timeline { display: flex; flex-direction: column; gap: 10px; }
+  .tl-item {
+    display: flex; gap: 16px; align-items: flex-start;
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 14px 18px;
+    border-left: 3px solid var(--purple);
+  }
+  .tl-duration {
+    background: var(--surface); border: 1px solid var(--border);
+    color: var(--amber-lt); font-size: 0.75rem; font-weight: 700;
+    padding: 3px 10px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; margin-top: 2px;
+  }
+  .tl-text { font-size: 0.9rem; color: var(--text); }
+
+  /* TEXTS */
+  .ref-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 16px 20px; margin-bottom: 10px;
+    border-left: 3px solid var(--blue-lt);
+  }
+  .ref-author { font-size: 0.8rem; font-weight: 700; color: var(--blue-lt); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+  .ref-title { font-size: 0.9rem; color: var(--text); }
+  .ref-pages { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
+
+  /* ACTIVITIES */
+  .activity-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 20px; font-size: 0.9rem; line-height: 1.7;
+    border-left: 3px solid var(--teal-lt);
+  }
+
+  /* RESOURCES */
+  .resources-list { display: flex; flex-wrap: wrap; gap: 10px; }
+  .res-tag {
+    background: var(--surface); border: 1px solid var(--border);
+    color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px;
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border); padding: 32px 24px;
+    text-align: center; color: var(--muted); font-size: 0.85rem;
+  }
+  footer a { color: var(--purple-lt); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-left">
+    <a href="../index.html">← Turma 1</a>
+    <span class="nav-badge">Aula 01</span>
+  </div>
+  <span class="nav-center">Aula 01 / 30</span>
+  <div class="nav-right">
+    <span style="color: var(--border); font-size:0.8rem;">—</span>
+    <a href="aula-02.html">Próxima →</a>
+  </div>
+</nav>
+
+<main>
+
+  <div class="aula-header">
+    <div class="header-meta">
+      <span class="bloco-badge">Bloco I</span>
+      <span class="meta-chip">Aula 01</span>
+      <span class="meta-chip">14/04/2026 — Terça-feira</span>
+      <span class="meta-chip">2 horas</span>
+    </div>
+    <h1>Apresentação da disciplina. O que é Sociologia? Ciência e senso comum.</h1>
+  </div>
+
+  <section>
+    <div class="section-title">Objetivos da Aula</div>
+    <ul class="obj-list">
+      <li>Apresentar o plano de curso e os critérios avaliativos da disciplina.</li>
+      <li>Discutir o que diferencia o conhecimento sociológico do senso comum.</li>
+      <li>Apresentar a Sociologia como ciência da sociedade e sua especificidade.</li>
+      <li>Estimular a reflexão sobre a vida social cotidiana como objeto de análise científica.</li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="section-title">Conteúdo Programático</div>
+    <div class="content-topic">
+      <h3>1. O que é Sociologia?</h3>
+      <ul>
+        <li>Definição e campo de estudo da Sociologia</li>
+        <li>Objeto da Sociologia: a sociedade e os fenômenos sociais</li>
+        <li>Especificidade da ciência sociológica</li>
+      </ul>
+    </div>
+    <div class="content-topic">
+      <h3>2. Senso comum x conhecimento científico</h3>
+      <ul>
+        <li>Preconceito e naturalização do social</li>
+        <li>Desnaturalização como operação sociológica fundamental</li>
+        <li>O estranhamento sociológico como ferramenta analítica</li>
+      </ul>
+    </div>
+    <div class="content-topic">
+      <h3>3. Apresentação do programa, metodologia e avaliação</h3>
+      <ul>
+        <li>Estrutura do curso e blocos temáticos</li>
+        <li>Critérios de avaliação e frequência</li>
+        <li>Seminário em grupo: apresentação geral</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Plano de Aula com Tempo</div>
+    <div class="timeline">
+      <div class="tl-item">
+        <span class="tl-duration">10 min</span>
+        <span class="tl-text"><strong>Acolhida e apresentações</strong> — Boas-vindas à turma, apresentação do professor e dos alunos. Dinâmica rápida de apresentação.</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-duration">20 min</span>
+        <span class="tl-text"><strong>Apresentação do plano de curso e sistema de avaliação</strong> — Distribuição do plano de curso impresso. Explicação da estrutura em blocos, dos critérios avaliativos e do seminário em grupo.</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-duration">25 min</span>
+        <span class="tl-text"><strong>Exposição: O que é Sociologia?</strong> — Aula expositiva apresentando a definição, o objeto e a especificidade da ciência sociológica. Uso de exemplos cotidianos para ilustrar o olhar sociológico.</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-duration">30 min</span>
+        <span class="tl-text"><strong>Atividade: "O que você pensa que é Sociologia?" — roda de conversa</strong> — Cada aluno compartilha uma ideia prévia sobre a Sociologia. O professor problematiza as respostas, introduzindo a distinção entre senso comum e conhecimento científico.</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-duration">25 min</span>
+        <span class="tl-text"><strong>Discussão coletiva sobre senso comum e conhecimento científico</strong> — A partir das respostas da roda de conversa, o professor sistematiza a distinção entre senso comum e ciência, trabalhando os conceitos de naturalização e desnaturalização.</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-duration">10 min</span>
+        <span class="tl-text"><strong>Síntese e orientações para a próxima aula</strong> — Retomada dos pontos centrais. Indicação das leituras para a Aula 02. Esclarecimento de dúvidas iniciais.</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Textos para Leitura Prévia</div>
+    <div class="ref-card">
+      <div class="ref-author">BERGER, Peter</div>
+      <div class="ref-title">Perspectivas sociológicas. Cap. 1 — "Sociologia como passatempo individual"</div>
+      <div class="ref-pages">p. 1–30</div>
+    </div>
+    <div class="ref-card">
+      <div class="ref-author">BAUMAN, Zygmunt</div>
+      <div class="ref-title">Aprendendo a pensar com a Sociologia. Cap. 1</div>
+      <div class="ref-pages">p. 7–25</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Atividades em Sala</div>
+    <div class="activity-card">
+      <strong>Roda de conversa: "O óbvio que não é óbvio"</strong><br><br>
+      Os alunos são convidados a compartilhar experiências cotidianas que consideram "óbvias" ou "naturais". A partir de cada relato, o grupo é instigado a problematizar: por que isso acontece assim? Poderia ser diferente? Quem se beneficia com essa forma de organização?<br><br>
+      O objetivo é mostrar que fenômenos que parecem naturais (papéis de gênero, hierarquias, divisão do trabalho, padrões de consumo) são, na verdade, construções sociais e históricas — e que o olhar sociológico consiste justamente em estranhar o familiar e problematizar o que parece dado.
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Recursos Necessários</div>
+    <div class="resources-list">
+      <span class="res-tag">Projetor</span>
+      <span class="res-tag">Plano de curso impresso</span>
+      <span class="res-tag">Quadro branco</span>
+      <span class="res-tag">Caneta para quadro</span>
+      <span class="res-tag">Lista de presença</span>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <a href="../index.html">← Voltar para Turma 1</a>
+  <span style="margin: 0 12px; color: var(--border);">|</span>
+  <span>Introdução à Sociologia — 2026.1</span>
+</footer>
+
+</body>
+</html>

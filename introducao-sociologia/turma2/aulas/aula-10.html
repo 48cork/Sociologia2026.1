@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aula 10 — Introdução à Sociologia | Turma 2</title>
+<style>
+  :root {
+    --bg: #0a0a0f; --surface: #12121c; --card: #1a1a2e; --border: #2a2a4a;
+    --purple: #7c3aed; --purple-lt: #a855f7; --blue: #4f46e5; --blue-lt: #818cf8;
+    --sky: #0ea5e9; --sky-lt: #38bdf8;
+    --teal-lt: #2dd4bf; --amber-lt: #fbbf24; --rose-lt: #fb7185;
+    --text: #e2e8f0; --muted: #94a3b8; --radius: 12px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; }
+  nav { position: sticky; top: 0; z-index: 100; background: var(--surface); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0.75rem 1.5rem; gap: 1rem; }
+  nav a { color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; white-space: nowrap; }
+  nav a:hover { color: var(--text); }
+  .nav-badge { background: var(--card); border: 1px solid var(--border); padding: 0.35rem 1rem; border-radius: 999px; font-size: 0.85rem; font-weight: 600; color: var(--text); white-space: nowrap; }
+  .nav-left { min-width: 120px; }
+  .nav-right { min-width: 120px; display: flex; justify-content: flex-end; gap: 1rem; }
+  header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 2.5rem 1.5rem 2rem; text-align: center; }
+  .bloco-badge { display: inline-block; background: var(--sky); color: #fff; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.3rem 0.9rem; border-radius: 999px; margin-bottom: 1rem; }
+  header h1 { font-size: 1.9rem; font-weight: 700; margin-bottom: 0.5rem; }
+  header .meta { color: var(--muted); font-size: 0.95rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem 1.5rem; margin-top: 0.75rem; }
+  main { max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  section { margin-bottom: 2.5rem; }
+  section h2 { font-size: 1.05rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--sky-lt); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-bottom: 1.25rem; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin-bottom: 0.75rem; }
+  ul.objectives { list-style: none; }
+  ul.objectives li { padding: 0.55rem 0 0.55rem 1.5rem; position: relative; border-bottom: 1px solid var(--border); font-size: 0.97rem; }
+  ul.objectives li:last-child { border-bottom: none; }
+  ul.objectives li::before { content: '→'; position: absolute; left: 0; color: var(--sky-lt); font-weight: 700; }
+  .content-block { margin-bottom: 1rem; }
+  .content-block h3 { font-size: 0.95rem; font-weight: 600; color: var(--sky-lt); margin-bottom: 0.4rem; }
+  ul.sub { list-style: none; padding-left: 1rem; }
+  ul.sub li { position: relative; padding-left: 1rem; color: var(--muted); font-size: 0.9rem; margin-bottom: 0.2rem; }
+  ul.sub li::before { content: '·'; position: absolute; left: 0; color: var(--border); }
+  .timeline { display: flex; flex-direction: column; gap: 0; }
+  .tl-item { display: flex; gap: 1rem; align-items: flex-start; position: relative; padding-bottom: 1rem; }
+  .tl-item:last-child { padding-bottom: 0; }
+  .tl-item::before { content: ''; position: absolute; left: 49px; top: 32px; bottom: 0; width: 2px; background: var(--border); }
+  .tl-item:last-child::before { display: none; }
+  .tl-time { min-width: 60px; text-align: right; font-size: 0.8rem; font-weight: 700; color: var(--amber-lt); padding-top: 0.3rem; white-space: nowrap; }
+  .tl-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--sky); border: 2px solid var(--sky-lt); margin-top: 0.4rem; flex-shrink: 0; position: relative; z-index: 1; }
+  .tl-dot.intervalo { background: var(--amber-lt); border-color: var(--amber-lt); }
+  .tl-content { flex: 1; }
+  .tl-content strong { font-size: 0.95rem; display: block; }
+  .tl-content p { font-size: 0.88rem; color: var(--muted); margin-top: 0.2rem; }
+  .text-ref { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 0.9rem 1.25rem; margin-bottom: 0.6rem; font-size: 0.92rem; }
+  .text-ref .author { font-weight: 700; color: var(--sky-lt); }
+  .activity-card { background: var(--card); border: 1px solid var(--sky); border-radius: var(--radius); padding: 1.25rem 1.5rem; }
+  .activity-card p { font-size: 0.95rem; margin-bottom: 0.5rem; }
+  .activity-card p:last-child { margin-bottom: 0; }
+  ul.resources { list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  ul.resources li { background: var(--card); border: 1px solid var(--border); border-radius: 999px; padding: 0.3rem 0.9rem; font-size: 0.85rem; color: var(--muted); }
+  footer { text-align: center; padding: 2rem 1rem; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.85rem; }
+  footer a { color: var(--sky-lt); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-left"><a href="../index.html">← Turma 2</a></div>
+  <div class="nav-badge">Aula 10 / 18</div>
+  <div class="nav-right">
+    <a href="aula-09.html">← Anterior</a>
+    <a href="aula-11.html">Próxima →</a>
+  </div>
+</nav>
+
+<header>
+  <div class="bloco-badge">Bloco IV — Sociedade, Cultura e Socialização</div>
+  <h1>Conceito de Cultura, Etnocentrismo e Relativismo</h1>
+  <div class="meta">
+    <span>📅 15/06/2026 &nbsp;·&nbsp; Segunda-feira</span>
+    <span>⏱ 3h20 (4 × 50 min)</span>
+    <span>Aula 10 de 18</span>
+  </div>
+</header>
+
+<main>
+
+  <section>
+    <h2>Objetivos da Aula</h2>
+    <div class="card">
+      <ul class="objectives">
+        <li>Definir o conceito sociológico/antropológico de cultura em suas dimensões.</li>
+        <li>Distinguir natureza e cultura como construções analíticas.</li>
+        <li>Definir e exemplificar etnocentrismo e seus problemas.</li>
+        <li>Compreender o relativismo cultural: princípios, usos e limites éticos.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Conteúdo Programático</h2>
+    <div class="card">
+      <div class="content-block">
+        <h3>1. Cultura: polissemia, definição e dimensões</h3>
+        <ul class="sub">
+          <li>Cultura como conjunto de símbolos, valores, normas e práticas</li>
+          <li>Dimensões: material, simbólica e normativa</li>
+          <li>Cultura como aprendizado social: transmissão e transformação</li>
+        </ul>
+      </div>
+      <div class="content-block">
+        <h3>2. Natureza × cultura</h3>
+        <ul class="sub">
+          <li>O debate natureza/cultura: universalismo e particularismo</li>
+          <li>Instinto x aprendizado; biológico x simbólico</li>
+          <li>O corpo como objeto cultural</li>
+        </ul>
+      </div>
+      <div class="content-block">
+        <h3>3. Etnocentrismo: exemplos e problemas</h3>
+        <ul class="sub">
+          <li>Definição: julgamento de outras culturas pelos parâmetros da própria</li>
+          <li>Exemplos históricos: colonialismo, missões religiosas, "civilização"</li>
+          <li>Etnocentrismo cotidiano e implicações sociais</li>
+        </ul>
+      </div>
+      <div class="content-block">
+        <h3>4. Relativismo cultural: princípios e limites</h3>
+        <ul class="sub">
+          <li>Princípio: compreender práticas culturais em seu contexto</li>
+          <li>Relativismo metodológico vs. relativismo ético</li>
+          <li>Limites: direitos humanos, sofrimento, relativismo absoluto</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Plano de Aula com Tempo</h2>
+    <div class="card">
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-time">15 min</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <strong>Abertura do Bloco IV</strong>
+            <p>Apresentação do Bloco IV (Cultura e Socialização); conexão com o pensamento clássico; o que significa analisar a cultura sociologicamente.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">40 min</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <strong>Exposição: conceito de cultura</strong>
+            <p>Polissemia do conceito; definição sociológica/antropológica; dimensões material, simbólica e normativa; cultura como sistema de significados; transmissão e transformação cultural.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">20 min</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <strong>Documentário sobre culturas distintas — trecho</strong>
+            <p>Exibição de trecho (~15 min) de documentário antropológico. Discussão imediata: quais reações tiveram? O que elas revelam sobre o etnocentrismo do observador?</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">10 min</div>
+          <div class="tl-dot intervalo"></div>
+          <div class="tl-content">
+            <strong>Intervalo</strong>
+            <p></p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">40 min</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <strong>Exposição: etnocentrismo e relativismo cultural</strong>
+            <p>Conceito de etnocentrismo; exemplos históricos (colonialismo) e cotidianos; relativismo metodológico vs. relativismo ético; o debate sobre direitos humanos e relativismo.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">45 min</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <strong>Análise de casos em grupos</strong>
+            <p>Grupos analisam práticas culturais controversas e debatem: etnocentrismo ou julgamento legítimo? Onde estão os limites do relativismo cultural?</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">30 min</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <strong>Síntese</strong>
+            <p>Articulação dos conceitos; distinção entre relativismo metodológico e ético; indicação das leituras para a próxima aula.</p>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:1rem; padding-top:1rem; border-top:1px solid var(--border); font-size:0.85rem; color:var(--amber-lt); font-weight:600;">
+        Total: 200 min (3h20)
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Textos para Leitura Prévia</h2>
+    <div class="text-ref">
+      <span class="author">LARAIA, Roque de Barros.</span> <em>Cultura: um conceito antropológico.</em> Cap. 1, 2 e 3, p. 17–84.
+    </div>
+    <div class="text-ref">
+      <span class="author">GEERTZ, Clifford.</span> <em>A interpretação das culturas.</em> Introdução, p. 1–20.
+    </div>
+  </section>
+
+  <section>
+    <h2>Atividades em Sala</h2>
+    <div class="activity-card">
+      <p><strong>Análise de casos: limites do relativismo cultural</strong></p>
+      <p>Cada grupo recebe uma ficha descrevendo uma prática cultural controversa — como mutilação genital feminina, sacrifício de animais em rituais religiosos, rituais de iniciação dolorosos, ou práticas alimentares que causam repulsa em outras culturas.</p>
+      <p>Para cada prática, o grupo deve responder: (1) Como um pesquisador etnocêntrico descreveria essa prática? Quais julgamentos faria?; (2) Como um relativista cultural metodológico a descreveria? Quais elementos do contexto são relevantes?; (3) Há algum elemento nessa prática que, mesmo usando o relativismo metodológico, você consideraria eticamente inaceitável? Por quê?; (4) Onde estão os limites do relativismo cultural?</p>
+      <p>A discussão coletiva explora a distinção entre relativismo como método (necessário) e relativismo como posição ética absoluta (problemático).</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Recursos Necessários</h2>
+    <ul class="resources">
+      <li>Projetor e computador</li>
+      <li>Trecho de documentário antropológico</li>
+      <li>Fichas com casos para análise em grupos</li>
+      <li>Textos de Laraia e Geertz impressos</li>
+      <li>Slides de apresentação</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  <p><a href="../index.html">← Voltar para Turma 2</a></p>
+  <p style="margin-top:0.5rem;">Introdução à Sociologia · Turma 2 · 2026.1</p>
+</footer>
+
+</body>
+</html>

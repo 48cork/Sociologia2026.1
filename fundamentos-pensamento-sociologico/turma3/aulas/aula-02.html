@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aula 02 — Fundamentos do Pensamento Sociológico | Turma 3</title>
+<style>
+  :root {
+    --bg: #0a0a0f; --surface: #12121c; --card: #1a1a2e; --border: #2a2a4a;
+    --purple: #7c3aed; --purple-lt: #a855f7; --blue: #4f46e5; --blue-lt: #818cf8;
+    --teal: #14b8a6; --teal-lt: #2dd4bf; --amber-lt: #fbbf24; --rose-lt: #fb7185;
+    --text: #e2e8f0; --muted: #94a3b8; --radius: 12px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; }
+  nav { position: sticky; top: 0; z-index: 100; background: var(--surface); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0.75rem 1.5rem; gap: 1rem; }
+  nav a { color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; white-space: nowrap; }
+  nav a:hover { color: var(--text); }
+  .nav-badge { background: var(--card); border: 1px solid var(--border); padding: 0.35rem 1rem; border-radius: 999px; font-size: 0.85rem; font-weight: 600; color: var(--text); white-space: nowrap; }
+  .nav-links { display: flex; gap: 1rem; align-items: center; }
+  .nav-left { min-width: 120px; } .nav-right { min-width: 120px; display: flex; justify-content: flex-end; }
+  header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 2.5rem 1.5rem 2rem; text-align: center; }
+  .bloco-badge { display: inline-block; background: var(--purple); color: #fff; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.3rem 0.9rem; border-radius: 999px; margin-bottom: 1rem; }
+  header h1 { font-size: 1.9rem; font-weight: 700; margin-bottom: 0.5rem; }
+  header .meta { color: var(--muted); font-size: 0.95rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem 1.5rem; margin-top: 0.75rem; }
+  header .meta span { display: flex; align-items: center; gap: 0.35rem; }
+  main { max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  section { margin-bottom: 2.5rem; }
+  section h2 { font-size: 1.05rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--teal-lt); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-bottom: 1.25rem; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin-bottom: 0.75rem; }
+  ul.objectives { list-style: none; }
+  ul.objectives li { padding: 0.55rem 0 0.55rem 1.5rem; position: relative; border-bottom: 1px solid var(--border); font-size: 0.97rem; }
+  ul.objectives li:last-child { border-bottom: none; }
+  ul.objectives li::before { content: '→'; position: absolute; left: 0; color: var(--teal-lt); font-weight: 700; }
+  .content-block { margin-bottom: 1rem; }
+  .content-block h3 { font-size: 0.95rem; font-weight: 600; color: var(--teal-lt); margin-bottom: 0.4rem; }
+  ul.sub { list-style: none; padding-left: 1rem; }
+  ul.sub li { position: relative; padding-left: 1rem; color: var(--muted); font-size: 0.9rem; margin-bottom: 0.2rem; }
+  ul.sub li::before { content: '·'; position: absolute; left: 0; color: var(--border); }
+  .timeline { display: flex; flex-direction: column; gap: 0; }
+  .tl-item { display: flex; gap: 1rem; align-items: flex-start; position: relative; padding-bottom: 1rem; }
+  .tl-item:last-child { padding-bottom: 0; }
+  .tl-item::before { content: ''; position: absolute; left: 49px; top: 32px; bottom: 0; width: 2px; background: var(--border); }
+  .tl-item:last-child::before { display: none; }
+  .tl-time { min-width: 60px; text-align: right; font-size: 0.8rem; font-weight: 700; color: var(--amber-lt); padding-top: 0.3rem; white-space: nowrap; }
+  .tl-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--teal); border: 2px solid var(--teal-lt); margin-top: 0.4rem; flex-shrink: 0; position: relative; z-index: 1; }
+  .tl-dot.intervalo { background: var(--amber-lt); border-color: var(--amber-lt); }
+  .tl-content { flex: 1; }
+  .tl-content strong { font-size: 0.95rem; display: block; }
+  .tl-content p { font-size: 0.88rem; color: var(--muted); margin-top: 0.2rem; }
+  .text-ref { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 0.9rem 1.25rem; margin-bottom: 0.6rem; font-size: 0.92rem; }
+  .text-ref .author { font-weight: 700; color: var(--blue-lt); }
+  .activity-card { background: var(--card); border: 1px solid var(--teal); border-radius: var(--radius); padding: 1.25rem 1.5rem; }
+  .activity-card p { font-size: 0.95rem; margin-bottom: 0.5rem; }
+  .activity-card p:last-child { margin-bottom: 0; }
+  ul.resources { list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  ul.resources li { background: var(--card); border: 1px solid var(--border); border-radius: 999px; padding: 0.3rem 0.9rem; font-size: 0.85rem; color: var(--muted); }
+  footer { text-align: center; padding: 2rem 1rem; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.85rem; }
+  footer a { color: var(--teal-lt); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-left"><a href="../index.html">← Turma 3</a></div>
+  <div class="nav-badge">Aula 02 / 18</div>
+  <div class="nav-right nav-links">
+    <a href="aula-01.html">← Anterior</a>
+    <a href="aula-03.html">Próxima →</a>
+  </div>
+</nav>
+
+<header>
+  <div class="bloco-badge">Bloco I — Fundamentos Epistemológicos e Pré-Clássicos</div>
+  <h1>Contexto histórico da Sociologia: Iluminismo, revoluções e pré-clássicos</h1>
+  <div class="meta">
+    <span>📅 20/04/2026 &nbsp;·&nbsp; Segunda-feira</span>
+    <span>⏱ 3h20 (4 × 50 min)</span>
+    <span>Aula 02 de 18</span>
+  </div>
+</header>
+
+<main>
+
+  <section>
+    <h2>Objetivos da Aula</h2>
+    <div class="card">
+      <ul class="objectives">
+        <li>Situar historicamente o surgimento da Sociologia nos séculos XVIII–XIX.</li>
+        <li>Analisar o papel do Iluminismo, da Revolução Francesa e da Revolução Industrial no contexto de emergência da Sociologia.</li>
+        <li>Apresentar os pensadores pré-clássicos: Montesquieu, Saint-Simon e Tocqueville.</li>
+        <li>Identificar as questões que cada pré-clássico deixou como legado para a Sociologia.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Conteúdo Programático</h2>
+    <div class="card">
+      <div class="content-block">
+        <h3>1. Iluminismo e racionalidade moderna</h3>
+        <ul class="sub">
+          <li>A razão como critério de verdade e de crítica social</li>
+          <li>Desencantamento do mundo e laicização do pensamento</li>
+        </ul>
+      </div>
+      <div class="content-block">
+        <h3>2. A dupla revolução: Francesa e Industrial</h3>
+        <ul class="sub">
+          <li>Revolução Francesa: ruptura com a ordem tradicional, liberdade, igualdade</li>
+          <li>Revolução Industrial: urbanização, proletarização, novas contradições sociais</li>
+        </ul>
+      </div>
+      <div class="content-block">
+        <h3>3. Pré-clássicos: Montesquieu e Saint-Simon</h3>
+        <ul class="sub">
+          <li>Montesquieu: espírito das leis, relativismo cultural, tipologia dos governos</li>
+          <li>Saint-Simon: industrialismo, reorganização racional da sociedade</li>
+        </ul>
+      </div>
+      <div class="content-block">
+        <h3>4. Tocqueville</h3>
+        <ul class="sub">
+          <li>Democracia na América: igualdade de condições e tirania da maioria</li>
+          <li>Legado: teoria democrática e crítica do igualitarismo</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Plano de Aula com Tempo</h2>
+    <div class="card">
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-time">10 min</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <strong>Abertura e retomada</strong>
+            <p>Breve revisão da aula anterior. Por que estudar o contexto histórico da Sociologia?</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">40 min</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <strong>Exposição: Iluminismo e a dupla revolução</strong>
+            <p>Racionalidade iluminista; Revolução Francesa e Industrial como contexto de emergência da questão social e da Sociologia.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">40 min</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <strong>Exposição: Montesquieu, Saint-Simon e Tocqueville</strong>
+            <p>As contribuições e o legado de cada pré-clássico para a Sociologia subsequente.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">10 min</div>
+          <div class="tl-dot intervalo"></div>
+          <div class="tl-content">
+            <strong>Intervalo</strong>
+            <p></p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">70 min</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <strong>Atividade: linha do tempo coletiva</strong>
+            <p>A turma constrói coletivamente na lousa ou em papel kraft uma linha do tempo dos eventos e pensadores que geraram a Sociologia, identificando causas, consequências e conexões.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">30 min</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <strong>Apresentação e síntese</strong>
+            <p>Cada grupo apresenta seu segmento da linha do tempo. O professor sistematiza e orienta as leituras para a próxima aula.</p>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:1rem; padding-top:1rem; border-top:1px solid var(--border); font-size:0.85rem; color:var(--amber-lt); font-weight:600;">
+        Total: 200 min (3h20)
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Textos para Leitura Prévia</h2>
+    <div class="text-ref">
+      <span class="author">QUINTANEIRO et al.</span> <em>Um toque de clássicos.</em> Cap. 1, p. 13–30.
+    </div>
+    <div class="text-ref">
+      <span class="author">SELL, Carlos Eduardo.</span> <em>Sociologia clássica.</em> Cap. 1, p. 23–45.
+    </div>
+  </section>
+
+  <section>
+    <h2>Atividades em Sala</h2>
+    <div class="activity-card">
+      <p><strong>Linha do tempo coletiva</strong></p>
+      <p>A turma é dividida em grupos. Cada grupo recebe um período ou um conjunto de eventos/pensadores para posicionar na linha do tempo. O material pode ser construído em papel kraft afixado na parede ou na lousa. Cada grupo deve: (1) posicionar o evento ou pensador na cronologia; (2) indicar pelo menos uma consequência para o surgimento da Sociologia; (3) identificar conexões com outros elementos da linha.</p>
+      <p>Ao final, a turma percorre toda a linha do tempo construída coletivamente, e o professor sistematiza as conexões entre contexto histórico e emergência da disciplina sociológica.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Recursos Necessários</h2>
+    <ul class="resources">
+      <li>Projetor e slides</li>
+      <li>Papel kraft ou lousa grande</li>
+      <li>Canetas coloridas</li>
+      <li>Fichas com eventos/pensadores para distribuição</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  <p><a href="../index.html">← Voltar para Turma 3</a></p>
+  <p style="margin-top:0.5rem;">Fundamentos do Pensamento Sociológico · Turma 3 · 2026.1</p>
+</footer>
+
+</body>
+</html>

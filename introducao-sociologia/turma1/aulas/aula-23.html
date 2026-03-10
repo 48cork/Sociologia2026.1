@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aula 23 — Introdução à Sociologia | Turma 1</title>
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #12121c;
+    --card: #1a1a2e;
+    --border: #2a2a4a;
+    --purple: #7c3aed;
+    --purple-lt: #a855f7;
+    --blue: #4f46e5;
+    --blue-lt: #818cf8;
+    --teal-lt: #2dd4bf;
+    --amber-lt: #fbbf24;
+    --rose-lt: #fb7185;
+    --violet: #c084fc;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --radius: 12px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
+
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(18,18,28,0.95); backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px; height: 56px;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  }
+  nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; white-space: nowrap; }
+  nav a:hover { color: var(--text); }
+  .nav-left { display: flex; align-items: center; gap: 10px; }
+  .nav-badge { background: var(--violet); color: #0a0a0f; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+  .nav-center { font-size: 0.875rem; color: var(--muted); }
+  .nav-right { display: flex; gap: 16px; align-items: center; }
+
+  main { max-width: 860px; margin: 0 auto; padding: 40px 24px 80px; }
+
+  .aula-header {
+    background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 32px; margin-bottom: 32px;
+    border-top: 4px solid var(--violet);
+  }
+  .header-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; align-items: center; }
+  .bloco-badge { background: var(--violet); color: #0a0a0f; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .meta-chip { background: var(--surface); border: 1px solid var(--border); font-size: 0.8rem; color: var(--muted); padding: 4px 12px; border-radius: 20px; }
+  .aula-header h1 { font-size: 1.5rem; font-weight: 700; line-height: 1.3; color: var(--text); }
+
+  section { margin-bottom: 32px; }
+  .section-title {
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--violet); margin-bottom: 16px; padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .obj-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .obj-list li { display: flex; gap: 12px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
+  .obj-list li::before { content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--violet); margin-top: 7px; flex-shrink: 0; }
+
+  .content-topic { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 12px; }
+  .content-topic h3 { font-size: 0.95rem; font-weight: 600; color: var(--violet); margin-bottom: 8px; }
+  .content-topic ul { list-style: none; padding: 0; }
+  .content-topic ul li { padding: 4px 0 4px 16px; position: relative; color: var(--muted); font-size: 0.9rem; }
+  .content-topic ul li::before { content: '—'; position: absolute; left: 0; color: var(--border); }
+
+  .timeline { display: flex; flex-direction: column; gap: 10px; }
+  .tl-item { display: flex; gap: 16px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; border-left: 3px solid var(--violet); }
+  .tl-duration { background: var(--surface); border: 1px solid var(--border); color: var(--amber-lt); font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+  .tl-text { font-size: 0.9rem; color: var(--text); }
+
+  .ref-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 10px; border-left: 3px solid var(--blue-lt); }
+  .ref-author { font-size: 0.8rem; font-weight: 700; color: var(--blue-lt); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+  .ref-title { font-size: 0.9rem; color: var(--text); }
+  .ref-pages { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
+
+  .activity-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; font-size: 0.9rem; line-height: 1.7; border-left: 3px solid var(--teal-lt); }
+
+  .resources-list { display: flex; flex-wrap: wrap; gap: 10px; }
+  .res-tag { background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; }
+
+  footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--muted); font-size: 0.85rem; }
+  footer a { color: var(--violet); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-left">
+    <a href="../index.html">← Turma 1</a>
+    <span class="nav-badge">Aula 23</span>
+  </div>
+  <span class="nav-center">Aula 23 / 30</span>
+  <div class="nav-right">
+    <a href="aula-22.html">← Anterior</a>
+    <a href="aula-24.html">Próxima →</a>
+  </div>
+</nav>
+
+<main>
+
+  <div class="aula-header">
+    <div class="header-meta">
+      <span class="bloco-badge">Bloco V — Instituições, Desigualdade e Diversidade</span>
+      <span class="meta-chip">Aula 23</span>
+      <span class="meta-chip">07/07/2026 — Terça-feira</span>
+      <span class="meta-chip">2 horas</span>
+    </div>
+    <h1>Estratificação social: castas, estamentos e classes.</h1>
+  </div>
+
+  <section>
+    <div class="section-title">Objetivos da Aula</div>
+    <ul class="obj-list">
+      <li>Compreender o conceito de estratificação social e suas dimensões (riqueza, status e poder).</li>
+      <li>Distinguir os sistemas históricos de estratificação: castas, estamentos e classes sociais.</li>
+      <li>Analisar as perspectivas marxista e weberiana sobre classes sociais.</li>
+      <li>Relacionar estratificação social e mobilidade social no contexto brasileiro.</li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="section-title">Conteúdo Programático</div>
+    <div class="content-topic">
+      <h3>1. Estratificação social: definição e dimensões</h3>
+      <ul>
+        <li>Estratificação como hierarquização estrutural de grupos em uma sociedade</li>
+        <li>Dimensões weberianas: riqueza (classe), status (prestígio) e poder (partido)</li>
+        <li>Estratificação como fenômeno universal e historicamente variável</li>
+      </ul>
+    </div>
+    <div class="content-topic">
+      <h3>2. Sistemas de estratificação: castas, estamentos e classes</h3>
+      <ul>
+        <li>Sistema de castas (Índia): hierarquia hereditária, endogamia, imobilidade</li>
+        <li>Sistema de estamentos (feudalismo europeu): ordens, privilégios legais, nobreza, clero, servos</li>
+        <li>Classes sociais (capitalismo): baseadas na posição econômica, abertas à mobilidade</li>
+      </ul>
+    </div>
+    <div class="content-topic">
+      <h3>3. Classe em Marx e Weber. Mobilidade social</h3>
+      <ul>
+        <li>Marx: classes definidas pela relação com os meios de produção (burguesia x proletariado)</li>
+        <li>Weber: classe como chance de vida no mercado; multiplicidade de critérios</li>
+        <li>Mobilidade social: vertical (ascendente/descendente), horizontal e estrutural</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Plano de Aula com Tempo</div>
+    <div class="timeline">
+      <div class="tl-item">
+        <span class="tl-duration">10 min</span>
+        <span class="tl-text"><strong>Retomada</strong> — Conexão com as instituições sociais estudadas. Pergunta disparadora: "Por que algumas pessoas têm muito mais do que outras?"</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-duration">35 min</span>
+        <span class="tl-text"><strong>Exposição: Estratificação e sistemas históricos</strong> — Apresentação do conceito de estratificação social, das dimensões weberianas e dos três sistemas históricos (castas, estamentos, classes). Exemplos históricos e contemporâneos comparativos.</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-duration">15 min</span>
+        <span class="tl-text"><strong>Análise da pirâmide social brasileira</strong> — Apresentação e análise coletiva de dados sobre a distribuição de renda e riqueza no Brasil. Como a estratificação brasileira se compara a outros países?</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-duration">30 min</span>
+        <span class="tl-text"><strong>Atividade: Mobilidade social — casos e trajetórias</strong> — Cada grupo recebe a história de vida de uma pessoa fictícia com diferentes origens sociais e analisa os fatores que favoreceram ou dificultaram a mobilidade. (Ver Atividades em Sala.)</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-duration">20 min</span>
+        <span class="tl-text"><strong>Discussão coletiva</strong> — Apresentação das análises dos grupos. Debate: a mobilidade social no Brasil é uma exceção ou uma regra? Que papel o mérito individual desempenha em relação às condições estruturais?</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-duration">10 min</span>
+        <span class="tl-text"><strong>Síntese</strong> — Retomada dos conceitos. Indicação das leituras sobre desigualdade no Brasil para a próxima aula.</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Textos para Leitura Prévia</div>
+    <div class="ref-card">
+      <div class="ref-author">GIDDENS, Anthony</div>
+      <div class="ref-title">Sociologia. Cap. "Estratificação e estrutura de classes"</div>
+      <div class="ref-pages">p. 209–248</div>
+    </div>
+    <div class="ref-card">
+      <div class="ref-author">WRIGHT, Erik Olin</div>
+      <div class="ref-title">Classes (trechos selecionados)</div>
+      <div class="ref-pages">Texto selecionado pelo professor</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Atividades em Sala</div>
+    <div class="activity-card">
+      <strong>Análise de trajetórias de mobilidade social</strong><br><br>
+      Cada grupo recebe a história de vida resumida de uma pessoa fictícia com origens sociais distintas. As histórias contemplam diferentes classes de origem, regiões do Brasil, raças e gêneros.
+      <br><br>
+      <strong>Exemplos de perfis:</strong><br>
+      — Filho de trabalhador rural do Nordeste que migra para São Paulo e torna-se engenheiro;<br>
+      — Mulher negra da periferia urbana que, com bolsa universitária, ingressa na carreira pública;<br>
+      — Filho de família de classe média que perde o emprego e desce na hierarquia social;<br>
+      — Descendente de família de elite que herda capital econômico e cultural.
+      <br><br>
+      <strong>Roteiro de análise:</strong><br>
+      — Que tipo de mobilidade (vertical ascendente, descendente, horizontal) ocorreu?<br>
+      — Quais <strong>fatores estruturais</strong> favoreceram ou dificultaram a trajetória?<br>
+      — Qual é o peso do <strong>mérito individual</strong> versus as <strong>condições sociais de partida</strong>?<br>
+      — Como Marx e Weber analisariam a posição de classe desse personagem?
+      <br><br>
+      Os grupos apresentam suas análises em 3 minutos cada. O debate coletivo aprofunda a questão da mobilidade estrutural no Brasil.
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Recursos Necessários</div>
+    <div class="resources-list">
+      <span class="res-tag">Projetor</span>
+      <span class="res-tag">Histórias de vida fictícias (impressas)</span>
+      <span class="res-tag">Pirâmide social brasileira (impressa ou projetada)</span>
+      <span class="res-tag">Quadro branco</span>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <a href="../index.html">← Voltar para Turma 1</a>
+  &nbsp;·&nbsp; Introdução à Sociologia 2026.1
+</footer>
+
+</body>
+</html>
