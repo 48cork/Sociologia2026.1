@@ -155,6 +155,15 @@
     .btn-back { display: inline-flex; align-items: center; gap: .5rem; background: rgba(20,184,166,.12); border: 1px solid rgba(45,212,191,.3); color: var(--teal-lt); padding: .65rem 1.5rem; border-radius: var(--radius); text-decoration: none; font-size: .875rem; font-weight: 600; transition: background .2s, transform .2s; }
     .btn-back:hover { background: rgba(20,184,166,.22); transform: translateY(-1px); }
 
+    /* ROTEIROS DE AULA */
+    .aulas-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: .75rem; }
+    .aula-link { display: flex; align-items: flex-start; gap: .75rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: .85rem 1rem; text-decoration: none; color: var(--text); transition: background .2s, border-color .2s, transform .15s; }
+    .aula-link:hover { background: var(--card); border-color: var(--teal-lt); transform: translateY(-2px); }
+    .aula-num { font-size: .72rem; font-weight: 800; color: var(--teal-lt); background: rgba(45,212,191,.1); border-radius: 6px; padding: .2rem .5rem; flex-shrink: 0; min-width: 2.2rem; text-align: center; line-height: 1.6; }
+    .aula-info { display: flex; flex-direction: column; gap: .12rem; }
+    .aula-data { font-size: .68rem; color: var(--muted); }
+    .aula-titulo { font-size: .8rem; line-height: 1.4; }
+
     @media (max-width: 640px) {
       nav { padding: .75rem 1rem; }
       .hero { padding: 2rem 1rem 1.5rem; }
@@ -416,6 +425,31 @@
         <div class="biblio-item">BOURDIEU, Pierre. <b>O poder simbólico</b>. Rio de Janeiro: Bertrand Brasil, 2010.</div>
         <div class="biblio-item">GIDDENS, Anthony; TURNER, Jonathan (orgs.). <b>Teoria social hoje</b>. São Paulo: Unesp, 1999.</div>
       </div>
+    </div>
+  </section>
+
+  <!-- ROTEIROS DE AULA -->
+  <section>
+    <h2 class="section-title t-teal">Roteiros de Aula</h2>
+    <div class="aulas-grid">
+      <a href="./aulas/aula-01.html" class="aula-link"><span class="aula-num">01</span><span class="aula-info"><span class="aula-data">13/04/2026 · Seg</span><span class="aula-titulo">O que é teoria sociológica? Ciência e método</span></span></a>
+      <a href="./aulas/aula-02.html" class="aula-link"><span class="aula-num">02</span><span class="aula-info"><span class="aula-data">20/04/2026 · Seg</span><span class="aula-titulo">Contexto histórico da Sociologia. Pré-clássicos</span></span></a>
+      <a href="./aulas/aula-03.html" class="aula-link"><span class="aula-num">03</span><span class="aula-info"><span class="aula-data">27/04/2026 · Seg</span><span class="aula-titulo">Comte: positivismo. Spencer: evolucionismo social</span></span></a>
+      <a href="./aulas/aula-04.html" class="aula-link"><span class="aula-num">04</span><span class="aula-info"><span class="aula-data">04/05/2026 · Seg</span><span class="aula-titulo">Durkheim: fato social e consciência coletiva</span></span></a>
+      <a href="./aulas/aula-05.html" class="aula-link"><span class="aula-num">05</span><span class="aula-info"><span class="aula-data">11/05/2026 · Seg</span><span class="aula-titulo">Durkheim: divisão do trabalho e anomia</span></span></a>
+      <a href="./aulas/aula-06.html" class="aula-link"><span class="aula-num">06</span><span class="aula-info"><span class="aula-data">18/05/2026 · Seg</span><span class="aula-titulo">Durkheim: O suicídio e vida religiosa</span></span></a>
+      <a href="./aulas/aula-07.html" class="aula-link"><span class="aula-num">07</span><span class="aula-info"><span class="aula-data">25/05/2026 · Seg</span><span class="aula-titulo">Marx: materialismo histórico e dialético</span></span></a>
+      <a href="./aulas/aula-08.html" class="aula-link"><span class="aula-num">08</span><span class="aula-info"><span class="aula-data">01/06/2026 · Seg</span><span class="aula-titulo">Marx: classes, luta de classes e mais-valia</span></span></a>
+      <a href="./aulas/aula-09.html" class="aula-link"><span class="aula-num">09</span><span class="aula-info"><span class="aula-data">08/06/2026 · Seg</span><span class="aula-titulo">Marx: alienação, ideologia e desdobramentos</span></span></a>
+      <a href="./aulas/aula-10.html" class="aula-link"><span class="aula-num">10</span><span class="aula-info"><span class="aula-data">15/06/2026 · Seg</span><span class="aula-titulo">Weber: ação social e tipos ideais</span></span></a>
+      <a href="./aulas/aula-11.html" class="aula-link"><span class="aula-num">11</span><span class="aula-info"><span class="aula-data">22/06/2026 · Seg</span><span class="aula-titulo">Weber: racionalização, dominação e burocracia</span></span></a>
+      <a href="./aulas/aula-12.html" class="aula-link"><span class="aula-num">12</span><span class="aula-info"><span class="aula-data">29/06/2026 · Seg</span><span class="aula-titulo">Weber: ética protestante · Orientação do Seminário</span></span></a>
+      <a href="./aulas/aula-13.html" class="aula-link"><span class="aula-num">13</span><span class="aula-info"><span class="aula-data">06/07/2026 · Seg</span><span class="aula-titulo">Funcionalismo: Parsons e Merton</span></span></a>
+      <a href="./aulas/aula-14.html" class="aula-link"><span class="aula-num">14</span><span class="aula-info"><span class="aula-data">13/07/2026 · Seg</span><span class="aula-titulo">Interacionismo simbólico e fenomenologia social</span></span></a>
+      <a href="./aulas/aula-15.html" class="aula-link"><span class="aula-num">15</span><span class="aula-info"><span class="aula-data">20/07/2026 · Seg</span><span class="aula-titulo">Teoria Crítica: Adorno, Horkheimer e Habermas</span></span></a>
+      <a href="./aulas/aula-16.html" class="aula-link"><span class="aula-num">16</span><span class="aula-info"><span class="aula-data">27/07/2026 · Seg</span><span class="aula-titulo">Bourdieu, Giddens e perspectivas decoloniais</span></span></a>
+      <a href="./aulas/aula-17.html" class="aula-link"><span class="aula-num">17</span><span class="aula-info"><span class="aula-data">03/08/2026 · Seg</span><span class="aula-titulo">Seminários: apresentações orais (1ª metade)</span></span></a>
+      <a href="./aulas/aula-18.html" class="aula-link"><span class="aula-num">18</span><span class="aula-info"><span class="aula-data">10/08/2026 · Seg</span><span class="aula-titulo">Seminários (2ª metade) · Entrega Final</span></span></a>
     </div>
   </section>
 

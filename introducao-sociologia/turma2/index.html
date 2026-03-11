@@ -152,6 +152,15 @@
     .btn-back { display: inline-flex; align-items: center; gap: .5rem; background: rgba(79,70,229,.15); border: 1px solid rgba(129,140,248,.3); color: var(--blue-lt); padding: .65rem 1.5rem; border-radius: var(--radius); text-decoration: none; font-size: .875rem; font-weight: 600; transition: background .2s, transform .2s; }
     .btn-back:hover { background: rgba(79,70,229,.25); transform: translateY(-1px); }
 
+    /* ROTEIROS DE AULA */
+    .aulas-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: .75rem; }
+    .aula-link { display: flex; align-items: flex-start; gap: .75rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: .85rem 1rem; text-decoration: none; color: var(--text); transition: background .2s, border-color .2s, transform .15s; }
+    .aula-link:hover { background: var(--card); border-color: var(--blue-lt); transform: translateY(-2px); }
+    .aula-num { font-size: .72rem; font-weight: 800; color: var(--blue-lt); background: rgba(129,140,248,.12); border-radius: 6px; padding: .2rem .5rem; flex-shrink: 0; min-width: 2.2rem; text-align: center; line-height: 1.6; }
+    .aula-info { display: flex; flex-direction: column; gap: .12rem; }
+    .aula-data { font-size: .68rem; color: var(--muted); }
+    .aula-titulo { font-size: .8rem; line-height: 1.4; }
+
     @media (max-width: 640px) {
       nav { padding: .75rem 1rem; }
       .hero { padding: 2rem 1rem 1.5rem; }
@@ -413,6 +422,31 @@
         <div class="biblio-item">BERGER, Peter L. <b>Perspectivas sociológicas: uma visão humanística</b>. Petrópolis: Vozes, 2011.</div>
         <div class="biblio-item">IANNI, Octavio. <b>A Sociologia e o mundo moderno</b>. Rio de Janeiro: Civilização Brasileira, 2011.</div>
       </div>
+    </div>
+  </section>
+
+  <!-- ROTEIROS DE AULA -->
+  <section>
+    <h2 class="section-title t-blue">Roteiros de Aula</h2>
+    <div class="aulas-grid">
+      <a href="./aulas/aula-01.html" class="aula-link"><span class="aula-num">01</span><span class="aula-info"><span class="aula-data">13/04/2026 · Seg</span><span class="aula-titulo">Apresentação da disciplina. O que é Sociologia?</span></span></a>
+      <a href="./aulas/aula-02.html" class="aula-link"><span class="aula-num">02</span><span class="aula-info"><span class="aula-data">20/04/2026 · Seg</span><span class="aula-titulo">Iluminismo e crise da modernidade. Comte</span></span></a>
+      <a href="./aulas/aula-03.html" class="aula-link"><span class="aula-num">03</span><span class="aula-info"><span class="aula-data">27/04/2026 · Seg</span><span class="aula-titulo">Spencer e a Sociologia como disciplina</span></span></a>
+      <a href="./aulas/aula-04.html" class="aula-link"><span class="aula-num">04</span><span class="aula-info"><span class="aula-data">04/05/2026 · Seg</span><span class="aula-titulo">Durkheim: fato social e solidariedade</span></span></a>
+      <a href="./aulas/aula-05.html" class="aula-link"><span class="aula-num">05</span><span class="aula-info"><span class="aula-data">11/05/2026 · Seg</span><span class="aula-titulo">Durkheim: anomia, método e O suicídio</span></span></a>
+      <a href="./aulas/aula-06.html" class="aula-link"><span class="aula-num">06</span><span class="aula-info"><span class="aula-data">18/05/2026 · Seg</span><span class="aula-titulo">Marx: materialismo histórico e ideologia</span></span></a>
+      <a href="./aulas/aula-07.html" class="aula-link"><span class="aula-num">07</span><span class="aula-info"><span class="aula-data">25/05/2026 · Seg</span><span class="aula-titulo">Marx: classes, luta de classes e alienação</span></span></a>
+      <a href="./aulas/aula-08.html" class="aula-link"><span class="aula-num">08</span><span class="aula-info"><span class="aula-data">01/06/2026 · Seg</span><span class="aula-titulo">Weber: ação social, racionalização e burocracia</span></span></a>
+      <a href="./aulas/aula-09.html" class="aula-link"><span class="aula-num">09</span><span class="aula-info"><span class="aula-data">08/06/2026 · Seg</span><span class="aula-titulo">Comparação teórica · Orientação do Seminário</span></span></a>
+      <a href="./aulas/aula-10.html" class="aula-link"><span class="aula-num">10</span><span class="aula-info"><span class="aula-data">15/06/2026 · Seg</span><span class="aula-titulo">Conceito de cultura. Etnocentrismo e relativismo</span></span></a>
+      <a href="./aulas/aula-11.html" class="aula-link"><span class="aula-num">11</span><span class="aula-info"><span class="aula-data">22/06/2026 · Seg</span><span class="aula-titulo">Diversidade e identidade cultural</span></span></a>
+      <a href="./aulas/aula-12.html" class="aula-link"><span class="aula-num">12</span><span class="aula-info"><span class="aula-data">29/06/2026 · Seg</span><span class="aula-titulo">Socialização e grupos sociais</span></span></a>
+      <a href="./aulas/aula-13.html" class="aula-link"><span class="aula-num">13</span><span class="aula-info"><span class="aula-data">06/07/2026 · Seg</span><span class="aula-titulo">Desvio e controle social</span></span></a>
+      <a href="./aulas/aula-14.html" class="aula-link"><span class="aula-num">14</span><span class="aula-info"><span class="aula-data">13/07/2026 · Seg</span><span class="aula-titulo">Instituições sociais</span></span></a>
+      <a href="./aulas/aula-15.html" class="aula-link"><span class="aula-num">15</span><span class="aula-info"><span class="aula-data">20/07/2026 · Seg</span><span class="aula-titulo">Estratificação e desigualdade social no Brasil</span></span></a>
+      <a href="./aulas/aula-16.html" class="aula-link"><span class="aula-num">16</span><span class="aula-info"><span class="aula-data">27/07/2026 · Seg</span><span class="aula-titulo">Raça, gênero e feminismo</span></span></a>
+      <a href="./aulas/aula-17.html" class="aula-link"><span class="aula-num">17</span><span class="aula-info"><span class="aula-data">03/08/2026 · Seg</span><span class="aula-titulo">Movimentos sociais · Seminários (1ª metade)</span></span></a>
+      <a href="./aulas/aula-18.html" class="aula-link"><span class="aula-num">18</span><span class="aula-info"><span class="aula-data">10/08/2026 · Seg</span><span class="aula-titulo">Seminários (2ª metade) · Entrega Final</span></span></a>
     </div>
   </section>
 

@@ -255,6 +255,15 @@
     }
     .btn-back:hover { background: rgba(124,58,237,.25); transform: translateY(-1px); }
 
+    /* ROTEIROS DE AULA */
+    .aulas-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: .75rem; }
+    .aula-link { display: flex; align-items: flex-start; gap: .75rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: .85rem 1rem; text-decoration: none; color: var(--text); transition: background .2s, border-color .2s, transform .15s; }
+    .aula-link:hover { background: var(--card); border-color: var(--purple-lt); transform: translateY(-2px); }
+    .aula-num { font-size: .72rem; font-weight: 800; color: var(--purple-lt); background: rgba(168,85,247,.12); border-radius: 6px; padding: .2rem .5rem; flex-shrink: 0; min-width: 2.2rem; text-align: center; line-height: 1.6; }
+    .aula-info { display: flex; flex-direction: column; gap: .12rem; }
+    .aula-data { font-size: .68rem; color: var(--muted); }
+    .aula-titulo { font-size: .8rem; line-height: 1.4; }
+
     @media (max-width: 640px) {
       nav { padding: .75rem 1rem; }
       .hero { padding: 2rem 1rem 1.5rem; }
@@ -579,6 +588,43 @@
         <div class="biblio-item">BERGER, Peter L. <b>Perspectivas sociológicas: uma visão humanística</b>. Petrópolis: Vozes, 2011.</div>
         <div class="biblio-item">IANNI, Octavio. <b>A Sociologia e o mundo moderno</b>. Rio de Janeiro: Civilização Brasileira, 2011.</div>
       </div>
+    </div>
+  </section>
+
+  <!-- ROTEIROS DE AULA -->
+  <section>
+    <h2 class="section-title t-purple">Roteiros de Aula</h2>
+    <div class="aulas-grid">
+      <a href="./aulas/aula-01.html" class="aula-link"><span class="aula-num">01</span><span class="aula-info"><span class="aula-data">14/04/2026 · Ter</span><span class="aula-titulo">O que é Sociologia? Ciência e senso comum</span></span></a>
+      <a href="./aulas/aula-02.html" class="aula-link"><span class="aula-num">02</span><span class="aula-info"><span class="aula-data">15/04/2026 · Qua</span><span class="aula-titulo">Revolução Francesa e Industrial: matrizes da Sociologia</span></span></a>
+      <a href="./aulas/aula-03.html" class="aula-link"><span class="aula-num">03</span><span class="aula-info"><span class="aula-data">22/04/2026 · Qua</span><span class="aula-titulo">Iluminismo, modernidade e crise social</span></span></a>
+      <a href="./aulas/aula-04.html" class="aula-link"><span class="aula-num">04</span><span class="aula-info"><span class="aula-data">28/04/2026 · Ter</span><span class="aula-titulo">Comte: positivismo. Spencer: evolucionismo social</span></span></a>
+      <a href="./aulas/aula-05.html" class="aula-link"><span class="aula-num">05</span><span class="aula-info"><span class="aula-data">29/04/2026 · Qua</span><span class="aula-titulo">A Sociologia como disciplina acadêmica</span></span></a>
+      <a href="./aulas/aula-06.html" class="aula-link"><span class="aula-num">06</span><span class="aula-info"><span class="aula-data">05/05/2026 · Ter</span><span class="aula-titulo">Durkheim: fato social e consciência coletiva</span></span></a>
+      <a href="./aulas/aula-07.html" class="aula-link"><span class="aula-num">07</span><span class="aula-info"><span class="aula-data">06/05/2026 · Qua</span><span class="aula-titulo">Durkheim: solidariedade e divisão do trabalho</span></span></a>
+      <a href="./aulas/aula-08.html" class="aula-link"><span class="aula-num">08</span><span class="aula-info"><span class="aula-data">12/05/2026 · Ter</span><span class="aula-titulo">Durkheim: anomia, método e O suicídio</span></span></a>
+      <a href="./aulas/aula-09.html" class="aula-link"><span class="aula-num">09</span><span class="aula-info"><span class="aula-data">13/05/2026 · Qua</span><span class="aula-titulo">Marx: materialismo histórico e dialético</span></span></a>
+      <a href="./aulas/aula-10.html" class="aula-link"><span class="aula-num">10</span><span class="aula-info"><span class="aula-data">19/05/2026 · Ter</span><span class="aula-titulo">Marx: classes sociais e alienação</span></span></a>
+      <a href="./aulas/aula-11.html" class="aula-link"><span class="aula-num">11</span><span class="aula-info"><span class="aula-data">20/05/2026 · Qua</span><span class="aula-titulo">Weber: ação social e tipos ideais</span></span></a>
+      <a href="./aulas/aula-12.html" class="aula-link"><span class="aula-num">12</span><span class="aula-info"><span class="aula-data">26/05/2026 · Ter</span><span class="aula-titulo">Weber: racionalização, burocracia e ética protestante</span></span></a>
+      <a href="./aulas/aula-13.html" class="aula-link"><span class="aula-num">13</span><span class="aula-info"><span class="aula-data">27/05/2026 · Qua</span><span class="aula-titulo">Comparação: Durkheim, Marx e Weber</span></span></a>
+      <a href="./aulas/aula-14.html" class="aula-link"><span class="aula-num">14</span><span class="aula-info"><span class="aula-data">02/06/2026 · Ter</span><span class="aula-titulo">Orientação do Seminário · Pesquisa Bibliográfica</span></span></a>
+      <a href="./aulas/aula-15.html" class="aula-link"><span class="aula-num">15</span><span class="aula-info"><span class="aula-data">03/06/2026 · Qua</span><span class="aula-titulo">Conceito de cultura: natureza, sociedade e cultura</span></span></a>
+      <a href="./aulas/aula-16.html" class="aula-link"><span class="aula-num">16</span><span class="aula-info"><span class="aula-data">09/06/2026 · Ter</span><span class="aula-titulo">Etnocentrismo, relativismo e diversidade cultural</span></span></a>
+      <a href="./aulas/aula-17.html" class="aula-link"><span class="aula-num">17</span><span class="aula-info"><span class="aula-data">10/06/2026 · Qua</span><span class="aula-titulo">Identidade cultural e cultura de massa</span></span></a>
+      <a href="./aulas/aula-18.html" class="aula-link"><span class="aula-num">18</span><span class="aula-info"><span class="aula-data">16/06/2026 · Ter</span><span class="aula-titulo">Socialização primária e secundária</span></span></a>
+      <a href="./aulas/aula-19.html" class="aula-link"><span class="aula-num">19</span><span class="aula-info"><span class="aula-data">17/06/2026 · Qua</span><span class="aula-titulo">Grupos sociais: primários, secundários e de referência</span></span></a>
+      <a href="./aulas/aula-20.html" class="aula-link"><span class="aula-num">20</span><span class="aula-info"><span class="aula-data">23/06/2026 · Ter</span><span class="aula-titulo">Desvio social, controle social e normas</span></span></a>
+      <a href="./aulas/aula-21.html" class="aula-link"><span class="aula-num">21</span><span class="aula-info"><span class="aula-data">30/06/2026 · Ter</span><span class="aula-titulo">Instituições sociais: família</span></span></a>
+      <a href="./aulas/aula-22.html" class="aula-link"><span class="aula-num">22</span><span class="aula-info"><span class="aula-data">01/07/2026 · Qua</span><span class="aula-titulo">Instituições sociais: escola, religião e Estado</span></span></a>
+      <a href="./aulas/aula-23.html" class="aula-link"><span class="aula-num">23</span><span class="aula-info"><span class="aula-data">07/07/2026 · Ter</span><span class="aula-titulo">Estratificação social: castas, estamentos e classes</span></span></a>
+      <a href="./aulas/aula-24.html" class="aula-link"><span class="aula-num">24</span><span class="aula-info"><span class="aula-data">08/07/2026 · Qua</span><span class="aula-titulo">Desigualdade social no Brasil</span></span></a>
+      <a href="./aulas/aula-25.html" class="aula-link"><span class="aula-num">25</span><span class="aula-info"><span class="aula-data">14/07/2026 · Ter</span><span class="aula-titulo">Raça, etnia e racismo</span></span></a>
+      <a href="./aulas/aula-26.html" class="aula-link"><span class="aula-num">26</span><span class="aula-info"><span class="aula-data">15/07/2026 · Qua</span><span class="aula-titulo">Gênero, sexualidade e feminismo</span></span></a>
+      <a href="./aulas/aula-27.html" class="aula-link"><span class="aula-num">27</span><span class="aula-info"><span class="aula-data">21/07/2026 · Ter</span><span class="aula-titulo">Movimentos sociais</span></span></a>
+      <a href="./aulas/aula-28.html" class="aula-link"><span class="aula-num">28</span><span class="aula-info"><span class="aula-data">22/07/2026 · Qua</span><span class="aula-titulo">Seminários: apresentações orais (1ª metade)</span></span></a>
+      <a href="./aulas/aula-29.html" class="aula-link"><span class="aula-num">29</span><span class="aula-info"><span class="aula-data">28/07/2026 · Ter</span><span class="aula-titulo">Seminários: apresentações orais (2ª metade)</span></span></a>
+      <a href="./aulas/aula-30.html" class="aula-link"><span class="aula-num">30</span><span class="aula-info"><span class="aula-data">29/07/2026 · Qua</span><span class="aula-titulo">Entrega do Relatório e Vídeo · Encerramento</span></span></a>
     </div>
   </section>
 
