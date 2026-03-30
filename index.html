@@ -317,7 +317,7 @@
         <span class="stat-label">Disciplinas</span>
       </div>
       <div class="stat">
-        <span class="stat-num">3</span>
+        <span class="stat-num">4</span>
         <span class="stat-label">Turmas</span>
       </div>
       <div class="stat">
@@ -498,7 +498,7 @@
     <div class="pesq-alert">
       <strong>Nota metodológica:</strong> Os relatórios produzidos pelos alunos alimentam diretamente o banco de dados Supabase do projeto Research-Mate (tabela <code>extractions</code>) e poderão ser citados em publicações acadêmicas do Prof. Sergio Farias (UFCG/UACS). A participação é voluntária — os relatórios serão <strong>anonimizados</strong> e a autorização é opcional, sem efeito na nota.
       <br><br>
-      <strong>Bourdieu:</strong> obrigatório para a Turma 3 (Fundamentos do Pensamento Sociológico). Opcional para as Turmas 1 e 2 — rende pontos extras na análise.
+      <strong>Bourdieu:</strong> obrigatório para Fundamentos T01 e T02. Opcional para Introdução T01 (2101000 e 2101107) — rende pontos extras na análise.
     </div>
   </div>
 </section>
@@ -508,7 +508,7 @@
   <div class="container">
     <div class="section-label">Turmas 2026.1</div>
     <h2 class="section-title">Horários e planos de aula</h2>
-    <p class="section-desc">Três turmas com formatos distintos. Acesse o plano completo de cada turma pelo link abaixo.</p>
+    <p class="section-desc">Quatro turmas em dois turnos distintos. Acesse o plano completo de cada turma pelo link abaixo.</p>
     <div class="turmas-table-wrap">
       <table>
         <thead>
@@ -516,42 +516,57 @@
             <th>Turma</th>
             <th>Disciplina</th>
             <th>Código</th>
-            <th>Horário</th>
+            <th>Dia · Turno</th>
+            <th>Grade</th>
             <th>Período</th>
-            <th>Encontros</th>
             <th>Plano</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td class="td-turma"><span class="badge-t bt-1">Turma 1</span></td>
-            <td>Introdução à Sociologia</td>
-            <td class="td-code">2101107</td>
-            <td>Ter/Qua · 2h cada</td>
-            <td>14/04 — 29/07</td>
-            <td>30 · 60h</td>
-            <td class="td-link"><a href="introducao-sociologia/turma1/index.html">Abrir plano →</a></td>
+            <td class="td-turma"><span class="badge-t bt-3">Fund. T01</span></td>
+            <td>Fundamentos do Pensamento Sociológico</td>
+            <td class="td-code">2101106</td>
+            <td>Segunda · <strong style="color:var(--teal-lt)">Manhã</strong></td>
+            <td class="td-code">2M1234</td>
+            <td>13/04 — 10/08</td>
+            <td class="td-link"><a href="fundamentos-pensamento-sociologico/turma3/index.html">Abrir plano →</a></td>
           </tr>
           <tr>
-            <td class="td-turma"><span class="badge-t bt-2">Turma 2</span></td>
+            <td class="td-turma"><span class="badge-t bt-3">Fund. T02</span></td>
+            <td>Fundamentos do Pensamento Sociológico</td>
+            <td class="td-code">2101106</td>
+            <td>Terça · <strong style="color:var(--blue-lt)">Noite</strong></td>
+            <td class="td-code">3N1234</td>
+            <td>14/04 — 12/08</td>
+            <td class="td-link"><a href="fundamentos-pensamento-sociologico/turma3/index.html">Abrir plano →</a></td>
+          </tr>
+          <tr>
+            <td class="td-turma"><span class="badge-t bt-2">Intro. T01</span></td>
             <td>Introdução à Sociologia</td>
             <td class="td-code">2101000</td>
-            <td>Segunda · 3h20 · Noite</td>
+            <td>Segunda · <strong style="color:var(--blue-lt)">Noite</strong></td>
+            <td class="td-code">2N1234</td>
             <td>13/04 — 10/08</td>
-            <td>18 · 60h</td>
             <td class="td-link"><a href="introducao-sociologia/turma2/index.html">Abrir plano →</a></td>
           </tr>
           <tr>
-            <td class="td-turma"><span class="badge-t bt-3">Turma 3</span></td>
-            <td>Fundamentos do Pensamento Sociológico</td>
-            <td class="td-code">2101106</td>
-            <td>Segunda · 3h20 · Manhã</td>
-            <td>13/04 — 10/08</td>
-            <td>18 · 60h</td>
-            <td class="td-link"><a href="fundamentos-pensamento-sociologico/turma3/index.html">Abrir plano →</a></td>
+            <td class="td-turma"><span class="badge-t bt-1">Intro. T01</span></td>
+            <td>Introdução à Sociologia</td>
+            <td class="td-code">2101107</td>
+            <td>Ter + Qui · <strong style="color:var(--teal-lt)">Manhã</strong></td>
+            <td class="td-code">3M12 · 4M45</td>
+            <td>14/04 — 29/07</td>
+            <td class="td-link"><a href="introducao-sociologia/turma1/index.html">Abrir plano →</a></td>
           </tr>
         </tbody>
       </table>
+    </div>
+
+    <!-- Nota pedagógica: variável turno -->
+    <div class="pesq-alert" style="margin-top:1.5rem">
+      <strong>Variável sociológica: turno matutino × noturno.</strong>
+      Embora as quatro turmas tenham horários distintos, todas participarão do <strong>projeto unificado de pesquisa IA &amp; Classes Sociais</strong> com o mesmo protocolo de experimento de personas. Isso cria uma variável comparativa clássica: os alunos do turno noturno — trabalhadores, chefes de família, renda própria — tendem a produzir análises com maior ancoragem na experiência vivida de desigualdade. Os do turno matutino — majoritariamente jovens em formação — trazem outro habitus de classe. <strong>A comparação entre os corpora dos dois turnos é, ela própria, um dado da pesquisa.</strong>
     </div>
   </div>
 </section>
