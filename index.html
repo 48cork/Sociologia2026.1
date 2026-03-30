@@ -211,6 +211,76 @@
     .footer-right a { color: var(--muted); text-decoration: none; transition: color .2s; }
     .footer-right a:hover { color: var(--text); }
 
+    /* ── PESQUISA / RESEARCH-MATE ── */
+    #pesquisa { background: var(--bg); border-bottom: 1px solid var(--border); }
+    .pesq-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
+    .pesq-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.75rem;
+      display: flex; flex-direction: column; gap: .85rem;
+    }
+    .pesq-card:nth-child(1) { border-top: 3px solid var(--teal-lt); }
+    .pesq-card:nth-child(2) { border-top: 3px solid var(--purple-lt); }
+    .pesq-card:nth-child(3) { border-top: 3px solid var(--blue-lt); }
+    .pesq-card h3 { font-size: 1rem; font-weight: 700; }
+    .pesq-card p, .pesq-card li { font-size: .875rem; color: var(--muted); line-height: 1.7; }
+    .pesq-card ul { padding-left: 1.1rem; display: flex; flex-direction: column; gap: .35rem; }
+    .pesq-card li strong { color: var(--text); }
+    .pesq-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .25rem; }
+    .pesq-tag {
+      font-size: .7rem; padding: .2rem .6rem; border-radius: 6px;
+      background: rgba(20,184,166,.1); border: 1px solid rgba(45,212,191,.2); color: var(--teal-lt);
+    }
+    .pesq-tag-purple {
+      font-size: .7rem; padding: .2rem .6rem; border-radius: 6px;
+      background: rgba(124,58,237,.12); border: 1px solid rgba(168,85,247,.2); color: var(--purple-lt);
+    }
+    .pesq-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; padding: .2rem .65rem; border-radius: 6px;
+      background: rgba(20,184,166,.1); border: 1px solid rgba(45,212,191,.2);
+      color: var(--teal-lt); align-self: flex-start;
+    }
+    .pesq-link {
+      display: inline-flex; align-items: center; gap: .35rem; margin-top: auto;
+      font-size: .82rem; font-weight: 600; color: var(--blue-lt);
+      text-decoration: none; transition: color .2s;
+    }
+    .pesq-link:hover { color: var(--purple-lt); }
+    .pesq-alert {
+      margin-top: 2rem; padding: 1rem 1.25rem; border-radius: var(--radius);
+      border: 1px solid rgba(251,191,36,.2); background: rgba(251,191,36,.05);
+      font-size: .875rem; color: var(--muted); line-height: 1.7;
+    }
+    .pesq-alert strong { color: var(--amber-lt); }
+
+    /* ── TEMAS / CALENDÁRIO ── */
+    .temas-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: .6rem; margin-top: 1rem; }
+    .tema-item {
+      padding: .55rem .85rem; border-radius: 8px; font-size: .78rem;
+      border: 1px solid var(--border); background: rgba(124,58,237,.06);
+      display: flex; align-items: baseline; gap: .5rem; color: var(--muted);
+    }
+    .tema-num { font-size: .65rem; font-weight: 800; color: var(--purple-lt); flex-shrink: 0; }
+    .cal-table { width: 100%; border-collapse: collapse; font-size: .82rem; margin-top: 1rem; }
+    .cal-table td { padding: .55rem .85rem; border-bottom: 1px solid rgba(42,42,74,.4); vertical-align: top; }
+    .cal-table tr:last-child td { border-bottom: none; }
+    .cal-table td:first-child { white-space: nowrap; font-weight: 700; color: var(--purple-lt); min-width: 9rem; }
+    .cal-table td:last-child { color: var(--muted); }
+    .cal-table .cal-festival td { color: var(--amber-lt) !important; }
+    .cal-table .cal-festival td:first-child { color: var(--amber-lt); }
+    .pesq-warn {
+      margin-top: .85rem; padding: .75rem 1rem; border-radius: 8px;
+      border: 1px solid rgba(251,191,36,.2); background: rgba(251,191,36,.06);
+      font-size: .8rem; color: var(--muted); line-height: 1.65;
+    }
+    .pesq-warn strong { color: var(--amber-lt); }
+    .pesq-card-wide { grid-column: 1 / -1; }
+
+    /* ── BLOCO ESPECIAL (destaque Bourdieu/Research-Mate) ── */
+    .bloco-details.bloco-rm > .bloco-summary { border-left: 3px solid var(--teal-lt); padding-left: 1rem; }
+    .bloco-roman.br-teal { background: rgba(20,184,166,.15); color: var(--teal-lt); }
+
     @media (max-width: 640px) {
       nav { padding: .75rem 1rem; }
       .nav-links { display: none; }
@@ -229,6 +299,7 @@
   <ul class="nav-links">
     <li><a href="#disciplinas">Disciplinas</a></li>
     <li><a href="#turmas">Turmas</a></li>
+    <li><a href="#pesquisa">Research-Mate</a></li>
     <li><a href="#roteiros">Roteiros de Aula</a></li>
   </ul>
 </nav>
@@ -237,9 +308,9 @@
 <section class="hero">
   <div class="hero-grid"></div>
   <div class="hero-inner">
-    <div class="hero-label">Repositório acadêmico · Semestre 2026.1</div>
-    <h1>Disciplinas de <em>Sociologia</em><br>— Semestre 2026.1</h1>
-    <p class="hero-desc">Material de referência para as disciplinas Introdução à Sociologia e Fundamentos do Pensamento Sociológico. Planos de aula, cronogramas, critérios de avaliação e roteiros por encontro.</p>
+    <div class="hero-label">Repositório acadêmico · Semestre 2026.1 · Laboratório Research-Mate / UFCG-UACS</div>
+    <h1>Sociologia da <em>IA</em> e das<br>Classes Sociais — 2026.1</h1>
+    <p class="hero-desc">Este semestre funciona como um <strong>laboratório do projeto Research-Mate</strong>. O eixo central é duplo: a <strong>IA como Fato Social</strong> (Durkheim) — exterior, coercitiva, produtora de Anomia Digital — e o <strong>Habitus em ambientes digitais</strong> (Bourdieu) — algoritmos que incorporam e reproduzem disposições de classe, raça e território. Os alunos coletam dados reais sobre como algoritmos reforçam desigualdades de classe.</p>
     <div class="hero-stats">
       <div class="stat">
         <span class="stat-num">2</span>
@@ -272,39 +343,162 @@
       <div class="disc-card">
         <div class="disc-code">Cód. 2101107 / 2101000</div>
         <h3>Introdução à Sociologia</h3>
-        <p>Apresentação dos conceitos fundamentais da Sociologia como ciência, seus métodos de investigação e a relação entre indivíduo e sociedade. Aborda cultura, socialização, instituições, estratificação e mudança social.</p>
+        <p>Apresentação dos conceitos fundamentais da Sociologia como ciência. Percurso dos clássicos (Durkheim, Marx, Weber) às questões contemporâneas: <strong>a IA como Fato Social</strong>, a Anomia Digital e como algoritmos reproduzem desigualdade de classe. Os alunos experimentam a teoria com dados reais gerados em sala.</p>
         <div class="disc-meta">
-          <span class="disc-tag">Cultura</span>
-          <span class="disc-tag">Socialização</span>
+          <span class="disc-tag">Cultura · Socialização</span>
           <span class="disc-tag">Estratificação</span>
           <span class="disc-tag">Durkheim · Marx · Weber</span>
+          <span class="disc-tag">IA como Fato Social</span>
+          <span class="disc-tag">Anomia Digital</span>
         </div>
       </div>
 
       <div class="disc-card">
         <div class="disc-code">Cód. 2101106</div>
         <h3>Fundamentos do Pensamento Sociológico</h3>
-        <p>Estudo das origens e do desenvolvimento do pensamento sociológico, dos pré-clássicos aos contemporâneos. Examina as contribuições de Durkheim, Marx e Weber e as correntes do século XX.</p>
+        <p>Dos pré-clássicos aos contemporâneos, com <strong>Bourdieu como eixo central</strong>: habitus, campo e capital aplicados ao mundo digital. Cerne analítico do semestre: <em>como o Habitus Digital reproduz disposições de classe nos algoritmos?</em> Usa os agentes Pedro Valério (Weber) e Alan (Frankfurt) como ferramentas de análise.</p>
         <div class="disc-meta">
-          <span class="disc-tag">Epistemologia</span>
-          <span class="disc-tag">Clássicos</span>
+          <span class="disc-tag">Epistemologia · Clássicos</span>
           <span class="disc-tag">Teoria Crítica</span>
-          <span class="disc-tag">Bourdieu · Giddens</span>
+          <span class="disc-tag">Habitus Digital</span>
+          <span class="disc-tag">Capital Algorítmico</span>
+          <span class="disc-tag">Bourdieu · Frankfurt · Giddens</span>
         </div>
       </div>
 
       <div class="disc-card">
         <div class="disc-code">Avaliação — todas as turmas</div>
-        <h3>Seminário em Grupo</h3>
-        <p>Metodologia avaliativa única para todas as turmas. Grupos de até 5 alunos com quatro entregas independentes ao longo do semestre, cada uma com peso de 25%.</p>
+        <h3>Seminário Research-Mate em Grupo</h3>
+        <p>Grupos de até 5 alunos atuando como <strong>pesquisadores juniores</strong> do projeto Research-Mate (UFCG/UACS). O relatório final documenta experimentos com personas socioeconômicas distintas no ChatGPT — os dados tornam-se corpus da pesquisa institucional.</p>
         <div class="disc-meta">
-          <span class="disc-tag">Pesquisa bibliográfica</span>
-          <span class="disc-tag">Apresentação oral</span>
-          <span class="disc-tag">Relatório escrito</span>
-          <span class="disc-tag">Vídeo 5–10 min</span>
+          <span class="disc-tag">Relatório escrito · 60%</span>
+          <span class="disc-tag">Vídeo 3–5 min · 30%</span>
+          <span class="disc-tag">Experimento em sala · 10%</span>
         </div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH-MATE / METODOLOGIA ATIVA -->
+<section id="pesquisa">
+  <div class="container">
+    <div class="section-label">Laboratório Research-Mate · Metodologia Ativa</div>
+    <h2 class="section-title">A disciplina como laboratório de pesquisa</h2>
+    <p class="section-desc">As disciplinas de Sociologia 2026.1 funcionam como <strong>laboratório do projeto Research-Mate</strong> (UFCG/UACS). Cada encontro é simultaneamente aula e coleta de dados. Os alunos investigam empiricamente como algoritmos reforçam desigualdades de classe — e os resultados alimentam uma pesquisa institucional real sobre colonialidade algorítmica no Sul Global.</p>
+
+    <div class="pesq-grid">
+
+      <div class="pesq-card">
+        <span class="pesq-label">Cerne Teórico</span>
+        <h3>Habitus, Campo e Capital na Era Algorítmica</h3>
+        <p>O eixo central do semestre é a <strong>Teoria do Habitus de Pierre Bourdieu</strong> aplicada à Inteligência Artificial. Os algoritmos não são neutros: eles incorporam e reproduzem disposições de classe, raça e território — exatamente como o habitus faz nos corpos e nas práticas sociais.</p>
+        <p>Durkheim entra como contraponto inaugural: se a IA é um <strong>Fato Social</strong> — exterior, coercitivo e geral — então sua disfunção produz <strong>Anomia Digital</strong>: exclusão invisível, sem rosto e sem processo.</p>
+        <div class="pesq-tags">
+          <span class="pesq-tag-purple">Habitus Digital</span>
+          <span class="pesq-tag-purple">Capital Algorítmico</span>
+          <span class="pesq-tag-purple">Campo Digital</span>
+          <span class="pesq-tag">IA como Fato Social</span>
+          <span class="pesq-tag">Anomia Digital</span>
+        </div>
+      </div>
+
+      <div class="pesq-card">
+        <span class="pesq-label">Experimento de Personas</span>
+        <h3>A IA Tem Classe Social?</h3>
+        <p>Você e seu grupo farão <strong>as mesmas perguntas ao ChatGPT</strong> adotando duas personas contrastantes no Sertão nordestino:</p>
+        <ul>
+          <li><strong>Seu Francisco, 54 anos</strong> — Agricultor familiar, São João do Rio do Peixe-PB, R$ 600/mês, ensino fundamental incompleto</li>
+          <li><strong>Dra. Mariana, 35 anos</strong> — Advogada, João Pessoa-PB, R$ 12.000/mês, pós-graduação</li>
+        </ul>
+        <p>Inicie uma conversa <em>nova</em> para cada persona, apresente o perfil e faça as mesmas 3 perguntas. Compare: tamanho, tom, opções oferecidas, linguagem e suposições da IA. Seu relatório é dado primário da pesquisa institucional.</p>
+        <div class="pesq-warn">
+          <strong>⚠ Atenção metodológica:</strong> Escreva naturalmente — como a pessoa falaria no WhatsApp. <strong>Não force erros de português nem caricaturas.</strong> O que importa é o perfil social declarado. Se forçar a caricatura, você estará testando o seu próprio viés, não o da IA.
+        </div>
+        <div class="pesq-tags" style="margin-top:.5rem">
+          <span class="pesq-tag">Dados primários</span>
+          <span class="pesq-tag">Metodologia comparativa</span>
+          <span class="pesq-tag">Viés algorítmico</span>
+        </div>
+      </div>
+
+      <div class="pesq-card">
+        <span class="pesq-label">Casos de Estudo · Arquivo Histórico</span>
+        <h3>Da Tese 2008 à Resistência Digital 2026</h3>
+        <p>O ponto de partida histórico é a tese doutoral do Prof. Sergio Farias (<em>L'Invention des Identités Noires dans le Nordeste Brésilien</em>, Montpellier III, 2008): como as comunidades quilombolas de Xocó e Mocambo, em Porto da Folha/SE, <strong>inventaram e mobilizaram identidades negras</strong> como estratégia de inserção no campo jurídico-estatal.</p>
+        <p>O salto para 2026: os mesmos mecanismos de exclusão territorial do século XIX — negação de posse, invisibilidade, clientelismo — <strong>reaparecem em linguagem algorítmica</strong>. A IA não reconhece o Seu Francisco; o score de crédito não vê o quilombola. O passado colonial é atuado no presente como código.</p>
+        <div class="pesq-tags">
+          <span class="pesq-tag-purple">Identidade quilombola</span>
+          <span class="pesq-tag-purple">Colonialidade do código</span>
+          <span class="pesq-tag">Xocó · Mocambo · SE</span>
+          <span class="pesq-tag">Resistência digital</span>
+          <span class="pesq-tag">MM-09 · MM-11</span>
+        </div>
+      </div>
+
+      <div class="pesq-card">
+        <span class="pesq-label">Squad de Agentes · Sociologia da IA em Sala</span>
+        <h3>Pedro Valério + Alan — ferramentas de análise</h3>
+        <p>A prática de <strong>Sociologia da IA</strong> em sala usa o <strong>Squad de agentes do Research-Mate</strong>: sistemas analíticos treinados com lentes teóricas clássicas para dissecar o comportamento dos algoritmos:</p>
+        <ul>
+          <li><strong>Pedro Valério</strong> — Lente Weber: Verstehen, tipos ideais, burocracia algorítmica. Pergunta: <em>qual o sentido subjetivo que o ChatGPT atribui a cada classe social?</em></li>
+          <li><strong>Alan</strong> — Lente Escola de Frankfurt: razão instrumental, colonialidade do código, invisibilidade silenciosa (MM-11). Pergunta: <em>quem o algoritmo exclui sem nome e sem processo?</em></li>
+        </ul>
+        <p style="font-size:.8rem;color:var(--muted)">Ambos operam sobre o Core Logic bourdieusiano — toda análise começa pelo mapeamento de habitus, campo e capital antes de aplicar a lente específica.</p>
+        <a class="pesq-link" href="https://github.com/48cork/research-mate/tree/main/agents" target="_blank" rel="noopener">Acessar o Squad no repositório →</a>
+      </div>
+
+    </div>
+
+    <!-- Temas + Calendário -->
+    <div class="pesq-grid" style="margin-top:1.5rem">
+
+      <div class="pesq-card">
+        <span class="pesq-label">10 Temas · Sorteio em 14/07</span>
+        <h3>Cada grupo escolhe um tema exclusivo</h3>
+        <p style="font-size:.82rem;color:var(--muted)">O sorteio garante variedade no Festival de Vídeos. Se houver mais de 10 grupos, dois podem ter o mesmo tema com personas diferentes.</p>
+        <div class="temas-grid">
+          <div class="tema-item"><span class="tema-num">1</span>Saúde</div>
+          <div class="tema-item"><span class="tema-num">2</span>Saúde Mental</div>
+          <div class="tema-item"><span class="tema-num">3</span>Educação Infantil</div>
+          <div class="tema-item"><span class="tema-num">4</span>Carreira</div>
+          <div class="tema-item"><span class="tema-num">5</span>Dívidas</div>
+          <div class="tema-item"><span class="tema-num">6</span>Investimento</div>
+          <div class="tema-item"><span class="tema-num">7</span>Trabalho</div>
+          <div class="tema-item"><span class="tema-num">8</span>Família</div>
+          <div class="tema-item"><span class="tema-num">9</span>Direito do Consumidor</div>
+          <div class="tema-item"><span class="tema-num">10</span>Futuro e Tecnologia</div>
+        </div>
+      </div>
+
+      <div class="pesq-card">
+        <span class="pesq-label">Calendário · Turma 1</span>
+        <h3>Datas-chave do semestre</h3>
+        <table class="cal-table">
+          <tbody>
+            <tr><td>14/07 · Ter</td><td>Apresentação do projeto · formação dos grupos · sorteio dos temas</td></tr>
+            <tr><td>15/07 · Qua</td><td><strong style="color:var(--text)">Dia do Experimento</strong> — tragam os celulares carregados. Rodar o teste com o ChatGPT em sala</td></tr>
+            <tr><td>21/07 · Ter</td><td>Orientação teórica: conectar resultados à teoria. Tirar dúvidas</td></tr>
+            <tr><td>22/07 · Qua</td><td>Checkpoint — rascunho do relatório para feedback rápido</td></tr>
+            <tr><td>28–29/07</td><td>Produção livre (extraclasse)</td></tr>
+            <tr class="cal-festival"><td>04/08 · Ter ★</td><td><strong>Festival de Vídeos</strong> — exibição em sala + entrega do relatório final</td></tr>
+            <tr><td>05/08 · Qua</td><td>Continuação do Festival (se necessário)</td></tr>
+            <tr><td>11–12/08</td><td>Devolutiva das notas e discussão geral</td></tr>
+            <tr><td>14–20/08</td><td>Provas finais</td></tr>
+          </tbody>
+        </table>
+        <div class="pesq-warn" style="margin-top:.75rem">
+          <strong>Prazo final:</strong> relatório + vídeo até <strong>04/08/2026</strong>. Sem prorrogação — os vídeos são exibidos no mesmo dia.
+        </div>
+      </div>
+
+    </div>
+
+    <div class="pesq-alert">
+      <strong>Nota metodológica:</strong> Os relatórios produzidos pelos alunos alimentam diretamente o banco de dados Supabase do projeto Research-Mate (tabela <code>extractions</code>) e poderão ser citados em publicações acadêmicas do Prof. Sergio Farias (UFCG/UACS). A participação é voluntária — os relatórios serão <strong>anonimizados</strong> e a autorização é opcional, sem efeito na nota.
+      <br><br>
+      <strong>Bourdieu:</strong> obrigatório para a Turma 3 (Fundamentos do Pensamento Sociológico). Opcional para as Turmas 1 e 2 — rende pontos extras na análise.
     </div>
   </div>
 </section>
@@ -571,6 +765,19 @@
             <li class="aula-item"><a href="fundamentos-pensamento-sociologico/turma3/index.html"><span class="aula-num">04</span><span class="aula-date">04/05 Seg</span><span class="aula-topic">Fato social, consciência coletiva e representações sociais. As regras do método.</span></a></li>
             <li class="aula-item"><a href="fundamentos-pensamento-sociologico/turma3/index.html"><span class="aula-num">05</span><span class="aula-date">11/05 Seg</span><span class="aula-topic">Da divisão do trabalho social: solidariedade e anomia.</span></a></li>
             <li class="aula-item"><a href="fundamentos-pensamento-sociologico/turma3/index.html"><span class="aula-num">06</span><span class="aula-date">18/05 Seg</span><span class="aula-topic">O suicídio como paradigma. Religião e vida coletiva. Legado do durkheimianismo.</span></a></li>
+          </ul>
+        </details>
+
+        <details class="bloco-details bloco-rm">
+          <summary class="bloco-summary">
+            <span class="bloco-name"><span class="bloco-roman br-teal">II-B</span> Durkheim Aplicado: IA como Fato Social</span>
+            <span class="bloco-enc-count">Research-Mate <span class="bloco-chevron">›</span></span>
+          </summary>
+          <ul class="aula-list">
+            <li class="aula-item"><a href="fundamentos-pensamento-sociologico/turma3/index.html"><span class="aula-num tp-3" style="color:var(--teal-lt)">★</span><span class="aula-date" style="color:var(--teal-lt)">Unidade RM</span><span class="aula-topic"><strong>IA como Fato Social:</strong> o algoritmo é exterior ao indivíduo, coercitivo e geral — preenche todas as condições do fato social durkheimiano. O ChatGPT impõe normas de linguagem, acesso e oportunidade independentemente da vontade do usuário. Laboratório: identifique nos dados do experimento que normas a IA impôs a cada persona.</span></a></li>
+            <li class="aula-item"><a href="fundamentos-pensamento-sociologico/turma3/index.html"><span class="aula-num tp-3" style="color:var(--teal-lt)">★</span><span class="aula-date" style="color:var(--teal-lt)">Unidade RM</span><span class="aula-topic"><strong>Consciência Coletiva Automatizada:</strong> quando o algoritmo responde <em>igual</em> para as duas personas, não é neutralidade — é a consciência coletiva digital em operação, uniformizando o que deveria ser diferenciado. O que a IA trata como "normal" revela quais disposições de classe foram incorporadas no seu treinamento.</span></a></li>
+            <li class="aula-item"><a href="fundamentos-pensamento-sociologico/turma3/index.html"><span class="aula-num tp-3" style="color:var(--teal-lt)">★</span><span class="aula-date" style="color:var(--teal-lt)">Unidade RM</span><span class="aula-topic"><strong>Anomia Digital:</strong> quando o algoritmo não integra — ele exclui. Exclusão sem norma visível, sem recurso e sem nome. Como a Anomia Digital afeta diferentemente Seu Francisco (São João do Rio do Peixe, R$600/mês) e Dra. Mariana (João Pessoa, R$12k/mês)? Conexão histórica: os mesmos mecanismos de exclusão dos quilombos do Nordeste (séc. XIX) reaparecem em linguagem algorítmica.</span></a></li>
+            <li class="aula-item"><a href="fundamentos-pensamento-sociologico/turma3/index.html"><span class="aula-num tp-3" style="color:var(--teal-lt)">★</span><span class="aula-date" style="color:var(--teal-lt)">Unidade RM</span><span class="aula-topic"><strong>Da Anomia ao Habitus (ponte Durkheim → Bourdieu):</strong> a exclusão algorítmica não é apenas desordem — é estrutura incorporada. O habitus de classe predispõe o usuário a aceitar ou contestar a resposta do algoritmo. Análise em sala com o agente <strong>Pedro Valério</strong> (Weber) e <strong>Alan</strong> (Frankfurt) — Squad Research-Mate.</span></a></li>
           </ul>
         </details>
 
