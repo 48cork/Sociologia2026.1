@@ -1,0 +1,22 @@
+# Configurações locais para o branch aios-sergio
+pv_mind_context:
+  enabled: true
+  features:
+    persona_voice: true
+    technical_depth: advanced
+    communication_style: structured
+
+auto_claude:
+  enabled: true
+  version: '3.0'
+  execution:
+    enabled: true  # Ativando a escrita de código
+  qa:
+    enabled: true  # Ativando os testes automáticos
+  worktree:
+    enabled: true
+    auto_create: on_story_start
+
+aios_settings:
+  default_model: gemini-1.5-pro
+  debug_mode: true
