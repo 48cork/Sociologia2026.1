@@ -111,7 +111,7 @@ Introdução à Sociologia como ciência. Contexto histórico de seu surgimento.
 
 | Enc. | Data | Dia | Conteúdo | Horas |
 |:----:|------|:---:|----------|:-----:|
-| 27 | 21/07/2026 | Ter | Movimentos sociais: conceito, tipos e exemplos históricos e contemporâneos. | 2h |
+| 27 | 21/07/2026 | Ter | Movimentos sociais: conceito, tipologia e ativismo digital — o Experimento "A IA Tem Classe Social?" como estudo de caso de interpretações em disputa. | 2h |
 | 28 | 22/07/2026 | Qua | **Seminários — Apresentações orais** (1ª metade dos grupos). | 2h |
 | 29 | 28/07/2026 | Ter | **Seminários — Apresentações orais** (2ª metade dos grupos). | 2h |
 | 30 | 29/07/2026 | Qua | **Entrega do Relatório Escrito e do Vídeo.** Discussão coletiva e encerramento da disciplina. | 2h |
