@@ -2,7 +2,7 @@
 
 ## Status
 
-Pronta para revisão humana. Nesta etapa, somente planejamento; nenhuma página HTML será implementada.
+Implementada. Aguardando revisão humana, sem commit ou publicação.
 
 ## História
 
@@ -86,7 +86,7 @@ Cada análise deve mobilizar **pelo menos dois conceitos sociológicos**, inclui
 ### Excluído
 
 - Alteração dos 48 roteiros, planos canônicos ou índices nesta etapa.
-- Implementação de HTML, CSS, JavaScript, backend, banco de dados, autenticação ou analytics.
+- JavaScript desnecessário, backend, banco de dados, autenticação ou analytics.
 - Coleta de dados pessoais reais ou criação de perfis baseados em estudantes.
 - Uso dos trabalhos para pesquisa, apresentação externa ou publicação.
 - Integração automática com APIs ou envio de dados a serviços de IA.
@@ -231,9 +231,9 @@ A rubrica orienta feedback e autoavaliação; não cria peso próprio na nota of
 16. Existe alternativa equivalente, acessível e sem penalização para quem não usa IA.
 17. A rubrica contém exatamente 25/20/25/20/10 e é identificada como formativa.
 18. Requisitos de acessibilidade cobrem teclado, foco, semântica, contraste, leitores de tela, zoom, movimento reduzido e responsividade móvel.
-19. Nenhum dos 48 roteiros, planos ou índices é modificado nesta etapa; somente esta story é criada.
+19. Nenhum dos 48 roteiros, planos ou índices é modificado; somente as duas páginas do Laboratório e esta story são criadas ou atualizadas.
 
-## Testes obrigatórios para uma implementação posterior
+## Testes obrigatórios da implementação
 
 ### Conteúdo e regras
 
@@ -280,17 +280,13 @@ A rubrica orienta feedback e autoavaliação; não cria peso próprio na nota of
 | Apresentar correspondência como integração oficial | Rotular os vínculos como pedagógicos e condicionar incorporação formal à observação do protótipo e decisão docente futura. |
 | Alterar avaliação oficial | Rubrica somente formativa e sem peso próprio. |
 
-## Arquivos candidatos para implementação posterior
+## Arquivos implementados nesta etapa
 
-Uma story futura deverá autorizar explicitamente o conjunto necessário. Candidatos mínimos:
+- `introducao-sociologia/laboratorio/index.html` — índice compartilhado do Laboratório de Introdução à Sociologia.
+- `introducao-sociologia/laboratorio/laboratorio-evidencias-algoritmicas.html` — protótipo formativo e autocontido.
+- `docs/stories/laboratorio-evidencias-algoritmicas.md` — registro da implementação, testes e arquivos.
 
-- `introducao-sociologia/laboratorio-evidencias-algoritmicas.html` — protótipo compartilhado e autocontido.
-- `index.html` — acesso geral ao laboratório, se aprovado.
-- `introducao-sociologia/turma1/index.html` — link que identifique a relação pedagógica direta com o Encontro 27, sem declarar integração oficial, se aprovado.
-- `introducao-sociologia/turma2/index.html` — link que identifique a relação conceitual com os Encontros 17–18 e o caráter autônomo da atividade, sem declarar integração oficial, se aprovado.
-- `docs/stories/laboratorio-evidencias-algoritmicas.md` — registro de execução, testes e arquivos efetivamente alterados.
-
-Os 48 roteiros e os dois planos canônicos não são candidatos. Não devem ser alterados para implementar o protótipo.
+Os 48 roteiros, dois planos canônicos, dois índices das turmas, portal raiz, cronograma e arquivos de configuração permaneceram fora da implementação.
 
 ## Definição de pronto desta etapa
 
@@ -301,11 +297,12 @@ Os 48 roteiros e os dois planos canônicos não são candidatos. Não devem ser 
 - Ausência de prazo obrigatório e de alocação automática de carga horária registrada.
 - Incorporação formal ao cronograma condicionada à observação do protótipo e decisão docente em oferta futura.
 - A reconciliação editorial anterior foi incorporada sem contradições.
-- Os arquivos candidatos de uma futura implementação estão delimitados, sem autorização implícita para alterá-los agora.
+- Os três arquivos autorizados da implementação estão delimitados e registrados.
 - A story passa por revisão de completude e testabilidade.
-- Somente `docs/stories/laboratorio-evidencias-algoritmicas.md` aparece como novo arquivo nesta etapa.
+- Somente as duas páginas do Laboratório e esta story aparecem no diff da etapa.
 - Os hashes dos 48 roteiros, dois planos e dois índices permanecem inalterados.
-- Nenhum HTML é criado ou modificado; nenhum commit, push, merge, PR ou publicação é realizado.
+- Nenhum HTML existente é modificado; somente as duas páginas novas autorizadas são criadas.
+- Nenhum commit, push, merge, PR ou publicação é realizado.
 - O trabalho aguarda aprovação humana.
 
 ## Validação da story
@@ -323,4 +320,49 @@ Os 48 roteiros e os dois planos canônicos não são candidatos. Não devem ser 
 - [x] Acessibilidade, responsividade, testes e riscos cobertos.
 - [x] Definição de pronto e arquivos futuros delimitados.
 
-**Resultado:** APROVADA para revisão humana pelo fluxo documental local. Não há `AGENTS.md` nem `.claude/CLAUDE.md` aplicável neste projeto, e o ativador AIOX referenciado pelo skill não está disponível nesta cópia; a validação foi feita contra os planos e índices canônicos, os roteiros de transição/fechamento necessários e a story de reconciliação editorial.
+## Registro de implementação
+
+### Decisões aplicadas
+
+- Duas páginas HTML autocontidas, sem JavaScript ou dependências externas, com CSS interno e tokens visuais do portal.
+- Índice com método em cinco etapas, primeiro protótipo, autonomia formativa, correspondências pedagógicas e navegação para portal e turmas.
+- Atividade em formato de ficha acessível e imprimível, com protocolo, campos de registro, tabela, mapa interpretativo, cinco etapas, alternativa sem IA, declarações de transparência, rubrica e checklist.
+- Prompts opcionais restritos a dois elementos `details`, fechados por padrão e sem solicitação de dados pessoais ou conteúdo inventado.
+- Tabela larga contida em região com rolagem localizada e nome acessível; página sem largura fixa ou overflow horizontal global.
+- Aviso acessível antes do primeiro conjunto de campos informa que a página não salva automaticamente e orienta copiar as respostas ou usar Imprimir → Salvar como PDF.
+- Alternativa sem IA revisada para indicar duas respostas anonimizadas e previamente preparadas, impressas ou disponíveis em arquivo local acessível.
+
+### Testes executados
+
+| Teste | Resultado |
+|---|---|
+| `git diff --check` | Aprovado no fechamento, sem erros. |
+| Estrutura HTML | Aprovada por parser: tags balanceadas, IDs únicos, labels associados e um `summary` por `details`. |
+| Links e fragmentos locais | Aprovados para as duas páginas. |
+| Contraste | Aprovado para pares de texto/fundo usados; menor razão testada após ajuste: 4,70:1. |
+| Teclado e foco | Auditoria estática aprovada: ordem nativa, alvos mínimos declarados e `:focus-visible`; a tabela não introduz controles ou paradas artificiais. Sem navegador instalado para ensaio interativo. |
+| Viewports 320, 375, 600, 768 e 1440 px | Auditoria estática aprovada: até 600 px, cada linha da tabela é apresentada como cartão vertical com quatro rótulos explícitos; acima desse limite, permanece como tabela convencional. Sem navegador instalado para captura renderizada. |
+| Overflow horizontal | Auditoria estática aprovada: não há `overflow-x`, largura mínima na tabela ou conteúdo largo que dependa de rolagem lateral. |
+| Zoom | Auditoria estática aprovada: unidades relativas, largura fluida e quebra de palavras. Sem navegador para ensaio visual a 200%. |
+| Elementos `details` | Dois elementos válidos, fechados por padrão; todos os blocos de prompt estão dentro deles. |
+| Impressão | Aprovada após a correção final: PDFs regenerados via WeasyPrint (índice: 4 páginas; atividade: 18 páginas), aviso presente e conteúdo dos `details` incluído. A paginação difere do PDF de 14 páginas revisado em navegador por usar outro motor de impressão. |
+| Revisão humana | Revisão humana integral do desktop e do PDF de 14 páginas registrada como concluída na aprovação desta correção final. |
+| `prefers-reduced-motion` | Regra presente nas duas páginas. |
+| Revisão pedagógica, metodológica e ética | Aprovada por checklist textual dos requisitos da story. |
+| Integridade dos arquivos protegidos | Aprovada por SHA-256: 48 roteiros, dois planos e dois índices inalterados. |
+
+### Correção após duas revisões móveis da tabela comparativa
+
+- **Problema confirmado duas vezes:** em duas revisões humanas no Chrome DevTools, com viewport de 375 px e zoom de 100%, a rolagem lateral da tabela não ficou utilizável.
+- **Estratégia substituída:** a rolagem horizontal, sua orientação textual e o foco artificial do contêiner foram removidos. Até 600 px, cada linha é apresentada como cartão vertical; a partir de 601 px, a tabela convencional é preservada.
+- **Conteúdo completo:** cada cartão mostra explicitamente os rótulos “Aspecto”, “Persona A”, “Persona B” e “Diferença observada”, inclusive quando a célula está reservada ao preenchimento.
+- **Semântica e acessibilidade:** a estrutura HTML continua sendo uma tabela com legenda, cabeçalho e células; os rótulos móveis são gerados pelos atributos `data-label`, com texto visível e contraste preservado.
+- **Impressão:** as regras móveis não se aplicam à mídia impressa; a tabela convencional permanece disponível no PDF A4.
+- **Revalidação:** HTML, links, fragmentos, foco, viewports de 320, 375, 600, 768 e 1440 px, ausência de overflow horizontal e PDF foram aprovados pelas verificações disponíveis.
+- **Aprovação humana final:** a revisão em Chrome, com viewport de 375 px e zoom de 100%, confirmou os cartões verticais e seus quatro rótulos explícitos, a ausência de rolagem horizontal e de overflow global, a legibilidade do conteúdo e a navegação vertical. A solução foi aprovada como substituição satisfatória das duas tentativas anteriores de rolagem lateral.
+
+### Limitações de validação
+
+Não há navegador gráfico ou headless instalado no ambiente para repetição automatizada. Por isso, teclado, foco, viewports e zoom foram auditados estruturalmente; adicionalmente, estão registradas a revisão humana integral do desktop e do PDF de 14 páginas e a aprovação humana final do layout móvel em Chrome.
+
+**Resultado:** IMPLEMENTADA, validada pelo fluxo local disponível e aprovada na revisão humana final. Não há `AGENTS.md` nem `.claude/CLAUDE.md` aplicável neste projeto, e os ativadores AIOX referenciados pelos skills não estão disponíveis nesta cópia.
