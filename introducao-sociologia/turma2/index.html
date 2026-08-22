@@ -161,10 +161,38 @@
     .aula-data { font-size: .68rem; color: var(--muted); }
     .aula-titulo { font-size: .8rem; line-height: 1.4; }
 
+    /* LABORATÓRIO */
+    .lab-callout {
+      padding: 1.5rem; border: 1px solid rgba(129,140,248,.35); border-radius: var(--radius);
+      background: linear-gradient(135deg, rgba(79,70,229,.12), rgba(124,58,237,.07));
+      overflow-wrap: anywhere;
+    }
+    .lab-kicker { margin-bottom: .5rem; color: var(--blue-lt); font-size: .78rem; font-weight: 800; }
+    .lab-callout h3 { margin-bottom: .55rem; font-size: 1.05rem; }
+    .lab-callout p { color: var(--muted); font-size: .875rem; line-height: 1.75; }
+    .lab-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1rem; }
+    .lab-link {
+      display: inline-flex; min-height: 44px; align-items: center; justify-content: center;
+      padding: .65rem 1rem; border: 1px solid rgba(129,140,248,.45); border-radius: 9px;
+      background: rgba(79,70,229,.18); color: var(--blue-lt); font-size: .82rem;
+      font-weight: 700; text-align: center; text-decoration: none;
+    }
+    .lab-link-secondary { border-color: rgba(168,85,247,.4); background: rgba(124,58,237,.12); color: var(--text); }
+    .lab-link:hover { background: rgba(79,70,229,.28); color: var(--text); }
+    .lab-link:focus-visible { outline: 3px solid var(--amber-lt); outline-offset: 3px; }
+
     @media (max-width: 640px) {
       nav { padding: .75rem 1rem; }
       .hero { padding: 2rem 1rem 1.5rem; }
       main { padding: 1.5rem 1rem 3rem; }
+      .lab-callout { padding: 1.25rem; }
+      .lab-actions { flex-direction: column; }
+      .lab-link { width: 100%; }
+    }
+    @media print {
+      .lab-callout { background: #fff; border-color: #555; color: #111; }
+      .lab-kicker, .lab-callout h3, .lab-callout p, .lab-link { color: #111; }
+      .lab-link { background: #fff; border-color: #555; }
     }
   </style>
 </head>
@@ -225,6 +253,20 @@
     <h2 class="section-title t-purple">Ementa</h2>
     <div class="card">
       <p class="ementa-text">Introdução à Sociologia como ciência. Contexto histórico de seu surgimento. Principais teóricos clássicos e suas contribuições. Conceitos fundamentais: cultura, socialização, grupos sociais, instituições, estratificação e mudança social. Relação entre indivíduo e sociedade.</p>
+    </div>
+  </section>
+
+  <!-- LABORATÓRIO -->
+  <section aria-labelledby="lab-t2-title">
+    <h2 class="section-title t-blue" id="lab-t2-title">Laboratório de Introdução à Sociologia</h2>
+    <div class="lab-callout">
+      <p class="lab-kicker">Relação conceitual com os Encontros 17–18</p>
+      <h3>Atividade formativa autônoma</h3>
+      <p>O Laboratório é opcional, sem prazo obrigatório, carga horária automática ou peso próprio, e não integra oficialmente o cronograma. Ele não substitui conteúdos, movimentos sociais, seminários, síntese, encerramento, entregas ou avaliações. A IA é objeto de investigação e ferramenta opcional, nunca fonte automática de verdade. O primeiro protótipo é o <strong>Laboratório de Evidências Algorítmicas</strong>, e outros laboratórios poderão ser desenvolvidos futuramente. Qualquer incorporação formal dependerá de observação pedagógica e decisão docente em uma oferta futura.</p>
+      <div class="lab-actions">
+        <a class="lab-link" href="../laboratorio/index.html">Abrir o índice do Laboratório →</a>
+        <a class="lab-link lab-link-secondary" href="../laboratorio/laboratorio-evidencias-algoritmicas.html">Abrir Laboratório de Evidências Algorítmicas →</a>
+      </div>
     </div>
   </section>
 
