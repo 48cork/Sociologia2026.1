@@ -9,9 +9,8 @@ Site oficial: https://48cork.github.io/Sociologia2026.1/
 | Marco | Data |
 |-------|------|
 | Início das aulas | 13/04/2026 (segunda-feira) |
-| Sorteio de temas (Experimento) | 14/07/2026 |
-| Dia do Experimento | 15/07/2026 |
-| Festival de Vídeos | 04/08/2026 |
+| Fechamento — Intro. Turma 1 | 21/07 a 29/07/2026 |
+| Fechamento — Intro. Turma 2 | 03/08 e 10/08/2026 |
 | Término do semestre | 12/08/2026 |
 
 ---
@@ -70,11 +69,15 @@ Site oficial: https://48cork.github.io/Sociologia2026.1/
 
 ---
 
-## Experimento — "A IA Tem Classe Social?"
+## Atividade integradora de fechamento — "A IA Tem Classe Social?"
+
+Em Introdução à Sociologia, a proposta é uma atividade integradora possível para o fechamento da disciplina. Ela mobiliza conceitos estudados ao longo do semestre, mas **não é eixo obrigatório de todos os encontros** nem substitui os conteúdos registrados nos planos canônicos.
 
 **Personas:**
 - **Seu Francisco** — 54 anos · agricultor · R$ 600/mês · ensino fundamental incompleto · São João do Rio do Peixe-PB
 - **Dra. Mariana** — 35 anos · advogada · R$ 12.000/mês · pós-graduação · João Pessoa-PB
+
+> Todos os perfis e personagens usados na atividade são **inteiramente sintéticos** e não representam estudantes reais.
 
 **10 temas sorteáveis:** Saúde · Saúde Mental · Educação Infantil · Carreira · Dívidas · Investimento · Trabalho · Família · Direito do Consumidor · Futuro e Tecnologia
 
@@ -85,15 +88,24 @@ Site oficial: https://48cork.github.io/Sociologia2026.1/
 
 ---
 
-## Avaliação — Todas as Turmas
+## Avaliação — Introdução à Sociologia
 
 | Entrega | Peso | Prazo |
 |---------|------|-------|
-| Relatório escrito (7 laudas ABNT) | 60% | Festival de Vídeos |
-| Vídeo (5–10 min) | 30% | Festival de Vídeos |
-| Participação no Experimento | 10% | Dia do Experimento (15/07) |
+| Pesquisa bibliográfica | 25% | Turma 1: 02/06/2026 · Turma 2: 08/06/2026 |
+| Apresentação oral | 25% | Turma 1: 22 e 28/07/2026 · Turma 2: 03 e 10/08/2026 |
+| Relatório escrito (até 7 laudas, ABNT) | 25% | Turma 1: 29/07/2026 · Turma 2: 10/08/2026 |
+| Vídeo (5–10 min) | 25% | Turma 1: 29/07/2026 · Turma 2: 10/08/2026 |
 
 > Nota mínima: **6,0** · Frequência mínima: **75%** · Grupos: até 5 alunos
+
+### Política ética para trabalhos estudantis
+
+Os trabalhos dos estudantes destinam-se ao ensino e à avaliação. Nenhum relatório, vídeo ou outro material será usado em pesquisa, artigo ou publicação sem **autorização específica**, **anonimização**, **finalidade informada** e **análise ética/institucional aplicável**.
+
+### Futuro Laboratório
+
+O futuro Laboratório de Introdução à Sociologia será inicialmente **formativo**, sem peso próprio na nota. Sua adoção não acrescentará um quinto componente nem alterará a distribuição oficial de 25% para cada uma das quatro entregas.
 
 ---
 
