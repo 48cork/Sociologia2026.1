@@ -4,7 +4,7 @@
 
 - **ID:** integrar-laboratorio-introducao-sociologia
 - **Tipo:** integração editorial e de navegação
-- **Status:** Validada; aguardando aprovação para implementação
+- **Status:** Verificada; implementação aprovada na revisão humana final
 - **Branch prevista:** `feat/laboratorio-introducao-sociologia`
 - **Dependência:** `docs/stories/laboratorio-evidencias-algoritmicas.md`
 
@@ -240,15 +240,15 @@ As páginas do Laboratório são destinos e fontes de links de retorno, mas não
 - [x] Critérios de aceitação são observáveis e testáveis.
 - [x] Testes obrigatórios e definição de pronto estão completos.
 
-### Futura implementação
+### Implementação concluída
 
-- [ ] Registrar hashes dos arquivos protegidos antes das alterações.
-- [ ] Implementar somente nos arquivos autorizados.
-- [ ] Validar conteúdo e navegação bidirecional.
-- [ ] Executar gates de HTML, acessibilidade e responsividade.
-- [ ] Confirmar avaliação 25/25/25/25.
-- [ ] Comparar hashes e revisar diff/status.
-- [ ] Obter aprovação humana.
+- [x] Registrar hashes dos arquivos protegidos antes das alterações.
+- [x] Implementar somente nos arquivos autorizados.
+- [x] Validar conteúdo e navegação bidirecional.
+- [x] Executar gates de HTML, acessibilidade e responsividade.
+- [x] Confirmar avaliação 25/25/25/25.
+- [x] Comparar hashes e revisar diff/status.
+- [x] Obter aprovação humana.
 
 ## File list
 
@@ -285,7 +285,33 @@ As páginas do Laboratório são destinos e fontes de links de retorno, mas não
 - [x] Riscos, testes, definição de pronto, checklist e file list estão presentes.
 - [x] Nenhum requisito depende de JavaScript ou nova dependência.
 
-**Quality gate documental:** APROVADA para revisão humana e futura implementação, condicionada a autorização específica.
+**Quality gate documental e de implementação:** APROVADA após validação técnica disponível e revisão humana final.
+
+## Registro da implementação e validação final
+
+### Arquivos implementados
+
+- `index.html`
+- `introducao-sociologia/turma1/index.html`
+- `introducao-sociologia/turma2/index.html`
+
+### Resultado dos quality gates
+
+- Estrutura HTML, links, fragmentos e navegação bidirecional validados.
+- Contraste mínimo dos novos componentes aprovado em WCAG AA.
+- Foco visível e alvos interativos mínimos de 44 × 44 px confirmados.
+- Regras responsivas, zoom, ausência de overflow horizontal e impressão A4 verificados pelo fluxo disponível.
+- Avaliação oficial preservada em quatro entregas de 25% cada.
+- Os 52 arquivos protegidos permaneceram íntegros por SHA-256.
+
+### Aprovação humana final
+
+- Portal aprovado em desktop e em viewport de 375 px.
+- Índice da Turma 1 aprovado em desktop.
+- Índice da Turma 2 aprovado em desktop e em viewport de 375 px.
+- Textos legíveis, componentes contidos e sem overflow horizontal.
+- Links e botões visualmente adequados.
+- Integração humana final aprovada.
 
 ## Lifecycle
 
@@ -299,4 +325,4 @@ Na ausência de arquivo de Constitution ou ativadores AIOX nesta cópia, aplica-
 6. **Verificada** — revisão humana aprova a implementação e seus quality gates.
 7. **Encerrada** — commit ou outra ação final ocorre apenas mediante autorização específica; push, merge, PR e publicação exigem autorização própria.
 
-**Estado atual do lifecycle:** Validada; aguardando aprovação humana. Nenhuma integração foi implementada nesta etapa.
+**Estado atual do lifecycle:** Verificada; integração implementada, quality gates concluídos e revisão humana final aprovada. O commit local desta etapa foi autorizado; push, merge, PR e publicação permanecem vedados.
