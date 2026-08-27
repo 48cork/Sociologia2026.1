@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aula 05 — Introdução à Sociologia | Turma 1</title>
+<title>Aula 05 — Introdução à Sociologia | 2026.2</title>
 <style>
   :root {
     --bg: #0a0a0f; --surface: #12121c; --card: #1a1a2e; --border: #2a2a4a;
@@ -50,13 +50,47 @@
   footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--muted); font-size: 0.85rem; }
   footer a { color: var(--purple-lt); text-decoration: none; }
   footer a:hover { text-decoration: underline; }
+
+  html, body { max-width: 100%; overflow-x: clip; }
+  body { overflow-wrap: anywhere; }
+  section { scroll-margin-top: 112px; }
+  .section-nav { position: sticky; top: 56px; z-index: 90; background: rgba(10,10,15,.97); border-bottom: 1px solid var(--border); padding: 8px 16px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: thin; }
+  .section-nav a { flex: 0 0 auto; min-height: 36px; display: inline-flex; align-items: center; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 5px 12px; text-decoration: none; font-size: .8rem; }
+  .base-text { max-width: 72ch; margin-inline: auto; }
+  .base-intro { color: var(--muted); font-size: .92rem; margin-bottom: 16px; }
+  .base-toc { position: static; height: auto; display: block; max-width: 100%; overflow: clip; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; margin-bottom: 28px; }
+  .base-toc h3 { color: var(--bloco-lt, var(--purple-lt)); font-size: .95rem; margin-bottom: 10px; }
+  .base-toc ol { width: 100%; max-width: 100%; padding-left: 22px; columns: 2; column-gap: 32px; }
+  .base-toc li { break-inside: avoid; margin: 5px 0; }
+  .base-toc a { color: var(--text); text-decoration-thickness: 1px; text-underline-offset: 3px; white-space: normal; }
+  .base-subsection { scroll-margin-top: 112px; margin-bottom: 28px; }
+  .base-subsection h3 { color: var(--bloco-lt, var(--purple-lt)); font-size: 1.15rem; line-height: 1.35; margin-bottom: 12px; }
+  .base-subsection p { color: var(--text); margin-bottom: 14px; line-height: 1.78; }
+  .base-subsection strong { color: #f1f5f9; }
+  .pause-box { background: rgba(79,70,229,.1); border: 1px solid rgba(129,140,248,.4); border-left: 4px solid var(--bloco-lt, var(--purple-lt)); border-radius: var(--radius); padding: 16px 18px; margin: 22px 0; }
+  .pause-box h4 { color: var(--amber-lt); font-size: .75rem; letter-spacing: .09em; text-transform: uppercase; margin-bottom: 6px; }
+  .pause-box p { margin: 0; color: var(--text); font-weight: 600; line-height: 1.6; }
+  .legacy-note { border: 1px solid var(--amber-lt); background: rgba(251,191,36,.08); border-radius: var(--radius); padding: 16px 18px; margin: 0 0 24px; }
+  .res-tag { max-width: 100%; min-width: 0; }
+  a:focus-visible { outline: 3px solid var(--amber-lt); outline-offset: 3px; border-radius: 3px; }
+  @media (max-width: 640px) {
+    nav { height: auto; min-height: 56px; padding: 8px 12px; flex-wrap: wrap; }
+    .nav-left, .nav-right { min-width: 0; }
+    .nav-center { display: none; }
+    .nav-right { gap: 10px; }
+    .section-nav { top: 72px; padding-inline: 10px; }
+    main { padding: 24px 14px 60px; }
+    .aula-header { padding: 22px 18px; }
+    .base-toc ol { width: auto; columns: auto; padding-left: 0; list-style-position: inside; }
+    .tl-item { flex-direction: column; gap: 8px; }
+  }
 </style>
 </head>
 <body>
 
 <nav>
   <div class="nav-left">
-    <a href="../index.html">← Turma 1</a>
+    <a href="/introducao-sociologia/">← Página principal</a>
     <span class="nav-badge">Aula 05</span>
   </div>
   <span class="nav-center">Aula 05 / 30</span>
@@ -65,6 +99,7 @@
     <a href="aula-06.html">Próxima →</a>
   </div>
 </nav>
+<div class="section-nav" aria-label="Seções da aula"><a href="#objetivos">Objetivos</a><a href="#conteudo-programatico">Conteúdo</a><a href="#texto-base">Texto-base</a><a href="#plano-aula">Plano da aula</a><a href="#leituras">Leituras</a><a href="#atividade">Atividade</a><a href="#recursos">Recursos</a></div>
 
 <main>
 
@@ -72,13 +107,15 @@
     <div class="header-meta">
       <span class="bloco-badge">Bloco I</span>
       <span class="meta-chip">Aula 05</span>
-      <span class="meta-chip">29/04/2026 — Quarta-feira</span>
-      <span class="meta-chip">2 horas</span>
+      <span class="meta-chip">Encontro 3 · Parte 1 de 2</span>
+      <span class="meta-chip">23/09/2026 — Quarta-feira</span>
+      <span class="meta-chip">Percurso completo do encontro: 4 horas-aula</span>
+      <span class="meta-chip">Esta página: aproximadamente 2 horas</span>
     </div>
     <h1>A Sociologia como disciplina acadêmica: objeto, método e especificidade científica.</h1>
   </div>
 
-  <section>
+  <section id="objetivos">
     <div class="section-title">Objetivos da Aula</div>
     <ul class="obj-list">
       <li>Definir o objeto específico da Sociologia: estruturas, relações e processos sociais.</li>
@@ -88,7 +125,7 @@
     </ul>
   </section>
 
-  <section>
+  <section id="conteudo-programatico">
     <div class="section-title">Conteúdo Programático</div>
     <div class="content-topic">
       <h3>1. O objeto da Sociologia: estruturas, relações e processos sociais</h3>
@@ -116,7 +153,17 @@
     </div>
   </section>
 
-  <section>
+  <section id="texto-base" aria-labelledby="texto-base-title">
+    <div class="section-title" id="texto-base-title">Texto-base para acompanhamento da aula</div>
+    <div class="base-text">
+      <p class="base-intro">Leitura de apoio para a exposição, a discussão e a retomada dos conceitos. As pausas podem ser realizadas oralmente, em duplas ou por registro breve.</p>
+      <nav class="base-toc" aria-label="Sumário do texto-base"><h3>Nesta leitura</h3><ol><li><a href="#texto-problema">Uma pergunta para abrir: Como uma notícia deixa de ser episódio e se torna problema de pesquisa?</a></li><li><a href="#texto-contexto">Localizar o problema histórica e conceitualmente</a></li><li><a href="#texto-1-o-objeto-da-sociologia-estruturas-relacoes-e-processo">O objeto da Sociologia: estruturas, relações e processos sociais</a></li><li><a href="#texto-2-metodos-sociologicos">Métodos sociológicos</a></li><li><a href="#texto-3-sociologia-e-suas-vizinhas-antropologia-ciencia-polit">Sociologia e suas vizinhas: Antropologia, Ciência Política, Psicologia Social</a></li><li><a href="#texto-aplicacao">Aplicação e trabalho com evidências</a></li><li><a href="#texto-cuidados">Distinções, limites e cuidados conceituais</a></li><li><a href="#texto-sintese">Síntese e passagem para a próxima aula</a></li></ol></nav>
+      <div class="base-subsection" id="texto-problema"><h3>1. Uma pergunta para abrir: Como uma notícia deixa de ser episódio e se torna problema de pesquisa?</h3><p><strong>Como uma notícia deixa de ser episódio e se torna problema de pesquisa?</strong> Essa pergunta organiza a Aula 05, dedicada a a sociologia como disciplina acadêmica: objeto, método e especificidade científica. Ela parte de uma dificuldade reconhecível: o cotidiano nos oferece respostas rápidas, mas essas respostas frequentemente transformam costumes históricos em fatos naturais ou atribuem a indivíduos fenômenos produzidos por relações mais amplas.</p><p>Pensemos em manchetes sobre trabalho, violência, saúde e tecnologia. A cena pode ser descrita de muitas maneiras, porém a descrição sociológica pergunta quem participa, quais posições ocupa, que regras orientam a conduta, como essas regras foram formadas e quais consequências recaem de modo desigual sobre os envolvidos. O exemplo funciona como porta de entrada; não substitui a análise nem autoriza generalizações sobre todos os casos.</p><p>Os objetivos do roteiro apontam o percurso: Definir o objeto específico da Sociologia: estruturas, relações e processos sociais. Compreender os principais métodos sociológicos e suas lógicas de aplicação. Diferenciar a Sociologia de outras ciências sociais afins (Antropologia, Ciência Política, Psicologia Social). Apresentar a especificidade do olhar sociológico e o conceito de &quot;imaginação sociológica&quot;. Em vez de tratar essas metas como itens separados, o texto as encadeia. Definir permite observar; contextualizar evita anacronismos; comparar explicita diferenças; aplicar conceitos exige evidências; e discutir limites impede que uma teoria se torne resposta automática para qualquer problema.</p><p>O olhar sociológico começa quando suspendemos por um momento a resposta evidente. Isso não significa abandonar conhecimentos cotidianos, mas interrogá-los. O senso comum é uma orientação prática compartilhada, indispensável à vida; a investigação sociológica, por sua vez, precisa explicitar procedimentos, conceitos e fontes, aceitar contestação e distinguir aquilo que sabe daquilo que apenas supõe.</p><aside class="pause-box"><h4>Pausa para discussão</h4><p>Que resposta de senso comum aparece primeiro diante da pergunta de abertura? Que informação seria necessária para testá-la sociologicamente?</p></aside></div><div class="base-subsection" id="texto-contexto"><h3>2. Localizar o problema histórica e conceitualmente</h3><p>Nenhum conceito desta aula surgiu fora do tempo. O problema de a sociologia como disciplina acadêmica: objeto, método e especificidade científica. deve ser ligado às transformações históricas, aos debates intelectuais e às experiências coletivas que lhe deram forma. Contextualizar não é decorar datas ou biografias: é compreender por que certas perguntas se tornaram relevantes e por que respostas concorrentes foram formuladas.</p><p>A Sociologia trabalha numa tensão produtiva entre continuidade e mudança. Pessoas recebem instituições, linguagens e classificações já existentes, mas as reproduzem, interpretam e contestam em circunstâncias novas. Por isso, uma explicação não pode escolher simplesmente entre indivíduo e sociedade. Ela precisa mostrar por quais relações uma experiência singular se conecta a padrões, conflitos e processos históricos.</p><p>As leituras indicadas no roteiro — MILLS, C. Wright A imaginação sociológica. Cap. 1 p. 9–28 BECKER, Howard Métodos de pesquisa em ciências sociais. Cap. 1 p. 11–30 — servem de apoio a essa reconstrução. Elas não devem ser convertidas em frases de autoridade. O procedimento mais seguro é paráfrase responsável: apresentar o problema do autor, reconstruir seu argumento e indicar como ele ajuda a ler o conteúdo da aula, sem criar citações literais, páginas ou conclusões que o material não confirme.</p><p>Também é necessário separar três planos. A explicação de um autor reconstrói seus conceitos nos termos do problema que ele enfrentou. A contextualização histórica situa as condições de produção e circulação dessas ideias. A aplicação contemporânea é uma operação nossa, que testa a fecundidade do conceito em outro cenário. Misturar os planos produz anacronismos e faz parecer que o autor comentou diretamente fatos que não conheceu.</p></div><div class="base-subsection" id="texto-1-o-objeto-da-sociologia-estruturas-relacoes-e-processo"><h3>3. O objeto da Sociologia: estruturas, relações e processos sociais</h3><p>O 1º movimento do argumento concentra-se em <strong>O objeto da Sociologia: estruturas, relações e processos sociais</strong>. O roteiro associa esse núcleo a O social como objeto: o que torna algo um fenômeno sociológico?; Estruturas sociais, instituições e relações de poder; A imaginação sociológica: articular biografia e história. A enumeração, porém, ganha sentido apenas quando percebemos as relações entre seus componentes. Conceitos sociológicos não são etiquetas aplicadas depois que um fato acontece: eles selecionam dimensões do problema, orientam comparações e indicam quais evidências precisam ser procuradas.</p><p>Para acompanhar a exposição, convém avançar em três passos. Primeiro, identificar o fenômeno e o contexto em que ele ocorre. Segundo, perguntar quais relações, regras, recursos e significados o tornam possível. Terceiro, comparar situações para descobrir o que permanece e o que muda. Aplicado a o objeto da sociologia: estruturas, relações e processos sociais, esse procedimento impede que uma impressão isolada seja apresentada como explicação geral e ajuda a ligar experiência, história e organização social.</p><p>Os elementos O social como objeto: o que torna algo um fenômeno sociológico?; Estruturas sociais, instituições e relações de poder; A imaginação sociológica: articular biografia e história não devem ser lidos como sinônimos. Cada um ilumina uma dimensão própria, embora possa se articular aos demais. A tarefa analítica consiste em dizer onde começa e termina cada conceito, qual problema ele responde e que tipo de evidência sustentaria sua aplicação. Em sala, o professor pode retomar um exemplo do conteúdo programático e pedir que a turma mostre exatamente qual característica autoriza a classificação proposta.</p><p>Esse cuidado também torna a leitura mais acessível. Em vez de memorizar uma definição abstrata, o estudante reconstrói o caminho do argumento: observa uma situação, reconhece um padrão, formula uma pergunta e testa uma interpretação. O resultado não precisa ser uma resposta definitiva. Uma hipótese sociológica é valiosa quando explicita seus critérios, admite comparação e pode ser revista diante de informações melhores.</p></div><div class="base-subsection" id="texto-2-metodos-sociologicos"><h3>4. Métodos sociológicos</h3><p>O 2º movimento do argumento concentra-se em <strong>Métodos sociológicos</strong>. O roteiro associa esse núcleo a Observação participante e etnografia; Entrevista, análise documental e survey; Pesquisa quantitativa x qualitativa: complementaridade e tensões. A enumeração, porém, ganha sentido apenas quando percebemos as relações entre seus componentes. Conceitos sociológicos não são etiquetas aplicadas depois que um fato acontece: eles selecionam dimensões do problema, orientam comparações e indicam quais evidências precisam ser procuradas.</p><p>Para acompanhar a exposição, convém avançar em três passos. Primeiro, identificar o fenômeno e o contexto em que ele ocorre. Segundo, perguntar quais relações, regras, recursos e significados o tornam possível. Terceiro, comparar situações para descobrir o que permanece e o que muda. Aplicado a métodos sociológicos, esse procedimento impede que uma impressão isolada seja apresentada como explicação geral e ajuda a ligar experiência, história e organização social.</p><p>Os elementos Observação participante e etnografia; Entrevista, análise documental e survey; Pesquisa quantitativa x qualitativa: complementaridade e tensões não devem ser lidos como sinônimos. Cada um ilumina uma dimensão própria, embora possa se articular aos demais. A tarefa analítica consiste em dizer onde começa e termina cada conceito, qual problema ele responde e que tipo de evidência sustentaria sua aplicação. Em sala, o professor pode retomar um exemplo do conteúdo programático e pedir que a turma mostre exatamente qual característica autoriza a classificação proposta.</p><p>Esse cuidado também torna a leitura mais acessível. Em vez de memorizar uma definição abstrata, o estudante reconstrói o caminho do argumento: observa uma situação, reconhece um padrão, formula uma pergunta e testa uma interpretação. O resultado não precisa ser uma resposta definitiva. Uma hipótese sociológica é valiosa quando explicita seus critérios, admite comparação e pode ser revista diante de informações melhores.</p></div><div class="base-subsection" id="texto-3-sociologia-e-suas-vizinhas-antropologia-ciencia-polit"><h3>5. Sociologia e suas vizinhas: Antropologia, Ciência Política, Psicologia Social</h3><p>O 3º movimento do argumento concentra-se em <strong>Sociologia e suas vizinhas: Antropologia, Ciência Política, Psicologia Social</strong>. O roteiro associa esse núcleo a Objetos, métodos e tradições distintas; Fronteiras porosas e diálogos interdisciplinares; O lugar da Sociologia no campo das ciências sociais. A enumeração, porém, ganha sentido apenas quando percebemos as relações entre seus componentes. Conceitos sociológicos não são etiquetas aplicadas depois que um fato acontece: eles selecionam dimensões do problema, orientam comparações e indicam quais evidências precisam ser procuradas.</p><p>Para acompanhar a exposição, convém avançar em três passos. Primeiro, identificar o fenômeno e o contexto em que ele ocorre. Segundo, perguntar quais relações, regras, recursos e significados o tornam possível. Terceiro, comparar situações para descobrir o que permanece e o que muda. Aplicado a sociologia e suas vizinhas: antropologia, ciência política, psicologia social, esse procedimento impede que uma impressão isolada seja apresentada como explicação geral e ajuda a ligar experiência, história e organização social.</p><p>Os elementos Objetos, métodos e tradições distintas; Fronteiras porosas e diálogos interdisciplinares; O lugar da Sociologia no campo das ciências sociais não devem ser lidos como sinônimos. Cada um ilumina uma dimensão própria, embora possa se articular aos demais. A tarefa analítica consiste em dizer onde começa e termina cada conceito, qual problema ele responde e que tipo de evidência sustentaria sua aplicação. Em sala, o professor pode retomar um exemplo do conteúdo programático e pedir que a turma mostre exatamente qual característica autoriza a classificação proposta.</p><p>Esse cuidado também torna a leitura mais acessível. Em vez de memorizar uma definição abstrata, o estudante reconstrói o caminho do argumento: observa uma situação, reconhece um padrão, formula uma pergunta e testa uma interpretação. O resultado não precisa ser uma resposta definitiva. Uma hipótese sociológica é valiosa quando explicita seus critérios, admite comparação e pode ser revista diante de informações melhores.</p></div><div class="base-subsection" id="texto-aplicacao"><h3>6. Aplicação e trabalho com evidências</h3><p>O estudo de caso desta aula parte de manchetes sobre trabalho, violência, saúde e tecnologia. A finalidade não é decidir depressa se o caso confirma a teoria. Antes, é decompor a situação: identificar atores, posições, recursos, normas, discursos, escalas de tempo e possíveis efeitos. Somente depois se pergunta quais conceitos do roteiro oferecem uma interpretação consistente e quais aspectos permanecem fora de alcance.</p><p>A atividade prevista ajuda a realizar essa passagem. Sociologia nas manchetes: do fato ao problema sociológico Os alunos recebem 5 manchetes de jornal selecionadas pelo professor, abrangendo temas variados (violência, trabalho, desigualdade, saúde pública, tecnologia). Para cada manchete, devem realizar três operações: (1) Identificar o fenômeno social: O que está acontecendo? Quem são os sujeitos envolvidos? Qual é o contexto? (2) Formular uma questão sociológica: Transformar a notícia em uma pergunta de pesquisa que vá além do evento pontual, buscando padrões, causas estruturais ou consequências sociais. (3) Propor o método adequado: Justificar qual abordagem metodológica seria mais adequada para investigar a questão formulada (entrevistas, etnografia, survey, análise documental, etc.). A atividade exercita a &quot;imaginação sociológica&quot; no sentido millsiano: a capacidade de articular experiências individuais a estruturas sociais mais amplas. O exercício ganha qualidade quando cada afirmação vem acompanhada de uma evidência observável ou de uma pergunta de pesquisa. Se a turma discorda, a divergência pode ser produtiva: os grupos devem indicar se usam conceitos diferentes, se selecionam evidências distintas ou se atribuem significados diferentes à mesma informação.</p><p>Uma aplicação contemporânea rigorosa também considera alternativas. O mesmo padrão pode resultar de processos distintos, e uma evidência pode ser compatível com mais de uma interpretação. Entrevistas esclarecem sentidos atribuídos pelos participantes, observação acompanha práticas, documentos mostram regras e justificativas, e dados quantitativos revelam distribuição e variação. Nenhuma técnica responde sozinha a todas as perguntas.</p><p>Ao apresentar o caso, é útil distinguir exemplo, ilustração e evidência. Um exemplo torna o conceito inteligível; uma ilustração aproxima o tema da experiência da turma; evidência é informação coletada e analisada por procedimento explícito. Confundir essas funções leva a tomar uma história convincente como prova suficiente. A Sociologia procura justamente controlar esse salto.</p><aside class="pause-box"><h4>Pausa para discussão</h4><p>Qual conceito da aula explica melhor o estudo de caso? Que aspecto do caso ele não consegue explicar sozinho?</p></aside></div><div class="base-subsection" id="texto-cuidados"><h3>7. Distinções, limites e cuidados conceituais</h3><p>O principal cuidado desta aula é combinar métodos sem tratar números ou depoimentos como evidências autossuficientes. A advertência não enfraquece o conteúdo; ela define seu alcance. Conceitos bons simplificam a realidade de maneira controlada. Quando aplicados fora de suas condições, perdem precisão e viram apenas palavras sofisticadas para confirmar uma opinião anterior.</p><p>Outra distinção necessária separa explicação causal, interpretação de sentidos e avaliação normativa. Podemos investigar por que algo acontece, compreender como os participantes lhe atribuem significado e discutir se suas consequências são desejáveis. São perguntas legítimas, mas não idênticas. Uma posição ética deve ser assumida com clareza, e não apresentada como se decorresse automaticamente de um dado ou de um autor.</p><p>A escala também importa. Uma interação em sala, uma organização, uma cidade, um Estado e um processo transnacional não funcionam do mesmo modo. O que aparece como escolha numa escala pode ser condicionado por regras em outra. Ao mudar a escala, mudam as evidências e às vezes muda a própria pergunta. Especificar tempo, lugar e grupo torna a análise menos grandiosa e mais verificável.</p><p>Por fim, diferenças internas precisam permanecer visíveis. Grupos sociais não são sujeitos homogêneos; instituições abrigam disputas; normas podem ser obedecidas, negociadas ou contestadas; identidades se cruzam. Evitar generalizações não significa abandonar padrões coletivos, mas explicar como eles se distribuem e por que não afetam todas as pessoas da mesma maneira.</p><aside class="pause-box"><h4>Pausa para discussão</h4><p>Que generalização apressada seria mais provável neste tema? Como reformulá-la para torná-la histórica, comparável e verificável?</p></aside></div><div class="base-subsection" id="texto-sintese"><h3>8. Síntese e passagem para a próxima aula</h3><p><strong>Síntese.</strong> A Aula 05 mostrou que a sociologia como disciplina acadêmica: objeto, método e especificidade científica. deve ser estudado por meio de perguntas delimitadas, conceitos diferenciados e evidências adequadas. O problema de abertura conduziu da experiência cotidiana à contextualização, e os três núcleos do conteúdo programático foram articulados sem serem tratados como equivalentes.</p><p>Ao final, o estudante deve ser capaz de retomar as metas do roteiro com suas próprias palavras: Definir o objeto específico da Sociologia: estruturas, relações e processos sociais. Compreender os principais métodos sociológicos e suas lógicas de aplicação. Diferenciar a Sociologia de outras ciências sociais afins (Antropologia, Ciência Política, Psicologia Social). Apresentar a especificidade do olhar sociológico e o conceito de &quot;imaginação sociológica&quot;. Esse domínio não se mede apenas pela lembrança de definições. Ele aparece quando alguém consegue reconhecer uma situação pertinente, justificar a escolha do conceito, propor uma evidência e indicar os limites da interpretação.</p><p>As pausas de discussão transformam a leitura em trabalho coletivo. Elas permitem que o professor interrompa a exposição, recolha hipóteses, identifique confusões e retome o argumento. A síntese pode ser concluída no quadro com quatro colunas — problema, conceito, evidência e limite — de modo que a turma visualize o caminho percorrido durante aproximadamente duas horas desta parte do encontro.</p><p>A passagem seguinte não reinicia o curso. Ela desloca a pergunta construída aqui para <strong>o projeto científico de Durkheim</strong>. O que aprendemos nesta aula funcionará como condição para a próxima: conceitos serão retomados apenas quando necessários, agora diante de outro problema. Assim, as duas partes do encontro e a sequência semanal formam um percurso contínuo, e não uma coleção de resumos independentes.</p><aside class="pause-box"><h4>Pausa para discussão</h4><p>Em uma frase, que relação entre experiência individual e processo social esta aula tornou mais visível?</p></aside></div>
+    </div>
+  </section>
+
+
+  <section id="plano-aula">
     <div class="section-title">Plano de Aula com Tempo</div>
     <div class="timeline">
       <div class="tl-item">
@@ -146,7 +193,7 @@
     </div>
   </section>
 
-  <section>
+  <section id="leituras">
     <div class="section-title">Textos para Leitura Prévia</div>
     <div class="ref-card">
       <div class="ref-author">MILLS, C. Wright</div>
@@ -160,7 +207,7 @@
     </div>
   </section>
 
-  <section>
+  <section id="atividade">
     <div class="section-title">Atividades em Sala</div>
     <div class="activity-card">
       <strong>Sociologia nas manchetes: do fato ao problema sociológico</strong><br><br>
@@ -172,7 +219,7 @@
     </div>
   </section>
 
-  <section>
+  <section id="recursos">
     <div class="section-title">Recursos Necessários</div>
     <div class="resources-list">
       <span class="res-tag">Projetor</span>
@@ -184,9 +231,9 @@
 </main>
 
 <footer>
-  <a href="../index.html">← Voltar para Turma 1</a>
+  <a href="/introducao-sociologia/">← Página principal</a>
   <span style="margin: 0 12px; color: var(--border);">|</span>
-  <span>Introdução à Sociologia — 2026.1</span>
+  <span>Introdução à Sociologia — 2026.2</span>
 </footer>
 
 </body>
