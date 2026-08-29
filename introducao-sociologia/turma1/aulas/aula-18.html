@@ -76,8 +76,6 @@
   .ref-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 10px; border-left: 3px solid var(--blue-lt); }
   .ref-author { font-size: 0.8rem; font-weight: 700; color: var(--blue-lt); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
   .ref-title { font-size: 0.9rem; color: var(--text); }
-  .ref-pages { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
-
   .activity-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; font-size: 0.9rem; line-height: 1.7; border-left: 3px solid var(--teal-lt); }
 
   .resources-list { display: flex; flex-wrap: wrap; gap: 10px; }
@@ -120,6 +118,25 @@
     .base-toc ol { width: auto; columns: auto; padding-left: 0; list-style-position: inside; }
     .tl-item { flex-direction: column; gap: 8px; }
   }
+  .activity-card h3 { color: var(--teal-lt); font-size: 1.05rem; margin: 0 0 12px; }
+  .activity-card h4 { color: var(--amber-lt); margin: 18px 0 8px; }
+  .activity-card ol, .activity-card ul { padding-left: 22px; margin: 10px 0; }
+  .activity-card li { margin: 7px 0; }
+  .scene-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 16px 0; }
+  .scene-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
+  .scene-card h4 { margin: 0 0 6px; }
+  .question-list { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px 14px 40px; }
+  .teacher-guidance { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-top: 18px; }
+  .teacher-guidance summary { cursor: pointer; color: var(--amber-lt); font-weight: 700; padding: 15px 17px; }
+  .teacher-guidance[open] summary { border-bottom: 1px solid var(--border); }
+  .teacher-guidance-content { padding: 16px 18px; }
+  .teacher-guidance-content h4 { color: var(--teal-lt); }
+  @media (max-width: 640px) { .scene-grid { grid-template-columns: 1fr; } }
+  @media print {
+    nav, .section-nav { position: static; }
+    .scene-card, .teacher-guidance, .tl-item, .ref-card { break-inside: avoid; }
+    .teacher-guidance > .teacher-guidance-content { display: block !important; }
+  }
 </style>
 </head>
 <body>
@@ -151,123 +168,121 @@
     <h1>Socialização primária e secundária. Agentes socializadores.</h1>
   </div>
 
-  <section id="objetivos">
-    <div class="section-title">Objetivos da Aula</div>
-    <ul class="obj-list">
-      <li>Definir socialização como processo de internalização da cultura e das normas sociais.</li>
-      <li>Distinguir socialização primária (família) e socialização secundária (escola, mídia, religião etc.).</li>
-      <li>Identificar os principais agentes socializadores e seus papéis distintos.</li>
-      <li>Relacionar socialização, identidade e reprodução da estrutura social.</li>
-    </ul>
+  <section id="objetivos"><div class="section-title">Objetivos da Aula</div><ul class="obj-list">
+    <li>Explicar socialização como processo contínuo de aprendizagem, participação e formação social do sujeito.</li>
+    <li>Distinguir socialização primária e secundária sem convertê-las em fases fechadas ou substitutivas.</li>
+    <li>Analisar mecanismos de transmissão, interpretação, negociação, sanção e resistência em instituições diversas.</li>
+    <li>Relacionar socialização, desigualdades, agência e ressocialização por meio de evidências.</li>
+  </ul></section>
+
+  <section id="conteudo-programatico"><div class="section-title">Conteúdo Programático</div>
+    <div class="content-topic"><h3>1. Socialização e formação do sujeito</h3><ul><li>Aprendizagem e participação social ao longo da vida</li><li>Cultura, relações e capacidade de ação</li><li>Socialização primária e secundária como distinção analítica</li></ul></div>
+    <div class="content-topic"><h3>2. Contextos e mecanismos de socialização</h3><ul><li>Famílias, escola, universidade, pares, religião, trabalho e mídias</li><li>Transmissão direta, imitação, rotina, pertencimento e negociação</li><li>Normas, papéis, expectativas e sanções</li></ul></div>
+    <div class="content-topic"><h3>3. Conflitos, desigualdades e mudança</h3><ul><li>Socializações contraditórias e trajetórias diferenciadas</li><li>Reprodução e contestação de desigualdades</li><li>Ressocialização e reelaboração de disposições</li></ul></div>
   </section>
 
-  <section id="conteudo-programatico">
-    <div class="section-title">Conteúdo Programático</div>
-    <div class="content-topic">
-      <h3>1. Socialização: definição, importância e processo</h3>
-      <ul>
-        <li>Socialização como internalização da realidade social (Berger e Luckmann)</li>
-        <li>A socialização como processo contínuo ao longo da vida</li>
-        <li>Relação entre socialização e construção da identidade</li>
-      </ul>
+  <section id="texto-base" aria-labelledby="texto-base-title"><div class="section-title" id="texto-base-title">Texto-base para acompanhamento da aula</div><div class="base-text">
+    <p class="base-intro">A Aula 17 mostrou que identidades e repertórios não são inventados individualmente. Agora examinamos os processos pelos quais pessoas aprendem a participar de relações sociais, interpretando expectativas e agindo em condições que não escolheram sozinhas.</p>
+    <nav class="base-toc" aria-label="Sumário do texto-base"><h3>Nesta leitura</h3><ol>
+      <li><a href="#participacao-aprendida">Socialização como participação aprendida</a></li><li><a href="#formacao-sujeito">Formação social do sujeito</a></li><li><a href="#primaria-vinculos">Socialização primária e vínculos iniciais</a></li><li><a href="#secundaria-contextos">Socialização secundária e novos contextos</a></li><li><a href="#familia-escola">Família, escola e universidade em sua diversidade</a></li><li><a href="#pares-religiao">Pares, religião, trabalho e mídias</a></li><li><a href="#normas-papeis">Normas, papéis, expectativas e sanções</a></li><li><a href="#conflitos-ressocializacao">Conflitos de socialização, agência e ressocialização</a></li><li><a href="#sintese-aula19">Síntese e passagem à Aula 19</a></li>
+    </ol></nav>
+
+    <div class="base-subsection" id="participacao-aprendida"><h3>1. Socialização como participação aprendida</h3>
+      <p>Socialização é o processo contínuo pelo qual pessoas aprendem e reelaboram maneiras de participar da vida social. Aprendem linguagens, gestos, horários, usos de objetos, expectativas e critérios para reconhecer situações. Esse processo não acontece somente quando alguém ensina uma regra em voz alta. Rotinas, exemplos, recompensas, correções, afetos e condições materiais também comunicam o que é esperado.</p>
+      <p>Participar não equivale a copiar. Uma criança observa, pergunta, testa limites e responde; estudantes interpretam regras universitárias; trabalhadores negociam orientações; idosos aprendem tecnologias novas. Cultura oferece repertórios, mas não determina mecanicamente a conduta. Aprender que se deve esperar a vez não garante obediência em toda ocasião: a pessoa pode esquecer, discordar, adaptar ou contestar a norma.</p>
+      <aside class="pause-box"><h4>Pausa 1 — regra sem aula formal</h4><p>Pense numa regra de fila, conversa ou uso de espaço que ninguém explicou diretamente. Por quais rotinas, exemplos, correções ou recompensas uma personagem fictícia poderia aprendê-la?</p></aside>
     </div>
-    <div class="content-topic">
-      <h3>2. Socialização primária e secundária</h3>
-      <ul>
-        <li>Socialização primária: família como primeiro mundo social da criança</li>
-        <li>Internalização de papéis, normas e linguagem na infância</li>
-        <li>Socialização secundária: escola, mídia, religião, trabalho, grupos de pares</li>
-      </ul>
+
+    <div class="base-subsection" id="formacao-sujeito"><h3>2. Formação social do sujeito</h3>
+      <p>Sujeito e sociedade não são polos independentes que depois entram em contato. Pessoas tornam-se capazes de falar, escolher e justificar ações em relações já organizadas; ao agir, reproduzem ou alteram essas relações. A individualidade não desaparece na socialização: ela se forma em combinações singulares de vínculos, posições, experiências e respostas. Mesmo irmãos criados na mesma casa não percorrem situações idênticas.</p>
+      <p>O termo “internalização” pode ser útil se não significar transferência automática de fora para dentro. Incorporar uma disposição é adquirir familiaridade prática: perceber o que costuma caber numa situação e agir com alguma fluência. Essa incorporação inclui interpretação e pode ser ambivalente. Alguém conhece a expectativa de formalidade, mas decide quando segui-la, quando negociá-la e quando denunciá-la como barreira.</p>
     </div>
-    <div class="content-topic">
-      <h3>3. Agentes socializadores: papéis e conflitos</h3>
-      <ul>
-        <li>Família, escola, religião, mídia, trabalho: especificidades de cada agente</li>
-        <li>Conflitos entre socializações: quando os agentes transmitem valores contraditórios</li>
-        <li>Socialização e reprodução de desigualdades sociais</li>
-      </ul>
+
+    <div class="base-subsection" id="primaria-vinculos"><h3>3. Socialização primária e vínculos iniciais</h3>
+      <p>Socialização primária destaca aprendizagens produzidas em vínculos iniciais intensos, nos quais linguagem, confiança, cuidado e primeiras classificações do mundo ganham força. Famílias costumam ser centrais, mas existem em formas diversas: uma criança pode conviver com mães, pais, avós, irmãos, responsáveis, famílias extensas ou redes de cuidado. Distribuição de tarefas, afeto e autoridade varia dentro e entre famílias.</p>
+      <p>Crianças não são recipientes passivos. Imitam, perguntam, recusam alimentos, inventam brincadeiras e respondem às expectativas. Tampouco a socialização primária termina de modo absoluto na infância. Vínculos iniciais continuam sendo reinterpretados, e famílias aprendem novas rotinas quando mudam trabalho, moradia, composição ou condições de saúde. “Primária” indica intensidade e caráter fundante, não destino definitivo nem modelo familiar único.</p>
     </div>
+
+    <div class="base-subsection" id="secundaria-contextos"><h3>4. Socialização secundária e novos contextos</h3>
+      <p>Socialização secundária destaca a entrada em novos contextos institucionais, conhecimentos especializados e papéis: escola, universidade, profissão, associação, religião ou serviço público. A pessoa aprende vocabulários, procedimentos, hierarquias e modos de demonstrar competência. Esses aprendizados não substituem automaticamente os anteriores. Podem confirmar disposições, combiná-las com regras novas ou produzir conflito.</p>
+      <p>A distinção entre primária e secundária é analítica, não uma linha rígida do tempo. Uma relação de trabalho pode tornar-se afetivamente intensa; uma mudança familiar adulta pode demandar aprendizagem profunda. O importante é perguntar quais vínculos sustentam a expectativa, como a regra é transmitida, que recursos existem e como aprendizagens de contextos diferentes se encontram na prática.</p>
+      <aside class="pause-box"><h4>Pausa 2 — expectativas familiares e universitárias</h4><p>Uma personagem é esperada numa responsabilidade familiar no mesmo horário de uma atividade acadêmica obrigatória. Que normas, recursos e relações de poder estruturam o conflito, além de sua vontade individual?</p></aside>
+    </div>
+
+    <div class="base-subsection" id="familia-escola"><h3>5. Família, escola e universidade em sua diversidade</h3>
+      <p>Famílias socializam por cuidado, divisão de tarefas, narrativas, conversas, rotinas e sanções. Não transmitem uma mensagem única: responsáveis podem discordar, gerações podem negociar e condições de renda, tempo, território e deficiência alteram possibilidades. Evitar determinismo familiar significa investigar relações concretas em vez de explicar toda conduta adulta por uma experiência inicial presumida.</p>
+      <p>Escola e universidade ensinam conteúdos e também horários, circulação em espaços, linguagens, hierarquias, cooperação e formas de avaliação. Regulamentos transmitem diretamente; calendários criam rotina; docentes e colegas oferecem modelos; notas, elogios e constrangimentos sinalizam expectativas. Instituições e turmas variam, e estudantes não respondem igualmente. Acesso a transporte, tecnologia, alimentação e apoio pedagógico condiciona a participação.</p>
+    </div>
+
+    <div class="base-subsection" id="pares-religiao"><h3>6. Pares, religião, trabalho e mídias</h3>
+      <p>Grupos de pares oferecem pertencimento, apoio, comparação e sanções. Uma reação de aprovação pode reforçar uma fala; silêncio ou piada pode constranger. Religiões, trabalhos e associações possuem doutrinas ou regulamentos, mas também correntes internas, práticas locais e posições hierárquicas. Listar “agentes” é insuficiente: é preciso mostrar mecanismos, relações e recursos que tornam uma aprendizagem possível.</p>
+      <p>Mídias e plataformas são ambientes organizados por empresas, algoritmos, públicos, regras e trabalho. Tutoriais ensinam diretamente; repetição e imitação difundem formatos; métricas recompensam visibilidade; moderação sanciona. A tecnologia não age sozinha nem controla todos igualmente. Conectividade, letramento, objetivos empresariais, redes de contato e usos concretos produzem efeitos variados e contestáveis.</p>
+    </div>
+
+    <div class="base-subsection" id="normas-papeis"><h3>7. Normas, papéis, expectativas e sanções</h3>
+      <p>Normas orientam condutas; expectativas antecipam o que alguém deveria fazer; papéis sociais reúnem expectativas ligadas a uma posição, como estudante, cuidador ou supervisor. Papel não é identidade fixa nem roteiro completo. Duas pessoas podem ocupar a mesma posição e desempenhá-la de modos diferentes, enquanto uma pessoa combina papéis cujas exigências entram em conflito.</p>
+      <p>Sanções podem ser formais ou informais, positivas ou negativas. Nota, advertência e suspensão são formalizadas; elogio, convite, olhar de reprovação e exclusão de conversa podem ser informais. Recompensas também orientam aprendizagem. Para analisar uma sanção, é preciso verificar quem pode aplicá-la, que regra invoca, como se distribui e quais efeitos produz. Aprender a expectativa não significa aceitá-la como legítima.</p>
+      <aside class="pause-box"><h4>Pausa 3 — papel sem identidade fixa</h4><p>Duas pessoas ocupam o papel de representante de turma de maneiras diferentes. Que expectativas compartilham, que margem de interpretação possuem e por que o papel não define toda a identidade delas?</p></aside>
+    </div>
+
+    <div class="base-subsection" id="conflitos-ressocializacao"><h3>8. Conflitos de socialização, agência e ressocialização</h3>
+      <p>Uma pessoa participa simultaneamente de contextos com exigências contraditórias. Trabalho pode premiar disponibilidade permanente, enquanto família e saúde exigem descanso; pares podem valorizar uma prática censurada pela instituição. Classe, raça, gênero, geração, território, deficiência e recursos influenciam exposição a expectativas e sanções, sem determinar respostas. Agência é a capacidade situada de interpretar, negociar e agir, não liberdade fora das estruturas.</p>
+      <p>Socialização pode reproduzir desigualdades quando naturaliza hierarquias ou distribui conhecimentos e oportunidades de modo desigual. Também pode oferecer linguagem, alianças e competências para contestá-las. Ressocialização ocorre quando novas condições demandam aprendizagens e reelaboração de disposições: mudança de trabalho, religião, cidade, curso ou configuração familiar. Não apaga totalmente o passado; combina continuidade, conflito e mudança biográfica.</p>
+      <aside class="pause-box"><h4>Pausa 4 — disposições numa nova trajetória</h4><p>Após mudar de ocupação, uma personagem revê maneiras de falar e organizar o tempo. O que pode permanecer, ser combinado ou mudar, e que evidência evitaria chamar isso de transformação completa?</p></aside>
+    </div>
+
+    <div class="base-subsection" id="sintese-aula19"><h3>9. Síntese e passagem à Aula 19</h3>
+      <p>Socialização é aprendizagem participativa e contínua. Vínculos iniciais, instituições e novos contextos oferecem repertórios, posições e recursos por transmissão direta, rotina, imitação, recompensa, constrangimento, pertencimento e negociação. Sujeitos interpretam essas expectativas; sanções orientam sem garantir obediência; socializações podem convergir ou entrar em conflito.</p>
+      <p>A Aula 19 deslocará o foco para grupos sociais e pertencimento. Depois de compreender como se aprende a participar, será possível perguntar como grupos se constituem, delimitam membros, distribuem posições e produzem vínculos. Os conceitos desta aula servirão como base, mas não substituirão a análise das relações entre grupos, categorias e organizações.</p>
+    </div>
+  </div></section>
+
+  <section id="plano-aula"><div class="section-title">Plano de Aula com Tempo</div><div class="timeline">
+    <div class="tl-item"><span class="tl-duration">10 min</span><span class="tl-text"><strong>Retomada da Aula 17</strong> — Das identidades e repertórios à pergunta sobre como se aprende a participar.</span></div>
+    <div class="tl-item"><span class="tl-duration">30 min</span><span class="tl-text"><strong>Exposição dialogada</strong> — Socialização contínua, primária e secundária, mecanismos, papéis e sanções.</span></div>
+    <div class="tl-item"><span class="tl-duration">20 min</span><span class="tl-text"><strong>Leitura orientada das cenas</strong> — Identificação de expectativa, transmissão, resposta e condição institucional.</span></div>
+    <div class="tl-item"><span class="tl-duration">35 min</span><span class="tl-text"><strong>Oficina</strong> — Análise dos seis circuitos institucionais e produção de quadro comparativo.</span></div>
+    <div class="tl-item"><span class="tl-duration">15 min</span><span class="tl-text"><strong>Socialização</strong> — Comparação de mecanismos, conflitos, sanções e evidências.</span></div>
+    <div class="tl-item"><span class="tl-duration">10 min</span><span class="tl-text"><strong>Síntese e passagem</strong> — Sistematização e transição para grupos sociais na Aula 19.</span></div>
+  </div></section>
+
+  <section id="leituras"><div class="section-title">Textos para Leitura Prévia</div>
+    <div class="ref-card"><div class="ref-author">BERGER, Peter; LUCKMANN, Thomas</div><div class="ref-title">A construção social da realidade. “A internalização da realidade”</div></div>
+    <div class="ref-card"><div class="ref-author">GIDDENS, Anthony</div><div class="ref-title">Sociologia. Discussão sobre socialização</div></div>
+    <p class="base-intro">As formulações do texto-base são paráfrases didáticas. A aula não atribui toda a teoria da socialização a um único autor nem reproduz citações extensas.</p>
   </section>
 
-  <section id="texto-base" aria-labelledby="texto-base-title">
-    <div class="section-title" id="texto-base-title">Texto-base para acompanhamento da aula</div>
-    <div class="base-text">
-      <p class="base-intro">Leitura de apoio para a exposição, a discussão e a retomada dos conceitos. As pausas podem ser realizadas oralmente, em duplas ou por registro breve.</p>
-      <nav class="base-toc" aria-label="Sumário do texto-base"><h3>Nesta leitura</h3><ol><li><a href="#texto-problema">Uma pergunta para abrir: Como alguém aprende a ser membro de uma sociedade?</a></li><li><a href="#texto-contexto">Localizar o problema histórica e conceitualmente</a></li><li><a href="#texto-1-socializacao-definicao-importancia-e-processo">Socialização: definição, importância e processo</a></li><li><a href="#texto-2-socializacao-primaria-e-secundaria">Socialização primária e secundária</a></li><li><a href="#texto-3-agentes-socializadores-papeis-e-conflitos">Agentes socializadores: papéis e conflitos</a></li><li><a href="#texto-aplicacao">Aplicação e trabalho com evidências</a></li><li><a href="#texto-cuidados">Distinções, limites e cuidados conceituais</a></li><li><a href="#texto-sintese">Síntese e passagem para a próxima aula</a></li></ol></nav>
-      <div class="base-subsection" id="texto-problema"><h3>1. Uma pergunta para abrir: Como alguém aprende a ser membro de uma sociedade?</h3><p><strong>Como alguém aprende a ser membro de uma sociedade?</strong> Essa pergunta organiza a Aula 18, dedicada a socialização primária e secundária. agentes socializadores. Ela parte de uma dificuldade reconhecível: o cotidiano nos oferece respostas rápidas, mas essas respostas frequentemente transformam costumes históricos em fatos naturais ou atribuem a indivíduos fenômenos produzidos por relações mais amplas.</p><p>Pensemos em trajetórias atravessadas por família, escola, religião, pares, mídia e trabalho. A cena pode ser descrita de muitas maneiras, porém a descrição sociológica pergunta quem participa, quais posições ocupa, que regras orientam a conduta, como essas regras foram formadas e quais consequências recaem de modo desigual sobre os envolvidos. O exemplo funciona como porta de entrada; não substitui a análise nem autoriza generalizações sobre todos os casos.</p><p>Os objetivos do roteiro apontam o percurso: Definir socialização como processo de internalização da cultura e das normas sociais. Distinguir socialização primária (família) e socialização secundária (escola, mídia, religião etc.). Identificar os principais agentes socializadores e seus papéis distintos. Relacionar socialização, identidade e reprodução da estrutura social. Em vez de tratar essas metas como itens separados, o texto as encadeia. Definir permite observar; contextualizar evita anacronismos; comparar explicita diferenças; aplicar conceitos exige evidências; e discutir limites impede que uma teoria se torne resposta automática para qualquer problema.</p><p>O olhar sociológico começa quando suspendemos por um momento a resposta evidente. Isso não significa abandonar conhecimentos cotidianos, mas interrogá-los. O senso comum é uma orientação prática compartilhada, indispensável à vida; a investigação sociológica, por sua vez, precisa explicitar procedimentos, conceitos e fontes, aceitar contestação e distinguir aquilo que sabe daquilo que apenas supõe.</p><aside class="pause-box"><h4>Pausa para discussão</h4><p>Que resposta de senso comum aparece primeiro diante da pergunta de abertura? Que informação seria necessária para testá-la sociologicamente?</p></aside></div><div class="base-subsection" id="texto-contexto"><h3>2. Localizar o problema histórica e conceitualmente</h3><p>Nenhum conceito desta aula surgiu fora do tempo. O problema de socialização primária e secundária. agentes socializadores. deve ser ligado às transformações históricas, aos debates intelectuais e às experiências coletivas que lhe deram forma. Contextualizar não é decorar datas ou biografias: é compreender por que certas perguntas se tornaram relevantes e por que respostas concorrentes foram formuladas.</p><p>A Sociologia trabalha numa tensão produtiva entre continuidade e mudança. Pessoas recebem instituições, linguagens e classificações já existentes, mas as reproduzem, interpretam e contestam em circunstâncias novas. Por isso, uma explicação não pode escolher simplesmente entre indivíduo e sociedade. Ela precisa mostrar por quais relações uma experiência singular se conecta a padrões, conflitos e processos históricos.</p><p>As leituras indicadas no roteiro — BERGER, Peter; LUCKMANN, Thomas A construção social da realidade. Cap. &quot;A internalização da realidade&quot; p. 173–210 GIDDENS, Anthony Sociologia. Cap. sobre Socialização p. 28–42 — servem de apoio a essa reconstrução. Elas não devem ser convertidas em frases de autoridade. O procedimento mais seguro é paráfrase responsável: apresentar o problema do autor, reconstruir seu argumento e indicar como ele ajuda a ler o conteúdo da aula, sem criar citações literais, páginas ou conclusões que o material não confirme.</p><p>Também é necessário separar três planos. A explicação de um autor reconstrói seus conceitos nos termos do problema que ele enfrentou. A contextualização histórica situa as condições de produção e circulação dessas ideias. A aplicação contemporânea é uma operação nossa, que testa a fecundidade do conceito em outro cenário. Misturar os planos produz anacronismos e faz parecer que o autor comentou diretamente fatos que não conheceu.</p></div><div class="base-subsection" id="texto-1-socializacao-definicao-importancia-e-processo"><h3>3. Socialização: definição, importância e processo</h3><p>O 1º movimento do argumento concentra-se em <strong>Socialização: definição, importância e processo</strong>. O roteiro associa esse núcleo a Socialização como internalização da realidade social (Berger e Luckmann); A socialização como processo contínuo ao longo da vida; Relação entre socialização e construção da identidade. A enumeração, porém, ganha sentido apenas quando percebemos as relações entre seus componentes. Conceitos sociológicos não são etiquetas aplicadas depois que um fato acontece: eles selecionam dimensões do problema, orientam comparações e indicam quais evidências precisam ser procuradas.</p><p>Para acompanhar a exposição, convém avançar em três passos. Primeiro, identificar o fenômeno e o contexto em que ele ocorre. Segundo, perguntar quais relações, regras, recursos e significados o tornam possível. Terceiro, comparar situações para descobrir o que permanece e o que muda. Aplicado a socialização: definição, importância e processo, esse procedimento impede que uma impressão isolada seja apresentada como explicação geral e ajuda a ligar experiência, história e organização social.</p><p>Os elementos Socialização como internalização da realidade social (Berger e Luckmann); A socialização como processo contínuo ao longo da vida; Relação entre socialização e construção da identidade não devem ser lidos como sinônimos. Cada um ilumina uma dimensão própria, embora possa se articular aos demais. A tarefa analítica consiste em dizer onde começa e termina cada conceito, qual problema ele responde e que tipo de evidência sustentaria sua aplicação. Em sala, o professor pode retomar um exemplo do conteúdo programático e pedir que a turma mostre exatamente qual característica autoriza a classificação proposta.</p><p>Esse cuidado também torna a leitura mais acessível. Em vez de memorizar uma definição abstrata, o estudante reconstrói o caminho do argumento: observa uma situação, reconhece um padrão, formula uma pergunta e testa uma interpretação. O resultado não precisa ser uma resposta definitiva. Uma hipótese sociológica é valiosa quando explicita seus critérios, admite comparação e pode ser revista diante de informações melhores.</p></div><div class="base-subsection" id="texto-2-socializacao-primaria-e-secundaria"><h3>4. Socialização primária e secundária</h3><p>O 2º movimento do argumento concentra-se em <strong>Socialização primária e secundária</strong>. O roteiro associa esse núcleo a Socialização primária: família como primeiro mundo social da criança; Internalização de papéis, normas e linguagem na infância; Socialização secundária: escola, mídia, religião, trabalho, grupos de pares. A enumeração, porém, ganha sentido apenas quando percebemos as relações entre seus componentes. Conceitos sociológicos não são etiquetas aplicadas depois que um fato acontece: eles selecionam dimensões do problema, orientam comparações e indicam quais evidências precisam ser procuradas.</p><p>Para acompanhar a exposição, convém avançar em três passos. Primeiro, identificar o fenômeno e o contexto em que ele ocorre. Segundo, perguntar quais relações, regras, recursos e significados o tornam possível. Terceiro, comparar situações para descobrir o que permanece e o que muda. Aplicado a socialização primária e secundária, esse procedimento impede que uma impressão isolada seja apresentada como explicação geral e ajuda a ligar experiência, história e organização social.</p><p>Os elementos Socialização primária: família como primeiro mundo social da criança; Internalização de papéis, normas e linguagem na infância; Socialização secundária: escola, mídia, religião, trabalho, grupos de pares não devem ser lidos como sinônimos. Cada um ilumina uma dimensão própria, embora possa se articular aos demais. A tarefa analítica consiste em dizer onde começa e termina cada conceito, qual problema ele responde e que tipo de evidência sustentaria sua aplicação. Em sala, o professor pode retomar um exemplo do conteúdo programático e pedir que a turma mostre exatamente qual característica autoriza a classificação proposta.</p><p>Esse cuidado também torna a leitura mais acessível. Em vez de memorizar uma definição abstrata, o estudante reconstrói o caminho do argumento: observa uma situação, reconhece um padrão, formula uma pergunta e testa uma interpretação. O resultado não precisa ser uma resposta definitiva. Uma hipótese sociológica é valiosa quando explicita seus critérios, admite comparação e pode ser revista diante de informações melhores.</p></div><div class="base-subsection" id="texto-3-agentes-socializadores-papeis-e-conflitos"><h3>5. Agentes socializadores: papéis e conflitos</h3><p>O 3º movimento do argumento concentra-se em <strong>Agentes socializadores: papéis e conflitos</strong>. O roteiro associa esse núcleo a Família, escola, religião, mídia, trabalho: especificidades de cada agente; Conflitos entre socializações: quando os agentes transmitem valores contraditórios; Socialização e reprodução de desigualdades sociais. A enumeração, porém, ganha sentido apenas quando percebemos as relações entre seus componentes. Conceitos sociológicos não são etiquetas aplicadas depois que um fato acontece: eles selecionam dimensões do problema, orientam comparações e indicam quais evidências precisam ser procuradas.</p><p>Para acompanhar a exposição, convém avançar em três passos. Primeiro, identificar o fenômeno e o contexto em que ele ocorre. Segundo, perguntar quais relações, regras, recursos e significados o tornam possível. Terceiro, comparar situações para descobrir o que permanece e o que muda. Aplicado a agentes socializadores: papéis e conflitos, esse procedimento impede que uma impressão isolada seja apresentada como explicação geral e ajuda a ligar experiência, história e organização social.</p><p>Os elementos Família, escola, religião, mídia, trabalho: especificidades de cada agente; Conflitos entre socializações: quando os agentes transmitem valores contraditórios; Socialização e reprodução de desigualdades sociais não devem ser lidos como sinônimos. Cada um ilumina uma dimensão própria, embora possa se articular aos demais. A tarefa analítica consiste em dizer onde começa e termina cada conceito, qual problema ele responde e que tipo de evidência sustentaria sua aplicação. Em sala, o professor pode retomar um exemplo do conteúdo programático e pedir que a turma mostre exatamente qual característica autoriza a classificação proposta.</p><p>Esse cuidado também torna a leitura mais acessível. Em vez de memorizar uma definição abstrata, o estudante reconstrói o caminho do argumento: observa uma situação, reconhece um padrão, formula uma pergunta e testa uma interpretação. O resultado não precisa ser uma resposta definitiva. Uma hipótese sociológica é valiosa quando explicita seus critérios, admite comparação e pode ser revista diante de informações melhores.</p></div><div class="base-subsection" id="texto-aplicacao"><h3>6. Aplicação e trabalho com evidências</h3><p>O estudo de caso desta aula parte de trajetórias atravessadas por família, escola, religião, pares, mídia e trabalho. A finalidade não é decidir depressa se o caso confirma a teoria. Antes, é decompor a situação: identificar atores, posições, recursos, normas, discursos, escalas de tempo e possíveis efeitos. Somente depois se pergunta quais conceitos do roteiro oferecem uma interpretação consistente e quais aspectos permanecem fora de alcance.</p><p>A atividade prevista ajuda a realizar essa passagem. Atividade reflexiva: &quot;Quem me socializou?&quot; Parte 1 — Individual (15 min): Cada aluno lista os 5 agentes socializadores que considera mais importantes em sua trajetória de vida (pode ser família, escola, religião, amigos, mídia, bairro, trabalho etc.). Para cada agente, escreve brevemente: — Que valores esse agente transmitiu? — Que normas de comportamento foram internalizadas a partir dele? — Esse agente reforçou ou questionou desigualdades sociais? Parte 2 — Em trio (incorporada na discussão em grupos): Os alunos compartilham suas reflexões e discutem: houve conflitos entre diferentes socializações ? Quando os agentes transmitiam valores contraditórios, como isso foi vivenciado? Quem &quot;venceu&quot; esses conflitos de socialização? A atividade tem objetivo reflexivo e não será recolhida, mas servirá como base para a discussão coletiva sobre socialização e desigualdade. O exercício ganha qualidade quando cada afirmação vem acompanhada de uma evidência observável ou de uma pergunta de pesquisa. Se a turma discorda, a divergência pode ser produtiva: os grupos devem indicar se usam conceitos diferentes, se selecionam evidências distintas ou se atribuem significados diferentes à mesma informação.</p><p>Uma aplicação contemporânea rigorosa também considera alternativas. O mesmo padrão pode resultar de processos distintos, e uma evidência pode ser compatível com mais de uma interpretação. Entrevistas esclarecem sentidos atribuídos pelos participantes, observação acompanha práticas, documentos mostram regras e justificativas, e dados quantitativos revelam distribuição e variação. Nenhuma técnica responde sozinha a todas as perguntas.</p><p>Ao apresentar o caso, é útil distinguir exemplo, ilustração e evidência. Um exemplo torna o conceito inteligível; uma ilustração aproxima o tema da experiência da turma; evidência é informação coletada e analisada por procedimento explícito. Confundir essas funções leva a tomar uma história convincente como prova suficiente. A Sociologia procura justamente controlar esse salto.</p><aside class="pause-box"><h4>Pausa para discussão</h4><p>Qual conceito da aula explica melhor o estudo de caso? Que aspecto do caso ele não consegue explicar sozinho?</p></aside></div><div class="base-subsection" id="texto-cuidados"><h3>7. Distinções, limites e cuidados conceituais</h3><p>O principal cuidado desta aula é não tratar socialização como cópia passiva ou processo encerrado na infância. A advertência não enfraquece o conteúdo; ela define seu alcance. Conceitos bons simplificam a realidade de maneira controlada. Quando aplicados fora de suas condições, perdem precisão e viram apenas palavras sofisticadas para confirmar uma opinião anterior.</p><p>Outra distinção necessária separa explicação causal, interpretação de sentidos e avaliação normativa. Podemos investigar por que algo acontece, compreender como os participantes lhe atribuem significado e discutir se suas consequências são desejáveis. São perguntas legítimas, mas não idênticas. Uma posição ética deve ser assumida com clareza, e não apresentada como se decorresse automaticamente de um dado ou de um autor.</p><p>A escala também importa. Uma interação em sala, uma organização, uma cidade, um Estado e um processo transnacional não funcionam do mesmo modo. O que aparece como escolha numa escala pode ser condicionado por regras em outra. Ao mudar a escala, mudam as evidências e às vezes muda a própria pergunta. Especificar tempo, lugar e grupo torna a análise menos grandiosa e mais verificável.</p><p>Por fim, diferenças internas precisam permanecer visíveis. Grupos sociais não são sujeitos homogêneos; instituições abrigam disputas; normas podem ser obedecidas, negociadas ou contestadas; identidades se cruzam. Evitar generalizações não significa abandonar padrões coletivos, mas explicar como eles se distribuem e por que não afetam todas as pessoas da mesma maneira.</p><aside class="pause-box"><h4>Pausa para discussão</h4><p>Que generalização apressada seria mais provável neste tema? Como reformulá-la para torná-la histórica, comparável e verificável?</p></aside></div><div class="base-subsection" id="texto-sintese"><h3>8. Síntese e passagem para a próxima aula</h3><p><strong>Síntese.</strong> A Aula 18 mostrou que socialização primária e secundária. agentes socializadores. deve ser estudado por meio de perguntas delimitadas, conceitos diferenciados e evidências adequadas. O problema de abertura conduziu da experiência cotidiana à contextualização, e os três núcleos do conteúdo programático foram articulados sem serem tratados como equivalentes.</p><p>Ao final, o estudante deve ser capaz de retomar as metas do roteiro com suas próprias palavras: Definir socialização como processo de internalização da cultura e das normas sociais. Distinguir socialização primária (família) e socialização secundária (escola, mídia, religião etc.). Identificar os principais agentes socializadores e seus papéis distintos. Relacionar socialização, identidade e reprodução da estrutura social. Esse domínio não se mede apenas pela lembrança de definições. Ele aparece quando alguém consegue reconhecer uma situação pertinente, justificar a escolha do conceito, propor uma evidência e indicar os limites da interpretação.</p><p>As pausas de discussão transformam a leitura em trabalho coletivo. Elas permitem que o professor interrompa a exposição, recolha hipóteses, identifique confusões e retome o argumento. A síntese pode ser concluída no quadro com quatro colunas — problema, conceito, evidência e limite — de modo que a turma visualize o caminho percorrido durante aproximadamente duas horas desta parte do encontro.</p><p>A passagem seguinte não reinicia o curso. Ela desloca a pergunta construída aqui para <strong>grupos sociais e pertencimento</strong>. O que aprendemos nesta aula funcionará como condição para a próxima: conceitos serão retomados apenas quando necessários, agora diante de outro problema. Assim, as duas partes do encontro e a sequência semanal formam um percurso contínuo, e não uma coleção de resumos independentes.</p><aside class="pause-box"><h4>Pausa para discussão</h4><p>Em uma frase, que relação entre experiência individual e processo social esta aula tornou mais visível?</p></aside></div>
+  <section id="atividade"><div class="section-title">Atividade em Sala</div><div class="activity-card">
+    <h3>Oficina — circuito de socialização</h3>
+    <p><strong>Finalidade:</strong> reconhecer mecanismos de aprendizagem, expectativas, sanções, respostas e condições institucionais sem reduzir socialização a transmissão automática.</p>
+    <p><strong>Organização:</strong> seis grupos recebem uma cena fictícia. Distribuam leitura, registro, controle do tempo e apresentação. Ninguém deve relatar experiências pessoais ou representar um grupo social.</p>
+    <p><strong>Etapas e tempos:</strong> 5 minutos para descrição; 15 para mapear o circuito; 10 para discutir reprodução ou mudança; 5 para revisar evidências. A socialização posterior dura 15 minutos.</p>
+    <div class="scene-grid" aria-label="Seis cenas institucionais fictícias">
+      <article class="scene-card"><h4>Cena 1 — tarefas em rotinas familiares negociadas</h4><p>Numa família com dois responsáveis, uma avó e duas crianças, um quadro distribui tarefas semanais. Uma criança observa o irmão, recebe lembrete e propõe trocar dias por causa do treino. Cumprir rende elogio; deixar a tarefa gera conversa e redistribuição. Horários de trabalho mudam a rotina, e os adultos discordam entre cobrança e autonomia.</p></article>
+      <article class="scene-card"><h4>Cena 2 — regras informais de participação universitária</h4><p>Em uma disciplina, o regulamento informa frequência e avaliação, mas não explica como entrar num debate. Uma estudante observa colegas levantarem a mão, recebe convite da docente e depois é interrompida. Um grupo combina apoiar turnos de fala. Tamanho da sala, nota de participação e acessibilidade condicionam respostas diferentes.</p></article>
+      <article class="scene-card"><h4>Cena 3 — linguagem e hierarquia numa equipe de trabalho</h4><p>Um jovem entra numa equipe que usa siglas, relatórios e cadeia de aprovação. Colegas oferecem modelo; o supervisor corrige publicamente um e-mail, enquanto outra colega explica em particular. O manual prevê advertência por erro repetido. Pressão de prazo divide a equipe sobre perguntar ou improvisar, e o jovem sugere glossário coletivo.</p></article>
+      <article class="scene-card"><h4>Cena 4 — grupo religioso internamente diverso</h4><p>Uma participante ingressa num grupo religioso que organiza encontros e ação comunitária. Aprende cantos por imitação e recebe orientação direta sobre tarefas. Integrantes divergem quanto a vestuário e divulgação digital; a coordenação elogia participação, mas restringe algumas funções. Espaço, transporte e horário limitam presença, e ela propõe alternativa híbrida.</p></article>
+      <article class="scene-card"><h4>Cena 5 — aprovação e censura entre pares</h4><p>Num grupo de estudos, colegas recompensam explicações claras com convites e reações positivas. Quando um estudante faz perguntas consideradas básicas, surgem risos; duas pessoas contestam e criam rodízio de dúvidas. A reserva da sala e os horários favorecem alguns. O estudante pode silenciar, procurar apoio ou participar da mudança do acordo.</p></article>
+      <article class="scene-card"><h4>Cena 6 — interação numa plataforma digital</h4><p>Uma pessoa entra numa plataforma de portfólios. Tutoriais recomendam frequência, métricas destacam publicações e moderadores removem conteúdo fora das regras. Usuários divergem sobre autopromoção; colegas compartilham estratégias. Plano pago, algoritmo e tempo disponível afetam alcance. Ela ajusta privacidade e questiona uma regra no fórum, sem resultado garantido.</p></article>
     </div>
-  </section>
+    <h4>Oito perguntas para cada cena</h4><ol class="question-list">
+      <li>O que está sendo <strong>aprendido</strong>?</li><li>Quem participa da <strong>aprendizagem</strong>?</li><li>Por qual <strong>mecanismo</strong> a expectativa é transmitida?</li><li>Que <strong>sanção formal ou informal</strong> aparece?</li><li>Que <strong>papel social</strong> é esperado?</li><li>Como a pessoa <strong>interpreta, negocia ou resiste</strong>?</li><li>Que <strong>desigualdade ou condição institucional</strong> interfere?</li><li>O processo reproduz, transforma ou combina disposições? Que <strong>evidência</strong> sustenta a resposta?</li>
+    </ol>
+    <p><strong>Produto:</strong> quadro com expectativa, mecanismo, sanção, resposta, condição e evidência, seguido de hipótese sobre reprodução ou mudança.</p>
+    <p><strong>Socialização:</strong> cada grupo apresenta o circuito em até dois minutos. A turma identifica um mecanismo alternativo e uma informação ainda necessária, sem culpabilizar o personagem.</p>
+    <details class="teacher-guidance"><summary>Possibilidades comentadas e orientações de mediação — uso do professor</summary><div class="teacher-guidance-content">
+      <p>Os comentários indicam possibilidades, não respostas únicas. Exigir evidências e distinguir aprendizagem, imposição e negociação.</p>
+      <h4>1. Tarefas familiares</h4><p>Aprendem-se divisão de tarefas e organização do tempo por quadro, observação, lembrete e rotina. Responsáveis, avó, irmão e criança participam; elogio é sanção positiva, conversa e redistribuição podem ser negativas ou reparadoras. Espera-se papel de participante do cuidado doméstico. A proposta de troca mostra negociação. Jornada de trabalho e treino condicionam opções; discordância adulta revela socialização contraditória. O circuito pode reproduzir divisão ou transformá-la. Seria necessário observar distribuição real, revisões e falas, sem culpar a criança.</p>
+      <h4>2. Participação universitária</h4><p>Aprendem-se turnos, linguagem e modos de intervir por observação, convite, interrupção e apoio dos pares. Docente, colegas e regras de avaliação participam; nota é sanção formal, convite ou constrangimento são informais. Espera-se o papel de estudante participante, não uma identidade extrovertida. A estudante pode testar estratégias e negociar turnos. Sala, acessibilidade e critério de nota distribuem oportunidades. Registros de fala, rubrica e consulta voluntária sustentariam conclusão sobre reprodução ou mudança.</p>
+      <h4>3. Equipe de trabalho</h4><p>Siglas, relatórios e hierarquia são aprendidos por manual, modelo, correção, imitação e ajuda. Supervisor e colegas possuem poderes diferentes; advertência é formal, exposição e apoio são sanções informais. O papel esperado é de integrante competente e responsivo. O glossário combina adaptação e transformação da rotina. Prazo, acesso à informação e posição contratual interferem. Seria necessário verificar manual, recorrência das correções e uso do glossário, evitando atribuir dificuldades a incapacidade individual.</p>
+      <h4>4. Grupo religioso</h4><p>Aprendem-se cantos, tarefas e formas de participação por imitação, orientação, pertencimento e recompensa. Coordenação e integrantes divergem, mostrando que religião não é agente homogêneo. Elogio reforça; restrição de função sanciona. A participante interpreta regras e propõe formato híbrido. Transporte, horário e espaço limitam presença. O processo pode combinar disposições anteriores e novas. Regras, decisões e experiências diversas seriam evidências; alternativas fundamentadas devem ser aceitas.</p>
+      <h4>5. Grupo de pares</h4><p>Aprendem-se critérios informais sobre perguntas e explicações por reações, convites, risos e rodízio. Pares apoiam e censuram; pertencimento funciona como recompensa, ridicularização como constrangimento. Espera-se papel de colega que contribui, mas há disputa sobre o significado. Silêncio, busca de apoio e mudança do acordo são respostas possíveis. Horário e sala distribuem participação. Observação, convites e funcionamento do rodízio permitiriam avaliar se desigualdade foi reproduzida ou contestada.</p>
+      <h4>6. Plataforma digital</h4><p>Aprendem-se frequência, formato, visibilidade e interação por tutorial, métricas, moderação, imitação e troca entre usuários. Empresa, moderadores, colegas e algoritmo organizam relações; destaque recompensa e remoção sanciona formalmente. Espera-se produtor visível, não uma essência pessoal. Ajustar privacidade e questionar regra combinam adaptação e resistência. Plano pago, tempo e alcance criam desigualdade. Dados de recomendação, regras e comparação entre contas seriam necessários; tecnologia condiciona sem determinar.</p>
+      <h4>Orientações gerais de mediação</h4><p>Não culpabilizar indivíduos por conflitos institucionais nem perguntar quem viveu situação semelhante. Solicitar evidências, localizar condições materiais e aceitar alternativas justificadas. Distinguir transmissão direta, imitação, rotina, recompensa, constrangimento, pertencimento e negociação, observando socializações contraditórias. Encerrar mostrando que aprendizagens ajudam a constituir pertencimentos; a Aula 19 examinará grupos sociais, fronteiras e posições coletivas.</p>
+    </div></details>
+  </div></section>
 
-
-  <section id="plano-aula">
-    <div class="section-title">Plano de Aula com Tempo</div>
-    <div class="timeline">
-      <div class="tl-item">
-        <span class="tl-duration">10 min</span>
-        <span class="tl-text"><strong>Retomada</strong> — Revisão dos conceitos de identidade cultural e indústria cultural. Introdução ao conceito de socialização como forma de transmissão cultural.</span>
-      </div>
-      <div class="tl-item">
-        <span class="tl-duration">25 min</span>
-        <span class="tl-text"><strong>Exposição: Conceito de socialização</strong> — Apresentação do conceito de socialização a partir de Berger e Luckmann, distinguindo socialização primária e secundária. Exemplos concretos do processo socializador.</span>
-      </div>
-      <div class="tl-item">
-        <span class="tl-duration">15 min</span>
-        <span class="tl-text"><strong>Atividade individual: "Quem me socializou?"</strong> — Cada aluno escreve em papel: os 5 agentes que mais o socializaram e descreve brevemente que valores ou normas cada um transmitiu. (Ver Atividades em Sala.)</span>
-      </div>
-      <div class="tl-item">
-        <span class="tl-duration">20 min</span>
-        <span class="tl-text"><strong>Exposição: Agentes socializadores</strong> — Análise dos principais agentes (família, escola, religião, mídia, trabalho, grupos de pares), seus papéis específicos e os conflitos que emergem quando transmitem valores contraditórios.</span>
-      </div>
-      <div class="tl-item">
-        <span class="tl-duration">30 min</span>
-        <span class="tl-text"><strong>Discussão em grupos: socialização e reprodução de desigualdades</strong> — A partir das reflexões individuais, os grupos discutem: como a socialização reproduz ou contesta desigualdades de classe, gênero e raça?</span>
-      </div>
-      <div class="tl-item">
-        <span class="tl-duration">20 min</span>
-        <span class="tl-text"><strong>Síntese e sistematização coletiva</strong> — O professor sistematiza os resultados das discussões em grupo no quadro, articulando com os conceitos teóricos. Orientações para a próxima aula.</span>
-      </div>
-    </div>
-  </section>
-
-  <section id="leituras">
-    <div class="section-title">Textos para Leitura Prévia</div>
-    <div class="ref-card">
-      <div class="ref-author">BERGER, Peter; LUCKMANN, Thomas</div>
-      <div class="ref-title">A construção social da realidade. Cap. "A internalização da realidade"</div>
-      <div class="ref-pages">p. 173–210</div>
-    </div>
-    <div class="ref-card">
-      <div class="ref-author">GIDDENS, Anthony</div>
-      <div class="ref-title">Sociologia. Cap. sobre Socialização</div>
-      <div class="ref-pages">p. 28–42</div>
-    </div>
-  </section>
-
-  <section id="atividade">
-    <div class="section-title">Atividades em Sala</div>
-    <div class="activity-card">
-      <strong>Atividade reflexiva: "Quem me socializou?"</strong><br><br>
-      <strong>Parte 1 — Individual (15 min):</strong> Cada aluno lista os 5 agentes socializadores que considera mais importantes em sua trajetória de vida (pode ser família, escola, religião, amigos, mídia, bairro, trabalho etc.). Para cada agente, escreve brevemente:
-      <br><br>
-      — Que <strong>valores</strong> esse agente transmitiu?<br>
-      — Que <strong>normas de comportamento</strong> foram internalizadas a partir dele?<br>
-      — Esse agente reforçou ou questionou desigualdades sociais?
-      <br><br>
-      <strong>Parte 2 — Em trio (incorporada na discussão em grupos):</strong> Os alunos compartilham suas reflexões e discutem: houve <strong>conflitos entre diferentes socializações</strong>? Quando os agentes transmitiam valores contraditórios, como isso foi vivenciado? Quem "venceu" esses conflitos de socialização?
-      <br><br>
-      A atividade tem objetivo reflexivo e não será recolhida, mas servirá como base para a discussão coletiva sobre socialização e desigualdade.
-    </div>
-  </section>
-
-  <section id="recursos">
-    <div class="section-title">Recursos Necessários</div>
-    <div class="resources-list">
-      <span class="res-tag">Projetor</span>
-      <span class="res-tag">Papel para atividade individual</span>
-      <span class="res-tag">Quadro branco</span>
-    </div>
-  </section>
-
+  <section id="recursos"><div class="section-title">Recursos Necessários</div><div class="resources-list"><span class="res-tag">Projetor</span><span class="res-tag">Quadro branco</span><span class="res-tag">Seis cenas impressas ou projetadas</span><span class="res-tag">Quadros de análise</span><span class="res-tag">Canetas</span></div></section>
 </main>
 
 <footer>
