@@ -46,6 +46,22 @@
   .ref-title { font-size: 0.9rem; color: var(--text); }
   .ref-pages { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
   .activity-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; font-size: 0.9rem; line-height: 1.7; border-left: 3px solid var(--teal-lt); }
+  .activity-card h3 { color: var(--teal-lt); font-size: 1.05rem; margin: 0 0 12px; }
+  .activity-card h4 { color: var(--amber-lt); margin: 18px 0 8px; }
+  .activity-card ol, .activity-card ul { padding-left: 22px; margin: 10px 0; }
+  .activity-card li { margin: 7px 0; }
+  .document-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 15px 17px; margin: 12px 0; break-inside: avoid; }
+  .document-card h4 { margin: 0 0 8px; }
+  .table-scroll { max-width: 100%; overflow-x: auto; }
+  .document-card table { width: 100%; min-width: 720px; table-layout: fixed; border-collapse: collapse; font-size: .82rem; }
+  .document-card table caption { color: var(--text); font-weight: 700; text-align: left; padding: 0 0 8px; }
+  .document-card th, .document-card td { border: 1px solid var(--border); padding: 8px; text-align: left; vertical-align: top; }
+  .document-card th, .document-card td { overflow-wrap: anywhere; }
+  .document-card th { color: var(--amber-lt); background: var(--card); }
+  .teacher-guidance { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-top: 18px; }
+  .teacher-guidance summary { cursor: pointer; color: var(--amber-lt); font-weight: 700; padding: 15px 17px; }
+  .teacher-guidance[open] summary { border-bottom: 1px solid var(--border); }
+  .teacher-guidance-content { padding: 16px 18px; }
   .resources-list { display: flex; flex-wrap: wrap; gap: 10px; }
   .res-tag { background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; }
   footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--muted); font-size: 0.85rem; }
@@ -85,6 +101,7 @@
     .base-toc ol { width: auto; columns: auto; padding-left: 0; list-style-position: inside; }
     .tl-item { flex-direction: column; gap: 8px; }
   }
+  @media print { .document-card, .teacher-guidance { break-inside: avoid; } }
 </style>
 </head>
 <body>
@@ -116,10 +133,10 @@
   <section id="objetivos">
     <div class="section-title">Objetivos de Aprendizagem</div>
     <ul class="obj-list">
-      <li>Compreender o processo de racionalização do mundo moderno e o desencantamento como traço central da modernidade weberiana.</li>
+      <li>Compreender racionalização e desencantamento como processos históricos diferenciados, sem tratá-los como progresso linear.</li>
       <li>Analisar a burocracia como tipo ideal e seus traços constitutivos, incluindo a metáfora da "gaiola de ferro".</li>
-      <li>Entender a tese da ética protestante e o papel do ascetismo intramundano na gênese do capitalismo.</li>
-      <li>Relacionar o conceito de racionalização ao funcionamento de plataformas digitais e algoritmos contemporâneos.</li>
+      <li>Entender a afinidade histórica entre ética protestante, ascetismo intramundano e conduta capitalista, evitando causalidade única.</li>
+      <li>Aplicar os conceitos de racionalização, burocracia, impessoalidade e revisão a processos administrativos contemporâneos, inclusive aqueles mediados por sistemas digitais.</li>
     </ul>
   </section>
 
@@ -128,7 +145,7 @@
     <div class="content-topic">
       <h3>1. Racionalização e desencantamento do mundo</h3>
       <ul>
-        <li>Desencantamento (Entzauberung): substituição da magia e da religião pelo cálculo e pela ciência</li>
+        <li>Desencantamento (Entzauberung): retração da magia, sistematização ética e expansão de explicações calculáveis</li>
         <li>Racionalidade formal vs. racionalidade substantiva</li>
         <li>Previsibilidade, calculabilidade e controle como marcas da modernidade racional</li>
       </ul>
@@ -138,14 +155,14 @@
       <ul>
         <li>Três tipos puros de dominação legítima: tradicional, carismática, racional-legal</li>
         <li>Características da burocracia: hierarquia, especialização, impessoalidade, normas escritas</li>
-        <li>A "gaiola de ferro" (stahlhartes Gehäuse): aprisionamento pelo formalismo racional</li>
+        <li>A “jaula de ferro” ou “carapaça rígida” como metáfora histórica, não profecia absoluta</li>
       </ul>
     </div>
     <div class="content-topic">
       <h3>3. Ética protestante e capitalismo</h3>
       <ul>
         <li>Protestantismo calvinista: predestinação e angústia da salvação</li>
-        <li>Ascetismo intramundano: trabalho como vocação (Beruf) e sinal de eleição divina</li>
+        <li>Ascetismo intramundano e trabalho como vocação (Beruf): disciplina metódica como possível confirmação subjetiva da condição religiosa, não como compra da salvação</li>
         <li>Afinidades eletivas entre espírito protestante e espírito do capitalismo</li>
       </ul>
     </div>
@@ -154,9 +171,98 @@
   <section id="texto-base" aria-labelledby="texto-base-title">
     <div class="section-title" id="texto-base-title">Texto-base para acompanhamento da aula</div>
     <div class="base-text">
-      <p class="base-intro">Leitura de apoio para a exposição, a discussão e a retomada dos conceitos. As pausas podem ser realizadas oralmente, em duplas ou por registro breve.</p>
-      <nav class="base-toc" aria-label="Sumário do texto-base"><h3>Nesta leitura</h3><ol><li><a href="#texto-problema">Uma pergunta para abrir: Por que regras impessoais podem proteger contra favoritismos e também aprisionar?</a></li><li><a href="#texto-contexto">Localizar o problema histórica e conceitualmente</a></li><li><a href="#texto-1-racionalizacao-e-desencantamento-do-mundo">Racionalização e desencantamento do mundo</a></li><li><a href="#texto-2-dominacao-e-burocracia">Dominação e burocracia</a></li><li><a href="#texto-3-etica-protestante-e-capitalismo">Ética protestante e capitalismo</a></li><li><a href="#texto-aplicacao">Aplicação e trabalho com evidências</a></li><li><a href="#texto-cuidados">Distinções, limites e cuidados conceituais</a></li><li><a href="#texto-sintese">Síntese e passagem para a próxima aula</a></li></ol></nav>
-      <div class="base-subsection" id="texto-problema"><h3>1. Uma pergunta para abrir: Por que regras impessoais podem proteger contra favoritismos e também aprisionar?</h3><p><strong>Por que regras impessoais podem proteger contra favoritismos e também aprisionar?</strong> Essa pergunta organiza a Aula 12, dedicada a weber: racionalização, burocracia e ética protestante. Ela parte de uma dificuldade reconhecível: o cotidiano nos oferece respostas rápidas, mas essas respostas frequentemente transformam costumes históricos em fatos naturais ou atribuem a indivíduos fenômenos produzidos por relações mais amplas.</p><p>Pensemos em métricas, avaliações, GPS e pontuações em plataformas digitais. A cena pode ser descrita de muitas maneiras, porém a descrição sociológica pergunta quem participa, quais posições ocupa, que regras orientam a conduta, como essas regras foram formadas e quais consequências recaem de modo desigual sobre os envolvidos. O exemplo funciona como porta de entrada; não substitui a análise nem autoriza generalizações sobre todos os casos.</p><p>Os objetivos do roteiro apontam o percurso: Compreender o processo de racionalização do mundo moderno e o desencantamento como traço central da modernidade weberiana. Analisar a burocracia como tipo ideal e seus traços constitutivos, incluindo a metáfora da &quot;gaiola de ferro&quot;. Entender a tese da ética protestante e o papel do ascetismo intramundano na gênese do capitalismo. Relacionar o conceito de racionalização ao funcionamento de plataformas digitais e algoritmos contemporâneos. Em vez de tratar essas metas como itens separados, o texto as encadeia. Definir permite observar; contextualizar evita anacronismos; comparar explicita diferenças; aplicar conceitos exige evidências; e discutir limites impede que uma teoria se torne resposta automática para qualquer problema.</p><p>O olhar sociológico começa quando suspendemos por um momento a resposta evidente. Isso não significa abandonar conhecimentos cotidianos, mas interrogá-los. O senso comum é uma orientação prática compartilhada, indispensável à vida; a investigação sociológica, por sua vez, precisa explicitar procedimentos, conceitos e fontes, aceitar contestação e distinguir aquilo que sabe daquilo que apenas supõe.</p><aside class="pause-box"><h4>Pausa para discussão</h4><p>Que resposta de senso comum aparece primeiro diante da pergunta de abertura? Que informação seria necessária para testá-la sociologicamente?</p></aside></div><div class="base-subsection" id="texto-contexto"><h3>2. Localizar o problema histórica e conceitualmente</h3><p>Nenhum conceito desta aula surgiu fora do tempo. O problema de weber: racionalização, burocracia e ética protestante. deve ser ligado às transformações históricas, aos debates intelectuais e às experiências coletivas que lhe deram forma. Contextualizar não é decorar datas ou biografias: é compreender por que certas perguntas se tornaram relevantes e por que respostas concorrentes foram formuladas.</p><p>A Sociologia trabalha numa tensão produtiva entre continuidade e mudança. Pessoas recebem instituições, linguagens e classificações já existentes, mas as reproduzem, interpretam e contestam em circunstâncias novas. Por isso, uma explicação não pode escolher simplesmente entre indivíduo e sociedade. Ela precisa mostrar por quais relações uma experiência singular se conecta a padrões, conflitos e processos históricos.</p><p>As leituras indicadas no roteiro — Weber, Max A ética protestante e o espírito do capitalismo — Prefácio e capítulo 1 p. 13–45 Quintaneiro, Tania; Barbosa, Maria Ligia; Oliveira, Márcia Um toque de clássicos — capítulo Weber p. 126–150 — servem de apoio a essa reconstrução. Elas não devem ser convertidas em frases de autoridade. O procedimento mais seguro é paráfrase responsável: apresentar o problema do autor, reconstruir seu argumento e indicar como ele ajuda a ler o conteúdo da aula, sem criar citações literais, páginas ou conclusões que o material não confirme.</p><p>Também é necessário separar três planos. A explicação de um autor reconstrói seus conceitos nos termos do problema que ele enfrentou. A contextualização histórica situa as condições de produção e circulação dessas ideias. A aplicação contemporânea é uma operação nossa, que testa a fecundidade do conceito em outro cenário. Misturar os planos produz anacronismos e faz parecer que o autor comentou diretamente fatos que não conheceu.</p></div><div class="base-subsection" id="texto-1-racionalizacao-e-desencantamento-do-mundo"><h3>3. Racionalização e desencantamento do mundo</h3><p>O 1º movimento do argumento concentra-se em <strong>Racionalização e desencantamento do mundo</strong>. O roteiro associa esse núcleo a Desencantamento (Entzauberung): substituição da magia e da religião pelo cálculo e pela ciência; Racionalidade formal vs. racionalidade substantiva; Previsibilidade, calculabilidade e controle como marcas da modernidade racional. A enumeração, porém, ganha sentido apenas quando percebemos as relações entre seus componentes. Conceitos sociológicos não são etiquetas aplicadas depois que um fato acontece: eles selecionam dimensões do problema, orientam comparações e indicam quais evidências precisam ser procuradas.</p><p>Para acompanhar a exposição, convém avançar em três passos. Primeiro, identificar o fenômeno e o contexto em que ele ocorre. Segundo, perguntar quais relações, regras, recursos e significados o tornam possível. Terceiro, comparar situações para descobrir o que permanece e o que muda. Aplicado a racionalização e desencantamento do mundo, esse procedimento impede que uma impressão isolada seja apresentada como explicação geral e ajuda a ligar experiência, história e organização social.</p><p>Os elementos Desencantamento (Entzauberung): substituição da magia e da religião pelo cálculo e pela ciência; Racionalidade formal vs. racionalidade substantiva; Previsibilidade, calculabilidade e controle como marcas da modernidade racional não devem ser lidos como sinônimos. Cada um ilumina uma dimensão própria, embora possa se articular aos demais. A tarefa analítica consiste em dizer onde começa e termina cada conceito, qual problema ele responde e que tipo de evidência sustentaria sua aplicação. Em sala, o professor pode retomar um exemplo do conteúdo programático e pedir que a turma mostre exatamente qual característica autoriza a classificação proposta.</p><p>Esse cuidado também torna a leitura mais acessível. Em vez de memorizar uma definição abstrata, o estudante reconstrói o caminho do argumento: observa uma situação, reconhece um padrão, formula uma pergunta e testa uma interpretação. O resultado não precisa ser uma resposta definitiva. Uma hipótese sociológica é valiosa quando explicita seus critérios, admite comparação e pode ser revista diante de informações melhores.</p></div><div class="base-subsection" id="texto-2-dominacao-e-burocracia"><h3>4. Dominação e burocracia</h3><p>O 2º movimento do argumento concentra-se em <strong>Dominação e burocracia</strong>. O roteiro associa esse núcleo a Três tipos puros de dominação legítima: tradicional, carismática, racional-legal; Características da burocracia: hierarquia, especialização, impessoalidade, normas escritas; A &quot;gaiola de ferro&quot; (stahlhartes Gehäuse): aprisionamento pelo formalismo racional. A enumeração, porém, ganha sentido apenas quando percebemos as relações entre seus componentes. Conceitos sociológicos não são etiquetas aplicadas depois que um fato acontece: eles selecionam dimensões do problema, orientam comparações e indicam quais evidências precisam ser procuradas.</p><p>Para acompanhar a exposição, convém avançar em três passos. Primeiro, identificar o fenômeno e o contexto em que ele ocorre. Segundo, perguntar quais relações, regras, recursos e significados o tornam possível. Terceiro, comparar situações para descobrir o que permanece e o que muda. Aplicado a dominação e burocracia, esse procedimento impede que uma impressão isolada seja apresentada como explicação geral e ajuda a ligar experiência, história e organização social.</p><p>Os elementos Três tipos puros de dominação legítima: tradicional, carismática, racional-legal; Características da burocracia: hierarquia, especialização, impessoalidade, normas escritas; A &quot;gaiola de ferro&quot; (stahlhartes Gehäuse): aprisionamento pelo formalismo racional não devem ser lidos como sinônimos. Cada um ilumina uma dimensão própria, embora possa se articular aos demais. A tarefa analítica consiste em dizer onde começa e termina cada conceito, qual problema ele responde e que tipo de evidência sustentaria sua aplicação. Em sala, o professor pode retomar um exemplo do conteúdo programático e pedir que a turma mostre exatamente qual característica autoriza a classificação proposta.</p><p>Esse cuidado também torna a leitura mais acessível. Em vez de memorizar uma definição abstrata, o estudante reconstrói o caminho do argumento: observa uma situação, reconhece um padrão, formula uma pergunta e testa uma interpretação. O resultado não precisa ser uma resposta definitiva. Uma hipótese sociológica é valiosa quando explicita seus critérios, admite comparação e pode ser revista diante de informações melhores.</p></div><div class="base-subsection" id="texto-3-etica-protestante-e-capitalismo"><h3>5. Ética protestante e capitalismo</h3><p>O 3º movimento do argumento concentra-se em <strong>Ética protestante e capitalismo</strong>. O roteiro associa esse núcleo a Protestantismo calvinista: predestinação e angústia da salvação; Ascetismo intramundano: trabalho como vocação (Beruf) e sinal de eleição divina; Afinidades eletivas entre espírito protestante e espírito do capitalismo. A enumeração, porém, ganha sentido apenas quando percebemos as relações entre seus componentes. Conceitos sociológicos não são etiquetas aplicadas depois que um fato acontece: eles selecionam dimensões do problema, orientam comparações e indicam quais evidências precisam ser procuradas.</p><p>Para acompanhar a exposição, convém avançar em três passos. Primeiro, identificar o fenômeno e o contexto em que ele ocorre. Segundo, perguntar quais relações, regras, recursos e significados o tornam possível. Terceiro, comparar situações para descobrir o que permanece e o que muda. Aplicado a ética protestante e capitalismo, esse procedimento impede que uma impressão isolada seja apresentada como explicação geral e ajuda a ligar experiência, história e organização social.</p><p>Os elementos Protestantismo calvinista: predestinação e angústia da salvação; Ascetismo intramundano: trabalho como vocação (Beruf) e sinal de eleição divina; Afinidades eletivas entre espírito protestante e espírito do capitalismo não devem ser lidos como sinônimos. Cada um ilumina uma dimensão própria, embora possa se articular aos demais. A tarefa analítica consiste em dizer onde começa e termina cada conceito, qual problema ele responde e que tipo de evidência sustentaria sua aplicação. Em sala, o professor pode retomar um exemplo do conteúdo programático e pedir que a turma mostre exatamente qual característica autoriza a classificação proposta.</p><p>Esse cuidado também torna a leitura mais acessível. Em vez de memorizar uma definição abstrata, o estudante reconstrói o caminho do argumento: observa uma situação, reconhece um padrão, formula uma pergunta e testa uma interpretação. O resultado não precisa ser uma resposta definitiva. Uma hipótese sociológica é valiosa quando explicita seus critérios, admite comparação e pode ser revista diante de informações melhores.</p></div><div class="base-subsection" id="texto-aplicacao"><h3>6. Aplicação e trabalho com evidências</h3><p>O estudo de caso desta aula parte de métricas, avaliações, GPS e pontuações em plataformas digitais. A finalidade não é decidir depressa se o caso confirma a teoria. Antes, é decompor a situação: identificar atores, posições, recursos, normas, discursos, escalas de tempo e possíveis efeitos. Somente depois se pergunta quais conceitos do roteiro oferecem uma interpretação consistente e quais aspectos permanecem fora de alcance.</p><p>A atividade prevista ajuda a realizar essa passagem. Debate: Racionalização contemporânea e a &quot;gaiola de ferro&quot; digital (30 min) A turma é dividida em dois grupos. A questão central: &quot;As plataformas digitais e os algoritmos representam uma nova forma de gaiola de ferro?&quot; — Grupo A (favorável): argumenta que sistemas de avaliação, métricas de desempenho, controle por GPS e pontuações de motoristas/entregadores representam a burocracia weberiana em nova roupagem tecnológica. — Grupo B (crítico): argumenta que a fluidez, a autonomia formal e a ausência de hierarquia fixa distinguem as plataformas da burocracia weberiana clássica. Após o debate, síntese coletiva mediada pelo professor identificando convergências e limites de cada posição à luz do texto weberiano. O exercício ganha qualidade quando cada afirmação vem acompanhada de uma evidência observável ou de uma pergunta de pesquisa. Se a turma discorda, a divergência pode ser produtiva: os grupos devem indicar se usam conceitos diferentes, se selecionam evidências distintas ou se atribuem significados diferentes à mesma informação.</p><p>Uma aplicação contemporânea rigorosa também considera alternativas. O mesmo padrão pode resultar de processos distintos, e uma evidência pode ser compatível com mais de uma interpretação. Entrevistas esclarecem sentidos atribuídos pelos participantes, observação acompanha práticas, documentos mostram regras e justificativas, e dados quantitativos revelam distribuição e variação. Nenhuma técnica responde sozinha a todas as perguntas.</p><p>Ao apresentar o caso, é útil distinguir exemplo, ilustração e evidência. Um exemplo torna o conceito inteligível; uma ilustração aproxima o tema da experiência da turma; evidência é informação coletada e analisada por procedimento explícito. Confundir essas funções leva a tomar uma história convincente como prova suficiente. A Sociologia procura justamente controlar esse salto.</p><aside class="pause-box"><h4>Pausa para discussão</h4><p>Qual conceito da aula explica melhor o estudo de caso? Que aspecto do caso ele não consegue explicar sozinho?</p></aside></div><div class="base-subsection" id="texto-cuidados"><h3>7. Distinções, limites e cuidados conceituais</h3><p>O principal cuidado desta aula é não reduzir racionalização a tecnologia nem a ética protestante a causa única do capitalismo. A advertência não enfraquece o conteúdo; ela define seu alcance. Conceitos bons simplificam a realidade de maneira controlada. Quando aplicados fora de suas condições, perdem precisão e viram apenas palavras sofisticadas para confirmar uma opinião anterior.</p><p>Outra distinção necessária separa explicação causal, interpretação de sentidos e avaliação normativa. Podemos investigar por que algo acontece, compreender como os participantes lhe atribuem significado e discutir se suas consequências são desejáveis. São perguntas legítimas, mas não idênticas. Uma posição ética deve ser assumida com clareza, e não apresentada como se decorresse automaticamente de um dado ou de um autor.</p><p>A escala também importa. Uma interação em sala, uma organização, uma cidade, um Estado e um processo transnacional não funcionam do mesmo modo. O que aparece como escolha numa escala pode ser condicionado por regras em outra. Ao mudar a escala, mudam as evidências e às vezes muda a própria pergunta. Especificar tempo, lugar e grupo torna a análise menos grandiosa e mais verificável.</p><p>Por fim, diferenças internas precisam permanecer visíveis. Grupos sociais não são sujeitos homogêneos; instituições abrigam disputas; normas podem ser obedecidas, negociadas ou contestadas; identidades se cruzam. Evitar generalizações não significa abandonar padrões coletivos, mas explicar como eles se distribuem e por que não afetam todas as pessoas da mesma maneira.</p><aside class="pause-box"><h4>Pausa para discussão</h4><p>Que generalização apressada seria mais provável neste tema? Como reformulá-la para torná-la histórica, comparável e verificável?</p></aside></div><div class="base-subsection" id="texto-sintese"><h3>8. Síntese e passagem para a próxima aula</h3><p><strong>Síntese.</strong> A Aula 12 mostrou que weber: racionalização, burocracia e ética protestante. deve ser estudado por meio de perguntas delimitadas, conceitos diferenciados e evidências adequadas. O problema de abertura conduziu da experiência cotidiana à contextualização, e os três núcleos do conteúdo programático foram articulados sem serem tratados como equivalentes.</p><p>Ao final, o estudante deve ser capaz de retomar as metas do roteiro com suas próprias palavras: Compreender o processo de racionalização do mundo moderno e o desencantamento como traço central da modernidade weberiana. Analisar a burocracia como tipo ideal e seus traços constitutivos, incluindo a metáfora da &quot;gaiola de ferro&quot;. Entender a tese da ética protestante e o papel do ascetismo intramundano na gênese do capitalismo. Relacionar o conceito de racionalização ao funcionamento de plataformas digitais e algoritmos contemporâneos. Esse domínio não se mede apenas pela lembrança de definições. Ele aparece quando alguém consegue reconhecer uma situação pertinente, justificar a escolha do conceito, propor uma evidência e indicar os limites da interpretação.</p><p>As pausas de discussão transformam a leitura em trabalho coletivo. Elas permitem que o professor interrompa a exposição, recolha hipóteses, identifique confusões e retome o argumento. A síntese pode ser concluída no quadro com quatro colunas — problema, conceito, evidência e limite — de modo que a turma visualize o caminho percorrido durante aproximadamente duas horas desta parte do encontro.</p><p>A passagem seguinte não reinicia o curso. Ela desloca a pergunta construída aqui para <strong>a comparação crítica entre os clássicos</strong>. O que aprendemos nesta aula funcionará como condição para a próxima: conceitos serão retomados apenas quando necessários, agora diante de outro problema. Assim, as duas partes do encontro e a sequência semanal formam um percurso contínuo, e não uma coleção de resumos independentes.</p><aside class="pause-box"><h4>Pausa para discussão</h4><p>Em uma frase, que relação entre experiência individual e processo social esta aula tornou mais visível?</p></aside></div>
+      <p class="base-intro">Roteiro para acompanhar como cálculo, regras, cargos e valores se articulam em processos de racionalização. Quatro pausas conectam os conceitos ao caso universitário desenvolvido na oficina.</p>
+      <nav class="base-toc" aria-label="Sumário do texto-base"><h3>Nesta leitura</h3><ol><li><a href="#processo-racionalizacao">Racionalização como processo histórico</a></li><li><a href="#calculo-formalizacao">Cálculo, previsibilidade e especialização</a></li><li><a href="#desencantamento">Desencantamento e pluralidade de valores</a></li><li><a href="#racionalidades">Racionalidade formal e substantiva</a></li><li><a href="#poder-dominacao">Poder, dominação e legitimidade</a></li><li><a href="#burocracia">Burocracia: organização e limites</a></li><li><a href="#liberdade-disciplina">Liberdade, disciplina e “jaula de ferro”</a></li><li><a href="#religiao-capitalismo">Religião, vocação e capitalismo</a></li><li><a href="#sintese-aula-12">Síntese e preparação para comparar</a></li></ol></nav>
+
+      <div class="base-subsection" id="processo-racionalizacao">
+        <h3>1. Racionalização como processo histórico</h3>
+        <p>A Aula 11 mostrou que ações se orientam por fins, valores, afetos e tradições e que muitas ações formam ordens duradouras. A Aula 12 acompanha uma dessas mudanças de escala. <strong>Racionalização</strong> designa processos pelos quais esferas da vida passam a ser organizadas de maneira mais calculável, especializada, formalizada e previsível. Não é sinônimo de inteligência, bom senso, progresso ou melhora.</p>
+        <p>Weber compara trajetórias históricas. Administração estatal, direito, empresa capitalista, ciência, música e religião podem racionalizar-se de modos distintos. Não existe uma única racionalidade que avança uniformemente nem um roteiro inevitável. Uma esfera pode adotar procedimentos formais enquanto outra preserva autoridade pessoal; organizações combinam regras, lealdades, improvisação e conflito.</p>
+        <p>O contexto inclui crescimento de Estados administrativos, empresas, mercados, profissões especializadas e ciência no Ocidente moderno. Registros, contabilidade, diplomas e normas permitem coordenar pessoas que não se conhecem. Isso amplia capacidades, mas também redistribui poder: quem define categorias, controla documentos e domina procedimentos pode orientar resultados.</p>
+        <p>Esse desenvolvimento não ocorreu num vazio político ou econômico. Tributação, exércitos, comércio, direito e formação profissional estimularam administrações permanentes. Empresas adotaram contabilidade e cálculo de custos; instituições públicas acumularam arquivos e competências. As trajetórias se influenciam, mas não são etapas idênticas de um único processo.</p>
+        <p>Racionalização não elimina sentidos. Agentes podem cumprir formulários por cálculo, dever, hábito ou medo; gestores justificam regras por eficiência; usuários as aceitam ou contestam. Processos institucionais dependem dessas orientações e, ao mesmo tempo, criam condições que limitam ações. Weber articula sentido e ordem, não indivíduo contra estrutura.</p>
+        <p>Uma seleção por edital ilustra o problema. Critérios publicados podem reduzir favoritismo e tornar decisões recorríveis. Porém exigem documentos, conexão, tempo e domínio de linguagem administrativa. A mesma formalização que protege igualdade pode produzir barreiras. A análise deve perguntar para quem, em que condições e segundo qual finalidade o procedimento funciona.</p>
+        <p>Acessibilidade não é detalhe externo à organização. Horários, formatos digitais, linguagem, atendimento e documentos alternativos definem quem consegue transformar uma necessidade em demanda reconhecível. Uma burocracia responsiva pode manter critérios gerais e criar apoio, equivalência e recurso. Essas adaptações também precisam de regras para não depender de favor pessoal.</p>
+        <p>Quando o apoio é previsto e documentado, ele não rompe necessariamente a impessoalidade: pode torná-la mais consistente com a finalidade pública. Avaliar seus efeitos requer acompanhar quem utiliza os canais, quais solicitações são negadas, quanto tempo decisões levam e se casos semelhantes recebem tratamento comparável.</p>
+        <aside class="pause-box"><h4>Pausa 1 — racional para qual problema?</h4><p>Uma regra torna um processo previsível, mas exclui quem não consegue apresentar um documento. Em que sentido ela é racional e em que sentido seu resultado pode ser contestado?</p></aside>
+      </div>
+
+      <div class="base-subsection" id="calculo-formalizacao">
+        <h3>2. Cálculo, previsibilidade, formalização e especialização</h3>
+        <p><strong>Cálculo</strong> transforma aspectos da ação em quantidades comparáveis: custos, prazos, pontuações, produtividade. <strong>Previsibilidade</strong> permite antecipar como casos semelhantes serão tratados. <strong>Formalização</strong> registra critérios e procedimentos. <strong>Especialização</strong> distribui tarefas a pessoas com competências delimitadas. Juntas, essas dimensões facilitam coordenação em grande escala.</p>
+        <p>Uma universidade define calendário, créditos, pré-requisitos, setores e protocolos. Estudantes planejam percursos; servidores localizam responsabilidades; decisões ficam registradas. Sem algum grau de padronização, dependeríamos de memória e favor pessoal. Impessoalidade pode proteger contra arbitrariedade, embora não garanta justiça em todo caso.</p>
+        <p>Indicadores selecionam dimensões e deixam outras de fora. Uma pontuação socioeconômica simplifica trajetórias para comparar candidaturas. A simplificação pode ser necessária, mas não é neutra: decidir se distância, renda, cuidado ou deficiência contam modifica resultados. Quanto mais o indicador parece técnico, mais importante é tornar seus pressupostos discutíveis.</p>
+        <p>A calculabilidade também depende de unidades comuns e registros confiáveis. Renda mensal, distância e frequência precisam ser definidas antes de entrar numa fórmula. Mudanças de definição alteram quem aparece como elegível. O número não elimina julgamento; desloca parte dele para o momento em que categorias e pesos são construídos.</p>
+        <p>Especialização cria conhecimento e também dependência. O setor financeiro conhece orçamento; a assistência estudantil avalia vulnerabilidade; a tecnologia mantém o sistema. Nenhum agente controla todo o processo. Falhas podem circular entre setores, e usuários enfrentam respostas fragmentadas. Coordenação requer hierarquia, registros e canais de revisão.</p>
+        <p>Consequências não pretendidas surgem quando regras racionais em separado produzem resultado problemático em conjunto. Exigir vários comprovantes pode aumentar precisão e simultaneamente afastar quem mais precisa. Metas podem melhorar rapidez e incentivar decisões superficiais. Não se trata de opor regra e humanidade, mas de investigar desenho, efeitos e alternativas.</p>
+      </div>
+
+      <div class="base-subsection" id="desencantamento">
+        <h3>3. Desencantamento e pluralidade de valores</h3>
+        <p><strong>Desencantamento</strong> não significa desaparecimento simples da religião nem substituição completa da fé pela ciência. Refere-se, em diferentes textos de Weber, à redução do recurso à magia como meio de controlar acontecimentos e à expansão de formas sistemáticas de explicação e conduta. Religiões também podem participar desse processo ao organizar ética e doutrina de maneira coerente.</p>
+        <p>A ciência oferece conhecimento sobre meios, relações causais e consequências prováveis; não decide sozinha quais fins últimos devem orientar a vida. Uma técnica pode mostrar como distribuir bolsas com menor erro, mas não estabelece se prioridade deve ser renda, mérito, permanência ou reparação. A modernidade amplia capacidade de cálculo e torna visíveis conflitos entre valores.</p>
+        <p>Assim, racionalização não leva necessariamente a consenso. Direito, mercado, ciência, política e religião podem operar segundo critérios diferentes. Uma decisão legal pode ser economicamente custosa; uma medida eficiente pode contrariar compromisso ético; uma prática religiosa pode disciplinar a vida econômica. Pessoas transitam entre essas ordens e enfrentam tensões.</p>
+        <p>Desencantamento tampouco torna pessoas frias ou incapazes de crença. Afetos, carisma e tradições permanecem. O conceito ajuda a entender por que cada vez mais domínios exigem justificativas técnicas, regras e especialistas, mesmo quando as finalidades continuam disputadas.</p>
+        <p>Há uma diferença entre poder calcular algo e considerar que tudo deva ser decidido pelo cálculo. A previsão meteorológica pode orientar planejamento; não define sozinha quem deve receber proteção prioritária. O conflito entre capacidade técnica e decisão valorativa é parte da modernidade racionalizada, não falha que mais técnica necessariamente resolverá.</p>
+        <aside class="pause-box"><h4>Pausa 2 — ciência e decisão</h4><p>Que informação técnica ajudaria a distribuir bolsas? Qual escolha de valor permaneceria mesmo depois de todos os dados disponíveis?</p></aside>
+      </div>
+
+      <div class="base-subsection" id="racionalidades">
+        <h3>4. Racionalidade formal e racionalidade substantiva</h3>
+        <p><strong>Racionalidade formal</strong> orienta decisões por critérios gerais, calculáveis e aplicáveis sem considerar cada finalidade concreta. Classificar candidaturas pela mesma fórmula é formalmente racional. <strong>Racionalidade substantiva</strong> avalia resultados em relação a valores ou fins específicos, como equidade, dignidade ou permanência estudantil.</p>
+        <p>Uma não é automaticamente boa e a outra ruim. Critérios formais podem conter favoritismo, produzir previsibilidade e permitir recurso. Julgamentos substantivos podem reconhecer circunstâncias ignoradas, mas também abrir espaço a inconsistência. O desafio institucional é definir quando regras bastam, quando exceções são justificáveis e quem tem competência para decidi-las.</p>
+        <p>Discricionariedade é a margem autorizada para interpretar e decidir. Ela não equivale a arbitrariedade. Uma comissão pode aceitar documento alternativo se a norma prevê equivalência e exige justificativa registrada. Sem margem, casos relevantes ficam excluídos; sem controle, tratamentos podem variar por preferência pessoal.</p>
+        <p>Regras substantivas também podem ser formalizadas. Uma política de equidade pode definir prioridade, indicadores e recurso. O contraste não é entre formulário e compaixão, mas entre critérios cuja validade deriva da forma geral e avaliações orientadas a resultados ou valores. Na prática, instituições combinam ambos.</p>
+        <p>O conflito entre racionalidades aparece na atividade. A pontuação ordena estudantes de forma uniforme, mas um caso de cuidado familiar não previsto desafia a finalidade de permanência. A resposta sociológica não é escolher intuitivamente. É mapear regra, competência, valor, consequência e procedimento de revisão.</p>
+      </div>
+
+      <div class="base-subsection" id="poder-dominacao">
+        <h3>5. Poder, dominação e legitimidade</h3>
+        <p><strong>Poder</strong> é a possibilidade de impor a própria vontade numa relação social mesmo diante de resistência. <strong>Dominação</strong> é a probabilidade de encontrar obediência a uma ordem. O conceito chama atenção para relações relativamente estáveis em que ordens são emitidas, reconhecidas e executadas. Nem todo exercício momentâneo de poder forma dominação.</p>
+        <p>Dominação legítima envolve crença na validade da autoridade, não aprovação moral do observador. Pessoas podem obedecer a uma regra que consideram inconveniente porque reconhecem competência do cargo e validade do procedimento. Uma ordem pode ser legitimada e ainda ser injusta; pode também encontrar obediência por interesse, hábito ou coerção combinados.</p>
+        <p>O roteiro prevê três tipos puros. Na dominação <strong>tradicional</strong>, a autoridade apoia-se na santidade do costume; na <strong>carismática</strong>, na crença em qualidades extraordinárias de uma liderança; na <strong>racional-legal</strong>, na validade de normas e cargos. São tipos ideais: organizações reais combinam fundamentos e mudam ao longo do tempo.</p>
+        <p>A obediência nunca precisa ser total. Servidores interpretam ordens, cidadãos recorrem e subordinados negociam. Crises surgem quando a crença na validade enfraquece ou fundamentos entram em conflito — por exemplo, quando seguidores de uma liderança contestam procedimentos de um cargo. Legitimidade é relação empiricamente investigável, não propriedade permanente.</p>
+        <p>A burocracia relaciona-se especialmente à dominação racional-legal, pois servidores obedecem à competência do cargo, não à pessoa privada do superior. Esta aula introduz a distinção apenas para compreender organização administrativa. A Aula 13 comparará os clássicos; não é necessário antecipar aqui toda a teoria weberiana da estratificação ou da política.</p>
+      </div>
+
+      <div class="base-subsection" id="burocracia">
+        <h3>6. Burocracia: cargos, regras e documentação</h3>
+        <p><strong>Burocracia</strong> é um tipo ideal de organização, não sinônimo de papelada excessiva. Seus traços incluem competências definidas, hierarquia de cargos, regras gerais, seleção por qualificação técnica, separação entre cargo e pessoa e documentação de decisões. O arquivo — físico ou digital — preserva memória e permite controle.</p>
+        <p>A autoridade pertence ao cargo dentro de limites. Uma analista pode verificar documentos, mas não alterar orçamento; uma comissão classifica, enquanto instância superior julga recurso. A hierarquia coordena e oferece revisão, embora possa retardar respostas e dispersar responsabilidade. Competência técnica melhora consistência, mas pode produzir distância entre especialista e usuário.</p>
+        <p>Impessoalidade significa tratar casos por categorias e regras, não ignorar pessoas. Ela reduz privilégios pessoais, mas categorias podem refletir desigualdades. Quem não possui endereço formal, acesso digital ou documentos padronizados encontra obstáculos. Uma organização pode aplicar regra igual a situações desiguais e ampliar exclusão.</p>
+        <p>Eficiência depende do objetivo. Um processo rápido pode selecionar com erro; um processo preciso pode chegar tarde demais. Burocracias também desenvolvem interesses de conservação, rotinas e poder baseado em conhecimento. Ao mesmo tempo, regras, registros e recursos possibilitam contestar decisões. Limites não anulam capacidades.</p>
+        <p>A documentação tem dupla face. Ela permite memória, auditoria e tratamento consistente, mas traduz histórias em categorias estreitas. O registro de uma decisão protege contra alteração informal; também pode estabilizar erro se canais de correção forem fracos. A pergunta não é ter ou não arquivo, mas quem registra, acessa, corrige e responde por ele.</p>
+        <p>Plataformas digitais podem incorporar traços burocráticos — classificação, registros, sanções e competências — sem reproduzir integralmente uma repartição clássica. Algoritmos formalizam decisões, mas são construídos e mantidos por organizações. Chamar qualquer tecnologia de burocracia oculta propriedade, critérios e canais de recurso.</p>
+        <aside class="pause-box"><h4>Pausa 3 — impessoalidade e desigualdade</h4><p>Quando tratar todos pelo mesmo procedimento reduz favoritismo? Quando a igualdade formal exige mecanismos de acessibilidade ou revisão?</p></aside>
+      </div>
+
+      <div class="base-subsection" id="liberdade-disciplina">
+        <h3>7. Liberdade, disciplina e a metáfora da “jaula de ferro”</h3>
+        <p>Organizações racionalizadas ampliam liberdade em alguns sentidos: direitos previsíveis, conhecimento técnico e coordenação tornam ações possíveis. Também exigem disciplina de horários, documentos, métricas e especializações. A tensão não se resolve chamando racionalização de progresso ou decadência.</p>
+        <p>A expressão traduzida como “jaula de ferro” ou “carapaça rígida” é uma metáfora sobre ordens racionalizadas que passam a condicionar vidas para além dos sentidos religiosos que ajudaram a formá-las. Não é profecia absoluta segundo a qual toda regra aprisiona ou a história termina numa burocracia total.</p>
+        <p>Pessoas e grupos contestam procedimentos, criam direitos, reformam instituições e inventam usos. Porém não escolhem livremente fora das estruturas: depender de certificados, mercados e sistemas administrativos limita alternativas. Liberdade e disciplina coexistem em configurações históricas que precisam ser comparadas.</p>
+        <p>Consequências não pretendidas reaparecem. Uma norma criada para transparência acumula etapas; uma métrica de produtividade desloca atenção do objetivo; especialização deixa ninguém responsável pelo conjunto. Esses efeitos podem ser corrigidos, mas reformas também geram novos problemas. A metáfora funciona como alerta analítico, não sentença inevitável.</p>
+        <p>Disciplina não opera apenas por coerção externa. Pessoas aprendem a organizar currículos, horários e expectativas segundo categorias institucionais. Essa capacidade pode ampliar autonomia e, simultaneamente, estreitar o que parece possível. O efeito varia por posição e recurso: navegar regras é mais fácil para quem conhece a linguagem e possui tempo.</p>
+      </div>
+
+      <div class="base-subsection" id="religiao-capitalismo">
+        <h3>8. Religião, vocação e capitalismo: uma afinidade histórica</h3>
+        <p>Em <em>A ética protestante e o espírito do capitalismo</em>, Weber pergunta como certas orientações religiosas contribuíram para uma conduta econômica sistemática. Ele não afirma que o protestantismo criou sozinho o capitalismo. Mercados, cidades, direito, contabilidade, trabalho livre e condições materiais são indispensáveis.</p>
+        <p>O estudo destaca determinadas correntes do protestantismo ascético. Na doutrina da predestinação, trabalho, prosperidade e boas obras não compram a salvação nem comprovam objetivamente a eleição divina. A disciplina metódica da vida podia funcionar subjetivamente como indício ou confirmação da condição religiosa. Esse processo não ocorreu de forma idêntica em todas as vertentes protestantes.</p>
+        <p>Ideias de vocação (<em>Beruf</em>), ascetismo intramundano, controle do consumo e reinvestimento podiam favorecer condutas compatíveis com o empreendimento racional. Weber analisa afinidades históricas entre determinadas éticas e determinadas práticas econômicas, não uma causa religiosa única do capitalismo.</p>
+        <p><strong>Afinidade eletiva</strong> nomeia uma convergência pela qual orientações religiosas e práticas econômicas reforçam-se sem uma causa única e linear. Sentidos participam da história junto de instituições e interesses. Isso mostra por que Weber não é apenas autor do sentido individual: ele analisa como éticas coletivas se ligam a processos de grande escala.</p>
+        <p>A comparação histórica exige variação. Se a explicação fosse “religião causa capitalismo”, bastaria encontrar protestantismo. Weber examina doutrinas, condutas, grupos e condições em combinações específicas. Críticas posteriores discutem evidências e alcance; em sala, a contribuição deve ser apresentada como argumento causal complexo, aberto à avaliação, não como fato automático.</p>
+        <p><strong>Ascetismo intramundano</strong> organiza conduta disciplinada dentro do mundo, não fuga dele. Trabalho como vocação pode adquirir significado ético. Com o tempo, práticas econômicas podem persistir sem fundamento religioso, tornando-se exigências institucionais. A consequência ultrapassa a intenção original.</p>
+        <p>Esse tema prepara, mas não realiza por completo, a comparação da Aula 13. Será possível perguntar como Durkheim, Marx e Weber tratam religião, trabalho e mudança sem reduzi-los às caricaturas “coesão”, “estrutura” e “indivíduo”. Primeiro, porém, precisamos dominar o argumento próprio de cada autor.</p>
+      </div>
+
+      <div class="base-subsection" id="sintese-aula-12">
+        <h3>9. Síntese e preparação para comparar os clássicos</h3>
+        <p><strong>Síntese.</strong> Racionalização envolve cálculo, previsibilidade, formalização e especialização, sem equivaler a progresso. Desencantamento não é simples fim da religião. Racionalidades formal e substantiva podem entrar em tensão. Poder, dominação e legitimidade são conceitos distintos; legitimidade não significa aprovação moral.</p>
+        <p>Burocracia é organização por cargos, competências, regras, hierarquia e registros. Pode gerar eficiência, direitos e revisão, mas também barreiras, concentração de conhecimento e consequências não pretendidas. A “jaula de ferro” é advertência histórica, não destino absoluto. A afinidade entre ética protestante e capitalismo recusa causalidade única.</p>
+        <p>A Aula 13 colocará os três clássicos em comparação. Esta aula oferece critérios para evitar atalhos: Weber analisa sentidos e também instituições, poder e processos; racionalização não é inexoravelmente benéfica ou opressiva; religião não é causa isolada. A comparação deverá respeitar problemas e níveis de cada abordagem.</p>
+        <aside class="pause-box"><h4>Pausa 4 — critério para comparar</h4><p>Qual pergunta sobre uma seleção universitária Weber ajuda a formular que não se reduz nem às intenções individuais nem à existência abstrata de uma estrutura?</p></aside>
+      </div>
     </div>
   </section>
 
@@ -166,27 +272,27 @@
     <div class="timeline">
       <div class="tl-item">
         <span class="tl-duration">10 min</span>
-        <span class="tl-text">Revisão da aula 11: ação social, tipos ideais e o método Verstehen. Retomada das situações classificadas no exercício anterior.</span>
-      </div>
-      <div class="tl-item">
-        <span class="tl-duration">30 min</span>
-        <span class="tl-text">Exposição sobre racionalização e dominação: desencantamento do mundo, racionalidade formal vs. substantiva, três tipos de dominação legítima e suas características.</span>
+        <span class="tl-text"><strong>Retomada</strong> — Das orientações da ação às ordens formadas por regras, cargos e expectativas recíprocas.</span>
       </div>
       <div class="tl-item">
         <span class="tl-duration">25 min</span>
-        <span class="tl-text">Exposição sobre burocracia como tipo ideal: traços constitutivos, funcionamento impessoal, a metáfora da gaiola de ferro e seus limites interpretativos.</span>
+        <span class="tl-text"><strong>Exposição dialogada</strong> — Racionalização, cálculo, previsibilidade, formalização, especialização, desencantamento e racionalidades formal e substantiva.</span>
       </div>
       <div class="tl-item">
-        <span class="tl-duration">30 min</span>
-        <span class="tl-text">Debate: "A burocracia ainda é uma gaiola de ferro? E os algoritmos?" — discussão sobre racionalização digital, avaliações de plataformas de entrega, sistemas de pontuação e controle algorítmico do trabalho.</span>
+        <span class="tl-duration">20 min</span>
+        <span class="tl-text"><strong>Mapa institucional</strong> — Poder, dominação, legitimidade e burocracia como tipo ideal: cargos, competências, hierarquia, impessoalidade e registros.</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-duration">40 min</span>
+        <span class="tl-text"><strong>Oficina do processo de bolsas</strong> — Grupos analisam edital, fluxo administrativo, candidaturas e ocorrência, propondo decisão e revisão fundamentadas.</span>
       </div>
       <div class="tl-item">
         <span class="tl-duration">15 min</span>
-        <span class="tl-text">Exposição sobre a ética protestante: calvinismo, predestinação, ascetismo intramundano, o trabalho como vocação e as afinidades eletivas com o capitalismo.</span>
+        <span class="tl-text"><strong>Religião e capitalismo</strong> — Vocação, ascetismo intramundano e afinidade eletiva, sem causa única; relação com consequências não pretendidas.</span>
       </div>
       <div class="tl-item">
         <span class="tl-duration">10 min</span>
-        <span class="tl-text">Síntese integradora e encaminhamentos: leitura da Conclusão de Quintaneiro et al. e de Cohn para a aula comparativa.</span>
+        <span class="tl-text"><strong>Socialização e síntese</strong> — Confronto entre racionalidade formal e necessidades substantivas; critérios para a comparação da Aula 13.</span>
       </div>
     </div>
   </section>
@@ -195,24 +301,96 @@
     <div class="section-title">Textos para Leitura Prévia</div>
     <div class="ref-card">
       <div class="ref-author">Weber, Max</div>
-      <div class="ref-title">A ética protestante e o espírito do capitalismo — Prefácio e capítulo 1</div>
-      <div class="ref-pages">p. 13–45</div>
+      <div class="ref-title"><em>A ética protestante e o espírito do capitalismo</em> — apresentação do problema e capítulo inicial</div>
     </div>
     <div class="ref-card">
       <div class="ref-author">Quintaneiro, Tania; Barbosa, Maria Ligia; Oliveira, Márcia</div>
-      <div class="ref-title">Um toque de clássicos — capítulo Weber</div>
-      <div class="ref-pages">p. 126–150</div>
+      <div class="ref-title"><em>Um toque de clássicos</em> — capítulo dedicado a Weber</div>
+      <div class="ref-pages">2. ed. rev. e ampl. Belo Horizonte: Editora UFMG, 2002. ISBN 85-7041-317-3.</div>
     </div>
   </section>
 
   <section id="atividade">
     <div class="section-title">Atividades em Sala</div>
     <div class="activity-card">
-      <strong>Debate: Racionalização contemporânea e a "gaiola de ferro" digital (30 min)</strong><br><br>
-      A turma é dividida em dois grupos. A questão central: "As plataformas digitais e os algoritmos representam uma nova forma de gaiola de ferro?"<br><br>
-      — Grupo A (favorável): argumenta que sistemas de avaliação, métricas de desempenho, controle por GPS e pontuações de motoristas/entregadores representam a burocracia weberiana em nova roupagem tecnológica.<br>
-      — Grupo B (crítico): argumenta que a fluidez, a autonomia formal e a ausência de hierarquia fixa distinguem as plataformas da burocracia weberiana clássica.<br><br>
-      Após o debate, síntese coletiva mediada pelo professor identificando convergências e limites de cada posição à luz do texto weberiano.
+      <h3>Oficina documental — seleção de bolsas de permanência</h3>
+      <p><strong>Finalidade:</strong> analisar uma organização burocrática sem usar dados reais. Nomes, valores, documentos e situações são inteiramente fictícios. Em grupos, leiam os quatro documentos, respondam ao roteiro e preparem decisão fundamentada.</p>
+      <p><strong>Organização dos 40 minutos:</strong> 5 minutos para leitura dos documentos e distribuição de funções; 10 minutos para identificar regras, cargos, competências e fluxo; 10 minutos para cálculos e análise dos recursos; 10 minutos para responder sobre racionalidades, discricionariedade e desigualdade de acesso; 5 minutos para preparar a decisão que será socializada.</p>
+
+      <div class="document-card">
+        <h4>Documento A — extrato do Edital Didático nº 04/2026</h4>
+        <ul>
+          <li><strong>Objeto:</strong> três bolsas mensais de permanência para estudantes regularmente matriculados.</li>
+          <li><strong>Inscrição:</strong> formulário eletrônico até 18h de 30 de setembro; recibo automático comprova envio.</li>
+          <li><strong>Contingência:</strong> quando indisponibilidade oficial do sistema superior a 15 minutos ocorrer nas duas horas finais da inscrição, o prazo será prorrogado automaticamente por período igual ao da indisponibilidade. A prorrogação será divulgada e aplicada a todas as pessoas candidatas.</li>
+          <li><strong>Documentos obrigatórios:</strong> comprovante de matrícula, declaração de renda do domicílio e comprovante de endereço. Documento alternativo pode ser aceito pela Comissão de Equivalência, mediante justificativa registrada.</li>
+          <li><strong>Pontuação:</strong> renda por pessoa até 0,5 salário mínimo = 50 pontos; acima de 0,5 até 1 = 30; acima de 1 = 10. Distância superior a 30 km = 20 pontos. Responsabilidade regular de cuidado = 20 pontos. Participação em ação de permanência = 10 pontos.</li>
+          <li><strong>Desempate:</strong> menor renda por pessoa; depois, maior distância.</li>
+          <li><strong>Recurso:</strong> dois dias úteis após resultado preliminar. A Comissão de Recursos não pode criar critério novo, mas pode corrigir erro, encaminhar pedido de equivalência documental à comissão competente e determinar nova análise.</li>
+        </ul>
+      </div>
+
+      <div class="document-card">
+        <h4>Documento B — fluxo, cargos e competências</h4>
+        <ol>
+          <li>O sistema registra horário e verifica campos preenchidos.</li>
+          <li>A Secretaria confere presença dos documentos; não calcula pontuação nem decide equivalência documental.</li>
+          <li>A Comissão de Equivalência analisa exclusivamente pedidos de equivalência documental previstos no edital e registra a justificativa de sua decisão; não calcula pontuação e, depois de decidir, devolve o processo à Comissão de Análise.</li>
+          <li>A Comissão de Análise, formada por três servidores, calcula pontos e registra justificativa.</li>
+          <li>A Coordenação publica resultado preliminar; não altera pontuação sem devolução formal à Comissão de Análise nem substitui informalmente a competência da Comissão de Equivalência.</li>
+          <li>A Comissão de Recursos revisa impugnações e emite decisão registrada.</li>
+        </ol>
+        <p><strong>Meta administrativa:</strong> publicar o resultado em cinco dias úteis. <strong>Canal de apoio:</strong> laboratório com computadores, das 9h às 17h; atendimento presencial para orientação, sem receber inscrição fora do sistema.</p>
+      </div>
+
+      <div class="document-card">
+        <h4>Documento C — candidaturas fictícias registradas no prazo</h4>
+        <div class="table-scroll" role="region" aria-label="Tabela de candidaturas fictícias" tabindex="0">
+          <table>
+            <caption>Situação declarada e documentação das candidaturas</caption>
+            <thead><tr><th scope="col">Código</th><th scope="col">Situação declarada</th><th scope="col">Documentação</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">A-17</th><td>Renda por pessoa: 0,4; distância: 12 km; cuidado semanal de criança; sem ação de permanência.</td><td>Matrícula e renda regulares; declaração de moradia cedida sem conta em seu nome; pedido de equivalência como endereço.</td></tr>
+              <tr><th scope="row">B-08</th><td>Renda por pessoa: 0,7; distância: 46 km; sem cuidado; participa de ação de permanência.</td><td>Todos os documentos padronizados.</td></tr>
+              <tr><th scope="row">C-31</th><td>Renda por pessoa: 0,3; distância: 35 km; sem cuidado; sem ação de permanência.</td><td>Todos os documentos padronizados.</td></tr>
+              <tr><th scope="row">D-22</th><td>Renda por pessoa: 0,45; distância: 8 km; cuidado diário de adulto; participa de ação de permanência.</td><td>Todos os documentos padronizados.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="document-card">
+        <h4>Documento D — ocorrência e decisão preliminar</h4>
+        <p>Às 16h40 do último dia, o sistema ficou indisponível por 35 minutos, fato registrado pela equipe técnica. A inscrição E-05 foi concluída às 18h12 e recebeu recibo. A pessoa candidata anexou captura da tentativa às 17h52. Sua renda por pessoa é 0,4; distância, 40 km; sem cuidado; participa de ação de permanência. A Secretaria marcou a candidatura como “fora do prazo”.</p>
+        <p>No resultado preliminar, A-17 foi eliminada por endereço não padronizado; B-08 recebeu 60 pontos; C-31, 70; D-22, 80. As bolsas foram atribuídas a D-22, C-31 e B-08. A-17 e E-05 recorreram.</p>
+      </div>
+
+      <h4>Roteiro de análise e decisão</h4>
+      <ol>
+        <li>Identifiquem regras, documentos, competências, hierarquia e registros do processo.</li>
+        <li>Onde aparecem impessoalidade e previsibilidade? Que arbitrariedades elas procuram evitar?</li>
+        <li>Que desigualdades de acesso podem persistir apesar das regras iguais?</li>
+        <li>Quem possui competência para decidir equivalência de A-17 e recurso de E-05?</li>
+        <li>Calculem as pontuações conforme o edital e proponham decisão para os recursos.</li>
+        <li>Onde existe discricionariedade autorizada e como distingui-la de favoritismo?</li>
+        <li>Como racionalidade formal e necessidades substantivas entram em conflito?</li>
+        <li>Proponham uma melhoria que preserve previsibilidade, registro e possibilidade de revisão.</li>
+      </ol>
+
+      <details class="teacher-guidance">
+        <summary>Gabarito comentado e orientações de mediação — uso do professor</summary>
+        <div class="teacher-guidance-content">
+          <p><strong>Estrutura:</strong> sistema registra; Secretaria confere documentos; Comissão de Equivalência decide exclusivamente equivalências previstas e devolve o processo; Comissão de Análise pontua; Coordenação publica; Comissão de Recursos revisa impugnações. Secretaria e Coordenação não podem assumir a competência da Comissão de Equivalência, e hierarquia não autoriza substituição informal de competências.</p>
+          <p><strong>Impessoalidade e previsibilidade:</strong> prazo, fórmula, documentos, desempate e recurso tornam expectativas públicas e decisões comparáveis. Não garantem resultado substantivamente justo.</p>
+          <p><strong>Acesso desigual:</strong> conexão, horário limitado do laboratório, linguagem documental e ausência de conta no nome podem afetar grupos diferentemente. Não inferir intenção discriminatória sem evidência; analisar efeitos e desenho.</p>
+          <p><strong>Pontuações:</strong> A-17 = 70 se a equivalência do endereço for reconhecida (50 renda + 20 cuidado); B-08 = 60 (30 + 20 distância + 10 ação); C-31 = 70 (50 + 20 distância); D-22 = 80 (50 + 20 cuidado + 10 ação); E-05 = 80 (50 + 20 distância + 10 ação).</p>
+          <p><strong>A-17:</strong> a eliminação automática é incorreta porque há pedido de equivalência previsto no edital. A Secretaria encaminha o pedido à Comissão de Equivalência, que analisa exclusivamente a equivalência, registra a justificativa e devolve o processo à Comissão de Análise sem calcular pontos. Se reconhecer o documento, a Comissão de Análise atribui 70 pontos. A Secretaria não pode decidir a equivalência, e a Coordenação não pode substituir informalmente a comissão competente. A-17 fica fora das três bolsas não por apresentar documento alternativo, mas pela aplicação posterior dos critérios de classificação e desempate.</p>
+          <p><strong>E-05:</strong> a indisponibilidade oficial durou 35 minutos nas duas horas finais; pela regra geral previamente publicada, o prazo foi prorrogado automaticamente de 18h para 18h35. A inscrição concluída às 18h12 e comprovada por recibo é tempestiva. A Comissão de Recursos não cria critério novo: determina que a Secretaria corrija a marcação “fora do prazo” e devolva a candidatura à Comissão de Análise para pontuação. A mesma regra deve ser aplicada a qualquer candidatura equivalente.</p>
+          <p><strong>Classificação final, reconhecida a equivalência de A-17:</strong> E-05 e D-22 têm 80 pontos, e E-05 supera D-22 pela menor renda por pessoa (0,4 contra 0,45). C-31 e A-17 têm 70 pontos, e C-31 supera A-17 pela menor renda por pessoa (0,3 contra 0,4). A ordem é: 1. E-05; 2. D-22; 3. C-31; 4. A-17; 5. B-08. As três bolsas cabem a E-05, D-22 e C-31.</p>
+          <p><strong>Racionalidades:</strong> seguir horário e fórmula expressa racionalidade formal; assegurar permanência e corrigir barreiras orienta avaliação substantiva. Discricionariedade deve estar prevista, motivada, registrada e revisável.</p>
+          <p><strong>Melhorias:</strong> ampliar atendimento, explicitar documentos equivalentes, publicar o relatório de indisponibilidade e tornar visível a prorrogação automática já prevista. Preservar arquivo e recurso.</p>
+        </div>
+      </details>
     </div>
   </section>
 
@@ -220,8 +398,9 @@
     <div class="section-title">Recursos Necessários</div>
     <div class="resources-list">
       <span class="res-tag">Projetor</span>
-      <span class="res-tag">Slides da aula</span>
-      <span class="res-tag">Trechos impressos de A Ética Protestante</span>
+      <span class="res-tag">Mapa conceitual projetado</span>
+      <span class="res-tag">Quatro documentos didáticos desta página</span>
+      <span class="res-tag">Folha de decisão por grupo</span>
       <span class="res-tag">Quadro branco</span>
     </div>
   </section>
