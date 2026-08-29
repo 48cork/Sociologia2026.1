@@ -45,6 +45,31 @@
   .ref-title { font-size: 0.9rem; color: var(--text); }
   .ref-pages { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
   .activity-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; font-size: 0.9rem; line-height: 1.7; border-left: 3px solid var(--teal-lt); }
+  .activity-card h2 { color: var(--teal-lt); font-size: 1.2rem; line-height: 1.35; margin-bottom: 10px; }
+  .activity-card h3 { color: var(--text); font-size: 1rem; line-height: 1.4; margin: 24px 0 10px; }
+  .activity-card p { margin-bottom: 12px; }
+  .headline-bank { margin-top: 22px; }
+  .headline-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 14px; }
+  .headline-card { min-width: 0; background: var(--surface); border: 1px solid var(--border); border-top: 3px solid var(--teal-lt); border-radius: var(--radius); padding: 18px; break-inside: avoid; }
+  .headline-number { display: inline-block; color: var(--bg); background: var(--teal-lt); border-radius: 999px; padding: 2px 10px; font-size: .75rem; font-weight: 800; margin-bottom: 10px; }
+  .headline-card h4 { font-size: 1rem; line-height: 1.45; margin-bottom: 10px; }
+  .headline-card h4 a { color: var(--text); text-decoration-color: var(--teal-lt); text-underline-offset: 3px; }
+  .headline-meta { color: var(--muted); font-size: .82rem; margin: 0 0 5px; }
+  .headline-theme { color: var(--amber-lt); font-weight: 700; }
+  .headline-context { border-top: 1px solid var(--border); margin-top: 12px; padding-top: 10px; color: var(--text); }
+  .student-task { background: rgba(45,212,191,.08); border: 1px solid rgba(45,212,191,.4); border-radius: var(--radius); padding: 18px; margin-top: 24px; }
+  .student-task ol { padding-left: 22px; }
+  .student-task li { margin: 7px 0; }
+  .teacher-guidance { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-top: 20px; }
+  .teacher-guidance summary { cursor: pointer; color: var(--amber-lt); font-weight: 700; padding: 16px 18px; }
+  .teacher-guidance[open] summary { border-bottom: 1px solid var(--border); }
+  .guidance-content { padding: 4px 18px 18px; }
+  .guidance-item { padding: 16px 0; border-bottom: 1px solid var(--border); }
+  .guidance-item:last-child { border-bottom: 0; padding-bottom: 0; }
+  .guidance-item h4 { color: var(--teal-lt); margin-bottom: 8px; }
+  .guidance-item ul { padding-left: 20px; }
+  .guidance-item li { margin: 5px 0; }
+  .semester-note { color: var(--muted); font-size: .8rem; border-left: 2px solid var(--border); padding-left: 12px; margin-top: 18px; }
   .resources-list { display: flex; flex-wrap: wrap; gap: 10px; }
   .res-tag { background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; }
   footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--muted); font-size: 0.85rem; }
@@ -83,6 +108,13 @@
     .aula-header { padding: 22px 18px; }
     .base-toc ol { width: auto; columns: auto; padding-left: 0; list-style-position: inside; }
     .tl-item { flex-direction: column; gap: 8px; }
+    .headline-grid { grid-template-columns: minmax(0, 1fr); }
+  }
+  @media print {
+    .headline-grid { display: block; }
+    .headline-card { margin: 0 0 12mm; border: 1px dashed #555; page-break-inside: avoid; }
+    .headline-card a { color: #000; text-decoration: none; }
+    .student-task, .teacher-guidance { page-break-inside: avoid; }
   }
 </style>
 </head>
@@ -156,11 +188,105 @@
   <section id="texto-base" aria-labelledby="texto-base-title">
     <div class="section-title" id="texto-base-title">Texto-base para acompanhamento da aula</div>
     <div class="base-text">
-      <p class="base-intro">Leitura de apoio para a exposição, a discussão e a retomada dos conceitos. As pausas podem ser realizadas oralmente, em duplas ou por registro breve.</p>
-      <nav class="base-toc" aria-label="Sumário do texto-base"><h3>Nesta leitura</h3><ol><li><a href="#texto-problema">Uma pergunta para abrir: Como uma notícia deixa de ser episódio e se torna problema de pesquisa?</a></li><li><a href="#texto-contexto">Localizar o problema histórica e conceitualmente</a></li><li><a href="#texto-1-o-objeto-da-sociologia-estruturas-relacoes-e-processo">O objeto da Sociologia: estruturas, relações e processos sociais</a></li><li><a href="#texto-2-metodos-sociologicos">Métodos sociológicos</a></li><li><a href="#texto-3-sociologia-e-suas-vizinhas-antropologia-ciencia-polit">Sociologia e suas vizinhas: Antropologia, Ciência Política, Psicologia Social</a></li><li><a href="#texto-aplicacao">Aplicação e trabalho com evidências</a></li><li><a href="#texto-cuidados">Distinções, limites e cuidados conceituais</a></li><li><a href="#texto-sintese">Síntese e passagem para a próxima aula</a></li></ol></nav>
-      <div class="base-subsection" id="texto-problema"><h3>1. Uma pergunta para abrir: Como uma notícia deixa de ser episódio e se torna problema de pesquisa?</h3><p><strong>Como uma notícia deixa de ser episódio e se torna problema de pesquisa?</strong> Essa pergunta organiza a Aula 05, dedicada a a sociologia como disciplina acadêmica: objeto, método e especificidade científica. Ela parte de uma dificuldade reconhecível: o cotidiano nos oferece respostas rápidas, mas essas respostas frequentemente transformam costumes históricos em fatos naturais ou atribuem a indivíduos fenômenos produzidos por relações mais amplas.</p><p>Pensemos em manchetes sobre trabalho, violência, saúde e tecnologia. A cena pode ser descrita de muitas maneiras, porém a descrição sociológica pergunta quem participa, quais posições ocupa, que regras orientam a conduta, como essas regras foram formadas e quais consequências recaem de modo desigual sobre os envolvidos. O exemplo funciona como porta de entrada; não substitui a análise nem autoriza generalizações sobre todos os casos.</p><p>Os objetivos do roteiro apontam o percurso: Definir o objeto específico da Sociologia: estruturas, relações e processos sociais. Compreender os principais métodos sociológicos e suas lógicas de aplicação. Diferenciar a Sociologia de outras ciências sociais afins (Antropologia, Ciência Política, Psicologia Social). Apresentar a especificidade do olhar sociológico e o conceito de &quot;imaginação sociológica&quot;. Em vez de tratar essas metas como itens separados, o texto as encadeia. Definir permite observar; contextualizar evita anacronismos; comparar explicita diferenças; aplicar conceitos exige evidências; e discutir limites impede que uma teoria se torne resposta automática para qualquer problema.</p><p>O olhar sociológico começa quando suspendemos por um momento a resposta evidente. Isso não significa abandonar conhecimentos cotidianos, mas interrogá-los. O senso comum é uma orientação prática compartilhada, indispensável à vida; a investigação sociológica, por sua vez, precisa explicitar procedimentos, conceitos e fontes, aceitar contestação e distinguir aquilo que sabe daquilo que apenas supõe.</p><aside class="pause-box"><h4>Pausa para discussão</h4><p>Que resposta de senso comum aparece primeiro diante da pergunta de abertura? Que informação seria necessária para testá-la sociologicamente?</p></aside></div><div class="base-subsection" id="texto-contexto"><h3>2. Localizar o problema histórica e conceitualmente</h3><p>Nenhum conceito desta aula surgiu fora do tempo. O problema de a sociologia como disciplina acadêmica: objeto, método e especificidade científica. deve ser ligado às transformações históricas, aos debates intelectuais e às experiências coletivas que lhe deram forma. Contextualizar não é decorar datas ou biografias: é compreender por que certas perguntas se tornaram relevantes e por que respostas concorrentes foram formuladas.</p><p>A Sociologia trabalha numa tensão produtiva entre continuidade e mudança. Pessoas recebem instituições, linguagens e classificações já existentes, mas as reproduzem, interpretam e contestam em circunstâncias novas. Por isso, uma explicação não pode escolher simplesmente entre indivíduo e sociedade. Ela precisa mostrar por quais relações uma experiência singular se conecta a padrões, conflitos e processos históricos.</p><p>As leituras indicadas no roteiro — MILLS, C. Wright A imaginação sociológica. Cap. 1 p. 9–28 BECKER, Howard Métodos de pesquisa em ciências sociais. Cap. 1 p. 11–30 — servem de apoio a essa reconstrução. Elas não devem ser convertidas em frases de autoridade. O procedimento mais seguro é paráfrase responsável: apresentar o problema do autor, reconstruir seu argumento e indicar como ele ajuda a ler o conteúdo da aula, sem criar citações literais, páginas ou conclusões que o material não confirme.</p><p>Também é necessário separar três planos. A explicação de um autor reconstrói seus conceitos nos termos do problema que ele enfrentou. A contextualização histórica situa as condições de produção e circulação dessas ideias. A aplicação contemporânea é uma operação nossa, que testa a fecundidade do conceito em outro cenário. Misturar os planos produz anacronismos e faz parecer que o autor comentou diretamente fatos que não conheceu.</p></div><div class="base-subsection" id="texto-1-o-objeto-da-sociologia-estruturas-relacoes-e-processo"><h3>3. O objeto da Sociologia: estruturas, relações e processos sociais</h3><p>O 1º movimento do argumento concentra-se em <strong>O objeto da Sociologia: estruturas, relações e processos sociais</strong>. O roteiro associa esse núcleo a O social como objeto: o que torna algo um fenômeno sociológico?; Estruturas sociais, instituições e relações de poder; A imaginação sociológica: articular biografia e história. A enumeração, porém, ganha sentido apenas quando percebemos as relações entre seus componentes. Conceitos sociológicos não são etiquetas aplicadas depois que um fato acontece: eles selecionam dimensões do problema, orientam comparações e indicam quais evidências precisam ser procuradas.</p><p>Para acompanhar a exposição, convém avançar em três passos. Primeiro, identificar o fenômeno e o contexto em que ele ocorre. Segundo, perguntar quais relações, regras, recursos e significados o tornam possível. Terceiro, comparar situações para descobrir o que permanece e o que muda. Aplicado a o objeto da sociologia: estruturas, relações e processos sociais, esse procedimento impede que uma impressão isolada seja apresentada como explicação geral e ajuda a ligar experiência, história e organização social.</p><p>Os elementos O social como objeto: o que torna algo um fenômeno sociológico?; Estruturas sociais, instituições e relações de poder; A imaginação sociológica: articular biografia e história não devem ser lidos como sinônimos. Cada um ilumina uma dimensão própria, embora possa se articular aos demais. A tarefa analítica consiste em dizer onde começa e termina cada conceito, qual problema ele responde e que tipo de evidência sustentaria sua aplicação. Em sala, o professor pode retomar um exemplo do conteúdo programático e pedir que a turma mostre exatamente qual característica autoriza a classificação proposta.</p><p>Esse cuidado também torna a leitura mais acessível. Em vez de memorizar uma definição abstrata, o estudante reconstrói o caminho do argumento: observa uma situação, reconhece um padrão, formula uma pergunta e testa uma interpretação. O resultado não precisa ser uma resposta definitiva. Uma hipótese sociológica é valiosa quando explicita seus critérios, admite comparação e pode ser revista diante de informações melhores.</p></div><div class="base-subsection" id="texto-2-metodos-sociologicos"><h3>4. Métodos sociológicos</h3><p>O 2º movimento do argumento concentra-se em <strong>Métodos sociológicos</strong>. O roteiro associa esse núcleo a Observação participante e etnografia; Entrevista, análise documental e survey; Pesquisa quantitativa x qualitativa: complementaridade e tensões. A enumeração, porém, ganha sentido apenas quando percebemos as relações entre seus componentes. Conceitos sociológicos não são etiquetas aplicadas depois que um fato acontece: eles selecionam dimensões do problema, orientam comparações e indicam quais evidências precisam ser procuradas.</p><p>Para acompanhar a exposição, convém avançar em três passos. Primeiro, identificar o fenômeno e o contexto em que ele ocorre. Segundo, perguntar quais relações, regras, recursos e significados o tornam possível. Terceiro, comparar situações para descobrir o que permanece e o que muda. Aplicado a métodos sociológicos, esse procedimento impede que uma impressão isolada seja apresentada como explicação geral e ajuda a ligar experiência, história e organização social.</p><p>Os elementos Observação participante e etnografia; Entrevista, análise documental e survey; Pesquisa quantitativa x qualitativa: complementaridade e tensões não devem ser lidos como sinônimos. Cada um ilumina uma dimensão própria, embora possa se articular aos demais. A tarefa analítica consiste em dizer onde começa e termina cada conceito, qual problema ele responde e que tipo de evidência sustentaria sua aplicação. Em sala, o professor pode retomar um exemplo do conteúdo programático e pedir que a turma mostre exatamente qual característica autoriza a classificação proposta.</p><p>Esse cuidado também torna a leitura mais acessível. Em vez de memorizar uma definição abstrata, o estudante reconstrói o caminho do argumento: observa uma situação, reconhece um padrão, formula uma pergunta e testa uma interpretação. O resultado não precisa ser uma resposta definitiva. Uma hipótese sociológica é valiosa quando explicita seus critérios, admite comparação e pode ser revista diante de informações melhores.</p></div><div class="base-subsection" id="texto-3-sociologia-e-suas-vizinhas-antropologia-ciencia-polit"><h3>5. Sociologia e suas vizinhas: Antropologia, Ciência Política, Psicologia Social</h3><p>O 3º movimento do argumento concentra-se em <strong>Sociologia e suas vizinhas: Antropologia, Ciência Política, Psicologia Social</strong>. O roteiro associa esse núcleo a Objetos, métodos e tradições distintas; Fronteiras porosas e diálogos interdisciplinares; O lugar da Sociologia no campo das ciências sociais. A enumeração, porém, ganha sentido apenas quando percebemos as relações entre seus componentes. Conceitos sociológicos não são etiquetas aplicadas depois que um fato acontece: eles selecionam dimensões do problema, orientam comparações e indicam quais evidências precisam ser procuradas.</p><p>Para acompanhar a exposição, convém avançar em três passos. Primeiro, identificar o fenômeno e o contexto em que ele ocorre. Segundo, perguntar quais relações, regras, recursos e significados o tornam possível. Terceiro, comparar situações para descobrir o que permanece e o que muda. Aplicado a sociologia e suas vizinhas: antropologia, ciência política, psicologia social, esse procedimento impede que uma impressão isolada seja apresentada como explicação geral e ajuda a ligar experiência, história e organização social.</p><p>Os elementos Objetos, métodos e tradições distintas; Fronteiras porosas e diálogos interdisciplinares; O lugar da Sociologia no campo das ciências sociais não devem ser lidos como sinônimos. Cada um ilumina uma dimensão própria, embora possa se articular aos demais. A tarefa analítica consiste em dizer onde começa e termina cada conceito, qual problema ele responde e que tipo de evidência sustentaria sua aplicação. Em sala, o professor pode retomar um exemplo do conteúdo programático e pedir que a turma mostre exatamente qual característica autoriza a classificação proposta.</p><p>Esse cuidado também torna a leitura mais acessível. Em vez de memorizar uma definição abstrata, o estudante reconstrói o caminho do argumento: observa uma situação, reconhece um padrão, formula uma pergunta e testa uma interpretação. O resultado não precisa ser uma resposta definitiva. Uma hipótese sociológica é valiosa quando explicita seus critérios, admite comparação e pode ser revista diante de informações melhores.</p></div><div class="base-subsection" id="texto-aplicacao"><h3>6. Aplicação e trabalho com evidências</h3><p>O estudo de caso desta aula parte de manchetes sobre trabalho, violência, saúde e tecnologia. A finalidade não é decidir depressa se o caso confirma a teoria. Antes, é decompor a situação: identificar atores, posições, recursos, normas, discursos, escalas de tempo e possíveis efeitos. Somente depois se pergunta quais conceitos do roteiro oferecem uma interpretação consistente e quais aspectos permanecem fora de alcance.</p><p>A atividade prevista ajuda a realizar essa passagem. Sociologia nas manchetes: do fato ao problema sociológico Os alunos recebem 5 manchetes de jornal selecionadas pelo professor, abrangendo temas variados (violência, trabalho, desigualdade, saúde pública, tecnologia). Para cada manchete, devem realizar três operações: (1) Identificar o fenômeno social: O que está acontecendo? Quem são os sujeitos envolvidos? Qual é o contexto? (2) Formular uma questão sociológica: Transformar a notícia em uma pergunta de pesquisa que vá além do evento pontual, buscando padrões, causas estruturais ou consequências sociais. (3) Propor o método adequado: Justificar qual abordagem metodológica seria mais adequada para investigar a questão formulada (entrevistas, etnografia, survey, análise documental, etc.). A atividade exercita a &quot;imaginação sociológica&quot; no sentido millsiano: a capacidade de articular experiências individuais a estruturas sociais mais amplas. O exercício ganha qualidade quando cada afirmação vem acompanhada de uma evidência observável ou de uma pergunta de pesquisa. Se a turma discorda, a divergência pode ser produtiva: os grupos devem indicar se usam conceitos diferentes, se selecionam evidências distintas ou se atribuem significados diferentes à mesma informação.</p><p>Uma aplicação contemporânea rigorosa também considera alternativas. O mesmo padrão pode resultar de processos distintos, e uma evidência pode ser compatível com mais de uma interpretação. Entrevistas esclarecem sentidos atribuídos pelos participantes, observação acompanha práticas, documentos mostram regras e justificativas, e dados quantitativos revelam distribuição e variação. Nenhuma técnica responde sozinha a todas as perguntas.</p><p>Ao apresentar o caso, é útil distinguir exemplo, ilustração e evidência. Um exemplo torna o conceito inteligível; uma ilustração aproxima o tema da experiência da turma; evidência é informação coletada e analisada por procedimento explícito. Confundir essas funções leva a tomar uma história convincente como prova suficiente. A Sociologia procura justamente controlar esse salto.</p><aside class="pause-box"><h4>Pausa para discussão</h4><p>Qual conceito da aula explica melhor o estudo de caso? Que aspecto do caso ele não consegue explicar sozinho?</p></aside></div><div class="base-subsection" id="texto-cuidados"><h3>7. Distinções, limites e cuidados conceituais</h3><p>O principal cuidado desta aula é combinar métodos sem tratar números ou depoimentos como evidências autossuficientes. A advertência não enfraquece o conteúdo; ela define seu alcance. Conceitos bons simplificam a realidade de maneira controlada. Quando aplicados fora de suas condições, perdem precisão e viram apenas palavras sofisticadas para confirmar uma opinião anterior.</p><p>Outra distinção necessária separa explicação causal, interpretação de sentidos e avaliação normativa. Podemos investigar por que algo acontece, compreender como os participantes lhe atribuem significado e discutir se suas consequências são desejáveis. São perguntas legítimas, mas não idênticas. Uma posição ética deve ser assumida com clareza, e não apresentada como se decorresse automaticamente de um dado ou de um autor.</p><p>A escala também importa. Uma interação em sala, uma organização, uma cidade, um Estado e um processo transnacional não funcionam do mesmo modo. O que aparece como escolha numa escala pode ser condicionado por regras em outra. Ao mudar a escala, mudam as evidências e às vezes muda a própria pergunta. Especificar tempo, lugar e grupo torna a análise menos grandiosa e mais verificável.</p><p>Por fim, diferenças internas precisam permanecer visíveis. Grupos sociais não são sujeitos homogêneos; instituições abrigam disputas; normas podem ser obedecidas, negociadas ou contestadas; identidades se cruzam. Evitar generalizações não significa abandonar padrões coletivos, mas explicar como eles se distribuem e por que não afetam todas as pessoas da mesma maneira.</p><aside class="pause-box"><h4>Pausa para discussão</h4><p>Que generalização apressada seria mais provável neste tema? Como reformulá-la para torná-la histórica, comparável e verificável?</p></aside></div><div class="base-subsection" id="texto-sintese"><h3>8. Síntese e passagem para a próxima aula</h3><p><strong>Síntese.</strong> A Aula 05 mostrou que a sociologia como disciplina acadêmica: objeto, método e especificidade científica. deve ser estudado por meio de perguntas delimitadas, conceitos diferenciados e evidências adequadas. O problema de abertura conduziu da experiência cotidiana à contextualização, e os três núcleos do conteúdo programático foram articulados sem serem tratados como equivalentes.</p><p>Ao final, o estudante deve ser capaz de retomar as metas do roteiro com suas próprias palavras: Definir o objeto específico da Sociologia: estruturas, relações e processos sociais. Compreender os principais métodos sociológicos e suas lógicas de aplicação. Diferenciar a Sociologia de outras ciências sociais afins (Antropologia, Ciência Política, Psicologia Social). Apresentar a especificidade do olhar sociológico e o conceito de &quot;imaginação sociológica&quot;. Esse domínio não se mede apenas pela lembrança de definições. Ele aparece quando alguém consegue reconhecer uma situação pertinente, justificar a escolha do conceito, propor uma evidência e indicar os limites da interpretação.</p><p>As pausas de discussão transformam a leitura em trabalho coletivo. Elas permitem que o professor interrompa a exposição, recolha hipóteses, identifique confusões e retome o argumento. A síntese pode ser concluída no quadro com quatro colunas — problema, conceito, evidência e limite — de modo que a turma visualize o caminho percorrido durante aproximadamente duas horas desta parte do encontro.</p><p>A passagem seguinte não reinicia o curso. Ela desloca a pergunta construída aqui para <strong>o projeto científico de Durkheim</strong>. O que aprendemos nesta aula funcionará como condição para a próxima: conceitos serão retomados apenas quando necessários, agora diante de outro problema. Assim, as duas partes do encontro e a sequência semanal formam um percurso contínuo, e não uma coleção de resumos independentes.</p><aside class="pause-box"><h4>Pausa para discussão</h4><p>Em uma frase, que relação entre experiência individual e processo social esta aula tornou mais visível?</p></aside></div>
+      <p class="base-intro">Depois de acompanhar o nascimento histórico e alguns sistemas pioneiros da Sociologia, esta leitura entra na oficina da pesquisa: como transformar um acontecimento em problema, escolher evidências e sustentar uma interpretação.</p>
+      <nav class="base-toc" aria-label="Sumário do texto-base"><h3>Nesta leitura</h3><ol>
+        <li><a href="#a05-manchete">Uma manchete ainda não é um problema sociológico</a></li>
+        <li><a href="#a05-objeto">Estruturas, relações e processos</a></li>
+        <li><a href="#a05-imaginacao">Biografia e história</a></li>
+        <li><a href="#a05-pergunta">Delimitar uma pergunta pesquisável</a></li>
+        <li><a href="#a05-observacao">Observar e participar</a></li>
+        <li><a href="#a05-entrevistas">Entrevistas, documentos e surveys</a></li>
+        <li><a href="#a05-quantitativo">Quantitativo e qualitativo</a></li>
+        <li><a href="#a05-vizinhas">A Sociologia e suas vizinhas</a></li>
+        <li><a href="#a05-oficina">Oficina das manchetes</a></li>
+        <li><a href="#a05-sintese">Síntese: preparar um objeto para Durkheim</a></li>
+      </ol></nav>
+
+      <div class="base-subsection" id="a05-manchete"><h3>1. Uma manchete ainda não é um problema sociológico</h3>
+        <p>Uma notícia informa que aumentou o número de trabalhadores de determinado setor que pedem demissão. O acontecimento pode provocar comentários imediatos: falta comprometimento, as condições pioraram, uma geração mudou. Nenhuma dessas frases é ainda uma explicação sociológica. Antes de escolher uma resposta, precisamos saber quem são os trabalhadores, em que período ocorreu a mudança, como o setor se organiza e com que situações será comparado.</p>
+        <p>A manchete seleciona um aspecto da realidade e o apresenta segundo critérios jornalísticos. Ela pode iniciar uma investigação, mas não define sozinha o fenômeno. “Pedidos de demissão” podem reunir saídas para empregos melhores, abandono por adoecimento, conflito com chefias ou mudanças familiares. O mesmo indicador visível pode resultar de processos diferentes.</p>
+        <p>Construir um objeto sociológico significa recortar relações e processos que não aparecem prontos no título da notícia. Em vez de perguntar apenas “por que as pessoas saem?”, poderíamos investigar como jornadas, formas de supervisão e oportunidades profissionais influenciam a permanência de trabalhadores jovens num setor e numa cidade determinados. A nova pergunta identifica relações, população, espaço e período.</p>
+        <aside class="pause-box"><h4>Pausa para discussão</h4><p>O que uma manchete precisa informar — e normalmente não informa — para que possamos transformá-la numa pergunta de pesquisa?</p></aside>
+      </div>
+
+      <div class="base-subsection" id="a05-objeto"><h3>2. Estruturas, relações e processos</h3>
+        <p>A Sociologia estuda <strong>estruturas sociais</strong>: padrões relativamente duradouros que distribuem posições, recursos e possibilidades. Estrutura não é uma armação invisível que decide cada ação. É um conjunto de relações que torna algumas trajetórias mais prováveis e oferece capacidades diferentes aos participantes.</p>
+        <p>O sistema educacional, por exemplo, organiza níveis, credenciais, regras de acesso e posições profissionais. Estudantes agem dentro dele, tomam decisões e podem contestá-lo, mas não começam em condições idênticas nem controlam individualmente seus critérios. Observar estrutura significa relacionar escolhas a oportunidades e barreiras distribuídas socialmente.</p>
+        <p><strong>Relações sociais</strong> colocam atores e posições em referência recíproca. Empregador e empregado, representante e eleitor, professor e estudante só existem como posições relacionadas. Relações de poder aparecem quando participantes possuem capacidades desiguais de definir regras, controlar recursos ou fazer valer interpretações.</p>
+        <p><strong>Processos sociais</strong> destacam mudança e duração: urbanização, burocratização, secularização, mobilidade ou formação de movimentos não são objetos imóveis. A pesquisa acompanha sequências, mecanismos e disputas. Estrutura, relação e processo são perspectivas complementares, não compartimentos isolados.</p>
+        <p>Tomemos uma plataforma de transporte. Sua estrutura distribui posições entre empresa, motoristas e passageiros; as relações incluem contratação, avaliação e negociação; o processo envolve expansão tecnológica, mudanças regulatórias e organização dos trabalhadores. Escolher apenas um nível pode ser necessário para a pesquisa, mas a delimitação deve reconhecer aquilo que ficou fora.</p>
+        <p>O poder atravessa essas dimensões. Ele não aparece somente quando alguém dá uma ordem explícita. Pode estar na capacidade de estabelecer categorias, definir preços, controlar informações ou tornar uma alternativa inviável. Investigar poder requer observar recursos e consequências, não supor que toda relação desigual seja idêntica.</p>
+      </div>
+
+      <div class="base-subsection" id="a05-imaginacao"><h3>3. Biografia e história: a imaginação sociológica</h3>
+        <p>A <strong>imaginação sociológica</strong>, associada a C. Wright Mills, é a capacidade de relacionar experiências biográficas a transformações históricas e estruturas sociais. Ela não apaga a singularidade de uma vida. Permite compreender como possibilidades pessoais são configuradas por circunstâncias que alcançam muitas pessoas.</p>
+        <p>Uma dívida pode resultar de uma decisão particular, mas o endividamento de grande parcela de um grupo exige examinar renda, crédito, preços e proteção social. A ansiedade de um estudante possui história individual; quando aparece de modo recorrente entre estudantes submetidos a condições semelhantes, torna-se pertinente investigar organização acadêmica, trabalho, competição e expectativas de futuro.</p>
+        <p>Mills distingue analiticamente dificuldades vividas no ambiente imediato e questões relacionadas à organização mais ampla da sociedade. A passagem entre esses planos não é automática. Nem toda dor pessoal possui a mesma causa, e uma estatística coletiva não explica integralmente cada caso. A imaginação sociológica constrói conexões que precisam ser demonstradas.</p>
+        <p>A conexão exige comparar biografias. Se pessoas de origens distintas enfrentam o mesmo resultado, talvez compartilhem uma condição institucional; se trajetórias semelhantes produzem destinos diferentes, é preciso procurar recursos, redes ou acontecimentos que fizeram diferença. Biografias não são exemplos decorativos: oferecem evidências sobre como estruturas são vividas.</p>
+        <p>História também não significa apenas passado distante. Uma mudança recente em legislação, tecnologia ou mercado pode reorganizar escolhas presentes. Perguntar “quando isso se tornou possível?” ajuda a localizar experiências que parecem puramente pessoais numa sequência de transformações coletivas.</p>
+        <aside class="pause-box"><h4>Pausa para discussão</h4><p>Escolha uma dificuldade frequentemente apresentada como individual. Que mudança histórica ou estrutura social poderia participar de sua explicação sem eliminar a responsabilidade pessoal?</p></aside>
+      </div>
+
+      <div class="base-subsection" id="a05-pergunta"><h3>4. Delimitar uma pergunta pesquisável</h3>
+        <p>Temas como violência, desigualdade ou tecnologia são amplos demais para orientar diretamente uma pesquisa. Uma pergunta precisa indicar qual aspecto será examinado, entre quais grupos, em que contexto e com relação a que processo. “Como a tecnologia afeta a sociedade?” pode tornar-se “como sistemas de mensagens alteram expectativas de disponibilidade entre trabalhadores de determinada organização?”.</p>
+        <p>Uma boa pergunta sociológica não precisa começar com “por quê”. Questões descritivas podem mapear a distribuição de um fenômeno; questões comparativas examinam diferenças; questões explicativas investigam mecanismos; questões interpretativas procuram sentidos atribuídos pelos participantes. O método depende do que se pretende saber.</p>
+        <p>Conceitos delimitam a observação. Se a pesquisa utiliza “desigualdade”, precisa indicar se examina renda, acesso, prestígio, poder ou outra dimensão. Definições não servem apenas para ornamentar o texto: determinam o que será reconhecido como evidência e impedem que a conclusão mude o significado das palavras durante o argumento.</p>
+        <p>A pergunta também precisa ser viável. Investigar “a sociedade brasileira” em poucas semanas produz generalizações frágeis. Um recorte menor não torna a questão irrelevante; permite construir evidências controladas e relacioná-las cautelosamente a debates amplos. Escala e tempo disponíveis fazem parte do desenho.</p>
+        <p>Hipóteses são respostas provisórias que organizam a busca, não conclusões antecipadas. Uma hipótese precisa poder encontrar evidências contrárias. Se qualquer resultado for interpretado como confirmação, a pesquisa apenas protege uma crença inicial.</p>
+      </div>
+
+      <div class="base-subsection" id="a05-observacao"><h3>5. Observar e participar</h3>
+        <p>A <strong>observação</strong> acompanha práticas em seus contextos. Em vez de perguntar somente o que as pessoas dizem fazer, registra interações, rotinas, espaços e acontecimentos. Uma pesquisa sobre uso da biblioteca pode observar circulação, distribuição dos lugares, pedidos de ajuda e horários, produzindo notas sistemáticas.</p>
+        <p>Na <strong>observação participante</strong>, o pesquisador participa em algum grau da vida do grupo estudado. A <strong>etnografia</strong> envolve imersão prolongada e interpretação das práticas e significados de um contexto. Participar não oferece acesso transparente à verdade: a presença do pesquisador interfere na situação, e proximidade pode revelar detalhes ou dificultar distanciamento.</p>
+        <p>O registro precisa distinguir descrição, interpretação e reação pessoal. Escrever “três estudantes mudaram de lugar quando o grupo chegou” descreve uma sequência; afirmar “eles sentiram medo” já interpreta uma motivação. A interpretação pode ser plausível, mas exige outras evidências.</p>
+        <p>Questões éticas atravessam o método. Pessoas precisam ser respeitadas, riscos devem ser avaliados e informações sensíveis não podem ser tratadas como material disponível sem responsabilidade. O fato de uma situação ocorrer em público não elimina toda obrigação de cuidado.</p>
+        <p>A posição do pesquisador influencia acesso e interpretação. Idade, profissão, gênero, linguagem e vínculo com a instituição podem aproximar alguns participantes e afastar outros. Registrar essas condições não invalida a pesquisa; permite avaliar como os dados foram produzidos e quais perspectivas podem ter permanecido menos visíveis.</p>
+      </div>
+
+      <div class="base-subsection" id="a05-entrevistas"><h3>6. Entrevistas, documentos e surveys</h3>
+        <p>A <strong>entrevista</strong> permite explorar experiências, justificativas e sentidos atribuídos pelos participantes. Perguntas abertas favorecem narrativas e temas não previstos; roteiros mais estruturados facilitam comparação. A fala não é espelho perfeito do comportamento: pessoas lembram seletivamente, administram a própria imagem e interpretam perguntas a partir de suas posições.</p>
+        <p>A <strong>análise documental</strong> examina leis, atas, relatórios, jornais, publicações digitais e outros registros. Documentos foram produzidos para finalidades específicas. Um regulamento mostra a norma oficial, não prova que ela seja cumprida; uma ata registra o que a instituição decidiu preservar, não tudo que ocorreu.</p>
+        <p>O <strong>survey</strong> coleta respostas padronizadas de um conjunto de participantes. Pode estimar distribuição de opiniões, práticas ou características quando a seleção dos respondentes e a formulação das perguntas são adequadas. Resultados dependem de quem respondeu, de quem ficou de fora e das categorias oferecidas.</p>
+        <p>Perguntas de entrevista podem induzir respostas quando já contêm julgamento. Documentos podem silenciar grupos que não participaram de sua produção. Surveys podem forçar experiências diversas em alternativas estreitas. Cada técnica possui vieses previsíveis; rigor significa reconhecê-los e reduzir seus efeitos, não prometer neutralidade absoluta.</p>
+        <p>Fontes também podem ser trianguladas. Se um regulamento proíbe determinada prática, entrevistas indicam como a regra é interpretada e observações mostram o que ocorre no cotidiano. Divergências entre fontes não são necessariamente erro: podem revelar distância entre norma, discurso e ação.</p>
+        <aside class="pause-box"><h4>Pausa para discussão</h4><p>Para estudar por que estudantes faltam às aulas, o que uma entrevista revelaria que um questionário talvez não revele — e o que o questionário permitiria comparar melhor?</p></aside>
+      </div>
+
+      <div class="base-subsection" id="a05-quantitativo"><h3>7. Quantitativo e qualitativo: perguntas diferentes, combinações possíveis</h3>
+        <p>Pesquisas <strong>quantitativas</strong> trabalham com informações padronizadas e relações expressas numericamente. Permitem examinar distribuição, frequência e associação em conjuntos amplos. Uma associação, contudo, não demonstra sozinha causalidade. Duas variáveis podem mudar juntas por influência de outros processos.</p>
+        <p>Pesquisas <strong>qualitativas</strong> aprofundam contextos, práticas e significados por meio de entrevistas, observações, documentos ou outras fontes. Não são simplesmente pesquisas com poucas pessoas nem dispensam sistematização. Sua força está em reconstruir mecanismos e perspectivas com atenção à situação.</p>
+        <p>As abordagens podem entrar em tensão porque respondem a tradições e critérios diferentes, mas também podem ser combinadas. Um survey identifica um padrão; entrevistas investigam como participantes o experimentam; observação mostra como regras operam. A combinação só é útil quando cada técnica possui função clara na pergunta.</p>
+        <p>Generalização também assume sentidos diferentes. Um estudo quantitativo pode estimar a frequência de um resultado numa população. Uma pesquisa qualitativa pode propor que um mecanismo identificado ajuda a compreender situações semelhantes. Nenhuma das duas autoriza falar de todos os contextos sem demonstrar as condições da comparação.</p>
+        <p>Escolher método pelo prestígio ou facilidade produz inadequação. Números não são automaticamente objetivos, e depoimentos não são automaticamente profundos. Categorias, amostras, roteiros e interpretações resultam de decisões que precisam ser justificadas.</p>
+        <p>Uma tabela pode mostrar que faltas se concentram em determinado horário, mas não explicar por quê. Entrevistas podem mencionar transporte, trabalho ou cansaço, sem informar a frequência de cada motivo na turma. A combinação permite formular uma explicação mais robusta, desde que não confunda relatos com medidas nem medidas com sentidos.</p>
+      </div>
+
+      <div class="base-subsection" id="a05-vizinhas"><h3>8. A Sociologia e suas vizinhas</h3>
+        <p>Antropologia, Ciência Política e Psicologia Social compartilham temas e métodos com a Sociologia. As fronteiras são históricas e porosas, não muros naturais. A Antropologia consolidou forte tradição etnográfica e atenção à diversidade cultural; a Ciência Política concentra-se em poder, Estado, instituições e ação política; a Psicologia Social investiga relações entre processos psicológicos e contextos sociais.</p>
+        <p>A Sociologia destaca relações, instituições, desigualdades e processos em diferentes escalas. Mas sociólogos realizam etnografias, antropólogos estudam Estados, cientistas políticos analisam movimentos e psicólogos sociais investigam grupos. O objeto concreto não determina sozinho a disciplina.</p>
+        <p>Um protesto pode ser estudado por sua organização coletiva, por símbolos culturais, por instituições políticas ou por processos de identidade. As perguntas e tradições teóricas orientam o recorte. O diálogo interdisciplinar torna-se produtivo quando reconhece diferenças, em vez de afirmar que todas as áreas fazem exatamente a mesma coisa.</p>
+        <p>As fronteiras também mudam ao longo do tempo e variam entre países e instituições. Temas hoje centrais à Sociologia podem ter sido desenvolvidos em departamentos diferentes. Por isso, apresentar uma disciplina por uma definição imutável seria contraditório com a própria história das ciências sociais.</p>
+      </div>
+
+      <div class="base-subsection" id="a05-oficina"><h3>9. Oficina das manchetes: do acontecimento ao desenho de pesquisa</h3>
+        <p>Na atividade, cada grupo receberá manchetes sobre violência, trabalho, desigualdade, saúde ou tecnologia. A primeira operação é separar acontecimento e fenômeno: o que ocorreu no caso noticiado e que padrão mais amplo poderia ser investigado? A segunda é formular uma pergunta que não contenha a resposta antecipadamente.</p>
+        <p>A terceira operação é escolher método. Uma manchete sobre aumento de violência pode levar à análise de registros para verificar distribuição, a entrevistas para estudar experiências ou à observação de práticas institucionais. Cada fonte ilumina algo e deixa outra dimensão fora. O grupo deverá justificar a correspondência entre pergunta e evidência.</p>
+        <p>Também será preciso identificar conceitos. “Violência”, “trabalho precário” ou “acesso à saúde” precisam ser desdobrados em dimensões observáveis. Finalmente, a turma examinará limites: a notícia fornece período e fonte? Generaliza a partir de um episódio? Confunde associação e causa? Quais vozes aparecem?</p>
+        <p>Ao socializar o desenho, os colegas não avaliarão se concordam com a opinião política do grupo, mas se pergunta, conceito e método estão alinhados. Uma proposta pode tratar tema relevante e ainda usar técnica inadequada. A revisão coletiva deve melhorar o desenho: estreitar o recorte, acrescentar fonte ou reformular uma categoria.</p>
+        <aside class="pause-box"><h4>Pausa para discussão</h4><p>Qual método seria inadequado para a pergunta formulada por seu grupo? Explicar uma inadequação ajuda a justificar a escolha feita?</p></aside>
+      </div>
+
+      <div class="base-subsection" id="a05-sintese"><h3>10. Síntese: preparar um objeto para Durkheim</h3>
+        <p>A pesquisa sociológica não encontra seu objeto pronto numa manchete. Ela relaciona biografia e história, recorta estruturas, relações e processos, define conceitos e escolhe evidências compatíveis com a pergunta. Observação, etnografia, entrevista, documentos e survey produzem conhecimentos diferentes e podem ser combinados sem perder suas especificidades.</p>
+        <p>A Sociologia possui identidade disciplinar, mas dialoga com áreas vizinhas. Sua força não decorre de monopolizar temas, e sim de construir problemas sobre relações sociais, instituições, poder, desigualdade e mudança. A imaginação sociológica permite reconhecer que experiências pessoais podem expressar questões coletivas, desde que a conexão seja demonstrada.</p>
+        <p>O percurso do Bloco I partiu do estranhamento do cotidiano, reconstruiu as revoluções e o Iluminismo, examinou positivismo e evolucionismo e chegou à pesquisa. Cada etapa respondeu a uma pergunta diferente. O resultado não é uma definição final e fechada da Sociologia, mas um conjunto inicial de operações: desnaturalizar, historicizar, conceituar, comparar e produzir evidências.</p>
+        <p>A atividade com manchetes funciona como verificação prática. Se um grupo consegue sair de uma afirmação geral, delimitar população e contexto, definir conceitos e justificar técnica, demonstrou mais do que memorização de métodos. Se reconhece o que sua fonte não pode mostrar, já iniciou uma avaliação crítica da própria conclusão.</p>
+        <p>Na aula seguinte, Durkheim enfrentará uma versão precisa do problema aberto aqui: como definir um objeto específico para a Sociologia e estudá-lo sem reduzi-lo à intenção individual? Não anteciparemos sua resposta. Chegamos apenas às condições para compreendê-la: um problema delimitado, conceitos explícitos, evidências examináveis e atenção a padrões que ultrapassam um caso isolado.</p>
+        <p>A abertura de Durkheim retomará situações familiares — língua, normas, horários e expectativas — mas com uma questão nova: que características permitem tratá-las como realidade propriamente social? A Aula 05 entrega ferramentas para acompanhar a resposta e questionar seus critérios, sem apresentar de antemão os conceitos de exterioridade, coerção e generalidade.</p>
+      </div>
     </div>
   </section>
+
 
 
   <section id="plano-aula">
@@ -210,12 +336,140 @@
   <section id="atividade">
     <div class="section-title">Atividades em Sala</div>
     <div class="activity-card">
-      <strong>Sociologia nas manchetes: do fato ao problema sociológico</strong><br><br>
-      Os alunos recebem 5 manchetes de jornal selecionadas pelo professor, abrangendo temas variados (violência, trabalho, desigualdade, saúde pública, tecnologia). Para cada manchete, devem realizar três operações:<br><br>
-      <strong>(1) Identificar o fenômeno social:</strong> O que está acontecendo? Quem são os sujeitos envolvidos? Qual é o contexto?<br><br>
-      <strong>(2) Formular uma questão sociológica:</strong> Transformar a notícia em uma pergunta de pesquisa que vá além do evento pontual, buscando padrões, causas estruturais ou consequências sociais.<br><br>
-      <strong>(3) Propor o método adequado:</strong> Justificar qual abordagem metodológica seria mais adequada para investigar a questão formulada (entrevistas, etnografia, survey, análise documental, etc.).<br><br>
-      A atividade exercita a "imaginação sociológica" no sentido millsiano: a capacidade de articular experiências individuais a estruturas sociais mais amplas.
+      <h2>Sociologia nas manchetes: do fato ao problema sociológico</h2>
+      <p>As notícias abaixo funcionam como pontos de partida. O trabalho do grupo não é apenas resumir o que ocorreu, mas construir uma questão capaz de relacionar experiências particulares, instituições e processos sociais.</p>
+
+      <div class="headline-bank" aria-labelledby="headline-bank-title">
+        <h3 id="headline-bank-title">Banco de manchetes para a atividade</h3>
+        <div class="headline-grid">
+          <article class="headline-card">
+            <span class="headline-number">Manchete 1</span>
+            <h4><a href="https://agenciabrasil.ebc.com.br/economia/noticia/2026-08/desigualdades-marcam-formalizacao-do-trabalho-entre-jovens-brasileiros" target="_blank" rel="noopener noreferrer">Desigualdades marcam formalização do trabalho entre jovens brasileiros</a></h4>
+            <p class="headline-meta"><strong>Veículo ou instituição:</strong> Agência Brasil</p>
+            <p class="headline-meta"><strong>Publicação:</strong> <time datetime="2026-08-21">21/08/2026</time></p>
+            <p class="headline-meta"><strong>Tema sociológico predominante:</strong> <span class="headline-theme">mercado de trabalho, informalidade juvenil e diferenças regionais</span></p>
+            <p class="headline-meta"><strong>Acesso:</strong> <time datetime="2026-08-29">29/08/2026</time></p>
+            <p class="headline-context">A pesquisa permite comparar inserção formal e dependência de trabalhos ocasionais entre jovens de diferentes grupos e regiões, com atenção ao Norte e ao Nordeste.</p>
+          </article>
+
+          <article class="headline-card">
+            <span class="headline-number">Manchete 2</span>
+            <h4><a href="https://www.cnnbrasil.com.br/educacao/pe-de-meia-comeca-a-pagar-parcelas-de-agosto-esta-segunda-feira-24/" target="_blank" rel="noopener noreferrer">Pé-de-meia começa a pagar parcelas de agosto esta segunda-feira (24)</a></h4>
+            <p class="headline-meta"><strong>Veículo ou instituição:</strong> CNN Brasil</p>
+            <p class="headline-meta"><strong>Publicação:</strong> <time datetime="2026-08-24">24/08/2026</time></p>
+            <p class="headline-meta"><strong>Tema sociológico predominante:</strong> <span class="headline-theme">educação pública, frequência e permanência escolar</span></p>
+            <p class="headline-meta"><strong>Acesso:</strong> <time datetime="2026-08-29">29/08/2026</time></p>
+            <p class="headline-context">O calendário do benefício oferece um ponto de partida para discutir renda familiar, frequência e políticas de permanência no ensino médio público.</p>
+          </article>
+
+          <article class="headline-card">
+            <span class="headline-number">Manchete 3</span>
+            <h4><a href="https://www.sume.pb.gov.br/2026/08/feira-de-saude-leva-atendimento-ampliado-a-comunidade-riacho-da-roca-em-sume/" target="_blank" rel="noopener noreferrer">Feira de Saúde leva atendimento ampliado à comunidade Riacho da Roça, em Sumé</a></h4>
+            <p class="headline-meta"><strong>Veículo ou instituição:</strong> Prefeitura Municipal de Sumé</p>
+            <p class="headline-meta"><strong>Publicação:</strong> <time datetime="2026-08-28">28/08/2026</time></p>
+            <p class="headline-meta"><strong>Tema sociológico predominante:</strong> <span class="headline-theme">saúde pública e acesso a serviços na zona rural do semiárido</span></p>
+            <p class="headline-meta"><strong>Acesso:</strong> <time datetime="2026-08-29">29/08/2026</time></p>
+            <p class="headline-context">A iniciativa reúne serviços em uma comunidade rural e oferece um caso próximo para examinar território, deslocamento e acesso à saúde.</p>
+          </article>
+
+          <article class="headline-card">
+            <span class="headline-number">Manchete 4</span>
+            <h4><a href="https://www.poder360.com.br/poder-economia/endividamento-bate-recorde-e-atinge-82-das-familias/" target="_blank" rel="noopener noreferrer">Endividamento bate recorde e atinge 82,0% das famílias em julho</a></h4>
+            <p class="headline-meta"><strong>Veículo ou instituição:</strong> Poder360</p>
+            <p class="headline-meta"><strong>Publicação:</strong> <time datetime="2026-08-06">06/08/2026</time></p>
+            <p class="headline-meta"><strong>Tema sociológico predominante:</strong> <span class="headline-theme">endividamento, renda e condições de vida das famílias</span></p>
+            <p class="headline-meta"><strong>Acesso:</strong> <time datetime="2026-08-29">29/08/2026</time></p>
+            <p class="headline-context">A notícia apresenta resultados da pesquisa da CNC e possibilita investigar diferenças entre dívida, inadimplência e comprometimento da renda.</p>
+          </article>
+
+          <article class="headline-card">
+            <span class="headline-number">Manchete 5</span>
+            <h4><a href="https://www.metropoles.com/brasil/brasil-melhora-em-71-dos-indicadores-sobre-desigualdade-diz-estudo" target="_blank" rel="noopener noreferrer">Brasil melhora em 71% dos indicadores sobre desigualdade, diz estudo</a></h4>
+            <p class="headline-meta"><strong>Veículo ou instituição:</strong> Metrópoles</p>
+            <p class="headline-meta"><strong>Publicação:</strong> <time datetime="2026-08-12">12/08/2026</time></p>
+            <p class="headline-meta"><strong>Tema sociológico predominante:</strong> <span class="headline-theme">desigualdades de gênero, raça, origem social e região</span></p>
+            <p class="headline-meta"><strong>Acesso:</strong> <time datetime="2026-08-29">29/08/2026</time></p>
+            <p class="headline-context">O balanço reúne avanços e persistências em diferentes dimensões, permitindo examinar como médias nacionais se distribuem entre grupos e territórios.</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="student-task" aria-labelledby="student-task-title">
+        <h3 id="student-task-title">Tarefa dos estudantes</h3>
+        <p><strong>Em grupo, escolha uma das cinco manchetes e transforme-a em problema sociológico.</strong></p>
+        <ol>
+          <li>Qual explicação individual ou de senso comum poderia ser dada inicialmente?</li>
+          <li>Que relações, instituições e processos sociais precisam ser considerados?</li>
+          <li>Como a imaginação sociológica permite relacionar experiências individuais e questões coletivas?</li>
+          <li>Que pergunta sociológica investigável pode ser formulada?</li>
+          <li>Que dados ou fontes seriam necessários?</li>
+          <li>Uma abordagem quantitativa, qualitativa ou combinada seria mais adequada? Justifique.</li>
+          <li>Que contribuição poderia vir da História, Geografia, Antropologia, Economia ou Ciência Política?</li>
+        </ol>
+      </div>
+
+      <details class="teacher-guidance">
+        <summary>Orientações para a mediação — uso do professor</summary>
+        <div class="guidance-content">
+          <article class="guidance-item">
+            <h4>Manchete 1 — Trabalho e diferenças regionais</h4>
+            <ul>
+              <li><strong>Biografia e estrutura:</strong> a experiência de procurar trabalho depende de trajetórias individuais, mas também da estrutura produtiva, do ciclo econômico e da distribuição territorial das oportunidades.</li>
+              <li><strong>Instituições:</strong> empresas, Estado, legislação trabalhista, sistemas de intermediação de mão de obra e famílias.</li>
+              <li><strong>Escalas:</strong> pessoa, domicílio, estado, Nordeste e Brasil, com comparação entre áreas urbanas e rurais.</li>
+              <li><strong>Fontes complementares:</strong> microdados e tabelas da PNAD Contínua, Novo Caged, Dieese e observatórios estaduais do trabalho.</li>
+              <li><strong>Risco individualizante:</strong> atribuir a desocupação apenas a esforço, qualificação ou escolha pessoal, ignorando oferta de postos e segmentações sociais.</li>
+              <li><strong>Pergunta sociológica possível:</strong> como a estrutura produtiva e o perfil social dos trabalhadores ajudam a explicar diferenças de desocupação entre estados do Nordeste?</li>
+            </ul>
+          </article>
+          <article class="guidance-item">
+            <h4>Manchete 2 — Frequência e permanência na educação pública</h4>
+            <ul>
+              <li><strong>Biografia e estrutura:</strong> frequência e permanência envolvem decisões e experiências estudantis, além de renda, trabalho juvenil, responsabilidades de cuidado e condições de oferta escolar.</li>
+              <li><strong>Instituições:</strong> escolas, redes públicas de ensino, MEC, Caixa Econômica Federal, Cadastro Único e famílias.</li>
+              <li><strong>Escalas:</strong> estudante, escola, rede municipal ou estadual, região e país.</li>
+              <li><strong>Fontes complementares:</strong> Censo Escolar, dados administrativos do Pé-de-Meia, indicadores de abandono e pesquisas com estudantes, docentes e famílias.</li>
+              <li><strong>Risco individualizante:</strong> tratar desempenho, ausência ou abandono apenas como falta de interesse do estudante.</li>
+              <li><strong>Pergunta sociológica possível:</strong> como renda familiar, trabalho e responsabilidades de cuidado influenciam a frequência e a permanência de estudantes no ensino médio público?</li>
+            </ul>
+          </article>
+          <article class="guidance-item">
+            <h4>Manchete 3 — Acesso à saúde no território rural</h4>
+            <ul>
+              <li><strong>Biografia e estrutura:</strong> buscar atendimento é uma decisão pessoal condicionada por distância, transporte, renda, organização da atenção básica e disponibilidade de profissionais.</li>
+              <li><strong>Instituições:</strong> SUS, Secretaria Municipal de Saúde, unidades de atenção básica, equipes profissionais e comunidades rurais.</li>
+              <li><strong>Escalas:</strong> usuário, comunidade, município, Cariri paraibano e políticas nacionais de saúde.</li>
+              <li><strong>Fontes complementares:</strong> e-SUS APS, DataSUS, Cadastro Nacional de Estabelecimentos de Saúde, planos municipais e entrevistas com moradores e equipes.</li>
+              <li><strong>Risco individualizante:</strong> atribuir o não atendimento a descuido pessoal sem considerar deslocamento, horários, oferta e continuidade dos serviços.</li>
+              <li><strong>Pergunta sociológica possível:</strong> como distância, transporte e organização dos serviços influenciam o acesso regular à atenção básica nas comunidades rurais de Sumé?</li>
+            </ul>
+          </article>
+          <article class="guidance-item">
+            <h4>Manchete 4 — Endividamento familiar</h4>
+            <ul>
+              <li><strong>Biografia e estrutura:</strong> decisões de consumo e crédito se relacionam com renda, preços, juros, instabilidade do trabalho e responsabilidades familiares.</li>
+              <li><strong>Instituições:</strong> famílias, bancos, comércio, empresas de crédito, Banco Central, órgãos de defesa do consumidor e políticas de renegociação.</li>
+              <li><strong>Escalas:</strong> orçamento doméstico, grupos de renda, mercado de crédito e conjuntura econômica nacional.</li>
+              <li><strong>Fontes complementares:</strong> Peic/CNC, Banco Central, Pesquisa de Orçamentos Familiares, Serasa e entrevistas sobre estratégias domésticas.</li>
+              <li><strong>Risco individualizante:</strong> reduzir toda dívida a irresponsabilidade financeira, sem distinguir crédito planejado, despesas essenciais e inadimplência.</li>
+              <li><strong>Pergunta sociológica possível:</strong> como renda, composição familiar e acesso ao crédito afetam o comprometimento do orçamento doméstico entre diferentes grupos sociais?</li>
+            </ul>
+          </article>
+          <article class="guidance-item">
+            <h4>Manchete 5 — Mobilidade e desigualdades</h4>
+            <ul>
+              <li><strong>Biografia e estrutura:</strong> trajetórias de ascensão resultam de ações individuais em condições desiguais de origem, educação, trabalho, gênero, raça e território.</li>
+              <li><strong>Instituições:</strong> famílias, escolas, mercado de trabalho, Estado, sistemas tributário e de proteção social.</li>
+              <li><strong>Escalas:</strong> geração, grupo racial e de gênero, município, região e país.</li>
+              <li><strong>Fontes complementares:</strong> relatório do Observatório Brasileiro das Desigualdades, PNAD Contínua, Censo Demográfico e indicadores desagregados por sexo, cor ou raça e região.</li>
+              <li><strong>Risco individualizante:</strong> explicar renda, pobreza ou acesso a direitos somente por mérito, talento ou escolhas pessoais.</li>
+              <li><strong>Pergunta sociológica possível:</strong> por que a melhora de indicadores nacionais pode coexistir com desigualdades persistentes entre grupos raciais, gêneros e regiões?</li>
+            </ul>
+          </article>
+        </div>
+      </details>
+
+      <p class="semester-note">As manchetes foram selecionadas para o semestre 2026.2. O professor poderá substituí-las por notícias mais recentes, preservando o roteiro de análise.</p>
     </div>
   </section>
 
