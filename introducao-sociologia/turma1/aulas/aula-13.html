@@ -85,6 +85,25 @@
     .base-toc ol { width: auto; columns: auto; padding-left: 0; list-style-position: inside; }
     .tl-item { flex-direction: column; gap: 8px; }
   }
+
+  /* activity-materials-2026-2 */
+  .activity-card h3 { color: var(--teal-lt); font-size: 1.05rem; margin: 0 0 12px; }
+  .activity-card h4 { color: var(--amber-lt); margin: 18px 0 8px; }
+  .activity-card ol, .activity-card ul { padding-left: 22px; margin: 10px 0; }
+  .activity-card li { margin: 7px 0; }
+  .material-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 15px 17px; margin: 14px 0; break-inside: avoid; }
+  .matrix-region { max-width: 100%; overflow-x: auto; }
+  .material-box table { width: 100%; min-width: 680px; table-layout: fixed; border-collapse: collapse; font-size: .82rem; }
+  .material-box caption { color: var(--text); text-align: left; font-weight: 700; padding-bottom: 8px; }
+  .material-box th, .material-box td { border: 1px solid var(--border); padding: 8px; text-align: left; vertical-align: top; overflow-wrap: anywhere; }
+  .material-box tbody td { height: 68px; background: var(--bg); }
+  .material-box th { color: var(--amber-lt); background: var(--card); }
+  .teacher-guidance { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-top: 18px; }
+  .teacher-guidance summary { cursor: pointer; color: var(--amber-lt); font-weight: 700; padding: 15px 17px; }
+  .teacher-guidance[open] summary { border-bottom: 1px solid var(--border); }
+  .teacher-guidance-content { padding: 16px 18px; }
+  @media (max-width: 640px) { .material-box { padding: 12px; } }
+  @media print { nav, .section-nav { position: static; } .material-box, .teacher-guidance, .material-box tr { break-inside: avoid; } .matrix-region { overflow: visible; } .material-box table { min-width: 0; font-size: 8pt; } }
 </style>
 </head>
 <body>
@@ -103,125 +122,189 @@
 <main>
   <div class="aula-header">
     <div class="header-meta">
-      <span class="bloco-badge">Bloco II — Pensamento Clássico</span>
-      <span class="meta-chip">Aula 13</span>
-      <span class="meta-chip">Encontro 7 · Parte 1 de 2</span>
-      <span class="meta-chip">21/10/2026 — Quarta-feira</span>
-      <span class="meta-chip">Percurso completo do encontro: 4 horas-aula</span>
-      <span class="meta-chip">Esta página: aproximadamente 2 horas</span>
+      <span class="bloco-badge">Bloco II — Pensamento Clássico</span><span class="meta-chip">Aula 13</span><span class="meta-chip">Encontro 7 · Parte 1 de 2</span><span class="meta-chip">21/10/2026 — Quarta-feira</span><span class="meta-chip">Percurso completo do encontro: 4 horas-aula</span><span class="meta-chip">Esta página: aproximadamente 2 horas</span>
     </div>
     <h1>Comparação entre Durkheim, Marx e Weber: convergências e divergências teóricas.</h1>
   </div>
 
-  <section id="objetivos">
-    <div class="section-title">Objetivos de Aprendizagem</div>
-    <ul class="obj-list">
-      <li>Comparar as três abordagens clássicas quanto à concepção de sociedade, método científico e teoria da mudança social.</li>
-      <li>Identificar convergências e divergências teóricas entre Durkheim, Marx e Weber.</li>
-      <li>Construir uma síntese comparativa que permita situar cada autor no campo da teoria sociológica.</li>
-      <li>Preparar-se para a orientação do seminário avaliativo na próxima aula.</li>
-    </ul>
+  <section id="objetivos"><div class="section-title">Objetivos de Aprendizagem</div><ul class="obj-list">
+    <li>Comparar problemas, conceitos, métodos e escalas de análise nas obras de Durkheim, Marx e Weber.</li>
+    <li>Mobilizar as três abordagens diante de um mesmo fenômeno sem reduzi-las a etiquetas ou respostas excludentes.</li>
+    <li>Distinguir comparação analítica, complementaridade possível e mistura conceitual indiscriminada.</li>
+    <li>Construir uma síntese comparativa que sustente a escolha de referenciais para uma investigação sociológica.</li>
+  </ul></section>
+
+  <section id="conteudo-programatico"><div class="section-title">Conteúdo Programático</div>
+    <div class="content-topic"><h3>1. Comparar perguntas e objetos</h3><ul><li>Modernidade, diferenciação, capitalismo e racionalização como problemas históricos</li><li>Fato social, relações de produção e ação social como recortes analíticos distintos</li><li>Explicação, crítica e compreensão causalmente orientada</li></ul></div>
+    <div class="content-topic"><h3>2. Conceitos, métodos e escalas</h3><ul><li>Durkheim: coerção, integração, regulação e comparação</li><li>Marx: produção social, contradição, classe e transformação histórica</li><li>Weber: sentido, tipo ideal, dominação e racionalização</li></ul></div>
+    <div class="content-topic"><h3>3. Comparação sem caricaturas</h3><ul><li>Convergências, divergências e limites de aplicação</li><li>Um mesmo fenômeno, perguntas e evidências diferentes</li><li>Articulação controlada sem apagar incompatibilidades</li></ul></div>
   </section>
 
-  <section id="conteudo-programatico">
-    <div class="section-title">Conteúdo Programático</div>
-    <div class="content-topic">
-      <h3>1. Convergências entre os três clássicos</h3>
-      <ul>
-        <li>Todos respondem ao problema da modernidade industrial e da crise das sociedades tradicionais</li>
-        <li>Todos buscam constituir a sociologia como ciência rigorosa com método próprio</li>
-        <li>Todos analisam, mesmo que diferentemente, as tensões entre coesão e conflito social</li>
-      </ul>
+  <section id="texto-base" aria-labelledby="texto-base-title"><div class="section-title" id="texto-base-title">Texto-base para acompanhamento da aula</div><div class="base-text">
+    <p class="base-intro">Comparar teorias não é procurar um vencedor nem encaixar cada autor numa palavra. O percurso parte de um problema comum, reconstrói perguntas diferentes e examina o que cada abordagem permite ver.</p>
+    <nav class="base-toc" aria-label="Sumário do texto-base"><h3>Nesta leitura</h3><ol>
+      <li><a href="#comparar-perguntas">Comparar perguntas, não slogans</a></li><li><a href="#horizonte-moderno">Um horizonte histórico compartilhado</a></li><li><a href="#durkheim-comparacao">Durkheim: regras, integração e diferenciação</a></li><li><a href="#marx-comparacao">Marx: produção, classe e contradição</a></li><li><a href="#weber-comparacao">Weber: sentidos, ordens e racionalização</a></li><li><a href="#caso-permanencia">Um fenômeno comum: permanência universitária</a></li><li><a href="#metodos-evidencias">Métodos, evidências e escalas</a></li><li><a href="#articular-limitar">Articular sem misturar</a></li><li><a href="#sintese-comparativa">Síntese e passagem ao projeto</a></li>
+    </ol></nav>
+
+    <div class="base-subsection" id="comparar-perguntas"><h3>1. Comparar perguntas, não slogans</h3>
+      <p>Durkheim, Marx e Weber são chamados clássicos não porque tenham produzido um dicionário definitivo da sociedade, mas porque formularam problemas, conceitos e procedimentos que ainda organizam debates. Uma comparação rigorosa começa antes das respostas: pergunta o que cada autor pretende explicar, qual unidade de análise constrói e que evidências consideraria pertinentes. Se começarmos pelas etiquetas “coesão”, “conflito” e “ação”, perdemos justamente o trabalho teórico que tornou essas categorias significativas.</p>
+      <p>Uma teoria não é uma opinião sobre qualquer assunto. Ela seleciona relações e propõe conexões que precisam ser reconstruídas. O fato social durkheimiano não equivale a tudo que é coletivo; a classe em Marx não é apenas uma faixa de renda; a ação social em Weber não é qualquer escolha individual. Cada conceito responde a uma pergunta e inclui critérios de aplicação. Comparar exige conservar esses critérios antes de aproximar os autores.</p>
+      <p>Também não basta compilar três pequenos resumos. Uma boa comparação estabelece um eixo comum — por exemplo, como se produz e se transforma uma ordem social — e observa respostas distintas. Em certos pontos, os diagnósticos podem convergir; em outros, partem de pressupostos incompatíveis ou enfatizam mecanismos diferentes. Convergência não significa identidade, divergência não significa que apenas um possa contribuir.</p>
+      <p>Essa postura evita dois erros opostos. O primeiro é a competição escolar em que cada autor oferece uma resposta completa e o estudante escolhe sua preferência. O segundo é a mistura indiscriminada, na qual qualquer conceito pode ser combinado sem justificar escala, método ou significado. Comparar é construir relações controladas: explicitar o eixo, respeitar diferenças e indicar limites.</p>
+      <p>O vocabulário da comparação precisa acompanhar esse cuidado. Dizer que um autor “enfatiza” determinada relação não significa que ignore todas as outras; afirmar que duas análises “convergem” num diagnóstico não significa que compartilhem método ou fundamento. Termos como contraste, aproximação e incompatibilidade devem vir acompanhados do aspecto preciso a que se referem.</p>
+      <aside class="pause-box"><h4>Pausa 1 — antes das respostas</h4><p>Ao analisar evasão universitária, que diferença existe entre perguntar “que regra perdeu força?”, “que relações produzem a dificuldade?” e “que sentidos orientam a decisão de sair”?</p></aside>
     </div>
-    <div class="content-topic">
-      <h3>2. Divergências metodológicas</h3>
-      <ul>
-        <li>Durkheim: positivismo, fatos sociais externos e coercitivos, método comparativo</li>
-        <li>Marx: materialismo histórico-dialético, crítica da ideologia, primado da prática</li>
-        <li>Weber: método compreensivo (Verstehen), tipos ideais, neutralidade axiológica</li>
-      </ul>
+
+    <div class="base-subsection" id="horizonte-moderno"><h3>2. Um horizonte histórico compartilhado</h3>
+      <p>Os três autores escreveram diante de transformações associadas à expansão capitalista, industrialização, urbanização, formação dos Estados nacionais e reorganização de instituições. Esse horizonte compartilhado não produz uma única “teoria da modernidade”. Marx nasceu antes de Durkheim e Weber e escreveu em conjunturas políticas diferentes; Durkheim procurou consolidar a Sociologia acadêmica na França; Weber participou de debates históricos e econômicos no espaço alemão. Contextos próximos não eliminam trajetórias intelectuais distintas.</p>
+      <p>Todos recusam a ideia de que a sociedade seja simples soma de vontades isoladas. Marx examina relações sociais de produção que precedem indivíduos concretos. Durkheim trata maneiras coletivas de agir e pensar como realidades que não se reduzem a consciências particulares. Weber parte da ação dotada de sentido, mas investiga relações, ordens, organizações, dominação e processos históricos. Nenhum deles cabe na oposição “sociedade versus indivíduo”.</p>
+      <p>Há ainda interesse comum pela mudança. Durkheim estuda passagem entre formas de solidariedade e problemas de regulação; Marx analisa contradições em modos de produção e práticas transformadoras; Weber reconstrói processos de racionalização que alteram religião, economia, direito e administração. Nenhum processo é uma cronologia automática. Diferenciação pode gerar cooperação e anomia; contradições abrem possibilidades cujo resultado depende de ação histórica; racionalização produz capacidades e restrições sem destino previamente garantido.</p>
+      <p>Chamar os três de fundadores não apaga interlocutores, movimentos políticos, pesquisadoras e tradições que participaram da constituição das ciências sociais. O cânone é uma seleção histórica. Nesta aula, a comparação possui função delimitada: consolidar ferramentas estudadas nas Aulas 06–12 e preparar escolhas teóricas mais conscientes, não contar toda a história da disciplina.</p>
     </div>
-    <div class="content-topic">
-      <h3>3. Divergências substantivas</h3>
-      <ul>
-        <li>Religião: função integradora (Durkheim) vs. alienação/ideologia (Marx) vs. motor da racionalização (Weber)</li>
-        <li>Classes sociais: estratificação funcional vs. antagonismo estrutural vs. multidimensionalidade (classe, status, partido)</li>
-        <li>Transformação social: reforma moral vs. revolução vs. racionalização inexorável</li>
-      </ul>
+
+    <div class="base-subsection" id="durkheim-comparacao"><h3>3. Durkheim: regras, integração e diferenciação</h3>
+      <p>Durkheim pergunta como estudar fatos sociais e como sociedades diferenciadas mantêm vínculos. Exterioridade e coerção indicam que língua, direito, calendário e regras educacionais existem antes de cada participante e orientam condutas. Coerção não significa apenas punição visível: expectativas e classificações podem ser incorporadas. A investigação deve tratar esses fatos como coisas, suspendendo explicações imediatas e buscando causas sociais em outros fatos sociais.</p>
+      <p>Sua análise da divisão do trabalho não afirma que toda diferença seja funcional ou justa. A especialização pode ampliar interdependência e solidariedade orgânica, mas formas anômicas ou forçadas revelam falta de regulação e desigualdade nas condições de acesso às posições. Integração e regulação são problemas empíricos: podem ser insuficientes ou excessivas, e seus efeitos variam.</p>
+      <p>O método comparativo procura variações regulares entre fenômenos. Para estudar permanência universitária, uma pergunta durkheimiana poderia comparar regras, vínculos coletivos e taxas de abandono entre cursos ou períodos. A análise observaria como calendário, avaliação, pertencimento e serviços acadêmicos integram e regulam estudantes. Depoimentos individuais ajudam, mas não substituem a comparação de padrões coletivos.</p>
+      <p>O ganho é revelar propriedades institucionais que não aparecem quando cada saída é narrada como decisão privada. O limite surge se “integração” vira sinônimo de harmonia desejável ou se desigualdades são justificadas por sua suposta função. Conflitos e coerções também pertencem ao objeto durkheimiano; sua abordagem não deve ser usada para naturalizar a ordem existente.</p>
+      <p>A normalidade, em Durkheim, também não equivale a aprovação moral. Um fenômeno pode ser recorrente em certo tipo social e ainda suscitar investigação sobre suas formas patológicas. Essa distinção impede concluir que frequência estatística seja sinônimo de justiça ou que toda reforma represente desorganização.</p>
+      <aside class="pause-box"><h4>Pausa 2 — vínculo e coerção</h4><p>Uma regra de frequência pode integrar estudantes a uma rotina e, ao mesmo tempo, afastar quem trabalha. Que comparações permitiriam investigar ambos os efeitos?</p></aside>
     </div>
+
+    <div class="base-subsection" id="marx-comparacao"><h3>4. Marx: produção, classe e contradição</h3>
+      <p>Marx desloca a análise para a produção social da existência. Pessoas produzem meios de vida em relações historicamente determinadas, com forças produtivas e relações de produção que constituem modos de produção. A economia não é esfera isolada que movimenta mecanicamente política e consciência. Direito, Estado, instituições e formas de representação participam da reprodução e da transformação dessas relações.</p>
+      <p>No capitalismo, propriedade dos meios de produção, venda da força de trabalho e apropriação do excedente estruturam posições de classe. Burguesia e proletariado são relações objetivas, não sinônimos de ricos e pobres. Renda, profissão, identificação e consciência de classe podem se relacionar sem coincidir. As classes se formam historicamente por experiências, organização e conflito, não apenas por uma tabela administrativa.</p>
+      <p>Para examinar permanência universitária, uma análise marxiana pode perguntar como trabalho assalariado, distribuição de recursos e mercantilização da educação condicionam tempo, moradia, transporte e alimentação. Também perguntaria quem produz serviços universitários, como são financiados e quais grupos conseguem converter formação em oportunidades. O abandono não seria deduzido automaticamente da classe: estudantes em posições próximas podem agir de modos diferentes.</p>
+      <p>Contradição designa tensões internas às relações sociais, não qualquer discordância. A universidade pode prometer acesso universal enquanto sua organização pressupõe disponibilidade de tempo e recursos desigualmente distribuídos. Essa tensão pode ser administrada, naturalizada ou politizada. Transformação depende de práticas em condições herdadas, e não de uma conclusão garantida.</p>
+    </div>
+
+    <div class="base-subsection" id="weber-comparacao"><h3>5. Weber: sentidos, ordens e racionalização</h3>
+      <p>Weber define a Sociologia pela interpretação do sentido visado e pela explicação causal do curso e dos efeitos da ação. Isso não reduz a análise à psicologia. Sentidos são reconstruídos por declarações, documentos, condutas e contextos; ações orientam-se por outras pessoas e ocorrem em ordens que distribuem recursos e expectativas. Compreender não é concordar nem acessar diretamente uma consciência interior.</p>
+      <p>Tipos ideais acentuam traços para comparação. Ações orientadas a fins, valores, afetos ou tradições podem combinar-se; burocracia reúne cargos, competências, hierarquia, regras e registros sem descrever perfeitamente toda organização. A racionalização amplia cálculo e previsibilidade, mas não equivale a progresso. Racionalidade formal pode entrar em tensão com necessidades substantivas.</p>
+      <p>Diante da permanência, Weber permitiria perguntar que sentidos estudantes atribuem ao diploma, ao trabalho e à saída; como antecipam reações familiares ou institucionais; e como procedimentos burocráticos tornam decisões previsíveis ou inacessíveis. Também caberia examinar poder, legitimidade e conhecimento especializado na concessão de bolsas. A escala vai da orientação da ação ao funcionamento da organização.</p>
+      <p>O ganho é reconstruir motivos sem tratá-los como causas suficientes e analisar efeitos não pretendidos. Uma plataforma criada para facilitar matrícula pode intensificar disciplina por prazos e registros; uma bolsa concebida como direito pode ser vivida como favor. O limite aparece quando relatos são aceitos sem confronto com condições objetivas ou quando tipos ideais viram etiquetas para pessoas.</p>
+      <aside class="pause-box"><h4>Pausa 3 — motivos e condições</h4><p>Se uma estudante diz que saiu porque “não se identificou”, quais evidências ajudariam a reconstruir esse sentido e quais condições institucionais ainda precisariam ser examinadas?</p></aside>
+    </div>
+
+    <div class="base-subsection" id="caso-permanencia"><h3>6. Um fenômeno comum: permanência universitária</h3>
+      <p>Considere uma universidade que amplia vagas noturnas. Muitos ingressantes trabalham, dependem de transporte intermunicipal e são os primeiros da família no ensino superior. O currículo exige atividades diurnas; pedidos de auxílio passam por sistema digital; estudantes organizam uma mobilização após atrasos no pagamento. Alguns permanecem por compromisso profissional, outros interrompem temporariamente o curso e outros abandonam sem formalizar a saída.</p>
+      <p>Durkheim pode orientar comparações entre regras, integração e padrões de abandono. Marx pode relacionar tempo de estudo, trabalho e distribuição material de recursos. Weber pode reconstruir sentidos da permanência e analisar a administração dos auxílios. Essas perguntas não são paráfrases do que os autores disseram sobre universidades atuais; são aplicações contemporâneas de ferramentas conceituais.</p>
+      <p>As abordagens selecionam evidências diferentes. Taxas por curso e turno ajudam a localizar padrões; orçamento e contratos mostram condições de produção dos serviços; regulamentos explicitam deveres; entrevistas revelam orientações; observação acompanha interações. Uma fonte pode servir a várias perguntas, mas muda de função conforme o argumento. Um relato não comprova uma taxa, e uma taxa não reconstrói sozinha um motivo.</p>
+      <p>O caso também impede soluções rápidas. “Falta de integração”, “exploração” ou “racionalidade burocrática” não podem ser proclamadas sem mediações. É preciso mostrar mecanismos e variações. A comparação é mais forte quando cada grupo formula uma hipótese, indica evidência capaz de contrariá-la e reconhece o que permanece sem explicação.</p>
+      <p>Suponha, por exemplo, que o abandono seja maior entre estudantes que trabalham. A associação orienta novas perguntas, mas não demonstra sozinha mecanismo causal. Horários incompatíveis, renda, cuidado, deslocamento, expectativas profissionais e experiências de pertencimento podem participar de combinações diferentes. Os conceitos ajudam a organizar a investigação dessas mediações.</p>
+    </div>
+
+    <div class="base-subsection" id="metodos-evidencias"><h3>7. Métodos, evidências e escalas</h3>
+      <p>Não existe correspondência simples entre autor e técnica. Durkheim usou comparação e estatísticas, mas também documentos; Marx trabalhou com economia política, história e conflitos concretos; Weber mobilizou interpretação documental e comparação histórica. Questionários, entrevistas, observação e arquivos não pertencem exclusivamente a uma teoria. O vínculo metodológico aparece na pergunta, nos conceitos e no modo de relacionar evidências.</p>
+      <p>Escalas precisam ser explicitadas. Uma decisão de abandonar o curso ocorre numa biografia, numa organização e num mercado de trabalho. Explicar em uma escala não elimina as demais. O problema surge quando uma conclusão individual é generalizada para a instituição ou quando uma estrutura ampla é usada para deduzir cada conduta particular.</p>
+      <p>Também importa distinguir explicação e julgamento. Constatar que uma regra aumenta previsibilidade não decide se ela é justa. Mostrar desigualdade de recursos não determina sozinho uma estratégia política. Reconstruir convicções não as torna verdadeiras. Teoria orienta análise empírica; escolhas normativas precisam ser assumidas e argumentadas.</p>
+      <p>Uma comparação produtiva termina com perguntas melhores. Quais relações se repetem? Que sentidos variam? Como regras distribuem possibilidades? Que processo histórico formou a situação? Que consequência não foi pretendida? Em vez de acumular nomes, o estudante aprende a escolher um recorte e justificar por que determinado conceito é adequado.</p>
+      <p>Esse procedimento também organiza a discordância em sala. Grupos podem propor explicações diferentes sem transformar o debate em preferência pessoal. Precisam localizar o ponto de divergência: definição do conceito, seleção das evidências, mecanismo causal, escala ou julgamento normativo. A discordância então produz uma agenda de investigação.</p>
+    </div>
+
+    <div class="base-subsection" id="articular-limitar"><h3>8. Articular sem misturar</h3>
+      <p>É possível articular abordagens quando o problema exige dimensões distintas. Uma pesquisa pode comparar taxas de abandono, examinar condições de trabalho e entrevistar estudantes. Isso não cria automaticamente uma síntese entre Durkheim, Marx e Weber. O pesquisador deve dizer qual conceito organiza cada etapa, como os resultados se relacionam e onde pressupostos permanecem diferentes.</p>
+      <p>A comparação também revela ausências. Os clássicos escreveram em sociedades marcadas por colonialismo e desigualdades de gênero e raça que nem sempre receberam tratamento suficiente em suas obras. Mobilizá-los hoje exige perguntar o que seus conceitos iluminam e o que demanda outras tradições. Reconhecer limite não invalida uma ferramenta; impede sua universalização indevida.</p>
+      <p>Outro cuidado é não projetar posições contemporâneas nos autores. Durkheim não é defensor de toda instituição; Marx não explica qualquer conflito como luta de classes; Weber não afirma que toda ação seja cálculo. Uma leitura rigorosa reconstrói argumentos antes de aplicá-los e identifica como interpretações posteriores ampliaram ou disputaram seu alcance.</p>
+      <p>Na prática acadêmica, essa disciplina aparece na escrita: definir o conceito, formular a pergunta, apresentar evidência, desenvolver a inferência e registrar a limitação. A atividade desta aula transforma esse caminho em uma matriz comparativa. Seu produto não será um placar, mas três hipóteses sobre o mesmo caso e uma decisão argumentada sobre possíveis articulações.</p>
+      <aside class="pause-box"><h4>Pausa 4 — limite produtivo</h4><p>Qual dimensão do caso universitário permanece pouco explicada pelas três leituras apresentadas e que nova pergunta deveria ser formulada?</p></aside>
+    </div>
+
+    <div class="base-subsection" id="sintese-comparativa"><h3>9. Síntese e passagem ao projeto</h3>
+      <p>Durkheim, Marx e Weber compartilham o esforço de explicar sociedades historicamente transformadas, mas constroem objetos diferentes. Durkheim investiga fatos sociais, integração, regulação e diferenciação; Marx analisa produção social, classe, contradição e práxis; Weber interpreta ações e explica seus efeitos em relações, ordens e processos de racionalização. Nenhuma sequência reduz um autor a uma palavra.</p>
+      <p>Comparar significa perguntar com cada perspectiva, não recitar respostas prontas. O mesmo fenômeno universitário pode revelar padrões institucionais, relações materiais e orientações de sentido. As leituras podem dialogar desde que conceitos, escalas e evidências sejam explicitados. Quando incompatibilidades aparecem, devem permanecer visíveis.</p>
+      <p>A próxima aula muda de função. Em vez de acrescentar outra teoria clássica, converterá uma inquietação em projeto de investigação: tema, recorte, pergunta, conceitos, fontes e divisão de trabalho. A comparação realizada aqui oferece um critério decisivo para o seminário: o referencial não será escolhido por afinidade pessoal com um autor, mas pela relação demonstrável entre problema, conceito e evidência.</p>
+    </div>
+  </div></section>
+
+  <section id="plano-aula"><div class="section-title">Plano de Aula com Tempo</div><div class="timeline">
+    <div class="tl-item"><span class="tl-duration">10 min</span><span class="tl-text"><strong>Retomada</strong> — Conceitos indispensáveis das Aulas 06–12 e critérios para comparar.</span></div>
+    <div class="tl-item"><span class="tl-duration">30 min</span><span class="tl-text"><strong>Exposição comparativa</strong> — Problemas, métodos e escalas nos três autores.</span></div>
+    <div class="tl-item"><span class="tl-duration">20 min</span><span class="tl-text"><strong>Leitura orientada do caso</strong> — Permanência universitária e seleção das evidências.</span></div>
+    <div class="tl-item"><span class="tl-duration">35 min</span><span class="tl-text"><strong>Oficina da matriz</strong> — Três hipóteses, limites e articulação controlada.</span></div>
+    <div class="tl-item"><span class="tl-duration">15 min</span><span class="tl-text"><strong>Socialização</strong> — Comparação das matrizes por pergunta, evidência e limite.</span></div>
+    <div class="tl-item"><span class="tl-duration">10 min</span><span class="tl-text"><strong>Síntese e transição</strong> — Do referencial comparado ao projeto do seminário.</span></div>
+  </div></section>
+
+  <section id="leituras"><div class="section-title">Textos para Leitura Prévia</div>
+    <div class="ref-card"><div class="ref-author">QUINTANEIRO, Tania; BARBOSA, Maria Ligia de Oliveira; OLIVEIRA, Márcia Gardênia Monteiro de</div><div class="ref-title"><em>Um toque de clássicos: Marx, Durkheim e Weber</em>. 2. ed. rev. ampl. Belo Horizonte: Editora UFMG, 2002.</div><div class="ref-pages">Conclusão. Sem paginação indicada nesta página.</div></div>
+    <div class="ref-card"><div class="ref-author">COHN, Gabriel</div><div class="ref-title"><em>Sociologia: para ler os clássicos</em> — Introdução.</div><div class="ref-pages">Leitura comparativa recomendada; consultar a edição disponível.</div></div>
   </section>
 
-  <section id="texto-base" aria-labelledby="texto-base-title">
-    <div class="section-title" id="texto-base-title">Texto-base para acompanhamento da aula</div>
-    <div class="base-text">
-      <p class="base-intro">Leitura de apoio para a exposição, a discussão e a retomada dos conceitos. As pausas podem ser realizadas oralmente, em duplas ou por registro breve.</p>
-      <nav class="base-toc" aria-label="Sumário do texto-base"><h3>Nesta leitura</h3><ol><li><a href="#texto-problema">Uma pergunta para abrir: O que muda quando a mesma desigualdade é observada por Durkheim, Marx e Weber?</a></li><li><a href="#texto-contexto">Localizar o problema histórica e conceitualmente</a></li><li><a href="#texto-1-convergencias-entre-os-tres-classicos">Convergências entre os três clássicos</a></li><li><a href="#texto-2-divergencias-metodologicas">Divergências metodológicas</a></li><li><a href="#texto-3-divergencias-substantivas">Divergências substantivas</a></li><li><a href="#texto-aplicacao">Aplicação e trabalho com evidências</a></li><li><a href="#texto-cuidados">Distinções, limites e cuidados conceituais</a></li><li><a href="#texto-sintese">Síntese e passagem para a próxima aula</a></li></ol></nav>
-      <div class="base-subsection" id="texto-problema"><h3>1. Uma pergunta para abrir: O que muda quando a mesma desigualdade é observada por Durkheim, Marx e Weber?</h3><p><strong>O que muda quando a mesma desigualdade é observada por Durkheim, Marx e Weber?</strong> Essa pergunta organiza a Aula 13, dedicada a comparação entre durkheim, marx e weber: convergências e divergências teóricas. Ela parte de uma dificuldade reconhecível: o cotidiano nos oferece respostas rápidas, mas essas respostas frequentemente transformam costumes históricos em fatos naturais ou atribuem a indivíduos fenômenos produzidos por relações mais amplas.</p><p>Pensemos em um debate em que três equipes explicam o mesmo fenômeno por caminhos incompatíveis. A cena pode ser descrita de muitas maneiras, porém a descrição sociológica pergunta quem participa, quais posições ocupa, que regras orientam a conduta, como essas regras foram formadas e quais consequências recaem de modo desigual sobre os envolvidos. O exemplo funciona como porta de entrada; não substitui a análise nem autoriza generalizações sobre todos os casos.</p><p>Os objetivos do roteiro apontam o percurso: Comparar as três abordagens clássicas quanto à concepção de sociedade, método científico e teoria da mudança social. Identificar convergências e divergências teóricas entre Durkheim, Marx e Weber. Construir uma síntese comparativa que permita situar cada autor no campo da teoria sociológica. Preparar-se para a orientação do seminário avaliativo na próxima aula. Em vez de tratar essas metas como itens separados, o texto as encadeia. Definir permite observar; contextualizar evita anacronismos; comparar explicita diferenças; aplicar conceitos exige evidências; e discutir limites impede que uma teoria se torne resposta automática para qualquer problema.</p><p>O olhar sociológico começa quando suspendemos por um momento a resposta evidente. Isso não significa abandonar conhecimentos cotidianos, mas interrogá-los. O senso comum é uma orientação prática compartilhada, indispensável à vida; a investigação sociológica, por sua vez, precisa explicitar procedimentos, conceitos e fontes, aceitar contestação e distinguir aquilo que sabe daquilo que apenas supõe.</p><aside class="pause-box"><h4>Pausa para discussão</h4><p>Que resposta de senso comum aparece primeiro diante da pergunta de abertura? Que informação seria necessária para testá-la sociologicamente?</p></aside></div><div class="base-subsection" id="texto-contexto"><h3>2. Localizar o problema histórica e conceitualmente</h3><p>Nenhum conceito desta aula surgiu fora do tempo. O problema de comparação entre durkheim, marx e weber: convergências e divergências teóricas. deve ser ligado às transformações históricas, aos debates intelectuais e às experiências coletivas que lhe deram forma. Contextualizar não é decorar datas ou biografias: é compreender por que certas perguntas se tornaram relevantes e por que respostas concorrentes foram formuladas.</p><p>A Sociologia trabalha numa tensão produtiva entre continuidade e mudança. Pessoas recebem instituições, linguagens e classificações já existentes, mas as reproduzem, interpretam e contestam em circunstâncias novas. Por isso, uma explicação não pode escolher simplesmente entre indivíduo e sociedade. Ela precisa mostrar por quais relações uma experiência singular se conecta a padrões, conflitos e processos históricos.</p><p>As leituras indicadas no roteiro — Quintaneiro, Tania; Barbosa, Maria Ligia; Oliveira, Márcia Um toque de clássicos — Conclusão p. 151–170 Cohn, Gabriel Sociologia: para ler os clássicos — Introdução Introdução — servem de apoio a essa reconstrução. Elas não devem ser convertidas em frases de autoridade. O procedimento mais seguro é paráfrase responsável: apresentar o problema do autor, reconstruir seu argumento e indicar como ele ajuda a ler o conteúdo da aula, sem criar citações literais, páginas ou conclusões que o material não confirme.</p><p>Também é necessário separar três planos. A explicação de um autor reconstrói seus conceitos nos termos do problema que ele enfrentou. A contextualização histórica situa as condições de produção e circulação dessas ideias. A aplicação contemporânea é uma operação nossa, que testa a fecundidade do conceito em outro cenário. Misturar os planos produz anacronismos e faz parecer que o autor comentou diretamente fatos que não conheceu.</p></div><div class="base-subsection" id="texto-1-convergencias-entre-os-tres-classicos"><h3>3. Convergências entre os três clássicos</h3><p>O 1º movimento do argumento concentra-se em <strong>Convergências entre os três clássicos</strong>. O roteiro associa esse núcleo a Todos respondem ao problema da modernidade industrial e da crise das sociedades tradicionais; Todos buscam constituir a sociologia como ciência rigorosa com método próprio; Todos analisam, mesmo que diferentemente, as tensões entre coesão e conflito social. A enumeração, porém, ganha sentido apenas quando percebemos as relações entre seus componentes. Conceitos sociológicos não são etiquetas aplicadas depois que um fato acontece: eles selecionam dimensões do problema, orientam comparações e indicam quais evidências precisam ser procuradas.</p><p>Para acompanhar a exposição, convém avançar em três passos. Primeiro, identificar o fenômeno e o contexto em que ele ocorre. Segundo, perguntar quais relações, regras, recursos e significados o tornam possível. Terceiro, comparar situações para descobrir o que permanece e o que muda. Aplicado a convergências entre os três clássicos, esse procedimento impede que uma impressão isolada seja apresentada como explicação geral e ajuda a ligar experiência, história e organização social.</p><p>Os elementos Todos respondem ao problema da modernidade industrial e da crise das sociedades tradicionais; Todos buscam constituir a sociologia como ciência rigorosa com método próprio; Todos analisam, mesmo que diferentemente, as tensões entre coesão e conflito social não devem ser lidos como sinônimos. Cada um ilumina uma dimensão própria, embora possa se articular aos demais. A tarefa analítica consiste em dizer onde começa e termina cada conceito, qual problema ele responde e que tipo de evidência sustentaria sua aplicação. Em sala, o professor pode retomar um exemplo do conteúdo programático e pedir que a turma mostre exatamente qual característica autoriza a classificação proposta.</p><p>Esse cuidado também torna a leitura mais acessível. Em vez de memorizar uma definição abstrata, o estudante reconstrói o caminho do argumento: observa uma situação, reconhece um padrão, formula uma pergunta e testa uma interpretação. O resultado não precisa ser uma resposta definitiva. Uma hipótese sociológica é valiosa quando explicita seus critérios, admite comparação e pode ser revista diante de informações melhores.</p></div><div class="base-subsection" id="texto-2-divergencias-metodologicas"><h3>4. Divergências metodológicas</h3><p>O 2º movimento do argumento concentra-se em <strong>Divergências metodológicas</strong>. O roteiro associa esse núcleo a Durkheim: positivismo, fatos sociais externos e coercitivos, método comparativo; Marx: materialismo histórico-dialético, crítica da ideologia, primado da prática; Weber: método compreensivo (Verstehen), tipos ideais, neutralidade axiológica. A enumeração, porém, ganha sentido apenas quando percebemos as relações entre seus componentes. Conceitos sociológicos não são etiquetas aplicadas depois que um fato acontece: eles selecionam dimensões do problema, orientam comparações e indicam quais evidências precisam ser procuradas.</p><p>Para acompanhar a exposição, convém avançar em três passos. Primeiro, identificar o fenômeno e o contexto em que ele ocorre. Segundo, perguntar quais relações, regras, recursos e significados o tornam possível. Terceiro, comparar situações para descobrir o que permanece e o que muda. Aplicado a divergências metodológicas, esse procedimento impede que uma impressão isolada seja apresentada como explicação geral e ajuda a ligar experiência, história e organização social.</p><p>Os elementos Durkheim: positivismo, fatos sociais externos e coercitivos, método comparativo; Marx: materialismo histórico-dialético, crítica da ideologia, primado da prática; Weber: método compreensivo (Verstehen), tipos ideais, neutralidade axiológica não devem ser lidos como sinônimos. Cada um ilumina uma dimensão própria, embora possa se articular aos demais. A tarefa analítica consiste em dizer onde começa e termina cada conceito, qual problema ele responde e que tipo de evidência sustentaria sua aplicação. Em sala, o professor pode retomar um exemplo do conteúdo programático e pedir que a turma mostre exatamente qual característica autoriza a classificação proposta.</p><p>Esse cuidado também torna a leitura mais acessível. Em vez de memorizar uma definição abstrata, o estudante reconstrói o caminho do argumento: observa uma situação, reconhece um padrão, formula uma pergunta e testa uma interpretação. O resultado não precisa ser uma resposta definitiva. Uma hipótese sociológica é valiosa quando explicita seus critérios, admite comparação e pode ser revista diante de informações melhores.</p></div><div class="base-subsection" id="texto-3-divergencias-substantivas"><h3>5. Divergências substantivas</h3><p>O 3º movimento do argumento concentra-se em <strong>Divergências substantivas</strong>. O roteiro associa esse núcleo a Religião: função integradora (Durkheim) vs. alienação/ideologia (Marx) vs. motor da racionalização (Weber); Classes sociais: estratificação funcional vs. antagonismo estrutural vs. multidimensionalidade (classe, status, partido); Transformação social: reforma moral vs. revolução vs. racionalização inexorável. A enumeração, porém, ganha sentido apenas quando percebemos as relações entre seus componentes. Conceitos sociológicos não são etiquetas aplicadas depois que um fato acontece: eles selecionam dimensões do problema, orientam comparações e indicam quais evidências precisam ser procuradas.</p><p>Para acompanhar a exposição, convém avançar em três passos. Primeiro, identificar o fenômeno e o contexto em que ele ocorre. Segundo, perguntar quais relações, regras, recursos e significados o tornam possível. Terceiro, comparar situações para descobrir o que permanece e o que muda. Aplicado a divergências substantivas, esse procedimento impede que uma impressão isolada seja apresentada como explicação geral e ajuda a ligar experiência, história e organização social.</p><p>Os elementos Religião: função integradora (Durkheim) vs. alienação/ideologia (Marx) vs. motor da racionalização (Weber); Classes sociais: estratificação funcional vs. antagonismo estrutural vs. multidimensionalidade (classe, status, partido); Transformação social: reforma moral vs. revolução vs. racionalização inexorável não devem ser lidos como sinônimos. Cada um ilumina uma dimensão própria, embora possa se articular aos demais. A tarefa analítica consiste em dizer onde começa e termina cada conceito, qual problema ele responde e que tipo de evidência sustentaria sua aplicação. Em sala, o professor pode retomar um exemplo do conteúdo programático e pedir que a turma mostre exatamente qual característica autoriza a classificação proposta.</p><p>Esse cuidado também torna a leitura mais acessível. Em vez de memorizar uma definição abstrata, o estudante reconstrói o caminho do argumento: observa uma situação, reconhece um padrão, formula uma pergunta e testa uma interpretação. O resultado não precisa ser uma resposta definitiva. Uma hipótese sociológica é valiosa quando explicita seus critérios, admite comparação e pode ser revista diante de informações melhores.</p></div><div class="base-subsection" id="texto-aplicacao"><h3>6. Aplicação e trabalho com evidências</h3><p>O estudo de caso desta aula parte de um debate em que três equipes explicam o mesmo fenômeno por caminhos incompatíveis. A finalidade não é decidir depressa se o caso confirma a teoria. Antes, é decompor a situação: identificar atores, posições, recursos, normas, discursos, escalas de tempo e possíveis efeitos. Somente depois se pergunta quais conceitos do roteiro oferecem uma interpretação consistente e quais aspectos permanecem fora de alcance.</p><p>A atividade prevista ajuda a realizar essa passagem. Simulação de debate: &quot;O que explica a desigualdade social?&quot; (40 min) A turma é dividida em três grupos, cada um representando um dos clássicos: — Grupo Durkheim: a desigualdade é expressão da divisão funcional do trabalho; é problemática apenas quando anômica, ou seja, quando não corresponde a diferenças naturais de talento e mérito. — Grupo Marx: a desigualdade é estrutural e deriva da propriedade privada dos meios de produção e da exploração da mais-valia; só se resolve com a superação do modo de produção capitalista. — Grupo Weber: a desigualdade é multidimensional — classe (econômica), status (prestígio) e partido (poder político) são esferas relativamente autônomas que se articulam sem redução a um único fator. Cada grupo tem 10 minutos para elaborar seus argumentos (com base nos textos lidos) e 5 minutos para apresentar. O professor modera a confrontação entre as posições. O exercício ganha qualidade quando cada afirmação vem acompanhada de uma evidência observável ou de uma pergunta de pesquisa. Se a turma discorda, a divergência pode ser produtiva: os grupos devem indicar se usam conceitos diferentes, se selecionam evidências distintas ou se atribuem significados diferentes à mesma informação.</p><p>Uma aplicação contemporânea rigorosa também considera alternativas. O mesmo padrão pode resultar de processos distintos, e uma evidência pode ser compatível com mais de uma interpretação. Entrevistas esclarecem sentidos atribuídos pelos participantes, observação acompanha práticas, documentos mostram regras e justificativas, e dados quantitativos revelam distribuição e variação. Nenhuma técnica responde sozinha a todas as perguntas.</p><p>Ao apresentar o caso, é útil distinguir exemplo, ilustração e evidência. Um exemplo torna o conceito inteligível; uma ilustração aproxima o tema da experiência da turma; evidência é informação coletada e analisada por procedimento explícito. Confundir essas funções leva a tomar uma história convincente como prova suficiente. A Sociologia procura justamente controlar esse salto.</p><aside class="pause-box"><h4>Pausa para discussão</h4><p>Qual conceito da aula explica melhor o estudo de caso? Que aspecto do caso ele não consegue explicar sozinho?</p></aside></div><div class="base-subsection" id="texto-cuidados"><h3>7. Distinções, limites e cuidados conceituais</h3><p>O principal cuidado desta aula é comparar problemas, métodos e respostas sem fabricar uma concordância entre autores. A advertência não enfraquece o conteúdo; ela define seu alcance. Conceitos bons simplificam a realidade de maneira controlada. Quando aplicados fora de suas condições, perdem precisão e viram apenas palavras sofisticadas para confirmar uma opinião anterior.</p><p>Outra distinção necessária separa explicação causal, interpretação de sentidos e avaliação normativa. Podemos investigar por que algo acontece, compreender como os participantes lhe atribuem significado e discutir se suas consequências são desejáveis. São perguntas legítimas, mas não idênticas. Uma posição ética deve ser assumida com clareza, e não apresentada como se decorresse automaticamente de um dado ou de um autor.</p><p>A escala também importa. Uma interação em sala, uma organização, uma cidade, um Estado e um processo transnacional não funcionam do mesmo modo. O que aparece como escolha numa escala pode ser condicionado por regras em outra. Ao mudar a escala, mudam as evidências e às vezes muda a própria pergunta. Especificar tempo, lugar e grupo torna a análise menos grandiosa e mais verificável.</p><p>Por fim, diferenças internas precisam permanecer visíveis. Grupos sociais não são sujeitos homogêneos; instituições abrigam disputas; normas podem ser obedecidas, negociadas ou contestadas; identidades se cruzam. Evitar generalizações não significa abandonar padrões coletivos, mas explicar como eles se distribuem e por que não afetam todas as pessoas da mesma maneira.</p><aside class="pause-box"><h4>Pausa para discussão</h4><p>Que generalização apressada seria mais provável neste tema? Como reformulá-la para torná-la histórica, comparável e verificável?</p></aside></div><div class="base-subsection" id="texto-sintese"><h3>8. Síntese e passagem para a próxima aula</h3><p><strong>Síntese.</strong> A Aula 13 mostrou que comparação entre durkheim, marx e weber: convergências e divergências teóricas. deve ser estudado por meio de perguntas delimitadas, conceitos diferenciados e evidências adequadas. O problema de abertura conduziu da experiência cotidiana à contextualização, e os três núcleos do conteúdo programático foram articulados sem serem tratados como equivalentes.</p><p>Ao final, o estudante deve ser capaz de retomar as metas do roteiro com suas próprias palavras: Comparar as três abordagens clássicas quanto à concepção de sociedade, método científico e teoria da mudança social. Identificar convergências e divergências teóricas entre Durkheim, Marx e Weber. Construir uma síntese comparativa que permita situar cada autor no campo da teoria sociológica. Preparar-se para a orientação do seminário avaliativo na próxima aula. Esse domínio não se mede apenas pela lembrança de definições. Ele aparece quando alguém consegue reconhecer uma situação pertinente, justificar a escolha do conceito, propor uma evidência e indicar os limites da interpretação.</p><p>As pausas de discussão transformam a leitura em trabalho coletivo. Elas permitem que o professor interrompa a exposição, recolha hipóteses, identifique confusões e retome o argumento. A síntese pode ser concluída no quadro com quatro colunas — problema, conceito, evidência e limite — de modo que a turma visualize o caminho percorrido durante aproximadamente duas horas desta parte do encontro.</p><p>A passagem seguinte não reinicia o curso. Ela desloca a pergunta construída aqui para <strong>a orientação provisória da produção avaliativa</strong>. O que aprendemos nesta aula funcionará como condição para a próxima: conceitos serão retomados apenas quando necessários, agora diante de outro problema. Assim, as duas partes do encontro e a sequência semanal formam um percurso contínuo, e não uma coleção de resumos independentes.</p><aside class="pause-box"><h4>Pausa para discussão</h4><p>Em uma frase, que relação entre experiência individual e processo social esta aula tornou mais visível?</p></aside></div>
-    </div>
-  </section>
-
-
-  <section id="plano-aula">
-    <div class="section-title">Plano de Aula com Tempo</div>
-    <div class="timeline">
-      <div class="tl-item">
-        <span class="tl-duration">10 min</span>
-        <span class="tl-text">Revisão da aula 12 e abertura da aula comparativa: apresentação do quadro sinóptico projetado com Durkheim, Marx e Weber em colunas.</span>
+  <section id="atividade"><div class="section-title">Atividades em Sala</div><div class="activity-card">
+    <h3>Oficina — três perguntas para um mesmo campus</h3>
+    <p><strong>Finalidade:</strong> produzir uma comparação conceitualmente controlada a partir do caso completo apresentado na subseção 6.</p>
+    <p><strong>Organização e tempo:</strong> grupos de quatro ou cinco. Leitura e distribuição de funções, 5 min; matriz, 20 min; articulação e produto, 10 min; socialização no tempo reservado pelo plano.</p>
+    <div class="material-box">
+      <h4>Matriz de trabalho</h4>
+      <div class="matrix-region" role="region" aria-label="Matriz para comparar as possibilidades durkheimiana, marxiana e weberiana" tabindex="0">
+        <table>
+          <caption>Matriz para registrar perguntas, conceitos, evidências, hipóteses e limites das três abordagens</caption>
+          <thead>
+            <tr>
+              <th scope="col">Eixo</th>
+              <th scope="col">Durkheim</th>
+              <th scope="col">Marx</th>
+              <th scope="col">Weber</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Pergunta central</th><td></td><td></td><td></td></tr>
+            <tr><th scope="row">Conceitos</th><td></td><td></td><td></td></tr>
+            <tr><th scope="row">Evidência necessária</th><td></td><td></td><td></td></tr>
+            <tr><th scope="row">Hipótese</th><td></td><td></td><td></td></tr>
+            <tr><th scope="row">Limite</th><td></td><td></td><td></td></tr>
+          </tbody>
+        </table>
       </div>
-      <div class="tl-item">
-        <span class="tl-duration">40 min</span>
-        <span class="tl-text">Exposição comparativa a partir do quadro sinóptico: objeto da sociologia, método, concepção de sociedade, papel da religião, teoria da desigualdade, possibilidade de transformação social.</span>
-      </div>
-      <div class="tl-item">
-        <span class="tl-duration">40 min</span>
-        <span class="tl-text">Dinâmica em grupos: cada grupo representa um dos três autores e debate a questão "O que explica a desigualdade social?". Cada grupo deve argumentar a partir dos conceitos centrais de seu autor.</span>
-      </div>
-      <div class="tl-item">
-        <span class="tl-duration">20 min</span>
-        <span class="tl-text">Socialização dos grupos: cada grupo apresenta sua posição (5 min cada) seguida de debate mediado pelo professor, identificando os pontos de tensão teórica.</span>
-      </div>
-      <div class="tl-item">
-        <span class="tl-duration">10 min</span>
-        <span class="tl-text">Síntese final e aviso sobre a aula 14: orientação do seminário, formação dos grupos e entrega da pesquisa bibliográfica.</span>
-      </div>
     </div>
-  </section>
+    <h4>Perguntas de análise</h4><ol><li>Qual problema cada autor permite formular?</li><li>Que dois conceitos sustentam cada hipótese?</li><li>Que evidência poderia fortalecer ou enfraquecer cada hipótese?</li><li>Em que escala cada explicação opera?</li><li>Que aspecto o respectivo enquadramento deixa em segundo plano?</li><li>Duas abordagens podem ser articuladas neste caso? Sob quais condições?</li><li>Que combinação seria apenas mistura de vocabulários?</li></ol>
+    <p><strong>Produto esperado:</strong> matriz preenchida e uma conclusão de até cinco frases que apresente a articulação escolhida e um limite. Na socialização, cada grupo dispõe de dois minutos e deve apresentar uma diferença de pergunta, uma evidência decisiva e um limite.</p>
+    <details class="teacher-guidance">
+      <summary>Possibilidades comentadas e orientações de mediação — uso do professor</summary>
+      <div class="teacher-guidance-content">
+        <h4>A. Possibilidade durkheimiana</h4>
+        <p><strong>Pergunta possível:</strong> como variam os padrões de abandono entre cursos e turnos, e como essas variações se relacionam com formas de integração e regulação acadêmica?</p>
+        <p><strong>Conceitos possíveis:</strong> fato social, coerção, integração, regulação, anomia e solidariedade. O grupo não precisa empregar todos; deve selecionar os que efetivamente organizam sua hipótese.</p>
+        <p><strong>Evidências pertinentes:</strong> taxas de abandono por curso e turno, regras acadêmicas, registros de frequência, participação em atividades coletivas e funcionamento dos serviços de apoio.</p>
+        <p><strong>Hipótese didática possível:</strong> incompatibilidades entre as regras acadêmicas, as rotinas dos estudantes trabalhadores e vínculos coletivos frágeis podem contribuir para padrões mais altos de interrupção em certos turnos. A comparação entre grupos e períodos seria necessária para testar a hipótese.</p>
+        <p><strong>Limite:</strong> integração não é sinônimo de harmonia ou justiça. Padrões coletivos tornam visíveis regularidades institucionais, mas não explicam sozinhos todos os sentidos atribuídos por estudantes à permanência ou à saída.</p>
 
-  <section id="leituras">
-    <div class="section-title">Textos para Leitura Prévia</div>
-    <div class="ref-card">
-      <div class="ref-author">Quintaneiro, Tania; Barbosa, Maria Ligia; Oliveira, Márcia</div>
-      <div class="ref-title">Um toque de clássicos — Conclusão</div>
-      <div class="ref-pages">p. 151–170</div>
-    </div>
-    <div class="ref-card">
-      <div class="ref-author">Cohn, Gabriel</div>
-      <div class="ref-title">Sociologia: para ler os clássicos — Introdução</div>
-      <div class="ref-pages">Introdução</div>
-    </div>
-  </section>
+        <h4>B. Possibilidade marxiana</h4>
+        <p><strong>Pergunta possível:</strong> como trabalho, renda, transporte, responsabilidades de cuidado e distribuição de recursos universitários condicionam as possibilidades de permanecer no curso?</p>
+        <p><strong>Conceitos possíveis:</strong> relações sociais de produção, força de trabalho, classe, contradição, reprodução e mercantilização.</p>
+        <p><strong>Evidências pertinentes:</strong> jornadas e contratos de trabalho, orçamento e critérios da assistência estudantil, custos de transporte e alimentação, contratos de serviços e distribuição material dos recursos entre turnos e unidades.</p>
+        <p><strong>Hipótese didática possível:</strong> a universidade amplia formalmente o acesso, mas sua organização pode pressupor tempo, renda e disponibilidade desigualmente distribuídos, produzindo uma contradição entre ingresso e condições efetivas de permanência.</p>
+        <p><strong>Limite:</strong> posição de classe não determina automaticamente cada decisão individual. “Conflito” não deve ser usado como sinônimo genérico de dificuldade, divergência ou falha administrativa; é preciso demonstrar relações, posições e mecanismos.</p>
 
-  <section id="atividade">
-    <div class="section-title">Atividades em Sala</div>
-    <div class="activity-card">
-      <strong>Simulação de debate: "O que explica a desigualdade social?" (40 min)</strong><br><br>
-      A turma é dividida em três grupos, cada um representando um dos clássicos:<br><br>
-      — Grupo Durkheim: a desigualdade é expressão da divisão funcional do trabalho; é problemática apenas quando anômica, ou seja, quando não corresponde a diferenças naturais de talento e mérito.<br>
-      — Grupo Marx: a desigualdade é estrutural e deriva da propriedade privada dos meios de produção e da exploração da mais-valia; só se resolve com a superação do modo de produção capitalista.<br>
-      — Grupo Weber: a desigualdade é multidimensional — classe (econômica), status (prestígio) e partido (poder político) são esferas relativamente autônomas que se articulam sem redução a um único fator.<br><br>
-      Cada grupo tem 10 minutos para elaborar seus argumentos (com base nos textos lidos) e 5 minutos para apresentar. O professor modera a confrontação entre as posições.
-    </div>
-  </section>
+        <h4>C. Possibilidade weberiana</h4>
+        <p><strong>Pergunta possível:</strong> que sentidos estudantes atribuem ao diploma, ao trabalho, à permanência e à interrupção do curso, e como os procedimentos administrativos dos auxílios orientam suas ações?</p>
+        <p><strong>Conceitos possíveis:</strong> ação social, tipos ideais, racionalização, burocracia, dominação racional-legal e legitimidade.</p>
+        <p><strong>Evidências pertinentes:</strong> entrevistas e declarações, regulamentos, registros do sistema, recursos administrativos e observação das interações entre estudantes e setores responsáveis.</p>
+        <p><strong>Hipótese didática possível:</strong> estudantes podem combinar compromisso profissional, cálculo de custos e expectativas familiares, enquanto procedimentos burocráticos ampliam previsibilidade para alguns e criam barreiras para quem não domina prazos, documentos ou sistemas.</p>
+        <p><strong>Limite:</strong> motivos declarados não constituem causas suficientes. Devem ser reconstruídos analiticamente e confrontados com condições institucionais e materiais, além dos efeitos não pretendidos das ações e dos procedimentos.</p>
 
-  <section id="recursos">
-    <div class="section-title">Recursos Necessários</div>
-    <div class="resources-list">
-      <span class="res-tag">Projetor</span>
-      <span class="res-tag">Slides com quadro comparativo (Durkheim / Marx / Weber)</span>
-      <span class="res-tag">Cartões de identificação para a dinâmica (um por grupo)</span>
-      <span class="res-tag">Quadro branco</span>
-    </div>
-  </section>
+        <h4>D. Articulação controlada</h4>
+        <p>Uma articulação justificável pode localizar padrões coletivos com ferramentas durkheimianas, examinar condições materiais e relações de classe com Marx e reconstruir sentidos e procedimentos burocráticos com Weber. Isso não produz automaticamente uma teoria única.</p>
+        <p>O grupo deve indicar qual conceito orienta cada etapa, manter visíveis diferenças de escala e método, mostrar como cada evidência se relaciona com a hipótese correspondente e registrar incompatibilidades e limites.</p>
+        <p><strong>Misturas indevidas:</strong> chamar qualquer dificuldade de “anomia, exploração e racionalização” sem demonstrar os respectivos mecanismos; ou reduzir teorias inteiras a uma palavra, como “Durkheim = coesão”, “Marx = conflito” e “Weber = indivíduo”. Justapor vocabulários não substitui uma articulação argumentada.</p>
+
+        <h4>E. Orientações para a mediação</h4>
+        <ul>
+          <li>Peça que cada grupo formule perguntas antes de apresentar respostas.</li>
+          <li>Exija dois conceitos e evidências correspondentes para cada hipótese.</li>
+          <li>Solicite uma evidência que poderia enfraquecer a hipótese apresentada.</li>
+          <li>Impeça que associação estatística seja apresentada automaticamente como causa.</li>
+          <li>Distinga explicação sociológica de julgamento moral.</li>
+          <li>Aceite articulações alternativas quando forem conceitualmente justificadas.</li>
+          <li>Use o limite reconhecido pelo próprio grupo como critério de qualidade analítica.</li>
+          <li>Evite transformar a socialização numa escolha do “melhor autor”. Compare a qualidade das perguntas, evidências e inferências.</li>
+        </ul>
+      </div>
+    </details>
+  </div></section>
+
+  <section id="recursos"><div class="section-title">Recursos Necessários</div><div class="resources-list"><span class="res-tag">Caso e matriz disponíveis nesta página</span><span class="res-tag">Folhas A4</span><span class="res-tag">Canetas</span><span class="res-tag">Quadro</span><span class="res-tag">Projetor opcional</span></div></section>
 </main>
 <footer>
   <a href="/introducao-sociologia/">← Página principal</a>
