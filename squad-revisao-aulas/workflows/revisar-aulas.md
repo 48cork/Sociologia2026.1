@@ -10,8 +10,11 @@ revisão pós-reparo e proteção determinística. Deve ser chamado por `revisar
 3. Confirmar árvore limpa no início do lote ou contendo apenas mudanças autorizadas e
    registradas pelo próprio workflow.
 4. Confirmar Mapa de Progressão `COMPLETO`, com HEAD e entrada da aula.
-5. Capturar baseline Git e SHA-256 das 30 aulas com `validar_escopo.py`.
-6. Permitir escrita apenas no HTML selecionado. Vizinhas e Aulas 01–23 são leitura.
+5. Capturar baseline Git e SHA-256 das 30 aulas com `validar_escopo.py`. Em gate de
+   par, autorizar os dois HTMLs e bloquear por `--hash-aprovado` qualquer primeira aula
+   já aprovada e modificada.
+6. Permitir escrita apenas no HTML selecionado. O outro HTML do par só pode permanecer
+   modificado quando estiver bloqueado pelo hash aprovado; vizinhas e demais aulas são leitura.
 
 ## Reconstrução
 
@@ -44,6 +47,13 @@ Emite apenas `PRONTO` ou `PRECISA REVISAR` no formato de `agentes/aprovador.md`.
 4. Executar `git diff --check`.
 5. Se qualquer verificação falhar, mudar para `FALHA_TECNICA`; `PRONTO` não prevalece.
 6. Se todas passarem, manter `PRONTO` e devolver controle ao workflow do lote.
+
+Quando a aula for a primeira de um gate de par, o relatório deve registrar caminho,
+SHA-256 aprovado, veredito `PRONTO`, resultado de QA e estado
+`PRONTO_AGUARDANDO_PAR`. O baseline seguinte inclui esse caminho em
+`arquivos_autorizados` e o mesmo digest em `hashes_aprovados`. O validador deve ser
+executado antes e depois da segunda aula; qualquer diferença no digest é
+`FALHA_TECNICA`.
 
 ### PRECISA_REVISAR
 

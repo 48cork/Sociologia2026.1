@@ -12,6 +12,7 @@ arquivo não é um executável e não deve ser apresentado como CLI nativa.
 | `EM_REVISAO` | pareceres independentes/Aprovador em curso | `PRONTO`, `PRECISA_REVISAR`, `AGUARDA_HUMANO`, `FALHA_TECNICA` |
 | `PRECISA_REVISAR` | ajustes rastreáveis pendentes | `EM_REVISAO`, `AGUARDA_HUMANO`, `FALHA_TECNICA` |
 | `PRONTO` | Aprovador e QA passaram | `COMMITADO`, `FALHA_TECNICA` |
+| `PRONTO_AGUARDANDO_PAR` | primeira aula do gate aprovada, com hash bloqueado | `COMMITADO`, `FALHA_TECNICA` |
 | `AGUARDA_HUMANO` | falta insumo/decisão ou duas rodadas falharam | retomada humana explícita |
 | `COMMITADO` | gate local concluído | próximo gate ou conclusão |
 | `FALHA_TECNICA` | hash, Git, script ou integridade falhou | diagnóstico humano; sem restauração automática |
@@ -28,8 +29,10 @@ hash da aula e motivo. Estado não substitui evidência.
    HTML e grava `mapa-progressao.md`. Validar estado `COMPLETO`, HEAD e 30 entradas.
 3. **Fila:** processar 24, 25, 26, 27, 28, 29 e 30 nessa ordem. Aulas 01–23 permanecem
    protegidas; aulas futuras permanecem somente leitura.
-4. **Seleção:** definir uma única `aula_selecionada`, capturar baseline com
-   `validar_escopo.py` e mudar para `EM_RECONSTRUCAO`.
+4. **Seleção:** definir uma única `aula_selecionada`. Em gate unitário, capturar o HTML
+   selecionado. Em gate de par, autorizar explicitamente os dois HTMLs; se a primeira
+   aula já estiver `PRONTO_AGUARDANDO_PAR`, informar seu SHA-256 com `--hash-aprovado`.
+   Mudar somente a aula selecionada para `EM_RECONSTRUCAO`.
 5. **Reconstrução:** permitir escrita somente nessa aula. Infraestrutura só muda na
    manutenção do squad, nunca durante processamento editorial.
 6. **Revisão:** seguir `revisar-aulas.md`; os quatro pareceres são independentes e usam
@@ -39,7 +42,10 @@ hash da aula e motivo. Estado não substitui evidência.
 8. **Reparo:** máximo de duas rodadas automáticas. Reexecutar agentes de origem e o
    Aprovador. Conflito conceitual, insumo ausente ou terceira necessidade de reparo gera
    `AGUARDA_HUMANO`.
-9. **QA:** executar auditor, validação de escopo e `git diff --check`. Falha gera
+9. **QA:** executar auditor, validação de escopo e `git diff --check`. No primeiro item
+   de um par, registrar caminho, SHA-256, veredito e QA e mudar para
+   `PRONTO_AGUARDANDO_PAR`. Antes e depois do segundo item, validar novamente o hash
+   aprovado da primeira aula. Falha gera
    `FALHA_TECNICA` e interrompe o lote.
 10. **Gate sequencial:** só selecionar a aula seguinte depois de `PRONTO` e QA aprovado.
 11. **Commit:** aplicar a política abaixo quando todas as aulas do gate estiverem
@@ -68,6 +74,12 @@ Durante uma aula, alterações permitidas são:
 
 Outro HTML modificado, hash protegido divergente ou arquivo inesperado gera
 `FALHA_TECNICA`. Não restaurar automaticamente.
+
+Em gates de par, os dois HTMLs do gate podem constar simultaneamente da allowlist. A
+primeira aula aprovada não é ignorada: seu hash fica em `hashes_aprovados` no baseline
+do par e deve permanecer idêntico em toda validação da segunda. A allowlist rejeita
+aulas de gates diferentes. Estado e relatório da primeira aula continuam exigindo
+`--permitir` explícito.
 
 Proibido: `git add -A`, `git add .`, `git reset`, `git restore`, `git checkout --`,
 `git clean` e equivalentes. Não permitir dois escritores na mesma worktree. Para

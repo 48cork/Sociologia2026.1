@@ -43,12 +43,14 @@ determinístico apenas com `json`, da biblioteca padrão do Python, sem PyYAML.
 
 - Aulas 01–23: aprovadas, contexto obrigatório e sempre somente leitura.
 - Aulas 24–30: fila inicial de processamento.
-- Aula selecionada: único HTML com permissão de escrita durante sua etapa.
+- Aula selecionada: único HTML com permissão de escrita durante sua etapa. Em gate de
+  par, o HTML anterior aprovado pode permanecer modificado, bloqueado por SHA-256.
 - Página anterior e seguinte: contexto somente leitura.
 - Infraestrutura do squad: somente pode mudar em tarefa explícita de manutenção.
 
 Antes de qualquer escrita, capturar o estado com `validar_escopo.py`. Depois, validar
-hashes e alterações; o script nunca restaura arquivos.
+hashes e alterações; o script nunca restaura arquivos. A captura cria um baseline novo
+e recusa sobrescrever um arquivo existente; a validação é sempre somente leitura.
 
 ## Agentes e dependências
 
@@ -90,8 +92,28 @@ python3 squad-revisao-aulas/scripts/validar_escopo.py validar \
   --permitir squad-revisao-aulas/config/estado.yaml
 ```
 
-Somente caminhos explicitamente passados em `--permitir` podem acompanhar o HTML
-selecionado. A permissão não aceita outro arquivo de aula. Relatórios devem usar prefixo
+Para um gate em par, a interface repetível registra ambos os HTMLs e bloqueia a primeira
+aula já aprovada no digest registrado pelo parecer/QA:
+
+```bash
+python3 squad-revisao-aulas/scripts/validar_escopo.py capturar \
+  --autorizar-aula introducao-sociologia/turma1/aulas/aula-25.html \
+  --autorizar-aula introducao-sociologia/turma1/aulas/aula-26.html \
+  --hash-aprovado introducao-sociologia/turma1/aulas/aula-25.html=SHA256_APROVADO \
+  --saida squad-revisao-aulas/relatorios/aula-26-baseline.json
+
+python3 squad-revisao-aulas/scripts/validar_escopo.py validar \
+  --autorizar-aula introducao-sociologia/turma1/aulas/aula-25.html \
+  --autorizar-aula introducao-sociologia/turma1/aulas/aula-26.html \
+  --baseline squad-revisao-aulas/relatorios/aula-26-baseline.json \
+  --permitir squad-revisao-aulas/config/estado.yaml \
+  --permitir squad-revisao-aulas/relatorios/aula-25-relatorio.md \
+  --permitir squad-revisao-aulas/relatorios/aula-26-relatorio.md
+```
+
+Somente caminhos explicitamente passados em `--permitir` podem acompanhar os HTMLs
+autorizados. Outra aula só entra por `--autorizar-aula`, deve pertencer ao mesmo gate e,
+se já aprovada e modificada, exige `--hash-aprovado`. Relatórios devem usar prefixo
 específico da aula para evitar uma autorização ampla.
 
 São proibidos no workflow: `git add -A`, `git add .`, `git reset`, `git restore`,

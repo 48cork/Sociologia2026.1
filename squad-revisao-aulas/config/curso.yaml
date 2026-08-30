@@ -11,6 +11,7 @@
   "mapa_progressao": "squad-revisao-aulas/mapa-progressao.md",
   "aulas_contexto_somente_leitura": [1, 23],
   "aulas_processamento_inicial": [24, 30],
+  "gates_commit": [[24], [25, 26], [27, 28], [29, 30]],
   "contexto_vizinhanca": true,
   "operacoes_remotas": "PROIBIDAS_SEM_AUTORIZACAO_HUMANA_EXPLICITA",
   "config_format": "JSON compatível com YAML 1.2; leitura pela biblioteca json do Python"
