@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "texto_base": {
+    "palavras_minimas": 2300,
+    "palavras_maximas": 2800,
+    "subsecoes_esperadas": 9,
+    "subsecoes_excecao_exige_justificativa": true,
+    "pausas_exatas": 4
+  },
+  "plano": {"minutos_exatos": 120},
+  "atividade": {
+    "integral_na_pagina": true,
+    "materiais_prometidos_devem_existir": true,
+    "gabarito_details_exatos": 1,
+    "details_fechado_por_padrao": true,
+    "gabarito_minimo_palavras": 120
+  },
+  "qualidade": {
+    "explicar_antes_de_aplicar": true,
+    "distinguir_descricao_explicacao_avaliacao": true,
+    "evitar_determinismo": true,
+    "evitar_homogeneizacao": true,
+    "evitar_categorias_como_rotulos": true,
+    "reconhecer_variacao_historica_social": true,
+    "verificar_referencias": true,
+    "proibir_paginacao_sem_edicao_identificada": true,
+    "proibir_materiais_ausentes": true,
+    "proibir_relatos_pessoais_obrigatorios": true
+  },
+  "html": {
+    "ids_unicos": true,
+    "fragmentos_validos": true,
+    "links_locais_validos": true,
+    "navegacao_reciproca": true,
+    "acessibilidade": true,
+    "responsividade": true,
+    "impressao": true,
+    "protecao_overflow": true
+  },
+  "reparo": {
+    "maximo_rodadas_automaticas": 2,
+    "revisar_novamente_agente_origem": true,
+    "aprovador_obrigatorio_apos_reparo": true,
+    "agente_reparador_nao_emite_veredito_final": true
+  },
+  "placeholders_proibidos": [
+    "lorem ipsum",
+    "TODO",
+    "FIXME",
+    "[inserir",
+    "[preencher",
+    "conteúdo aqui",
+    "texto provisório"
+  ]
+}

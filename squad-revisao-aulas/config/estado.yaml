@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "workflow": "revisar-lote",
+  "head_base": "7848c6a9b64a55d155a724ede6922241f569aa35",
+  "mapa_progressao": "PENDENTE",
+  "aula_selecionada": null,
+  "estados_validos": [
+    "PENDENTE",
+    "EM_RECONSTRUCAO",
+    "EM_REVISAO",
+    "PRECISA_REVISAR",
+    "PRONTO",
+    "AGUARDA_HUMANO",
+    "COMMITADO",
+    "FALHA_TECNICA"
+  ],
+  "aulas": {
+    "24": {"estado": "PENDENTE", "rodadas_reparo": 0, "commit_grupo": "24"},
+    "25": {"estado": "PENDENTE", "rodadas_reparo": 0, "commit_grupo": "25-26"},
+    "26": {"estado": "PENDENTE", "rodadas_reparo": 0, "commit_grupo": "25-26"},
+    "27": {"estado": "PENDENTE", "rodadas_reparo": 0, "commit_grupo": "27-28"},
+    "28": {"estado": "PENDENTE", "rodadas_reparo": 0, "commit_grupo": "27-28"},
+    "29": {"estado": "PENDENTE", "rodadas_reparo": 0, "commit_grupo": "29-30"},
+    "30": {"estado": "PENDENTE", "rodadas_reparo": 0, "commit_grupo": "29-30"}
+  },
+  "ultima_transicao": null,
+  "observacao": "Este arquivo só pode ser atualizado pelo workflow; não constitui autorização remota."
+}

@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "curso": "Introdução à Sociologia",
+  "semestre": "2026.2",
+  "turma": "turma1",
+  "total_aulas": 30,
+  "diretorio_aulas": "introducao-sociologia/turma1/aulas",
+  "padrao_arquivo": "aula-{numero:02d}.html",
+  "pagina_principal": "introducao-sociologia/index.html",
+  "plano_canonico": "introducao-sociologia/turma1/plano_aulas.md",
+  "mapa_progressao": "squad-revisao-aulas/mapa-progressao.md",
+  "aulas_contexto_somente_leitura": [1, 23],
+  "aulas_processamento_inicial": [24, 30],
+  "contexto_vizinhanca": true,
+  "operacoes_remotas": "PROIBIDAS_SEM_AUTORIZACAO_HUMANA_EXPLICITA",
+  "config_format": "JSON compatível com YAML 1.2; leitura pela biblioteca json do Python"
+}

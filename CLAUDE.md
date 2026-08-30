@@ -108,3 +108,11 @@ Nota mínima: 6,0 | Frequência mínima: 75%
 - Sempre leia o arquivo existente mais similar antes de criar um novo (mesma turma, bloco próximo).
 - Os `plano_aulas.md` de cada turma são a fonte canônica dos dados (datas, conteúdos, carga horária). Consulte-os antes de editar datas ou ementas nos HTMLs.
 - Não crie arquivos CSS, JS ou de configuração separados — o projeto é intencionalmente self-contained por arquivo.
+
+## Squad local de revisão das Aulas 24–30
+
+Para reconstrução ou revisão em lote das Aulas 24–30 da Turma 1, use o ponto de entrada
+documental em `squad-revisao-aulas/README.md` e siga
+`squad-revisao-aulas/workflows/revisar-lote.md`. As Aulas 01–23 são contexto aprovado e
+somente leitura. O workflow permite apenas commits locais nos gates definidos; push,
+merge, pull request, deploy e publicação exigem autorização humana explícita separada.
