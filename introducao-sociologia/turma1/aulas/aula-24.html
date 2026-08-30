@@ -2,284 +2,396 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Aula 24 — Introdução à Sociologia | 2026.2</title>
-<style>
-  :root {
-    --bg: #0a0a0f;
-    --surface: #12121c;
-    --card: #1a1a2e;
-    --border: #2a2a4a;
-    --purple: #7c3aed;
-    --purple-lt: #a855f7;
-    --blue: #4f46e5;
-    --blue-lt: #818cf8;
-    --teal-lt: #2dd4bf;
-    --amber-lt: #fbbf24;
-    --rose-lt: #fb7185;
-    --violet: #c084fc;
-    --text: #e2e8f0;
-    --muted: #94a3b8;
-    --radius: 12px;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
-
-  nav {
-    position: sticky; top: 0; z-index: 100;
-    background: rgba(18,18,28,0.95); backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--border);
-    padding: 0 24px; height: 56px;
-    display: flex; align-items: center; justify-content: space-between; gap: 16px;
-  }
-  nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; white-space: nowrap; }
-  nav a:hover { color: var(--text); }
-  .nav-left { display: flex; align-items: center; gap: 10px; }
-  .nav-badge { background: var(--violet); color: #0a0a0f; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
-  .nav-center { font-size: 0.875rem; color: var(--muted); }
-  .nav-right { display: flex; gap: 16px; align-items: center; }
-
-  main { max-width: 860px; margin: 0 auto; padding: 40px 24px 80px; }
-
-  .aula-header {
-    background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
-    padding: 32px; margin-bottom: 32px;
-    border-top: 4px solid var(--violet);
-  }
-  .header-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; align-items: center; }
-  .bloco-badge { background: var(--violet); color: #0a0a0f; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
-  .meta-chip { background: var(--surface); border: 1px solid var(--border); font-size: 0.8rem; color: var(--muted); padding: 4px 12px; border-radius: 20px; }
-  .aula-header h1 { font-size: 1.5rem; font-weight: 700; line-height: 1.3; color: var(--text); }
-
-  section { margin-bottom: 32px; }
-  .section-title {
-    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--violet); margin-bottom: 16px; padding-bottom: 8px;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .obj-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-  .obj-list li { display: flex; gap: 12px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
-  .obj-list li::before { content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--violet); margin-top: 7px; flex-shrink: 0; }
-
-  .content-topic { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 12px; }
-  .content-topic h3 { font-size: 0.95rem; font-weight: 600; color: var(--violet); margin-bottom: 8px; }
-  .content-topic ul { list-style: none; padding: 0; }
-  .content-topic ul li { padding: 4px 0 4px 16px; position: relative; color: var(--muted); font-size: 0.9rem; }
-  .content-topic ul li::before { content: '—'; position: absolute; left: 0; color: var(--border); }
-
-  .timeline { display: flex; flex-direction: column; gap: 10px; }
-  .tl-item { display: flex; gap: 16px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; border-left: 3px solid var(--violet); }
-  .tl-duration { background: var(--surface); border: 1px solid var(--border); color: var(--amber-lt); font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
-  .tl-text { font-size: 0.9rem; color: var(--text); }
-
-  .ref-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 10px; border-left: 3px solid var(--blue-lt); }
-  .ref-author { font-size: 0.8rem; font-weight: 700; color: var(--blue-lt); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
-  .ref-title { font-size: 0.9rem; color: var(--text); }
-  .ref-pages { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
-
-  .activity-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; font-size: 0.9rem; line-height: 1.7; border-left: 3px solid var(--teal-lt); }
-
-  .resources-list { display: flex; flex-wrap: wrap; gap: 10px; }
-  .res-tag { background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; }
-
-  footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--muted); font-size: 0.85rem; }
-  footer a { color: var(--violet); text-decoration: none; }
-  footer a:hover { text-decoration: underline; }
-
-  html, body { max-width: 100%; overflow-x: clip; }
-  body { overflow-wrap: anywhere; }
-  section { scroll-margin-top: 112px; }
-  .section-nav { position: sticky; top: 56px; z-index: 90; background: rgba(10,10,15,.97); border-bottom: 1px solid var(--border); padding: 8px 16px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: thin; }
-  .section-nav a { flex: 0 0 auto; min-height: 36px; display: inline-flex; align-items: center; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 5px 12px; text-decoration: none; font-size: .8rem; }
-  .base-text { max-width: 72ch; margin-inline: auto; }
-  .base-intro { color: var(--muted); font-size: .92rem; margin-bottom: 16px; }
-  .base-toc { position: static; height: auto; display: block; max-width: 100%; overflow: clip; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; margin-bottom: 28px; }
-  .base-toc h3 { color: var(--bloco-lt, var(--purple-lt)); font-size: .95rem; margin-bottom: 10px; }
-  .base-toc ol { width: 100%; max-width: 100%; padding-left: 22px; columns: 2; column-gap: 32px; }
-  .base-toc li { break-inside: avoid; margin: 5px 0; }
-  .base-toc a { color: var(--text); text-decoration-thickness: 1px; text-underline-offset: 3px; white-space: normal; }
-  .base-subsection { scroll-margin-top: 112px; margin-bottom: 28px; }
-  .base-subsection h3 { color: var(--bloco-lt, var(--purple-lt)); font-size: 1.15rem; line-height: 1.35; margin-bottom: 12px; }
-  .base-subsection p { color: var(--text); margin-bottom: 14px; line-height: 1.78; }
-  .base-subsection strong { color: #f1f5f9; }
-  .pause-box { background: rgba(79,70,229,.1); border: 1px solid rgba(129,140,248,.4); border-left: 4px solid var(--bloco-lt, var(--purple-lt)); border-radius: var(--radius); padding: 16px 18px; margin: 22px 0; }
-  .pause-box h4 { color: var(--amber-lt); font-size: .75rem; letter-spacing: .09em; text-transform: uppercase; margin-bottom: 6px; }
-  .pause-box p { margin: 0; color: var(--text); font-weight: 600; line-height: 1.6; }
-  .legacy-note { border: 1px solid var(--amber-lt); background: rgba(251,191,36,.08); border-radius: var(--radius); padding: 16px 18px; margin: 0 0 24px; }
-  .res-tag { max-width: 100%; min-width: 0; }
-  a:focus-visible { outline: 3px solid var(--amber-lt); outline-offset: 3px; border-radius: 3px; }
-  @media (max-width: 640px) {
-    nav { height: auto; min-height: 56px; padding: 8px 12px; flex-wrap: wrap; }
-    .nav-left, .nav-right { min-width: 0; }
-    .nav-center { display: none; }
-    .nav-right { gap: 10px; }
-    .section-nav { top: 72px; padding-inline: 10px; }
-    main { padding: 24px 14px 60px; }
-    .aula-header { padding: 22px 18px; }
-    .base-toc ol { width: auto; columns: auto; padding-left: 0; list-style-position: inside; }
-    .tl-item { flex-direction: column; gap: 8px; }
-  }
-</style>
+<style>:root{--bg:#0a0a0f;--card:#1a1a2e;--line:#34345b;--text:#e2e8f0;--muted:#a8b3c5;--violet:#c084fc;--amber:#fbbf24;--teal:#2dd4bf}*{box-sizing:border-box}html,body{max-width:100%;overflow-x:clip}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.7 system-ui,sans-serif;overflow-wrap:anywhere}a{color:#a5b4fc}a:focus-visible,summary:focus-visible{outline:3px solid var(--amber);outline-offset:3px}nav.top{position:sticky;top:0;z-index:3;display:flex;justify-content:space-between;gap:15px;padding:14px 24px;background:#12121cf5;border-bottom:1px solid var(--line)}nav.top div{display:flex;gap:14px}.sections{position:sticky;top:57px;z-index:2;display:flex;gap:8px;overflow-x:auto;padding:8px 16px;background:#0a0a0ff5}.sections a,.chip{white-space:nowrap;padding:4px 11px;border:1px solid var(--line);border-radius:20px;text-decoration:none}.chip{background:var(--violet);color:#111;font-weight:800}main{max-width:900px;margin:auto;padding:36px 24px 70px}header,.card,.material,.activity,details{background:var(--card);border:1px solid var(--line);border-radius:12px}header{padding:28px;border-top:4px solid var(--violet)}header div{display:flex;flex-wrap:wrap;gap:8px}h1{font-size:1.65rem}section{margin:34px 0;scroll-margin-top:110px}.title{color:var(--violet);font-size:.75rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;border-bottom:1px solid var(--line)}.objectives{display:grid;gap:9px;padding:0;list-style:none}.objectives li,.card{padding:14px 17px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.base{max-width:74ch;margin:auto}.toc{padding:16px 22px;background:#12121c;border:1px solid var(--line);border-radius:12px}.toc ol{columns:2}.base article{margin:30px 0}.base h3{color:var(--violet)}.pause-box{padding:14px 17px;border:1px solid #818cf866;border-left:4px solid var(--violet);border-radius:10px;background:#4f46e51a}.pause-box h4{margin:0;color:var(--amber)}.pause-box p{margin:4px 0;font-weight:650}.timeline{display:grid;gap:9px}.tl-item{display:flex;gap:14px;padding:13px 16px;background:var(--card);border:1px solid var(--line);border-left:3px solid var(--violet);border-radius:10px}.tl-duration{flex:none;color:var(--amber);font-weight:800}.activity{padding:19px;border-left:3px solid var(--teal)}.materials{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:15px 0}.material{padding:14px}.material h3{color:var(--teal)}.fake{color:var(--amber);font-weight:800}table{width:100%;border-collapse:collapse;font-size:.88rem}th,td{padding:6px;border:1px solid var(--line);text-align:left}details{padding:15px;margin-top:15px}summary{color:var(--amber);font-weight:800;cursor:pointer}.refs .card{margin:9px 0}footer{text-align:center;border-top:1px solid var(--line);padding:25px;color:var(--muted)}@media(max-width:700px){nav.top{flex-wrap:wrap}.sections{top:89px}main{padding:24px 13px}.grid,.materials{grid-template-columns:1fr}.toc ol{columns:1}.tl-item{flex-direction:column;gap:3px}table{display:block;overflow-x:auto}}@media print{nav,.sections{display:none!important}:root{--bg:#fff;--card:#fff;--line:#888;--text:#111;--muted:#333;--violet:#4c1d95;--amber:#713f12;--teal:#065f46}body{font-size:11pt}main{max-width:none;padding:0}.card,.material,details{break-inside:avoid}}</style>
 </head>
 <body>
-
-<nav>
-  <div class="nav-left">
-    <a href="/introducao-sociologia/">← Página principal</a>
-    <span class="nav-badge">Aula 24</span>
-  </div>
-  <span class="nav-center">Aula 24 / 30</span>
-  <div class="nav-right">
-    <a href="aula-23.html">← Anterior</a>
-    <a href="aula-25.html">Próxima →</a>
-  </div>
+<nav class="top" aria-label="Navegação entre aulas">
+<div>
+<a href="/introducao-sociologia/">← Página principal</a>
+<span class="chip">Aula 24</span>
+</div>
+<div>
+<a href="aula-23.html">← Aula 23</a>
+<a href="aula-25.html">Aula 25 →</a>
+</div>
 </nav>
-<div class="section-nav" aria-label="Seções da aula"><a href="#objetivos">Objetivos</a><a href="#conteudo-programatico">Conteúdo</a><a href="#texto-base">Texto-base</a><a href="#plano-aula">Plano da aula</a><a href="#leituras">Leituras</a><a href="#atividade">Atividade</a><a href="#recursos">Recursos</a></div>
-
+<nav class="sections" aria-label="Seções">
+<a href="#objetivos">Objetivos</a>
+<a href="#conteudo">Conteúdo</a>
+<a href="#texto-base">Texto-base</a>
+<a href="#plano-aula">Plano</a>
+<a href="#atividade">Atividade</a>
+<a href="#referencias">Referências</a>
+</nav>
 <main>
-
-  <div class="aula-header">
-    <div class="header-meta">
-      <span class="bloco-badge">Bloco V — Instituições, Desigualdade e Diversidade</span>
-      <span class="meta-chip">Aula 24</span>
-      <span class="meta-chip">Encontro 12 · Parte 2 de 2</span>
-      <span class="meta-chip">25/11/2026 — Quarta-feira</span>
-      <span class="meta-chip">Percurso completo do encontro: 4 horas-aula</span>
-      <span class="meta-chip">Esta página: aproximadamente 2 horas</span>
-    </div>
-    <h1>Desigualdade social no Brasil: renda, raça e território.</h1>
-  </div>
-
-  <section id="objetivos">
-    <div class="section-title">Objetivos da Aula</div>
-    <ul class="obj-list">
-      <li>Analisar as dimensões da desigualdade social no Brasil com base em indicadores concretos.</li>
-      <li>Relacionar desigualdade econômica, racial e territorial como dimensões entrelaçadas.</li>
-      <li>Discutir as raízes históricas e estruturais da desigualdade brasileira.</li>
-      <li>Desenvolver a capacidade de leitura e interpretação crítica de dados sociais.</li>
-    </ul>
-  </section>
-
-  <section id="conteudo-programatico">
-    <div class="section-title">Conteúdo Programático</div>
-    <div class="content-topic">
-      <h3>1. Desigualdade de renda no Brasil: Gini e concentração de riqueza</h3>
-      <ul>
-        <li>Coeficiente de Gini: o que mede e como interpretar</li>
-        <li>O Brasil entre os países mais desiguais do mundo</li>
-        <li>Concentração de renda: os 10% mais ricos versus os 50% mais pobres</li>
-      </ul>
-    </div>
-    <div class="content-topic">
-      <h3>2. Desigualdade racial: renda, escolaridade, violência e raça no Brasil</h3>
-      <ul>
-        <li>Disparidades de renda e escolaridade entre brancos e negros</li>
-        <li>Violência policial e encarceramento como fenômenos racializados</li>
-        <li>O mito da democracia racial e a realidade dos dados</li>
-      </ul>
-    </div>
-    <div class="content-topic">
-      <h3>3. Desigualdade territorial: Norte/Nordeste e periferias urbanas</h3>
-      <ul>
-        <li>Disparidades regionais: IDH, renda e infraestrutura entre estados</li>
-        <li>Periferias urbanas: segregação socioespacial nas metrópoles</li>
-        <li>A desigualdade territorial como resultado de processos históricos</li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="texto-base" aria-labelledby="texto-base-title">
-    <div class="section-title" id="texto-base-title">Texto-base para acompanhamento da aula</div>
-    <div class="base-text">
-      <p class="base-intro">Leitura de apoio para a exposição, a discussão e a retomada dos conceitos. As pausas podem ser realizadas oralmente, em duplas ou por registro breve.</p>
-      <nav class="base-toc" aria-label="Sumário do texto-base"><h3>Nesta leitura</h3><ol><li><a href="#texto-problema">Uma pergunta para abrir: O que os indicadores tornam visível e o que deixam de explicar?</a></li><li><a href="#texto-contexto">Localizar o problema histórica e conceitualmente</a></li><li><a href="#texto-1-desigualdade-de-renda-no-brasil-gini-e-concentracao-d">Desigualdade de renda no Brasil: Gini e concentração de riqueza</a></li><li><a href="#texto-2-desigualdade-racial-renda-escolaridade-violencia-e-ra">Desigualdade racial: renda, escolaridade, violência e raça no Brasil</a></li><li><a href="#texto-3-desigualdade-territorial-norte-nordeste-e-periferias-">Desigualdade territorial: Norte/Nordeste e periferias urbanas</a></li><li><a href="#texto-aplicacao">Aplicação e trabalho com evidências</a></li><li><a href="#texto-cuidados">Distinções, limites e cuidados conceituais</a></li><li><a href="#texto-sintese">Síntese e passagem para a próxima aula</a></li></ol></nav>
-      <div class="base-subsection" id="texto-problema"><h3>1. Uma pergunta para abrir: O que os indicadores tornam visível e o que deixam de explicar?</h3><p><strong>O que os indicadores tornam visível e o que deixam de explicar?</strong> Essa pergunta organiza a Aula 24, dedicada a desigualdade social no brasil: renda, raça e território. Ela parte de uma dificuldade reconhecível: o cotidiano nos oferece respostas rápidas, mas essas respostas frequentemente transformam costumes históricos em fatos naturais ou atribuem a indivíduos fenômenos produzidos por relações mais amplas.</p><p>Pensemos em um conjunto de tabelas sobre renda, escolaridade, raça e território. A cena pode ser descrita de muitas maneiras, porém a descrição sociológica pergunta quem participa, quais posições ocupa, que regras orientam a conduta, como essas regras foram formadas e quais consequências recaem de modo desigual sobre os envolvidos. O exemplo funciona como porta de entrada; não substitui a análise nem autoriza generalizações sobre todos os casos.</p><p>Os objetivos do roteiro apontam o percurso: Analisar as dimensões da desigualdade social no Brasil com base em indicadores concretos. Relacionar desigualdade econômica, racial e territorial como dimensões entrelaçadas. Discutir as raízes históricas e estruturais da desigualdade brasileira. Desenvolver a capacidade de leitura e interpretação crítica de dados sociais. Em vez de tratar essas metas como itens separados, o texto as encadeia. Definir permite observar; contextualizar evita anacronismos; comparar explicita diferenças; aplicar conceitos exige evidências; e discutir limites impede que uma teoria se torne resposta automática para qualquer problema.</p><p>O olhar sociológico começa quando suspendemos por um momento a resposta evidente. Isso não significa abandonar conhecimentos cotidianos, mas interrogá-los. O senso comum é uma orientação prática compartilhada, indispensável à vida; a investigação sociológica, por sua vez, precisa explicitar procedimentos, conceitos e fontes, aceitar contestação e distinguir aquilo que sabe daquilo que apenas supõe.</p><aside class="pause-box"><h4>Pausa para discussão</h4><p>Que resposta de senso comum aparece primeiro diante da pergunta de abertura? Que informação seria necessária para testá-la sociologicamente?</p></aside></div><div class="base-subsection" id="texto-contexto"><h3>2. Localizar o problema histórica e conceitualmente</h3><p>Nenhum conceito desta aula surgiu fora do tempo. O problema de desigualdade social no brasil: renda, raça e território. deve ser ligado às transformações históricas, aos debates intelectuais e às experiências coletivas que lhe deram forma. Contextualizar não é decorar datas ou biografias: é compreender por que certas perguntas se tornaram relevantes e por que respostas concorrentes foram formuladas.</p><p>A Sociologia trabalha numa tensão produtiva entre continuidade e mudança. Pessoas recebem instituições, linguagens e classificações já existentes, mas as reproduzem, interpretam e contestam em circunstâncias novas. Por isso, uma explicação não pode escolher simplesmente entre indivíduo e sociedade. Ela precisa mostrar por quais relações uma experiência singular se conecta a padrões, conflitos e processos históricos.</p><p>As leituras indicadas no roteiro — SOUZA, Jessé A ralé brasileira: quem é e como vive. Introdução e Cap. 1 p. 21–60 IBGE Síntese de indicadores sociais 2023 (trechos selecionados) Seleção do professor — servem de apoio a essa reconstrução. Elas não devem ser convertidas em frases de autoridade. O procedimento mais seguro é paráfrase responsável: apresentar o problema do autor, reconstruir seu argumento e indicar como ele ajuda a ler o conteúdo da aula, sem criar citações literais, páginas ou conclusões que o material não confirme.</p><p>Também é necessário separar três planos. A explicação de um autor reconstrói seus conceitos nos termos do problema que ele enfrentou. A contextualização histórica situa as condições de produção e circulação dessas ideias. A aplicação contemporânea é uma operação nossa, que testa a fecundidade do conceito em outro cenário. Misturar os planos produz anacronismos e faz parecer que o autor comentou diretamente fatos que não conheceu.</p></div><div class="base-subsection" id="texto-1-desigualdade-de-renda-no-brasil-gini-e-concentracao-d"><h3>3. Desigualdade de renda no Brasil: Gini e concentração de riqueza</h3><p>O 1º movimento do argumento concentra-se em <strong>Desigualdade de renda no Brasil: Gini e concentração de riqueza</strong>. O roteiro associa esse núcleo a Coeficiente de Gini: o que mede e como interpretar; O Brasil entre os países mais desiguais do mundo; Concentração de renda: os 10% mais ricos versus os 50% mais pobres. A enumeração, porém, ganha sentido apenas quando percebemos as relações entre seus componentes. Conceitos sociológicos não são etiquetas aplicadas depois que um fato acontece: eles selecionam dimensões do problema, orientam comparações e indicam quais evidências precisam ser procuradas.</p><p>Para acompanhar a exposição, convém avançar em três passos. Primeiro, identificar o fenômeno e o contexto em que ele ocorre. Segundo, perguntar quais relações, regras, recursos e significados o tornam possível. Terceiro, comparar situações para descobrir o que permanece e o que muda. Aplicado a desigualdade de renda no brasil: gini e concentração de riqueza, esse procedimento impede que uma impressão isolada seja apresentada como explicação geral e ajuda a ligar experiência, história e organização social.</p><p>Os elementos Coeficiente de Gini: o que mede e como interpretar; O Brasil entre os países mais desiguais do mundo; Concentração de renda: os 10% mais ricos versus os 50% mais pobres não devem ser lidos como sinônimos. Cada um ilumina uma dimensão própria, embora possa se articular aos demais. A tarefa analítica consiste em dizer onde começa e termina cada conceito, qual problema ele responde e que tipo de evidência sustentaria sua aplicação. Em sala, o professor pode retomar um exemplo do conteúdo programático e pedir que a turma mostre exatamente qual característica autoriza a classificação proposta.</p><p>Esse cuidado também torna a leitura mais acessível. Em vez de memorizar uma definição abstrata, o estudante reconstrói o caminho do argumento: observa uma situação, reconhece um padrão, formula uma pergunta e testa uma interpretação. O resultado não precisa ser uma resposta definitiva. Uma hipótese sociológica é valiosa quando explicita seus critérios, admite comparação e pode ser revista diante de informações melhores.</p></div><div class="base-subsection" id="texto-2-desigualdade-racial-renda-escolaridade-violencia-e-ra"><h3>4. Desigualdade racial: renda, escolaridade, violência e raça no Brasil</h3><p>O 2º movimento do argumento concentra-se em <strong>Desigualdade racial: renda, escolaridade, violência e raça no Brasil</strong>. O roteiro associa esse núcleo a Disparidades de renda e escolaridade entre brancos e negros; Violência policial e encarceramento como fenômenos racializados; O mito da democracia racial e a realidade dos dados. A enumeração, porém, ganha sentido apenas quando percebemos as relações entre seus componentes. Conceitos sociológicos não são etiquetas aplicadas depois que um fato acontece: eles selecionam dimensões do problema, orientam comparações e indicam quais evidências precisam ser procuradas.</p><p>Para acompanhar a exposição, convém avançar em três passos. Primeiro, identificar o fenômeno e o contexto em que ele ocorre. Segundo, perguntar quais relações, regras, recursos e significados o tornam possível. Terceiro, comparar situações para descobrir o que permanece e o que muda. Aplicado a desigualdade racial: renda, escolaridade, violência e raça no brasil, esse procedimento impede que uma impressão isolada seja apresentada como explicação geral e ajuda a ligar experiência, história e organização social.</p><p>Os elementos Disparidades de renda e escolaridade entre brancos e negros; Violência policial e encarceramento como fenômenos racializados; O mito da democracia racial e a realidade dos dados não devem ser lidos como sinônimos. Cada um ilumina uma dimensão própria, embora possa se articular aos demais. A tarefa analítica consiste em dizer onde começa e termina cada conceito, qual problema ele responde e que tipo de evidência sustentaria sua aplicação. Em sala, o professor pode retomar um exemplo do conteúdo programático e pedir que a turma mostre exatamente qual característica autoriza a classificação proposta.</p><p>Esse cuidado também torna a leitura mais acessível. Em vez de memorizar uma definição abstrata, o estudante reconstrói o caminho do argumento: observa uma situação, reconhece um padrão, formula uma pergunta e testa uma interpretação. O resultado não precisa ser uma resposta definitiva. Uma hipótese sociológica é valiosa quando explicita seus critérios, admite comparação e pode ser revista diante de informações melhores.</p></div><div class="base-subsection" id="texto-3-desigualdade-territorial-norte-nordeste-e-periferias-"><h3>5. Desigualdade territorial: Norte/Nordeste e periferias urbanas</h3><p>O 3º movimento do argumento concentra-se em <strong>Desigualdade territorial: Norte/Nordeste e periferias urbanas</strong>. O roteiro associa esse núcleo a Disparidades regionais: IDH, renda e infraestrutura entre estados; Periferias urbanas: segregação socioespacial nas metrópoles; A desigualdade territorial como resultado de processos históricos. A enumeração, porém, ganha sentido apenas quando percebemos as relações entre seus componentes. Conceitos sociológicos não são etiquetas aplicadas depois que um fato acontece: eles selecionam dimensões do problema, orientam comparações e indicam quais evidências precisam ser procuradas.</p><p>Para acompanhar a exposição, convém avançar em três passos. Primeiro, identificar o fenômeno e o contexto em que ele ocorre. Segundo, perguntar quais relações, regras, recursos e significados o tornam possível. Terceiro, comparar situações para descobrir o que permanece e o que muda. Aplicado a desigualdade territorial: norte/nordeste e periferias urbanas, esse procedimento impede que uma impressão isolada seja apresentada como explicação geral e ajuda a ligar experiência, história e organização social.</p><p>Os elementos Disparidades regionais: IDH, renda e infraestrutura entre estados; Periferias urbanas: segregação socioespacial nas metrópoles; A desigualdade territorial como resultado de processos históricos não devem ser lidos como sinônimos. Cada um ilumina uma dimensão própria, embora possa se articular aos demais. A tarefa analítica consiste em dizer onde começa e termina cada conceito, qual problema ele responde e que tipo de evidência sustentaria sua aplicação. Em sala, o professor pode retomar um exemplo do conteúdo programático e pedir que a turma mostre exatamente qual característica autoriza a classificação proposta.</p><p>Esse cuidado também torna a leitura mais acessível. Em vez de memorizar uma definição abstrata, o estudante reconstrói o caminho do argumento: observa uma situação, reconhece um padrão, formula uma pergunta e testa uma interpretação. O resultado não precisa ser uma resposta definitiva. Uma hipótese sociológica é valiosa quando explicita seus critérios, admite comparação e pode ser revista diante de informações melhores.</p></div><div class="base-subsection" id="texto-aplicacao"><h3>6. Aplicação e trabalho com evidências</h3><p>O estudo de caso desta aula parte de um conjunto de tabelas sobre renda, escolaridade, raça e território. A finalidade não é decidir depressa se o caso confirma a teoria. Antes, é decompor a situação: identificar atores, posições, recursos, normas, discursos, escalas de tempo e possíveis efeitos. Somente depois se pergunta quais conceitos do roteiro oferecem uma interpretação consistente e quais aspectos permanecem fora de alcance.</p><p>A atividade prevista ajuda a realizar essa passagem. Análise de dados: construindo um argumento sobre a desigualdade brasileira Cada grupo recebe um conjunto de indicadores sociais desagregados por raça e região. Os indicadores incluem: — Renda média mensal por cor/raça e por região; — Taxa de escolaridade (ensino superior) por cor/raça; — Taxa de mortalidade infantil por cor/raça e por estado; — Taxa de encarceramento por cor/raça; — Taxa de desemprego por cor/raça e por região. Tarefa: Com base nos dados recebidos, o grupo deve: — Identificar as três principais evidências de desigualdade presentes nos dados; — Construir um argumento sociológico sobre as causas estruturais dessa desigualdade; — Avaliar: essa desigualdade é resultado de diferenças de mérito individual ou de processos históricos e estruturais ? — Propor ao menos uma política pública que poderia contribuir para reduzir a desigualdade identificada. Cada grupo apresenta seu argumento em 3 minutos, abrindo para debate coletivo. O exercício ganha qualidade quando cada afirmação vem acompanhada de uma evidência observável ou de uma pergunta de pesquisa. Se a turma discorda, a divergência pode ser produtiva: os grupos devem indicar se usam conceitos diferentes, se selecionam evidências distintas ou se atribuem significados diferentes à mesma informação.</p><p>Uma aplicação contemporânea rigorosa também considera alternativas. O mesmo padrão pode resultar de processos distintos, e uma evidência pode ser compatível com mais de uma interpretação. Entrevistas esclarecem sentidos atribuídos pelos participantes, observação acompanha práticas, documentos mostram regras e justificativas, e dados quantitativos revelam distribuição e variação. Nenhuma técnica responde sozinha a todas as perguntas.</p><p>Ao apresentar o caso, é útil distinguir exemplo, ilustração e evidência. Um exemplo torna o conceito inteligível; uma ilustração aproxima o tema da experiência da turma; evidência é informação coletada e analisada por procedimento explícito. Confundir essas funções leva a tomar uma história convincente como prova suficiente. A Sociologia procura justamente controlar esse salto.</p><aside class="pause-box"><h4>Pausa para discussão</h4><p>Qual conceito da aula explica melhor o estudo de caso? Que aspecto do caso ele não consegue explicar sozinho?</p></aside></div><div class="base-subsection" id="texto-cuidados"><h3>7. Distinções, limites e cuidados conceituais</h3><p>O principal cuidado desta aula é não apresentar números sem fonte e não converter associação estatística em causa isolada. A advertência não enfraquece o conteúdo; ela define seu alcance. Conceitos bons simplificam a realidade de maneira controlada. Quando aplicados fora de suas condições, perdem precisão e viram apenas palavras sofisticadas para confirmar uma opinião anterior.</p><p>Outra distinção necessária separa explicação causal, interpretação de sentidos e avaliação normativa. Podemos investigar por que algo acontece, compreender como os participantes lhe atribuem significado e discutir se suas consequências são desejáveis. São perguntas legítimas, mas não idênticas. Uma posição ética deve ser assumida com clareza, e não apresentada como se decorresse automaticamente de um dado ou de um autor.</p><p>A escala também importa. Uma interação em sala, uma organização, uma cidade, um Estado e um processo transnacional não funcionam do mesmo modo. O que aparece como escolha numa escala pode ser condicionado por regras em outra. Ao mudar a escala, mudam as evidências e às vezes muda a própria pergunta. Especificar tempo, lugar e grupo torna a análise menos grandiosa e mais verificável.</p><p>Por fim, diferenças internas precisam permanecer visíveis. Grupos sociais não são sujeitos homogêneos; instituições abrigam disputas; normas podem ser obedecidas, negociadas ou contestadas; identidades se cruzam. Evitar generalizações não significa abandonar padrões coletivos, mas explicar como eles se distribuem e por que não afetam todas as pessoas da mesma maneira.</p><aside class="pause-box"><h4>Pausa para discussão</h4><p>Que generalização apressada seria mais provável neste tema? Como reformulá-la para torná-la histórica, comparável e verificável?</p></aside></div><div class="base-subsection" id="texto-sintese"><h3>8. Síntese e passagem para a próxima aula</h3><p><strong>Síntese.</strong> A Aula 24 mostrou que desigualdade social no brasil: renda, raça e território. deve ser estudado por meio de perguntas delimitadas, conceitos diferenciados e evidências adequadas. O problema de abertura conduziu da experiência cotidiana à contextualização, e os três núcleos do conteúdo programático foram articulados sem serem tratados como equivalentes.</p><p>Ao final, o estudante deve ser capaz de retomar as metas do roteiro com suas próprias palavras: Analisar as dimensões da desigualdade social no Brasil com base em indicadores concretos. Relacionar desigualdade econômica, racial e territorial como dimensões entrelaçadas. Discutir as raízes históricas e estruturais da desigualdade brasileira. Desenvolver a capacidade de leitura e interpretação crítica de dados sociais. Esse domínio não se mede apenas pela lembrança de definições. Ele aparece quando alguém consegue reconhecer uma situação pertinente, justificar a escolha do conceito, propor uma evidência e indicar os limites da interpretação.</p><p>As pausas de discussão transformam a leitura em trabalho coletivo. Elas permitem que o professor interrompa a exposição, recolha hipóteses, identifique confusões e retome o argumento. A síntese pode ser concluída no quadro com quatro colunas — problema, conceito, evidência e limite — de modo que a turma visualize o caminho percorrido durante aproximadamente duas horas desta parte do encontro.</p><p>A passagem seguinte não reinicia o curso. Ela desloca a pergunta construída aqui para <strong>raça, etnia e racismo</strong>. O que aprendemos nesta aula funcionará como condição para a próxima: conceitos serão retomados apenas quando necessários, agora diante de outro problema. Assim, as duas partes do encontro e a sequência semanal formam um percurso contínuo, e não uma coleção de resumos independentes.</p><aside class="pause-box"><h4>Pausa para discussão</h4><p>Em uma frase, que relação entre experiência individual e processo social esta aula tornou mais visível?</p></aside></div>
-    </div>
-  </section>
-
-
-  <section id="plano-aula">
-    <div class="section-title">Plano de Aula com Tempo</div>
-    <div class="timeline">
-      <div class="tl-item">
-        <span class="tl-duration">10 min</span>
-        <span class="tl-text"><strong>Retomada</strong> — Revisão dos sistemas de estratificação e mobilidade social. Pergunta disparadora: "O que torna a desigualdade brasileira específica?"</span>
-      </div>
-      <div class="tl-item">
-        <span class="tl-duration">25 min</span>
-        <span class="tl-text"><strong>Exposição: Desigualdade de renda no Brasil</strong> — Apresentação do coeficiente de Gini, dados sobre concentração de riqueza, comparação internacional. Raízes históricas: escravidão, latifúndio, exclusão estrutural.</span>
-      </div>
-      <div class="tl-item">
-        <span class="tl-duration">20 min</span>
-        <span class="tl-text"><strong>Análise de infográficos e dados (PNAD, IBGE)</strong> — Os grupos analisam infográficos com dados de renda, escolaridade, mortalidade infantil e encarceramento, desagregados por raça e região. (Ver Atividades em Sala.)</span>
-      </div>
-      <div class="tl-item">
-        <span class="tl-duration">20 min</span>
-        <span class="tl-text"><strong>Exposição: Desigualdade racial e territorial</strong> — Dados sobre disparidades raciais e regionais. Crítica ao mito da democracia racial. A periferização urbana como expressão espacial da desigualdade.</span>
-      </div>
-      <div class="tl-item">
-        <span class="tl-duration">30 min</span>
-        <span class="tl-text"><strong>Debate: "A desigualdade brasileira é estrutural ou conjuntural?"</strong> — Debate mediado: a desigualdade é resultado de escolhas individuais (mérito) ou de estruturas históricas e institucionais? O que os dados indicam?</span>
-      </div>
-      <div class="tl-item">
-        <span class="tl-duration">15 min</span>
-        <span class="tl-text"><strong>Síntese</strong> — Articulação das três dimensões da desigualdade (renda, raça, território). Orientação das leituras para a aula sobre raça, etnia e racismo.</span>
-      </div>
-    </div>
-  </section>
-
-  <section id="leituras">
-    <div class="section-title">Textos para Leitura Prévia</div>
-    <div class="ref-card">
-      <div class="ref-author">SOUZA, Jessé</div>
-      <div class="ref-title">A ralé brasileira: quem é e como vive. Introdução e Cap. 1</div>
-      <div class="ref-pages">p. 21–60</div>
-    </div>
-    <div class="ref-card">
-      <div class="ref-author">IBGE</div>
-      <div class="ref-title">Síntese de indicadores sociais 2023 (trechos selecionados)</div>
-      <div class="ref-pages">Seleção do professor</div>
-    </div>
-  </section>
-
-  <section id="atividade">
-    <div class="section-title">Atividades em Sala</div>
-    <div class="activity-card">
-      <strong>Análise de dados: construindo um argumento sobre a desigualdade brasileira</strong><br><br>
-      Cada grupo recebe um conjunto de indicadores sociais desagregados por raça e região. Os indicadores incluem:
-      <br><br>
-      — <strong>Renda média mensal</strong> por cor/raça e por região;<br>
-      — <strong>Taxa de escolaridade</strong> (ensino superior) por cor/raça;<br>
-      — <strong>Taxa de mortalidade infantil</strong> por cor/raça e por estado;<br>
-      — <strong>Taxa de encarceramento</strong> por cor/raça;<br>
-      — <strong>Taxa de desemprego</strong> por cor/raça e por região.
-      <br><br>
-      <strong>Tarefa:</strong> Com base nos dados recebidos, o grupo deve:<br>
-      — Identificar as <strong>três principais evidências</strong> de desigualdade presentes nos dados;<br>
-      — Construir um <strong>argumento sociológico</strong> sobre as causas estruturais dessa desigualdade;<br>
-      — Avaliar: essa desigualdade é resultado de <strong>diferenças de mérito individual</strong> ou de <strong>processos históricos e estruturais</strong>?<br>
-      — Propor ao menos uma <strong>política pública</strong> que poderia contribuir para reduzir a desigualdade identificada.
-      <br><br>
-      Cada grupo apresenta seu argumento em 3 minutos, abrindo para debate coletivo.
-    </div>
-  </section>
-
-  <section id="recursos">
-    <div class="section-title">Recursos Necessários</div>
-    <div class="resources-list">
-      <span class="res-tag">Projetor</span>
-      <span class="res-tag">Infográficos e tabelas (PNAD/IBGE) impressos</span>
-      <span class="res-tag">Quadro branco</span>
-    </div>
-  </section>
-
+<header>
+<div>
+<span class="chip">Bloco V — Instituições, Desigualdade e Diversidade</span>
+<span>Encontro 12 · Parte 2 de 2</span>
+<span>25/11/2026</span>
+<span>120 minutos</span>
+</div>
+<h1>Desigualdade social no Brasil: renda, raça e território</h1>
+</header>
+<section id="objetivos">
+<h2 class="title">Objetivos da aula</h2>
+<ul class="objectives">
+<li>Distinguir renda, riqueza e condições de vida, relacionando-as à estratificação e à mobilidade da Aula 23.</li>
+<li>Interpretar distribuição, diferença entre grupos e coeficiente de Gini sem transformar associação em causa.</li>
+<li>Analisar raça e território como dimensões relacionais dos dados, preservando diferenças internas.</li>
+<li>Construir argumento com evidência, mecanismo possível, limite e pergunta adicional.</li>
+</ul>
+</section>
+<section id="conteudo">
+<h2 class="title">Arquitetura conceitual</h2>
+<div class="grid">
+<div class="card">
+<strong>Medir é construir:</strong> população, unidade, variável, período e comparação definem o indicador.</div>
+<div class="card">
+<strong>Recursos diferentes:</strong> renda é fluxo; riqueza é estoque; condições de vida incluem serviços, tempo e infraestrutura.</div>
+<div class="card">
+<strong>Distribuição e Gini:</strong> o índice resume concentração, mas não revela sozinho níveis, grupos ou mecanismos.</div>
+<div class="card">
+<strong>Relações sociais:</strong> raça e território localizam padrões; a produção das categorias raciais será aprofundada na Aula 25.</div>
+</div>
+</section>
+<section id="texto-base">
+<h2 class="title">Texto-base para acompanhamento</h2>
+<div class="base">
+<p>As nove subseções percorrem as escolhas de medida, a leitura de padrões, hipóteses explicativas e limites. As quatro pausas dispensam relatos pessoais.</p>
+<nav class="toc" aria-label="Sumário do texto-base">
+<ol>
+<li>
+<a href="#tb1">Da estratificação à desigualdade</a>
+</li>
+<li>
+<a href="#tb2">Indicadores e escolhas</a>
+</li>
+<li>
+<a href="#tb3">Renda, riqueza e condições</a>
+</li>
+<li>
+<a href="#tb4">Distribuição e Gini</a>
+</li>
+<li>
+<a href="#tb5">Raça nos dados</a>
+</li>
+<li>
+<a href="#tb6">Território e escalas</a>
+</li>
+<li>
+<a href="#tb7">Cruzar dimensões</a>
+</li>
+<li>
+<a href="#tb8">Do padrão à explicação</a>
+</li>
+<li>
+<a href="#tb9">Síntese e transição</a>
+</li>
+</ol>
+</nav>
+<article id="tb1">
+<h3>1. Da estratificação à desigualdade observável</h3>
+<p>A Aula 23 apresentou <strong>estratificação</strong> como organização durável de posições e de acessos desiguais a recursos, reconhecimento e poder. Também mostrou que mobilidade não elimina hierarquias. Agora mudamos a operação: perguntamos como observar desigualdades concretas no Brasil. Uma posição de classe não pode ser deduzida de um único salário, e uma tabela de renda não descreve toda a estrutura social. O indicador recorta uma dimensão; a análise sociológica reconstrói relações que dão sentido ao recorte.</p>
+<p>
+<strong>Desigualdade</strong> designa diferenças socialmente produzidas na distribuição de recursos, oportunidades, riscos ou reconhecimento. Nem toda diferença é uma desigualdade. Idades distintas, por exemplo, tornam-se relevantes quando regras e instituições distribuem direitos ou riscos sistematicamente segundo a idade. Também não basta encontrar dois valores distintos. É preciso definir quem foi comparado, quando, sob quais condições e por que a diferença importa. A desigualdade é relacional: posições dependem de como recursos e decisões circulam entre grupos e instituições.</p>
+<p>Falar em desigualdade brasileira não atribui essência ao país nem presume que regiões e pessoas vivam o mesmo padrão. O adjetivo delimita uma formação histórica e um campo de investigação. Escravidão, regimes de propriedade, urbanização, políticas públicas, mercados de trabalho e classificações sociais podem participar da explicação, mas seus efeitos variam. O objetivo é formular relações investigáveis, não decorar uma lista de causas.</p>
+<p>A mobilidade precisa ser medida em relação a pontos de partida e chegada. A intrageracional acompanha mudanças na trajetória de uma pessoa; a intergeracional compara gerações. Uma sociedade pode registrar deslocamentos individuais e conservar grande desigualdade. Pode ampliar escolaridade sem converter diplomas em posições equivalentes para todos. Histórias de ascensão ou queda abrem perguntas, mas não substituem evidência sobre probabilidades, barreiras e recursos.</p>
+</article>
+<article id="tb2">
+<h3>2. Indicadores: escolhas antes dos números</h3>
+<p>Um <strong>indicador social</strong> é uma medida construída para representar uma dimensão coletiva. Antes do número existem decisões: conceito, população, unidade, período e classificação. “Renda média” pode se referir a pessoas, domicílios ou trabalhadores; incluir fontes diferentes; usar valores nominais ou corrigidos. Sem metadados, números de mesmo nome talvez não sejam comparáveis.</p>
+<p>A média soma valores e divide pelo número de observações; valores extremos a afetam. A mediana ordena os valores e identifica o ponto central. Proporções, taxas e índices respondem a outras perguntas. Uma taxa relaciona ocorrências a uma população; um índice combina informações segundo regras declaradas. Título, fonte, definição, universo, período e notas metodológicas integram a evidência.</p>
+<p>Indicadores permitem comparar padrões que experiências isoladas não revelam, mas comprimem variações. Uma média municipal pode esconder bairros diferentes; uma categoria ampla reúne trajetórias diversas; melhora geral pode coexistir com distância crescente entre grupos. A leitura começa com descrição disciplinada e só então propõe inferências. Esse intervalo entre ver e explicar impede conclusões automáticas.</p>
+<p>A comparação temporal exige atenção. Inflação, alteração do questionário, mudança da população coberta ou revisão de classificação podem produzir diferenças que não correspondem diretamente a transformação social. Ausência de mudança tampouco prova estabilidade: movimentos opostos podem se compensar. Séries devem usar conceitos compatíveis e registrar quebras metodológicas. Quando isso não é possível, a conclusão correta pode ser limitar a comparação.</p>
+<p>A qualidade de uma estimativa também depende do modo de produção do dado. Pesquisas amostrais observam parte da população e estimam valores para um universo, trazendo incerteza; registros administrativos cobrem quem acessa determinado sistema e podem excluir quem não chega ao serviço; censos buscam cobertura extensa, mas ocorrem em intervalos maiores. Nenhuma fonte é automaticamente superior. A pergunta define qual é adequada, e a triangulação entre fontes pode revelar lacunas de cobertura, diferenças de definição ou padrões que merecem investigação qualitativa.</p>
+<aside class="pause-box">
+<h4>Pausa 1 — Ler antes de explicar</h4>
+<p>Quais cinco informações metodológicas devem acompanhar uma tabela para permitir comparação segura?</p>
+</aside>
+</article>
+<article id="tb3">
+<h3>3. Renda, riqueza e condições de vida</h3>
+<p>
+<strong>Renda</strong> é fluxo recebido em um período: salários, benefícios, aposentadorias ou outras entradas, conforme a pesquisa. <strong>Riqueza</strong> é estoque de ativos e dívidas em certo momento: imóveis, terras, aplicações, empresas e obrigações. Alguém pode ter renda temporariamente baixa e patrimônio elevado; outra pessoa pode receber mais, carregar dívidas e não possuir ativos. Concentração de renda e de riqueza são relacionadas, não intercambiáveis.</p>
+<p>Renda domiciliar per capita divide a renda pelo número de moradores. Facilita comparações, mas pressupõe distribuição interna que talvez não ocorra. Não registra diretamente cuidado não remunerado, estabilidade, jornada, deslocamento ou serviços. Domicílios de renda semelhante podem enfrentar custos, infraestrutura e tempos distintos. A medida permanece útil quando seu limite acompanha a conclusão.</p>
+<p>
+<strong>Condições de vida</strong> ampliam a pergunta para moradia, saneamento, alimentação, educação, saúde, mobilidade, segurança, conectividade e tempo. Não se trata de substituir renda por um índice total. Dimensões pedem medidas próprias, e agregá-las exige escolhas de peso. O ganho está em investigar como recursos monetários, serviços, redes e regras se combinam.</p>
+<p>O tempo constitui recurso oculto. Longos deslocamentos, filas, jornadas imprevisíveis e cuidado necessário diminuem o tempo para descanso, estudo ou participação pública. Essas restrições não aparecem integralmente no rendimento, embora afetem mobilidade futura. Serviços públicos também modificam o que uma renda permite realizar. Comparar somente poder de compra privado subestima o papel institucional na produção ou redução das desigualdades.</p>
+<p>Segurança e previsibilidade completam esse quadro. Duas rendas mensais iguais podem resultar de vínculos muito distintos: uma regular e protegida, outra oscilante e sujeita a interrupções. A média de um mês não capta risco acumulado, possibilidade de planejar nem acesso a proteção. Perguntar pela estabilidade do fluxo aproxima a medida das trajetórias sem confundi-la com patrimônio.</p>
+</article>
+<article id="tb4">
+<h3>4. Distribuições e coeficiente de Gini</h3>
+<p>Uma distribuição mostra como um recurso se reparte. Participação de décimos, razão entre grupos, média, mediana e curvas acumuladas iluminam aspectos diferentes. O <strong>coeficiente de Gini</strong> resume concentração: aproxima-se de zero em distribuições mais iguais e de um nas mais concentradas. É indispensável saber variável, população, fonte e período.</p>
+<p>O Gini não mede riqueza, pobreza ou bem-estar por natureza; mede concentração da variável escolhida. Duas sociedades podem ter o mesmo coeficiente e níveis de renda distintos. Um Gini menor pode surgir por aumento na base, queda no topo ou combinações. O índice não identifica quem mudou nem onde a diferença ocorre; deve acompanhar níveis, percentis, grupos e contexto.</p>
+<p>Imagine municípios fictícios com o mesmo Gini. No primeiro, mediana maior, saneamento amplo e aluguel moderado; no segundo, mediana menor, infraestrutura desigual e aluguel oneroso. A igualdade relativa resumida não torna equivalentes suas condições. Rankings isolados também ocultam distância, incerteza e mecanismos.</p>
+<p>O coeficiente depende da unidade analisada. O Gini individual pode diferir do domiciliar per capita porque o segundo reúne rendas e moradores. Incluir ou excluir rendas não monetárias, impostos, benefícios ou pessoas sem rendimento altera a distribuição. Comparações históricas só são defensáveis com escolhas compatíveis. O valor não é falso por ser construído; torna-se enganoso quando se esconde a construção ou se exige resposta para a qual não foi desenhado.</p>
+<aside class="pause-box">
+<h4>Pausa 2 — Limites do resumo</h4>
+<p>Com o mesmo Gini, quais três informações adicionais seriam necessárias para comparar condições de vida?</p>
+</aside>
+</article>
+<article id="tb5">
+<h3>5. Raça como dimensão dos dados</h3>
+<p>Desagregar indicadores por cor ou raça permite perguntar se oportunidades, recursos e riscos se distribuem semelhantemente. Diferenças não demonstram capacidades naturais nem essências. Categorias raciais são sociais e históricas; sua formação e a racialização serão centrais na Aula 25. Aqui servem para localizar padrões que pedem explicação, sem converter coluna em causa.</p>
+<p>Diferenças persistentes em renda, escolaridade, ocupação ou serviços levam a examinar mecanismos: recrutamento, distribuição de escolas e empregos, redes, herança patrimonial, discriminação, políticas e trajetórias. O agregado não decide entre hipóteses. Documentos, séries, entrevistas, observação ou comparações podem ser necessários.</p>
+<p>Há variação interna em cada categoria. Gênero, idade, região, escolaridade e ocupação modificam padrões, sem transformar análise em soma de identidades. Formas de coleta e autodeclaração também importam. Mudança estatística pode combinar transformação social, classificação e método. Reconhecer possibilidades define melhor o alcance da evidência.</p>
+<p>Desagregar é decisão analítica, não receita. Muitas subdivisões podem produzir grupos pequenos e estimativas instáveis; poucas podem ocultar diferenças. Importa saber quem ficou fora e como respostas ausentes foram tratadas. A categoria permite comparação quando definida consistentemente, mas não resume identidade, trajetória ou posição de cada pessoa. Estatísticas de grupo informam padrões coletivos e não autorizam prever indivíduos.</p>
+</article>
+<article id="tb6">
+<h3>6. Território, acesso e escalas</h3>
+<p>Território não é só lugar onde desigualdade aparece. É espaço produzido por decisões sobre moradia, transporte, propriedade, serviços e investimento. Distância ao emprego, frequência do transporte, saneamento, saúde e preço da moradia organizam possibilidades. Renda semelhante pode oferecer capacidades diferentes em infraestruturas distintas.</p>
+<p>A escala muda a pergunta. Região, estado, município, campo, bairro e setor censitário não são equivalentes. Média regional oculta cidades; média municipal esconde segregação; bairro reúne contrastes. Norte, Nordeste, periferia ou campo não são blocos homogêneos: cada denominação reúne histórias e capacidades diversas.</p>
+<p>Um padrão territorial pode resultar de preço da terra, localização de empregos, infraestrutura, barreiras ambientais ou decisões acumuladas. Hipóteses podem atuar juntas, mas precisam ser verificadas. Mapas mostram distribuição, não explicam por que existe. Devemos perguntar por quais instituições recursos e riscos foram alocados e que evidência distingue mecanismos.</p>
+<p>Há efeitos de composição e contexto. Um território pode apresentar resultado porque reúne pessoas com certas características, porque infraestrutura e instituições afetam moradores, ou por ambos. Comparar moradores semelhantes em áreas distintas ajuda, mas não resolve a seleção de quem consegue morar em cada lugar. Documentos de planejamento, trajetórias residenciais e mudanças de oferta complementam o retrato. Uma explicação territorial rigorosa evita culpar o lugar ou seus habitantes.</p>
+<aside class="pause-box">
+<h4>Pausa 3 — Trocar de escala</h4>
+<p>Que padrão pode desaparecer ao passar do bairro à média municipal? Formule hipótese e evidência para testá-la.</p>
+</aside>
+</article>
+<article id="tb7">
+<h3>7. Cruzar dimensões sem somá-las</h3>
+<p>Renda, raça e território articulam-se porque mercados, políticas e instituições distribuem recursos em espaços concretos. Não formam uma escada em que cada desvantagem soma quantidade fixa. Transporte pode ampliar emprego, mas efeitos variam com horários, cuidado e recrutamento. Política de renda reduz privação sem alterar imediatamente segregação ou patrimônio.</p>
+<p>Cruzar dimensões é comparar relações específicas: a diferença entre categorias varia entre territórios? O acesso a serviço altera associação entre renda e educação? Unidades e tamanhos devem estar claros. Percentuais sem denominador enganam; grupos pequenos oscilam; associação agregada pode mudar após desagregação.</p>
+<p>A linguagem importa. “Território causa” e “raça determina” fazem categorias agir. Formulações precisas nomeiam processos: crédito restringe acesso; transporte alonga deslocamentos; discriminação altera oportunidades; tributação e herança afetam acúmulo. Isso abre a explicação à investigação e reconhece instituições mantidas, disputadas e alteradas.</p>
+<p>Uma tabela cruzada pode revelar que a distância entre grupos aumenta ou diminui conforme o território. Essa variação sugere interação entre dimensões, mas ainda não identifica o processo. Valores absolutos importam: distância menor pode coexistir com piora para todos, enquanto melhora geral pode manter distância relativa. Dizer quem ganhou, quanto, em qual medida e comparado a quê evita que entrelaçamento vire fórmula vazia.</p>
+</article>
+<article id="tb8">
+<h3>8. Do padrão à explicação</h3>
+<p>
+<strong>Descrição</strong> registra padrão. <strong>Inferência</strong> estima o que se afirma além das observações. <strong>Explicação</strong> propõe mecanismos ligando condições e resultados. <strong>Avaliação</strong> julga segundo critérios declarados. Confundi-las transforma diferença em prova causal e preferência política em consequência automática da tabela.</p>
+<p>A atividade constrói cadeia: evidência, inferência delimitada, dois mecanismos possíveis, informação adicional e limite. Se há menor acesso a um serviço, distância, preço, oferta, horário e barreiras administrativas são hipóteses distintas. Outra fonte deve ajudar a separá-las.</p>
+<p>Políticas são objetos analisáveis. Uma proposta identifica mecanismo, população, recursos, implementação, efeitos desiguais e acompanhamento. O dado inicial justifica investigação, não garante solução. Argumentar sociologicamente é explicitar pontes entre padrão, processo e decisão, inclusive onde termina a evidência.</p>
+<p>Correlação é associação entre variações; causalidade afirma que uma condição participa da produção de outra segundo mecanismo e condições especificadas. Associação pode decorrer de causalidade direta, influência inversa, fator comum ou seleção. Nenhuma alternativa deve ser escolhida só por parecer intuitiva. Bons argumentos registram o grau de certeza e preveem o que observaríamos sob cada hipótese. Evidência contrária ajuda a revisar alcance e mecanismo.</p>
+<p>O mecanismo funciona como uma ponte verificável, não como palavra geral. “Estrutura”, “cultura” ou “história” não bastam se não dissermos que regras, práticas e sequências conectam posições a resultados. Um mecanismo pode envolver critérios de contratação, financiamento municipal, preço da terra ou desenho de benefício. Sua existência em um caso não garante igual efeito em outro: contexto, capacidade institucional e respostas dos atores importam. Delimitar onde e quando a hipótese vale evita determinismo e permite comparação produtiva.</p>
+</article>
+<article id="tb9">
+<h3>9. Síntese e passagem à Aula 25</h3>
+<p>Posições estratificadas tornam-se observáveis por medidas parciais de recursos, oportunidades e riscos. Renda informa fluxo; riqueza, estoque; condições de vida exigem dimensões múltiplas. Média, mediana, proporções e Gini resumem distribuições de modos distintos. Todos dependem de definição, população, período e escala. Indicador é ferramenta, não fotografia neutra nem teoria pronta.</p>
+<p>Raça e território localizam padrões, mas não são causas únicas. Explicar requer instituições, mecanismos, história e evidências complementares. A análise preserva variação e distingue observação, inferência, explicação e avaliação. Evita individualizar desigualdades estruturadas e retirar a agência de quem negocia e contesta regras.</p>
+<p>A Aula 25 perguntará como categorias raciais são produzidas, ganham efeitos e participam de poder. Hoje usamos classificação para ler diferenças; depois distinguiremos raça, etnia, racialização, preconceito, discriminação e racismo, sem essência. A transição aprofunda mecanismos sem presumir que toda diferença estatística já esteja explicada.</p>
+<p>O percurso pode ser resumido como disciplina de perguntas. O que foi medido? Quem está incluído? Qual comparação sustenta a descrição? Que mecanismo liga condições e resultado? Que fonte poderia contrariar a hipótese? Qual limite acompanha a conclusão? Essas perguntas conectam estratificação, mobilidade e indicadores sem reduzir teoria a estatística. Também preparam a racialização, em que classificações, práticas e instituições serão examinadas historicamente.</p>
+<aside class="pause-box">
+<h4>Pausa 4 — Bilhete de saída</h4>
+<p>Registre uma afirmação sustentada, um limite e uma pergunta que a Aula 25 deverá ajudar a responder.</p>
+</aside>
+</article>
+</div>
+</section>
+<section id="plano-aula">
+<h2 class="title">Plano de 120 minutos</h2>
+<div class="timeline">
+<div class="tl-item">
+<span class="tl-duration">10 min</span>
+<span>Retomada da Aula 23 e pergunta-guia.</span>
+</div>
+<div class="tl-item">
+<span class="tl-duration">20 min</span>
+<span>Indicadores, renda, riqueza, média, mediana e Pausa 1.</span>
+</div>
+<div class="tl-item">
+<span class="tl-duration">20 min</span>
+<span>Gini, níveis, limites, boletins 1–2 e Pausa 2.</span>
+</div>
+<div class="tl-item">
+<span class="tl-duration">15 min</span>
+<span>Raça, território, escala e Pausa 3.</span>
+</div>
+<div class="tl-item">
+<span class="tl-duration">35 min</span>
+<span>Oficina em grupos com os seis boletins.</span>
+</div>
+<div class="tl-item">
+<span class="tl-duration">15 min</span>
+<span>Socialização: evidência, mecanismo e limite.</span>
+</div>
+<div class="tl-item">
+<span class="tl-duration">5 min</span>
+<span>Síntese, Pausa 4 e transição.</span>
+</div>
+</div>
+</section>
+<section id="atividade">
+<h2 class="title">Atividade — Laboratório de indicadores</h2>
+<div class="activity">
+<p>Grupos de três ou quatro analisam os seis boletins. Todos os números são <strong>fictícios e exclusivamente didáticos</strong>; não descrevem lugares ou grupos reais. Produto: ficha com duas descrições, uma inferência, dois mecanismos, informação adicional, limite e ação associada a indicador. Sequência: metadados (5 min), perguntas (15), ficha (10), revisão (5). Ninguém deve informar renda, raça, endereço ou discriminação vivida; acolha relatos sem pedir detalhes e retorne aos casos.</p>
+</div>
+<div class="materials">
+<div class="material">
+<h3>1. Fluxo e estoque</h3>
+<p class="fake">Dados fictícios.</p>
+<table>
+<tr>
+<th>Grupo</th>
+<th>Renda mediana</th>
+<th>Reserva</th>
+</tr>
+<tr>
+<td>Sol</td>
+<td>100 u.m.</td>
+<td>18%</td>
+</tr>
+<tr>
+<td>Lua</td>
+<td>130 u.m.</td>
+<td>8%</td>
+</tr>
+</table>
+<p>1.000 domicílios; reserva para três meses.</p>
+</div>
+<div class="material">
+<h3>2. Mesmo Gini</h3>
+<p class="fake">Dados fictícios.</p>
+<table>
+<tr>
+<th>Município</th>
+<th>Gini</th>
+<th>Mediana</th>
+</tr>
+<tr>
+<td>Ipê</td>
+<td>0,40</td>
+<td>120 u.m.</td>
+</tr>
+<tr>
+<td>Jatobá</td>
+<td>0,40</td>
+<td>75 u.m.</td>
+</tr>
+</table>
+<p>Mesma definição e ano.</p>
+</div>
+<div class="material">
+<h3>3. Média e mediana</h3>
+<p class="fake">Dados fictícios.</p>
+<table>
+<tr>
+<th>Área</th>
+<th>Média</th>
+<th>Mediana</th>
+</tr>
+<tr>
+<td>Centro</td>
+<td>190</td>
+<td>95</td>
+</tr>
+<tr>
+<td>Margem</td>
+<td>105</td>
+<td>90</td>
+</tr>
+</table>
+<p>500 adultos por área.</p>
+</div>
+<div class="material">
+<h3>4. Acesso</h3>
+<p class="fake">Dados fictícios.</p>
+<table>
+<tr>
+<th>Zona</th>
+<th>Mediana</th>
+<th>Tempo à saúde</th>
+</tr>
+<tr>
+<td>A</td>
+<td>100</td>
+<td>18 min</td>
+</tr>
+<tr>
+<td>B</td>
+<td>101</td>
+<td>57 min</td>
+</tr>
+</table>
+</div>
+<div class="material">
+<h3>5. Desagregação</h3>
+<p class="fake">Categorias e dados fictícios.</p>
+<table>
+<tr>
+<th>Categoria</th>
+<th>Emprego formal</th>
+<th>n</th>
+</tr>
+<tr>
+<td>Azul</td>
+<td>62%</td>
+<td>600</td>
+</tr>
+<tr>
+<td>Verde</td>
+<td>46%</td>
+<td>600</td>
+</tr>
+</table>
+<p>Mesma cidade e ano; não mede escolaridade ou discriminação.</p>
+</div>
+<div class="material">
+<h3>6. Cruzamento</h3>
+<p class="fake">Categorias e dados fictícios.</p>
+<table>
+<tr>
+<th>Zona/categoria</th>
+<th>Acesso a curso</th>
+</tr>
+<tr>
+<td>A/Azul</td>
+<td>70%</td>
+</tr>
+<tr>
+<td>A/Verde</td>
+<td>59%</td>
+</tr>
+<tr>
+<td>B/Azul</td>
+<td>45%</td>
+</tr>
+<tr>
+<td>B/Verde</td>
+<td>28%</td>
+</tr>
+</table>
+<p>400 pessoas por célula.</p>
+</div>
+</div>
+<div class="activity">
+<h3>Oito perguntas</h3>
+<ol>
+<li>Que diferença entre renda e riqueza aparece no boletim 1?</li>
+<li>Por que o mesmo Gini não torna os municípios equivalentes?</li>
+<li>O que a distância entre média e mediana sugere, sem provar?</li>
+<li>Que dimensão de condições de vida o boletim 4 acrescenta?</li>
+<li>Escreva uma descrição válida e uma explicação não autorizada pelo boletim 5.</li>
+<li>No boletim 6, calcule as diferenças em pontos percentuais por zona.</li>
+<li>Proponha dois mecanismos e evidência capaz de distingui-los.</li>
+<li>Formule ação, mecanismo, indicador e possível efeito desigual.</li>
+</ol>
+<details>
+<summary>Gabarito comentado</summary>
+<p>
+<strong>1–4.</strong> Sol tem menor renda, mas maior reserva: fluxo e estoque não coincidem. O Gini igual informa concentração relativa, não nível; as medianas diferem. A média elevada no Centro é compatível com valores altos puxando-a, mas não prova formato completo. O quarto boletim acrescenta tempo e acesso territorial a serviço.</p>
+<p>
+<strong>5–6.</strong> Descrição: no caso fictício, emprego formal é 16 pontos maior em Azul. Não se pode dizer que a categoria causa o resultado ou provar discriminação. No sexto, diferenças são 11 pontos na zona A e 17 na B, variando seis pontos.</p>
+<p>
+<strong>7–8.</strong> Oferta/transporte e seleção/informação são mecanismos alternativos; mapas, horários, candidaturas e critérios ajudariam a distingui-los. Ações aceitáveis devem ligar intervenção a mecanismo e indicador, definir população e observar efeitos por zona e categoria. Avalia-se coerência entre dado, inferência, mecanismo, limite e informação adicional, não uma política única.</p>
+</details>
+</div>
+</section>
+<section id="referencias">
+<h2 class="title">Referências verificáveis</h2>
+<div class="refs">
+<div class="card">
+<strong>IBGE.</strong> <em>Síntese de indicadores sociais: uma análise das condições de vida da população brasileira 2023.</em> Rio de Janeiro, 2023. <a href="https://biblioteca.ibge.gov.br/visualizacao/livros/liv102052.pdf">PDF oficial</a>.</div>
+<div class="card">
+<strong>IPEA.</strong> <em>Atlas da vulnerabilidade social nos municípios brasileiros.</em> Brasília, 2015. <a href="https://repositorio.ipea.gov.br/handle/11058/4381">Registro oficial</a>.</div>
+<div class="card">
+<strong>IBGE.</strong> <em>Desigualdades sociais por cor ou raça no Brasil.</em> n. 48. Rio de Janeiro, 2022. <a href="https://biblioteca.ibge.gov.br/visualizacao/livros/liv101972_informativo.pdf">PDF oficial</a>. Nenhum valor da atividade foi extraído dessas obras.</div>
+</div>
+</section>
 </main>
-
-<footer>
-  <a href="/introducao-sociologia/">← Página principal</a>
-  &nbsp;·&nbsp; Introdução à Sociologia 2026.2
+<footer>Introdução à Sociologia · 2026.2 · <a href="aula-23.html">Aula 23</a> · Aula 24 · <a href="aula-25.html">Aula 25</a>
 </footer>
-
 </body>
 </html>
