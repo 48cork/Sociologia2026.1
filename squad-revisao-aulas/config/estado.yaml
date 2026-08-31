@@ -3,7 +3,7 @@
   "workflow": "revisar-lote",
   "head_base": "ed45724eea0c9df260b323d8e8f4b0e2095a6ddd",
   "mapa_progressao": "COMPLETO",
-  "aula_selecionada": 26,
+  "aula_selecionada": 28,
   "estados_validos": [
     "PENDENTE",
     "EM_RECONSTRUCAO",
@@ -19,11 +19,11 @@
     "24": {"estado": "COMMITADO", "rodadas_reparo": 0, "commit_grupo": "24"},
     "25": {"estado": "COMMITADO", "rodadas_reparo": 0, "commit_grupo": "25-26"},
     "26": {"estado": "COMMITADO", "rodadas_reparo": 0, "commit_grupo": "25-26"},
-    "27": {"estado": "PENDENTE", "rodadas_reparo": 0, "commit_grupo": "27-28"},
-    "28": {"estado": "PENDENTE", "rodadas_reparo": 0, "commit_grupo": "27-28"},
+    "27": {"estado": "COMMITADO", "rodadas_reparo": 0, "commit_grupo": "27-28"},
+    "28": {"estado": "COMMITADO", "rodadas_reparo": 0, "commit_grupo": "27-28"},
     "29": {"estado": "PENDENTE", "rodadas_reparo": 0, "commit_grupo": "29-30"},
     "30": {"estado": "PENDENTE", "rodadas_reparo": 0, "commit_grupo": "29-30"}
   },
-  "ultima_transicao": "GATE_25_26: PRONTO_AGUARDANDO_PAR + PRONTO -> COMMITADO",
+  "ultima_transicao": "GATE_27_28: PRONTO + QA_OK -> COMMITADO",
   "observacao": "Este arquivo só pode ser atualizado pelo workflow; não constitui autorização remota."
 }
