@@ -79,6 +79,13 @@
   .ref-pages { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
 
   .activity-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; font-size: 0.9rem; line-height: 1.7; border-left: 3px solid var(--teal-lt); }
+  .activity-card h3, .activity-card h4 { color: var(--teal-lt); margin: 16px 0 8px; }
+  .activity-card ol, .activity-card ul { padding-left: 22px; margin: 8px 0 14px; }
+  .material-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(245px, 1fr)); gap: 12px; margin: 16px 0; }
+  .material-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px; min-width: 0; }
+  .material-card h4 { margin-top: 0; }
+  details { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; margin-top: 18px; }
+  summary { color: var(--amber-lt); cursor: pointer; font-weight: 700; }
 
   .deadline-card { background: rgba(251,191,36,0.07); border: 1px solid rgba(251,191,36,0.25); border-radius: var(--radius); padding: 18px 20px; margin-bottom: 12px; }
   .deadline-card h3 { font-size: 0.9rem; font-weight: 700; color: var(--amber-lt); margin-bottom: 8px; }
@@ -126,6 +133,13 @@
     .base-toc ol { width: auto; columns: auto; padding-left: 0; list-style-position: inside; }
     .tl-item { flex-direction: column; gap: 8px; }
   }
+  @media print {
+    :root { --bg:#fff; --surface:#fff; --card:#fff; --border:#888; --text:#111; --muted:#333; }
+    nav, .section-nav, footer { display:none !important; }
+    body, main { background:#fff; color:#111; max-width:none; padding:0; }
+    .aula-header, .content-topic, .activity-card, .material-card, .ref-card, .tl-item, details, .pause-box { break-inside:avoid; box-shadow:none; }
+    details > * { display:block; }
+  }
 </style>
 </head>
 <body>
@@ -141,10 +155,19 @@
     <a href="aula-30.html">Próxima →</a>
   </div>
 </nav>
-<div class="section-nav" aria-label="Seções da aula"><a href="#objetivos">Objetivos</a><a href="#conteudo-programatico">Conteúdo</a><a href="#texto-base">Texto-base</a><a href="#plano-aula">Plano da aula</a><a href="#leituras">Leituras</a><a href="#atividade">Atividade</a><a href="#recursos">Recursos</a></div>
+<div class="section-nav" aria-label="Seções da aula">
+<a href="#objetivos">Objetivos</a>
+<a href="#conteudo-programatico">Conteúdo</a>
+<a href="#texto-base">Texto-base</a>
+<a href="#plano-aula">Plano da aula</a>
+<a href="#leituras">Leituras</a>
+<a href="#atividade">Atividade</a>
+<a href="#recursos">Recursos</a>
+</div>
 
 <main>
-  <aside class="legacy-note" aria-label="Aviso sobre material legado"><strong>Material legado de 2026.1.</strong> As orientações de seminário preservadas nesta página têm valor histórico e não constituem avaliação obrigatória em 2026.2. A atividade avaliativa final ocorrerá em 03/02/2027, em formato a ser confirmado pelo professor.</aside>
+  <aside class="legacy-note" aria-label="Aviso sobre material legado">
+<strong>Escopo de 2026.2.</strong> Esta oficina trabalha revisão entre pares sem confirmar notas, apresentações, relatórios, vídeos, prazos ou formatos avaliativos legados.</aside>
 
 
   <div class="aula-header">
@@ -155,28 +178,28 @@
       <span class="meta-chip">16/12/2026 — Quarta-feira</span>
       <span class="meta-chip">Percurso completo do encontro: 4 horas-aula</span>
       <span class="meta-chip">Esta página: aproximadamente 2 horas</span>
-      <span class="eval-chip">Avaliação — Seminários</span>
+      <span class="eval-chip">Oficina de revisão — não avaliativa</span>
     </div>
-    <h1>Seminários — Apresentações orais (2ª metade dos grupos).</h1>
+    <h1>Da devolutiva ao argumento revisado.</h1>
   </div>
 
   <section id="objetivos">
     <div class="section-title">Objetivos da Aula</div>
     <ul class="obj-list">
-      <li>Avaliar as apresentações orais dos grupos restantes (2ª metade, conforme ordem definida).</li>
-      <li>Promover debate qualificado entre apresentadores e colegas.</li>
-      <li>Fornecer orientações finais e específicas a cada grupo sobre o relatório escrito e o vídeo.</li>
+      <li>Classificar devolutivas como pedidos de clareza, objeções, contraexemplos ou questões de alcance.</li>
+      <li>Decidir justificadamente entre manter, qualificar ou revisar uma tese.</li>
+      <li>Produzir um memorando que rastreie evidência recebida, decisão e mudança realizada.</li>
     </ul>
   </section>
 
   <section id="conteudo-programatico">
     <div class="section-title">Conteúdo Programático</div>
     <div class="content-topic">
-      <h3>Apresentações orais dos seminários — 2ª metade dos grupos</h3>
+      <h3>Revisão rastreável do argumento sociológico</h3>
       <ul>
-        <li>Continuação das apresentações orais conforme ordem definida na Aula 14</li>
-        <li>Cada apresentação: aproximadamente 15 minutos + 5 minutos de perguntas</li>
-        <li>Ao final: orientações individualizadas para relatório escrito e vídeo</li>
+        <li>Devolutiva, objeção, evidência contrária e contraexemplo</li>
+        <li>Alcance, resposta e critérios para manter ou revisar</li>
+        <li>Memorando de revisão com mudanças localizáveis</li>
       </ul>
     </div>
   </section>
@@ -185,8 +208,127 @@
     <div class="section-title" id="texto-base-title">Texto-base para acompanhamento da aula</div>
     <div class="base-text">
       <p class="base-intro">Leitura de apoio para a exposição, a discussão e a retomada dos conceitos. As pausas podem ser realizadas oralmente, em duplas ou por registro breve.</p>
-      <nav class="base-toc" aria-label="Sumário do texto-base"><h3>Nesta leitura</h3><ol><li><a href="#texto-problema">Uma pergunta para abrir: Como uma boa pergunta dos colegas pode melhorar uma interpretação sociológica?</a></li><li><a href="#texto-contexto">Localizar o problema histórica e conceitualmente</a></li><li><a href="#texto-retomar-socializacao">Apresentações orais dos seminários — 2ª metade dos grupos</a></li><li><a href="#texto-comparar-argumentos">Apresentações orais dos seminários — 2ª metade dos grupos</a></li><li><a href="#texto-orientar-revisao">Apresentações orais dos seminários — 2ª metade dos grupos</a></li><li><a href="#texto-aplicacao">Aplicação e trabalho com evidências</a></li><li><a href="#texto-cuidados">Distinções, limites e cuidados conceituais</a></li><li><a href="#texto-sintese">Síntese e passagem para a próxima aula</a></li></ol></nav>
-      <div class="base-subsection" id="texto-problema"><h3>1. Uma pergunta para abrir: Como uma boa pergunta dos colegas pode melhorar uma interpretação sociológica?</h3><p><strong>Como uma boa pergunta dos colegas pode melhorar uma interpretação sociológica?</strong> Essa pergunta organiza a Aula 29, dedicada a seminários — apresentações orais (2ª metade dos grupos). Ela parte de uma dificuldade reconhecível: o cotidiano nos oferece respostas rápidas, mas essas respostas frequentemente transformam costumes históricos em fatos naturais ou atribuem a indivíduos fenômenos produzidos por relações mais amplas.</p><p>Pensemos em uma segunda rodada de socialização e revisão entre pares. A cena pode ser descrita de muitas maneiras, porém a descrição sociológica pergunta quem participa, quais posições ocupa, que regras orientam a conduta, como essas regras foram formadas e quais consequências recaem de modo desigual sobre os envolvidos. O exemplo funciona como porta de entrada; não substitui a análise nem autoriza generalizações sobre todos os casos.</p><p>Os objetivos do roteiro apontam o percurso: Avaliar as apresentações orais dos grupos restantes (2ª metade, conforme ordem definida). Promover debate qualificado entre apresentadores e colegas. Fornecer orientações finais e específicas a cada grupo sobre o relatório escrito e o vídeo. Em vez de tratar essas metas como itens separados, o texto as encadeia. Definir permite observar; contextualizar evita anacronismos; comparar explicita diferenças; aplicar conceitos exige evidências; e discutir limites impede que uma teoria se torne resposta automática para qualquer problema.</p><p>O olhar sociológico começa quando suspendemos por um momento a resposta evidente. Isso não significa abandonar conhecimentos cotidianos, mas interrogá-los. O senso comum é uma orientação prática compartilhada, indispensável à vida; a investigação sociológica, por sua vez, precisa explicitar procedimentos, conceitos e fontes, aceitar contestação e distinguir aquilo que sabe daquilo que apenas supõe.</p><aside class="pause-box"><h4>Pausa para discussão</h4><p>Que resposta de senso comum aparece primeiro diante da pergunta de abertura? Que informação seria necessária para testá-la sociologicamente?</p></aside></div><div class="base-subsection" id="texto-contexto"><h3>2. Localizar o problema histórica e conceitualmente</h3><p>Nenhum conceito desta aula surgiu fora do tempo. O problema de seminários — apresentações orais (2ª metade dos grupos). deve ser ligado às transformações históricas, aos debates intelectuais e às experiências coletivas que lhe deram forma. Contextualizar não é decorar datas ou biografias: é compreender por que certas perguntas se tornaram relevantes e por que respostas concorrentes foram formuladas.</p><p>A Sociologia trabalha numa tensão produtiva entre continuidade e mudança. Pessoas recebem instituições, linguagens e classificações já existentes, mas as reproduzem, interpretam e contestam em circunstâncias novas. Por isso, uma explicação não pode escolher simplesmente entre indivíduo e sociedade. Ela precisa mostrar por quais relações uma experiência singular se conecta a padrões, conflitos e processos históricos.</p><p>As leituras indicadas no roteiro — Cada grupo Materiais bibliográficos do próprio tema do seminário Conforme indicação do professor na formação dos grupos — servem de apoio a essa reconstrução. Elas não devem ser convertidas em frases de autoridade. O procedimento mais seguro é paráfrase responsável: apresentar o problema do autor, reconstruir seu argumento e indicar como ele ajuda a ler o conteúdo da aula, sem criar citações literais, páginas ou conclusões que o material não confirme.</p><p>Também é necessário separar três planos. A explicação de um autor reconstrói seus conceitos nos termos do problema que ele enfrentou. A contextualização histórica situa as condições de produção e circulação dessas ideias. A aplicação contemporânea é uma operação nossa, que testa a fecundidade do conceito em outro cenário. Misturar os planos produz anacronismos e faz parecer que o autor comentou diretamente fatos que não conheceu.</p></div><div class="base-subsection" id="texto-retomar-socializacao"><h3>3. Retomar a socialização sem recomeçar</h3><p>O 1º movimento do argumento concentra-se em <strong>Apresentações orais dos seminários — 2ª metade dos grupos</strong>. O roteiro associa esse núcleo a Continuação das apresentações orais conforme ordem definida na Aula 14; Cada apresentação: aproximadamente 15 minutos + 5 minutos de perguntas; Ao final: orientações individualizadas para relatório escrito e vídeo. A enumeração, porém, ganha sentido apenas quando percebemos as relações entre seus componentes. Conceitos sociológicos não são etiquetas aplicadas depois que um fato acontece: eles selecionam dimensões do problema, orientam comparações e indicam quais evidências precisam ser procuradas.</p><p>Para acompanhar a exposição, convém avançar em três passos. Primeiro, identificar o fenômeno e o contexto em que ele ocorre. Segundo, perguntar quais relações, regras, recursos e significados o tornam possível. Terceiro, comparar situações para descobrir o que permanece e o que muda. Aplicado a apresentações orais dos seminários — 2ª metade dos grupos, esse procedimento impede que uma impressão isolada seja apresentada como explicação geral e ajuda a ligar experiência, história e organização social.</p><p>Os elementos Continuação das apresentações orais conforme ordem definida na Aula 14; Cada apresentação: aproximadamente 15 minutos + 5 minutos de perguntas; Ao final: orientações individualizadas para relatório escrito e vídeo não devem ser lidos como sinônimos. Cada um ilumina uma dimensão própria, embora possa se articular aos demais. A tarefa analítica consiste em dizer onde começa e termina cada conceito, qual problema ele responde e que tipo de evidência sustentaria sua aplicação. Em sala, o professor pode retomar um exemplo do conteúdo programático e pedir que a turma mostre exatamente qual característica autoriza a classificação proposta.</p><p>Esse cuidado também torna a leitura mais acessível. Em vez de memorizar uma definição abstrata, o estudante reconstrói o caminho do argumento: observa uma situação, reconhece um padrão, formula uma pergunta e testa uma interpretação. O resultado não precisa ser uma resposta definitiva. Uma hipótese sociológica é valiosa quando explicita seus critérios, admite comparação e pode ser revista diante de informações melhores.</p></div><div class="base-subsection" id="texto-comparar-argumentos"><h3>4. Comparar argumentos e evidências</h3><p>O 2º movimento do argumento concentra-se em <strong>Apresentações orais dos seminários — 2ª metade dos grupos</strong>. O roteiro associa esse núcleo a Continuação das apresentações orais conforme ordem definida na Aula 14; Cada apresentação: aproximadamente 15 minutos + 5 minutos de perguntas; Ao final: orientações individualizadas para relatório escrito e vídeo. A enumeração, porém, ganha sentido apenas quando percebemos as relações entre seus componentes. Conceitos sociológicos não são etiquetas aplicadas depois que um fato acontece: eles selecionam dimensões do problema, orientam comparações e indicam quais evidências precisam ser procuradas.</p><p>Para acompanhar a exposição, convém avançar em três passos. Primeiro, identificar o fenômeno e o contexto em que ele ocorre. Segundo, perguntar quais relações, regras, recursos e significados o tornam possível. Terceiro, comparar situações para descobrir o que permanece e o que muda. Aplicado a apresentações orais dos seminários — 2ª metade dos grupos, esse procedimento impede que uma impressão isolada seja apresentada como explicação geral e ajuda a ligar experiência, história e organização social.</p><p>Os elementos Continuação das apresentações orais conforme ordem definida na Aula 14; Cada apresentação: aproximadamente 15 minutos + 5 minutos de perguntas; Ao final: orientações individualizadas para relatório escrito e vídeo não devem ser lidos como sinônimos. Cada um ilumina uma dimensão própria, embora possa se articular aos demais. A tarefa analítica consiste em dizer onde começa e termina cada conceito, qual problema ele responde e que tipo de evidência sustentaria sua aplicação. Em sala, o professor pode retomar um exemplo do conteúdo programático e pedir que a turma mostre exatamente qual característica autoriza a classificação proposta.</p><p>Esse cuidado também torna a leitura mais acessível. Em vez de memorizar uma definição abstrata, o estudante reconstrói o caminho do argumento: observa uma situação, reconhece um padrão, formula uma pergunta e testa uma interpretação. O resultado não precisa ser uma resposta definitiva. Uma hipótese sociológica é valiosa quando explicita seus critérios, admite comparação e pode ser revista diante de informações melhores.</p></div><div class="base-subsection" id="texto-orientar-revisao"><h3>5. Orientar a revisão da produção</h3><p>O 3º movimento do argumento concentra-se em <strong>Apresentações orais dos seminários — 2ª metade dos grupos</strong>. O roteiro associa esse núcleo a Continuação das apresentações orais conforme ordem definida na Aula 14; Cada apresentação: aproximadamente 15 minutos + 5 minutos de perguntas; Ao final: orientações individualizadas para relatório escrito e vídeo. A enumeração, porém, ganha sentido apenas quando percebemos as relações entre seus componentes. Conceitos sociológicos não são etiquetas aplicadas depois que um fato acontece: eles selecionam dimensões do problema, orientam comparações e indicam quais evidências precisam ser procuradas.</p><p>Para acompanhar a exposição, convém avançar em três passos. Primeiro, identificar o fenômeno e o contexto em que ele ocorre. Segundo, perguntar quais relações, regras, recursos e significados o tornam possível. Terceiro, comparar situações para descobrir o que permanece e o que muda. Aplicado a apresentações orais dos seminários — 2ª metade dos grupos, esse procedimento impede que uma impressão isolada seja apresentada como explicação geral e ajuda a ligar experiência, história e organização social.</p><p>Os elementos Continuação das apresentações orais conforme ordem definida na Aula 14; Cada apresentação: aproximadamente 15 minutos + 5 minutos de perguntas; Ao final: orientações individualizadas para relatório escrito e vídeo não devem ser lidos como sinônimos. Cada um ilumina uma dimensão própria, embora possa se articular aos demais. A tarefa analítica consiste em dizer onde começa e termina cada conceito, qual problema ele responde e que tipo de evidência sustentaria sua aplicação. Em sala, o professor pode retomar um exemplo do conteúdo programático e pedir que a turma mostre exatamente qual característica autoriza a classificação proposta.</p><p>Esse cuidado também torna a leitura mais acessível. Em vez de memorizar uma definição abstrata, o estudante reconstrói o caminho do argumento: observa uma situação, reconhece um padrão, formula uma pergunta e testa uma interpretação. O resultado não precisa ser uma resposta definitiva. Uma hipótese sociológica é valiosa quando explicita seus critérios, admite comparação e pode ser revista diante de informações melhores.</p></div><div class="base-subsection" id="texto-aplicacao"><h3>6. Aplicação e trabalho com evidências</h3><p>O estudo de caso desta aula parte de uma segunda rodada de socialização e revisão entre pares. A finalidade não é decidir depressa se o caso confirma a teoria. Antes, é decompor a situação: identificar atores, posições, recursos, normas, discursos, escalas de tempo e possíveis efeitos. Somente depois se pergunta quais conceitos do roteiro oferecem uma interpretação consistente e quais aspectos permanecem fora de alcance.</p><p>A atividade prevista ajuda a realizar essa passagem. Apresentações orais e orientações pós-seminário As mesmas regras de participação da Aula 28 se aplicam: todos os alunos devem fazer ao menos uma pergunta ao longo das apresentações da aula. O professor avalia conforme os mesmos critérios (domínio do conteúdo, clareza, participação de todos, cumprimento do tempo, interação com a turma, fundamentação teórica). Após as apresentações, o professor se reúne brevemente com cada grupo (individualmente, quando possível) para fornecer orientações específicas sobre o relatório escrito e o vídeo: — Indicar quais aspectos da apresentação devem ser aprofundados no relatório; — Sugerir estrutura e fontes adicionais, se necessário; — Esclarecer dúvidas sobre os critérios de avaliação da entrega escrita e do vídeo; — Incentivar a criatividade no formato do vídeo, mantendo o rigor teórico. O exercício ganha qualidade quando cada afirmação vem acompanhada de uma evidência observável ou de uma pergunta de pesquisa. Se a turma discorda, a divergência pode ser produtiva: os grupos devem indicar se usam conceitos diferentes, se selecionam evidências distintas ou se atribuem significados diferentes à mesma informação.</p><p>Uma aplicação contemporânea rigorosa também considera alternativas. O mesmo padrão pode resultar de processos distintos, e uma evidência pode ser compatível com mais de uma interpretação. Entrevistas esclarecem sentidos atribuídos pelos participantes, observação acompanha práticas, documentos mostram regras e justificativas, e dados quantitativos revelam distribuição e variação. Nenhuma técnica responde sozinha a todas as perguntas.</p><p>Ao apresentar o caso, é útil distinguir exemplo, ilustração e evidência. Um exemplo torna o conceito inteligível; uma ilustração aproxima o tema da experiência da turma; evidência é informação coletada e analisada por procedimento explícito. Confundir essas funções leva a tomar uma história convincente como prova suficiente. A Sociologia procura justamente controlar esse salto.</p><aside class="pause-box"><h4>Pausa para discussão</h4><p>Qual conceito da aula explica melhor o estudo de caso? Que aspecto do caso ele não consegue explicar sozinho?</p></aside></div><div class="base-subsection" id="texto-cuidados"><h3>7. Distinções, limites e cuidados conceituais</h3><p>O principal cuidado desta aula é não antecipar formato, entrega, duração, peso ou critério ainda não confirmado. A advertência não enfraquece o conteúdo; ela define seu alcance. Conceitos bons simplificam a realidade de maneira controlada. Quando aplicados fora de suas condições, perdem precisão e viram apenas palavras sofisticadas para confirmar uma opinião anterior.</p><p>Outra distinção necessária separa explicação causal, interpretação de sentidos e avaliação normativa. Podemos investigar por que algo acontece, compreender como os participantes lhe atribuem significado e discutir se suas consequências são desejáveis. São perguntas legítimas, mas não idênticas. Uma posição ética deve ser assumida com clareza, e não apresentada como se decorresse automaticamente de um dado ou de um autor.</p><p>A escala também importa. Uma interação em sala, uma organização, uma cidade, um Estado e um processo transnacional não funcionam do mesmo modo. O que aparece como escolha numa escala pode ser condicionado por regras em outra. Ao mudar a escala, mudam as evidências e às vezes muda a própria pergunta. Especificar tempo, lugar e grupo torna a análise menos grandiosa e mais verificável.</p><p>Por fim, diferenças internas precisam permanecer visíveis. Grupos sociais não são sujeitos homogêneos; instituições abrigam disputas; normas podem ser obedecidas, negociadas ou contestadas; identidades se cruzam. Evitar generalizações não significa abandonar padrões coletivos, mas explicar como eles se distribuem e por que não afetam todas as pessoas da mesma maneira.</p><aside class="pause-box"><h4>Pausa para discussão</h4><p>Que generalização apressada seria mais provável neste tema? Como reformulá-la para torná-la histórica, comparável e verificável?</p></aside></div><div class="base-subsection" id="texto-sintese"><h3>8. Síntese e passagem para a próxima aula</h3><p><strong>Síntese.</strong> A Aula 29 mostrou que seminários — apresentações orais (2ª metade dos grupos). deve ser estudado por meio de perguntas delimitadas, conceitos diferenciados e evidências adequadas. O problema de abertura conduziu da experiência cotidiana à contextualização, e os três núcleos do conteúdo programático foram articulados sem serem tratados como equivalentes.</p><p>Ao final, o estudante deve ser capaz de retomar as metas do roteiro com suas próprias palavras: Avaliar as apresentações orais dos grupos restantes (2ª metade, conforme ordem definida). Promover debate qualificado entre apresentadores e colegas. Fornecer orientações finais e específicas a cada grupo sobre o relatório escrito e o vídeo. Esse domínio não se mede apenas pela lembrança de definições. Ele aparece quando alguém consegue reconhecer uma situação pertinente, justificar a escolha do conceito, propor uma evidência e indicar os limites da interpretação.</p><p>As pausas de discussão transformam a leitura em trabalho coletivo. Elas permitem que o professor interrompa a exposição, recolha hipóteses, identifique confusões e retome o argumento. A síntese pode ser concluída no quadro com quatro colunas — problema, conceito, evidência e limite — de modo que a turma visualize o caminho percorrido durante aproximadamente duas horas desta parte do encontro.</p><p>A passagem seguinte não reinicia o curso. Ela desloca a pergunta construída aqui para <strong>a síntese final do percurso</strong>. O que aprendemos nesta aula funcionará como condição para a próxima: conceitos serão retomados apenas quando necessários, agora diante de outro problema. Assim, as duas partes do encontro e a sequência semanal formam um percurso contínuo, e não uma coleção de resumos independentes.</p><aside class="pause-box"><h4>Pausa para discussão</h4><p>Em uma frase, que relação entre experiência individual e processo social esta aula tornou mais visível?</p></aside></div>
+      <nav class="base-toc" aria-label="Sumário do texto-base">
+<h3>Nesta leitura</h3>
+<ol>
+<li>
+<a href="#texto-devolutiva">Devolutiva como dado de revisão</a>
+</li>
+<li>
+<a href="#texto-classificar">Classificar antes de responder</a>
+</li>
+<li>
+<a href="#texto-objecao">Objeção e resposta</a>
+</li>
+<li>
+<a href="#texto-contraexemplo">Contraexemplo e evidência contrária</a>
+</li>
+<li>
+<a href="#texto-alcance">Revisar o alcance</a>
+</li>
+<li>
+<a href="#texto-decidir">Manter, qualificar ou substituir</a>
+</li>
+<li>
+<a href="#texto-rastrear">Rastrear a mudança</a>
+</li>
+<li>
+<a href="#texto-etica">Crítica ao argumento</a>
+</li>
+<li>
+<a href="#texto-sintese">Síntese rumo à Aula 30</a>
+</li>
+</ol>
+</nav>
+      <div class="base-subsection" id="texto-devolutiva">
+<h3>1. Devolutiva como dado de revisão</h3>
+<p>Na Aula 28, a turma transformou investigação em fala pública: apresentou problema, tese, evidência, inferência e limite, enquanto ouvintes reconstruíram o argumento antes de perguntar. A Aula 29 começa onde aquela escuta terminou. Uma <strong>devolutiva</strong> é uma resposta localizada ao argumento. Ela pode mostrar dúvida, formular objeção, oferecer informação contrária ou apontar que a conclusão ultrapassa o material disponível.</p>
+<p>Receber comentários não obriga a aceitar todos eles. Também não autoriza descartá-los porque incomodam. Revisar exige converter a fala do outro em questão verificável: qual trecho foi contestado? Que razão foi oferecida? Há nova evidência? Qual parte do argumento mudaria se a crítica procedesse? Esse procedimento desloca o debate da simpatia pessoal para decisões justificadas.</p>
+<p>A devolutiva é um material de segunda ordem: informa como o argumento foi compreendido, não prova diretamente o fenômeno investigado. Se vários ouvintes não identificam a tese, pode haver problema de comunicação. Isso não demonstra que a tese é falsa, mas indica que sua formulação precisa ser examinada. Da mesma forma, concordância do público não substitui evidência sociológica.</p>
+<p>A revisão é uma prática intelectual, não confissão de fracasso. Um argumento melhora quando explicita condições, corrige inferências ou reconhece o que ainda não sabe. Preservar a versão anterior permite ver essa aprendizagem. Por isso, a atividade produzirá um memorando com “antes”, devolutiva, decisão, “depois” e justificativa.</p>
+<aside class="pause-box">
+<h4>Pausa 1 — localizar</h4>
+<p>Que informação uma devolutiva precisa conter para orientar mudança verificável, em vez de apenas dizer “ficou bom” ou “não concordo”?</p>
+</aside>
+</div>
+      <div class="base-subsection" id="texto-classificar">
+<h3>2. Classificar antes de responder</h3>
+<p>Comentários diferentes pedem respostas diferentes. Um <strong>pedido de clareza</strong> indica termo, passagem ou relação que não foi compreendida. Pode ser resolvido por definição, exemplo ou reorganização, sem alterar a tese. Uma <strong>objeção</strong> apresenta uma razão para rejeitar um passo do argumento. Ela exige avaliar a premissa ou a inferência contestada.</p>
+<p>Uma <strong>questão de fonte</strong> pergunta origem, recorte ou confiabilidade do material. Uma <strong>questão de alcance</strong> mostra que a conclusão talvez valha apenas para determinado grupo, tempo ou território. Um <strong>contraexemplo</strong> é um caso pertinente que desafia uma afirmação geral; evidência contrária é material produzido por procedimento identificável que sustenta conclusão incompatível ou concorrente.</p>
+<p>Classificar não serve para encaixar comentários à força. O mesmo enunciado pode conter mais de uma dimensão. “Vocês dizem que a campanha digital aumentou a participação, mas houve uma reportagem na mesma semana” questiona inferência causal e oferece explicação alternativa. O memorando deve registrar as duas funções.</p>
+<p>Também existem comentários normativos: “essa política deveria ser diferente”. Eles podem enriquecer o debate, mas não refutam automaticamente uma descrição ou explicação. A equipe precisa distinguir se a divergência trata do que ocorreu, de por que ocorreu, do sentido atribuído pelos atores ou do que deveria ocorrer. Misturar planos produz respostas que não encontram a pergunta.</p>
+</div>
+      <div class="base-subsection" id="texto-objecao">
+<h3>3. Objeção e resposta</h3>
+<p>Uma objeção forte reconstrói a tese com fidelidade, identifica um passo vulnerável e oferece razão. “Vocês estão errados” não basta. “O dado mostra aumento depois da campanha, mas não controla outras mudanças; portanto, não sustenta causalidade” localiza evidência e inferência. A resposta pode aceitar, rejeitar ou incorporar parcialmente a crítica.</p>
+<p>Responder não significa vencer. Primeiro, a equipe verifica se entendeu: “a objeção questiona a causa ou o tamanho do efeito?”. Depois, retorna ao material. Se a fonte não resolve a questão, a resposta adequada pode ser limitar a conclusão. Improvisar fatos para preservar a tese rompe o compromisso de verificabilidade.</p>
+<p>Algumas objeções partem de premissas incompatíveis com a pergunta original. Nesse caso, manter a tese pode ser justificável, desde que a equipe explique por que o comentário não incide sobre seu argumento. Outras revelam ambiguidade real. Uma palavra como “impacto” pode significar alcance, mudança de atitude ou participação; definir o termo pode alterar a conclusão.</p>
+<p>A melhor resposta frequentemente inclui concessão delimitada: reconhecer o ponto válido sem abandonar o que continua sustentado. “A evidência não permite afirmar causa, mas mostra associação temporal neste caso” preserva uma conclusão mais modesta. Concessões tornam o argumento mais preciso e oferecem ao leitor os critérios da decisão.</p>
+<aside class="pause-box">
+<h4>Pausa 2 — responder</h4>
+<p>Como transformar uma reação defensiva em resposta que cite o trecho contestado, a evidência disponível e o limite reconhecido?</p>
+</aside>
+</div>
+      <div class="base-subsection" id="texto-contraexemplo">
+<h3>4. Contraexemplo e evidência contrária</h3>
+<p>Contraexemplos testam afirmações gerais. Se a tese diz “todas as organizações com regras formais distribuem igualmente a fala”, um conselho em que turnos iguais coexistem com participação desigual basta para refutar a universalidade. O caso não explica sozinho por que a desigualdade ocorre; mostra que a regra precisa ser reformulada.</p>
+<p>Nem todo caso diferente é contraexemplo. Ele precisa pertencer ao domínio da afirmação e contrariar uma expectativa derivada dela. Comparar uma associação voluntária com uma repartição pública pode ser inadequado se a tese tratava apenas de organizações estatais. Antes de revisar, a equipe confere unidade, período e conceito.</p>
+<p>Evidência contrária merece o mesmo exame aplicado à evidência favorável: autoria, produção, universo e pertinência. Um relato anônimo sem contexto não deve derrubar automaticamente observações sistemáticas; tampouco deve ser apagado. Pode gerar pergunta para investigação futura. A força relativa das fontes precisa aparecer na justificativa.</p>
+<p>Quando o contraexemplo procede, há opções: abandonar a generalização, acrescentar condição ou propor explicação para a variação. “Regras formais favorecem igualdade apenas quando há mecanismos de facilitação e acesso” é uma hipótese revisada, não conclusão automaticamente comprovada. Ela precisará de novas comparações.</p>
+</div>
+      <div class="base-subsection" id="texto-alcance">
+<h3>5. Revisar o alcance</h3>
+<p>O alcance responde: para quais casos, tempos e lugares a conclusão é sustentada? Uma pesquisa com oito famílias acompanha experiências dessas participantes; não estima efeitos sobre todas as famílias. Uma enquete aberta descreve respondentes, não uma população inteira. Revisar o alcance alinha a força da frase à força da evidência.</p>
+<p>Há diferença entre limitar e esvaziar. Dizer “nada pode ser concluído” pode ser tão impreciso quanto generalizar. Mesmo uma fonte pequena pode documentar práticas, sentidos ou mecanismos possíveis. A formulação deve indicar o tipo de conhecimento: padrão observado, interpretação dos participantes, associação ou hipótese causal.</p>
+<p>Escalas se articulam sem serem equivalentes. Uma interação local pode ser condicionada por instituição, desigualdade territorial ou norma nacional. Entretanto, não se deduz a estrutura diretamente de uma cena. O argumento precisa explicitar quais ligações foram observadas e quais são inferidas com apoio teórico.</p>
+<p>Marcadores sociais também não funcionam como explicações automáticas. Raça, gênero, classe e território organizam relações e classificações, mas seus efeitos dependem de contextos, instituições e práticas. Uma revisão rigorosa evita transformar categorias em atributos fixos de pessoas e mostra mecanismos que distribuem recursos ou reconhecimento.</p>
+<aside class="pause-box">
+<h4>Pausa 3 — calibrar</h4>
+<p>Reescreva uma conclusão sobre “todos os estudantes” para que ela corresponda a uma enquete voluntária feita numa única turma.</p>
+</aside>
+</div>
+      <div class="base-subsection" id="texto-decidir">
+<h3>6. Manter, qualificar ou substituir</h3>
+<p>Depois de classificar e examinar a devolutiva, a equipe decide. <strong>Manter</strong> é apropriado quando a crítica não incide sobre a tese ou se baseia em leitura corrigida pelo próprio texto. A justificativa deve apontar evidência, não autoridade. <strong>Qualificar</strong> preserva o núcleo e acrescenta condição, recorte, exceção ou grau de incerteza.</p>
+<p>
+<strong>Substituir</strong> é necessário quando uma premissa central é falsa, a evidência não sustenta a conclusão ou um contraexemplo refuta sua forma universal. A nova tese deve responder à mesma pergunta ou explicar por que a pergunta também mudou. Apenas trocar palavras sem alterar a inferência não constitui revisão.</p>
+<p>Pode haver decisão de suspender: o material não permite escolher entre explicações. Nesse caso, o memorando registra o que seria preciso investigar. Suspensão fundamentada é resultado legítimo, sobretudo quando alternativas continuam compatíveis com os dados.</p>
+<p>Os critérios devem ser consistentes. Se a equipe exige fonte identificada para uma objeção, deve exigir o mesmo de sua tese. Se aceita um caso singular como ilustração favorável, não pode recusá-lo automaticamente quando desafia uma generalização universal. Revisão responsável aplica padrões simétricos.</p>
+</div>
+      <div class="base-subsection" id="texto-rastrear">
+<h3>7. Rastrear a mudança</h3>
+<p>O memorando torna a revisão auditável. Primeiro, copia a tese original sem reescrevê-la. Depois, registra a devolutiva de forma fiel e a classifica. Em seguida, lista a evidência consultada, decide manter, qualificar, substituir ou suspender e apresenta a nova redação. Por fim, explica por que a mudança responde ao comentário.</p>
+<p>Rastreabilidade não exige narrativa longa. Uma tabela com campos fixos evita que a versão anterior desapareça. Também permite distinguir mudança substantiva de correção estilística. Trocar “causou” por “esteve associado” é substantivo porque altera a inferência; corrigir pontuação melhora forma, mas não responde à objeção causal.</p>
+<p>Quando houver mais de uma devolutiva, a equipe deve priorizar as que afetam pergunta, evidência e inferência. Comentários de acabamento vêm depois. Contradições entre devolutivas não são resolvidas por votação: retornam aos critérios e materiais. O memorando pode justificar por que uma foi incorporada e outra não.</p>
+<p>Uma justificativa completa contém três elos. Primeiro, identifica o critério: causalidade, alcance, definição ou qualidade da fonte. Segundo, mostra como o comentário se relaciona ao material existente. Terceiro, explica a consequência textual. “Acrescentamos ‘entre respondentes’ porque a enquete foi voluntária” é rastreável; “melhoramos a frase” não informa o que mudou.</p>
+<p>A versão anterior deve permanecer legível. Sem ela, não é possível avaliar se a revisão respondeu à devolutiva ou apenas substituiu o tema. Marcas simples — trecho original e trecho revisado — bastam. Não é necessário expor nomes de estudantes; códigos dos materiais e comentários preservam o foco analítico.</p>
+<p>Priorizar envolve dependência lógica. Se a pergunta muda, tese e evidências precisam ser revistas depois. Se apenas uma definição fica mais clara, não é preciso reconstruir todo o argumento. A equipe começa pelos elementos de maior alcance e verifica efeitos nos demais, evitando correções contraditórias.</p>
+<p>O memorando distingue revisão de acumulação. Adicionar parágrafos, autores ou números não melhora necessariamente o argumento. Informação nova só entra quando responde à pergunta, sustenta uma inferência ou esclarece um limite. Caso contrário, aumenta volume e dificulta que o leitor reconheça a linha central.</p>
+<p>É possível registrar incerteza com precisão. Expressões como “os dados disponíveis são compatíveis com” ou “não permitem distinguir” devem vir acompanhadas das alternativas em jogo. Linguagem cautelosa sem objeto vira evasão; cautela fundamentada mostra exatamente onde termina a evidência.</p>
+<p>Esse registro prepara a síntese da Aula 30. Ele mostra uma operação transversal ao curso: conceitos não são respostas decorativas, e evidências não encerram interpretação. A análise avança por perguntas, comparação, contestação e limites reconhecidos.</p>
+</div>
+      <div class="base-subsection" id="texto-etica">
+<h3>8. Crítica ao argumento, não à pessoa</h3>
+<p>Uma devolutiva deve incidir sobre afirmação, fonte ou inferência, nunca sobre inteligência, identidade ou intenção de quem apresentou. “A conclusão ultrapassa as entrevistas” é verificável; “o grupo não entende o tema” personaliza a crítica. A regra protege participantes e melhora a qualidade analítica.</p>
+<p>Ninguém deve ser obrigado a relatar renda, discriminação, sexualidade, religião ou posição política para exemplificar conceitos. Os seis materiais da atividade são fictícios. Caso uma fala pessoal surja espontaneamente, o professor interrompe qualquer interrogatório e retorna ao documento comum.</p>
+<p>Há assimetrias na circulação de comentários: algumas vozes recebem mais atenção, certas formas de falar são tratadas como mais legítimas e interrupções podem se distribuir desigualmente. O protocolo prevê tempo de leitura, escrita e fala, permitindo contribuição sem exposição oral obrigatória.</p>
+<p>Reconhecer autoria também importa. Se uma objeção leva à revisão, o memorando registra a contribuição sem transformar a atividade em disputa por crédito. O objetivo é tornar o conhecimento coletivamente examinável e preservar responsabilidade pela decisão final.</p>
+<aside class="pause-box">
+<h4>Pausa 4 — formular</h4>
+<p>Transforme “o grupo está confuso” em uma devolutiva específica sobre conceito, evidência ou inferência.</p>
+</aside>
+</div>
+      <div class="base-subsection" id="texto-sintese">
+<h3>9. Síntese rumo à Aula 30</h3>
+<p>A Aula 29 transforma escuta em revisão. O percurso é: localizar o comentário, classificá-lo, retornar às fontes, avaliar sua força, decidir e registrar. Uma boa revisão pode mudar a tese, limitar seu alcance ou mantê-la com justificativa. O critério não é agradar ao público, mas aumentar coerência e verificabilidade.</p>
+<p>Objeção, evidência contrária e contraexemplo não são sinônimos. A objeção oferece razão; a evidência contrária sustenta interpretação rival; o contraexemplo desafia uma generalização. Separá-los permite resposta adequada e impede que mera discordância seja tratada como refutação.</p>
+<p>Revisar também evidencia a relação entre poder e conhecimento. Instituições definem quais registros existem, categorias tornam algumas experiências visíveis e recursos desiguais afetam quem consegue produzir e circular argumentos. Reconhecer essas condições não elimina critérios de evidência; exige perguntar como as fontes foram formadas e quais vozes ficaram ausentes.</p>
+<p>Ao mesmo tempo, sujeitos interpretam, contestam e modificam classificações. A agência não significa liberdade sem condições, assim como estrutura não significa resultado inevitável. Um memorando pode mostrar precisamente onde uma regra condiciona uma ação e onde participantes criam respostas inesperadas. Essa tensão acompanhará a síntese final.</p>
+<p>A revisão ensina ainda que conceitos operam em escalas distintas. Fato social, ação, classe, cultura, instituição, desigualdade e movimento não formam uma teoria única. Eles organizam perguntas diferentes e podem produzir interpretações concorrentes. O próximo encontro conectará operações sem apagar divergências entre perspectivas.</p>
+<p>Uma revisão concluída deve poder ser lida por quem não participou da conversa. Essa pessoa precisa reconhecer o argumento original, entender a crítica, localizar a fonte usada e avaliar a nova conclusão. Se a justificativa depende de lembranças privadas da discussão, falta informação no registro. A autonomia do documento é um teste simples de completude e acessibilidade.</p>
+<p>O registro final não precisa simular consenso. Duas equipes podem responder de modos diferentes à mesma devolutiva quando tornam explícitos seus critérios e respeitam as fontes. Comparar decisões revela quais premissas orientam cada interpretação e prepara uma síntese que preserve divergências teóricas sem transformar diferença analítica em erro automático.</p>
+<p>O memorando produzido será um dos documentos da Aula 30. Ele não será convertido em nota nem em entrega presumida. Servirá para reconhecer a progressão do curso: formular problemas, usar conceitos, reunir evidências, explicar mecanismos, confrontar limites e revisar conclusões.</p>
+</div>
     </div>
   </section>
 
@@ -195,79 +337,113 @@
     <div class="section-title">Plano de Aula com Tempo</div>
     <div class="timeline">
       <div class="tl-item">
-        <span class="tl-duration">10 min</span>
-        <span class="tl-text"><strong>Organização</strong> — Organização da sala. Chamada. Breve retomada dos seminários apresentados na Aula 28 — o professor destaca os pontos mais relevantes discutidos.</span>
-      </div>
+<span class="tl-duration">10 min</span>
+<span class="tl-text">
+<strong>Retomada</strong> — Recuperar registros da Aula 28, apresentar o protocolo e realizar a Pausa 1.</span>
+</div>
       <div class="tl-item">
-        <span class="tl-duration">80 min</span>
-        <span class="tl-text"><strong>Apresentações dos grupos</strong> — Cada grupo dispõe de até 15 minutos para apresentação oral + 5 minutos para perguntas. A ordem segue a definição prévia. O professor registra as notas no formulário de avaliação.</span>
-      </div>
+<span class="tl-duration">20 min</span>
+<span class="tl-text">
+<strong>Modelagem</strong> — Classificar uma devolutiva, comparar respostas e realizar a Pausa 2.</span>
+</div>
       <div class="tl-item">
-        <span class="tl-duration">20 min</span>
-        <span class="tl-text"><strong>Comentários gerais do professor</strong> — Síntese sobre os seminários (Aulas 28 e 29): temas abordados, contribuições, pontos fortes e aspectos a desenvolver. Destaque para conexões entre os diferentes temas apresentados.</span>
-      </div>
+<span class="tl-duration">45 min</span>
+<span class="tl-text">
+<strong>Oficina</strong> — Analisar seis devolutivas e produzir o memorando em grupos.</span>
+</div>
       <div class="tl-item">
-        <span class="tl-duration">10 min</span>
-        <span class="tl-text"><strong>Orientações finais para relatório e vídeo</strong> — O professor fornece orientações específicas a cada grupo sobre o relatório escrito (até 7 laudas) e o vídeo (5–10 min) a serem entregues na Aula 30. Lembrete de critérios e prazo.</span>
-      </div>
+<span class="tl-duration">20 min</span>
+<span class="tl-text">
+<strong>Revisão cruzada</strong> — Outro grupo verifica rastreabilidade e alcance; realizar a Pausa 3.</span>
+</div>
+      <div class="tl-item">
+<span class="tl-duration">20 min</span>
+<span class="tl-text">
+<strong>Socialização</strong> — Comparar decisões justificadas e discutir crítica impessoal; realizar a Pausa 4.</span>
+</div>
+      <div class="tl-item">
+<span class="tl-duration">5 min</span>
+<span class="tl-text">
+<strong>Saída</strong> — Preservar memorandos para a síntese da Aula 30.</span>
+</div>
     </div>
   </section>
 
   <section id="leituras">
-    <div class="section-title">Textos para Leitura Prévia</div>
+    <div class="section-title">Referências verificáveis</div>
     <div class="ref-card">
-      <div class="ref-author">Cada grupo</div>
-      <div class="ref-title">Materiais bibliográficos do próprio tema do seminário</div>
-      <div class="ref-pages">Conforme indicação do professor na formação dos grupos</div>
+      <div class="ref-author">Wayne C. Booth; Gregory G. Colomb; Joseph M. Williams</div>
+<div class="ref-title">A arte da pesquisa. 2. ed. São Paulo: Martins Fontes, 2005.</div>
+<div class="ref-pages">Afirmações, objeções e respostas.</div>
     </div>
-  </section>
-
-  <section>
-    <div class="section-title">Orientações para Entrega Final (Aula 30)</div>
-    <div class="deadline-card">
-      <h3>Relatório Escrito</h3>
-      <ul>
-        <li>Extensão: até 7 laudas (excluindo referências bibliográficas)</li>
-        <li>Deve incluir: introdução, desenvolvimento teórico, análise, conclusão e referências</li>
-        <li>Deve articular os textos lidos com a análise do tema escolhido</li>
-        <li>Fonte Times New Roman 12, espaçamento 1,5, margem 2,5cm</li>
-        <li>Entrega em formato PDF ou impresso no início da Aula 30</li>
-      </ul>
-    </div>
-    <div class="deadline-card">
-      <h3>Vídeo do Seminário</h3>
-      <ul>
-        <li>Duração: 5 a 10 minutos</li>
-        <li>Deve ser uma síntese do tema trabalhado pelo grupo</li>
-        <li>Pode ser um documentário curto, entrevista, videoaula ou formato criativo</li>
-        <li>Qualidade técnica básica é suficiente — o conteúdo tem prioridade</li>
-        <li>Entrega via link (YouTube não listado, Drive) ou pen drive no início da Aula 30</li>
-      </ul>
-    </div>
+    <div class="ref-card">
+<div class="ref-author">Howard S. Becker</div>
+<div class="ref-title">Truques da escrita. Rio de Janeiro: Zahar, 2015.</div>
+<div class="ref-pages">Revisão como parte da produção intelectual.</div>
+</div>
   </section>
 
   <section id="atividade">
     <div class="section-title">Atividades em Sala</div>
     <div class="activity-card">
-      <strong>Apresentações orais e orientações pós-seminário</strong><br><br>
-      As mesmas regras de participação da Aula 28 se aplicam: todos os alunos devem fazer ao menos uma pergunta ao longo das apresentações da aula. O professor avalia conforme os mesmos critérios (domínio do conteúdo, clareza, participação de todos, cumprimento do tempo, interação com a turma, fundamentação teórica).
-      <br><br>
-      Após as apresentações, o professor se reúne brevemente com cada grupo (individualmente, quando possível) para fornecer <strong>orientações específicas</strong> sobre o relatório escrito e o vídeo:
-      <br><br>
-      — Indicar quais aspectos da apresentação devem ser aprofundados no relatório;<br>
-      — Sugerir estrutura e fontes adicionais, se necessário;<br>
-      — Esclarecer dúvidas sobre os critérios de avaliação da entrega escrita e do vídeo;<br>
-      — Incentivar a criatividade no formato do vídeo, mantendo o rigor teórico.
-    </div>
+<h3>Laboratório de revisão rastreável</h3>
+<p>
+<strong>Produto:</strong> memorando com tese original, devolutiva, classificação, evidência consultada, decisão, versão revisada e justificativa. Todos os casos são fictícios.</p>
+<div class="material-grid">
+      <article class="material-card">
+<h4>A — Causalidade</h4>
+<p>Tese: “A campanha digital causou maior presença.” Devolutiva: uma reportagem local saiu na mesma semana; os registros só mostram sequência temporal.</p>
+</article>
+      <article class="material-card">
+<h4>B — Alcance</h4>
+<p>Tese: “As famílias reduziram faltas ao trabalho.” Devolutiva: os diários acompanham oito participantes e não incluem quem saiu da rede.</p>
+</article>
+      <article class="material-card">
+<h4>C — Conceito</h4>
+<p>Tese: “A enquete formou um movimento social.” Devolutiva: há opinião agregada, mas não evidência de demanda coletiva, organização ou continuidade.</p>
+</article>
+      <article class="material-card">
+<h4>D — Contraexemplo</h4>
+<p>Tese: “Turnos formais garantem igualdade de fala.” Devolutiva: atas mostram duas ruas falando em todas as reuniões e seis quase nunca.</p>
+</article>
+      <article class="material-card">
+<h4>E — Clareza</h4>
+<p>Tese: “O coletivo teve impacto.” Devolutiva: impacto pode significar visibilidade, decisão pública, adesão ou mudança de prática.</p>
+</article>
+      <article class="material-card">
+<h4>F — Juízo normativo</h4>
+<p>Tese: “Entrevistados interpretaram a regra como injusta.” Devolutiva: “a regra deveria acabar”. O comentário avalia a regra, mas não contesta a interpretação registrada.</p>
+</article>
+</div>
+      <h4>Perguntas</h4>
+<ol>
+<li>Qual trecho exato foi contestado?</li>
+<li>Que tipo de devolutiva aparece?</li>
+<li>Ela traz evidência, razão ou apenas preferência?</li>
+<li>Que fonte original deve ser consultada?</li>
+<li>A decisão é manter, qualificar, substituir ou suspender?</li>
+<li>Como fica a nova tese?</li>
+<li>Que mudança é substantiva e qual seria apenas estilística?</li>
+<li>Qual limite deve permanecer explícito?</li>
+</ol>
+<p>
+<strong>Procedimento:</strong> 20 minutos para memorando, 10 para revisão cruzada e 5 para incorporar observações. Participação pode ser oral ou escrita; não use experiências pessoais como prova.</p>
+      <details>
+<summary>Gabarito orientador — abrir após a oficina</summary>
+<p>A pede qualificar “causou” como associação ou suspender a causalidade, pois a reportagem é explicação alternativa. B exige restringir a conclusão às famílias acompanhadas e reconhecer seleção. C substitui a classificação: enquete registra respostas, mas não demonstra movimento social. D oferece contraexemplo pertinente à tese universal; a versão revisada deve incluir condições ou abandonar “garantem”. E é pedido de clareza conceitual: definir qual resultado foi observado antes de decidir. F distingue interpretação empírica de avaliação normativa; a tese pode ser mantida se as entrevistas a sustentam, registrando que a proposta não a refuta.</p>
+<p>Em todos os memorandos, a justificativa deve citar o material e tornar a inferência visível. Não basta trocar “todos” por “alguns” sem identificar universo. Uma resposta pode manter a tese quando a crítica não incide sobre ela, mas deve explicar por quê. Novos fatos não podem ser inventados. O limite final deve dizer o que a fonte não permite concluir e indicar, quando pertinente, que investigação adicional seria necessária.</p>
+</details>
+</div>
   </section>
 
   <section id="recursos">
     <div class="section-title">Recursos Necessários</div>
     <div class="resources-list">
-      <span class="res-tag">Projetor</span>
-      <span class="res-tag">Formulário de avaliação das apresentações</span>
-      <span class="res-tag">Cronômetro</span>
-      <span class="res-tag">Microfone (se disponível)</span>
+      <span class="res-tag">Seis devolutivas integrais desta página</span>
+<span class="res-tag">Modelo de memorando reproduzido nas instruções</span>
+<span class="res-tag">Papel ou editor de texto</span>
+<span class="res-tag">Quadro e marcadores</span>
+<span class="res-tag">Cronômetro opcional</span>
     </div>
   </section>
 
