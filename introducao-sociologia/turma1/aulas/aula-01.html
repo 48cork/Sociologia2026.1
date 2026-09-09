@@ -131,6 +131,10 @@
     border-radius: var(--radius); padding: 20px; font-size: 0.9rem; line-height: 1.7;
     border-left: 3px solid var(--teal-lt);
   }
+  .teacher-guidance { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-top: 18px; }
+  .teacher-guidance summary { cursor: pointer; color: var(--amber-lt); font-weight: 700; padding: 15px 17px; }
+  .teacher-guidance[open] summary { border-bottom: 1px solid var(--border); }
+  .teacher-guidance-content { padding: 16px 18px; }
 
   /* RESOURCES */
   .resources-list { display: flex; flex-wrap: wrap; gap: 10px; }
@@ -180,6 +184,7 @@
     .base-toc ol { width: auto; columns: auto; padding-left: 0; list-style-position: inside; }
     .tl-item { flex-direction: column; gap: 8px; }
   }
+  @media print { .teacher-guidance { break-inside: avoid; } }
 </style>
 </head>
 <body>
@@ -397,6 +402,18 @@
       <strong>Roda de conversa: "O óbvio que não é óbvio"</strong><br><br>
       Os alunos são convidados a compartilhar experiências cotidianas que consideram "óbvias" ou "naturais". A partir de cada relato, o grupo é instigado a problematizar: por que isso acontece assim? Poderia ser diferente? Quem se beneficia com essa forma de organização?<br><br>
       O objetivo é mostrar que fenômenos que parecem naturais (papéis de gênero, hierarquias, divisão do trabalho, padrões de consumo) são, na verdade, construções sociais e históricas — e que o olhar sociológico consiste justamente em estranhar o familiar e problematizar o que parece dado.
+
+      <details class="teacher-guidance">
+        <summary>Gabarito comentado e orientações de mediação — uso do professor</summary>
+        <div class="teacher-guidance-content">
+          <p><strong>Critério geral.</strong> Uma resposta apenas descritiva relata o costume ("os homens não lavam roupa em casa") e para aí. Uma resposta sociologicamente fundamentada usa a tríade estranhamento–naturalização–desnaturalização do texto-base: explica por que a prática parece óbvia, mostra que essa aparência depende de aprendizagem e repetição, e indica quem sustenta e quem paga o custo da organização atual.</p>
+          <p><strong>"Por que isso acontece assim?"</strong> Recuse respostas que apenas repitam a naturalização ("é assim porque sempre foi", "é da natureza"). Aceite respostas que apontem uma origem histórica, institucional ou de aprendizagem: quem ensinou essa expectativa, que instituição a reforça (família, escola, mídia, lei), há quanto tempo ela vigora.</p>
+          <p><strong>"Poderia ser diferente?"</strong> A resposta forte compara: cita outra família, geração, bairro, profissão ou período em que a mesma esfera da vida é organizada de outro modo. A resposta fraca apenas afirma que "sim, poderia" sem examinar nenhum caso concreto de variação.</p>
+          <p><strong>"Quem se beneficia com essa forma de organização?"</strong> Espera-se identificar uma distribuição desigual de vantagens e custos (tempo, reconhecimento, remuneração, autoridade), não um juízo moral genérico sobre "certo" ou "errado". Uma resposta que apenas condena moralmente a prática, sem indicar quem ganha e quem perde com ela, ainda não fez a análise pedida.</p>
+          <p><strong>Erros prováveis.</strong> Confundir naturalização com biologia (tratar um costume como se fosse determinado pelo corpo); generalizar a partir de um único caso familiar para "a sociedade brasileira"; e reduzir a atividade a um debate de opiniões pessoais sobre se a prática é boa ou ruim, sem estranhamento nem comparação.</p>
+          <p><strong>Mediação sugerida.</strong> Se um relato ficar apenas descritivo, pergunte: "desde quando funciona assim, e quem te ensinou que era assim?" Se a turma resvalar para o julgamento moral, redirecione: "independentemente de ser certo ou errado, quem ensina essa regra e quem seria punido por descumpri-la?"</p>
+        </div>
+      </details>
     </div>
   </section>
 

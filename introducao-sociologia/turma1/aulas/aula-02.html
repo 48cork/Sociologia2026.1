@@ -64,6 +64,10 @@
   .ref-title { font-size: 0.9rem; color: var(--text); }
   .ref-pages { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
   .activity-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; font-size: 0.9rem; line-height: 1.7; border-left: 3px solid var(--teal-lt); }
+  .teacher-guidance { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-top: 18px; }
+  .teacher-guidance summary { cursor: pointer; color: var(--amber-lt); font-weight: 700; padding: 15px 17px; }
+  .teacher-guidance[open] summary { border-bottom: 1px solid var(--border); }
+  .teacher-guidance-content { padding: 16px 18px; }
   .resources-list { display: flex; flex-wrap: wrap; gap: 10px; }
   .res-tag { background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; }
   footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--muted); font-size: 0.85rem; }
@@ -103,6 +107,7 @@
     .base-toc ol { width: auto; columns: auto; padding-left: 0; list-style-position: inside; }
     .tl-item { flex-direction: column; gap: 8px; }
   }
+  @media print { .teacher-guidance { break-inside: avoid; } }
 </style>
 </head>
 <body>
@@ -325,6 +330,18 @@
       Os alunos recebem uma seleção de gravuras e fotografias históricas do período da Revolução Industrial: fábricas com trabalho infantil, habitações operárias precárias, ruas das cidades industriais, manifestações de trabalhadores.<br><br>
       Em duplas, devem responder às seguintes questões: (1) Quais problemas sociais essas imagens revelam? (2) Quem são os sujeitos representados e qual é sua posição na sociedade? (3) O que nessas imagens poderia ter demandado a criação de uma ciência que estudasse a sociedade?<br><br>
       As duplas socializam suas respostas na síntese coletiva, que serve de base para o professor introduzir a ideia da Sociologia como resposta intelectual à crise da modernidade industrial.
+
+      <details class="teacher-guidance">
+        <summary>Gabarito comentado e orientações de mediação — uso do professor</summary>
+        <div class="teacher-guidance-content">
+          <p><strong>Critério geral.</strong> A atividade pede que a dupla trate as imagens como vestígios que precisam ser interrogados, não como janelas transparentes para o passado (ver subseção 7 do texto-base). Uma resposta descritiva apenas nomeia o que aparece na cena; uma resposta fundamentada distingue o que a imagem mostra do que ela não revela e liga a observação a um problema histórico.</p>
+          <p><strong>Questão 1 (problemas revelados).</strong> Aceite respostas que identifiquem trabalho infantil, jornadas longas sugeridas pela cena, precariedade da habitação ou aglomeração urbana, desde que a dupla indique o elemento visual que sustenta a leitura (postura, vestimenta, proximidade das máquinas, condição do edifício). Recuse inferências sem ancoragem na imagem, como afirmar salários ou horas de trabalho que a foto não mostra.</p>
+          <p><strong>Questão 2 (sujeitos e posição social).</strong> Espera-se que a dupla reconheça posições assimétricas: quem trabalha, quem supervisiona, quem está ausente do quadro (proprietários, autoridades). Uma resposta fraca apenas descreve roupas ou expressões sem relacioná-las a uma posição nas relações de produção ou de propriedade.</p>
+          <p><strong>Questão 3 (por que demandaria uma ciência da sociedade).</strong> A resposta forte liga o conteúdo da imagem à noção de questão social: sofrimento recorrente que exige explicação coletiva, não apenas individual. A resposta fraca apenas diz que "a imagem é triste" ou "mostra injustiça", sem indicar por que esse tipo de problema pede investigação sistemática e comparativa.</p>
+          <p><strong>Erros conceituais prováveis.</strong> Tratar a fotografia como prova completa e neutra do período, esquecendo que ela foi enquadrada por alguém para um público; e confundir a denúncia moral da pobreza com a explicação sociológica de sua origem e distribuição.</p>
+          <p><strong>Mediação sugerida.</strong> Se a dupla tratar a imagem como evidência autossuficiente, pergunte o que ela não permite saber (salário, duração da jornada, sentimento dos retratados) e que outras fontes seriam necessárias para responder a isso.</p>
+        </div>
+      </details>
     </div>
   </section>
 
