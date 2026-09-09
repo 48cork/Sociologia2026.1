@@ -9,6 +9,25 @@ texto-base antigo — não corta por contagem de palavras.
 Todas as datas são as 15 datas canônicas já aprovadas. As 4 aulas de um mesmo
 encontro compartilham a mesma data.
 
+## Blocos temáticos (recalculados para a grade de 15 encontros)
+
+Os seis blocos herdados da arquitetura 30×2 não alinham mais com os pares de
+roteiros antigos depois do reagrupamento em 15 encontros (o próprio calendário
+2026.2 já aprovado em `introducao-sociologia/index.html` reagrupa aula-05+aula-06
+antigas, que pertenciam a blocos diferentes, no mesmo Encontro 03). Os blocos abaixo
+são recalculados sobre os 15 encontros da grade atual, preservando o mesmo arco
+narrativo geral (fundamentos → clássicos → virada da pesquisa → cultura/socialização
+→ instituições/desigualdade → mudança/fechamento):
+
+| Bloco | Cor | Encontros | Tema |
+|---|---|---|---|
+| I | `--purple-lt` (#a855f7) | 01–02 | Fundamentos e formação histórica da Sociologia |
+| II | `--blue-lt` (#818cf8) | 03–06 | Pensamento clássico: Durkheim, Marx, Weber |
+| III | `--teal-lt` (#2dd4bf) | 07 | Síntese dos clássicos e abertura da investigação final |
+| IV | `--amber-lt` (#fbbf24) | 08–10 | Cultura, identidade, socialização, grupos e normas |
+| V | `#c084fc` (violeta) | 11–13 | Instituições, estratificação e diferença (raça/gênero) |
+| VI | `--rose-lt` (#fb7185) | 14–15 | Movimentos sociais, argumento público e fechamento |
+
 ---
 
 ## Encontro 01 — 09/09/2026 — Introdução e o surgimento do olhar sociológico
