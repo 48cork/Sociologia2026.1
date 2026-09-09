@@ -49,6 +49,7 @@ class LessonParser(HTMLParser):
         self.headings: list[str] = []
         self.pauses = 0
         self.details: list[dict[str, object]] = []
+        self.activity_cards: list[str | None] = []
         self.plan_minutes: list[int] = []
         self.sections: set[str] = set()
         self.errors: list[str] = []
@@ -69,6 +70,9 @@ class LessonParser(HTMLParser):
             self.pauses += 1
         if tag == "details":
             self.details.append({"open": "open" in attrs, "text": [], "blocks": 0})
+        if tag == "div" and "activity-card" in classes:
+            gabarito_attr = attrs.get("data-gabarito")
+            self.activity_cards.append(gabarito_attr)
 
     def handle_startendtag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         self.handle_starttag(tag, attrs)
@@ -145,7 +149,7 @@ def expected_navigation(path: Path) -> tuple[str | None, str | None]:
         return None, None
     number = int(match.group(1))
     previous = f"aula-{number - 1:02d}.html" if number > 1 else None
-    following = f"aula-{number + 1:02d}.html" if number < 30 else None
+    following = f"aula-{number + 1:02d}.html" if number < 60 else None
     return previous, following
 
 
@@ -174,9 +178,12 @@ def audit(path: Path, criteria: dict) -> tuple[list[str], list[str]]:
             failures.append(f"estrutura básica ausente: {required}")
     failures.extend(parser.errors)
 
-    expected_pauses = int(criteria["texto_base"]["pausas_exatas"])
-    if parser.pauses != expected_pauses:
-        failures.append(f"pausas: esperado {expected_pauses}, encontrado {parser.pauses}")
+    min_pauses = int(criteria["texto_base"].get("pausas_minimas", 0))
+    max_pauses = int(criteria["texto_base"].get("pausas_maximas", 99))
+    if not (min_pauses <= parser.pauses <= max_pauses):
+        failures.append(
+            f"pausas: esperado entre {min_pauses} e {max_pauses}, encontrado {parser.pauses}"
+        )
 
     expected_minutes = int(criteria["plano"]["minutos_exatos"])
     total = sum(parser.plan_minutes)
@@ -209,17 +216,26 @@ def audit(path: Path, criteria: dict) -> tuple[list[str], list[str]]:
         failures.append(f"navegação seguinte ausente: {following}")
     if not previous and "aula-00.html" in local_names:
         failures.append("Aula 01 contém navegação anterior inválida")
-    if not following and "aula-31.html" in local_names:
-        failures.append("Aula 30 contém navegação seguinte inválida")
+    if not following and "aula-61.html" in local_names:
+        failures.append("Aula 60 contém navegação seguinte inválida")
 
     if "texto-base" not in parser.ids:
         failures.append("seção #texto-base ausente")
     if "atividade" not in parser.ids:
         failures.append("seção #atividade ausente")
 
-    if len(parser.details) != 1:
-        failures.append(f"<details>: esperado exatamente 1, encontrado {len(parser.details)}")
-    else:
+    gabarito_required = "obrigatorio" in parser.activity_cards
+    if gabarito_required and len(parser.details) != 1:
+        failures.append(
+            f"<details>: atividade desta aula está marcada data-gabarito=\"obrigatorio\", "
+            f"esperado exatamente 1, encontrado {len(parser.details)}"
+        )
+    elif not gabarito_required and len(parser.details) > 1:
+        failures.append(
+            f"<details>: no máximo 1 esperado quando a atividade não é "
+            f"data-gabarito=\"obrigatorio\", encontrado {len(parser.details)}"
+        )
+    elif len(parser.details) == 1:
         detail = parser.details[0]
         if detail["open"]:
             failures.append("<details> está aberto por padrão")
@@ -232,6 +248,8 @@ def audit(path: Path, criteria: dict) -> tuple[list[str], list[str]]:
                 f"{detail['blocks']} blocos (mínimo {minimum} palavras e 2 blocos)"
             )
         notes.append(f"gabarito: {word_count} palavras em {detail['blocks']} blocos")
+    else:
+        notes.append("gabarito: dispensado nesta aula (atividade leve)")
 
     if any(not heading.strip() for heading in parser.headings):
         failures.append("subtítulo vazio encontrado")
@@ -271,8 +289,8 @@ def parse_interval(value: str) -> tuple[int, int]:
     if not match:
         raise argparse.ArgumentTypeError("use INICIO-FIM, por exemplo 01-23")
     start, end = map(int, match.groups())
-    if not (1 <= start <= end <= 30):
-        raise argparse.ArgumentTypeError("intervalo deve estar entre 01 e 30")
+    if not (1 <= start <= end <= 60):
+        raise argparse.ArgumentTypeError("intervalo deve estar entre 01 e 60")
     return start, end
 
 

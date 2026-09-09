@@ -6,30 +6,15 @@
 <title>Aula 02 — Introdução à Sociologia | 2026.2</title>
 <style>
   :root {
-    --bg: #0a0a0f;
-    --surface: #12121c;
-    --card: #1a1a2e;
-    --border: #2a2a4a;
-    --purple: #7c3aed;
-    --purple-lt: #a855f7;
-    --blue: #4f46e5;
-    --blue-lt: #818cf8;
-    --teal-lt: #2dd4bf;
-    --amber-lt: #fbbf24;
-    --rose-lt: #fb7185;
-    --text: #e2e8f0;
-    --muted: #94a3b8;
-    --radius: 12px;
+    --bg: #0a0a0f; --surface: #12121c; --card: #1a1a2e; --border: #2a2a4a;
+    --purple: #7c3aed; --purple-lt: #a855f7; --blue: #4f46e5; --blue-lt: #818cf8;
+    --teal-lt: #2dd4bf; --amber-lt: #fbbf24; --rose-lt: #fb7185;
+    --text: #e2e8f0; --muted: #94a3b8; --radius: 12px;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
-  nav {
-    position: sticky; top: 0; z-index: 100;
-    background: rgba(18,18,28,0.95); backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--border);
-    padding: 0 24px; height: 56px;
-    display: flex; align-items: center; justify-content: space-between; gap: 16px;
-  }
+  html, body { max-width: 100%; overflow-x: clip; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; min-height: 100vh; overflow-wrap: anywhere; }
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(18,18,28,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
   nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; white-space: nowrap; }
   nav a:hover { color: var(--text); }
   .nav-left { display: flex; align-items: center; gap: 10px; }
@@ -37,15 +22,13 @@
   .nav-center { font-size: 0.875rem; color: var(--muted); }
   .nav-right { display: flex; gap: 16px; align-items: center; }
   main { max-width: 860px; margin: 0 auto; padding: 40px 24px 80px; }
-  .aula-header {
-    background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
-    padding: 32px; margin-bottom: 32px; border-top: 4px solid var(--purple);
-  }
+  .aula-header { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; margin-bottom: 32px; border-top: 4px solid var(--purple); }
   .header-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; align-items: center; }
   .bloco-badge { background: var(--purple); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
   .meta-chip { background: var(--surface); border: 1px solid var(--border); font-size: 0.8rem; color: var(--muted); padding: 4px 12px; border-radius: 20px; }
+  .meta-chip strong { color: var(--text); }
   .aula-header h1 { font-size: 1.5rem; font-weight: 700; line-height: 1.3; color: var(--text); }
-  section { margin-bottom: 32px; }
+  section { margin-bottom: 32px; scroll-margin-top: 112px; }
   .section-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--purple-lt); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
   .obj-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
   .obj-list li { display: flex; gap: 12px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
@@ -69,32 +52,21 @@
   .teacher-guidance[open] summary { border-bottom: 1px solid var(--border); }
   .teacher-guidance-content { padding: 16px 18px; }
   .resources-list { display: flex; flex-wrap: wrap; gap: 10px; }
-  .res-tag { background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; }
+  .res-tag { max-width: 100%; min-width: 0; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; }
   footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--muted); font-size: 0.85rem; }
   footer a { color: var(--purple-lt); text-decoration: none; }
   footer a:hover { text-decoration: underline; }
-
-  html, body { max-width: 100%; overflow-x: clip; }
-  body { overflow-wrap: anywhere; }
-  section { scroll-margin-top: 112px; }
   .section-nav { position: sticky; top: 56px; z-index: 90; background: rgba(10,10,15,.97); border-bottom: 1px solid var(--border); padding: 8px 16px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: thin; }
   .section-nav a { flex: 0 0 auto; min-height: 36px; display: inline-flex; align-items: center; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 5px 12px; text-decoration: none; font-size: .8rem; }
   .base-text { max-width: 72ch; margin-inline: auto; }
   .base-intro { color: var(--muted); font-size: .92rem; margin-bottom: 16px; }
-  .base-toc { position: static; height: auto; display: block; max-width: 100%; overflow: clip; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; margin-bottom: 28px; }
-  .base-toc h3 { color: var(--bloco-lt, var(--purple-lt)); font-size: .95rem; margin-bottom: 10px; }
-  .base-toc ol { width: 100%; max-width: 100%; padding-left: 22px; columns: 2; column-gap: 32px; }
-  .base-toc li { break-inside: avoid; margin: 5px 0; }
-  .base-toc a { color: var(--text); text-decoration-thickness: 1px; text-underline-offset: 3px; white-space: normal; }
   .base-subsection { scroll-margin-top: 112px; margin-bottom: 28px; }
-  .base-subsection h3 { color: var(--bloco-lt, var(--purple-lt)); font-size: 1.15rem; line-height: 1.35; margin-bottom: 12px; }
+  .base-subsection h3 { color: var(--purple-lt); font-size: 1.15rem; line-height: 1.35; margin-bottom: 12px; }
   .base-subsection p { color: var(--text); margin-bottom: 14px; line-height: 1.78; }
   .base-subsection strong { color: #f1f5f9; }
-  .pause-box { background: rgba(79,70,229,.1); border: 1px solid rgba(129,140,248,.4); border-left: 4px solid var(--bloco-lt, var(--purple-lt)); border-radius: var(--radius); padding: 16px 18px; margin: 22px 0; }
+  .pause-box { background: rgba(79,70,229,.1); border: 1px solid rgba(129,140,248,.4); border-left: 4px solid var(--purple-lt); border-radius: var(--radius); padding: 16px 18px; margin: 22px 0; }
   .pause-box h4 { color: var(--amber-lt); font-size: .75rem; letter-spacing: .09em; text-transform: uppercase; margin-bottom: 6px; }
   .pause-box p { margin: 0; color: var(--text); font-weight: 600; line-height: 1.6; }
-  .legacy-note { border: 1px solid var(--amber-lt); background: rgba(251,191,36,.08); border-radius: var(--radius); padding: 16px 18px; margin: 0 0 24px; }
-  .res-tag { max-width: 100%; min-width: 0; }
   a:focus-visible { outline: 3px solid var(--amber-lt); outline-offset: 3px; border-radius: 3px; }
   @media (max-width: 640px) {
     nav { height: auto; min-height: 56px; padding: 8px 12px; flex-wrap: wrap; }
@@ -104,7 +76,6 @@
     .section-nav { top: 72px; padding-inline: 10px; }
     main { padding: 24px 14px 60px; }
     .aula-header { padding: 22px 18px; }
-    .base-toc ol { width: auto; columns: auto; padding-left: 0; list-style-position: inside; }
     .tl-item { flex-direction: column; gap: 8px; }
   }
   @media print { .teacher-guidance { break-inside: avoid; } }
@@ -114,13 +85,13 @@
 
 <nav>
   <div class="nav-left">
-    <a href="/introducao-sociologia/">← Página principal</a>
+    <a href="../../index.html">← Voltar ao curso</a>
     <span class="nav-badge">Aula 02</span>
   </div>
-  <span class="nav-center">Aula 02 / 30</span>
+  <span class="nav-center">Encontro 01 de 15 · Aula 02 de 60</span>
   <div class="nav-right">
-    <a href="aula-01.html">← Anterior</a>
-    <a href="aula-03.html">Próxima →</a>
+    <a href="aula-01.html">← Aula anterior</a>
+    <a href="aula-03.html">Próxima aula →</a>
   </div>
 </nav>
 <div class="section-nav" aria-label="Seções da aula"><a href="#objetivos">Objetivos</a><a href="#conteudo-programatico">Conteúdo</a><a href="#texto-base">Texto-base</a><a href="#plano-aula">Plano da aula</a><a href="#leituras">Leituras</a><a href="#atividade">Atividade</a><a href="#recursos">Recursos</a></div>
@@ -130,49 +101,37 @@
   <div class="aula-header">
     <div class="header-meta">
       <span class="bloco-badge">Bloco I</span>
-      <span class="meta-chip">Aula 02</span>
-      <span class="meta-chip">Encontro 1 · Parte 2 de 2</span>
-      <span class="meta-chip">09/09/2026 — Quarta-feira</span>
-      <span class="meta-chip">Percurso completo do encontro: 4 horas-aula</span>
-      <span class="meta-chip">Esta página: aproximadamente 2 horas</span>
+      <span class="meta-chip">Encontro <strong>01</strong> de 15 — 09/09/2026, quarta-feira</span>
+      <span class="meta-chip">Aula <strong>02</strong> de 60</span>
+      <span class="meta-chip">2ª aula do encontro</span>
+      <span class="meta-chip">Esta aula: aproximadamente 1 hora-aula</span>
     </div>
-    <h1>Contexto histórico: Revolução Francesa e Revolução Industrial como matrizes da Sociologia.</h1>
+    <h1>Estranhamento e desnaturalização: o método de olhar do sociólogo.</h1>
   </div>
 
   <section id="objetivos">
     <div class="section-title">Objetivos da Aula</div>
     <ul class="obj-list">
-      <li>Compreender o contexto histórico do surgimento da Sociologia no século XIX.</li>
-      <li>Relacionar as transformações do século XVIII–XIX ao nascimento da disciplina.</li>
-      <li>Identificar os problemas sociais que demandaram o surgimento de uma nova ciência.</li>
-      <li>Articular modernidade e pensamento sociológico como respostas a crises históricas.</li>
+      <li>Definir estranhamento sociológico como suspensão temporária do óbvio.</li>
+      <li>Praticar desnaturalização por meio de comparação histórica e entre sociedades.</li>
+      <li>Situar o percurso da disciplina e a proposta de avaliação do semestre.</li>
     </ul>
   </section>
 
   <section id="conteudo-programatico">
     <div class="section-title">Conteúdo Programático</div>
     <div class="content-topic">
-      <h3>1. A dupla revolução</h3>
+      <h3>1. Estranhar o familiar</h3>
       <ul>
-        <li>Revolução Francesa (1789): liberdade, igualdade, fraternidade — e suas contradições</li>
-        <li>Revolução Industrial (séculos XVIII–XIX): mecanização, fábrica, proletariado</li>
-        <li>A dupla revolução como ruptura com a ordem tradicional</li>
+        <li>O estranhamento sociológico como ferramenta analítica</li>
+        <li>Desnaturalização como operação sociológica fundamental</li>
       </ul>
     </div>
     <div class="content-topic">
-      <h3>2. Transformações sociais: urbanização, industrialização, crise das tradições</h3>
+      <h3>2. O percurso da disciplina</h3>
       <ul>
-        <li>Êxodo rural e formação das metrópoles industriais</li>
-        <li>Surgimento da classe operária e novas relações de trabalho</li>
-        <li>Dissolução dos laços comunitários e tradicionais</li>
-      </ul>
-    </div>
-    <div class="content-topic">
-      <h3>3. A questão social e a necessidade de uma ciência da sociedade</h3>
-      <ul>
-        <li>Pobreza, desigualdade e conflito como questões sociais emergentes</li>
-        <li>A Sociologia como resposta intelectual à crise da modernidade</li>
-        <li>Os primeiros pensadores sociais e o projeto de uma ciência positiva</li>
+        <li>Estrutura do curso e sequência dos blocos temáticos</li>
+        <li>Avaliação: o experimento sociológico sobre IA e desigualdade</li>
       </ul>
     </div>
   </section>
@@ -180,131 +139,58 @@
   <section id="texto-base" aria-labelledby="texto-base-title">
     <div class="section-title" id="texto-base-title">Texto-base para acompanhamento da aula</div>
     <div class="base-text">
-      <p class="base-intro">Esta leitura continua a primeira parte do encontro. Depois de apresentar o olhar sociológico, reconstrói as transformações políticas, econômicas e sociais que fizeram da sociedade moderna um novo problema de conhecimento.</p>
-      <nav class="base-toc" aria-label="Sumário do texto-base">
-        <h3>Nesta leitura</h3>
-        <ol>
-          <li><a href="#a02-cidade">Entrar numa sociedade em transformação</a></li>
-          <li><a href="#a02-dupla">Duas revoluções, rupturas diferentes</a></li>
-          <li><a href="#a02-francesa">A ruptura política</a></li>
-          <li><a href="#a02-industrial">A ruptura produtiva</a></li>
-          <li><a href="#a02-trabalho">Trabalho, urbanização e classes</a></li>
-          <li><a href="#a02-questao">A emergência da questão social</a></li>
-          <li><a href="#a02-imagens">Imagens como vestígios históricos</a></li>
-          <li><a href="#a02-sociologia">Por que uma ciência da sociedade?</a></li>
-          <li><a href="#a02-sintese">Síntese e passagem ao Iluminismo</a></li>
-        </ol>
-      </nav>
+      <p class="base-intro">A Aula 01 mostrou que o senso comum é necessário, mas insuficiente, e que práticas sociais costumam ser naturalizadas. Este texto apresenta o instrumento que a Sociologia usa para reagir a essa naturalização: o estranhamento.</p>
 
-      <div class="base-subsection" id="a02-cidade">
-        <h3>1. Entrar numa sociedade em transformação</h3>
-        <p>Imaginemos uma pessoa que deixa uma comunidade rural e chega a uma cidade industrial do século XIX. No lugar de atividades reguladas principalmente pelo ritmo das estações e por vínculos locais, encontra fábricas que coordenam centenas de trabalhadores por horários comuns. Ruas reúnem comerciantes, operários, funcionários, pessoas desempregadas e recém-chegadas. Mercadorias produzidas longe dali circulam em lojas e armazéns. A proximidade física cresce, mas muitos habitantes não se conhecem.</p>
-        <p>Essa cena não representa todas as regiões europeias nem ocorreu de uma só vez. O trabalho agrícola continuou importante, formas artesanais permaneceram e a industrialização avançou em ritmos diferentes. Ainda assim, a expansão das fábricas e das cidades alterou relações de propriedade, trabalho, moradia e autoridade. Ela tornou mais visíveis tanto novas possibilidades quanto novos conflitos.</p>
-        <p>Ao mesmo tempo, revoluções políticas contestavam a ideia de que a posição social e o direito de governar derivavam naturalmente do nascimento. Palavras como liberdade, igualdade, cidadania e nação adquiriram força pública. A ordem social começou a parecer resultado de decisões e conflitos humanos, e não apenas continuação de uma tradição imutável. Se a sociedade podia ser transformada, era preciso explicar como ela funcionava e como poderia manter alguma coesão em meio a mudanças tão profundas.</p>
+      <div class="base-subsection" id="a02-estranhamento">
+        <h3>1. Estranhar o familiar</h3>
+        <p>O <strong>estranhamento sociológico</strong> consiste em olhar para uma prática conhecida como se ela precisasse ser explicada. Estranhar não significa desprezar, ridicularizar ou considerar exótico. Significa suspender temporariamente a resposta "é assim porque sempre foi" e observar componentes que a familiaridade tornou invisíveis.</p>
+        <p>Tomemos uma fila. As pessoas reconhecem quem chegou antes, mantêm certa distância e podem censurar quem ocupa uma posição indevida. Parece uma organização simples, mas ela depende de uma concepção de tempo, de regras de prioridade e de formas de controle informal. Em alguns serviços existem senhas; em outros, prioridades definidas por lei; em ambientes digitais, algoritmos determinam a ordem de atendimento. Estranhar a fila permite perguntar quem estabelece a ordem, quais critérios parecem legítimos e como conflitos são resolvidos.</p>
+        <p>O mesmo recurso pode ser aplicado ao celular em sala. Em vez de concluir imediatamente que seu uso expressa desinteresse, podemos diferenciar consulta ao material, comunicação de trabalho, responsabilidade de cuidado, busca de acessibilidade e distração. Isso não impede a existência de regras coletivas. Apenas mostra que a conduta precisa ser situada antes de receber uma explicação única.</p>
+        <p>Estranhar também exige voltar o olhar para o pesquisador. Aquilo que chama nossa atenção depende de experiências e valores anteriores. Uma pessoa acostumada a determinado modelo familiar pode considerar outras formas incomuns; alguém que nunca dependeu do transporte público pode interpretar atrasos apenas como falta de organização. Reconhecer a própria posição não elimina a possibilidade de conhecimento, mas ajuda a formular perguntas menos apressadas.</p>
       </div>
 
-      <div class="base-subsection" id="a02-dupla">
-        <h3>2. Duas revoluções, rupturas diferentes</h3>
-        <p>A expressão <strong>dupla revolução</strong> aproxima a Revolução Francesa e a Revolução Industrial porque ambas contribuíram para desorganizar a ordem tradicional e formar a sociedade moderna. Isso não significa que fossem o mesmo processo. A primeira designa uma ruptura política iniciada na França em 1789, com repercussões mais amplas. A segunda se refere a uma transformação produtiva desenvolvida ao longo do tempo, inicialmente concentrada sobretudo na Grã-Bretanha e posteriormente difundida.</p>
-        <p>A Revolução Francesa colocou em questão privilégios jurídicos, formas de soberania e a organização política do Antigo Regime. A Revolução Industrial modificou técnicas, escalas de produção, relações de trabalho e mercados. Uma alterou diretamente as linguagens da cidadania e do poder; a outra reorganizou a base material da vida de milhões de pessoas. Seus efeitos se cruzaram, mas não podem ser reduzidos a uma cadeia simples em que uma teria causado sozinha a outra.</p>
-        <p>Também é inadequado imaginar que tradição e modernidade se substituíram num único momento. Relações antigas conviveram com instituições novas. Direitos proclamados como universais foram distribuídos de maneira desigual. Máquinas modernas foram incorporadas a relações severas de exploração. A modernidade não nasceu pronta: foi construída por avanços, conflitos, exclusões e tentativas de recompor a ordem.</p>
-        <p>Essa cautela é sociologicamente importante. Quando usamos um grande nome — revolução, industrialização ou modernidade — podemos esconder diferenças entre lugares e grupos. O proprietário de uma fábrica, o artesão ameaçado pela concorrência, a trabalhadora submetida a longas jornadas e o agente do Estado experimentavam a transformação a partir de posições distintas.</p>
+      <div class="base-subsection" id="a02-desnaturalizacao">
+        <h3>2. Desnaturalizar é reconstruir relações</h3>
+        <p><strong>Desnaturalizar</strong> não é afirmar que tudo muda facilmente ou que qualquer organização seria possível. É demonstrar que práticas sociais foram produzidas em condições determinadas, são mantidas por relações e podem variar. Três operações ajudam: comparação entre sociedades, comparação histórica e investigação das instituições que sustentam o padrão.</p>
+        <p>A divisão doméstica do trabalho oferece um exemplo. Se cozinhar, limpar e cuidar de crianças aparecem associados a um gênero, a análise pode comparar famílias e gerações, examinar mudanças na participação no mercado de trabalho e observar como escola, publicidade, leis e políticas de cuidado distribuem expectativas. A pergunta deixa de ser "quem nasceu com mais habilidade para cuidar?" e passa a incluir "como essa habilidade é ensinada, reconhecida e exigida?".</p>
+        <p>Comparar não significa procurar uma sociedade totalmente oposta à nossa. Diferenças entre bairros, gerações, profissões ou instituições já permitem perceber variação. Horários comerciais, regras de vestimenta e formas de tratamento podem mudar dentro de uma mesma cidade. A comparação precisa, contudo, respeitar o contexto: duas práticas parecidas podem desempenhar funções diferentes, e uma mesma palavra pode designar relações distintas.</p>
+        <p>A reconstrução histórica acrescenta outra pergunta: por quais conflitos e decisões a prática adquiriu sua forma atual? Uma lei pode registrar mudanças conquistadas por movimentos sociais; uma rotina escolar pode conservar modelos de outra época; um hábito de consumo pode depender de tecnologias recentes. Mostrar essa trajetória impede que o presente seja tratado como destino inevitável, mas não garante que a transformação seja simples ou imediata.</p>
+        <aside class="pause-box"><h4>Pausa para discussão</h4><p>Transforme a frase "as pessoas são pobres porque não se esforçam" em duas perguntas sociológicas que possam ser investigadas.</p></aside>
       </div>
 
-      <div class="base-subsection" id="a02-francesa">
-        <h3>3. A ruptura política: Revolução Francesa</h3>
-        <p>No Antigo Regime francês, direitos e obrigações estavam ligados a ordens sociais e privilégios. Clero e nobreza ocupavam posições juridicamente diferenciadas, enquanto grande parte da população sustentava tributos e não participava do poder em condições iguais. A crise do Estado, os conflitos sociais e a circulação de novas ideias contribuíram para que essa organização fosse contestada.</p>
-        <p>A Revolução iniciada em 1789 atacou privilégios de nascimento e afirmou princípios de liberdade e igualdade jurídica. A autoridade política deixou de poder justificar-se apenas pela tradição dinástica. A noção de cidadania estabeleceu que os participantes da comunidade política deveriam possuir direitos, e a ideia de soberania nacional deslocou o fundamento do poder. Mesmo quando não realizadas plenamente, essas formulações transformaram o vocabulário das disputas posteriores.</p>
-        <p>A fórmula “liberdade, igualdade e fraternidade” não descreve um resultado completo e imediato. A revolução atravessou fases, conflitos e violência; diferentes grupos disputaram seu sentido. A universalidade dos direitos conviveu com exclusões políticas e sociais. Mulheres, populações colonizadas e pessoas submetidas à escravidão não receberam automaticamente a igualdade anunciada. Por isso, é preciso distinguir o alcance histórico dos princípios e sua aplicação efetiva.</p>
-        <p>A principal mudança para nosso problema é que instituições antes apresentadas como naturais ou sagradas passaram a ser vistas como construções políticas. Se privilégios podiam ser abolidos e governos reorganizados, a ordem social deixava de parecer evidente. A liberdade aberta pela ruptura vinha acompanhada de uma pergunta inquietante: que vínculos e regras poderiam sustentar a vida coletiva depois do enfraquecimento das antigas autoridades?</p>
-        <p>A ruptura também modificou a maneira de perceber o tempo histórico. A ordem existente já não precisava ser aceita como repetição indefinida do passado; o futuro podia ser apresentado como projeto político. Essa abertura alimentava expectativas de emancipação, mas também receios de instabilidade. Pensadores sociais posteriores tentariam explicar como conciliar direitos individuais, autoridade e pertencimento coletivo.</p>
-        <aside class="pause-box"><h4>Pausa para discussão</h4><p>Que aspectos da vida social mudam quando privilégios de nascimento deixam de ser considerados legítimos, mesmo que desigualdades continuem existindo?</p></aside>
-      </div>
-
-      <div class="base-subsection" id="a02-industrial">
-        <h3>4. A ruptura produtiva: Revolução Industrial</h3>
-        <p>A Revolução Industrial envolveu inovações técnicas, novas fontes de energia, ampliação dos mercados e concentração crescente da produção. Seu significado social, porém, não está apenas nas máquinas. Uma máquina modifica a capacidade de produzir, mas seus efeitos dependem de quem a possui, de como o trabalho é organizado, de quais produtos encontram mercado e de que regras regulam a relação entre proprietários e trabalhadores.</p>
-        <p>A fábrica reuniu trabalhadores, instrumentos e matérias-primas sob direção comum. O tempo de trabalho tornou-se mais uniformemente medido e disciplinado. Horários de entrada, ritmos de produção e divisão de tarefas reduziram parte da autonomia presente em certas formas artesanais. A remuneração por salário separava muitos trabalhadores dos instrumentos e produtos de seu trabalho, ao mesmo tempo que os tornava dependentes da venda de sua capacidade de trabalhar.</p>
-        <p>Isso não significa que todo trabalho anterior fosse livre ou confortável. A vida rural podia envolver dependência, pobreza e obrigações severas. A comparação não deve idealizar o passado, mas identificar uma mudança na forma das relações. Na indústria, a produção destinada ao mercado, o investimento de capital e a contratação de trabalho assalariado ganharam escala e centralidade crescentes.</p>
-        <p>A transformação também alcançou o consumo e o espaço. A circulação de produtos aumentou, redes de transporte foram ampliadas e cidades industriais atraíram população. Novas riquezas foram produzidas, mas distribuídas de maneira desigual. A mesma sociedade capaz de multiplicar mercadorias convivia com jornadas extensas, insegurança e condições precárias de habitação.</p>
-        <p>Mulheres e crianças participaram amplamente do trabalho industrial, embora suas atividades fossem frequentemente pagas e reconhecidas de maneira desigual. A unidade doméstica não permaneceu fora da transformação: precisava organizar renda, alimentação, moradia e cuidado diante dos ritmos da fábrica. Assim, separar rigidamente produção e vida familiar impediria compreender como a industrialização alcançou o cotidiano.</p>
-        <aside class="pause-box"><h4>Pausa para discussão</h4><p>Uma máquina transforma a sociedade por si mesma? Que relações de propriedade, trabalho e mercado precisam ser consideradas?</p></aside>
-      </div>
-
-      <div class="base-subsection" id="a02-trabalho">
-        <h3>5. Trabalho, urbanização e formação de classes</h3>
-        <p>A industrialização impulsionou deslocamentos populacionais e o crescimento de cidades. Pessoas que deixavam áreas rurais procuravam trabalho e renda, mas encontravam habitação cara, infraestrutura insuficiente e vínculos sociais diferentes daqueles de suas comunidades de origem. A cidade ampliava contatos, circulação de informações e possibilidades de organização; também concentrava pobreza, doenças, insegurança e conflito.</p>
-        <p>O <strong>proletariado</strong> formou-se historicamente como classe de trabalhadores dependentes da venda de sua força de trabalho. A <strong>burguesia industrial</strong> controlava capital, fábricas e decisões sobre a produção. Esses nomes não apagam diferenças internas: trabalhadores possuíam qualificações, rendas e trajetórias diversas, enquanto proprietários variavam em riqueza e poder. Ainda assim, as posições distintas diante da propriedade e do trabalho produziam interesses e conflitos reconhecíveis.</p>
-        <p>A concentração de trabalhadores favoreceu experiências comuns e formas coletivas de reação. Associações, protestos e organizações trabalhistas não surgiram automaticamente; dependeram de aprendizagem, comunicação e enfrentamento da repressão. A fábrica podia disciplinar indivíduos, mas também aproximava pessoas submetidas a problemas semelhantes.</p>
-        <p>As antigas comunidades não desapareceram completamente. Famílias, religiões e redes de origem continuaram oferecendo apoio. O que mudou foi sua inserção num mundo em que mercados, administrações públicas e relações impessoais alcançavam mais dimensões da vida. O indivíduo podia libertar-se de algumas obrigações tradicionais e, simultaneamente, tornar-se dependente de forças econômicas difíceis de controlar.</p>
-        <p>As classes não eram apenas faixas de renda. Elas expressavam posições nas relações de produção, possibilidades de influência e experiências compartilhadas. Uma pessoa podia melhorar temporariamente seus ganhos sem controlar os meios de produção; um pequeno proprietário podia temer tanto a concorrência dos grandes capitais quanto a perda de sua autonomia. Essa complexidade preparará a discussão posterior sobre como Marx e Weber conceituam classe por caminhos diferentes.</p>
-        <aside class="pause-box"><h4>Pausa para discussão</h4><p>Por que o crescimento das cidades pode produzir simultaneamente liberdade, anonimato, oportunidade e precariedade?</p></aside>
-      </div>
-
-      <div class="base-subsection" id="a02-questao">
-        <h3>6. Quando a pobreza se torna questão social</h3>
-        <p>Pobreza e desigualdade existiam antes da industrialização. A novidade não foi o aparecimento súbito do sofrimento, mas sua configuração e visibilidade numa sociedade que proclamava igualdade jurídica e produzia riqueza em escala crescente. A concentração urbana tornava contrastes mais evidentes. Problemas de moradia, saúde, trabalho infantil, desemprego e conflito trabalhista exigiam respostas de governos, empregadores, organizações religiosas e movimentos de trabalhadores.</p>
-        <p>A expressão <strong>questão social</strong> permite reunir esses problemas sem tratá-los como simples soma de infortúnios individuais. Se muitas famílias enfrentavam condições semelhantes, não bastava atribuir cada caso a falha moral ou azar. Era necessário examinar salários, propriedade, mercados, legislação, formas de assistência e relações de poder. A sociedade industrial produzia regularidades que pediam explicações coletivas.</p>
-        <p>As respostas eram conflitantes. Alguns defendiam maior disciplina e assistência aos pobres; outros exigiam direitos, organização trabalhista ou transformação das relações de propriedade. Havia quem temesse a desordem e quem interpretasse o conflito como motor de mudança. A futura Sociologia herdaria essas perguntas, mas não ofereceria uma resposta única. Seus autores discordariam sobre ordem, conflito, progresso e método.</p>
-        <p>Transformar uma condição em questão pública depende de linguagem, organização e disputa. Problemas vividos privadamente precisam ser nomeados, comparados e apresentados como responsabilidade coletiva. Relatórios sobre condições urbanas, debates parlamentares, jornais e mobilizações trabalhistas participavam dessa construção. O que conta como problema social nunca decorre apenas de sua existência; depende também de quem consegue torná-lo visível e exigir resposta.</p>
-      </div>
-
-      <div class="base-subsection" id="a02-imagens">
-        <h3>7. Imagens como vestígios históricos</h3>
-        <p>A atividade da aula utiliza gravuras e fotografias de fábricas, habitações e ruas. Essas imagens não são janelas transparentes para o passado. Elas foram produzidas por alguém, a partir de uma posição e para determinado público. O enquadramento seleciona pessoas e espaços; uma legenda orienta a interpretação; aquilo que ficou fora do quadro também importa.</p>
-        <p>Uma fotografia de trabalhadores pode informar sobre vestimentas, presença de crianças, organização do espaço ou proximidade das máquinas. Sozinha, não revela salários, duração da jornada, sentimentos dos retratados ou frequência daquela situação. Para responder a outras perguntas, seria necessário relacioná-la a regulamentos, relatos, registros de produção, notícias e estudos históricos.</p>
-        <p>Ao analisar cada imagem, convém perguntar quem aparece, que atividade realiza, como o espaço distribui posições e que sinais de hierarquia ou precariedade são visíveis. Depois, deve-se separar observação e interpretação. “Há crianças próximas às máquinas” descreve algo observável; concluir por que estavam ali exige outras informações. Essa distinção torna a imagem uma fonte de perguntas, não uma ilustração usada apenas para confirmar o que já pensamos.</p>
-        <aside class="pause-box"><h4>Pausa para discussão</h4><p>O que uma imagem de trabalhadores numa fábrica permite saber? O que ela não revela sem outras fontes?</p></aside>
-      </div>
-
-      <div class="base-subsection" id="a02-sociologia">
-        <h3>8. Por que uma ciência da sociedade?</h3>
-        <p>As revoluções não criaram automaticamente a Sociologia, como se a disciplina fosse consequência inevitável de dois acontecimentos. Elas compuseram um contexto no qual a ordem social se tornou objeto explícito de reflexão. Governos precisavam administrar populações e conflitos; reformadores procuravam responder à pobreza; trabalhadores organizavam demandas; intelectuais tentavam compreender a direção das mudanças.</p>
-        <p>O fortalecimento dos Estados nacionais ampliou a capacidade de produzir leis, administrar territórios e reunir informações sobre a população. Classificar ocupações, registrar nascimentos e acompanhar condições de vida fazia parte de necessidades administrativas, mas também fornecia materiais para perceber regularidades coletivas. A existência de registros não garantia uma análise neutra: categorias oficiais refletiam prioridades e relações de poder.</p>
-        <p>Uma ciência da sociedade prometia identificar regularidades, comparar instituições e explicar como a vida coletiva era possível. Esse projeto assumiu formas diferentes. Algumas formulações procurariam descobrir leis de evolução e restaurar a ordem; outras analisariam exploração e conflito; outras investigariam normas, vínculos ou sentidos da ação. As divergências que estudaremos adiante não devem ser apagadas pela origem histórica compartilhada.</p>
-        <p>A Sociologia nasceu, assim, ligada a uma dupla experiência moderna: a percepção de que a sociedade é construída e pode mudar, e o temor de que mudanças rápidas produzam desorganização, conflito e desigualdade. Ela procurou compreender uma realidade na qual liberdade política, capacidade produtiva e sofrimento social avançavam lado a lado.</p>
-        <p>Chamar esse conhecimento de ciência expressava a intenção de ultrapassar comentários morais isolados e construir explicações sistemáticas. Mas o significado de ciência social seria disputado. Alguns autores aproximariam seu método das ciências naturais; outros enfatizariam história, conflito ou interpretação. Nas aulas seguintes, essas alternativas serão examinadas sem supor que a disciplina começou com um método consensual.</p>
-        <p>O nascimento da Sociologia também não pode ser confundido com o início de toda reflexão sobre a vida coletiva. Sociedades muito anteriores produziram interpretações sobre poder, justiça e convivência. A novidade do século XIX está na formação de uma disciplina vinculada às instituições científicas modernas e orientada para problemas específicos da sociedade industrial, urbana e politicamente revolucionada.</p>
-        <p>Essa localização histórica ajuda a compreender tanto a força quanto os limites das primeiras teorias. Seus autores tentavam explicar mudanças que viviam de perto, mas observavam o mundo a partir de sociedades europeias envolvidas em expansão colonial. Ideias apresentadas como universais podiam transformar a experiência europeia em medida de todas as sociedades. O curso retomará esse cuidado ao discutir evolucionismo e as críticas posteriores.</p>
+      <div class="base-subsection" id="a02-curso">
+        <h3>3. O percurso da disciplina</h3>
+        <p>As próximas aulas acrescentarão instrumentos a esse olhar. Primeiro, estudaremos as transformações históricas que tornaram necessária uma ciência da sociedade e algumas tentativas pioneiras de construí-la. Depois, examinaremos Durkheim, Marx e Weber, preservando as diferenças entre seus problemas e métodos. O curso avançará então para cultura, socialização, grupos, normas, instituições, estratificação, raça, gênero e movimentos sociais, até chegar à construção do experimento sociológico que organiza a avaliação do semestre.</p>
+        <p>As leituras prévias oferecem contato com argumentos que a exposição e as atividades deverão reconstruir, não apenas resumir. Participação, frequência e produção acadêmica fazem parte do percurso. A avaliação final de 2026.2 é um experimento sociológico sobre inteligência artificial e desigualdade, apresentado com sua metodologia completa na página principal do curso; ele será retomado organicamente a partir da segunda metade do semestre, quando os grupos já tiverem base teórica suficiente para formulá-lo com rigor.</p>
+        <p>Nesta disciplina, aprender conceitos não será separado de usá-los. As atividades pedem que estudantes comparem situações, leiam textos, formulem problemas e justifiquem interpretações. O objetivo não é substituir uma opinião por uma palavra acadêmica, mas tornar claro o raciocínio que conecta a situação observada ao conceito escolhido.</p>
       </div>
 
       <div class="base-subsection" id="a02-sintese">
-        <h3>9. Síntese e passagem ao Iluminismo</h3>
-        <p>A Revolução Francesa abalou privilégios e fundamentos tradicionais da autoridade, difundindo linguagens de cidadania e igualdade jurídica, embora suas promessas permanecessem incompletas. A Revolução Industrial reorganizou produção, propriedade e trabalho, ampliando mercados, cidades e diferenças de classe. A articulação entre essas transformações tornou visíveis novos problemas de coesão, conflito e desigualdade.</p>
-        <p>Urbanização não significou apenas crescimento físico das cidades. Ela reuniu desconhecidos, concentrou oportunidades e precariedades, alterou vínculos comunitários e favoreceu novas organizações coletivas. A questão social apareceu quando sofrimentos recorrentes passaram a ser relacionados à própria organização da sociedade industrial, e não somente ao caráter dos indivíduos.</p>
-        <p>Entretanto, transformações materiais e políticas dependiam também de novas maneiras de pensar autoridade, conhecimento e futuro. Na próxima aula, examinaremos o Iluminismo, a confiança na razão, a crítica da tradição e a ideia de progresso. Veremos tanto sua força emancipadora quanto as contradições de um projeto que formulou princípios universais em sociedades ainda marcadas por exclusões.</p>
+        <h3>4. Síntese: aprender a perguntar</h3>
+        <p>A Sociologia começa por situações vividas, mas não termina na impressão pessoal. Estranhar o familiar permite perceber o que a rotina esconde. Desnaturalizar exige comparar, reconstruir processos e identificar as relações que sustentam determinada prática. Essas operações não entregam automaticamente uma resposta correta. Elas tornam as perguntas mais precisas e abrem a experiência cotidiana à investigação e ao debate fundamentado.</p>
+        <p>Resta compreender por que esse modo de estudar a sociedade ganhou forma num período específico. A próxima aula reconstrói as revoluções que tornaram a própria sociedade um problema exigindo novas explicações: a Revolução Francesa e a Revolução Industrial.</p>
       </div>
     </div>
   </section>
-
-
 
   <section id="plano-aula">
     <div class="section-title">Plano de Aula com Tempo</div>
     <div class="timeline">
       <div class="tl-item">
         <span class="tl-duration">10 min</span>
-        <span class="tl-text"><strong>Retomada da aula anterior</strong> — Breve revisão dos conceitos de senso comum, desnaturalização e olhar sociológico. Perguntas abertas para a turma.</span>
+        <span class="tl-text"><strong>Exposição: estranhamento e desnaturalização</strong> — Definição das duas operações, com o exemplo da fila e do celular em sala.</span>
       </div>
       <div class="tl-item">
-        <span class="tl-duration">30 min</span>
-        <span class="tl-text"><strong>Exposição: A dupla revolução</strong> — Aula expositiva sobre a Revolução Francesa e a Revolução Industrial como marcos históricos que tornam a Sociologia necessária. Destaque para as transformações sociais resultantes.</span>
+        <span class="tl-duration">25 min</span>
+        <span class="tl-text"><strong>Roda de conversa: "O óbvio que não é óbvio"</strong> — Retomada dos registros produzidos ao final da Aula 01. Cada estudante compartilha sua situação "natural"; o grupo problematiza.</span>
       </div>
       <div class="tl-item">
-        <span class="tl-duration">20 min</span>
-        <span class="tl-text"><strong>Exibição de trecho de documentário sobre a Revolução Industrial</strong> — Exibição de material audiovisual que ilustre as condições de trabalho, a urbanização e as transformações sociais do período.</span>
-      </div>
-      <div class="tl-item">
-        <span class="tl-duration">20 min</span>
-        <span class="tl-text"><strong>Discussão em duplas: "Que problemas sociais surgem desse contexto?"</strong> — Os alunos, em duplas, identificam e listam os principais problemas sociais emergentes a partir do que foi exposto e do documentário.</span>
-      </div>
-      <div class="tl-item">
-        <span class="tl-duration">30 min</span>
-        <span class="tl-text"><strong>Socialização e síntese coletiva</strong> — Cada dupla apresenta suas conclusões. O professor sistematiza as respostas no quadro e articula os problemas identificados à necessidade histórica de uma ciência da sociedade.</span>
+        <span class="tl-duration">15 min</span>
+        <span class="tl-text"><strong>Apresentação do plano de curso e da avaliação</strong> — Estrutura em blocos, critérios avaliativos e panorama do experimento sociológico que organiza a avaliação de 2026.2.</span>
       </div>
       <div class="tl-item">
         <span class="tl-duration">10 min</span>
-        <span class="tl-text"><strong>Encerramento</strong> — Síntese dos pontos centrais. Indicação das leituras para a Aula 03.</span>
+        <span class="tl-text"><strong>Síntese e orientações para a próxima aula</strong> — Retomada dos pontos centrais. Indicação das leituras para a Aula 03.</span>
       </div>
     </div>
   </section>
@@ -312,34 +198,33 @@
   <section id="leituras">
     <div class="section-title">Textos para Leitura Prévia</div>
     <div class="ref-card">
-      <div class="ref-author">GIDDENS, Anthony</div>
-      <div class="ref-title">Sociologia. Cap. 1 — "O que é Sociologia?"</div>
-      <div class="ref-pages">p. 22–40</div>
+      <div class="ref-author">BAUMAN, Zygmunt</div>
+      <div class="ref-title">Aprendendo a pensar com a Sociologia. Cap. 1</div>
+      <div class="ref-pages">p. 7–25</div>
     </div>
     <div class="ref-card">
-      <div class="ref-author">QUINTANEIRO, Tania et al.</div>
-      <div class="ref-title">Um toque de clássicos. Introdução</div>
-      <div class="ref-pages">p. 7–20</div>
+      <div class="ref-author">MARTINS, Carlos Benedito</div>
+      <div class="ref-title">O que é Sociologia. Cap. 2 — "A formação" (p. 18–37)</div>
+      <div class="ref-pages">38ª ed. São Paulo: Brasiliense, 1994. (Coleção Primeiros Passos)</div>
     </div>
   </section>
 
   <section id="atividade">
     <div class="section-title">Atividades em Sala</div>
-    <div class="activity-card">
-      <strong>Análise de imagens históricas da Revolução Industrial</strong><br><br>
-      Os alunos recebem uma seleção de gravuras e fotografias históricas do período da Revolução Industrial: fábricas com trabalho infantil, habitações operárias precárias, ruas das cidades industriais, manifestações de trabalhadores.<br><br>
-      Em duplas, devem responder às seguintes questões: (1) Quais problemas sociais essas imagens revelam? (2) Quem são os sujeitos representados e qual é sua posição na sociedade? (3) O que nessas imagens poderia ter demandado a criação de uma ciência que estudasse a sociedade?<br><br>
-      As duplas socializam suas respostas na síntese coletiva, que serve de base para o professor introduzir a ideia da Sociologia como resposta intelectual à crise da modernidade industrial.
+    <div class="activity-card" data-gabarito="obrigatorio">
+      <strong>Roda de conversa: "O óbvio que não é óbvio"</strong><br><br>
+      Retomando o registro feito ao final da Aula 01, cada estudante compartilha a situação "óbvia" ou "natural" que anotou. A partir de cada relato, o grupo é instigado a problematizar: por que isso acontece assim? Poderia ser diferente? Quem se beneficia com essa forma de organização?<br><br>
+      O objetivo é mostrar que fenômenos que parecem naturais (papéis de gênero, hierarquias, divisão do trabalho, padrões de consumo) são, na verdade, construções sociais e históricas — e que o olhar sociológico consiste justamente em estranhar o familiar e problematizar o que parece dado.
 
       <details class="teacher-guidance">
         <summary>Gabarito comentado e orientações de mediação — uso do professor</summary>
         <div class="teacher-guidance-content">
-          <p><strong>Critério geral.</strong> A atividade pede que a dupla trate as imagens como vestígios que precisam ser interrogados, não como janelas transparentes para o passado (ver subseção 7 do texto-base). Uma resposta descritiva apenas nomeia o que aparece na cena; uma resposta fundamentada distingue o que a imagem mostra do que ela não revela e liga a observação a um problema histórico.</p>
-          <p><strong>Questão 1 (problemas revelados).</strong> Aceite respostas que identifiquem trabalho infantil, jornadas longas sugeridas pela cena, precariedade da habitação ou aglomeração urbana, desde que a dupla indique o elemento visual que sustenta a leitura (postura, vestimenta, proximidade das máquinas, condição do edifício). Recuse inferências sem ancoragem na imagem, como afirmar salários ou horas de trabalho que a foto não mostra.</p>
-          <p><strong>Questão 2 (sujeitos e posição social).</strong> Espera-se que a dupla reconheça posições assimétricas: quem trabalha, quem supervisiona, quem está ausente do quadro (proprietários, autoridades). Uma resposta fraca apenas descreve roupas ou expressões sem relacioná-las a uma posição nas relações de produção ou de propriedade.</p>
-          <p><strong>Questão 3 (por que demandaria uma ciência da sociedade).</strong> A resposta forte liga o conteúdo da imagem à noção de questão social: sofrimento recorrente que exige explicação coletiva, não apenas individual. A resposta fraca apenas diz que "a imagem é triste" ou "mostra injustiça", sem indicar por que esse tipo de problema pede investigação sistemática e comparativa.</p>
-          <p><strong>Erros conceituais prováveis.</strong> Tratar a fotografia como prova completa e neutra do período, esquecendo que ela foi enquadrada por alguém para um público; e confundir a denúncia moral da pobreza com a explicação sociológica de sua origem e distribuição.</p>
-          <p><strong>Mediação sugerida.</strong> Se a dupla tratar a imagem como evidência autossuficiente, pergunte o que ela não permite saber (salário, duração da jornada, sentimento dos retratados) e que outras fontes seriam necessárias para responder a isso.</p>
+          <p><strong>Critério geral.</strong> Uma resposta apenas descritiva relata o costume ("os homens não lavam roupa em casa") e para aí. Uma resposta sociologicamente fundamentada usa a tríade estranhamento–naturalização–desnaturalização do texto-base: explica por que a prática parece óbvia, mostra que essa aparência depende de aprendizagem e repetição, e indica quem sustenta e quem paga o custo da organização atual.</p>
+          <p><strong>"Por que isso acontece assim?"</strong> Recuse respostas que apenas repitam a naturalização ("é assim porque sempre foi", "é da natureza"). Aceite respostas que apontem uma origem histórica, institucional ou de aprendizagem: quem ensinou essa expectativa, que instituição a reforça (família, escola, mídia, lei), há quanto tempo ela vigora.</p>
+          <p><strong>"Poderia ser diferente?"</strong> A resposta forte compara: cita outra família, geração, bairro, profissão ou período em que a mesma esfera da vida é organizada de outro modo. A resposta fraca apenas afirma que "sim, poderia" sem examinar nenhum caso concreto de variação.</p>
+          <p><strong>"Quem se beneficia com essa forma de organização?"</strong> Espera-se identificar uma distribuição desigual de vantagens e custos (tempo, reconhecimento, remuneração, autoridade), não um juízo moral genérico sobre "certo" ou "errado".</p>
+          <p><strong>Erros prováveis.</strong> Confundir naturalização com biologia; generalizar a partir de um único caso familiar para "a sociedade brasileira"; reduzir a atividade a um debate de opiniões pessoais, sem estranhamento nem comparação.</p>
+          <p><strong>Mediação sugerida.</strong> Se um relato ficar apenas descritivo, pergunte: "desde quando funciona assim, e quem te ensinou que era assim?" Se a turma resvalar para o julgamento moral, redirecione: "independentemente de ser certo ou errado, quem ensina essa regra e quem seria punido por descumpri-la?"</p>
         </div>
       </details>
     </div>
@@ -349,17 +234,16 @@
     <div class="section-title">Recursos Necessários</div>
     <div class="resources-list">
       <span class="res-tag">Projetor</span>
-      <span class="res-tag">Seleção de imagens históricas impressas</span>
-      <span class="res-tag">Trecho de documentário</span>
+      <span class="res-tag">Plano de curso impresso</span>
       <span class="res-tag">Quadro branco</span>
-      <span class="res-tag">Caixas de som</span>
+      <span class="res-tag">Caneta para quadro</span>
     </div>
   </section>
 
 </main>
 
 <footer>
-  <a href="/introducao-sociologia/">← Página principal</a>
+  <a href="../../index.html">← Voltar ao curso</a>
   <span style="margin: 0 12px; color: var(--border);">|</span>
   <span>Introdução à Sociologia — 2026.2</span>
 </footer>
