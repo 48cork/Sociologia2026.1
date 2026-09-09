@@ -1,10 +1,13 @@
 # Mapa de Progressão — Introdução à Sociologia 2026.2
 
 **Estado do documento:** COMPLETO (cobre as Aulas 01–30).
-**Situação estrutural do curso (reauditoria atual):** CONCERNS — 26 de 30 aulas conformes ao
-padrão determinístico do squad; 4 pendências estruturais reais e localizadas (Aulas 01, 02, 03
-e 09). Nenhuma delas está nas Aulas 24–30 nem impede o veredito já emitido para essas aulas.
-**HEAD da reauditoria atual:** `74018e2ec963431a6401a260501fe12c0fe35634`
+**Situação estrutural do curso (reauditoria atual):** PRONTO — 30 de 30 aulas conformes ao
+padrão determinístico do squad. As 4 pendências estruturais que existiam nas Aulas 01, 02, 03
+e 09 (bloco `<details>`/gabarito ausente e/ou regra `@media print` ausente) foram corrigidas no
+commit `bfc34f2` e estão verificadas como resolvidas nesta reauditoria.
+**HEAD da reauditoria atual:** `bfc34f200244e11e4da4bff67fc79f287a5562df` (regularização
+estrutural das Aulas 01, 02, 03 e 09)
+**HEAD da reauditoria anterior (histórico):** `74018e2ec963431a6401a260501fe12c0fe35634`
 **HEAD do diagnóstico original (histórico, ver seção abaixo):** `ed45724eea0c9df260b323d8e8f4b0e2095a6ddd`
 **Arquivos:** `aula-01.html` a `aula-30.html`
 
@@ -193,10 +196,12 @@ FALHA), mesmas contagens de gabarito por aula, mesmos hashes. Por isso o restant
 documento, escrito com `82b894a` como referência de estado, permanece válido palavra por
 palavra; apenas o HEAD de referência no topo do documento foi avançado para `74018e2`.
 
-## Auditoria estrutural determinística de todo o curso (01–30) — HEAD `82b894a` (confirmada em `74018e2`)
+## Auditoria estrutural determinística de todo o curso (01–30) — histórico e estado atual
 
-Execução de `python3 squad-revisao-aulas/scripts/auditar_aulas.py --intervalo 01-30`,
-somente leitura, nesta reconciliação:
+### Histórico: HEAD `82b894a`/`74018e2` (resolvido)
+
+Execução de `python3 squad-revisao-aulas/scripts/auditar_aulas.py --intervalo 01-30` nessas
+reauditorias anteriores:
 
 ```
 Resumo: 26 aprovada(s), 4 com falha(s), 30 auditada(s).
@@ -207,34 +212,55 @@ Resumo: 26 aprovada(s), 4 com falha(s), 30 auditada(s).
 | OK | 04–08, 10–30 (26 aulas) |
 | FALHA | 01, 02, 03, 09 (4 aulas) |
 
-Detalhe das falhas:
+Detalhe das falhas então existentes:
 
 - **Aula 01:** `<details>` esperado exatamente 1, encontrado 0 (nenhum bloco de
   gabarito/orientação docente); regra `@media print` ausente.
 - **Aula 02:** mesma dupla falha da Aula 01.
 - **Aula 03:** mesma dupla falha da Aula 01.
-- **Aula 09:** regra `@media print` ausente. O gabarito já existe e é válido (178
-  palavras, 6 blocos); esta é a única falha da aula.
+- **Aula 09:** regra `@media print` ausente. O gabarito já existia e era válido (178
+  palavras, 6 blocos); essa era a única falha da aula.
 
 Estas quatro aulas nunca fizeram parte do lote de reconstrução do squad (que cobriu 24–30)
 nem da correção pontual da Aula 06. As Aulas 01–03 foram escritas na primeira leva de
 textos-base (commit `3943a1f`), anterior à adoção do padrão de gabarito em `<details>`, que
-só passou a ser aplicado a partir da Aula 04 em diante. A Aula 09 já segue o padrão de
-gabarito, mas não recebeu a regra de impressão que as aulas vizinhas (07, 08, 10) têm.
+só passou a ser aplicado a partir da Aula 04 em diante. A Aula 09 já seguia o padrão de
+gabarito, mas não havia recebido a regra de impressão que as aulas vizinhas (07, 08, 10) têm.
 
-## Pendências reais (não resolvidas por este documento)
+### Resolução: HEAD `bfc34f2` (estado atual)
 
-Esta reconciliação é exclusivamente documental: nenhuma aula foi alterada. As pendências
-abaixo são reais, verificáveis pelo auditor determinístico, e permanecem em aberto:
+O commit `bfc34f200244e11e4da4bff67fc79f287a5562df` ("fix: regularizar padrão estrutural das
+aulas 01 02 03 e 09") aplicou o mesmo princípio de intervenção mínima já validado na
+regularização da Aula 06 (`2e13252` + `82b894a`):
 
-1. **Aulas 01, 02 e 03** não têm bloco de gabarito/orientação docente (`<details>`) nem
-   regra `@media print`. Correção equivalente à aplicada na Aula 06 ainda não foi
-   autorizada nem executada para essas três aulas.
-2. **Aula 09** não tem regra `@media print`. O gabarito já está correto; falta apenas a
-   regra de impressão, equivalente à segunda correção aplicada na Aula 06.
+- **Aulas 01, 02 e 03:** cada uma recebeu exatamente 1 bloco `<details class="teacher-guidance">`
+  fechado por padrão, com gabarito comentado específico para a atividade já existente na
+  própria aula (roda de conversa, análise de imagens históricas, linha do tempo coletiva),
+  mais o CSS de integração (`.teacher-guidance`, `summary`, `-content`) e a regra
+  `@media print`. Nenhuma pergunta, atividade, objetivo, texto-base, pausa ou navegação foi
+  alterada.
+- **Aula 09:** recebeu somente a regra `@media print` para o `.teacher-guidance` já existente
+  e conforme; o gabarito (178 palavras, 6 blocos) permanece byte-for-byte inalterado, conferido
+  antes e depois do commit.
 
-Nenhuma dessas pendências afeta as Aulas 24–30, que permanecem integralmente aprovadas, nem
-a Aula 06, que está regularizada.
+Reexecução de `python3 squad-revisao-aulas/scripts/auditar_aulas.py --intervalo 01-30` em
+HEAD `bfc34f2`, somente leitura, nesta reconciliação:
+
+```
+Resumo: 30 aprovada(s), 0 com falha(s), 30 auditada(s).
+```
+
+| Resultado | Aulas |
+|---|---|
+| OK | 01–30 (30 aulas) |
+| FALHA | nenhuma |
+
+## Pendências estruturais — resolvidas
+
+As quatro pendências estruturais registradas nas reauditorias anteriores (Aulas 01, 02, 03
+e 09, ver histórico acima) **foram corrigidas e verificadas** no commit `bfc34f2`. Não há,
+nesta data, nenhuma pendência estrutural aberta segundo o auditor determinístico do squad
+para o intervalo 01–30. A Aula 06 permanece regularizada (ver seção específica acima).
 
 ## Limitações da reauditoria
 
@@ -252,12 +278,21 @@ a Aula 06, que está regularizada.
   o auditor determinístico mede. Essas dimensões, para as Aulas 24–30, continuam
   sustentadas pelos pareceres qualitativos já registrados nos relatórios individuais.
 
-## Conclusão e prioridades (atualizado)
+## Conclusão e prioridades (atualizado — HEAD `bfc34f2`)
 
 As Aulas 24–30 estão concluídas, aprovadas e commitadas, sem pendência qualitativa ou
 estrutural conhecida. A Aula 06 está regularizada quanto aos critérios estruturais do
-squad. **Não se emite veredito `PRONTO` global para o curso completo (01–30)**, porque as
-Aulas 01, 02, 03 e 09 apresentam pendências estruturais reais e verificáveis, listadas
-acima. O Aprovador continua autorizado a emitir `PRONTO` por aula individual após conferir
-a entrada correspondente neste mapa; qualquer veredito de curso completo deve aguardar a
-regularização estrutural das quatro aulas pendentes.
+squad. As Aulas 01, 02, 03 e 09, únicas pendências estruturais reais registradas nas
+reauditorias anteriores, foram corrigidas no commit `bfc34f2` e verificadas nesta
+reconciliação: `auditar_aulas.py --intervalo 01-30` retorna **30 aprovada(s), 0 com
+falha(s), 30 auditada(s)**.
+
+**Veredito estrutural determinístico do curso completo (01–30): PRONTO.** Isso cobre
+exclusivamente os critérios verificados por `auditar_aulas.py` (gabarito, impressão, plano
+de 120 minutos, pausas, IDs, fragmentos, navegação, ausência de placeholders). Não substitui
+nem presume veredito qualitativo (teórico, de fluidez, pedagógico ou de progressão) para as
+Aulas 01–23, que — como já registrado na seção "Limitações da reauditoria" — não foram
+submetidas a uma nova rodada dos seis papéis do squad nesta reconciliação; apenas ao
+verificador determinístico, que confirma conformidade estrutural. O Aprovador permanece
+autorizado a emitir `PRONTO` por aula individual, e agora também pode considerar o critério
+estrutural do curso completo satisfeito.
