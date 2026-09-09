@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Aula 29 — Cultura como produção social de sentidos · 2026.2</title><style>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Aula 33 — Identidade cultural: pertencimento, diferença e fronteiras · 2026.2</title><style>
   :root {
     --bg: #0a0a0f; --surface: #12121c; --card: #1a1a2e; --border: #2a2a4a;
     --purple: #7c3aed; --purple-lt: #a855f7; --blue: #4f46e5; --blue-lt: #818cf8;
@@ -77,49 +77,83 @@
 
 
   :root {
-    --bg: #0a0a0f; --surface: #12121c; --card: #1a1a2e; --border: #2a2a4a;
-    --purple: #7c3aed; --purple-lt: #a855f7; --blue: #4f46e5; --blue-lt: #818cf8;
-    --teal-lt: #2dd4bf; --amber-lt: #fbbf24; --rose-lt: #fb7185;
-    --text: #e2e8f0; --muted: #94a3b8; --radius: 12px;
-    --bloco-color: #0284c7; --bloco-lt: #38bdf8;
+    --bg: #0a0a0f;
+    --surface: #12121c;
+    --card: #1a1a2e;
+    --border: #2a2a4a;
+    --purple: #7c3aed;
+    --purple-lt: #a855f7;
+    --blue: #4f46e5;
+    --blue-lt: #818cf8;
+    --teal-lt: #2dd4bf;
+    --amber-lt: #fbbf24;
+    --rose-lt: #fb7185;
+    --sky: #38bdf8;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --radius: 12px;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
-  nav { position: sticky; top: 0; z-index: 100; background: rgba(18,18,28,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(18,18,28,0.95); backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px; height: 56px;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  }
   nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; white-space: nowrap; }
   nav a:hover { color: var(--text); }
   .nav-left { display: flex; align-items: center; gap: 10px; }
-  .nav-badge { background: var(--bloco-color); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+  .nav-badge { background: var(--sky); color: #0a0a0f; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
   .nav-center { font-size: 0.875rem; color: var(--muted); }
   .nav-right { display: flex; gap: 16px; align-items: center; }
+
   main { max-width: 860px; margin: 0 auto; padding: 40px 24px 80px; }
-  .aula-header { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; margin-bottom: 32px; border-top: 4px solid var(--bloco-color); }
+
+  .aula-header {
+    background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 32px; margin-bottom: 32px;
+    border-top: 4px solid var(--sky);
+  }
   .header-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; align-items: center; }
-  .bloco-badge { background: var(--bloco-color); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .bloco-badge { background: var(--sky); color: #0a0a0f; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
   .meta-chip { background: var(--surface); border: 1px solid var(--border); font-size: 0.8rem; color: var(--muted); padding: 4px 12px; border-radius: 20px; }
   .aula-header h1 { font-size: 1.5rem; font-weight: 700; line-height: 1.3; color: var(--text); }
+
   section { margin-bottom: 32px; }
-  .section-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--bloco-lt); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+  .section-title {
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--sky); margin-bottom: 16px; padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+
   .obj-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
   .obj-list li { display: flex; gap: 12px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
-  .obj-list li::before { content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--bloco-lt); margin-top: 7px; flex-shrink: 0; }
+  .obj-list li::before { content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--sky); margin-top: 7px; flex-shrink: 0; }
+
   .content-topic { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 12px; }
-  .content-topic h3 { font-size: 0.95rem; font-weight: 600; color: var(--bloco-lt); margin-bottom: 8px; }
+  .content-topic h3 { font-size: 0.95rem; font-weight: 600; color: var(--sky); margin-bottom: 8px; }
   .content-topic ul { list-style: none; padding: 0; }
   .content-topic ul li { padding: 4px 0 4px 16px; position: relative; color: var(--muted); font-size: 0.9rem; }
   .content-topic ul li::before { content: '—'; position: absolute; left: 0; color: var(--border); }
+
   .timeline { display: flex; flex-direction: column; gap: 10px; }
-  .tl-item { display: flex; gap: 16px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; border-left: 3px solid var(--bloco-color); }
+  .tl-item { display: flex; gap: 16px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; border-left: 3px solid var(--sky); }
   .tl-duration { background: var(--surface); border: 1px solid var(--border); color: var(--amber-lt); font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
   .tl-text { font-size: 0.9rem; color: var(--text); }
-  .ref-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 10px; border-left: 3px solid var(--bloco-lt); }
-  .ref-author { font-size: 0.8rem; font-weight: 700; color: var(--bloco-lt); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+
+  .ref-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 10px; border-left: 3px solid var(--blue-lt); }
+  .ref-author { font-size: 0.8rem; font-weight: 700; color: var(--blue-lt); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
   .ref-title { font-size: 0.9rem; color: var(--text); }
   .activity-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; font-size: 0.9rem; line-height: 1.7; border-left: 3px solid var(--teal-lt); }
+
   .resources-list { display: flex; flex-wrap: wrap; gap: 10px; }
   .res-tag { background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; }
+
   footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--muted); font-size: 0.85rem; }
-  footer a { color: var(--bloco-lt); text-decoration: none; }
+  footer a { color: var(--sky); text-decoration: none; }
   footer a:hover { text-decoration: underline; }
 
   html, body { max-width: 100%; overflow-x: clip; }
@@ -159,44 +193,49 @@
   .activity-card h4 { color: var(--amber-lt); margin: 18px 0 8px; }
   .activity-card ol, .activity-card ul { padding-left: 22px; margin: 10px 0; }
   .activity-card li { margin: 7px 0; }
-  .situation-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 16px 0; }
-  .situation-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
-  .situation-card h4 { margin: 0 0 6px; }
+  .trajectory-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 16px 0; }
+  .trajectory-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
+  .trajectory-card h4 { margin: 0 0 6px; }
   .question-list { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px 14px 40px; }
   .teacher-guidance { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-top: 18px; }
   .teacher-guidance summary { cursor: pointer; color: var(--amber-lt); font-weight: 700; padding: 15px 17px; }
   .teacher-guidance[open] summary { border-bottom: 1px solid var(--border); }
   .teacher-guidance-content { padding: 16px 18px; }
   .teacher-guidance-content h4 { color: var(--teal-lt); }
-  @media (max-width: 640px) { .situation-grid { grid-template-columns: 1fr; } }
-  @media print { nav, .section-nav { position: static; } .situation-card, .teacher-guidance { break-inside: avoid; } }
+  @media (max-width: 640px) { .trajectory-grid { grid-template-columns: 1fr; } }
+  @media print {
+    nav, .section-nav { position: static; }
+    .trajectory-card, .teacher-guidance, .tl-item, .ref-card { break-inside: avoid; }
+    .teacher-guidance > .teacher-guidance-content { display: block !important; }
+  }
 
 body {max-width:100%; overflow-x:hidden; overflow-wrap:anywhere;} main{max-width:960px;margin:auto} .base-text{max-width:72ch} .base-subsection{margin-bottom:24px} table{width:100%;border-collapse:collapse}th,td{padding:8px;border:1px solid var(--border);overflow-wrap:anywhere} .table-wrap,.table-region{overflow-x:auto;max-width:100%} .teacher-guidance{margin-top:20px;padding:16px;border:1px solid var(--border)} summary{cursor:pointer;font-weight:bold} .skip{position:absolute;left:-9999px}.skip:focus{left:12px;top:12px;z-index:300;background:var(--bg);padding:10px} a{overflow-wrap:anywhere} @media(max-width:640px){nav{position:static;flex-wrap:wrap;height:auto;padding:12px}.nav-center{display:none}.section-nav{position:static;flex-wrap:wrap}main{padding:20px 14px}.tl-item{flex-direction:column}.aula-header{padding:20px 14px}} @media print{nav,.section-nav,.skip{display:none!important}body,main,section,.aula-header,.activity-card,.pause-box,details{background:white!important;color:black!important}*{color:inherit!important;text-shadow:none!important;box-shadow:none!important}main{max-width:none;padding:0}.base-text{max-width:none}h1,h2,h3,summary{break-after:avoid}p{orphans:3;widows:3}table{font-size:9pt}.teacher-guidance{break-inside:auto}}
 </style></head><body>
 <a class="skip" href="#objetivos">Pular para o conteúdo</a>
-<nav aria-label="Navegação entre aulas"><div class="nav-left"><a href="../../index.html">Voltar ao curso</a></div><span class="nav-center">Encontro 08 de 15 · Aula 29 de 60</span><div class="nav-right"><a href="aula-28.html">← Aula anterior</a><a href="aula-30.html">Próxima aula →</a></div></nav>
+<nav aria-label="Navegação entre aulas"><div class="nav-left"><a href="../../index.html">Voltar ao curso</a></div><span class="nav-center">Encontro 09 de 15 · Aula 33 de 60</span><div class="nav-right"><a href="aula-32.html">← Aula anterior</a><a href="aula-34.html">Próxima aula →</a></div></nav>
 <div class="section-nav" aria-label="Seções"><a href="#objetivos">Objetivos</a><a href="#texto-base">Texto-base</a><a href="#plano-aula">Plano</a><a href="#atividade">Discussão</a><a href="#sintese">Síntese</a><a href="#leituras">Referências</a></div>
-<main><header class="aula-header"><div class="header-meta"><span class="meta-chip">Encontro <strong>08</strong> de 15 — 28/10/2026, quarta-feira</span><span class="meta-chip">Aula <strong>29</strong> de 60</span><span class="meta-chip">1ª aula do encontro</span><span class="meta-chip">Aproximadamente 1 hora-aula</span></div><h1>Cultura como produção social de sentidos</h1><p>Introdução à Sociologia · T01 · 2026.2 · Código 2101000 · SIGAA 4M1234</p></header>
-<section id="objetivos"><h2>Objetivos</h2><ul class="obj-list"><li>Definir cultura sem confundi-la com erudição.</li><li>Distinguir símbolos, valores, normas e práticas.</li><li>Relacionar linguagem, contexto e classificação.</li></ul></section>
-<section id="texto-base" aria-labelledby="texto-base-title"><h2 id="texto-base-title">Texto-base</h2><div class="base-text"><p class="base-intro">Uma mensagem “ok” pode indicar concordância, ironia ou pressa. Como uma interpretação se torna compartilhada?</p><div class="base-subsection" id="a29-conceito-1"><h3>1. Cultura além da erudição</h3>
-<p>No uso cotidiano, “ter cultura” pode significar conhecer livros, artes ou informações valorizadas. A Sociologia amplia radicalmente o foco. Cultura designa os processos pelos quais pessoas produzem, aprendem, compartilham, contestam e fazem circular sentidos para agir no mundo. Inclui modos de falar, comer, vestir, celebrar, crer, usar tecnologias e reconhecer situações. Uma conversa familiar e uma cerimônia universitária são tão analisáveis quanto uma obra artística.</p>
-<p>Isso não transforma cultura numa coleção de costumes. Uma lista registra itens, mas não explica quem os pratica, o que significam, como foram aprendidos nem por que mudam. Também não basta opor absolutamente natureza e cultura. Seres humanos têm corpos, necessidades e capacidades biológicas, mas alimentação, cuidado, emoções e convivência assumem formas sociais. A pergunta produtiva é como dimensões corporais, ambientais e sociais se articulam em cada contexto.</p>
-<aside class="pause-box"><h4>Pausa 1 — estranhar o familiar</h4><p>Escolha uma regra informal da sala. O que precisaríamos saber para explicá-la como prática aprendida, e não como comportamento “natural”?</p></aside>
-</div><div class="base-subsection" id="a29-conceito-2"><h3>2. Cultura como produção social de sentidos</h3>
-<p>Sentidos não ficam guardados apenas na mente. Eles surgem e ganham alguma estabilidade nas relações. Um alimento oferecido pode expressar cuidado familiar, hospitalidade, celebração religiosa ou simples conveniência; ingredientes parecidos assumem sentidos diferentes conforme participantes, ocasião e forma de servir. Produção social significa que as interpretações dependem de convenções anteriores, mas são atualizadas por pessoas concretas.</p>
-<p><strong>Cultura, sociedade e identidade</strong> se relacionam, porém não são sinônimos. Cultura refere-se a sentidos, classificações e modos aprendidos de agir. Sociedade indica redes de relações, posições, grupos e instituições pelas quais a vida coletiva se organiza. Identidade é uma identificação de si e dos outros, situada e relacional: ser estudante, integrante de uma família ou participante de uma religião pode tornar-se relevante em algumas interações e não em outras. Uma sociedade comporta repertórios culturais diversos, e uma pessoa combina identificações que podem mudar.</p>
-</div><div class="base-subsection" id="a29-conceito-3"><h3>3. Símbolos, linguagem e classificação</h3>
-<p>Símbolos são gestos, sons, objetos ou imagens cujo sentido depende de convenções. Uma beca não é apenas tecido: em certo ritual, marca uma passagem institucional. Uma reação numa mensagem digital pode sinalizar concordância, ironia ou apenas leitura. Não há significado automático; participantes interpretam indícios com base em repertórios compartilhados e no contexto.</p>
-<p>A linguagem permite nomear, comparar e classificar. Categorias como “formal”, “respeitoso”, “adequado” ou “competente” orientam julgamentos, mas suas fronteiras são aprendidas. Sotaques comunicam trajetórias e pertencimentos; quando um modo de falar é confundido com incapacidade, uma diferença linguística vira hierarquia social. Investigar essa classificação exige observar quem julga, em qual instituição, com quais efeitos e quais vozes contestam o julgamento.</p>
-<aside class="pause-box"><h4>Pausa 2 — sentidos em contexto</h4><p>Uma mensagem “ok” num grupo da turma expressa concordância, pressa ou incômodo? Que elementos da sequência e da relação entre participantes sustentariam cada leitura?</p></aside>
-</div><div class="base-subsection" id="a29-conceito-4"><h3>4. Valores, normas e práticas</h3>
-<p>Valores são ideias socialmente formuladas sobre o desejável, como respeito, autonomia, solidariedade ou pontualidade. Normas traduzem expectativas em orientações mais específicas: esperar a vez, entregar no prazo, usar certa forma de tratamento. Práticas são ações efetivamente realizadas. Os três planos não coincidem: uma instituição pode valorizar participação, estabelecer regras de fala e ainda produzir uma aula na qual poucas pessoas conseguem intervir.</p>
-<p>Normas variam em grau de formalização. Algumas aparecem em regulamentos; outras são percebidas pela aprovação, pelo constrangimento ou pela correção cotidiana. Atrasos podem ser avaliados diferentemente numa conversa familiar, numa aula, num atendimento e numa celebração. Em vez de atribuir o comportamento a uma “cultura do grupo”, a análise considera transporte, trabalho, cuidado de parentes, autoridade, convenções locais e negociações entre participantes.</p>
-</div><p>Esse exercício também prepara a leitura de respostas de inteligência artificial. Uma expressão de conselho, encorajamento ou advertência precisa ser interpretada na sequência em que aparece. Não basta contar palavras consideradas positivas: é necessário examinar o destinatário construído pelo texto, a situação apresentada e as alternativas oferecidas. A análise cultural liga linguagem e relações sociais, mantendo aberta a possibilidade de interpretações concorrentes.</p></div></section>
-<section id="plano-aula"><h2>Percurso da hora-aula</h2><div class="timeline"><div class="tl-item"><span class="tl-duration">10 min</span><span class="tl-text">Uma mensagem “ok” pode indicar concordância, ironia ou pressa. Como uma interpretação se torna compartilhada?</span></div><div class="tl-item"><span class="tl-duration">25 min</span><span class="tl-text">Leitura dialogada e desenvolvimento dos conceitos desta unidade.</span></div><div class="tl-item"><span class="tl-duration">20 min</span><span class="tl-text">Discussão e elaboração do registro proposto; comparação das justificativas com mediação docente.</span></div><div class="tl-item"><span class="tl-duration">5 min</span><span class="tl-text">Síntese e transição: A Aula 30 examinará como sentidos se sustentam em condições materiais e são disputados por grupos.</span></div></div></section>
-<section id="atividade"><h2>Discussão e registro</h2><div class="activity-card" data-gabarito="obrigatorio"><p>Compare o uso de “ok” numa conversa entre amigos, numa resposta a uma ordem e depois de um conflito. Registre três hipóteses de sentido e os indícios necessários para diferenciá-las.</p><details class="teacher-guidance"><summary>Orientação docente e resposta comentada</summary><p>O enunciado não oferece contexto suficiente para decidir o significado. Entre amigos, a expressão pode confirmar leitura; diante de uma ordem, pode indicar aceitação; depois de conflito, pode ser interpretada como encerramento ou ironia. Essas são hipóteses, não significados fixos. Solicite informações sobre sequência da conversa, relação entre participantes, convenções locais e reações posteriores. A cultura fornece repertórios compartilhados, mas não funciona como dicionário que elimina toda ambiguidade.</p><p>Uma resposta forte distingue o sinal observado da interpretação e da evidência necessária. Evite atribuir um modo de escrever à essência de uma geração, classe ou região. Pergunte como as convenções são aprendidas, quem pode corrigir um uso e quais consequências uma interpretação produz. O exercício não exige exposição de mensagens privadas: as situações são construídas didaticamente. Na socialização, compare justificativas, não preferências estilísticas. Retome a diferença entre norma e prática: mesmo quando há uma convenção conhecida, participantes podem recusá-la ou usá-la de modo criativo.</p></details></div></section>
-<section id="sintese"><h2>Síntese e continuidade</h2><p>Cultura é produção e aprendizagem de sentidos. A mesma forma material pode assumir significados diferentes em relações distintas.</p><p>A Aula 30 examinará como sentidos se sustentam em condições materiais e são disputados por grupos.</p></section><section id="leituras"><div class="section-title">Textos para Leitura Prévia</div>
-<div class="ref-card"><div class="ref-author">LARAIA, Roque de Barros</div><div class="ref-title">Cultura: um conceito antropológico. Capítulos 1 e 2</div></div>
-<div class="ref-card"><div class="ref-author">GIDDENS, Anthony</div><div class="ref-title">Sociologia. Capítulo sobre cultura</div></div>
+<main><header class="aula-header"><div class="header-meta"><span class="meta-chip">Encontro <strong>09</strong> de 15 — 04/11/2026, quarta-feira</span><span class="meta-chip">Aula <strong>33</strong> de 60</span><span class="meta-chip">1ª aula do encontro</span><span class="meta-chip">Aproximadamente 1 hora-aula</span></div><h1>Identidade cultural: pertencimento, diferença e fronteiras</h1><p>Introdução à Sociologia · T01 · 2026.2 · Código 2101000 · SIGAA 4M1234</p></header>
+<section id="objetivos"><h2>Objetivos</h2><ul class="obj-list"><li>Distinguir identificação, posição e reconhecimento.</li><li>Analisar fronteiras e pertencimentos sem presumir homogeneidade.</li><li>Reconhecer articulações entre identificações em diferentes contextos.</li></ul></section>
+<section id="texto-base" aria-labelledby="texto-base-title"><h2 id="texto-base-title">Texto-base</h2><div class="base-text"><p class="base-intro">Uma pessoa pode pertencer ao mesmo coletivo e discordar de seus símbolos? Identidades são relações de reconhecimento, não essências.</p><div class="base-subsection" id="a33-conceito-1"><h3>1. Identidade não é essência</h3>
+<p>Identidade cultural responde provisoriamente a perguntas como “quem somos?”, “com quem nos reconhecemos?” e “como somos nomeados?”. Não é uma propriedade imutável escondida dentro de cada pessoa. Forma-se historicamente nas relações, em classificações e narrativas que aproximam algumas experiências e estabelecem diferenças. Ser estudante, morador de uma região, integrante de uma religião ou público de um estilo musical pode ganhar importância em contextos específicos.</p>
+<p>Isso não significa que a identidade seja ilusão ou escolha arbitrária. Identificações podem produzir vínculos, memórias, obrigações e acesso a recursos. Também podem ser atribuídas por outros, inclusive contra a vontade de alguém. Uma pessoa interpreta e negocia as categorias disponíveis, mas não controla sozinha seus sentidos nem as consequências sociais. A análise sociológica liga apresentação de si, reconhecimento alheio e condições históricas.</p>
+<aside class="pause-box"><h4>Pausa 1 — um perfil em contexto</h4><p>A mesma pessoa se apresenta de modos diferentes numa sala, numa reunião familiar e numa plataforma. O que muda no público, nas expectativas e nos recursos disponíveis, sem concluir que uma das apresentações é “falsa”?</p></aside>
+</div><div class="base-subsection" id="a33-conceito-2"><h3>2. Identificação, posição e reconhecimento</h3>
+<p><strong>Identificação</strong> destaca o processo: alguém se aproxima de símbolos, histórias e coletivos, enquanto também é classificado por instituições e interlocutores. <strong>Posição social</strong> refere-se ao lugar ocupado em relações e à distribuição de autoridade e recursos. <strong>Reconhecimento</strong> indica como reivindicações de pertencimento são aceitas, recusadas ou condicionadas. Os três planos se cruzam, mas não são sinônimos.</p>
+<p>Na universidade, uma pessoa pode identificar-se como pesquisadora iniciante, ocupar posição de estudante e ter sua competência reconhecida de maneira desigual. Um sotaque, uma roupa ou um repertório musical pode ser usado por outros para antecipar julgamentos. Por isso, identidade não explica sozinha comportamento nem capacidade. É necessário observar regras, interações, documentos e efeitos, evitando converter rótulos em causas automáticas.</p>
+</div><div class="base-subsection" id="a33-conceito-3"><h3>3. Pertencimento, diferença e fronteiras</h3>
+<p>Pertencer envolve relações práticas: participar, compartilhar referências, ser reconhecido e disputar o significado do próprio grupo. Fronteiras culturais não são muros territoriais. Elas podem ser marcadas por linguagem, alimentação, vestuário, rituais, gostos e memórias, mas permanecem atravessadas por circulação e contato. Pessoas situadas de lados diferentes de uma fronteira podem compartilhar muitos repertórios.</p>
+<p>Toda afirmação de “nós” seleciona diferenças, mas diferença não precisa significar inferioridade. Relações de poder influem sobre quem pode definir a imagem pública de um coletivo, quais símbolos recebem prestígio e quais pertencimentos são tratados como suspeitos. Mesmo dentro de uma família, religião, geração ou comunidade existem discordâncias. Falar de identidade coletiva exige mostrar quem formula a representação, em qual contexto e com quais contestações.</p>
+<aside class="pause-box"><h4>Pausa 2 — pertencimento sem homogeneidade</h4><p>Duas pessoas reivindicam o mesmo pertencimento e discordam sobre roupa, música ou ritual. Que evidência permitiria estudar a fronteira do grupo sem escolher uma delas como representante “autêntica”?</p></aside>
+</div><div class="base-subsection" id="a33-conceito-4"><h3>4. Identidades múltiplas e articulações</h3>
+<p>Uma pessoa participa simultaneamente de relações de classe, gênero, raça, território, geração, religião, trabalho, estudo e deficiência, entre outras. Essas posições não formam uma lista de etiquetas independentes. Elas se articulam e ganham relevância conforme a situação. O ingresso universitário, por exemplo, pode reforçar um pertencimento regional, modificar uma identificação profissional e criar novas redes sem apagar vínculos anteriores.</p>
+<p>“Identidades múltiplas” não quer dizer personalidade fragmentada nem liberdade total para trocar de papel. Algumas classificações são impostas e produzem efeitos persistentes; outras podem ser reivindicadas ou recusadas. Contradições fazem parte do processo: expectativas familiares, profissionais e acadêmicas podem apontar direções diferentes. Em vez de procurar uma identidade verdadeira por trás das demais, a Sociologia investiga como a pessoa age entre posições e narrativas.</p>
+</div><p>Na investigação final, as personas não devem ganhar identidades diferentes apenas porque declaram rendas diferentes. Se uma resposta atribuir automaticamente gostos, capacidades ou aspirações a um perfil, essa atribuição será parte do material a interpretar. A pergunta sociológica não é se pessoas reais de certa renda compartilham uma essência, mas como uma classificação apresentada no comando se converte em expectativas no texto produzido. O controle das fichas ajuda a tornar essa passagem observável.</p></div></section>
+<section id="plano-aula"><h2>Percurso da hora-aula</h2><div class="timeline"><div class="tl-item"><span class="tl-duration">10 min</span><span class="tl-text">Uma pessoa pode pertencer ao mesmo coletivo e discordar de seus símbolos? Identidades são relações de reconhecimento, não essências.</span></div><div class="tl-item"><span class="tl-duration">25 min</span><span class="tl-text">Leitura dialogada e desenvolvimento dos conceitos desta unidade.</span></div><div class="tl-item"><span class="tl-duration">20 min</span><span class="tl-text">Discussão e elaboração do registro proposto; comparação das justificativas com mediação docente.</span></div><div class="tl-item"><span class="tl-duration">5 min</span><span class="tl-text">Síntese e transição: A Aula 34 conecta apresentação de si, indústria cultural e visibilidade nas plataformas.</span></div></div></section>
+<section id="atividade"><h2>Discussão e registro</h2><div class="activity-card" data-gabarito="obrigatorio"><p>Duas integrantes de um coletivo regional discordam sobre a música que o representa. Uma comissão escolhe apenas o repertório de uma delas para um evento público. Identifique pertencimento, disputa de representação e poder de reconhecimento. Que informação impede decidir quem é “mais autêntica”?</p><details class="teacher-guidance"><summary>Orientação docente e resposta comentada</summary><p>Ambas reivindicam o mesmo pertencimento, mas divergem sobre a representação pública. A comissão ocupa uma posição com recursos para tornar uma versão mais visível. Isso não prova que a música escolhida seja ilegítima nem que a outra integrante não pertença ao coletivo. O caso permite investigar como uma fronteira é narrada, quem decide e quais vozes permanecem menos reconhecidas. A identidade regional não é um conjunto uniforme de preferências.</p><p>Solicite informações sobre critérios da comissão, participação na decisão, história dos repertórios e formas de contestação. A noção de autenticidade também deve ser investigada: quem a define e com quais efeitos? Evite que estudantes substituam análise por preferência musical. Uma resposta forte relaciona posição institucional e produção de reconhecimento sem deduzir toda conduta de uma categoria identitária. Retome a possibilidade de pertencimentos múltiplos e de circulação cultural. O material é fictício; ninguém deve assumir o papel de representante obrigatório de sua região ou de qualquer grupo social.</p></details></div></section>
+<section id="sintese"><h2>Síntese e continuidade</h2><p>Identidades se formam em relações e podem ser reivindicadas ou impostas. Fronteiras organizam pertencimento sem tornar iguais todos os integrantes.</p><p>A Aula 34 conecta apresentação de si, indústria cultural e visibilidade nas plataformas.</p></section><section id="leituras"><div class="section-title">Textos para Leitura Prévia</div>
+<div class="ref-card"><div class="ref-author">HALL, Stuart</div><div class="ref-title">A identidade cultural na pós-modernidade</div></div>
+<div class="ref-card"><div class="ref-author">ADORNO, Theodor W.; HORKHEIMER, Max</div><div class="ref-title">Dialética do esclarecimento. “A indústria cultural”</div></div>
+<p class="base-intro">O texto-base utiliza paráfrases didáticas, sem reproduzir citações extensas nem atribuir toda a discussão de identidade ou recepção a um único referencial.</p>
 </section>
 </main><footer>Introdução à Sociologia · T01 · 2026.2 · <a href="../../index.html">Voltar ao curso</a></footer></body></html>

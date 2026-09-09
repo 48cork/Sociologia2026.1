@@ -26,11 +26,12 @@ def build(d):
     css=template.style.string+'\n'+old.style.get_text()+'''
 body {max-width:100%; overflow-x:hidden; overflow-wrap:anywhere;} main{max-width:960px;margin:auto} .base-text{max-width:72ch} .base-subsection{margin-bottom:24px} table{width:100%;border-collapse:collapse}th,td{padding:8px;border:1px solid var(--border);overflow-wrap:anywhere} .table-wrap,.table-region{overflow-x:auto;max-width:100%} .teacher-guidance{margin-top:20px;padding:16px;border:1px solid var(--border)} summary{cursor:pointer;font-weight:bold} .skip{position:absolute;left:-9999px}.skip:focus{left:12px;top:12px;z-index:300;background:var(--bg);padding:10px} a{overflow-wrap:anywhere} @media(max-width:640px){nav{position:static;flex-wrap:wrap;height:auto;padding:12px}.nav-center{display:none}.section-nav{position:static;flex-wrap:wrap}main{padding:20px 14px}.tl-item{flex-direction:column}.aula-header{padding:20px 14px}} @media print{nav,.section-nav,.skip{display:none!important}body,main,section,.aula-header,.activity-card,.pause-box,details{background:white!important;color:black!important}*{color:inherit!important;text-shadow:none!important;box-shadow:none!important}main{max-width:none;padding:0}.base-text{max-width:none}h1,h2,h3,summary{break-after:avoid}p{orphans:3;widows:3}table{font-size:9pt}.teacher-guidance{break-inside:auto}}
 '''
-    subs=old.select('#texto-base .base-subsection')
+    subs=[h.parent for h in old.select('#texto-base h3') if re.match(r'^\d+\.',h.get_text(strip=True))]
     chunks=[]
     for i,k in enumerate(d.get('secoes',[]),1):
         sub=Soup(str(subs[k-1]),'html.parser').find()
         sub['id']=f'a{n:02}-conceito-{i}'
+        sub['class']=list(set(sub.get('class',[])+['base-subsection']))
         sub.h3.string=re.sub(r'^\d+\.\s*',f'{i}. ',sub.h3.get_text())
         chunks.append(clean(str(sub),n))
     if d.get('texto'): chunks.append(d['texto'])
@@ -40,7 +41,9 @@ body {max-width:100%; overflow-x:hidden; overflow-wrap:anywhere;} main{max-width
         activity=activity.replace('class="activity-card"','class="activity-card" data-gabarito="obrigatorio"')
     else:
         activity=f'<section id="atividade"><h2>Discussão e registro</h2><div class="activity-card" data-gabarito="obrigatorio"><p>{d["atividade"]}</p><details class="teacher-guidance"><summary>Orientação docente e resposta comentada</summary>{d["gabarito"]}</details></div></section>'
-    refs=clean(section(old,'leituras'),n)
+    refnode=old.find(id='leituras') or old.find(id='referencias')
+    refnode['id']='leituras'
+    refs=clean(str(refnode),n)
     if d.get('referencias'):refs='<section id="leituras"><h2>Referências para aprofundamento</h2>'+d['referencias']+'</section>'
     e=(n-1)//4+1;pos=(n-1)%4+1
     dates=['09/09','16/09','23/09','30/09','07/10','14/10','21/10','28/10','04/11','11/11','18/11','25/11','02/12','09/12','16/12']

@@ -1,97 +1,125 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aula 30 — Introdução à Sociologia | 2026.2</title>
-<style>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Aula 30 — Cultura, poder e mudança: variação interna e disputa · 2026.2</title><style>
   :root {
-    --bg: #0a0a0f;
-    --surface: #12121c;
-    --card: #1a1a2e;
-    --border: #2a2a4a;
-    --purple: #7c3aed;
-    --purple-lt: #a855f7;
-    --blue: #4f46e5;
-    --blue-lt: #818cf8;
-    --teal-lt: #2dd4bf;
-    --amber-lt: #fbbf24;
-    --rose-lt: #fb7185;
-    --text: #e2e8f0;
-    --muted: #94a3b8;
-    --radius: 12px;
+    --bg: #0a0a0f; --surface: #12121c; --card: #1a1a2e; --border: #2a2a4a;
+    --purple: #7c3aed; --purple-lt: #a855f7; --blue: #4f46e5; --blue-lt: #818cf8;
+    --teal-lt: #2dd4bf; --amber-lt: #fbbf24; --rose-lt: #fb7185;
+    --text: #e2e8f0; --muted: #94a3b8; --radius: 12px;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
-
-  nav {
-    position: sticky; top: 0; z-index: 100;
-    background: rgba(18,18,28,0.95); backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--border);
-    padding: 0 24px; height: 56px;
-    display: flex; align-items: center; justify-content: space-between; gap: 16px;
-  }
+  html, body { max-width: 100%; overflow-x: clip; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; min-height: 100vh; overflow-wrap: anywhere; }
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(18,18,28,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
   nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; white-space: nowrap; }
   nav a:hover { color: var(--text); }
   .nav-left { display: flex; align-items: center; gap: 10px; }
-  .nav-badge { background: var(--rose-lt); color: #0a0a0f; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+  .nav-badge { background: var(--purple); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
   .nav-center { font-size: 0.875rem; color: var(--muted); }
   .nav-right { display: flex; gap: 16px; align-items: center; }
-
   main { max-width: 860px; margin: 0 auto; padding: 40px 24px 80px; }
-
-  .aula-header {
-    background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
-    padding: 32px; margin-bottom: 32px;
-    border-top: 4px solid var(--rose-lt);
-  }
+  .aula-header { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; margin-bottom: 32px; border-top: 4px solid var(--blue); }
   .header-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; align-items: center; }
-  .bloco-badge { background: var(--rose-lt); color: #0a0a0f; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .bloco-badge { background: var(--blue); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
   .meta-chip { background: var(--surface); border: 1px solid var(--border); font-size: 0.8rem; color: var(--muted); padding: 4px 12px; border-radius: 20px; }
-  .eval-chip { background: rgba(251,113,133,0.12); border: 1px solid rgba(251,113,133,0.3); font-size: 0.8rem; color: var(--rose-lt); padding: 4px 12px; border-radius: 20px; }
+  .meta-chip strong { color: var(--text); }
   .aula-header h1 { font-size: 1.5rem; font-weight: 700; line-height: 1.3; color: var(--text); }
-
-  section { margin-bottom: 32px; }
-  .section-title {
-    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--rose-lt); margin-bottom: 16px; padding-bottom: 8px;
-    border-bottom: 1px solid var(--border);
-  }
-
+  section { margin-bottom: 32px; scroll-margin-top: 112px; }
+  .section-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue-lt); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
   .obj-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
   .obj-list li { display: flex; gap: 12px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
-  .obj-list li::before { content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--rose-lt); margin-top: 7px; flex-shrink: 0; }
-
+  .obj-list li::before { content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--blue-lt); margin-top: 7px; flex-shrink: 0; }
   .content-topic { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 12px; }
-  .content-topic h3 { font-size: 0.95rem; font-weight: 600; color: var(--rose-lt); margin-bottom: 8px; }
+  .content-topic h3 { font-size: 0.95rem; font-weight: 600; color: var(--purple-lt); margin-bottom: 8px; }
   .content-topic ul { list-style: none; padding: 0; }
   .content-topic ul li { padding: 4px 0 4px 16px; position: relative; color: var(--muted); font-size: 0.9rem; }
   .content-topic ul li::before { content: '—'; position: absolute; left: 0; color: var(--border); }
-
   .timeline { display: flex; flex-direction: column; gap: 10px; }
-  .tl-item { display: flex; gap: 16px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; border-left: 3px solid var(--rose-lt); }
+  .tl-item { display: flex; gap: 16px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; border-left: 3px solid var(--blue); }
   .tl-duration { background: var(--surface); border: 1px solid var(--border); color: var(--amber-lt); font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
   .tl-text { font-size: 0.9rem; color: var(--text); }
-
   .ref-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 10px; border-left: 3px solid var(--blue-lt); }
   .ref-author { font-size: 0.8rem; font-weight: 700; color: var(--blue-lt); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
   .ref-title { font-size: 0.9rem; color: var(--text); }
   .ref-pages { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
-
   .activity-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; font-size: 0.9rem; line-height: 1.7; border-left: 3px solid var(--teal-lt); }
-  .activity-card h3, .activity-card h4 { color:var(--teal-lt); margin:16px 0 8px; }
-  .activity-card ol, .activity-card ul { padding-left:22px; margin:8px 0 14px; }
-  .material-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(245px,1fr)); gap:12px; margin:16px 0; }
-  .material-card { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:14px; min-width:0; }
-  .material-card h4 { margin-top:0; }
-  details { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:14px 16px; margin-top:18px; }
-  summary { color:var(--amber-lt); cursor:pointer; font-weight:700; }
+  .teacher-guidance { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-top: 18px; }
+  .teacher-guidance summary { cursor: pointer; color: var(--amber-lt); font-weight: 700; padding: 15px 17px; }
+  .teacher-guidance[open] summary { border-bottom: 1px solid var(--border); }
+  .teacher-guidance-content { padding: 16px 18px; }
+  .resources-list { display: flex; flex-wrap: wrap; gap: 10px; }
+  .res-tag { max-width: 100%; min-width: 0; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; }
+  footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--muted); font-size: 0.85rem; }
+  footer a { color: var(--purple-lt); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .section-nav { position: sticky; top: 56px; z-index: 90; background: rgba(10,10,15,.97); border-bottom: 1px solid var(--border); padding: 8px 16px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: thin; }
+  .section-nav a { flex: 0 0 auto; min-height: 36px; display: inline-flex; align-items: center; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 5px 12px; text-decoration: none; font-size: .8rem; }
+  .base-text { max-width: 72ch; margin-inline: auto; }
+  .base-intro { color: var(--muted); font-size: .92rem; margin-bottom: 16px; }
+  .base-subsection { scroll-margin-top: 112px; margin-bottom: 28px; }
+  .base-subsection h3 { color: var(--blue-lt); font-size: 1.15rem; line-height: 1.35; margin-bottom: 12px; }
+  .base-subsection p { color: var(--text); margin-bottom: 14px; line-height: 1.78; }
+  .base-subsection strong { color: #f1f5f9; }
+  .pause-box { background: rgba(79,70,229,.1); border: 1px solid rgba(129,140,248,.4); border-left: 4px solid var(--blue-lt); border-radius: var(--radius); padding: 16px 18px; margin: 22px 0; }
+  .pause-box h4 { color: var(--amber-lt); font-size: .75rem; letter-spacing: .09em; text-transform: uppercase; margin-bottom: 6px; }
+  .pause-box p { margin: 0; color: var(--text); font-weight: 600; line-height: 1.6; }
+  a:focus-visible { outline: 3px solid var(--amber-lt); outline-offset: 3px; border-radius: 3px; }
+  @media (max-width: 640px) {
+    nav { height: auto; min-height: 56px; padding: 8px 12px; flex-wrap: wrap; }
+    .nav-left, .nav-right { min-width: 0; }
+    .nav-center { display: none; }
+    .nav-right { gap: 10px; }
+    .section-nav { top: 72px; padding-inline: 10px; }
+    main { padding: 24px 14px 60px; }
+    .aula-header { padding: 22px 18px; }
+    .tl-item { flex-direction: column; gap: 8px; }
+  }
+  @media print { .teacher-guidance { break-inside: avoid; } }
 
+
+  :root {
+    --bg: #0a0a0f; --surface: #12121c; --card: #1a1a2e; --border: #2a2a4a;
+    --purple: #7c3aed; --purple-lt: #a855f7; --blue: #4f46e5; --blue-lt: #818cf8;
+    --teal-lt: #2dd4bf; --amber-lt: #fbbf24; --rose-lt: #fb7185;
+    --text: #e2e8f0; --muted: #94a3b8; --radius: 12px;
+    --bloco-color: #0284c7; --bloco-lt: #38bdf8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(18,18,28,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; white-space: nowrap; }
+  nav a:hover { color: var(--text); }
+  .nav-left { display: flex; align-items: center; gap: 10px; }
+  .nav-badge { background: var(--bloco-color); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+  .nav-center { font-size: 0.875rem; color: var(--muted); }
+  .nav-right { display: flex; gap: 16px; align-items: center; }
+  main { max-width: 860px; margin: 0 auto; padding: 40px 24px 80px; }
+  .aula-header { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; margin-bottom: 32px; border-top: 4px solid var(--bloco-color); }
+  .header-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; align-items: center; }
+  .bloco-badge { background: var(--bloco-color); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .meta-chip { background: var(--surface); border: 1px solid var(--border); font-size: 0.8rem; color: var(--muted); padding: 4px 12px; border-radius: 20px; }
+  .aula-header h1 { font-size: 1.5rem; font-weight: 700; line-height: 1.3; color: var(--text); }
+  section { margin-bottom: 32px; }
+  .section-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--bloco-lt); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+  .obj-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .obj-list li { display: flex; gap: 12px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
+  .obj-list li::before { content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--bloco-lt); margin-top: 7px; flex-shrink: 0; }
+  .content-topic { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 12px; }
+  .content-topic h3 { font-size: 0.95rem; font-weight: 600; color: var(--bloco-lt); margin-bottom: 8px; }
+  .content-topic ul { list-style: none; padding: 0; }
+  .content-topic ul li { padding: 4px 0 4px 16px; position: relative; color: var(--muted); font-size: 0.9rem; }
+  .content-topic ul li::before { content: '—'; position: absolute; left: 0; color: var(--border); }
+  .timeline { display: flex; flex-direction: column; gap: 10px; }
+  .tl-item { display: flex; gap: 16px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; border-left: 3px solid var(--bloco-color); }
+  .tl-duration { background: var(--surface); border: 1px solid var(--border); color: var(--amber-lt); font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+  .tl-text { font-size: 0.9rem; color: var(--text); }
+  .ref-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 10px; border-left: 3px solid var(--bloco-lt); }
+  .ref-author { font-size: 0.8rem; font-weight: 700; color: var(--bloco-lt); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+  .ref-title { font-size: 0.9rem; color: var(--text); }
+  .activity-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; font-size: 0.9rem; line-height: 1.7; border-left: 3px solid var(--teal-lt); }
   .resources-list { display: flex; flex-wrap: wrap; gap: 10px; }
   .res-tag { background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; }
-
   footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--muted); font-size: 0.85rem; }
-  footer a { color: var(--rose-lt); text-decoration: none; }
+  footer a { color: var(--bloco-lt); text-decoration: none; }
   footer a:hover { text-decoration: underline; }
 
   html, body { max-width: 100%; overflow-x: clip; }
@@ -127,271 +155,91 @@
     .base-toc ol { width: auto; columns: auto; padding-left: 0; list-style-position: inside; }
     .tl-item { flex-direction: column; gap: 8px; }
   }
-  @media print {
-    :root { --bg:#fff; --surface:#fff; --card:#fff; --border:#888; --text:#111; --muted:#333; }
-    nav, .section-nav, footer { display:none !important; }
-    body, main { background:#fff; color:#111; max-width:none; padding:0; }
-    .aula-header, .content-topic, .activity-card, .material-card, .ref-card, .tl-item, details, .pause-box { break-inside:avoid; box-shadow:none; }
-    details > * { display:block; }
-  }
-</style>
-</head>
-<body>
+  .activity-card h3 { color: var(--teal-lt); font-size: 1.05rem; margin: 0 0 12px; }
+  .activity-card h4 { color: var(--amber-lt); margin: 18px 0 8px; }
+  .activity-card ol, .activity-card ul { padding-left: 22px; margin: 10px 0; }
+  .activity-card li { margin: 7px 0; }
+  .situation-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 16px 0; }
+  .situation-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
+  .situation-card h4 { margin: 0 0 6px; }
+  .question-list { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px 14px 40px; }
+  .teacher-guidance { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-top: 18px; }
+  .teacher-guidance summary { cursor: pointer; color: var(--amber-lt); font-weight: 700; padding: 15px 17px; }
+  .teacher-guidance[open] summary { border-bottom: 1px solid var(--border); }
+  .teacher-guidance-content { padding: 16px 18px; }
+  .teacher-guidance-content h4 { color: var(--teal-lt); }
+  @media (max-width: 640px) { .situation-grid { grid-template-columns: 1fr; } }
+  @media print { nav, .section-nav { position: static; } .situation-card, .teacher-guidance { break-inside: avoid; } }
 
-<nav>
-  <div class="nav-left">
-    <a href="/introducao-sociologia/">← Página principal</a>
-    <span class="nav-badge">Aula 30</span>
-  </div>
-  <span class="nav-center">Aula 30 / 30</span>
-  <div class="nav-right">
-    <a href="aula-29.html">← Anterior</a>
-    <a href="/introducao-sociologia/">Concluir percurso</a>
-  </div>
-</nav>
-<div class="section-nav" aria-label="Seções da aula">
-<a href="#objetivos">Objetivos</a>
-<a href="#conteudo-programatico">Conteúdo</a>
-<a href="#texto-base">Texto-base</a>
-<a href="#plano-aula">Plano da aula</a>
-<a href="#leituras">Leituras</a>
-<a href="#atividade">Atividade</a>
-<a href="#recursos">Recursos</a>
+body {max-width:100%; overflow-x:hidden; overflow-wrap:anywhere;} main{max-width:960px;margin:auto} .base-text{max-width:72ch} .base-subsection{margin-bottom:24px} table{width:100%;border-collapse:collapse}th,td{padding:8px;border:1px solid var(--border);overflow-wrap:anywhere} .table-wrap,.table-region{overflow-x:auto;max-width:100%} .teacher-guidance{margin-top:20px;padding:16px;border:1px solid var(--border)} summary{cursor:pointer;font-weight:bold} .skip{position:absolute;left:-9999px}.skip:focus{left:12px;top:12px;z-index:300;background:var(--bg);padding:10px} a{overflow-wrap:anywhere} @media(max-width:640px){nav{position:static;flex-wrap:wrap;height:auto;padding:12px}.nav-center{display:none}.section-nav{position:static;flex-wrap:wrap}main{padding:20px 14px}.tl-item{flex-direction:column}.aula-header{padding:20px 14px}} @media print{nav,.section-nav,.skip{display:none!important}body,main,section,.aula-header,.activity-card,.pause-box,details{background:white!important;color:black!important}*{color:inherit!important;text-shadow:none!important;box-shadow:none!important}main{max-width:none;padding:0}.base-text{max-width:none}h1,h2,h3,summary{break-after:avoid}p{orphans:3;widows:3}table{font-size:9pt}.teacher-guidance{break-inside:auto}}
+</style></head><body>
+<a class="skip" href="#objetivos">Pular para o conteúdo</a>
+<nav aria-label="Navegação entre aulas"><div class="nav-left"><a href="../../index.html">Voltar ao curso</a></div><span class="nav-center">Encontro 08 de 15 · Aula 30 de 60</span><div class="nav-right"><a href="aula-29.html">← Aula anterior</a><a href="aula-31.html">Próxima aula →</a></div></nav>
+<div class="section-nav" aria-label="Seções"><a href="#objetivos">Objetivos</a><a href="#texto-base">Texto-base</a><a href="#plano-aula">Plano</a><a href="#atividade">Discussão</a><a href="#sintese">Síntese</a><a href="#leituras">Referências</a></div>
+<main><header class="aula-header"><div class="header-meta"><span class="meta-chip">Encontro <strong>08</strong> de 15 — 28/10/2026, quarta-feira</span><span class="meta-chip">Aula <strong>30</strong> de 60</span><span class="meta-chip">2ª aula do encontro</span><span class="meta-chip">Aproximadamente 1 hora-aula</span></div><h1>Cultura, poder e mudança: variação interna e disputa</h1><p>Introdução à Sociologia · T01 · 2026.2 · Código 2101000 · SIGAA 4M1234</p></header>
+<section id="objetivos"><h2>Objetivos</h2><ul class="obj-list"><li>Relacionar aprendizagem cultural e condições materiais.</li><li>Reconhecer variação interna e disputas pela interpretação legítima.</li><li>Explicar permanência e mudança sem determinismo cultural.</li></ul></section>
+<section id="texto-base" aria-labelledby="texto-base-title"><h2 id="texto-base-title">Texto-base</h2><div class="base-text"><p class="base-intro">Quem pode definir o que conta como comportamento adequado numa universidade? A pergunta conecta sentidos, recursos e autoridade.</p><div class="base-subsection" id="a30-conceito-1"><h3>1. Aprendizagem cultural e socialização</h3>
+<p>A cultura é aprendida em processos de socialização que atravessam a vida. Famílias ensinam palavras, gostos, responsabilidades e maneiras de demonstrar afeto; escolas e universidades apresentam rotinas, saberes e formas legítimas de argumentar; grupos religiosos, amizades, trabalho e mídias ampliam ou desafiam esses repertórios. Aprender não é copiar mecanicamente: pessoas interpretam instruções, imitam, experimentam, erram, negociam e recusam.</p>
+<p>Essa perspectiva evita o determinismo cultural. Ter aprendido uma regra não obriga todos a segui-la do mesmo modo. Trajetórias diferentes oferecem recursos e expectativas diferentes; uma pessoa circula por contextos com normas incompatíveis; novas experiências podem rever disposições antigas. Observar socialização é perguntar quem ensina, por quais meios, com quais sanções e como os aprendizes respondem.</p>
+</div><div class="base-subsection" id="a30-conceito-2"><h3>2. Cultura, instituições e condições materiais</h3>
+<p>Sentidos precisam de suportes. Horários universitários dependem de calendários, transporte, salas, sistemas digitais e jornadas de trabalho. Alimentação compartilhada envolve renda, tempo, utensílios, restrições alimentares e acesso a cozinhas. Vestuário institucional articula representações de profissionalismo a preços, clima, regras de segurança e características corporais. A dimensão simbólica não paira fora da vida material.</p>
+<p>Instituições organizam posições e recursos e autorizam algumas interpretações. A universidade define ritos de ingresso e conclusão, formas de avaliação e títulos; as pessoas, contudo, atribuem sentidos variados a essas regras. Analisar cultura institucional é estudar documentos e infraestrutura, mas também usos informais, experiências desiguais e disputas sobre o que a instituição deveria ser.</p>
+<aside class="pause-box"><h4>Pausa 3 — significado e condição</h4><p>Como interpretar um atraso sem reduzi-lo a desrespeito nem explicá-lo apenas pelo transporte? Que combinação de sentidos, relações e condições investigar?</p></aside>
+</div><div class="base-subsection" id="a30-conceito-3"><h3>3. Variação interna, disputa e poder</h3>
+<p>Nenhum grupo é culturalmente homogêneo. Numa mesma turma, estudantes divergem sobre chamar docentes pelo primeiro nome, falar espontaneamente, silenciar para ouvir ou escrever no grupo fora do horário. Diferenças de geração, raça, gênero, religião, região, classe, deficiência e trajetória escolar podem cruzar essas práticas, sem produzir respostas automáticas.</p>
+<p>O poder aparece na capacidade desigual de definir a interpretação legítima, transformar preferências em regras e aplicar sanções. Um padrão de fala pode ser apresentado como neutro; um código de vestuário pode favorecer certos corpos e recursos; plataformas podem tornar algumas mensagens mais visíveis. Ainda assim, poder não elimina disputa: participantes justificam, adaptam e contestam classificações. A análise deve localizar essas vozes, inclusive as menos ouvidas.</p>
+</div><div class="base-subsection" id="a30-conceito-4"><h3>4. Permanência, circulação e mudança cultural</h3>
+<p>Práticas permanecem porque são repetidas, ensinadas, registradas e ligadas a afetos, interesses ou autoridades. Permanência não significa imobilidade. Uma celebração universitária pode conservar nomes e símbolos enquanto muda de local, inclui transmissão por mídia digital ou recebe reivindicações de acessibilidade. Toda repetição ocorre em novas circunstâncias.</p>
+<p>Circulação ocorre quando palavras, roupas, receitas, imagens e rituais atravessam famílias, religiões, mercados, instituições e plataformas. Ao circular, um elemento é selecionado e reinterpretado; não transporta intacto um sentido original. Mudanças podem decorrer de conflito, migração, tecnologia, política institucional ou improvisação cotidiana. Perguntar quem ganha visibilidade e quem controla os meios de circulação conecta cultura e poder.</p>
+<aside class="pause-box"><h4>Pausa 4 — rastrear uma mudança</h4><p>Que prática universitária mudou com os grupos digitais? O que permaneceu, quem impulsionou a mudança e quais novas desigualdades apareceram?</p></aside>
+</div><div class="base-subsection" id="a30-conceito-5"><h3>5. Síntese e passagem à diversidade cultural</h3>
+<p>Cultura é produção social de sentidos: aprendida na socialização, sustentada por símbolos e condições materiais, disputada em relações de poder e transformada pela circulação. Essa definição impede tratar uma prática como essência de um povo ou uma diferença como destino individual. Interpretar requer contexto, comparação, atenção à variação e evidência.</p>
+<p>A próxima aula desloca esse vocabulário para a diversidade cultural. Se existem repertórios variados dentro das sociedades e se interpretações circulam em relações desiguais, como compreender diferenças sem converter o próprio ponto de vista em medida universal? Antes de avaliar uma prática, será necessário reconstruir seus sentidos e efeitos para participantes situados.</p>
+</div></div></section>
+<section id="plano-aula"><h2>Percurso da hora-aula</h2><div class="timeline"><div class="tl-item"><span class="tl-duration">5 min</span><span class="tl-text">Quem pode definir o que conta como comportamento adequado numa universidade? A pergunta conecta sentidos, recursos e autoridade.</span></div><div class="tl-item"><span class="tl-duration">15 min</span><span class="tl-text">Leitura dialogada e desenvolvimento dos conceitos desta unidade.</span></div><div class="tl-item"><span class="tl-duration">35 min</span><span class="tl-text">Discussão e elaboração do registro proposto; comparação das justificativas com mediação docente.</span></div><div class="tl-item"><span class="tl-duration">5 min</span><span class="tl-text">Síntese e transição: A Aula 31 examinará o etnocentrismo e a relativização como procedimento de compreensão.</span></div></div></section>
+<section id="atividade"><div class="section-title">Atividade em Sala</div><div class="activity-card" data-gabarito="obrigatorio">
+<h3>Oficina — interpretar práticas sem naturalizá-las</h3>
+<p><strong>Finalidade:</strong> construir hipóteses sociológicas que relacionem sentidos, aprendizagem, instituições, materiais, variação e mudança, evitando transformar uma observação em essência de um grupo.</p>
+<p><strong>Organização:</strong> oito grupos recebem uma situação; se houver menos grupos, cada equipe analisa duas. Papéis sugeridos: leitura, registro, controle do tempo e apresentação. As descrições oferecem indícios, não respostas completas.</p>
+<p><strong>Tempos:</strong> 5 minutos para leitura e distribuição de papéis; 15 para responder; 10 para revisar a diferença entre hipótese e evidência; 5 para comparação entre pares. A comparação com outro grupo ocupa os últimos 5 minutos dos 35 reservados; a síntese coletiva integra o fechamento da aula.</p>
+<div aria-label="Oito situações para análise" class="situation-grid">
+<article class="situation-card"><h4>Situação 1 — formas de chamar professores</h4><p>Na primeira semana, parte da turma usa “professor”, algumas pessoas dizem o primeiro nome e outras evitam chamar diretamente. Uma docente aceita todas as formas; outro pede o título. Estudantes discordam sobre qual modo demonstra respeito.</p></article>
+<article class="situation-card"><h4>Situação 2 — silêncio e participação</h4><p>Durante um debate, algumas pessoas falam rapidamente e outras anotam, escutam e só comentam depois. O silêncio é interpretado por uns como desinteresse e por outros como atenção; a nota inclui participação oral.</p></article>
+<article class="situation-card"><h4>Situação 3 — horários e atrasos</h4><p>A aula noturna começa às 19h. Estudantes que chegam do trabalho dependem de ônibus e entram em momentos diferentes. Parte da turma quer tolerância; outra teme repetir explicações. O regulamento fixa frequência, mas não resolve a convivência.</p></article>
+<article class="situation-card"><h4>Situação 4 — alimentação compartilhada</h4><p>Um grupo organiza lanche e cada pessoa deve levar algo. Há restrições religiosas, alergias, dieta vegetariana e rendas distintas. Uma comida caseira é celebrada como afeto, enquanto quem compra algo pronto teme ser visto como pouco comprometido.</p></article>
+<article class="situation-card"><h4>Situação 5 — vestuário institucional</h4><p>Antes de uma apresentação, recomenda-se “roupa adequada”. Surgem leituras diferentes sobre formalidade. O calor, o custo das peças, a expressão religiosa e de gênero e uma regra de segurança do laboratório limitam escolhas de maneiras distintas.</p></article>
+<article class="situation-card"><h4>Situação 6 — mensagens em grupos digitais</h4><p>No grupo da disciplina, avisos oficiais se misturam a memes e pedidos enviados tarde. Algumas pessoas esperam resposta imediata; outras silenciam notificações por trabalho ou descanso. Administradores discutem apagar mensagens e definir horários.</p></article>
+<article class="situation-card"><h4>Situação 7 — sotaques e julgamentos de competência</h4><p>Após um seminário, um comentário associa o sotaque de uma estudante a menor domínio do conteúdo, embora a avaliação escrita seja alta. Colegas contestam; outros dizem que existe um modo “mais profissional” de falar.</p></article>
+<article class="situation-card"><h4>Situação 8 — celebração ou ritual universitário</h4><p>Uma cerimônia de recepção usa hino, fala de autoridades, camisetas e fotos nas redes. Para alguns, marca pertencimento; outros não participam por trabalho, acessibilidade, crença ou discordância e propõem mudar o formato.</p></article>
 </div>
-
-<main>
-  <aside class="legacy-note" aria-label="Escopo do encontro"><strong>Encerramento do percurso regular.</strong> Esta aula completa as 60 horas previstas nestas 30 páginas. Não confirma entrega, nota, prazo, atividade posterior nem encerramento do semestre institucional.</aside>
-
-
-  <div class="aula-header">
-    <div class="header-meta">
-      <span class="bloco-badge">Bloco VI — Mudança Social e Apresentações dos Seminários</span>
-      <span class="meta-chip">Aula 30</span>
-      <span class="meta-chip">Encontro 15 · Parte 2 de 2</span>
-      <span class="meta-chip">16/12/2026 — Quarta-feira</span>
-      <span class="meta-chip">Percurso completo do encontro: 4 horas-aula</span>
-      <span class="meta-chip">Esta página: aproximadamente 2 horas</span>
-      <span class="eval-chip">Síntese formativa — não avaliativa</span>
-    </div>
-    <h1>O que aprendemos a perguntar sociologicamente?</h1>
-  </div>
-
-  <section id="objetivos">
-    <div class="section-title">Objetivos da Aula</div>
-    <ul class="obj-list">
-      <li>Reconhecer a progressão do curso por perguntas e operações, sem reduzir perspectivas a uma teoria única.</li>
-      <li>Relacionar escalas, conceitos, evidências, mecanismos, poder, agência e mudança.</li>
-      <li>Distinguir síntese formativa, avaliação institucional e encerramento do percurso regular de 60 horas.</li>
-    </ul>
-  </section>
-
-  <section id="conteudo-programatico">
-    <div class="section-title">Conteúdo Programático</div>
-    <div class="content-topic">
-      <h3>Arquitetura da investigação sociológica</h3>
-      <ul>
-        <li>Problema, conceito, evidência, mecanismo e limite</li>
-        <li>Indivíduo, interação, instituição e estrutura</li>
-        <li>Poder, desigualdade, agência e mudança</li>
-      </ul>
-    </div>
-    <div class="content-topic">
-      <h3>Progressão e pluralidade teórica</h3>
-      <ul>
-        <li>Fundamentos, clássicos, cultura, instituições, desigualdades e ação coletiva</li>
-        <li>Comparar perguntas e explicações sem harmonizar autores</li>
-        <li>Revisão rastreável e continuidade formativa</li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="texto-base" aria-labelledby="texto-base-title">
-    <div class="section-title" id="texto-base-title">Texto-base para acompanhamento da aula</div>
-    <div class="base-text">
-      <p class="base-intro">Leitura de apoio para a exposição, a discussão e a retomada dos conceitos. As pausas podem ser realizadas oralmente, em duplas ou por registro breve.</p>
-      <nav class="base-toc" aria-label="Sumário do texto-base">
-<h3>Nesta leitura</h3>
-<ol>
-<li>
-<a href="#texto-problema">O percurso como conjunto de operações</a>
-</li>
-<li>
-<a href="#texto-pergunta">Perguntas organizam conceitos</a>
-</li>
-<li>
-<a href="#texto-escalas">Escalas conectadas</a>
-</li>
-<li>
-<a href="#texto-evidencia">Evidências e mecanismos</a>
-</li>
-<li>
-<a href="#texto-poder">Poder, desigualdade e classificação</a>
-</li>
-<li>
-<a href="#texto-agencia">Agência, conflito e mudança</a>
-</li>
-<li>
-<a href="#texto-pluralidade">Pluralidade teórica</a>
-</li>
-<li>
-<a href="#texto-revisao">Investigar é revisar</a>
-</li>
-<li><a href="#texto-sintese">Encerrar o percurso, continuar perguntando</a></li>
-</ol>
-</nav>
-      <div class="base-subsection" id="texto-problema">
-<h3>1. O percurso como conjunto de operações</h3>
-<p>
-<strong>O que aprendemos a perguntar sociologicamente?</strong> A questão organiza a Aula 30. Síntese não é lista de definições nem prova de memória: é reconstrução das operações que permitiram transformar cenas cotidianas em problemas investigáveis. Ao longo de 60 horas regulares, a turma aprendeu a delimitar perguntas, comparar explicações, examinar fontes e reconhecer limites.</p>
-<p>Pensemos em um mapa coletivo que liga cotidiano, clássicos, cultura, instituições, desigualdades e mudança. A cena pode ser descrita de muitas maneiras, porém a descrição sociológica pergunta quem participa, quais posições ocupa, que regras orientam a conduta, como essas regras foram formadas e quais consequências recaem de modo desigual sobre os envolvidos. O exemplo funciona como porta de entrada; não substitui a análise nem autoriza generalizações sobre todos os casos.</p>
-<p>O percurso começou pela diferença entre senso comum e investigação, situou historicamente a Sociologia e comparou clássicos. Depois examinou cultura, socialização, grupos, normas e instituições; avançou para estratificação, desigualdades e marcadores sociais; terminou com ação coletiva, comunicação e revisão. Esses blocos não formam uma escada inevitável. Cada retorno acrescentou uma pergunta ou escala.</p>
-<p>O olhar sociológico começa quando suspendemos por um momento a resposta evidente. Isso não significa abandonar conhecimentos cotidianos, mas interrogá-los. O senso comum é uma orientação prática compartilhada, indispensável à vida; a investigação sociológica, por sua vez, precisa explicitar procedimentos, conceitos e fontes, aceitar contestação e distinguir aquilo que sabe daquilo que apenas supõe.</p>
-<aside class="pause-box">
-<h4>Pausa para discussão</h4>
-<p>Que resposta de senso comum aparece primeiro diante da pergunta de abertura? Que informação seria necessária para testá-la sociologicamente?</p>
-</aside>
-</div>
-<div class="base-subsection" id="texto-pergunta">
-<h3>2. Perguntas organizam conceitos</h3>
-<p>Uma pergunta sociológica delimita relação, atores, tempo, lugar e escala. “Por que a sociedade é assim?” abre curiosidade, mas ainda não orienta fontes. “Como regras de participação distribuem a fala neste conselho?” indica práticas observáveis e permite comparar norma formal e funcionamento cotidiano.</p>
-<p>A Sociologia trabalha numa tensão produtiva entre continuidade e mudança. Pessoas recebem instituições, linguagens e classificações já existentes, mas as reproduzem, interpretam e contestam em circunstâncias novas. Por isso, uma explicação não pode escolher simplesmente entre indivíduo e sociedade. Ela precisa mostrar por quais relações uma experiência singular se conecta a padrões, conflitos e processos históricos.</p>
-<p>Conceitos entram depois da pergunta como instrumentos seletivos. Fato social destaca modos coletivos de agir; ação social dirige atenção aos sentidos; classe examina relações e recursos; cultura permite investigar significados; instituição focaliza normas duráveis. Nenhum termo funciona como rótulo universal, e autores não são autoridades intercambiáveis.</p>
-<p>Também é necessário separar três planos. A explicação de um autor reconstrói seus conceitos nos termos do problema que ele enfrentou. A contextualização histórica situa as condições de produção e circulação dessas ideias. A aplicação contemporânea é uma operação nossa, que testa a fecundidade do conceito em outro cenário. Misturar os planos produz anacronismos e faz parecer que o autor comentou diretamente fatos que não conheceu.</p>
-</div>
-<div class="base-subsection" id="texto-escalas">
-<h3>3. Escalas conectadas</h3>
-<p>Experiência individual, interação, organização, instituição e estrutura são escalas analíticas, não compartimentos. Uma trajetória escolar envolve escolhas e sentidos, relações entre colegas, regras organizacionais, políticas educacionais e desigualdades históricas. A tarefa é mostrar ligações, não escolher apenas “indivíduo” ou “sociedade”.</p>
-<p>Mudar de escala altera a evidência necessária. Entrevistas ajudam a interpretar sentidos; observação acompanha práticas; documentos registram regras; indicadores mostram distribuições agregadas. Um dado nacional não revela sozinho uma interação, assim como uma história individual não estima frequência populacional.</p>
-<p>Estrutura não é força invisível que determina cada ação. Designa relações relativamente duráveis que distribuem posições e possibilidades. Agência não é liberdade absoluta: atores interpretam, negociam e contestam dentro de condições que não escolheram integralmente. A análise procura mecanismos que conectem esses planos.</p>
-<p>Esse cuidado também torna a leitura mais acessível. Em vez de memorizar uma definição abstrata, o estudante reconstrói o caminho do argumento: observa uma situação, reconhece um padrão, formula uma pergunta e testa uma interpretação. O resultado não precisa ser uma resposta definitiva. Uma hipótese sociológica é valiosa quando explicita seus critérios, admite comparação e pode ser revista diante de informações melhores.</p>
-</div>
-<div class="base-subsection" id="texto-evidencia">
-<h3>4. Evidências e mecanismos</h3>
-<p>O 2º movimento do argumento concentra-se em <strong>Discussão coletiva e síntese do semestre</strong>. O roteiro associa esse núcleo a Retomada dos principais conceitos e temas trabalhados no semestre; Conexões entre os blocos temáticos: da origem da Sociologia à mudança social; Reflexão coletiva sobre o que a Sociologia nos ensina a ver de forma diferente. A enumeração, porém, ganha sentido apenas quando percebemos as relações entre seus componentes. Conceitos sociológicos não são etiquetas aplicadas depois que um fato acontece: eles selecionam dimensões do problema, orientam comparações e indicam quais evidências precisam ser procuradas.</p>
-<p>Para acompanhar a exposição, convém avançar em três passos. Primeiro, identificar o fenômeno e o contexto em que ele ocorre. Segundo, perguntar quais relações, regras, recursos e significados o tornam possível. Terceiro, comparar situações para descobrir o que permanece e o que muda. Aplicado a discussão coletiva e síntese do semestre, esse procedimento impede que uma impressão isolada seja apresentada como explicação geral e ajuda a ligar experiência, história e organização social.</p>
-<p>Os elementos Retomada dos principais conceitos e temas trabalhados no semestre; Conexões entre os blocos temáticos: da origem da Sociologia à mudança social; Reflexão coletiva sobre o que a Sociologia nos ensina a ver de forma diferente não devem ser lidos como sinônimos. Cada um ilumina uma dimensão própria, embora possa se articular aos demais. A tarefa analítica consiste em dizer onde começa e termina cada conceito, qual problema ele responde e que tipo de evidência sustentaria sua aplicação. Em sala, o professor pode retomar um exemplo do conteúdo programático e pedir que a turma mostre exatamente qual característica autoriza a classificação proposta.</p>
-<p>Esse cuidado também torna a leitura mais acessível. Em vez de memorizar uma definição abstrata, o estudante reconstrói o caminho do argumento: observa uma situação, reconhece um padrão, formula uma pergunta e testa uma interpretação. O resultado não precisa ser uma resposta definitiva. Uma hipótese sociológica é valiosa quando explicita seus critérios, admite comparação e pode ser revista diante de informações melhores.</p>
-</div>
-<div class="base-subsection" id="texto-poder">
-<h3>5. Poder, desigualdade e classificação</h3>
-<p>Poder apareceu no curso como capacidade relacional de definir regras, distribuir recursos, classificar condutas e obter reconhecimento. Ele não está apenas no Estado nem pertence como objeto fixo a uma pessoa. Circula em interações e organizações, mas também se estabiliza em instituições e desigualdades históricas.</p>
-<p>Classificações têm efeitos quando orientam acesso, sanções e identidades. Classe, raça, gênero e território não são etiquetas naturais nem simples soma de atributos. Foram analisados como relações e processos que variam historicamente, atravessam instituições e afetam pessoas de modos diferentes.</p>
-<p>Indicadores tornam padrões visíveis, porém dependem de categorias, fontes e recortes. O coeficiente de Gini condensa distribuição, mas não identifica sozinho mecanismos nem diferenças raciais e territoriais. Síntese responsável combina medidas com investigação das relações que as produzem.</p>
-<p>Esse cuidado também torna a leitura mais acessível. Em vez de memorizar uma definição abstrata, o estudante reconstrói o caminho do argumento: observa uma situação, reconhece um padrão, formula uma pergunta e testa uma interpretação. O resultado não precisa ser uma resposta definitiva. Uma hipótese sociológica é valiosa quando explicita seus critérios, admite comparação e pode ser revista diante de informações melhores.</p>
-</div>
-<div class="base-subsection" id="texto-agencia">
-<h3>6. Agência, conflito e mudança</h3>
-<p>O estudo de caso desta aula parte de um mapa coletivo que liga cotidiano, clássicos, cultura, instituições, desigualdades e mudança. A finalidade não é decidir depressa se o caso confirma a teoria. Antes, é decompor a situação: identificar atores, posições, recursos, normas, discursos, escalas de tempo e possíveis efeitos. Somente depois se pergunta quais conceitos do roteiro oferecem uma interpretação consistente e quais aspectos permanecem fora de alcance.</p>
-<p>Ação coletiva mostrou que desigualdade não produz mobilização automaticamente. Movimentos articulam demandas, redes, recursos, repertórios e relações com autoridades em contextos específicos. Plataformas digitais mediam circulação, mas não causam sozinhas organização. Opinião agregada tampouco prova continuidade coletiva.</p>
-<p>Uma aplicação contemporânea rigorosa também considera alternativas. O mesmo padrão pode resultar de processos distintos, e uma evidência pode ser compatível com mais de uma interpretação. Entrevistas esclarecem sentidos atribuídos pelos participantes, observação acompanha práticas, documentos mostram regras e justificativas, e dados quantitativos revelam distribuição e variação. Nenhuma técnica responde sozinha a todas as perguntas.</p>
-<p>Ao apresentar o caso, é útil distinguir exemplo, ilustração e evidência. Um exemplo torna o conceito inteligível; uma ilustração aproxima o tema da experiência da turma; evidência é informação coletada e analisada por procedimento explícito. Confundir essas funções leva a tomar uma história convincente como prova suficiente. A Sociologia procura justamente controlar esse salto.</p>
-<aside class="pause-box">
-<h4>Pausa para discussão</h4>
-<p>Qual conceito da aula explica melhor o estudo de caso? Que aspecto do caso ele não consegue explicar sozinho?</p>
-</aside>
-</div>
-<div class="base-subsection" id="texto-pluralidade">
-<h3>7. Pluralidade teórica sem fórmula única</h3>
-<p>O principal cuidado desta aula é encerrar o percurso sem reduzir teorias diferentes a uma fórmula única. A advertência não enfraquece o conteúdo; ela define seu alcance. Conceitos bons simplificam a realidade de maneira controlada. Quando aplicados fora de suas condições, perdem precisão e viram apenas palavras sofisticadas para confirmar uma opinião anterior.</p>
-<p>Outra distinção necessária separa explicação causal, interpretação de sentidos e avaliação normativa. Podemos investigar por que algo acontece, compreender como os participantes lhe atribuem significado e discutir se suas consequências são desejáveis. São perguntas legítimas, mas não idênticas. Uma posição ética deve ser assumida com clareza, e não apresentada como se decorresse automaticamente de um dado ou de um autor.</p>
-<p>A escala também importa. Uma interação em sala, uma organização, uma cidade, um Estado e um processo transnacional não funcionam do mesmo modo. O que aparece como escolha numa escala pode ser condicionado por regras em outra. Ao mudar a escala, mudam as evidências e às vezes muda a própria pergunta. Especificar tempo, lugar e grupo torna a análise menos grandiosa e mais verificável.</p>
-<p>Por fim, diferenças internas precisam permanecer visíveis. Grupos sociais não são sujeitos homogêneos; instituições abrigam disputas; normas podem ser obedecidas, negociadas ou contestadas; identidades se cruzam. Evitar generalizações não significa abandonar padrões coletivos, mas explicar como eles se distribuem e por que não afetam todas as pessoas da mesma maneira.</p>
-<aside class="pause-box">
-<h4>Pausa para discussão</h4>
-<p>Que generalização apressada seria mais provável neste tema? Como reformulá-la para torná-la histórica, comparável e verificável?</p>
-</aside>
-</div>
-<div class="base-subsection" id="texto-revisao">
-<h3>8. Investigar é revisar</h3>
-<p>
-<strong>Revisar</strong> fecha o circuito da investigação sem encerrá-lo definitivamente. A Aula 29 mostrou que objeções, contraexemplos e evidências contrárias podem levar a manter, qualificar, substituir ou suspender uma tese. O memorando torna a mudança rastreável e transforma dúvida em procedimento.</p>
-<p>Revisão não significa aceitar toda crítica. Significa localizar a questão, retornar às fontes e justificar a decisão. Esse princípio conecta método, debate teórico e responsabilidade pública: conclusões permanecem abertas à contestação, mas não são equivalentes a qualquer opinião.</p>
-<p>As pausas de discussão transformam a leitura em trabalho coletivo. Elas permitem que o professor interrompa a exposição, recolha hipóteses, identifique confusões e retome o argumento. A síntese pode ser concluída no quadro com quatro colunas — problema, conceito, evidência e limite — de modo que a turma visualize o caminho percorrido durante aproximadamente duas horas desta parte do encontro.</p>
-<p>Esta página encerra as 60 horas regulares representadas pelas Aulas 01–30, não o semestre institucional em sentido administrativo. Não anuncia próxima aula, nota, entrega ou atividade complementar. A continuidade é formativa: levar perguntas, critérios de evidência e atenção aos limites para novos contextos de estudo e vida pública.</p>
-<aside class="pause-box">
-<h4>Pausa para discussão</h4>
-<p>Em uma frase, que relação entre experiência individual e processo social esta aula tornou mais visível?</p>
-</aside>
-</div>
-<div class="base-subsection" id="texto-sintese">
-<h3>9. Encerrar o percurso, continuar perguntando</h3>
-<p>Síntese, avaliação e encerramento são operações distintas. A síntese reconstrói relações entre perguntas, conceitos e procedimentos. Uma avaliação institucional recolhe apreciações sobre uma experiência segundo regras próprias, que não são inventadas nesta página. O encerramento aqui marca apenas a conclusão do percurso regular documentado.</p>
-<p>Reconhecer progressão não exige dizer que toda pessoa aprendeu do mesmo modo. Os seis documentos da atividade permitem identificar operações realizadas nas páginas: deslocar senso comum, comparar teorias, investigar instituições, explicar desigualdades, analisar ação coletiva e revisar argumentos. Cada estudante pode contribuir por leitura, escrita ou fala.</p>
-<p>A progressão também aparece nas perguntas que ganharam precisão. O curso saiu de cenas familiares sem abandoná-las: aprendeu a situá-las historicamente, observar regras e sentidos, comparar posições, procurar fontes e testar inferências. Retomar uma cena agora não significa voltar ao ponto inicial, porque o repertório para interrogá-la mudou.</p>
-<p>Essa mudança não pode ser medida apenas pela quantidade de nomes lembrados. Ela se mostra quando alguém distingue descrição de explicação, associação de causalidade, organização de instituição, opinião comum de movimento social e síntese de avaliação. As distinções não isolam fenômenos; evitam que palavras diferentes escondam operações incompatíveis.</p>
-<p>O resultado esperado não é uma teoria total da sociedade. É um repertório de perguntas: quem participa e em que posição? Quais regras e recursos organizam a situação? Que sentidos estão em disputa? Que evidência sustenta a afirmação? Qual mecanismo é proposto? Em que escala e sob quais limites?</p>
-<p>O repertório inclui responsabilidade sobre o que não se sabe. Fontes ausentes, grupos não observados, categorias controversas e explicações alternativas devem permanecer visíveis. Reconhecer limite não interrompe a análise: orienta a próxima pergunta e impede que autoridade retórica substitua investigação.</p>
-<p>Assim, rigor e abertura caminham juntos: afirmações precisam de critérios públicos, e esses critérios podem ser revistos quando novas evidências ou melhores perguntas aparecem.</p>
-<p>Continuar a formação significa aplicar essas perguntas com abertura a novas fontes e perspectivas, sem promessa de material futuro. O curso termina suas 60 horas regulares com uma disposição metodológica: estranhar o evidente, contextualizar categorias, comparar explicações e revisar conclusões quando a evidência exigir.</p>
-</div>
-    </div>
-  </section>
-
-
-  <section id="plano-aula">
-    <div class="section-title">Plano de Aula com Tempo</div>
-    <div class="timeline">
-      <div class="tl-item">
-        <span class="tl-duration">10 min</span>
-        <span class="tl-text">
-<strong>Abertura</strong> — Distinguir síntese, avaliação e encerramento; realizar a primeira pausa.</span>
-      </div>
-      <div class="tl-item">
-        <span class="tl-duration">25 min</span>
-        <span class="tl-text">
-<strong>Modelo de conexão</strong> — Relacionar pergunta, escala, conceito, evidência, mecanismo e limite; realizar a segunda pausa.</span>
-      </div>
-      <div class="tl-item">
-        <span class="tl-duration">50 min</span>
-        <span class="tl-text">
-<strong>Oficina de cartografia</strong> — Analisar seis documentos e construir mapa de progressão em grupos.</span>
-      </div>
-      <div class="tl-item">
-        <span class="tl-duration">25 min</span>
-        <span class="tl-text">
-<strong>Socialização</strong> — Comparar mapas, preservar divergências teóricas e realizar a terceira pausa.</span>
-      </div>
-      <div class="tl-item"><span class="tl-duration">10 min</span><span class="tl-text"><strong>Fechamento</strong> — Síntese escrita, quarta pausa e retorno à página principal. Total: 120 minutos.</span></div>
-    </div>
-  </section>
-
-  <section id="leituras">
-    <div class="section-title">Referências verificáveis</div>
-    <div class="ref-card">
-      <div class="ref-author">C. Wright Mills</div><div class="ref-title">A imaginação sociológica. 6. ed. Rio de Janeiro: Zahar, 1982.</div><div class="ref-pages">Relações entre experiência, questões públicas e investigação.</div>
-    </div>
-    <div class="ref-card"><div class="ref-author">Howard S. Becker</div><div class="ref-title">Truques da escrita. Rio de Janeiro: Zahar, 2015.</div><div class="ref-pages">Argumentação e revisão como práticas.</div></div>
-  </section>
-
-  <section id="atividade">
-    <div class="section-title">Atividades em Sala</div>
-    <div class="activity-card"><h3>Cartografia do percurso sociológico</h3><p><strong>Produto:</strong> mapa com seis linhas e as colunas problema, conceito, evidência, mecanismo, escala e limite. Os documentos são sínteses didáticas das operações já trabalhadas.</p>
-      <div class="material-grid">
-        <article class="material-card"><h4>A — Regra escolar</h4><p>Uma norma escrita vale para todos, mas observações mostram sanções aplicadas de modo desigual. Entrevistas registram sentidos distintos atribuídos à regra.</p></article>
-        <article class="material-card"><h4>B — Organização do trabalho</h4><p>Contratos distribuem tarefas e remuneração; trabalhadores descrevem autonomia parcial e dependência de decisões gerenciais.</p></article>
-        <article class="material-card"><h4>C — Prática cultural</h4><p>Uma celebração muda entre gerações. Participantes disputam o que conta como tradição, e uma instituição local controla acesso ao espaço.</p></article>
-        <article class="material-card"><h4>D — Desigualdade territorial</h4><p>Um indicador fictício resume distribuição de renda, enquanto mapas mostram distâncias a serviços e entrevistas revelam barreiras de transporte.</p></article>
-        <article class="material-card"><h4>E — Ação coletiva</h4><p>Uma rede formula demanda, combina reunião, abaixo-assinado e ato público e negocia com autoridades; há conflito interno sobre repertórios.</p></article>
-        <article class="material-card"><h4>F — Memorando de revisão</h4><p>Uma tese causal foi qualificada como associação após surgir explicação alternativa. A nova versão registra fonte e limite.</p></article>
-      </div>
-      <h4>Perguntas</h4><ol><li>Qual problema sociológico cada documento permite formular?</li><li>Que conceito ajuda sem virar rótulo?</li><li>Qual informação é evidência e qual é inferência?</li><li>Que mecanismo conecta condições e resultado?</li><li>Em quais escalas o caso pode ser analisado?</li><li>Onde aparecem poder e agência?</li><li>Qual limite impede generalização?</li><li>Que conexão entre dois documentos mostra progressão do curso?</li></ol>
-      <p><strong>Procedimento:</strong> grupos analisam um documento, trocam mapas e constroem duas conexões. A socialização apresenta uma conexão e um limite. Participação oral ou escrita; não são solicitados relatos pessoais. O professor encerra qualquer exposição involuntária e retorna aos documentos.</p>
-      <details><summary>Gabarito orientador — abrir após a socialização</summary><p>A pode articular fato social, norma, sanção e seletividade, distinguindo regra formal de aplicação. B permite relações de classe, organização e agência condicionada, sem deduzir exploração apenas do contrato. C mobiliza cultura como prática disputada, identidade relacional e poder institucional. D exige distinguir indicador, condições de vida e território; o valor fictício não explica mecanismos. E reúne demanda, redes, recursos, repertórios, autoridades e conflito, elementos que sustentam classificá-lo como ação coletiva continuada. F evidencia que revisão modifica inferência e alcance, não apenas estilo.</p><p>Conexões válidas explicam operações: A e D mostram que padrões agregados precisam de mecanismos; B e C relacionam instituição, poder e significados; D e E conectam desigualdade e mobilização sem afirmar automatismo; E e F mostram argumentos públicos abertos a objeção. Em todos os casos, a resposta deve indicar escala, fonte e limite. Não há teoria única obrigatória: perspectivas diferentes são aceitáveis quando a pergunta e a evidência são coerentes.</p></details></div>
-  </section>
-
-  <section id="recursos">
-    <div class="section-title">Recursos Necessários</div>
-    <div class="resources-list">
-      <span class="res-tag">Seis documentos integrais desta página</span><span class="res-tag">Matriz: problema, conceito, evidência, mecanismo, escala e limite</span><span class="res-tag">Papel ou editor de texto</span><span class="res-tag">Quadro e marcadores</span><span class="res-tag">Projetor opcional</span>
-    </div>
-  </section>
-
-</main>
-
-<footer>
-  <a href="/introducao-sociologia/">← Página principal</a>
-  &nbsp;·&nbsp; Introdução à Sociologia 2026.2
-</footer>
-
-</body>
-</html>
+<h4>Oito perguntas aplicáveis a cada situação</h4>
+<ol class="question-list"><li>Qual é a <strong>prática observada</strong>, sem ainda julgá-la?</li><li>Qual <strong>significado possível</strong> ela assume para participantes diferentes?</li><li>Que <strong>norma ou valor</strong> orienta expectativas e avaliações?</li><li>Como essa maneira de perceber ou agir pode ter sido objeto de <strong>aprendizagem</strong>?</li><li>Que <strong>instituição ou condição material</strong> possibilita ou limita a prática?</li><li>Que <strong>variação interna</strong> impede generalizar sobre o grupo?</li><li>Que <strong>mudança histórica</strong> pode ser investigada?</li><li>Qual <strong>evidência necessária</strong> permitiria testar a interpretação?</li></ol>
+<p><strong>Produto:</strong> uma ficha de uma página com as oito respostas, uma hipótese central escrita como possibilidade e uma frase indicando o risco de naturalização.</p>
+<p><strong>Socialização:</strong> cada grupo apresenta prática, hipótese e evidência em até um minuto. A turma acrescenta uma variação; o professor organiza no quadro “sentido”, “condição”, “disputa” e “mudança”.</p>
+<details class="teacher-guidance"><summary>Possibilidades comentadas e orientações de mediação — uso do professor</summary><div class="teacher-guidance-content">
+<p>As indicações abaixo são hipóteses de leitura, não respostas únicas. Outra interpretação pode ser aceita quando sustentada por evidências e quando distingue aquilo que foi observado daquilo que foi inferido.</p>
+<h4>1. Situação 1 — formas de chamar professores</h4>
+<p><strong>Prática observada:</strong> estudantes empregam título, primeiro nome ou evitam o chamado direto, enquanto docentes aceitam ou solicitam tratamentos diferentes. <strong>Significado possível:</strong> uma hipótese possível é que as formas comuniquem respeito, proximidade, cautela ou reconhecimento de autoridade; nenhuma delas é universalmente mais respeitosa. <strong>Norma ou valor:</strong> hierarquia, igualdade, formalidade e acolhimento podem orientar expectativas concorrentes. <strong>Aprendizagem:</strong> o grupo pode investigar como família, escola, universidade e experiências profissionais ensinaram modos de tratamento. <strong>Instituição ou condição material:</strong> posição docente, regras departamentais, tamanho da turma e canais de contato afetam a interação. <strong>Variação interna:</strong> docentes e estudantes divergem entre si e mudam o tratamento conforme ocasião. <strong>Mudança histórica:</strong> seria necessário verificar se gerações, cursos ou meios digitais alteraram as convenções. <strong>Evidência necessária:</strong> observação em situações distintas, orientações institucionais e entrevistas voluntárias permitiriam testar as hipóteses.</p>
+<h4>2. Situação 2 — silêncio e participação</h4>
+<p><strong>Prática observada:</strong> algumas pessoas falam durante o debate; outras escutam, anotam ou comentam depois, e a nota considera participação oral. <strong>Significado possível:</strong> silêncio pode indicar atenção, elaboração, insegurança, discordância ou dificuldade de entrada na conversa, não desinteresse automático. <strong>Norma ou valor:</strong> expressão pública, escuta, desempenho e igualdade de participação podem entrar em tensão. <strong>Aprendizagem:</strong> trajetórias escolares e familiares ensinam diferentes relações com fala, autoridade e exposição. <strong>Instituição ou condição material:</strong> critério de avaliação, tempo, acessibilidade, tamanho da turma e disposição da sala distribuem oportunidades. <strong>Variação interna:</strong> a mesma pessoa pode falar em grupos pequenos e silenciar no plenário. <strong>Mudança histórica:</strong> o grupo pode investigar a adoção de fóruns, registros escritos e outras modalidades. <strong>Evidência necessária:</strong> rubricas, observação dos turnos, produções escritas e consulta voluntária à turma ajudariam a comparar interpretações.</p>
+<h4>3. Situação 3 — horários e atrasos</h4>
+<p><strong>Prática observada:</strong> estudantes entram depois das 19h, colegas discutem tolerância e repetição de explicações, e o regulamento fixa frequência. <strong>Significado possível:</strong> atraso pode ser lido como desrespeito, dificuldade de deslocamento ou esforço para permanecer, mas seria necessário verificar cada ocorrência. <strong>Norma ou valor:</strong> pontualidade, continuidade da aula, equidade e cuidado coletivo orientam posições distintas. <strong>Aprendizagem:</strong> escola, trabalho e família ensinam relações variadas com relógios e compromissos. <strong>Instituição ou condição material:</strong> transporte, jornada de trabalho, cuidado de dependentes, horário do curso e regras institucionais se articulam sem formar causa única. <strong>Variação interna:</strong> trajetos, responsabilidades e frequências diferem. <strong>Mudança histórica:</strong> horários de ônibus, oferta noturna e controle de presença podem ter mudado. <strong>Evidência necessária:</strong> itinerários, registros de chegada, calendários, regulamentos e relatos voluntários sustentariam uma explicação mais precisa.</p>
+<h4>4. Situação 4 — alimentação compartilhada</h4>
+<p><strong>Prática observada:</strong> participantes levam alimentos caseiros ou comprados e lidam com restrições religiosas, alergias, dieta vegetariana e rendas diferentes. <strong>Significado possível:</strong> cozinhar pode expressar afeto, mas comprar também pode comunicar compromisso quando faltam tempo, recursos ou acesso a cozinha. <strong>Norma ou valor:</strong> reciprocidade, hospitalidade, inclusão, saúde e responsabilidade podem orientar o encontro. <strong>Aprendizagem:</strong> família, religião, amizades e mídias ensinam receitas e modos de oferecer ou recusar. <strong>Instituição ou condição material:</strong> renda, tempo, preço, utensílios, refrigeração e informação sobre ingredientes limitam escolhas. <strong>Variação interna:</strong> pessoas da mesma família ou religião podem adotar práticas distintas. <strong>Mudança histórica:</strong> preços, dietas e serviços de entrega transformam o compartilhamento. <strong>Evidência necessária:</strong> seria necessário verificar custos, ingredientes, condições de preparo e sentidos declarados, sem exigir exposição pessoal.</p>
+<h4>5. Situação 5 — vestuário institucional</h4>
+<p><strong>Prática observada:</strong> recomenda-se “roupa adequada” e existe uma regra de segurança do laboratório, enquanto participantes interpretam formalidade de modos diferentes. <strong>Significado possível:</strong> vestuário pode comunicar profissionalismo, pertencimento, expressão religiosa ou de gênero, conforto ou adequação técnica. <strong>Norma ou valor:</strong> é preciso distinguir proteção física, convenções de formalidade, autonomia e inclusão. <strong>Aprendizagem:</strong> família, escola, religião, trabalho e mídias ensinam códigos de apresentação. <strong>Instituição ou condição material:</strong> risco laboratorial, custo, clima, disponibilidade de peças e características corporais afetam escolhas. <strong>Variação interna:</strong> não há resposta uniforme entre pessoas de um gênero, religião ou curso. <strong>Mudança histórica:</strong> fotografias e códigos antigos podem mostrar transformações na formalidade. <strong>Evidência necessária:</strong> análise de riscos, regulamentos, preços, condições climáticas e consulta aos participantes permitiria separar necessidade de segurança de preferência estética.</p>
+<h4>6. Situação 6 — mensagens em grupos digitais</h4>
+<p><strong>Prática observada:</strong> avisos, memes e pedidos circulam em horários variados; pessoas esperam respostas, silenciam notificações e administradores cogitam regras. <strong>Significado possível:</strong> resposta rápida pode indicar cooperação, enquanto silêncio pode proteger descanso ou refletir trabalho e acesso intermitente. <strong>Norma ou valor:</strong> disponibilidade, urgência, privacidade, descanso e relevância são negociados. <strong>Aprendizagem:</strong> usos anteriores de plataformas e orientações da turma formam expectativas. <strong>Instituição ou condição material:</strong> aparelho, internet, jornada, notificações e autoridade dos administradores estruturam a comunicação. <strong>Variação interna:</strong> rotinas, acessibilidade e preferências diferem. <strong>Mudança histórica:</strong> o grupo pode comparar regras antes e depois da adoção das plataformas. <strong>Evidência necessária:</strong> regras registradas, recursos técnicos, horários agregados e consulta consentida seriam necessários; mensagens privadas não devem ser expostas.</p>
+<h4>7. Situação 7 — sotaques e julgamentos de competência</h4>
+<p><strong>Prática observada:</strong> um comentário associa sotaque a menor domínio, colegas contestam e a avaliação escrita da estudante é alta. <strong>Significado possível:</strong> o sotaque pode comunicar trajetória e pertencimento; a associação com competência transforma variação linguística em hierarquia. <strong>Norma ou valor:</strong> inteligibilidade, prestígio linguístico, mérito e igualdade de avaliação precisam ser diferenciados. <strong>Aprendizagem:</strong> escola, mídia e mercado de trabalho ensinam quais falas recebem autoridade. <strong>Instituição ou condição material:</strong> rubricas, bancas, tecnologias de áudio e acesso a oportunidades influem nos efeitos. <strong>Variação interna:</strong> falantes e ouvintes avaliam de modos diversos. <strong>Mudança histórica:</strong> seria possível investigar alterações nos padrões de fala valorizados. <strong>Evidência necessária:</strong> critérios de avaliação, notas, oportunidades posteriores e comparações entre apresentações são indispensáveis antes de concluir discriminação.</p>
+<h4>8. Situação 8 — celebração ou ritual universitário</h4>
+<p><strong>Prática observada:</strong> a cerimônia utiliza hino, autoridades, camisetas e fotografias; algumas pessoas participam, outras se ausentam e há proposta de mudança. <strong>Significado possível:</strong> uma hipótese possível é que o ritual produza pertencimento para uns e exclusão ou distanciamento para outros. <strong>Norma ou valor:</strong> tradição, integração, liberdade de crença, representação e inclusão podem conflitar. <strong>Aprendizagem:</strong> ritos escolares e universitários ensinam símbolos e papéis. <strong>Instituição ou condição material:</strong> horário, trabalho, acessibilidade, espaço, custo, crença e controle do programa afetam a presença. <strong>Variação interna:</strong> participantes e ausentes têm motivos diferentes; nenhum grupo fala com uma só voz. <strong>Mudança histórica:</strong> programas, formatos híbridos e reivindicações revelam disputas pelo ritual. <strong>Evidência necessária:</strong> documentos, dados de participação, auditoria de acessibilidade e entrevistas voluntárias ajudariam a avaliar interpretações.</p>
+<h4>Orientações gerais de mediação</h4>
+<p>Separar observação e inferência no quadro e solicitar evidências para cada hipótese. Interromper frases como “a cultura desse grupo é...” quando não houver demonstração, pedindo recorte, contexto e reconhecimento das variações internas. Não solicitar relatos pessoais obrigatórios nem transformar estudantes em representantes de famílias, religiões ou regiões. Aceitar hipóteses alternativas justificadas e explicitar o que permitiria compará-las. Encerrar retomando que julgar outras práticas pela centralidade dos próprios padrões abre o problema do etnocentrismo, enquanto reconstruir contextos prepara a relativização metodológica da Aula 31.</p>
+</div><style>@media print { details.teacher-guidance > .teacher-guidance-content { display: block !important; } }</style></details>
+</div></section>
+<section id="sintese"><h2>Síntese e continuidade</h2><p>Práticas permanecem e mudam porque são ensinadas, repetidas, contestadas e sustentadas por recursos. Grupos não possuem uma essência cultural homogênea.</p><p>A Aula 31 examinará o etnocentrismo e a relativização como procedimento de compreensão.</p></section><section id="leituras"><div class="section-title">Textos para Leitura Prévia</div>
+<div class="ref-card"><div class="ref-author">LARAIA, Roque de Barros</div><div class="ref-title">Cultura: um conceito antropológico. Capítulos 1 e 2</div></div>
+<div class="ref-card"><div class="ref-author">GIDDENS, Anthony</div><div class="ref-title">Sociologia. Capítulo sobre cultura</div></div>
+</section>
+</main><footer>Introdução à Sociologia · T01 · 2026.2 · <a href="../../index.html">Voltar ao curso</a></footer></body></html>

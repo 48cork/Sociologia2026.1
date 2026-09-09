@@ -1,0 +1,99 @@
+[
+  {
+    "aula": 29,
+    "fonte": 15,
+    "secoes": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "titulo": "Cultura como produção social de sentidos",
+    "abertura": "Uma mensagem “ok” pode indicar concordância, ironia ou pressa. Como uma interpretação se torna compartilhada?",
+    "objetivos": [
+      "Definir cultura sem confundi-la com erudição.",
+      "Distinguir símbolos, valores, normas e práticas.",
+      "Relacionar linguagem, contexto e classificação."
+    ],
+    "sintese": "Cultura é produção e aprendizagem de sentidos. A mesma forma material pode assumir significados diferentes em relações distintas.",
+    "transicao": "A Aula 30 examinará como sentidos se sustentam em condições materiais e são disputados por grupos.",
+    "texto": "<p>Esse exercício também prepara a leitura de respostas de inteligência artificial. Uma expressão de conselho, encorajamento ou advertência precisa ser interpretada na sequência em que aparece. Não basta contar palavras consideradas positivas: é necessário examinar o destinatário construído pelo texto, a situação apresentada e as alternativas oferecidas. A análise cultural liga linguagem e relações sociais, mantendo aberta a possibilidade de interpretações concorrentes.</p>",
+    "atividade": "Compare o uso de “ok” numa conversa entre amigos, numa resposta a uma ordem e depois de um conflito. Registre três hipóteses de sentido e os indícios necessários para diferenciá-las.",
+    "gabarito": "<p>O enunciado não oferece contexto suficiente para decidir o significado. Entre amigos, a expressão pode confirmar leitura; diante de uma ordem, pode indicar aceitação; depois de conflito, pode ser interpretada como encerramento ou ironia. Essas são hipóteses, não significados fixos. Solicite informações sobre sequência da conversa, relação entre participantes, convenções locais e reações posteriores. A cultura fornece repertórios compartilhados, mas não funciona como dicionário que elimina toda ambiguidade.</p><p>Uma resposta forte distingue o sinal observado da interpretação e da evidência necessária. Evite atribuir um modo de escrever à essência de uma geração, classe ou região. Pergunte como as convenções são aprendidas, quem pode corrigir um uso e quais consequências uma interpretação produz. O exercício não exige exposição de mensagens privadas: as situações são construídas didaticamente. Na socialização, compare justificativas, não preferências estilísticas. Retome a diferença entre norma e prática: mesmo quando há uma convenção conhecida, participantes podem recusá-la ou usá-la de modo criativo.</p>"
+  },
+  {
+    "aula": 30,
+    "fonte": 15,
+    "secoes": [
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "titulo": "Cultura, poder e mudança: variação interna e disputa",
+    "abertura": "Quem pode definir o que conta como comportamento adequado numa universidade? A pergunta conecta sentidos, recursos e autoridade.",
+    "objetivos": [
+      "Relacionar aprendizagem cultural e condições materiais.",
+      "Reconhecer variação interna e disputas pela interpretação legítima.",
+      "Explicar permanência e mudança sem determinismo cultural."
+    ],
+    "sintese": "Práticas permanecem e mudam porque são ensinadas, repetidas, contestadas e sustentadas por recursos. Grupos não possuem uma essência cultural homogênea.",
+    "transicao": "A Aula 31 examinará o etnocentrismo e a relativização como procedimento de compreensão.",
+    "tempos": [
+      5,
+      15,
+      35,
+      5
+    ],
+    "atividade_fonte": true
+  },
+  {
+    "aula": 31,
+    "fonte": 16,
+    "secoes": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "titulo": "Etnocentrismo e relativização cultural",
+    "abertura": "Quando uma prática parece estranha, estamos descrevendo seu funcionamento ou usando nossos hábitos como medida universal?",
+    "objetivos": [
+      "Definir etnocentrismo como ponto de vista social.",
+      "Reconstruir sentidos antes de formular avaliação.",
+      "Distinguir compreensão e aprovação."
+    ],
+    "sintese": "Relativizar significa reconstruir contexto e sentidos. Isso não obriga a abandonar uma posição normativa, mas exige justificá-la.",
+    "transicao": "Na Aula 32, estereótipos, discriminação e conflitos de direitos mostrarão os efeitos sociais das classificações.",
+    "atividade": "Uma visitante interpreta como desinteresse o silêncio de estudantes durante uma discussão. Outra sugere que esperar uma autorização para falar pode ser uma norma aprendida. Separe observação, hipótese e julgamento. Que evidências permitiriam avaliar as duas interpretações?",
+    "gabarito": "<p>A observação disponível é o silêncio; desinteresse e espera por autorização são hipóteses de sentido. Chamar o grupo de apático introduziria um julgamento que não está demonstrado. São pertinentes observação de outras aulas, instruções de participação, perguntas aos estudantes e comparação de situações nas quais falam ou silenciam. A relativização exige reconstruir regras e expectativas, inclusive divergências entre integrantes. Não transforma a explicação alternativa em verdade apenas porque parece mais compreensiva.</p><p>Peça que estudantes evitem representar toda uma cultura com uma cena. Pode haver receio de avaliação, dificuldade com o tema, barreira linguística ou diferentes relações com autoridade. Cada hipótese precisa de evidências. Compreender uma norma de silêncio tampouco obriga a aprovar seus efeitos: seria possível defender maior participação e explicar o critério usado. A avaliação docente deve reconhecer a separação entre descrição, contextualização e posição argumentada. O exercício permanece fictício e não solicita que colegas expliquem comportamentos de grupos aos quais são associados.</p>"
+  },
+  {
+    "aula": 32,
+    "fonte": 16,
+    "secoes": [
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "titulo": "Estereótipo, poder e direitos: os limites do relativismo",
+    "abertura": "Como uma diferença se transforma em hierarquia ou exclusão? Vamos distinguir classificações, atitudes e práticas.",
+    "objetivos": [
+      "Diferenciar estereótipo, preconceito e discriminação.",
+      "Identificar relações de poder na definição da diferença.",
+      "Formular uma posição normativa contextualizada."
+    ],
+    "sintese": "Reconhecer diversidade não exige aceitar toda prática. Uma crítica rigorosa identifica efeitos, posições e vozes em disputa, sem homogeneizar os participantes.",
+    "transicao": "A Aula 33 investigará como pertencimentos e fronteiras participam da construção de identidades.",
+    "tempos": [
+      5,
+      15,
+      35,
+      5
+    ],
+    "atividade_fonte": true
+  }
+]
