@@ -1,0 +1,98 @@
+[
+  {
+    "aula": 41,
+    "fonte": 21,
+    "secoes": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "titulo": "Instituições sociais: o conceito e o caso da família",
+    "abertura": "Uma escola é uma organização; educação é uma instituição. Como essa diferença ajuda a analisar relações familiares?",
+    "objetivos": [
+      "Distinguir norma, grupo, organização e instituição.",
+      "Relacionar durabilidade, recursos e poder.",
+      "Diferenciar parentesco, conjugalidade, filiação, cuidado e residência."
+    ],
+    "sintese": "Instituições organizam posições, práticas e reconhecimento ao longo do tempo. A família pode ser analisada sem fixar um único modelo de composição.",
+    "transicao": "A Aula 42 investigará arranjos, redes de cuidado e transformações das relações familiares.",
+    "atividade": "Um formulário escolar admite apenas dois responsáveis residentes no mesmo endereço. Uma criança recebe cuidado cotidiano também de uma avó em outra casa. Diferencie organização, regra, vínculo de cuidado e reconhecimento institucional. Que informação o formulário deixa invisível?",
+    "gabarito": "<p>A escola é a organização concreta; o formulário constitui um procedimento que mobiliza classificações das instituições educacional e familiar. O cuidado prestado pela avó atravessa domicílios e não é integralmente captado pelo registro de residência. A invisibilidade documental não significa ausência do vínculo. Também não permite deduzir automaticamente quem possui autoridade jurídica ou quais informações podem ser compartilhadas: essas questões exigiriam exame do contexto e das regras pertinentes.</p><p>Solicite que estudantes distingam cuidado, filiação, residência e responsabilidade registrada, sem eleger uma configuração como família verdadeira. Uma proposta de revisão do formulário precisa indicar a finalidade da informação e evitar coletar detalhes desnecessários. A atividade não pede consultoria jurídica nem relato de famílias reais. O objetivo é demonstrar que categorias institucionais tornam relações reconhecíveis e podem ocultar práticas importantes. Uma boa resposta identifica o que foi observado, o que se infere e que evidência ainda falta, conectando regras e recursos sem reduzir a instituição ao documento.</p>"
+  },
+  {
+    "aula": 42,
+    "fonte": 21,
+    "secoes": [
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "titulo": "Família em transformação: arranjos, cuidado e desigualdade",
+    "abertura": "Contar moradores de uma casa permite conhecer toda sua rede de apoio? A investigação precisa conectar domicílio, trabalho de cuidado e políticas.",
+    "objetivos": [
+      "Distinguir arranjo domiciliar e rede familiar.",
+      "Analisar distribuição de tempo, cuidado e recursos.",
+      "Interpretar mudanças históricas sem causa única."
+    ],
+    "sintese": "Mudanças de residência ou composição não demonstram desaparecimento da família. Cuidado atravessa casas e instituições e precisa ser analisado como trabalho socialmente distribuído.",
+    "transicao": "A Aula 43 examinará a escola e seus mecanismos de socialização, certificação e desigualdade.",
+    "tempos": [
+      5,
+      15,
+      35,
+      5
+    ],
+    "atividade_fonte": true
+  },
+  {
+    "aula": 43,
+    "fonte": 22,
+    "secoes": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "titulo": "Escola: funções, desigualdade e reprodução social",
+    "abertura": "Uma prova igual para todos garante condições equivalentes? Vamos relacionar objetivos escolares, recursos e efeitos.",
+    "objetivos": [
+      "Distinguir objetivos declarados e consequências observadas.",
+      "Explicar mecanismos de reprodução sem determinismo.",
+      "Reconhecer práticas de transformação e contestação."
+    ],
+    "sintese": "Certificação, aprendizagem e seleção são dimensões distintas. Desigualdades escolares exigem mecanismos e evidências; não decorrem automaticamente de mérito ou origem social.",
+    "transicao": "A Aula 44 ampliará a comparação para religião e Estado.",
+    "atividade": "Uma universidade oferece curso gratuito noturno, mas a avaliação exige computador próprio e ocorre à tarde. Compare objetivo declarado e barreiras possíveis. Que dados seriam necessários para mostrar um efeito desigual e que mudança poderia ser avaliada?",
+    "gabarito": "<p>O objetivo de ampliar acesso convive com requisitos que podem criar barreiras de horário e equipamento. O enunciado permite identificar uma incompatibilidade possível, mas não medir seu efeito nem atribuir intenção discriminatória aos organizadores. Seriam úteis registros de presença, condições de acesso, motivos de ausência e comparação entre grupos. A gratuidade da matrícula não elimina todos os custos de participação. A análise deve localizar como um requisito converte recursos desiguais em oportunidades diferentes.</p><p>Uma alternativa seria disponibilizar equipamentos e oferecer horários compatíveis, acompanhando os resultados. Não basta presumir que a mudança funcionará para todos: transporte, cuidado e acessibilidade também podem interferir. Corrija interpretações que tratem origem social como destino escolar ou que chamem qualquer consequência inesperada de função latente. A função precisa ser situada no arranjo e em seus efeitos. Solicite uma hipótese alternativa e um indicador de acompanhamento. A resposta deve articular regras, recursos, trajetórias e agência, sem responsabilizar estudantes individualmente pela organização institucional.</p>"
+  },
+  {
+    "aula": 44,
+    "fonte": 22,
+    "secoes": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "titulo": "Religião e Estado como instituições sociais",
+    "abertura": "Uma autoridade pode ser reconhecida e ainda ter suas decisões contestadas. Como diferenciar pertencimento, legitimidade, capacidade e justiça?",
+    "objetivos": [
+      "Analisar diversidade e autoridade em organizações religiosas.",
+      "Distinguir Estado e governo.",
+      "Comparar regras, recursos e contestação em instituições."
+    ],
+    "sintese": "Instituições não são atores homogêneos. Legitimidade diz respeito ao reconhecimento da autoridade; capacidade e justiça são questões diferentes, que também exigem investigação.",
+    "transicao": "A Aula 45 tratará da distribuição estruturada de posições, recursos e oportunidades.",
+    "tempos": [
+      5,
+      15,
+      35,
+      5
+    ],
+    "texto": "<p>Uma comparação institucional deve procurar também quem não aparece nos registros. Quem desistiu de um atendimento não consta necessariamente entre usuários; quem se afastou de uma organização pode não participar de sua consulta. Essa seleção anterior limita conclusões baseadas apenas em presenças e formulários concluídos. Comparar discurso, procedimento e resultado exige perguntar como os dados foram produzidos e quais pessoas ficaram fora do campo de observação. O problema prepara a análise de estratificação: oportunidades não se distribuem somente no momento formal de uma decisão.</p>",
+    "atividade_fonte": true
+  }
+]

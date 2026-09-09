@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Aula 42 — Família em transformação: arranjos, cuidado e desigualdade · 2026.2</title><style>
+  :root {
+    --bg: #0a0a0f; --surface: #12121c; --card: #1a1a2e; --border: #2a2a4a;
+    --purple: #7c3aed; --purple-lt: #a855f7; --blue: #4f46e5; --blue-lt: #818cf8;
+    --teal-lt: #2dd4bf; --amber-lt: #fbbf24; --rose-lt: #fb7185;
+    --text: #e2e8f0; --muted: #94a3b8; --radius: 12px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { max-width: 100%; overflow-x: clip; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; min-height: 100vh; overflow-wrap: anywhere; }
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(18,18,28,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; white-space: nowrap; }
+  nav a:hover { color: var(--text); }
+  .nav-left { display: flex; align-items: center; gap: 10px; }
+  .nav-badge { background: var(--purple); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+  .nav-center { font-size: 0.875rem; color: var(--muted); }
+  .nav-right { display: flex; gap: 16px; align-items: center; }
+  main { max-width: 860px; margin: 0 auto; padding: 40px 24px 80px; }
+  .aula-header { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; margin-bottom: 32px; border-top: 4px solid var(--blue); }
+  .header-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; align-items: center; }
+  .bloco-badge { background: var(--blue); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .meta-chip { background: var(--surface); border: 1px solid var(--border); font-size: 0.8rem; color: var(--muted); padding: 4px 12px; border-radius: 20px; }
+  .meta-chip strong { color: var(--text); }
+  .aula-header h1 { font-size: 1.5rem; font-weight: 700; line-height: 1.3; color: var(--text); }
+  section { margin-bottom: 32px; scroll-margin-top: 112px; }
+  .section-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue-lt); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+  .obj-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .obj-list li { display: flex; gap: 12px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
+  .obj-list li::before { content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--blue-lt); margin-top: 7px; flex-shrink: 0; }
+  .content-topic { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 12px; }
+  .content-topic h3 { font-size: 0.95rem; font-weight: 600; color: var(--purple-lt); margin-bottom: 8px; }
+  .content-topic ul { list-style: none; padding: 0; }
+  .content-topic ul li { padding: 4px 0 4px 16px; position: relative; color: var(--muted); font-size: 0.9rem; }
+  .content-topic ul li::before { content: '—'; position: absolute; left: 0; color: var(--border); }
+  .timeline { display: flex; flex-direction: column; gap: 10px; }
+  .tl-item { display: flex; gap: 16px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; border-left: 3px solid var(--blue); }
+  .tl-duration { background: var(--surface); border: 1px solid var(--border); color: var(--amber-lt); font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+  .tl-text { font-size: 0.9rem; color: var(--text); }
+  .ref-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 10px; border-left: 3px solid var(--blue-lt); }
+  .ref-author { font-size: 0.8rem; font-weight: 700; color: var(--blue-lt); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+  .ref-title { font-size: 0.9rem; color: var(--text); }
+  .ref-pages { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
+  .activity-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; font-size: 0.9rem; line-height: 1.7; border-left: 3px solid var(--teal-lt); }
+  .teacher-guidance { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-top: 18px; }
+  .teacher-guidance summary { cursor: pointer; color: var(--amber-lt); font-weight: 700; padding: 15px 17px; }
+  .teacher-guidance[open] summary { border-bottom: 1px solid var(--border); }
+  .teacher-guidance-content { padding: 16px 18px; }
+  .resources-list { display: flex; flex-wrap: wrap; gap: 10px; }
+  .res-tag { max-width: 100%; min-width: 0; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; }
+  footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--muted); font-size: 0.85rem; }
+  footer a { color: var(--purple-lt); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .section-nav { position: sticky; top: 56px; z-index: 90; background: rgba(10,10,15,.97); border-bottom: 1px solid var(--border); padding: 8px 16px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: thin; }
+  .section-nav a { flex: 0 0 auto; min-height: 36px; display: inline-flex; align-items: center; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 5px 12px; text-decoration: none; font-size: .8rem; }
+  .base-text { max-width: 72ch; margin-inline: auto; }
+  .base-intro { color: var(--muted); font-size: .92rem; margin-bottom: 16px; }
+  .base-subsection { scroll-margin-top: 112px; margin-bottom: 28px; }
+  .base-subsection h3 { color: var(--blue-lt); font-size: 1.15rem; line-height: 1.35; margin-bottom: 12px; }
+  .base-subsection p { color: var(--text); margin-bottom: 14px; line-height: 1.78; }
+  .base-subsection strong { color: #f1f5f9; }
+  .pause-box { background: rgba(79,70,229,.1); border: 1px solid rgba(129,140,248,.4); border-left: 4px solid var(--blue-lt); border-radius: var(--radius); padding: 16px 18px; margin: 22px 0; }
+  .pause-box h4 { color: var(--amber-lt); font-size: .75rem; letter-spacing: .09em; text-transform: uppercase; margin-bottom: 6px; }
+  .pause-box p { margin: 0; color: var(--text); font-weight: 600; line-height: 1.6; }
+  a:focus-visible { outline: 3px solid var(--amber-lt); outline-offset: 3px; border-radius: 3px; }
+  @media (max-width: 640px) {
+    nav { height: auto; min-height: 56px; padding: 8px 12px; flex-wrap: wrap; }
+    .nav-left, .nav-right { min-width: 0; }
+    .nav-center { display: none; }
+    .nav-right { gap: 10px; }
+    .section-nav { top: 72px; padding-inline: 10px; }
+    main { padding: 24px 14px 60px; }
+    .aula-header { padding: 22px 18px; }
+    .tl-item { flex-direction: column; gap: 8px; }
+  }
+  @media print { .teacher-guidance { break-inside: avoid; } }
+
+
+:root{--bg:#0a0a0f;--surface:#12121c;--card:#1a1a2e;--border:#2a2a4a;--violet:#c084fc;--blue:#818cf8;--teal:#2dd4bf;--amber:#fbbf24;--text:#e2e8f0;--muted:#94a3b8;--r:12px}*{box-sizing:border-box;margin:0;padding:0}html,body{max-width:100%;overflow-x:clip}body{background:var(--bg);color:var(--text);font:16px/1.65 "Segoe UI",system-ui,sans-serif;overflow-wrap:anywhere}nav{position:sticky;top:0;z-index:10;height:56px;padding:0 24px;background:#12121cf2;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:14px}nav a{color:var(--muted);text-decoration:none;white-space:nowrap}.nav-left,.nav-right{display:flex;gap:12px;align-items:center}.badge,.block{background:var(--violet);color:#080810;font-weight:700}.badge{padding:3px 10px;border-radius:20px;font-size:.75rem}.section-nav{top:56px;z-index:9;height:auto;padding:8px 16px;justify-content:flex-start;overflow-x:auto}.section-nav a,.chip{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:4px 11px;font-size:.8rem}main{max-width:860px;margin:auto;padding:40px 24px 80px}section{margin-bottom:32px;scroll-margin-top:110px}.header,.topic,.tl,.ref,.activity{background:var(--card);border:1px solid var(--border);border-radius:var(--r)}.opening{background:#c084fc14;border:1px solid #c084fc40;border-radius:var(--r);padding:16px 20px;margin-bottom:24px;color:var(--muted)}.opening strong{color:var(--violet)}.header{border-top:4px solid var(--violet);padding:32px;margin-bottom:32px}.meta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:15px}.block{text-transform:uppercase}.header h1{font-size:1.5rem}.st{color:var(--violet);font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border-bottom:1px solid var(--border);padding-bottom:8px;margin-bottom:16px}.objs{list-style:none;display:grid;gap:10px}.objs li,.topic{padding:14px 18px}.objs li{background:var(--card);border:1px solid var(--border);border-radius:var(--r)}.topic{margin-bottom:12px}.topic h3,.base h3{color:var(--violet);margin-bottom:8px}.topic ul{padding-left:20px;color:var(--muted)}.base{max-width:72ch;margin:auto}.intro{color:var(--muted)}.toc{position:static;height:auto;display:block;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:18px 22px;margin:18px 0 28px}.toc ol{columns:2;padding-left:22px}.toc a{color:var(--text);white-space:normal}.sub{margin-bottom:28px;scroll-margin-top:110px}.sub p{margin-bottom:14px}.pause{background:#7c3aed18;border:1px solid #c084fc66;border-left:4px solid var(--violet);border-radius:var(--r);padding:15px 18px;margin:20px 0}.pause h4{color:var(--amber);text-transform:uppercase;font-size:.76rem}.timeline{display:grid;gap:10px}.tl{padding:14px 18px;border-left:3px solid var(--violet);display:flex;gap:14px}.time{color:var(--amber);font-weight:700;white-space:nowrap}.ref{padding:15px 18px;margin-bottom:10px;border-left:3px solid var(--blue)}.ref strong{color:var(--blue)}.activity{padding:20px;border-left:3px solid var(--teal)}.activity h3,.activity h4{color:var(--teal);margin:14px 0 7px}.activity ol,.activity ul{padding-left:22px}.materials{display:grid;grid-template-columns:1fr 1fr;gap:10px}.material,.questions,details{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:13px}.material h4{margin:0;color:var(--amber)}.material dl{display:grid;grid-template-columns:auto 1fr;gap:3px 8px}.material dt{font-weight:700;color:var(--muted)}.questions{padding-left:34px!important}details{margin-top:18px}summary{cursor:pointer;color:var(--amber);font-weight:700}.answer{padding-top:10px}.answer h4{color:var(--teal)}.resources{display:flex;flex-wrap:wrap;gap:8px}footer{text-align:center;border-top:1px solid var(--border);padding:28px;color:var(--muted)}footer a{color:var(--violet)}a:focus-visible,summary:focus-visible{outline:3px solid var(--amber)}@media(max-width:640px){nav{height:auto;min-height:56px;padding:8px 12px;flex-wrap:wrap}.nav-center{display:none}.section-nav{top:72px;flex-wrap:nowrap}main{padding:24px 14px 60px}.header{padding:20px 17px}.toc ol{columns:1;padding-left:0;list-style-position:inside}.materials{grid-template-columns:1fr}.tl{flex-direction:column;gap:3px}.material dl{grid-template-columns:1fr}}@media print{:root{--bg:#fff;--surface:#fff;--card:#fff;--border:#999;--text:#111;--muted:#333;--violet:#222;--blue:#222;--teal:#222;--amber:#222}nav{position:static}.section-nav{display:none}main{max-width:none;padding:10mm}.material,.ref,.tl,details{break-inside:avoid}details>.answer{display:block!important}}
+
+body {max-width:100%; overflow-x:hidden; overflow-wrap:anywhere;} main{max-width:960px;margin:auto} .base-text{max-width:72ch} .base-subsection{margin-bottom:24px} table{width:100%;border-collapse:collapse}th,td{padding:8px;border:1px solid var(--border);overflow-wrap:anywhere} .table-wrap,.table-region{overflow-x:auto;max-width:100%} .teacher-guidance{margin-top:20px;padding:16px;border:1px solid var(--border)} summary{cursor:pointer;font-weight:bold} .skip{position:absolute;left:-9999px}.skip:focus{left:12px;top:12px;z-index:300;background:var(--bg);padding:10px} a{overflow-wrap:anywhere} @media(max-width:640px){nav{position:static;flex-wrap:wrap;height:auto;padding:12px}.nav-center{display:none}.section-nav{position:static;flex-wrap:wrap}main{padding:20px 14px}.tl-item{flex-direction:column}.aula-header{padding:20px 14px}} @media print{nav,.section-nav,.skip{display:none!important}body,main,section,.aula-header,.activity-card,.pause-box,details{background:white!important;color:black!important}*{color:inherit!important;text-shadow:none!important;box-shadow:none!important}main{max-width:none;padding:0}.base-text{max-width:none}h1,h2,h3,summary{break-after:avoid}p{orphans:3;widows:3}table{font-size:9pt}.teacher-guidance{break-inside:auto}}
+</style></head><body>
+<a class="skip" href="#objetivos">Pular para o conteúdo</a>
+<nav aria-label="Navegação entre aulas"><div class="nav-left"><a href="../../index.html">Voltar ao curso</a></div><span class="nav-center">Encontro 11 de 15 · Aula 42 de 60</span><div class="nav-right"><a href="aula-41.html">← Aula anterior</a><a href="aula-43.html">Próxima aula →</a></div></nav>
+<div class="section-nav" aria-label="Seções"><a href="#objetivos">Objetivos</a><a href="#texto-base">Texto-base</a><a href="#plano-aula">Plano</a><a href="#atividade">Discussão</a><a href="#sintese">Síntese</a><a href="#leituras">Referências</a></div>
+<main><header class="aula-header"><div class="header-meta"><span class="meta-chip">Encontro <strong>11</strong> de 15 — 18/11/2026, quarta-feira</span><span class="meta-chip">Aula <strong>42</strong> de 60</span><span class="meta-chip">2ª aula do encontro</span><span class="meta-chip">Aproximadamente 1 hora-aula</span></div><h1>Família em transformação: arranjos, cuidado e desigualdade</h1><p>Introdução à Sociologia · T01 · 2026.2 · Código 2101000 · SIGAA 4M1234</p></header>
+<section id="objetivos"><h2>Objetivos</h2><ul class="obj-list"><li>Distinguir arranjo domiciliar e rede familiar.</li><li>Analisar distribuição de tempo, cuidado e recursos.</li><li>Interpretar mudanças históricas sem causa única.</li></ul></section>
+<section id="texto-base" aria-labelledby="texto-base-title"><h2 id="texto-base-title">Texto-base</h2><div class="base-text"><p class="base-intro">Contar moradores de uma casa permite conhecer toda sua rede de apoio? A investigação precisa conectar domicílio, trabalho de cuidado e políticas.</p><div class="sub base-subsection" id="a42-conceito-1">
+<h3>1. Arranjos, domicílios e redes</h3>
+<p>
+<strong>Arranjo familiar</strong> é uma forma de organizar relações num recorte de observação. O termo ajuda a reconhecer pluralidade, mas pode sugerir escolha inteiramente livre. Pessoas formam domicílios sob condições de emprego, aluguel, migração, políticas de habitação, disponibilidade de cuidado e normas jurídicas. Preferências existem dentro dessas possibilidades.</p>
+<p>Redes familiares atravessam casas e cidades. Transferências de dinheiro, cuidado à distância, hospedagem temporária e decisões compartilhadas conectam domicílios. Uma fotografia censitária registra onde pessoas vivem numa data; uma pesquisa longitudinal acompanha mudanças; entrevistas mostram sentidos; observação revela práticas. As fontes respondem perguntas diferentes.</p>
+<p>Não convém opor “família tradicional” e “família moderna” como blocos. Formas extensas, conjugais, recompostas e unipessoais coexistiram em períodos diversos, com significados variados. O que é apresentado como tradição pode ser seleção recente de um passado heterogêneo.</p>
+<p>Reconhecimento social e jurídico também não avançam no mesmo ritmo. Uma prática de cuidado pode existir antes de categoria legal; uma nova regra pode encontrar implementação desigual. Examinar quem obtém documento, benefício ou voz revela como instituições reconhecem algumas redes.</p>
+<aside class="pause">
+<h4>Pausa 3 — O domicílio não conta tudo</h4>
+<p>Um quadro registra quatro moradores, mas menciona cuidado diário vindo de outra casa. Que observação o quadro sustenta e que inferência exigiria informação adicional?</p>
+</aside>
+</div><div class="sub base-subsection" id="a42-conceito-2">
+<h3>2. Cuidado, trabalho e desigualdade</h3>
+<p>O tempo de cuidado possui ritmo e disponibilidade, além de duração. Permanecer atento a uma necessidade imprevisível limita outros compromissos, mesmo quando nenhuma tarefa está sendo executada. Planilhas de horas podem subestimar coordenação mental, deslocamentos e interrupções. Métodos distintos — diários de uso do tempo, entrevistas e observação — tornam visíveis partes diferentes desse trabalho.</p>
+<p>A dependência não caracteriza apenas crianças ou pessoas doentes. Todos dependem de redes, infraestrutura e trabalho alheio em momentos variados. A questão sociológica é como essa interdependência é reconhecida e distribuída. Quando a responsabilidade é tratada como atributo natural de uma pessoa, desaparecem escolhas institucionais que alocam tempo, custo e reconhecimento.</p>
+<p>Cozinhar, limpar, acompanhar consultas, organizar horários e oferecer apoio são formas de trabalho, mesmo sem remuneração. O cuidado produz bem-estar e permite outras atividades econômicas. Quando permanece invisível, sua distribuição parece resultado de disposição pessoal, e não de expectativas, recursos e políticas.</p>
+<p>Divisões por gênero e geração influenciam quem realiza tarefas, mas não determinam toda família. Para analisar desigualdade, comparamos tempo, responsabilidade, poder de decisão e acesso a renda. Associação entre ser mulher e dedicar mais horas ao cuidado, por exemplo, não demonstra uma causa única; exige investigar normas, emprego, serviços públicos, negociação e trajetória.</p>
+<p>Classe, raça, território, deficiência e migração também atravessam possibilidades. Famílias com renda contratam serviços; outras dependem de redes e tempo próprio. A oferta de creche, saúde, transporte e moradia modifica a carga doméstica. Desigualdade não fica “fora” da família: entra nas escolhas disponíveis e nos riscos suportados.</p>
+<p>Capacidade de ação aparece quando integrantes redistribuem tarefas, buscam apoio, recusam expectativas ou reivindicam serviços. Nem todos negociam em condições equivalentes. Explicar uma decisão requer relacionar sentidos e vínculos a condições materiais, sem culpabilizar indivíduos por obstáculos institucionais.</p>
+</div><div class="sub base-subsection" id="a42-conceito-3">
+<h3>3. Transformações históricas sem linha única</h3>
+<p>Periodizar exige especificar o que mudou. Idade ao casar, forma de residência, autoridade jurídica e divisão de tarefas podem seguir direções distintas. Uma relação pode tornar-se mais igual em decisões patrimoniais e manter forte assimetria de cuidado. Falar em “modernização da família” sem indicar dimensão mistura processos e transforma diversidade histórica em narrativa simples.</p>
+<p>Memórias familiares também selecionam experiências. Comparações entre “na época dos avós” e “hoje” são fontes sobre sentidos, mas não amostras suficientes de uma geração. Sobrevivência, silêncio e posição de quem narra influenciam o relato. Documentos, estatísticas e histórias orais podem ser combinados, preservando o tipo de evidência oferecido por cada fonte.</p>
+<p>Mudanças em casamento, fecundidade, separação, longevidade, participação no trabalho remunerado e reconhecimento jurídico alteram relações familiares. Elas não compõem uma marcha única do “patriarcal” ao “contemporâneo”. Períodos e grupos seguem ritmos diferentes; continuidades convivem com inovações.</p>
+<p>Uma alteração legal pode ampliar possibilidades sem produzir o mesmo efeito para todos. Direito ao divórcio não explica sozinho taxas de separação; atua com renda, expectativas, moradia, apoio e trajetórias. Aumento de pessoas morando sozinhas pode envolver autonomia, envelhecimento, migração ou ruptura. O mesmo indicador é compatível com mecanismos diversos.</p>
+<p>Transformações tampouco significam desaparecimento da família. Podem indicar mudança nos critérios de pertencimento, nas idades de transição, no número de moradores ou na divisão entre família, Estado e mercado. Termos como “crise” já contêm avaliação e precisam ser traduzidos em fenômenos observáveis.</p>
+<p>Comparações históricas exigem categorias compatíveis. Se uma pesquisa muda a pergunta ou reconhece arranjo antes invisível, parte da variação pode resultar do instrumento. Antes de explicar tendência, verificamos definição, período, população e método.</p>
+<aside class="pause">
+<h4>Pausa 4 — Mudança não é causa única</h4>
+<p>Se cresce um tipo de domicílio fictício, que mecanismos alternativos poderiam produzir o mesmo padrão e que dados permitiriam compará-los?</p>
+</aside>
+</div><div class="sub base-subsection" id="a42-conceito-4">
+<h3>4. Dados, explicações e limites</h3>
+<p>Indicadores carregam decisões analíticas. Contar casamento civil mede registro jurídico, não toda conjugalidade; contar moradores sozinhos mede residência, não isolamento ou ausência de família. O nome do indicador deve acompanhar sua definição. Uma interpretação responsável evita substituir aquilo que foi medido por um fenômeno mais amplo apenas porque os termos parecem próximos.</p>
+<p>Também devemos procurar casos que desafiem a hipótese. Se atribuirmos determinada divisão de cuidado apenas à renda, famílias com renda semelhante e práticas diferentes pedem explicação. A comparação negativa ajuda a localizar normas, serviços e trajetórias que a primeira associação ocultou. Explicar não é reunir fatores plausíveis, mas mostrar quais evidências sustentam cada ligação.</p>
+<p>Uma análise responsável começa separando <strong>observação</strong>, <strong>inferência</strong> e <strong>evidência</strong>. “Três pessoas residem aqui” é observação registrada; “formam rede igualitária” é inferência; registros de tarefas, falas e decisões seriam evidências pertinentes. Uma cena pode sugerir hipótese, não provar regularidade nacional.</p>
+<p>Associação não equivale a causalidade. Se duas tendências mudam juntas, uma pode influenciar a outra, ambas podem responder a terceiro processo ou a coincidência. Para sustentar mecanismo, combinamos sequência temporal, comparação, fontes e eliminação de alternativas plausíveis. Explicações multicausais não são listas: devem mostrar como fatores se relacionam.</p>
+<p>A escala importa. Dados nacionais revelam distribuição; estudos locais mostram mecanismos; trajetórias individuais esclarecem sentidos. Nenhum nível representa sozinho a instituição. Também não devemos converter médias em descrição de cada pessoa nem usar caso singular como retrato de um grupo inteiro.</p>
+<p>A avaliação normativa — considerar um arranjo justo, seguro ou desejável — é legítima, mas requer critérios explícitos. Não decorre automaticamente de frequência estatística. Algo comum pode ser desigual; algo minoritário não é por isso problemático. A Sociologia oferece meios de formular melhor a discussão, não um rótulo para famílias.</p>
+</div><div class="sub base-subsection" id="a42-conceito-5">
+<h3>5. Síntese e passagem à Aula 43</h3>
+<p>Instituições articulam regras, posições, práticas, significados e recursos com relativa duração. Elas coordenam e reconhecem relações, mas também distribuem poder e abrigam disputa. Organizações e grupos concretizam aspectos institucionais sem serem sinônimos da instituição.</p>
+<p>Aplicado à família, esse olhar distinguiu parentesco, conjugalidade, filiação, cuidado, residência e redes. Arranjos são categorias analíticas, não rótulos de pessoas ou hierarquias morais. Divisão do trabalho e condições materiais revelam desigualdades; agência mostra respostas possíveis, sem apagar limites.</p>
+<p>Transformações familiares não seguem linha única nem resultam de causa isolada. Direito, economia, políticas, repertórios culturais e trajetórias interagem. Dados precisam de definição, escala e comparação; descrição, explicação e avaliação cumprem papéis diferentes.</p>
+<p>A <strong>Aula 43 — Instituições sociais: escola, religião e Estado</strong> ampliará a comparação institucional. Examinará as particularidades dessas três instituições, suas consequências declaradas ou não, relações com desigualdade, legitimidade e contestação. Esses conceitos ficam reservados para a próxima parte; a Aula 41 fornece apenas a base comum para não tratá-las como organizações homogêneas.</p>
+</div></div></section>
+<section id="plano-aula"><h2>Percurso da hora-aula</h2><div class="timeline"><div class="tl-item"><span class="tl-duration">5 min</span><span class="tl-text">Contar moradores de uma casa permite conhecer toda sua rede de apoio? A investigação precisa conectar domicílio, trabalho de cuidado e políticas.</span></div><div class="tl-item"><span class="tl-duration">15 min</span><span class="tl-text">Leitura dialogada e desenvolvimento dos conceitos desta unidade.</span></div><div class="tl-item"><span class="tl-duration">35 min</span><span class="tl-text">Discussão e elaboração do registro proposto; comparação das justificativas com mediação docente.</span></div><div class="tl-item"><span class="tl-duration">5 min</span><span class="tl-text">Síntese e transição: A Aula 43 examinará a escola e seus mecanismos de socialização, certificação e desigualdade.</span></div></div></section>
+<section id="atividade">
+<div class="st">Atividade em Sala</div>
+<div class="activity">
+<h3>Oficina — como reconhecer relações familiares sem impor um modelo?</h3>
+<p>
+<strong>Finalidade:</strong> aplicar conceitos institucionais a documentos fictícios, distinguindo observação, inferência e evidência sem expor experiências pessoais.</p>
+<h4>Organização e tempos (35 minutos)</h4>
+<ol>
+<li>3 min: grupos de 4 ou 5; distribuir leitura, registro, tempo e apresentação.</li>
+<li>8 min: ler os seis materiais e marcar dados observáveis.</li>
+<li>17 min: responder às oito perguntas numa matriz.</li>
+<li>7 min: preparar uma conclusão e uma alternativa.</li>
+</ol>
+<h4>Seis materiais completos</h4>
+<div class="materials">
+<article class="material">
+<h4>1 — Cadastro de cuidado</h4>
+<dl>
+<dt>Documento</dt>
+<dd>Formulário de um centro pede “mãe” e “pai”. Iara registra avó e tio como contatos diários.</dd>
+<dt>Prática</dt>
+<dd>Avó acompanha consultas; tio busca a criança; mãe mora em outra cidade e envia recursos.</dd>
+<dt>Posição/recurso</dt>
+<dd>Só o campo “responsável legal” permite autorizar atividade.</dd>
+<dt>Lacuna</dt>
+<dd>Não há informação sobre guarda, acordo familiar ou critério do centro.</dd>
+</dl>
+</article>
+<article class="material">
+<h4>2 — Dois domicílios, uma rede</h4>
+<dl>
+<dt>Documento</dt>
+<dd>Quadro registra Raul morando sozinho e Mara com dois filhos.</dd>
+<dt>Prática</dt>
+<dd>Raul cozinha para as crianças quatro dias por semana; Mara administra compras e remédios de Raul.</dd>
+<dt>Posição/recurso</dt>
+<dd>Moram no mesmo bairro e dividem custos.</dd>
+<dt>Lacuna</dt>
+<dd>Não sabemos parentesco declarado, duração ou como decidem tarefas.</dd>
+</dl>
+</article>
+<article class="material">
+<h4>3 — Agenda desigual</h4>
+<dl>
+<dt>Documento</dt>
+<dd>Planilha semanal de casal com uma criança registra 28 tarefas de cuidado.</dd>
+<dt>Prática</dt>
+<dd>Sam realiza 20; Dani, 8, e possui jornada remunerada mais longa.</dd>
+<dt>Posição/recurso</dt>
+<dd>Há creche parcial e transporte demorado.</dd>
+<dt>Lacuna</dt>
+<dd>Faltam duração das tarefas, renda, preferências e negociações.</dd>
+</dl>
+</article>
+<article class="material">
+<h4>4 — Casa recomposta</h4>
+<dl>
+<dt>Documento</dt>
+<dd>Contrato lista Alex, Bia e duas adolescentes no mesmo endereço.</dd>
+<dt>Prática</dt>
+<dd>Uma adolescente alterna residência; outra conversa diariamente com responsável que mora fora.</dd>
+<dt>Posição/recurso</dt>
+<dd>Despesas e decisões escolares são compartilhadas de modos diferentes.</dd>
+<dt>Lacuna</dt>
+<dd>Não há relatos dos participantes nem série temporal.</dd>
+</dl>
+</article>
+<article class="material">
+<h4>5 — Benefício municipal</h4>
+<dl>
+<dt>Documento</dt>
+<dd>Programa concede apoio a “domicílio com crianças e um único responsável residente”.</dd>
+<dt>Prática</dt>
+<dd>Uma candidata recebe ajuda regular de parentes externos; outra não recebe, embora ambas tenham igual composição residencial.</dd>
+<dt>Posição/recurso</dt>
+<dd>Servidor aplica apenas o critério publicado.</dd>
+<dt>Lacuna</dt>
+<dd>Não sabemos objetivo, orçamento, renda ou efeitos do benefício.</dd>
+</dl>
+</article>
+<article class="material">
+<h4>6 — Duas fotografias</h4>
+<dl>
+<dt>Documento</dt>
+<dd>Levantamento fictício mostra domicílios unipessoais em 9% no ano A e 14% no ano B.</dd>
+<dt>Prática</dt>
+<dd>O resumo atribui o aumento à “preferência por independência”.</dd>
+<dt>Posição/recurso</dt>
+<dd>Amostras cobrem a mesma cidade, mas não acompanham as mesmas pessoas.</dd>
+<dt>Lacuna</dt>
+<dd>Faltam idade, renda, migração, viuvez, custo de moradia e margem de erro.</dd>
+</dl>
+</article>
+</div>
+<h4>Oito perguntas</h4>
+<ol class="questions">
+<li>Quais informações são observações registradas no material?</li>
+<li>Que dimensão aparece: parentesco, conjugalidade, filiação, cuidado, residência ou rede?</li>
+<li>Que regra ou posição institucional organiza possibilidades?</li>
+<li>Como condições materiais e recursos entram no caso?</li>
+<li>Que desigualdade ou relação de poder pode ser investigada sem presumir seu resultado?</li>
+<li>Que inferência inicial é plausível e qual alternativa também cabe?</li>
+<li>Que evidência seria necessária para escolher entre explicações?</li>
+<li>Que avaliação normativa poderia ser formulada e por que ela não decorre automaticamente dos dados?</li>
+</ol>
+<h4>Produto, socialização e cuidado</h4>
+<p>Entregar matriz com seis linhas e oito eixos, contendo alternativa em pelo menos dois materiais. Na socialização, citar observação, conceito, hipótese, evidência ausente e limite. Use apenas documentos fictícios; não solicite relatos sobre família, residência, renda ou conflitos dos estudantes. Divergências devem tratar dos argumentos, nunca classificar pessoas ou arranjos.</p>
+<details>
+<summary>Possibilidades comentadas e orientações de mediação</summary>
+<div class="answer">
+<h4>Material 1 — Cadastro de cuidado</h4>
+<p>Observamos campos restritos e tarefas distribuídas entre três adultos. Cuidado, filiação e responsabilidade legal não são equivalentes. O formulário dá poder de autorização a uma posição. Pode haver inadequação cadastral ou exigência jurídica pertinente; guarda e critério faltam. Evidências documentais e falas permitiriam avaliar. Criticar o campo é avaliação, não consequência automática da descrição.</p>
+<h4>Material 2 — Dois domicílios</h4>
+<p>Os registros observam residências separadas e trocas de cuidado. A rede ultrapassa o domicílio; parentesco é desconhecido. Proximidade e custos possibilitam cooperação. Não se infere igualdade nem dependência unilateral. Duração, decisões e sentidos escolheriam entre hipóteses. Avaliar a rede como solidária exige critério explícito.</p>
+<h4>Material 3 — Agenda desigual</h4>
+<p>A contagem observa tarefas, mas não duração ou intensidade. Cuidado, trabalho remunerado, creche e transporte articulam-se. A diferença sugere investigar divisão desigual, sem prová-la apenas pelo número. Negociação, renda e tempo são evidências ausentes. Outra interpretação pode enfatizar compensação por jornada; deve ser testada, não presumida.</p>
+<h4>Material 4 — Casa recomposta</h4>
+<p>Contrato e alternância mostram que residência, filiação e cuidado não coincidem perfeitamente. Há posições e recursos distribuídos, mas não sabemos qualidade dos vínculos. “Recomposta” descreve configuração, não identidade total. Relatos e acompanhamento temporal sustentariam inferências. Não cabe avaliar estabilidade pela composição.</p>
+<h4>Material 5 — Benefício municipal</h4>
+<p>A composição residencial e o critério são observáveis; redes externas diferem. Regra formal torna o domicílio unidade administrativa. Pode simplificar implementação ou ignorar necessidades, alternativas que exigem objetivo, renda, orçamento e efeitos. Igual composição não garante igual recurso. Avaliar justiça requer critério normativo e comparação.</p>
+<h4>Material 6 — Duas fotografias</h4>
+<p>Observamos aumento de cinco pontos percentuais, não trajetórias individuais. “Preferência” é inferência causal não demonstrada. Autonomia, envelhecimento, migração, viuvez e mercado de moradia são alternativas. Precisamos de composição, margem de erro e dados longitudinais. Crescimento não autoriza celebrar ou lamentar sem critérios.</p>
+<h4>Orientação geral e transição</h4>
+<p>Exija nos seis materiais os oito eixos: observação, dimensão, regra/posição, recursos, poder, inferências, evidência e avaliação. Admita alternativas justificadas e interrompa qualquer relato pessoal, retornando aos documentos. A síntese deve mostrar que instituições não são grupos homogêneos. Essa base prepara a Aula 43, que comparará escola, religião e Estado sem transferir automaticamente conclusões sobre família.</p>
+</div>
+</details>
+</div>
+</section>
+<section id="sintese"><h2>Síntese e continuidade</h2><p>Mudanças de residência ou composição não demonstram desaparecimento da família. Cuidado atravessa casas e instituições e precisa ser analisado como trabalho socialmente distribuído.</p><p>A Aula 43 examinará a escola e seus mecanismos de socialização, certificação e desigualdade.</p></section><section id="leituras">
+<div class="st">Referências</div>
+<div class="ref">
+<strong>SARTI, Cynthia A.</strong> A família como espelho: um estudo sobre a moral dos pobres. Campinas: Autores Associados, 1996.<p>Referência para pensar família como ordem moral e rede de relações; o texto-base usa paráfrases didáticas.</p>
+</div>
+<div class="ref">
+<strong>THERBORN, Göran.</strong> Between Sex and Power: Family in the World, 1900–2000. London: Routledge, 2004.<p>Referência comparativa para transformações históricas; sem paginação por não haver trecho de leitura fixado.</p>
+</div>
+</section>
+</main><footer>Introdução à Sociologia · T01 · 2026.2 · <a href="../../index.html">Voltar ao curso</a></footer></body></html>

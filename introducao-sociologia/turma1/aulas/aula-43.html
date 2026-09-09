@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Aula 43 — Escola: funções, desigualdade e reprodução social · 2026.2</title><style>
+  :root {
+    --bg: #0a0a0f; --surface: #12121c; --card: #1a1a2e; --border: #2a2a4a;
+    --purple: #7c3aed; --purple-lt: #a855f7; --blue: #4f46e5; --blue-lt: #818cf8;
+    --teal-lt: #2dd4bf; --amber-lt: #fbbf24; --rose-lt: #fb7185;
+    --text: #e2e8f0; --muted: #94a3b8; --radius: 12px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { max-width: 100%; overflow-x: clip; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; min-height: 100vh; overflow-wrap: anywhere; }
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(18,18,28,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; white-space: nowrap; }
+  nav a:hover { color: var(--text); }
+  .nav-left { display: flex; align-items: center; gap: 10px; }
+  .nav-badge { background: var(--purple); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+  .nav-center { font-size: 0.875rem; color: var(--muted); }
+  .nav-right { display: flex; gap: 16px; align-items: center; }
+  main { max-width: 860px; margin: 0 auto; padding: 40px 24px 80px; }
+  .aula-header { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; margin-bottom: 32px; border-top: 4px solid var(--blue); }
+  .header-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; align-items: center; }
+  .bloco-badge { background: var(--blue); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .meta-chip { background: var(--surface); border: 1px solid var(--border); font-size: 0.8rem; color: var(--muted); padding: 4px 12px; border-radius: 20px; }
+  .meta-chip strong { color: var(--text); }
+  .aula-header h1 { font-size: 1.5rem; font-weight: 700; line-height: 1.3; color: var(--text); }
+  section { margin-bottom: 32px; scroll-margin-top: 112px; }
+  .section-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue-lt); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+  .obj-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .obj-list li { display: flex; gap: 12px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
+  .obj-list li::before { content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--blue-lt); margin-top: 7px; flex-shrink: 0; }
+  .content-topic { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 12px; }
+  .content-topic h3 { font-size: 0.95rem; font-weight: 600; color: var(--purple-lt); margin-bottom: 8px; }
+  .content-topic ul { list-style: none; padding: 0; }
+  .content-topic ul li { padding: 4px 0 4px 16px; position: relative; color: var(--muted); font-size: 0.9rem; }
+  .content-topic ul li::before { content: '—'; position: absolute; left: 0; color: var(--border); }
+  .timeline { display: flex; flex-direction: column; gap: 10px; }
+  .tl-item { display: flex; gap: 16px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; border-left: 3px solid var(--blue); }
+  .tl-duration { background: var(--surface); border: 1px solid var(--border); color: var(--amber-lt); font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+  .tl-text { font-size: 0.9rem; color: var(--text); }
+  .ref-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 10px; border-left: 3px solid var(--blue-lt); }
+  .ref-author { font-size: 0.8rem; font-weight: 700; color: var(--blue-lt); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+  .ref-title { font-size: 0.9rem; color: var(--text); }
+  .ref-pages { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
+  .activity-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; font-size: 0.9rem; line-height: 1.7; border-left: 3px solid var(--teal-lt); }
+  .teacher-guidance { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-top: 18px; }
+  .teacher-guidance summary { cursor: pointer; color: var(--amber-lt); font-weight: 700; padding: 15px 17px; }
+  .teacher-guidance[open] summary { border-bottom: 1px solid var(--border); }
+  .teacher-guidance-content { padding: 16px 18px; }
+  .resources-list { display: flex; flex-wrap: wrap; gap: 10px; }
+  .res-tag { max-width: 100%; min-width: 0; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; }
+  footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--muted); font-size: 0.85rem; }
+  footer a { color: var(--purple-lt); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .section-nav { position: sticky; top: 56px; z-index: 90; background: rgba(10,10,15,.97); border-bottom: 1px solid var(--border); padding: 8px 16px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: thin; }
+  .section-nav a { flex: 0 0 auto; min-height: 36px; display: inline-flex; align-items: center; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 5px 12px; text-decoration: none; font-size: .8rem; }
+  .base-text { max-width: 72ch; margin-inline: auto; }
+  .base-intro { color: var(--muted); font-size: .92rem; margin-bottom: 16px; }
+  .base-subsection { scroll-margin-top: 112px; margin-bottom: 28px; }
+  .base-subsection h3 { color: var(--blue-lt); font-size: 1.15rem; line-height: 1.35; margin-bottom: 12px; }
+  .base-subsection p { color: var(--text); margin-bottom: 14px; line-height: 1.78; }
+  .base-subsection strong { color: #f1f5f9; }
+  .pause-box { background: rgba(79,70,229,.1); border: 1px solid rgba(129,140,248,.4); border-left: 4px solid var(--blue-lt); border-radius: var(--radius); padding: 16px 18px; margin: 22px 0; }
+  .pause-box h4 { color: var(--amber-lt); font-size: .75rem; letter-spacing: .09em; text-transform: uppercase; margin-bottom: 6px; }
+  .pause-box p { margin: 0; color: var(--text); font-weight: 600; line-height: 1.6; }
+  a:focus-visible { outline: 3px solid var(--amber-lt); outline-offset: 3px; border-radius: 3px; }
+  @media (max-width: 640px) {
+    nav { height: auto; min-height: 56px; padding: 8px 12px; flex-wrap: wrap; }
+    .nav-left, .nav-right { min-width: 0; }
+    .nav-center { display: none; }
+    .nav-right { gap: 10px; }
+    .section-nav { top: 72px; padding-inline: 10px; }
+    main { padding: 24px 14px 60px; }
+    .aula-header { padding: 22px 18px; }
+    .tl-item { flex-direction: column; gap: 8px; }
+  }
+  @media print { .teacher-guidance { break-inside: avoid; } }
+
+
+:root{--bg:#0a0a0f;--s:#12121c;--c:#1a1a2e;--b:#2a2a4a;--v:#c084fc;--u:#818cf8;--t:#2dd4bf;--a:#fbbf24;--x:#e2e8f0;--m:#94a3b8;--r:12px}*{box-sizing:border-box;margin:0;padding:0}html,body{max-width:100%;overflow-x:clip}body{background:var(--bg);color:var(--x);font:16px/1.65 "Segoe UI",system-ui,sans-serif;overflow-wrap:anywhere}nav{position:sticky;top:0;z-index:10;height:56px;padding:0 24px;background:#12121cf2;border-bottom:1px solid var(--b);display:flex;align-items:center;justify-content:space-between;gap:14px}nav a{color:var(--m);text-decoration:none;white-space:nowrap}.nl,.nr{display:flex;gap:12px;align-items:center}.badge,.block{background:var(--v);color:#080810;font-weight:700}.badge,.chip{padding:3px 10px;border-radius:20px;font-size:.78rem}.sn{top:56px;height:auto;padding:8px 16px;justify-content:flex-start;overflow-x:auto}.sn a,.chip{background:var(--s);border:1px solid var(--b)}main{max-width:860px;margin:auto;padding:40px 24px 80px}section{margin-bottom:32px;scroll-margin-top:110px}.head,.topic,.tl,.ref,.activity{background:var(--c);border:1px solid var(--b);border-radius:var(--r)}.head{border-top:4px solid var(--v);padding:32px;margin-bottom:32px}.meta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:15px}.block{background:var(--v);text-transform:uppercase}.head h1{font-size:1.5rem}.st{color:var(--v);font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border-bottom:1px solid var(--b);padding-bottom:8px;margin-bottom:16px}.objs{list-style:none;display:grid;gap:10px}.objs li,.topic{padding:14px 18px}.objs li{background:var(--c);border:1px solid var(--b);border-radius:var(--r)}.topic{margin-bottom:12px}.topic h3,.base h3{color:var(--v);margin-bottom:8px}.topic ul{padding-left:20px;color:var(--m)}.base{max-width:72ch;margin:auto}.intro{color:var(--m)}.toc{position:static;height:auto;display:block;background:var(--s);border:1px solid var(--b);border-radius:var(--r);padding:18px 22px;margin:18px 0 28px}.toc ol{columns:2;padding-left:22px}.toc a{color:var(--x);white-space:normal}.sub{margin-bottom:28px;scroll-margin-top:110px}.sub p{margin-bottom:14px}.pause{background:#7c3aed18;border:1px solid #c084fc66;border-left:4px solid var(--v);border-radius:var(--r);padding:15px 18px;margin:20px 0}.pause h4{color:var(--a);text-transform:uppercase;font-size:.76rem}.timeline{display:grid;gap:10px}.tl{padding:14px 18px;border-left:3px solid var(--v);display:flex;gap:14px}.time{color:var(--a);font-weight:700;white-space:nowrap}.ref{padding:15px 18px;margin-bottom:10px;border-left:3px solid var(--u)}.ref strong{color:var(--u)}.activity{padding:20px;border-left:3px solid var(--t)}.activity h3,.activity h4{color:var(--t);margin:14px 0 7px}.activity ol{padding-left:22px}.docs{display:grid;grid-template-columns:1fr 1fr;gap:10px}.doc,.questions,details{background:var(--s);border:1px solid var(--b);border-radius:var(--r);padding:13px}.doc h4{margin:0;color:var(--a)}.doc dl{display:grid;grid-template-columns:auto 1fr;gap:3px 8px}.doc dt{font-weight:700;color:var(--m)}.questions{padding-left:34px!important}details{margin-top:18px}summary{cursor:pointer;color:var(--a);font-weight:700}.answer{padding-top:10px}.answer h4{color:var(--t)}.resources{display:flex;flex-wrap:wrap;gap:8px}footer{text-align:center;border-top:1px solid var(--b);padding:28px;color:var(--m)}footer a{color:var(--v)}a:focus-visible,summary:focus-visible{outline:3px solid var(--a)}@media(max-width:640px){nav{height:auto;min-height:56px;padding:8px 12px;flex-wrap:wrap}.nc{display:none}.sn{top:72px;flex-wrap:nowrap}main{padding:24px 14px 60px}.head{padding:20px 17px}.toc ol{columns:1;padding-left:0;list-style-position:inside}.docs{grid-template-columns:1fr}.tl{flex-direction:column}.doc dl{grid-template-columns:1fr}}@media print{:root{--bg:#fff;--s:#fff;--c:#fff;--b:#999;--x:#111;--m:#333;--v:#222;--u:#222;--t:#222;--a:#222}nav{position:static}.sn{display:none}main{max-width:none;padding:10mm}.doc,.ref,.tl,details{break-inside:avoid}details>.answer{display:block!important}}
+
+body {max-width:100%; overflow-x:hidden; overflow-wrap:anywhere;} main{max-width:960px;margin:auto} .base-text{max-width:72ch} .base-subsection{margin-bottom:24px} table{width:100%;border-collapse:collapse}th,td{padding:8px;border:1px solid var(--border);overflow-wrap:anywhere} .table-wrap,.table-region{overflow-x:auto;max-width:100%} .teacher-guidance{margin-top:20px;padding:16px;border:1px solid var(--border)} summary{cursor:pointer;font-weight:bold} .skip{position:absolute;left:-9999px}.skip:focus{left:12px;top:12px;z-index:300;background:var(--bg);padding:10px} a{overflow-wrap:anywhere} @media(max-width:640px){nav{position:static;flex-wrap:wrap;height:auto;padding:12px}.nav-center{display:none}.section-nav{position:static;flex-wrap:wrap}main{padding:20px 14px}.tl-item{flex-direction:column}.aula-header{padding:20px 14px}} @media print{nav,.section-nav,.skip{display:none!important}body,main,section,.aula-header,.activity-card,.pause-box,details{background:white!important;color:black!important}*{color:inherit!important;text-shadow:none!important;box-shadow:none!important}main{max-width:none;padding:0}.base-text{max-width:none}h1,h2,h3,summary{break-after:avoid}p{orphans:3;widows:3}table{font-size:9pt}.teacher-guidance{break-inside:auto}}
+</style></head><body>
+<a class="skip" href="#objetivos">Pular para o conteúdo</a>
+<nav aria-label="Navegação entre aulas"><div class="nav-left"><a href="../../index.html">Voltar ao curso</a></div><span class="nav-center">Encontro 11 de 15 · Aula 43 de 60</span><div class="nav-right"><a href="aula-42.html">← Aula anterior</a><a href="aula-44.html">Próxima aula →</a></div></nav>
+<div class="section-nav" aria-label="Seções"><a href="#objetivos">Objetivos</a><a href="#texto-base">Texto-base</a><a href="#plano-aula">Plano</a><a href="#atividade">Discussão</a><a href="#sintese">Síntese</a><a href="#leituras">Referências</a></div>
+<main><header class="aula-header"><div class="header-meta"><span class="meta-chip">Encontro <strong>11</strong> de 15 — 18/11/2026, quarta-feira</span><span class="meta-chip">Aula <strong>43</strong> de 60</span><span class="meta-chip">3ª aula do encontro</span><span class="meta-chip">Aproximadamente 1 hora-aula</span></div><h1>Escola: funções, desigualdade e reprodução social</h1><p>Introdução à Sociologia · T01 · 2026.2 · Código 2101000 · SIGAA 4M1234</p></header>
+<section id="objetivos"><h2>Objetivos</h2><ul class="obj-list"><li>Distinguir objetivos declarados e consequências observadas.</li><li>Explicar mecanismos de reprodução sem determinismo.</li><li>Reconhecer práticas de transformação e contestação.</li></ul></section>
+<section id="texto-base" aria-labelledby="texto-base-title"><h2 id="texto-base-title">Texto-base</h2><div class="base-text"><p class="base-intro">Uma prova igual para todos garante condições equivalentes? Vamos relacionar objetivos escolares, recursos e efeitos.</p><div class="sub base-subsection" id="a43-conceito-1">
+<h3>1. Instituições, organizações e práticas</h3>
+<p>Instituição é conjunto relativamente duradouro de normas, posições, práticas e expectativas que organiza uma área da vida coletiva. Organização é unidade concreta com membros, recursos, procedimentos e fronteiras: uma escola municipal, uma associação religiosa ou uma secretaria. A organização participa de instituições mais amplas e pode interpretar suas regras de maneira própria.</p>
+<p>Prédio não é instituição. O edifício escolar oferece condições materiais, mas educação inclui currículos, credenciais, papéis e direitos que atravessam muitas organizações. Estado tampouco é o palácio administrativo, e religião não se reduz a templo. Objetos e espaços importam porque viabilizam práticas, não porque contenham a instituição.</p>
+<p>A distinção permite mudar de escala. Podemos observar decisão numa organização e perguntar como se conecta a legislação, repertórios profissionais e distribuição de recursos. Não devemos atribuir automaticamente a toda instituição aquilo que ocorre num caso. Organizações divergem, abrigam setores e disputas, e implementam padrões de modo desigual.</p>
+<p>Escola, religião e Estado se relacionam: políticas regulam ensino, organizações religiosas prestam assistência, escolas respondem a direitos. Relação não significa integração harmoniosa. Competências se sobrepõem, objetivos conflitam e atores negociam fronteiras.</p>
+<aside class="pause">
+<h4>Pausa 1 — Distinguir instituição e organização</h4>
+<p>Uma escola altera seu regulamento. O que pertence à organização concreta e o que exige investigar a instituição educacional mais ampla?</p>
+</aside>
+</div><div class="sub base-subsection" id="a43-conceito-2">
+<h3>2. Funções manifestas, latentes e consequências não pretendidas</h3>
+<p>Na formulação de Robert K. Merton, funções manifestas são consequências reconhecidas e pretendidas pelos participantes relevantes; latentes são consequências não reconhecidas ou não pretendidas. “Latente” não significa plano secreto. Um programa declara oferecer certificado e, sem planejar, cria redes profissionais: a certificação pode ser manifesta; a rede, hipótese de consequência latente.</p>
+<p>Intenção e consequência precisam ser separadas. Objetivo declarado pode não ocorrer; efeito observado pode resultar de outro processo. Antes de chamá-lo função, verificamos se contribui para manutenção ou adaptação de algum arranjo e para quem. Nem toda consequência não prevista é funcional. Pode ser irrelevante, contraditória ou <strong>disfuncional</strong> para determinados grupos.</p>
+<p>Uma prática beneficia uns e prejudica outros. Seleção escolar organiza vagas, mas pode ampliar barreiras; assistência gera apoio e também sobrecarga voluntária; cadastro estatal padroniza acesso e exclui quem não possui documento. “Para a sociedade” esconde posições. A unidade afetada deve ser indicada.</p>
+<p>A análise funcional descreve consequências, não aprova moralmente a instituição nem explica sozinha sua origem. Poder, conflito e história continuam necessários. Uma consequência persistente pode ser contestada e transformada.</p>
+<aside class="pause">
+<h4>Pausa 2 — Consequência pretendida e efeito não previsto</h4>
+<p>Um curso pretende certificar e também cria amizades duradouras. O que sabemos sobre intenção, o que observamos como efeito e o que falta para falar em função latente?</p>
+</aside>
+</div><div class="sub base-subsection" id="a43-conceito-3">
+<h3>3. Escola: socialização, conhecimento e certificação</h3>
+<p>A escola organiza tempos, espaços, posições e práticas de aprendizagem. Socializa ao ensinar convivência, linguagem acadêmica, cooperação e relação com autoridade. Transmite conhecimentos selecionados e oferece meios para produzi-los. Certifica percursos por notas, diplomas e históricos; seleciona ao distribuir turmas, oportunidades e acesso a etapas seguintes.</p>
+<p>Essas dimensões não são neutras nem necessariamente negativas. Currículo resulta de decisões sobre saberes considerados relevantes. Avaliações podem orientar aprendizagem, certificar domínio ou ordenar candidatos. Para compreender efeitos, examinamos critérios, recursos pedagógicos, oportunidade de aprender e possibilidade de revisão.</p>
+<p>A instituição educacional inclui legislação, famílias, profissões, editoras e políticas, não apenas escola. Docentes interpretam currículos; estudantes formam coletivos; gestores alocam recursos. A mesma regra produz práticas distintas conforme infraestrutura, formação e território.</p>
+<p>Credencial não equivale ao conhecimento, embora possa reconhecê-lo e abrir direitos. Seu valor depende de convenções e mercados. Comparar resultados exige não reduzir aprendizagem à nota nem supor que certificado seja apenas formalidade.</p>
+</div><div class="sub base-subsection" id="a43-conceito-4">
+<h3>4. Escola: desigualdade, reprodução e contestação</h3>
+<p>Estudantes chegam à escola com recursos desiguais: tempo, renda, transporte, tecnologias e familiaridade com linguagens valorizadas. Currículo, avaliação e credenciais podem converter diferenças anteriores em resultados escolares, sobretudo quando tratam condições desiguais como se fossem equivalentes.</p>
+<p>Em paráfrase didática de Bourdieu e Passeron, reprodução chama atenção para mecanismos pelos quais o sistema de ensino pode legitimar desigualdades ao reconhecer como mérito disposições socialmente distribuídas. Isso não significa conspiração nem destino inevitável. É hipótese sobre relações entre origem, cultura escolar, avaliação e trajetória.</p>
+<p>Escolas também ampliam repertórios, redistribuem conhecimento e abrem mobilidade. Estudantes, docentes e movimentos contestam currículos, criam apoio, modificam avaliação e reivindicam permanência. Efeitos reprodutivos e transformadores podem coexistir. Para medir cada um, precisamos de comparação histórica e entre grupos.</p>
+<p>Associação entre posição social e desempenho não prova causa única. Condições escolares, discriminação, expectativas, políticas e respostas estudantis interagem. Explicar exige mecanismo e evidência, não etiqueta.</p>
+<aside class="pause">
+<h4>Pausa 3 — Reprodução escolar sem determinismo</h4>
+<p>Que evidências mostrariam reprodução de desigualdade e quais mostrariam contestação ou mudança, sem prever a trajetória de cada estudante?</p>
+</aside>
+</div></div></section>
+<section id="plano-aula"><h2>Percurso da hora-aula</h2><div class="timeline"><div class="tl-item"><span class="tl-duration">10 min</span><span class="tl-text">Uma prova igual para todos garante condições equivalentes? Vamos relacionar objetivos escolares, recursos e efeitos.</span></div><div class="tl-item"><span class="tl-duration">25 min</span><span class="tl-text">Leitura dialogada e desenvolvimento dos conceitos desta unidade.</span></div><div class="tl-item"><span class="tl-duration">20 min</span><span class="tl-text">Discussão e elaboração do registro proposto; comparação das justificativas com mediação docente.</span></div><div class="tl-item"><span class="tl-duration">5 min</span><span class="tl-text">Síntese e transição: A Aula 44 ampliará a comparação para religião e Estado.</span></div></div></section>
+<section id="atividade"><h2>Discussão e registro</h2><div class="activity-card" data-gabarito="obrigatorio"><p>Uma universidade oferece curso gratuito noturno, mas a avaliação exige computador próprio e ocorre à tarde. Compare objetivo declarado e barreiras possíveis. Que dados seriam necessários para mostrar um efeito desigual e que mudança poderia ser avaliada?</p><details class="teacher-guidance"><summary>Orientação docente e resposta comentada</summary><p>O objetivo de ampliar acesso convive com requisitos que podem criar barreiras de horário e equipamento. O enunciado permite identificar uma incompatibilidade possível, mas não medir seu efeito nem atribuir intenção discriminatória aos organizadores. Seriam úteis registros de presença, condições de acesso, motivos de ausência e comparação entre grupos. A gratuidade da matrícula não elimina todos os custos de participação. A análise deve localizar como um requisito converte recursos desiguais em oportunidades diferentes.</p><p>Uma alternativa seria disponibilizar equipamentos e oferecer horários compatíveis, acompanhando os resultados. Não basta presumir que a mudança funcionará para todos: transporte, cuidado e acessibilidade também podem interferir. Corrija interpretações que tratem origem social como destino escolar ou que chamem qualquer consequência inesperada de função latente. A função precisa ser situada no arranjo e em seus efeitos. Solicite uma hipótese alternativa e um indicador de acompanhamento. A resposta deve articular regras, recursos, trajetórias e agência, sem responsabilizar estudantes individualmente pela organização institucional.</p></details></div></section>
+<section id="sintese"><h2>Síntese e continuidade</h2><p>Certificação, aprendizagem e seleção são dimensões distintas. Desigualdades escolares exigem mecanismos e evidências; não decorrem automaticamente de mérito ou origem social.</p><p>A Aula 44 ampliará a comparação para religião e Estado.</p></section><section id="leituras">
+<div class="st">Referências</div>
+<div class="ref">
+<strong>MERTON, Robert K.</strong> Social Theory and Social Structure. New York: Free Press, 1968.<p>Base para funções manifestas, latentes e disfunções; paráfrases didáticas.</p>
+</div>
+<div class="ref">
+<strong>BOURDIEU, Pierre; PASSERON, Jean-Claude.</strong> La reproduction: éléments pour une théorie du système d'enseignement. Paris: Minuit, 1970.<p>Base para reprodução no ensino; sem paginação ou tradução presumida.</p>
+</div>
+<div class="ref">
+<strong>WEBER, Max.</strong> Economy and Society: An Outline of Interpretive Sociology. Berkeley: University of California Press, 1978.<p>Base para Estado e legitimidade; paráfrases didáticas.</p>
+</div>
+</section>
+</main><footer>Introdução à Sociologia · T01 · 2026.2 · <a href="../../index.html">Voltar ao curso</a></footer></body></html>

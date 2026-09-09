@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Aula 40 — Desvio, etiquetamento e a seletividade do controle social · 2026.2</title><style>
+  :root {
+    --bg: #0a0a0f; --surface: #12121c; --card: #1a1a2e; --border: #2a2a4a;
+    --purple: #7c3aed; --purple-lt: #a855f7; --blue: #4f46e5; --blue-lt: #818cf8;
+    --teal-lt: #2dd4bf; --amber-lt: #fbbf24; --rose-lt: #fb7185;
+    --text: #e2e8f0; --muted: #94a3b8; --radius: 12px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { max-width: 100%; overflow-x: clip; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; min-height: 100vh; overflow-wrap: anywhere; }
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(18,18,28,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; white-space: nowrap; }
+  nav a:hover { color: var(--text); }
+  .nav-left { display: flex; align-items: center; gap: 10px; }
+  .nav-badge { background: var(--purple); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+  .nav-center { font-size: 0.875rem; color: var(--muted); }
+  .nav-right { display: flex; gap: 16px; align-items: center; }
+  main { max-width: 860px; margin: 0 auto; padding: 40px 24px 80px; }
+  .aula-header { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; margin-bottom: 32px; border-top: 4px solid var(--blue); }
+  .header-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; align-items: center; }
+  .bloco-badge { background: var(--blue); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .meta-chip { background: var(--surface); border: 1px solid var(--border); font-size: 0.8rem; color: var(--muted); padding: 4px 12px; border-radius: 20px; }
+  .meta-chip strong { color: var(--text); }
+  .aula-header h1 { font-size: 1.5rem; font-weight: 700; line-height: 1.3; color: var(--text); }
+  section { margin-bottom: 32px; scroll-margin-top: 112px; }
+  .section-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue-lt); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+  .obj-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .obj-list li { display: flex; gap: 12px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
+  .obj-list li::before { content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--blue-lt); margin-top: 7px; flex-shrink: 0; }
+  .content-topic { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 12px; }
+  .content-topic h3 { font-size: 0.95rem; font-weight: 600; color: var(--purple-lt); margin-bottom: 8px; }
+  .content-topic ul { list-style: none; padding: 0; }
+  .content-topic ul li { padding: 4px 0 4px 16px; position: relative; color: var(--muted); font-size: 0.9rem; }
+  .content-topic ul li::before { content: '—'; position: absolute; left: 0; color: var(--border); }
+  .timeline { display: flex; flex-direction: column; gap: 10px; }
+  .tl-item { display: flex; gap: 16px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; border-left: 3px solid var(--blue); }
+  .tl-duration { background: var(--surface); border: 1px solid var(--border); color: var(--amber-lt); font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+  .tl-text { font-size: 0.9rem; color: var(--text); }
+  .ref-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 10px; border-left: 3px solid var(--blue-lt); }
+  .ref-author { font-size: 0.8rem; font-weight: 700; color: var(--blue-lt); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+  .ref-title { font-size: 0.9rem; color: var(--text); }
+  .ref-pages { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
+  .activity-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; font-size: 0.9rem; line-height: 1.7; border-left: 3px solid var(--teal-lt); }
+  .teacher-guidance { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-top: 18px; }
+  .teacher-guidance summary { cursor: pointer; color: var(--amber-lt); font-weight: 700; padding: 15px 17px; }
+  .teacher-guidance[open] summary { border-bottom: 1px solid var(--border); }
+  .teacher-guidance-content { padding: 16px 18px; }
+  .resources-list { display: flex; flex-wrap: wrap; gap: 10px; }
+  .res-tag { max-width: 100%; min-width: 0; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; }
+  footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--muted); font-size: 0.85rem; }
+  footer a { color: var(--purple-lt); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .section-nav { position: sticky; top: 56px; z-index: 90; background: rgba(10,10,15,.97); border-bottom: 1px solid var(--border); padding: 8px 16px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: thin; }
+  .section-nav a { flex: 0 0 auto; min-height: 36px; display: inline-flex; align-items: center; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 5px 12px; text-decoration: none; font-size: .8rem; }
+  .base-text { max-width: 72ch; margin-inline: auto; }
+  .base-intro { color: var(--muted); font-size: .92rem; margin-bottom: 16px; }
+  .base-subsection { scroll-margin-top: 112px; margin-bottom: 28px; }
+  .base-subsection h3 { color: var(--blue-lt); font-size: 1.15rem; line-height: 1.35; margin-bottom: 12px; }
+  .base-subsection p { color: var(--text); margin-bottom: 14px; line-height: 1.78; }
+  .base-subsection strong { color: #f1f5f9; }
+  .pause-box { background: rgba(79,70,229,.1); border: 1px solid rgba(129,140,248,.4); border-left: 4px solid var(--blue-lt); border-radius: var(--radius); padding: 16px 18px; margin: 22px 0; }
+  .pause-box h4 { color: var(--amber-lt); font-size: .75rem; letter-spacing: .09em; text-transform: uppercase; margin-bottom: 6px; }
+  .pause-box p { margin: 0; color: var(--text); font-weight: 600; line-height: 1.6; }
+  a:focus-visible { outline: 3px solid var(--amber-lt); outline-offset: 3px; border-radius: 3px; }
+  @media (max-width: 640px) {
+    nav { height: auto; min-height: 56px; padding: 8px 12px; flex-wrap: wrap; }
+    .nav-left, .nav-right { min-width: 0; }
+    .nav-center { display: none; }
+    .nav-right { gap: 10px; }
+    .section-nav { top: 72px; padding-inline: 10px; }
+    main { padding: 24px 14px 60px; }
+    .aula-header { padding: 22px 18px; }
+    .tl-item { flex-direction: column; gap: 8px; }
+  }
+  @media print { .teacher-guidance { break-inside: avoid; } }
+
+
+:root{--bg:#0a0a0f;--surface:#12121c;--card:#1a1a2e;--border:#2a2a4a;--sky:#38bdf8;--blue:#818cf8;--teal:#2dd4bf;--amber:#fbbf24;--text:#e2e8f0;--muted:#94a3b8;--r:12px}*{box-sizing:border-box;margin:0;padding:0}html,body{max-width:100%;overflow-x:clip}body{background:var(--bg);color:var(--text);font:16px/1.65 "Segoe UI",system-ui,sans-serif;overflow-wrap:anywhere}nav{position:sticky;top:0;z-index:10;height:56px;padding:0 24px;background:#12121cf2;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:14px}nav a{color:var(--muted);text-decoration:none;white-space:nowrap}.nav-left,.nav-right{display:flex;gap:12px;align-items:center}.badge{background:var(--sky);color:#080810;padding:3px 10px;border-radius:20px;font-size:.75rem;font-weight:700}.section-nav{top:56px;z-index:9;height:auto;padding:8px 16px;justify-content:flex-start;overflow-x:auto}.section-nav a,.chip{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:4px 11px;font-size:.8rem}main{max-width:860px;margin:auto;padding:40px 24px 80px}section{margin-bottom:32px;scroll-margin-top:110px}.header,.topic,.tl,.ref,.activity{background:var(--card);border:1px solid var(--border);border-radius:var(--r)}.header{border-top:4px solid var(--sky);padding:32px;margin-bottom:32px}.meta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:15px}.block{background:var(--sky);color:#080810;font-weight:700;text-transform:uppercase}.header h1{font-size:1.5rem}.st{color:var(--sky);font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border-bottom:1px solid var(--border);padding-bottom:8px;margin-bottom:16px}.objs{list-style:none;display:grid;gap:10px}.objs li,.topic{padding:14px 18px}.objs li{background:var(--card);border:1px solid var(--border);border-radius:var(--r)}.topic{margin-bottom:12px}.topic h3,.base h3{color:var(--blue);margin-bottom:8px}.topic ul{padding-left:20px;color:var(--muted)}.base{max-width:72ch;margin:auto}.intro{color:var(--muted)}.toc{position:static;height:auto;display:block;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:18px 22px;margin:18px 0 28px}.toc ol{columns:2;padding-left:22px}.toc a{color:var(--text);white-space:normal}.sub{margin-bottom:28px;scroll-margin-top:110px}.sub p{margin-bottom:14px}.pause{background:#4f46e51a;border:1px solid #818cf866;border-left:4px solid var(--blue);border-radius:var(--r);padding:15px 18px;margin:20px 0}.pause h4{color:var(--amber);text-transform:uppercase;font-size:.76rem}.timeline{display:grid;gap:10px}.tl{padding:14px 18px;border-left:3px solid var(--sky);display:flex;gap:14px}.time{color:var(--amber);font-weight:700;white-space:nowrap}.ref{padding:15px 18px;margin-bottom:10px;border-left:3px solid var(--blue)}.ref strong{color:var(--blue)}.activity{padding:20px;border-left:3px solid var(--teal)}.activity h3,.activity h4{color:var(--teal);margin:14px 0 7px}.activity ol,.activity ul{padding-left:22px}.cases{display:grid;grid-template-columns:1fr 1fr;gap:10px}.case,.questions,details{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:13px}.case h4{margin:0;color:var(--amber)}.case dl{display:grid;grid-template-columns:auto 1fr;gap:3px 8px}.case dt{font-weight:700;color:var(--muted)}.questions{padding-left:34px!important}details{margin-top:18px}summary{cursor:pointer;color:var(--amber);font-weight:700}.answer{padding-top:10px}.answer h4{color:var(--teal)}.resources{display:flex;flex-wrap:wrap;gap:8px}footer{text-align:center;border-top:1px solid var(--border);padding:28px;color:var(--muted)}footer a{color:var(--sky)}a:focus-visible,summary:focus-visible{outline:3px solid var(--amber)}@media(max-width:640px){nav{height:auto;min-height:56px;padding:8px 12px;flex-wrap:wrap}.nav-center{display:none}.section-nav{top:72px;flex-wrap:nowrap}main{padding:24px 14px 60px}.header{padding:20px 17px}.toc ol{columns:1;padding-left:0;list-style-position:inside}.cases{grid-template-columns:1fr}.tl{flex-direction:column;gap:3px}.case dl{grid-template-columns:1fr}}@media print{:root{--bg:#fff;--surface:#fff;--card:#fff;--border:#999;--text:#111;--muted:#333;--sky:#222;--blue:#222;--teal:#222;--amber:#222}nav{position:static}.section-nav{display:none}main{max-width:none;padding:10mm}.case,.ref,.tl,details{break-inside:avoid}details>.answer{display:block!important}}
+
+body {max-width:100%; overflow-x:hidden; overflow-wrap:anywhere;} main{max-width:960px;margin:auto} .base-text{max-width:72ch} .base-subsection{margin-bottom:24px} table{width:100%;border-collapse:collapse}th,td{padding:8px;border:1px solid var(--border);overflow-wrap:anywhere} .table-wrap,.table-region{overflow-x:auto;max-width:100%} .teacher-guidance{margin-top:20px;padding:16px;border:1px solid var(--border)} summary{cursor:pointer;font-weight:bold} .skip{position:absolute;left:-9999px}.skip:focus{left:12px;top:12px;z-index:300;background:var(--bg);padding:10px} a{overflow-wrap:anywhere} @media(max-width:640px){nav{position:static;flex-wrap:wrap;height:auto;padding:12px}.nav-center{display:none}.section-nav{position:static;flex-wrap:wrap}main{padding:20px 14px}.tl-item{flex-direction:column}.aula-header{padding:20px 14px}} @media print{nav,.section-nav,.skip{display:none!important}body,main,section,.aula-header,.activity-card,.pause-box,details{background:white!important;color:black!important}*{color:inherit!important;text-shadow:none!important;box-shadow:none!important}main{max-width:none;padding:0}.base-text{max-width:none}h1,h2,h3,summary{break-after:avoid}p{orphans:3;widows:3}table{font-size:9pt}.teacher-guidance{break-inside:auto}}
+</style></head><body>
+<a class="skip" href="#objetivos">Pular para o conteúdo</a>
+<nav aria-label="Navegação entre aulas"><div class="nav-left"><a href="../../index.html">Voltar ao curso</a></div><span class="nav-center">Encontro 10 de 15 · Aula 40 de 60</span><div class="nav-right"><a href="aula-39.html">← Aula anterior</a><a href="aula-41.html">Próxima aula →</a></div></nav>
+<div class="section-nav" aria-label="Seções"><a href="#objetivos">Objetivos</a><a href="#texto-base">Texto-base</a><a href="#plano-aula">Plano</a><a href="#atividade">Discussão</a><a href="#sintese">Síntese</a><a href="#leituras">Referências</a></div>
+<main><header class="aula-header"><div class="header-meta"><span class="meta-chip">Encontro <strong>10</strong> de 15 — 11/11/2026, quarta-feira</span><span class="meta-chip">Aula <strong>40</strong> de 60</span><span class="meta-chip">4ª aula do encontro</span><span class="meta-chip">Aproximadamente 1 hora-aula</span></div><h1>Desvio, etiquetamento e a seletividade do controle social</h1><p>Introdução à Sociologia · T01 · 2026.2 · Código 2101000 · SIGAA 4M1234</p></header>
+<section id="objetivos"><h2>Objetivos</h2><ul class="obj-list"><li>Analisar desvio como relação entre conduta, norma e reação.</li><li>Explicar efeitos do etiquetamento sem determinismo.</li><li>Comparar aplicação de regras e possibilidades de recurso.</li></ul></section>
+<section id="texto-base" aria-labelledby="texto-base-title"><h2 id="texto-base-title">Texto-base</h2><div class="base-text"><p class="base-intro">Dois atrasos semelhantes recebem reações diferentes. Como demonstrar seletividade sem tomar reputação como prova?</p><div class="sub base-subsection" id="a40-conceito-1">
+<h3>1. Desvio como relação social</h3>
+<p>Em Sociologia, <strong>desvio</strong> não é qualidade natural de uma pessoa nem essência contida num ato. Designa uma relação: uma conduta é interpretada perante uma regra, por determinado público, num contexto, e recebe alguma reação. Isso não significa que todas as condutas sejam equivalentes, mas que “desviante” não explica sozinho o que aconteceu.</p>
+<p>Desvio não é automaticamente crime, doença ou imoralidade. Crime depende de classificação jurídica; doença, de critérios e práticas de saúde; imoralidade, de avaliação normativa. As categorias podem sobrepor-se em certos contextos e separar-se em outros. Uma infração administrativa pode ser ilícita sem forte reprovação; uma quebra de etiqueta pode ser reprovada sem constituir crime.</p>
+<p>Convém distinguir a <strong>conduta e seus possíveis danos</strong> do processo de classificação. Investigar quem nomeou uma ação e como a reação ocorreu não nega prejuízos, responsabilidades ou direitos. Da mesma forma, reconhecer dano não torna dispensável examinar prova, contexto, proporcionalidade e tratamento comparável. Explicação sociológica e avaliação moral são planos relacionados, mas não idênticos.</p>
+<p>A classificação varia histórica e socialmente, bem como entre públicos simultâneos. Um grupo elogia o que outro critica. A mesma ação recebe reação distinta conforme momento, lugar ou autoria atribuída. Portanto, a unidade de análise não é “a pessoa desviante”, mas o encadeamento entre conduta observável, regra alegada, agentes de definição e aplicação, reação e consequências.</p>
+<aside class="pause">
+<h4>Pausa 3 — Aplicação seletiva de uma norma</h4>
+<p>Se atrasos semelhantes recebem respostas diferentes conforme quem chegou, quais evidências permitiriam identificar seletividade sem tomar reputação como prova?</p>
+</aside>
+</div><div class="sub base-subsection" id="a40-conceito-2">
+<h3>2. Quem define e aplica as regras</h3>
+<p>Comparar aplicações requer manter constantes aspectos relevantes. Dois atrasos de oito minutos parecem semelhantes, mas podem ocorrer em atividades distintas ou ter justificativas diferentes; por outro lado, invocar diferenças vagas pode apenas proteger favoritismo. A análise explicita quais características foram consideradas, quem decidiu que eram pertinentes e se o mesmo critério foi usado nos casos comparados. Registros seriados são mais fortes que lembranças seletivas.</p>
+<p>Classe, raça, gênero, geração e território não funcionam como rótulos explicativos automáticos. São relações e posições que podem organizar exposição, suspeita, credibilidade e acesso a recurso. Para demonstrar esse efeito, buscamos padrões, mecanismos e contexto institucional. A formulação evita tanto ignorar desigualdades quanto presumir, sem evidência, a motivação de cada agente.</p>
+<p>Regras não aparecem sem autores, arenas e procedimentos. Integrantes propõem costumes; direções publicam regulamentos; legislativos aprovam leis; profissionais interpretam códigos. Definir, interpretar e aplicar podem caber a agentes diferentes. Mapear essas posições mostra onde existem recursos para tornar uma leitura obrigatória e onde ela pode ser contestada.</p>
+<p>Grupos com mais poder econômico, político, cultural ou institucional costumam ter maior capacidade de formular problemas, difundir categorias e fazer interpretações prevalecerem. Isso não implica poder total nem acordo interno. Instituições abrigam disputas, agentes têm competências limitadas e grupos menos poderosos organizam resistência. O objetivo é investigar relações, não substituir uma causa individual por uma entidade onipotente.</p>
+<p>A aplicação pode ser <strong>seletiva</strong>. Regras aparentemente gerais podem alcançar pessoas de modo desigual conforme classe, raça, gênero, geração, território ou posição institucional. Seletividade deve ser demonstrada: comparamos condutas relevantes semelhantes, reações, frequência de fiscalização, justificativas e possibilidade de recurso. Diferença de resultado não prova sozinha discriminação, mas é indício que orienta perguntas.</p>
+<p>Também precisamos examinar intersecções. Uma mesma pessoa ocupa posições combinadas, e grupos não são homogêneos. Dados agregados ajudam a identificar padrões; documentos mostram critérios; observação revela práticas; relatos esclarecem sentidos. Nenhuma evidência isolada autoriza culpabilizar indivíduos ou explicar toda desigualdade.</p>
+</div><div class="sub base-subsection" id="a40-conceito-3">
+<h3>3. Etiquetamento, reputação e trajetórias</h3>
+<p>A abordagem do <strong>etiquetamento</strong>, associada entre outros a Howard S. Becker, desloca a pergunta de “que tipo de pessoa faz isso?” para “como regras e rótulos são produzidos e aplicados?”. Em paráfrase didática, seu foco está nos processos de definição e reação, não numa essência do sujeito. Um rótulo resume informações, atribui identidade e pode orientar interações posteriores.</p>
+<p>Rótulo e reputação não são prova da conduta. Uma reputação anterior pode fazer observadores interpretar episódio ambíguo de modo mais severo, enquanto boa reputação produz benefício da dúvida. Depois de aplicado, o rótulo pode alterar vigilância, confiança, acesso a oportunidades e redes de convivência. Esses mecanismos ajudam a explicar por que reações sociais integram a trajetória.</p>
+<p>Não há determinismo. Pessoas aceitam, recusam, negociam, ressignificam ou conseguem rever classificações. Apoio coletivo, recursos jurídicos, mudança de contexto e novas evidências podem alterar consequências. Outras vezes, barreiras tornam o rótulo persistente. A tarefa é especificar mecanismos e condições, não anunciar que uma palavra decide o futuro.</p>
+<p>Etiquetamento tampouco é causa única de qualquer comportamento posterior. Ele ilumina seleção, reação, identidade pública e oportunidades, mas pode dizer pouco sobre a origem de uma conduta, seus danos ou processos materiais mais amplos. Para essas perguntas, outras explicações e evidências são necessárias.</p>
+<aside class="pause">
+<h4>Pausa 4 — Rótulo, reputação e possibilidade de revisão</h4>
+<p>Uma postagem recortada gera o rótulo de “desleal”. Que efeitos são possíveis, o que impediria tratá-los como destino e quais procedimentos permitiriam rever a classificação?</p>
+</aside>
+</div><div class="sub base-subsection" id="a40-conceito-4">
+<h3>4. Contestação, mudança normativa e limites da abordagem</h3>
+<p>Há diferença entre pedir exceção, reinterpretar uma regra e contestar sua legitimidade. A exceção mantém o padrão e solicita tratamento particular; a reinterpretação disputa seu alcance; a contestação questiona o próprio critério ou a autoridade que o sustenta. Na prática, movimentos podem combinar as três operações. Distingui-las ajuda a observar se uma resposta modifica apenas um caso ou abre mudança coletiva.</p>
+<p>Uma abordagem relacional também deve evitar o extremo de supor que nada existe antes da reação. Condutas têm condições de produção, sentidos para quem age e consequências materiais que não se esgotam no rótulo. O etiquetamento seleciona um problema decisivo — como a reação participa do fenômeno — e ganha precisão quando dialoga com explicações adequadas às demais dimensões.</p>
+<p>Normas mudam quando práticas se transformam, interpretações entram em disputa, novos grupos conquistam voz ou instituições revisam procedimentos. Contestação pode ocorrer por conversa cotidiana, recurso formal, mobilização coletiva, produção de conhecimento ou criação de alternativas. Nem toda transgressão contesta conscientemente uma regra, e nem toda contestação produz mudança.</p>
+<p>Para compreender mudança, perguntamos quem organizou demandas, quais alianças e recursos foram mobilizados, que argumentos circularam e que condições institucionais abriram ou fecharam oportunidades. Evitamos narrativas em que “a sociedade percebeu” algo de uma vez. Mudanças são desiguais, incompletas e podem conviver com práticas antigas.</p>
+<p>A teoria do etiquetamento tem alcance definido. É forte para estudar criação de regras, aplicação seletiva, reputação e efeitos das reações. Não explica sozinha por que toda transgressão ocorre, quanto dano uma conduta causa ou como se distribuem recursos econômicos. Complementá-la não a invalida; impede usá-la como fórmula universal.</p>
+<p>Compreender a produção social do desvio não significa negar responsabilidade. Significa evitar que rótulo substitua investigação e que avaliação seja apresentada como descrição neutra. Direitos, danos e deveres podem ser discutidos com clareza enquanto se examinam proporcionalidade, evidências e possibilidades de revisão.</p>
+</div><div class="sub base-subsection" id="a40-conceito-5">
+<h3>5. Síntese e passagem à Aula 41</h3>
+<p>O percurso começou nas expectativas dos grupos da Aula 37. Norma foi definida como expectativa socialmente sustentada; normas formais, informais e contextuais foram diferenciadas. Sanções apareceram como reações positivas ou negativas, formais ou informais. Controle social incluiu mecanismos difusos e institucionais, sem reduzir conformidade à ausência de interpretação.</p>
+<p>Em seguida, desvio foi tratado como relação entre conduta, regra, público, contexto e reação. Diferenciamos classificação, dano, crime, doença e avaliação moral. A análise da definição e da aplicação mostrou que poder e condições materiais importam e que seletividade requer comparação sistemática, inclusive quando classe, raça, gênero, geração, território e posição institucional organizam diferenças.</p>
+<p>Por fim, o etiquetamento permitiu examinar produção de rótulos, reputações, vigilância e oportunidades. Seus efeitos são possíveis, não destinos: respostas do sujeito, apoio, recursos e mudança contextual interferem. A abordagem esclarece reações sociais, mas não substitui teorias sobre origem das condutas, danos ou desigualdade material.</p>
+<p>O roteiro analítico que levamos adiante é: descrever a conduta sem julgamento; identificar norma e contexto; localizar quem define, interpreta e aplica; reconhecer sanções; comparar casos semelhantes; examinar rótulos e efeitos; observar aceitação, negociação ou contestação; indicar evidências ausentes. Essa sequência evita culpabilização automática e também evita concluir, sem prova, que toda regra é injusta.</p>
+<p>A <strong>Aula 41 — Instituições sociais e família</strong> mudará a escala. Investigará como instituições organizam práticas, posições e continuidade histórica, tomando a família em sua diversidade. O que aprendemos aqui ajudará a perguntar como regras se estabilizam institucionalmente e como são vividas, negociadas e transformadas, sem reduzir uma instituição à soma de normas nem antecipar suas análises específicas.</p>
+</div></div></section>
+<section id="plano-aula"><h2>Percurso da hora-aula</h2><div class="timeline"><div class="tl-item"><span class="tl-duration">5 min</span><span class="tl-text">Dois atrasos semelhantes recebem reações diferentes. Como demonstrar seletividade sem tomar reputação como prova?</span></div><div class="tl-item"><span class="tl-duration">15 min</span><span class="tl-text">Leitura dialogada e desenvolvimento dos conceitos desta unidade.</span></div><div class="tl-item"><span class="tl-duration">35 min</span><span class="tl-text">Discussão e elaboração do registro proposto; comparação das justificativas com mediação docente.</span></div><div class="tl-item"><span class="tl-duration">5 min</span><span class="tl-text">Síntese e transição: A Aula 41 amplia a escala para instituições e para a organização das relações familiares.</span></div></div></section>
+<section id="atividade">
+<div class="st">Atividade em Sala</div>
+<div class="activity">
+<h3>Oficina — quem definiu a regra e como ela foi aplicada?</h3>
+<p>
+<strong>Finalidade:</strong> analisar seis situações fictícias, separando conduta, norma, agente, sanção, comparação, reação, rótulo e lacunas de evidência.</p>
+<h4>Organização e tempos (35 minutos)</h4>
+<ol>
+<li>3 min: grupos de 4 ou 5; distribuir leitura, registro, tempo e apresentação.</li>
+<li>8 min: ler os seis casos e marcar os oito campos.</li>
+<li>17 min: responder às oito perguntas numa matriz comparativa.</li>
+<li>7 min: selecionar uma comparação e uma interpretação alternativa.</li>
+</ol>
+<h4>Seis casos completos</h4>
+<div class="cases">
+<article class="case" id="caso-1">
+<h4>1 — Mensagens fora do horário</h4>
+<dl>
+<dt>Conduta</dt>
+<dd>Ravi envia três mensagens às 22h, sem exigir resposta.</dd>
+<dt>Norma alegada</dt>
+<dd>“Assuntos do trabalho só no expediente”, costume não escrito.</dd>
+<dt>Agente</dt>
+<dd>A coordenadora lembra a expectativa no grupo.</dd>
+<dt>Sanção possível</dt>
+<dd>Crítica informal; elogio futuro a quem respeitar horários.</dd>
+<dt>Contexto</dt>
+<dd>Equipe híbrida com jornadas diferentes.</dd>
+<dt>Comparação</dt>
+<dd>Na semana anterior, a coordenadora escreveu às 21h30 sem crítica.</dd>
+<dt>Reação</dt>
+<dd>Ravi propõe agendamento automático e regra publicada.</dd>
+<dt>Informação ausente</dt>
+<dd>Urgência, acordos contratuais e frequência dos episódios.</dd>
+</dl>
+</article>
+<article class="case" id="caso-2">
+<h4>2 — Espaço universitário</h4>
+<dl>
+<dt>Conduta</dt>
+<dd>Um grupo usa sala vazia para estudar por quarenta minutos.</dd>
+<dt>Norma alegada</dt>
+<dd>“A sala exige reserva”, mas não há aviso na porta ou site.</dd>
+<dt>Agente</dt>
+<dd>Um servidor solicita a saída.</dd>
+<dt>Sanção possível</dt>
+<dd>Orientação informal ou registro administrativo.</dd>
+<dt>Contexto</dt>
+<dd>Semana de provas e poucos espaços disponíveis.</dd>
+<dt>Comparação</dt>
+<dd>Outro grupo afirma ter usado a sala no dia anterior.</dd>
+<dt>Reação</dt>
+<dd>Os estudantes saem e pedem acesso ao procedimento.</dd>
+<dt>Informação ausente</dt>
+<dd>Regulamento vigente, reservas existentes e tratamento anterior.</dd>
+</dl>
+</article>
+<article class="case" id="caso-3">
+<h4>3 — Atrasos e reputações</h4>
+<dl>
+<dt>Conduta</dt>
+<dd>Lia e Caio chegam oito minutos atrasados em encontros distintos.</dd>
+<dt>Norma alegada</dt>
+<dd>Pontualidade esperada, sem tolerância publicada.</dd>
+<dt>Agente</dt>
+<dd>A mesma representante registra presença.</dd>
+<dt>Sanção possível</dt>
+<dd>Advertência verbal ou aceitação sem comentário.</dd>
+<dt>Contexto</dt>
+<dd>Lia é chamada de “responsável”; Caio, de “distraído”.</dd>
+<dt>Comparação</dt>
+<dd>Tempo, atividade e justificativa inicial são equivalentes.</dd>
+<dt>Reação</dt>
+<dd>Caio pede que se use critério comum.</dd>
+<dt>Informação ausente</dt>
+<dd>Histórico documentado, justificativas e registros de outros estudantes.</dd>
+</dl>
+</article>
+<article class="case" id="caso-4">
+<h4>4 — Vestuário “inadequado”</h4>
+<dl>
+<dt>Conduta</dt>
+<dd>Jo usa camiseta estampada numa apresentação interna.</dd>
+<dt>Norma alegada</dt>
+<dd>“Vestir-se adequadamente”, sem critério explícito.</dd>
+<dt>Agente</dt>
+<dd>Uma integrante veterana interpreta a expectativa.</dd>
+<dt>Sanção possível</dt>
+<dd>Comentário de reprovação ou exclusão de futura apresentação.</dd>
+<dt>Contexto</dt>
+<dd>Reunião sem público externo e sem código divulgado.</dd>
+<dt>Comparação</dt>
+<dd>Outras estampas já passaram sem comentário.</dd>
+<dt>Reação</dt>
+<dd>O grupo pede critérios ligados à atividade.</dd>
+<dt>Informação ausente</dt>
+<dd>Conteúdo da estampa, regra institucional e padrão de decisões.</dd>
+</dl>
+</article>
+<article class="case" id="caso-5">
+<h4>5 — Crítica e “deslealdade”</h4>
+<dl>
+<dt>Conduta</dt>
+<dd>Meire questiona publicamente o horário de uma associação.</dd>
+<dt>Norma alegada</dt>
+<dd>Divergências deveriam ser tratadas primeiro na reunião interna.</dd>
+<dt>Agente</dt>
+<dd>Dois dirigentes classificam o comentário.</dd>
+<dt>Sanção possível</dt>
+<dd>Perda de convite para representar a associação.</dd>
+<dt>Contexto</dt>
+<dd>O horário reduz presença de trabalhadores noturnos.</dd>
+<dt>Comparação</dt>
+<dd>Um dirigente criticou outra decisão em canal público sem reação.</dd>
+<dt>Reação</dt>
+<dd>Meire solicita pauta e procedimento de recurso.</dd>
+<dt>Informação ausente</dt>
+<dd>Regra registrada, teor completo e critérios de representação.</dd>
+</dl>
+</article>
+<article class="case" id="caso-6">
+<h4>6 — Postagem fora de contexto</h4>
+<dl>
+<dt>Conduta</dt>
+<dd>Nilo publica “esse projeto precisa mudar”; uma captura omite a explicação seguinte.</dd>
+<dt>Norma alegada</dt>
+<dd>Integrantes deveriam “preservar a imagem” da equipe.</dd>
+<dt>Agente</dt>
+<dd>Uma página externa difunde a captura; colegas repetem o rótulo.</dd>
+<dt>Sanção possível</dt>
+<dd>Perda de confiança ou afastamento informal.</dd>
+<dt>Contexto</dt>
+<dd>Debate digital rápido, sem acesso inicial à postagem completa.</dd>
+<dt>Comparação</dt>
+<dd>Críticas semelhantes em reunião foram aceitas.</dd>
+<dt>Reação</dt>
+<dd>Nilo apresenta o contexto e pede correção pública.</dd>
+<dt>Informação ausente</dt>
+<dd>Alcance, intenção, regra comunicada e respostas após a correção.</dd>
+</dl>
+</article>
+</div>
+<h4>Oito perguntas</h4>
+<ol class="questions">
+<li>Qual conduta pode ser descrita sem julgamento?</li>
+<li>Que norma formal ou informal está em jogo?</li>
+<li>Quem define, interpreta e aplica a norma?</li>
+<li>Que sanção positiva ou negativa pode ocorrer?</li>
+<li>A aplicação foi comparável em casos semelhantes?</li>
+<li>Que rótulo foi produzido e com quais efeitos possíveis?</li>
+<li>Como a pessoa ou o grupo aceita, negocia ou contesta?</li>
+<li>Que evidência falta para sustentar a análise?</li>
+</ol>
+<h4>Produto, socialização e cuidado</h4>
+<p>Entregar matriz com seis linhas e oito eixos, indicando em dois casos uma interpretação alternativa. Na socialização, cada grupo terá até dois minutos para apresentar uma comparação, citar evidências e explicitar uma lacuna. Usem somente os casos fictícios. Não relatem experiências, transgressões ou acusações pessoais. Se surgir exposição, a mediação deve interrompê-la e retornar ao material.</p>
+<details>
+<summary>Possibilidades comentadas e orientações de mediação — uso do professor</summary>
+<div class="answer">
+<h4>Caso 1 — Mensagens</h4>
+<p>Conduta: três mensagens, sem exigência explícita. A norma é informal e aplicada pela coordenadora; crítica ou reconhecimento de respeito ao horário são sanções possíveis. A mensagem anterior da própria coordenadora sugere comparação desigual, mas urgência e acordos faltam. “Invasivo” seria rótulo possível, não fato. A proposta de agendamento negocia a regra. Não conclua injustiça antes das informações ausentes.</p>
+<h4>Caso 2 — Espaço</h4>
+<p>Uso por quarenta minutos é a conduta; reserva é norma formal alegada, ainda não comprovada. Servidor interpreta e pode orientar ou registrar. O relato do outro grupo não basta para provar seletividade: faltam regulamento, reservas e padrão de aplicação. “Invasores” confundiria reputação e evidência. Sair e pedir procedimento combina conformidade momentânea e contestação institucional.</p>
+<h4>Caso 3 — Atrasos</h4>
+<p>As condutas são comparáveis no tempo informado. A representante aplica expectativa informal com reações diferentes; “responsável” e “distraído” são reputações, não prova. Há evidência inicial de seletividade, sujeita a históricos e justificativas ausentes. O pedido de critério comum contesta sem negar o atraso. Efeitos futuros sobre vigilância são hipóteses, não destino.</p>
+<h4>Caso 4 — Vestuário</h4>
+<p>A camiseta é conduta; “adequado” é norma ambígua interpretada por veterana. Comentário ou retirada de oportunidade pode funcionar como sanção negativa. Outras estampas formam comparação, mas conteúdo e padrão decisório faltam. “Pouco profissional” seria rótulo possível. Solicitar critério negocia a expectativa. A regra pode ter justificativa pertinente; isso precisa ser demonstrado.</p>
+<h4>Caso 5 — Comentário crítico</h4>
+<p>A conduta é questionar o horário publicamente. A norma informal sobre canais é aplicada por dirigentes; possível perda de convite combina sanção e recurso institucional. A crítica pública do dirigente torna relevante comparar posição e reação, sem concluir automaticamente perseguição. “Desleal” é rótulo com efeitos possíveis na representação. Pauta e recurso são contestação; faltam texto integral, regra e critérios.</p>
+<h4>Caso 6 — Postagem</h4>
+<p>A frase e o recorte devem ser separados. A expectativa de preservar imagem é informal e interpretada por página externa e colegas; afastamento seria sanção informal. Reuniões oferecem comparação contextual, não identidade perfeita. “Desleal” pode alterar confiança e vigilância, mas correção, apoio e acesso ao original permitem revisão. Faltam alcance e reações posteriores.</p>
+<h4>Mediação e transição</h4>
+<p>Em todos os casos, exija os oito eixos: conduta, norma, agentes, sanção, comparação, rótulo, resposta e lacuna. Aceite alternativas justificadas e diferencie explicação sociológica de aprovação moral. Reputação nunca substitui evidência; diferença de reação exige comparação antes de ser chamada seletividade. Interrompa imediatamente relatos ou acusações pessoais e retorne às personagens. Encerre mostrando que regras e posições se estabilizam em instituições, ponte para a Aula 41 sobre instituições sociais e família.</p>
+</div>
+</details>
+</div>
+</section>
+<section id="sintese"><h2>Síntese e continuidade</h2><p>Rótulos podem alterar vigilância, confiança e oportunidades, mas não explicam sozinhos condutas nem definem destinos. Seletividade precisa de comparação e evidências.</p><p>A Aula 41 amplia a escala para instituições e para a organização das relações familiares.</p></section><section id="leituras">
+<div class="st">Referências</div>
+<div class="ref">
+<strong>BECKER, Howard S.</strong> Outsiders: Studies in the Sociology of Deviance. New York: Free Press of Glencoe, 1963.<p>Referência para criação e aplicação de regras; o texto usa paráfrases didáticas, não citações literais.</p>
+</div>
+<div class="ref">
+<strong>LEMERT, Edwin M.</strong> Social Pathology: A Systematic Approach to the Theory of Sociopathic Behavior. New York: McGraw-Hill, 1951.<p>Referência histórica da abordagem interacionista; conceitos posteriores não são atribuídos como formulações literais.</p>
+</div>
+</section>
+</main><footer>Introdução à Sociologia · T01 · 2026.2 · <a href="../../index.html">Voltar ao curso</a></footer></body></html>
