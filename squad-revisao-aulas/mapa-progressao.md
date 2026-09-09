@@ -4,7 +4,7 @@
 **Situação estrutural do curso (reauditoria atual):** CONCERNS — 26 de 30 aulas conformes ao
 padrão determinístico do squad; 4 pendências estruturais reais e localizadas (Aulas 01, 02, 03
 e 09). Nenhuma delas está nas Aulas 24–30 nem impede o veredito já emitido para essas aulas.
-**HEAD da reauditoria atual:** `82b894ac457bd6f7359226ec6d848ccc81278a66`
+**HEAD da reauditoria atual:** `74018e2ec963431a6401a260501fe12c0fe35634`
 **HEAD do diagnóstico original (histórico, ver seção abaixo):** `ed45724eea0c9df260b323d8e8f4b0e2095a6ddd`
 **Arquivos:** `aula-01.html` a `aula-30.html`
 
@@ -182,7 +182,18 @@ corrigidas em dois commits distintos e sequenciais:
 de 120 minutos, um `<details>` fechado por padrão e nenhuma falha estrutural. A Aula 06
 deve ser considerada regularizada quanto aos critérios estruturais do squad.
 
-## Auditoria estrutural determinística de todo o curso (01–30) — HEAD `82b894a`
+## Reverificação em HEAD `74018e2` (nova reconciliação, mesma data)
+
+Entre `82b894a` e `74018e2` só o próprio `mapa-progressao.md` mudou; nenhuma aula, script
+ou configuração do squad foi tocada. Esta reconciliação reexecutou
+`python3 squad-revisao-aulas/scripts/auditar_aulas.py --intervalo 01-30` em `74018e2` e
+conferiu manualmente `config/estado.yaml` e cada hash de commit citado neste documento
+contra `git rev-parse`. Resultado: **nenhuma divergência** — mesmo resumo (26 OK / 4
+FALHA), mesmas contagens de gabarito por aula, mesmos hashes. Por isso o restante deste
+documento, escrito com `82b894a` como referência de estado, permanece válido palavra por
+palavra; apenas o HEAD de referência no topo do documento foi avançado para `74018e2`.
+
+## Auditoria estrutural determinística de todo o curso (01–30) — HEAD `82b894a` (confirmada em `74018e2`)
 
 Execução de `python3 squad-revisao-aulas/scripts/auditar_aulas.py --intervalo 01-30`,
 somente leitura, nesta reconciliação:
