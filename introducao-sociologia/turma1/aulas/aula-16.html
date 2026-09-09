@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aula 16 — Introdução à Sociologia | Turma 1</title>
+<title>Aula 16 — Introdução à Sociologia | 2026.2</title>
 <style>
   :root {
     --bg: #0a0a0f;
@@ -77,8 +77,6 @@
   .ref-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 10px; border-left: 3px solid var(--blue-lt); }
   .ref-author { font-size: 0.8rem; font-weight: 700; color: var(--blue-lt); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
   .ref-title { font-size: 0.9rem; color: var(--text); }
-  .ref-pages { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
-
   .activity-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; font-size: 0.9rem; line-height: 1.7; border-left: 3px solid var(--teal-lt); }
 
   .resources-list { display: flex; flex-wrap: wrap; gap: 10px; }
@@ -87,13 +85,66 @@
   footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--muted); font-size: 0.85rem; }
   footer a { color: var(--sky); text-decoration: none; }
   footer a:hover { text-decoration: underline; }
+
+  html, body { max-width: 100%; overflow-x: clip; }
+  body { overflow-wrap: anywhere; }
+  section { scroll-margin-top: 112px; }
+  .section-nav { position: sticky; top: 56px; z-index: 90; background: rgba(10,10,15,.97); border-bottom: 1px solid var(--border); padding: 8px 16px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: thin; }
+  .section-nav a { flex: 0 0 auto; min-height: 36px; display: inline-flex; align-items: center; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 5px 12px; text-decoration: none; font-size: .8rem; }
+  .base-text { max-width: 72ch; margin-inline: auto; }
+  .base-intro { color: var(--muted); font-size: .92rem; margin-bottom: 16px; }
+  .base-toc { position: static; height: auto; display: block; max-width: 100%; overflow: clip; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; margin-bottom: 28px; }
+  .base-toc h3 { color: var(--bloco-lt, var(--purple-lt)); font-size: .95rem; margin-bottom: 10px; }
+  .base-toc ol { width: 100%; max-width: 100%; padding-left: 22px; columns: 2; column-gap: 32px; }
+  .base-toc li { break-inside: avoid; margin: 5px 0; }
+  .base-toc a { color: var(--text); text-decoration-thickness: 1px; text-underline-offset: 3px; white-space: normal; }
+  .base-subsection { scroll-margin-top: 112px; margin-bottom: 28px; }
+  .base-subsection h3 { color: var(--bloco-lt, var(--purple-lt)); font-size: 1.15rem; line-height: 1.35; margin-bottom: 12px; }
+  .base-subsection p { color: var(--text); margin-bottom: 14px; line-height: 1.78; }
+  .base-subsection strong { color: #f1f5f9; }
+  .pause-box { background: rgba(79,70,229,.1); border: 1px solid rgba(129,140,248,.4); border-left: 4px solid var(--bloco-lt, var(--purple-lt)); border-radius: var(--radius); padding: 16px 18px; margin: 22px 0; }
+  .pause-box h4 { color: var(--amber-lt); font-size: .75rem; letter-spacing: .09em; text-transform: uppercase; margin-bottom: 6px; }
+  .pause-box p { margin: 0; color: var(--text); font-weight: 600; line-height: 1.6; }
+  .legacy-note { border: 1px solid var(--amber-lt); background: rgba(251,191,36,.08); border-radius: var(--radius); padding: 16px 18px; margin: 0 0 24px; }
+  .res-tag { max-width: 100%; min-width: 0; }
+  a:focus-visible { outline: 3px solid var(--amber-lt); outline-offset: 3px; border-radius: 3px; }
+  @media (max-width: 640px) {
+    nav { height: auto; min-height: 56px; padding: 8px 12px; flex-wrap: wrap; }
+    .nav-left, .nav-right { min-width: 0; }
+    .nav-center { display: none; }
+    .nav-right { gap: 10px; }
+    .section-nav { top: 72px; padding-inline: 10px; }
+    main { padding: 24px 14px 60px; }
+    .aula-header { padding: 22px 18px; }
+    .base-toc ol { width: auto; columns: auto; padding-left: 0; list-style-position: inside; }
+    .tl-item { flex-direction: column; gap: 8px; }
+  }
+  .activity-card h3 { color: var(--teal-lt); font-size: 1.05rem; margin: 0 0 12px; }
+  .activity-card h4 { color: var(--amber-lt); margin: 18px 0 8px; }
+  .activity-card ol, .activity-card ul { padding-left: 22px; margin: 10px 0; }
+  .activity-card li { margin: 7px 0; }
+  .case-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 16px 0; }
+  .case-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
+  .case-card h4 { margin: 0 0 6px; }
+  .question-list, .criteria-list { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px 14px 40px; }
+  .teacher-guidance { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-top: 18px; }
+  .teacher-guidance summary { cursor: pointer; color: var(--amber-lt); font-weight: 700; padding: 15px 17px; }
+  .teacher-guidance[open] summary { border-bottom: 1px solid var(--border); }
+  .teacher-guidance-content { padding: 16px 18px; }
+  .teacher-guidance-content h4 { color: var(--teal-lt); }
+  @media (max-width: 640px) { .case-grid { grid-template-columns: 1fr; } }
+  @media print {
+    nav, .section-nav { position: static; }
+    .case-card, .teacher-guidance, .tl-item, .ref-card { break-inside: avoid; }
+    .teacher-guidance > .teacher-guidance-content { display: block !important; }
+  }
 </style>
 </head>
 <body>
 
 <nav>
   <div class="nav-left">
-    <a href="../index.html">← Turma 1</a>
+    <a href="/introducao-sociologia/">← Página principal</a>
     <span class="nav-badge">Aula 16</span>
   </div>
   <span class="nav-center">Aula 16 / 30</span>
@@ -102,6 +153,7 @@
     <a href="aula-17.html">Próxima →</a>
   </div>
 </nav>
+<div class="section-nav" aria-label="Seções da aula"><a href="#objetivos">Objetivos</a><a href="#conteudo-programatico">Conteúdo</a><a href="#texto-base">Texto-base</a><a href="#plano-aula">Plano da aula</a><a href="#leituras">Leituras</a><a href="#atividade">Atividade</a><a href="#recursos">Recursos</a></div>
 
 <main>
 
@@ -109,127 +161,156 @@
     <div class="header-meta">
       <span class="bloco-badge">Bloco IV — Sociedade, Cultura e Socialização</span>
       <span class="meta-chip">Aula 16</span>
-      <span class="meta-chip">09/06/2026 — Terça-feira</span>
-      <span class="meta-chip">2 horas</span>
+      <span class="meta-chip">Encontro 8 · Parte 2 de 2</span>
+      <span class="meta-chip">28/10/2026 — Quarta-feira</span>
+      <span class="meta-chip">Percurso completo do encontro: 4 horas-aula</span>
+      <span class="meta-chip">Esta página: aproximadamente 2 horas</span>
     </div>
     <h1>Cultura: etnocentrismo, relativismo cultural e diversidade.</h1>
   </div>
 
-  <section>
+  <section id="objetivos">
     <div class="section-title">Objetivos da Aula</div>
     <ul class="obj-list">
-      <li>Definir e exemplificar etnocentrismo em contextos históricos e contemporâneos.</li>
-      <li>Compreender o relativismo cultural como método analítico das ciências sociais.</li>
-      <li>Discutir os limites do relativismo cultural diante de práticas que violam direitos fundamentais.</li>
-      <li>Relacionar diversidade cultural, multiculturalismo e direitos humanos.</li>
+      <li>Identificar julgamentos etnocêntricos e reconstruir contextos sem naturalizar diferenças.</li>
+      <li>Distinguir relativização metodológica, descrição empírica e aprovação moral.</li>
+      <li>Diferenciar estereótipo, preconceito e discriminação em relações de poder.</li>
+      <li>Formular posições normativas argumentadas diante de conflitos de valores e direitos.</li>
     </ul>
   </section>
 
-  <section>
+  <section id="conteudo-programatico">
     <div class="section-title">Conteúdo Programático</div>
-    <div class="content-topic">
-      <h3>1. Etnocentrismo: definição, exemplos históricos e contemporâneos</h3>
-      <ul>
-        <li>Conceito de etnocentrismo e sua origem</li>
-        <li>Exemplos históricos: colonialismo, missões civilizatórias</li>
-        <li>Etnocentrismo no cotidiano contemporâneo</li>
-      </ul>
-    </div>
-    <div class="content-topic">
-      <h3>2. Relativismo cultural: origem, princípios, limites</h3>
-      <ul>
-        <li>Origem do relativismo cultural (Boas, Malinowski)</li>
-        <li>Princípios: cada cultura deve ser compreendida em seus próprios termos</li>
-        <li>Limites: tensão entre relativismo e universalismo dos direitos humanos</li>
-      </ul>
-    </div>
-    <div class="content-topic">
-      <h3>3. Diversidade cultural, multiculturalismo e direitos humanos</h3>
-      <ul>
-        <li>Multiculturalismo: conceito e políticas</li>
-        <li>Diversidade cultural como valor</li>
-        <li>Articulação entre respeito à diferença e proteção de direitos universais</li>
-      </ul>
+    <div class="content-topic"><h3>1. Etnocentrismo e relativização</h3><ul><li>Centralidade dos padrões aprendidos no julgamento de outras práticas</li><li>Reconstrução contextual como procedimento metodológico</li><li>Diferença entre compreender, justificar e aprovar</li></ul></div>
+    <div class="content-topic"><h3>2. Diferença, classificação e poder</h3><ul><li>Estereótipo, preconceito e discriminação</li><li>Transformação de diferenças em hierarquias</li><li>Variação e conflito dentro das sociedades</li></ul></div>
+    <div class="content-topic"><h3>3. Circulação cultural, direitos e argumentação</h3><ul><li>Contato, tradução, apropriação e transformação</li><li>Descrição empírica, explicação contextual e posição normativa</li><li>Direitos, consequências, reciprocidade e contexto</li></ul></div>
+  </section>
+
+  <section id="texto-base" aria-labelledby="texto-base-title">
+    <div class="section-title" id="texto-base-title">Texto-base para acompanhamento da aula</div>
+    <div class="base-text">
+      <p class="base-intro">Esta leitura retoma o conceito de cultura da Aula 15 para examinar como diferenças são percebidas, julgadas e transformadas em relações sociais. Relativizar amplia a compreensão; não elimina a necessidade de argumentar sobre direitos e consequências.</p>
+      <nav class="base-toc" aria-label="Sumário do texto-base"><h3>Nesta leitura</h3><ol>
+        <li><a href="#diferenca-julgamento">Da diferença ao julgamento</a></li><li><a href="#etnocentrismo-ponto-vista">Etnocentrismo como ponto de vista social</a></li><li><a href="#relativizacao-procedimento">Relativização como procedimento de compreensão</a></li><li><a href="#compreender-aprovar">Compreender não é aprovar</a></li><li><a href="#estereotipo-preconceito">Estereótipo, preconceito e discriminação</a></li><li><a href="#diferenca-poder">Diferença, hierarquia e relações de poder</a></li><li><a href="#culturas-conectadas">Culturas internamente diversas e conectadas</a></li><li><a href="#direitos-conflitos">Direitos, conflitos e posição normativa argumentada</a></li><li><a href="#sintese-socializacao">Síntese e passagem à socialização</a></li>
+      </ol></nav>
+
+      <div class="base-subsection" id="diferenca-julgamento"><h3>1. Da diferença ao julgamento</h3>
+        <p>Perceber diferenças é parte da vida social. Numa universidade, pessoas encontram sotaques, alimentos, roupas, músicas, crenças e maneiras de ocupar espaços que não coincidem com os repertórios aprendidos em suas famílias e trajetórias. A diferença observada, porém, não traz uma avaliação pronta. Dizer que alguém pronuncia uma palavra de outro modo descreve um contraste; concluir que fala “errado” mobiliza um padrão e uma hierarquia.</p>
+        <p>Para analisar essa passagem, é preciso separar três operações. A <strong>descrição empírica</strong> registra o que pode ser observado ou documentado. A <strong>explicação contextual</strong> investiga sentidos, trajetórias, regras e condições. A <strong>posição normativa</strong> avalia o que deveria ocorrer e apresenta razões. Misturá-las faz uma preferência parecer fato ou transforma uma explicação em desculpa.</p>
+        <aside class="pause-box"><h4>Pausa 1 — julgamento de uma prática cotidiana</h4><p>Uma comida levada a um espaço coletivo recebe o comentário “isso não combina com este lugar”. O que foi observado e qual padrão converteu a diferença em julgamento?</p></aside>
+      </div>
+
+      <div class="base-subsection" id="etnocentrismo-ponto-vista"><h3>2. Etnocentrismo como ponto de vista social</h3>
+        <p><strong>Etnocentrismo é o julgamento de outras práticas pela centralidade dos próprios padrões culturais.</strong> O familiar funciona como medida do normal, do correto ou do superior, enquanto o diferente aparece como falta, desvio ou atraso. Isso pode ocorrer quando um sotaque é tomado como incapacidade, um estilo musical como ausência de educação ou uma regra familiar diferente como sinal automático de desorganização.</p>
+        <p>Todas as pessoas começam a interpretar com referências aprendidas; ninguém observa a partir de lugar neutro. Reconhecer esse ponto de partida não torna inevitável qualquer julgamento. É possível examinar as categorias usadas, procurar informação e revisar uma conclusão. O problema sociológico não é possuir referências, mas universalizá-las sem investigação, apagar variações e ignorar os efeitos desiguais de quem pode impor seu padrão.</p>
+      </div>
+
+      <div class="base-subsection" id="relativizacao-procedimento"><h3>3. Relativização como procedimento de compreensão</h3>
+        <p>Relativização é um procedimento metodológico de reconstrução contextual. Em vez de usar imediatamente a própria convenção como medida, pergunta-se como participantes definem a situação, como aprenderam a prática, que valores estão em jogo, quais condições a sustentam e que divergências existem. Relativizar uma forma de vestuário religioso em instituição pública, por exemplo, requer conhecer regras institucionais, significados atribuídos por quem a usa e experiências variadas, não presumir uma essência religiosa.</p>
+        <p>O procedimento exige fontes. Observação descreve interações; entrevistas voluntárias registram interpretações; documentos mostram normas; dados revelam distribuições; comparações históricas identificam mudanças. Nenhuma pessoa deve ser tratada como representante automática de um grupo. Quando faltam evidências, a formulação rigorosa é uma hipótese acompanhada da informação necessária para testá-la.</p>
+      </div>
+
+      <div class="base-subsection" id="compreender-aprovar"><h3>4. Compreender não é aprovar</h3>
+        <p>Reconstruir a origem e o significado de uma prática não obriga a aceitá-la. A relativização metodológica suspende provisoriamente o julgamento para melhorar a descrição e a explicação; ela não estabelece aprovação moral irrestrita. A frase “cada cultura está sempre certa” é inadequada porque culturas não são sujeitos únicos, participantes discordam e consequências atingem pessoas de maneira desigual.</p>
+        <p>Contextualizar pode revelar por que uma regra surgiu, quem a defende, quem a contesta e quais alternativas existem. Justificar é oferecer razões para considerá-la aceitável. Esses movimentos podem levar a conclusões diferentes. Uma regra de uso de espaço universitário talvez tenha finalidade administrativa compreensível e, ainda assim, produza barreiras desnecessárias. A avaliação vem depois da investigação, apoiada em direitos, consequências, reciprocidade e alternativas.</p>
+        <aside class="pause-box"><h4>Pausa 2 — contextualizar e justificar</h4><p>Uma regra familiar reserva a fala inicial à pessoa mais velha. Que informações ajudam a contextualizá-la? Que argumento adicional seria necessário para justificá-la?</p></aside>
+      </div>
+
+      <div class="base-subsection" id="estereotipo-preconceito"><h3>5. Estereótipo, preconceito e discriminação</h3>
+        <p><strong>Estereótipo</strong> é uma representação simplificada que atribui características fixas a integrantes de uma categoria: associar certo gosto musical a pouca inteligência, por exemplo. <strong>Preconceito</strong> é uma disposição ou julgamento prévio, frequentemente desfavorável, mantido sem exame adequado. <strong>Discriminação</strong> é tratamento desigual em práticas, decisões ou regras, como impedir uma pessoa de apresentar trabalho por causa de sua roupa ou avaliar sua competência pelo sotaque.</p>
+        <p>Os conceitos podem se articular, mas não são etapas automáticas. Um estereótipo pode circular sem que toda pessoa que o encontre o adote; um preconceito pode orientar decisões mesmo sem declaração explícita; uma regra aparentemente neutra pode produzir discriminação. A análise procura enunciados, procedimentos, distribuição de oportunidades e efeitos, evitando diagnosticar intenções apenas por impressão.</p>
+      </div>
+
+      <div class="base-subsection" id="diferenca-poder"><h3>6. Diferença, hierarquia e relações de poder</h3>
+        <p>Diferenças tornam-se hierarquias quando são ordenadas como superior e inferior e conectadas a recursos, prestígio ou direitos. Modos de falar existem em variação; uma instituição cria desigualdade quando trata apenas um deles como prova de inteligência. Gostos musicais diferem; ganham efeitos hierárquicos quando servem para excluir pessoas de espaços ou desacreditar suas opiniões.</p>
+        <p>Cultura e poder se relacionam porque nem todos têm igual capacidade de nomear o “adequado”, fazer sua interpretação circular ou convertê-la em regra. Autoridades, mercados, mídias, plataformas e instituições distribuem visibilidade e sanções. Tolerância pode significar apenas suportar quem permanece em posição inferior; é insuficiente quando barreiras de acesso ou violações de direitos continuam. Examinar poder pergunta quem decide, quem suporta custos e quem pode contestar.</p>
+        <aside class="pause-box"><h4>Pausa 3 — estereótipo e desigualdade de poder</h4><p>Quando o rótulo “música sem cultura” deixa de ser apenas opinião de gosto e passa a afetar oportunidades, voz ou pertencimento? Quem pode fazer essa classificação valer?</p></aside>
+      </div>
+
+      <div class="base-subsection" id="culturas-conectadas"><h3>7. Culturas internamente diversas e conectadas</h3>
+        <p>Sociedades contêm conflitos culturais, e culturas não são blocos homogêneos, isolados ou fechados em territórios. Pessoas de uma mesma religião divergem sobre presença no espaço público; famílias negociam regras; estudantes usam de modos diferentes os mesmos corredores, bibliotecas e redes. Diferenças de geração, classe, raça, gênero, trajetória e posição institucional cruzam identificações sem determinar respostas.</p>
+        <p>Repertórios circulam por contato, migração, mercado, religião, universidade e mídias digitais. A circulação de imagens e conteúdos digitais amplia audiências e acelera reinterpretações. Tradução adapta sentidos entre contextos; apropriação seleciona elementos em relações que podem ser recíprocas ou desiguais; transformação ocorre quando usos novos alteram forma e significado. Uma imagem retirada de contexto demonstra que circulação não é transporte neutro: legenda, recorte, algoritmo e audiência podem reconstruir o acontecimento.</p>
+      </div>
+
+      <div class="base-subsection" id="direitos-conflitos"><h3>8. Direitos, conflitos e posição normativa argumentada</h3>
+        <p>Conflitos culturais raramente cabem no binário “respeitar tudo” ou “condenar tudo”. Pode haver liberdade religiosa, igualdade de acesso, segurança, privacidade, liberdade de expressão e proteção contra discriminação na mesma situação. Nomear um direito não encerra o debate: é preciso identificar titulares, obrigações, efeitos, alternativas menos restritivas e condições reais de escolha.</p>
+        <p>Uma posição normativa argumentada explicita valores e razões. Direitos oferecem limites e garantias; consequências mostram quem recebe benefícios ou danos; reciprocidade pergunta se o critério poderia valer para pessoas em posições trocadas; contexto impede aplicar uma regra abstrata sem história social. Esse procedimento evita tanto a aprovação automática quanto um universalismo abstrato que ignora desigualdades e vozes afetadas.</p>
+        <aside class="pause-box"><h4>Pausa 4 — conflito de valores e argumentação normativa</h4><p>Uma instituição limita manifestações religiosas alegando neutralidade. Que direitos e consequências devem ser examinados, e qual regra seria justificável por reciprocidade?</p></aside>
+      </div>
+
+      <div class="base-subsection" id="sintese-socializacao"><h3>9. Síntese e passagem à socialização</h3>
+        <p>Etnocentrismo centraliza padrões próprios no julgamento; relativização reconstrói contextos e sentidos; avaliação normativa formula uma posição depois dessa investigação. Estereótipo simplifica, preconceito antecipa um julgamento e discriminação produz tratamento desigual. Essas distinções permitem analisar como diferenças culturais circulam e podem tornar-se hierarquias em relações de poder.</p>
+        <p>A Aula 17 perguntará como esses padrões são aprendidos e reelaborados por meio da socialização. Se ninguém nasce conhecendo qual fala é tratada como formal, que roupa parece adequada ou como participar de uma reunião, por quais agentes e experiências essas disposições se formam? A passagem desloca o foco do julgamento da diferença para os processos que produzem maneiras de perceber e agir.</p>
+      </div>
     </div>
   </section>
 
-  <section>
-    <div class="section-title">Plano de Aula com Tempo</div>
-    <div class="timeline">
-      <div class="tl-item">
-        <span class="tl-duration">10 min</span>
-        <span class="tl-text"><strong>Retomada</strong> — Revisão dos conceitos trabalhados na aula anterior. Breve enquete oral: o que os alunos entendem por "cultura"?</span>
-      </div>
-      <div class="tl-item">
-        <span class="tl-duration">25 min</span>
-        <span class="tl-text"><strong>Exposição: Etnocentrismo</strong> — Apresentação expositiva do conceito, com exemplos históricos (colonialismo, etnocentrismo europeu) e contemporâneos (preconceitos culturais no cotidiano, discursos sobre "civilização").</span>
-      </div>
-      <div class="tl-item">
-        <span class="tl-duration">25 min</span>
-        <span class="tl-text"><strong>Análise de casos em grupos</strong> — Cada grupo recebe a descrição de uma prática cultural controversa e analisa a partir da perspectiva etnocêntrica e da perspectiva relativista. (Ver Atividades em Sala.)</span>
-      </div>
-      <div class="tl-item">
-        <span class="tl-duration">20 min</span>
-        <span class="tl-text"><strong>Exposição: Relativismo cultural e seus limites</strong> — Apresentação dos fundamentos do relativismo cultural, sua importância metodológica e os limites: quando o relativismo colide com a proteção de direitos humanos?</span>
-      </div>
-      <div class="tl-item">
-        <span class="tl-duration">30 min</span>
-        <span class="tl-text"><strong>Debate: "O relativismo cultural justifica qualquer prática?"</strong> — Debate estruturado com a turma a partir dos casos analisados. Os grupos apresentam seus posicionamentos e o professor medeia a discussão teórica.</span>
-      </div>
-      <div class="tl-item">
-        <span class="tl-duration">10 min</span>
-        <span class="tl-text"><strong>Síntese</strong> — Retomada dos principais pontos. Indicação das leituras para a próxima aula. Esclarecimento de dúvidas.</span>
-      </div>
-    </div>
+  <section id="plano-aula"><div class="section-title">Plano de Aula com Tempo</div><div class="timeline">
+    <div class="tl-item"><span class="tl-duration">10 min</span><span class="tl-text"><strong>Retomada da Aula 15</strong> — Cultura como produção, aprendizagem, disputa e circulação de sentidos.</span></div>
+    <div class="tl-item"><span class="tl-duration">30 min</span><span class="tl-text"><strong>Exposição dialogada</strong> — Etnocentrismo, relativização, estereótipo, preconceito, discriminação e poder.</span></div>
+    <div class="tl-item"><span class="tl-duration">20 min</span><span class="tl-text"><strong>Leitura e distinção</strong> — Exercício guiado entre descrição empírica, contexto e julgamento normativo.</span></div>
+    <div class="tl-item"><span class="tl-duration">35 min</span><span class="tl-text"><strong>Oficina</strong> — Grupos analisam os seis casos e produzem uma ficha argumentativa.</span></div>
+    <div class="tl-item"><span class="tl-duration">15 min</span><span class="tl-text"><strong>Socialização</strong> — Comparação de evidências ausentes, relações de poder e posições justificadas.</span></div>
+    <div class="tl-item"><span class="tl-duration">10 min</span><span class="tl-text"><strong>Síntese e transição</strong> — Sistematização e passagem à socialização na Aula 17.</span></div>
+  </div></section>
+
+  <section id="leituras"><div class="section-title">Textos para Leitura Prévia</div>
+    <div class="ref-card"><div class="ref-author">LARAIA, Roque de Barros</div><div class="ref-title">Cultura: um conceito antropológico. “Como o homem vê o mundo”</div></div>
+    <div class="ref-card"><div class="ref-author">GEERTZ, Clifford</div><div class="ref-title">A interpretação das culturas. Introdução</div></div>
+    <p class="base-intro">As formulações desta página são paráfrases didáticas para o curso; não são citações literais nem atribuem o procedimento de relativização a um único autor.</p>
   </section>
 
-  <section>
-    <div class="section-title">Textos para Leitura Prévia</div>
-    <div class="ref-card">
-      <div class="ref-author">LARAIA, Roque de Barros</div>
-      <div class="ref-title">Cultura: um conceito antropológico. Cap. 3 — "Como o homem vê o mundo"</div>
-      <div class="ref-pages">p. 67–84</div>
+  <section id="atividade"><div class="section-title">Atividade em Sala</div><div class="activity-card">
+    <h3>Oficina — descrever, contextualizar e argumentar</h3>
+    <p><strong>Finalidade:</strong> praticar a passagem da descrição à contextualização e desta à posição normativa, identificando etnocentrismo, classificações e poder sem confundir compreensão com aprovação.</p>
+    <p><strong>Organização dos grupos:</strong> seis equipes recebem um caso; com menos equipes, cada uma compara dois. Distribuam leitura, registro, controle do tempo e apresentação. Ninguém representa automaticamente um grupo social.</p>
+    <p><strong>Etapas e tempos:</strong> 5 minutos para leitura silenciosa e descrição; 15 para contexto e conceitos; 10 para posição normativa; 5 para revisão. A socialização do plano acrescenta 15 minutos.</p>
+    <p><strong>Regra de cuidado:</strong> não solicitar relatos pessoais nem perguntar quem pertence aos grupos mencionados. Trabalhar somente com o material didático. Interromper generalizações discriminatórias, convertendo-as em objeto de análise conceitual e de evidências.</p>
+    <p><strong>Orientação:</strong> compreender sentidos e origens melhora a análise, mas não equivale a aprovar. A avaliação normativa deve aparecer depois da descrição e do contexto.</p>
+    <div class="case-grid" aria-label="Seis casos didáticos para análise">
+      <article class="case-card"><h4>Caso 1 — julgamento de sotaque numa apresentação acadêmica</h4><p>Uma estudante apresenta pesquisa com dados claros. Na devolutiva, um colega afirma que seu sotaque “não soa acadêmico”; outra pessoa contesta e aponta a qualidade do argumento. A rubrica avalia clareza, mas não define um padrão de pronúncia.</p></article>
+      <article class="case-card"><h4>Caso 2 — alimento em espaço coletivo</h4><p>Num intervalo, um estudante leva alimento de aroma intenso, preparado em casa conforme restrições religiosas. Dois colegas pedem que não o consuma ali; outra pessoa diz que alimentos comprados no campus também têm cheiro. Não há regra publicada para a sala.</p></article>
+      <article class="case-card"><h4>Caso 3 — vestuário religioso em instituição pública</h4><p>Uma servidora usa peça religiosa visível no atendimento. Usuários divergem: alguns veem liberdade pessoal; outros entendem que a neutralidade exige retirar qualquer símbolo. A instituição não possui orientação específica e o atendimento permanece igual.</p></article>
+      <article class="case-card"><h4>Caso 4 — estilos musicais e inteligência</h4><p>Na escolha da trilha de um evento, participantes associam música clássica a inteligência e um estilo popular a “falta de educação”. Outros lembram que todos os estilos têm públicos diversos. A comissão tem poder para selecionar repertório e artistas.</p></article>
+      <article class="case-card"><h4>Caso 5 — participação em reunião familiar ou comunitária</h4><p>Em uma reunião, algumas pessoas esperam a fala dos mais velhos; outras propõem inscrição por ordem de pedido. Ambos os procedimentos são apresentados como respeitosos. Jovens e adultos divergem dentro da mesma família e precisam decidir sobre um espaço comum.</p></article>
+      <article class="case-card"><h4>Caso 6 — imagem fora de contexto numa rede social</h4><p>Uma fotografia de estudantes sentados no chão de um corredor circula com legenda que os chama de desordeiros. A imagem não mostra que a sala estava fechada nem o aviso de espera. Alguns perfis repetem a legenda; outros pedem fonte e publicam o enquadramento ampliado.</p></article>
     </div>
-    <div class="ref-card">
-      <div class="ref-author">GEERTZ, Clifford</div>
-      <div class="ref-title">A interpretação das culturas. Introdução (trechos)</div>
-      <div class="ref-pages">p. 1–20</div>
-    </div>
-  </section>
+    <h4>Oito perguntas para cada caso</h4>
+    <ol class="question-list"><li>O que pode ser <strong>descrito sem inferência</strong>?</li><li>Que <strong>julgamento etnocêntrico</strong> aparece ou poderia aparecer?</li><li>Que <strong>informações contextuais</strong> estão faltando?</li><li>Como realizar a <strong>relativização metodológica</strong>?</li><li>Que <strong>estereótipo, preconceito ou discriminação</strong> pode estar envolvido?</li><li>Que <strong>relação de poder</strong> afeta a situação?</li><li>Existe <strong>conflito de direitos ou valores</strong>?</li><li>Qual <strong>posição normativa</strong> o grupo sustenta e com quais razões?</li></ol>
+    <p><strong>Produto esperado:</strong> uma ficha com três blocos — descrição, contextualização e posição normativa —, respostas às oito perguntas e duas evidências ainda necessárias.</p>
+    <h4>Critérios para socialização</h4><ul class="criteria-list"><li>Separar fato observável de inferência.</li><li>Nomear o conceito sem rotular pessoas.</li><li>Explicitar poder e informação ausente.</li><li>Justificar a posição por direitos, consequências, reciprocidade e contexto.</li><li>Admitir alternativa quando sustentada por evidências e razões.</li></ul>
+    <details class="teacher-guidance"><summary>Possibilidades comentadas e orientações de mediação — uso do professor</summary><div class="teacher-guidance-content">
+      <p>As possibilidades não formam resposta única. Cada análise deve manter separados descrição, contextualização e posição normativa, indicar evidências ausentes e admitir alternativas sustentadas por razões.</p>
 
-  <section>
-    <div class="section-title">Atividades em Sala</div>
-    <div class="activity-card">
-      <strong>Análise de casos: etnocentrismo e relativismo em prática</strong><br><br>
-      A turma é dividida em grupos. Cada grupo recebe a descrição de uma prática cultural controversa:
-      <br><br>
-      <strong>Casos sugeridos:</strong> (1) Mutilação genital feminina em sociedades africanas; (2) Sacrifício de animais em rituais religiosos afro-brasileiros; (3) Jejum religioso prolongado imposto a crianças; (4) Práticas de iniciação com elementos de sofrimento físico em sociedades indígenas.
-      <br><br>
-      <strong>Roteiro de análise para cada grupo:</strong><br>
-      — Descreva a prática e seu contexto cultural original.<br>
-      — Como um olhar etnocêntrico interpretaria essa prática? Que julgamentos produziria?<br>
-      — Como o relativismo cultural orientaria a análise dessa prática?<br>
-      — Há limites para o relativismo neste caso? Por quê?<br>
-      — Qual é o posicionamento fundamentado do grupo?
-      <br><br>
-      Cada grupo apresenta brevemente suas conclusões ao final da atividade, abrindo para debate coletivo mediado pelo professor.
-    </div>
-  </section>
+      <h4>1. Caso 1 — julgamento de sotaque</h4>
+      <p><strong>Descrição sem inferência:</strong> a estudante apresentou dados, um colega comentou o sotaque, outra pessoa contestou e a rubrica menciona clareza sem prescrever pronúncia. Isso não permite inferir intenção nem qualidade geral da apresentação. <strong>Possível julgamento etnocêntrico:</strong> tomar uma pronúncia familiar ou prestigiosa como única forma acadêmica. <strong>Informações contextuais ausentes:</strong> gravação consentida, conteúdo apresentado, avaliações completas, aplicação da rubrica e comparação com outros seminários. <strong>Relativização metodológica:</strong> reconstruir a variação linguística e os critérios institucionais, distinguindo inteligibilidade, clareza argumentativa e julgamento social de competência. <strong>Estereótipo, preconceito ou discriminação:</strong> associar sotaque a incapacidade é estereótipo; sustentar antecipadamente menor competência pode ser preconceito; reduzir nota ou oportunidade por essa associação pode configurar discriminação. <strong>Relação de poder:</strong> docentes, bancas e colegas com prestígio influem na avaliação e nas credenciais. <strong>Conflito de direitos ou valores:</strong> qualidade acadêmica, igualdade e reconhecimento da diversidade linguística. <strong>Posição normativa argumentada:</strong> uma posição possível defende avaliação por conteúdo e inteligibilidade mediante critérios transparentes e recíprocos; outra proposta pode ser aceita se enfrentar os efeitos hierárquicos com evidências.</p>
 
-  <section>
-    <div class="section-title">Recursos Necessários</div>
-    <div class="resources-list">
-      <span class="res-tag">Projetor</span>
-      <span class="res-tag">Fichas com casos para análise (impressas)</span>
-      <span class="res-tag">Quadro branco</span>
-    </div>
-  </section>
+      <h4>2. Caso 2 — alimento em espaço coletivo</h4>
+      <p><strong>Descrição sem inferência:</strong> há um alimento de aroma percebido como intenso, pedidos para não consumi-lo, comparação com produtos do campus e ausência de regra publicada. A reação ao aroma, isoladamente, não prova etnocentrismo. <strong>Possível julgamento etnocêntrico:</strong> classificar como impróprio apenas o alimento pouco familiar, mantendo sem exame outros com efeitos semelhantes. <strong>Informações contextuais ausentes:</strong> ventilação, finalidade da sala, riscos de alergia, alternativas de local, aplicação anterior de regras e necessidades dos presentes. <strong>Relativização metodológica:</strong> investigar o significado do alimento e comparar consequências por um critério comum, sem presumir que a restrição religiosa explique tudo. <strong>Estereótipo, preconceito ou discriminação:</strong> generalizações sobre quem consome o alimento seriam estereótipos; rejeição prévia pode ser preconceito; proibição seletiva pode discriminar. <strong>Relação de poder:</strong> gestão, maioria e quem controla o espaço definem permanência. <strong>Conflito de direitos ou valores:</strong> expressão religiosa, alimentação, saúde e convivência. <strong>Posição normativa argumentada:</strong> regras proporcionais devem valer igualmente para alimentos comparáveis, prever reciprocidade e oferecer alternativa viável; seria necessário verificar efeitos concretos antes de decidir.</p>
 
+      <h4>3. Caso 3 — vestuário religioso em instituição pública</h4>
+      <p><strong>Descrição sem inferência:</strong> a servidora usa peça visível, usuários apresentam interpretações distintas, o atendimento não mudou e falta orientação específica. <strong>Possível julgamento etnocêntrico:</strong> tratar apenas símbolos alheios como incompatíveis com a instituição, naturalizando convenções majoritárias. <strong>Informações contextuais ausentes:</strong> função exercida, regras gerais de vestuário, segurança, prática comparada e efeitos relatados por usuários. <strong>Relativização metodológica:</strong> reconstruir significados atribuídos pela servidora e diferentes concepções institucionais de neutralidade, sem falar por toda uma religião. <strong>Estereótipo, preconceito ou discriminação:</strong> presumir proselitismo pela roupa é estereótipo; hostilidade prévia pode ser preconceito; restrição seletiva pode constituir discriminação. <strong>Relação de poder:</strong> administração regula o trabalho, e usuários e agentes públicos ocupam posições distintas. <strong>Conflito de direitos ou valores:</strong> liberdade religiosa, neutralidade institucional e igualdade de tratamento. <strong>Posição normativa argumentada:</strong> não cabe oferecer resposta jurídica definitiva; o grupo deve ponderar regras gerais, proporcionalidade e efeitos concretos, podendo sustentar posições diferentes quando justificadas.</p>
+
+      <h4>4. Caso 4 — estilos musicais e inteligência</h4>
+      <p><strong>Descrição sem inferência:</strong> participantes associam estilos a inteligência ou educação, há contestação e a comissão seleciona repertório e artistas. <strong>Possível julgamento etnocêntrico:</strong> converter o próprio gosto e seu prestígio social em medida universal de valor intelectual. <strong>Informações contextuais ausentes:</strong> finalidade do evento, critérios de escolha, públicos, repertórios, remuneração e histórico da programação. <strong>Relativização metodológica:</strong> investigar trajetórias dos estilos, sentidos atribuídos por públicos diversos e critérios efetivamente relevantes ao evento. <strong>Estereótipo, preconceito ou discriminação:</strong> atribuir capacidade fixa a ouvintes é estereótipo; desprezo antecipado pode ser preconceito; excluir artistas ou participantes por essa associação pode discriminar. <strong>Relação de poder:</strong> a comissão controla seleção, orçamento, visibilidade, prestígio e possível remuneração. <strong>Conflito de direitos ou valores:</strong> autonomia curatorial, diversidade, finalidade institucional e acesso. <strong>Posição normativa argumentada:</strong> julgamentos de gosto tornam-se hierarquias quando afetam participação e recursos; uma seleção justificável explicita critérios, consequências e tratamento recíproco, admitindo arranjos alternativos fundamentados.</p>
+
+      <h4>5. Caso 5 — participação em reunião familiar ou comunitária</h4>
+      <p><strong>Descrição sem inferência:</strong> existem duas propostas de ordem de fala, ambas justificadas como respeitosas, e jovens e adultos divergem sobre decisão referente a espaço comum. <strong>Possível julgamento etnocêntrico:</strong> classificar automaticamente a precedência por idade como atraso ou a inscrição por ordem como falta de respeito. <strong>Informações contextuais ausentes:</strong> finalidade, regras decisórias, quem costuma falar, consequências anteriores e possibilidades de revisão. <strong>Relativização metodológica:</strong> reconstruir os sentidos de respeito e participação para posições diferentes, reconhecendo conflito interno. <strong>Estereótipo, preconceito ou discriminação:</strong> atribuir uma opinião única a jovens, idosos, “à família” ou “à comunidade” cria estereótipo; exclusão sistemática de voz pode produzir discriminação. <strong>Relação de poder:</strong> idade, controle da pauta, propriedade do espaço e autoridade decisória distribuem influência. <strong>Conflito de direitos ou valores:</strong> tradição, igualdade de voz, cuidado e efetividade. <strong>Posição normativa argumentada:</strong> formatos híbridos podem ser defendidos por reciprocidade e oportunidade real de participação; outras posições são aceitáveis se reconhecerem divergência interna e enfrentarem desigualdades.</p>
+
+      <h4>6. Caso 6 — imagem fora de contexto numa rede social</h4>
+      <p><strong>Descrição sem inferência:</strong> a fotografia mostra estudantes sentados; uma legenda os chama de desordeiros; o enquadramento omite sala fechada e aviso; perfis republicam ou apresentam contexto ampliado. <strong>Possível julgamento etnocêntrico:</strong> ler a ocupação do corredor apenas pela expectativa própria de ordem, sem verificar a situação. <strong>Informações contextuais ausentes:</strong> autoria, sequência temporal, aviso completo, consentimento, edição, alcance e regras da plataforma. <strong>Relativização metodológica:</strong> comparar fotografia, legenda, enquadramentos e fontes, reconstruindo a circunstância e a mudança de sentido durante a circulação. <strong>Estereótipo, preconceito ou discriminação:</strong> generalizar “estudantes são desordeiros” é estereótipo; adesão prévia pode reforçar preconceito; sanções seletivas baseadas na narrativa podem discriminar. <strong>Relação de poder:</strong> perfis com audiência, algoritmos, moderação e instituição têm capacidades desiguais de definir a narrativa. <strong>Conflito de direitos ou valores:</strong> expressão, privacidade, reputação e direito à informação. <strong>Posição normativa argumentada:</strong> uma resposta possível exige correção contextual, cuidado com consentimento e proporcionalidade; relativizar esclarece a circulação, mas não encerra a avaliação de consequências.</p>
+
+      <h4>Orientações gerais de mediação</h4>
+      <p>Manter separadas descrição, contextualização e posição normativa e exigir evidências antes de classificar uma prática. Reiterar que relativizar não significa aprovar. Diferenciar estereótipo, preconceito e discriminação e localizar relações de poder sem presumir intenção individual. Aceitar posições normativas distintas quando fundamentadas, usando direitos, consequências, reciprocidade e contexto como critérios. Não obrigar estudantes a representar grupos aos quais pertençam. Diante de generalização discriminatória, interrompê-la, nomear o problema e convertê-la em objeto de análise de conceitos, efeitos e evidências, sem transformar a aula em simples exposição moral. Ao final, destacar que referências, julgamentos e modos de agir são aprendidos, preparando a transição para a socialização na Aula 17.</p>
+    </div></details>
+  </div></section>
+
+  <section id="recursos"><div class="section-title">Recursos Necessários</div><div class="resources-list"><span class="res-tag">Projetor</span><span class="res-tag">Quadro branco</span><span class="res-tag">Seis casos impressos ou projetados</span><span class="res-tag">Ficha em três colunas</span><span class="res-tag">Canetas</span></div></section>
 </main>
 
 <footer>
-  <a href="../index.html">← Voltar para Turma 1</a>
-  &nbsp;·&nbsp; Introdução à Sociologia 2026.1
+  <a href="/introducao-sociologia/">← Página principal</a>
+  &nbsp;·&nbsp; Introdução à Sociologia 2026.2
 </footer>
 
 </body>

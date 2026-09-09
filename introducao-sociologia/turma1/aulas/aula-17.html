@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aula 17 — Introdução à Sociologia | Turma 1</title>
+<title>Aula 17 — Introdução à Sociologia | 2026.2</title>
 <style>
   :root {
     --bg: #0a0a0f;
@@ -76,8 +76,6 @@
   .ref-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 10px; border-left: 3px solid var(--blue-lt); }
   .ref-author { font-size: 0.8rem; font-weight: 700; color: var(--blue-lt); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
   .ref-title { font-size: 0.9rem; color: var(--text); }
-  .ref-pages { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
-
   .activity-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; font-size: 0.9rem; line-height: 1.7; border-left: 3px solid var(--teal-lt); }
 
   .resources-list { display: flex; flex-wrap: wrap; gap: 10px; }
@@ -86,13 +84,66 @@
   footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--muted); font-size: 0.85rem; }
   footer a { color: var(--sky); text-decoration: none; }
   footer a:hover { text-decoration: underline; }
+
+  html, body { max-width: 100%; overflow-x: clip; }
+  body { overflow-wrap: anywhere; }
+  section { scroll-margin-top: 112px; }
+  .section-nav { position: sticky; top: 56px; z-index: 90; background: rgba(10,10,15,.97); border-bottom: 1px solid var(--border); padding: 8px 16px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: thin; }
+  .section-nav a { flex: 0 0 auto; min-height: 36px; display: inline-flex; align-items: center; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 5px 12px; text-decoration: none; font-size: .8rem; }
+  .base-text { max-width: 72ch; margin-inline: auto; }
+  .base-intro { color: var(--muted); font-size: .92rem; margin-bottom: 16px; }
+  .base-toc { position: static; height: auto; display: block; max-width: 100%; overflow: clip; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; margin-bottom: 28px; }
+  .base-toc h3 { color: var(--bloco-lt, var(--purple-lt)); font-size: .95rem; margin-bottom: 10px; }
+  .base-toc ol { width: 100%; max-width: 100%; padding-left: 22px; columns: 2; column-gap: 32px; }
+  .base-toc li { break-inside: avoid; margin: 5px 0; }
+  .base-toc a { color: var(--text); text-decoration-thickness: 1px; text-underline-offset: 3px; white-space: normal; }
+  .base-subsection { scroll-margin-top: 112px; margin-bottom: 28px; }
+  .base-subsection h3 { color: var(--bloco-lt, var(--purple-lt)); font-size: 1.15rem; line-height: 1.35; margin-bottom: 12px; }
+  .base-subsection p { color: var(--text); margin-bottom: 14px; line-height: 1.78; }
+  .base-subsection strong { color: #f1f5f9; }
+  .pause-box { background: rgba(79,70,229,.1); border: 1px solid rgba(129,140,248,.4); border-left: 4px solid var(--bloco-lt, var(--purple-lt)); border-radius: var(--radius); padding: 16px 18px; margin: 22px 0; }
+  .pause-box h4 { color: var(--amber-lt); font-size: .75rem; letter-spacing: .09em; text-transform: uppercase; margin-bottom: 6px; }
+  .pause-box p { margin: 0; color: var(--text); font-weight: 600; line-height: 1.6; }
+  .legacy-note { border: 1px solid var(--amber-lt); background: rgba(251,191,36,.08); border-radius: var(--radius); padding: 16px 18px; margin: 0 0 24px; }
+  .res-tag { max-width: 100%; min-width: 0; }
+  a:focus-visible { outline: 3px solid var(--amber-lt); outline-offset: 3px; border-radius: 3px; }
+  @media (max-width: 640px) {
+    nav { height: auto; min-height: 56px; padding: 8px 12px; flex-wrap: wrap; }
+    .nav-left, .nav-right { min-width: 0; }
+    .nav-center { display: none; }
+    .nav-right { gap: 10px; }
+    .section-nav { top: 72px; padding-inline: 10px; }
+    main { padding: 24px 14px 60px; }
+    .aula-header { padding: 22px 18px; }
+    .base-toc ol { width: auto; columns: auto; padding-left: 0; list-style-position: inside; }
+    .tl-item { flex-direction: column; gap: 8px; }
+  }
+  .activity-card h3 { color: var(--teal-lt); font-size: 1.05rem; margin: 0 0 12px; }
+  .activity-card h4 { color: var(--amber-lt); margin: 18px 0 8px; }
+  .activity-card ol, .activity-card ul { padding-left: 22px; margin: 10px 0; }
+  .activity-card li { margin: 7px 0; }
+  .trajectory-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 16px 0; }
+  .trajectory-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
+  .trajectory-card h4 { margin: 0 0 6px; }
+  .question-list { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px 14px 40px; }
+  .teacher-guidance { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-top: 18px; }
+  .teacher-guidance summary { cursor: pointer; color: var(--amber-lt); font-weight: 700; padding: 15px 17px; }
+  .teacher-guidance[open] summary { border-bottom: 1px solid var(--border); }
+  .teacher-guidance-content { padding: 16px 18px; }
+  .teacher-guidance-content h4 { color: var(--teal-lt); }
+  @media (max-width: 640px) { .trajectory-grid { grid-template-columns: 1fr; } }
+  @media print {
+    nav, .section-nav { position: static; }
+    .trajectory-card, .teacher-guidance, .tl-item, .ref-card { break-inside: avoid; }
+    .teacher-guidance > .teacher-guidance-content { display: block !important; }
+  }
 </style>
 </head>
 <body>
 
 <nav>
   <div class="nav-left">
-    <a href="../index.html">← Turma 1</a>
+    <a href="/introducao-sociologia/">← Página principal</a>
     <span class="nav-badge">Aula 17</span>
   </div>
   <span class="nav-center">Aula 17 / 30</span>
@@ -101,6 +152,7 @@
     <a href="aula-18.html">Próxima →</a>
   </div>
 </nav>
+<div class="section-nav" aria-label="Seções da aula"><a href="#objetivos">Objetivos</a><a href="#conteudo-programatico">Conteúdo</a><a href="#texto-base">Texto-base</a><a href="#plano-aula">Plano da aula</a><a href="#leituras">Leituras</a><a href="#atividade">Atividade</a><a href="#recursos">Recursos</a></div>
 
 <main>
 
@@ -108,125 +160,141 @@
     <div class="header-meta">
       <span class="bloco-badge">Bloco IV — Sociedade, Cultura e Socialização</span>
       <span class="meta-chip">Aula 17</span>
-      <span class="meta-chip">10/06/2026 — Quarta-feira</span>
-      <span class="meta-chip">2 horas</span>
+      <span class="meta-chip">Encontro 9 · Parte 1 de 2</span>
+      <span class="meta-chip">04/11/2026 — Quarta-feira</span>
+      <span class="meta-chip">Percurso completo do encontro: 4 horas-aula</span>
+      <span class="meta-chip">Esta página: aproximadamente 2 horas</span>
     </div>
     <h1>Identidade cultural e cultura de massa.</h1>
   </div>
 
-  <section>
+  <section id="objetivos">
     <div class="section-title">Objetivos da Aula</div>
     <ul class="obj-list">
-      <li>Compreender o conceito de identidade cultural e sua dimensão socialmente construída.</li>
-      <li>Relacionar cultura e construção de identidades individuais e coletivas.</li>
-      <li>Discutir o impacto da cultura de massa e da indústria cultural sobre as identidades.</li>
-      <li>Analisar a cultura digital e as redes sociais como fenômenos culturais contemporâneos.</li>
+      <li>Compreender identidade cultural como construção relacional, histórica e sujeita a disputas.</li>
+      <li>Distinguir pertencimento, identificação e posição social sem imaginar identidades fixas ou homogêneas.</li>
+      <li>Analisar indústria cultural, padronização e diferenciação sem reduzir públicos a consumidores passivos.</li>
+      <li>Examinar circulação, apropriação e apresentação de si em plataformas digitais e preparar a passagem à socialização.</li>
     </ul>
   </section>
 
-  <section>
+  <section id="conteudo-programatico">
     <div class="section-title">Conteúdo Programático</div>
-    <div class="content-topic">
-      <h3>1. Identidade cultural: construção social, hibridismo, identidades múltiplas</h3>
-      <ul>
-        <li>Identidade como construção social e histórica</li>
-        <li>Hibridismo cultural (Stuart Hall): a crise das identidades fixas</li>
-        <li>Identidades múltiplas e fragmentadas na modernidade tardia</li>
-      </ul>
-    </div>
-    <div class="content-topic">
-      <h3>2. Indústria cultural: padronização e pseudoindividualização</h3>
-      <ul>
-        <li>Adorno e Horkheimer: Escola de Frankfurt e a crítica à indústria cultural</li>
-        <li>Padronização dos produtos culturais e mercantilização da cultura</li>
-        <li>Pseudoindividualização: a ilusão da escolha no consumo cultural</li>
-      </ul>
-    </div>
-    <div class="content-topic">
-      <h3>3. Cultura digital e redes sociais como fenômenos culturais</h3>
-      <ul>
-        <li>A internet e as plataformas digitais como espaços de produção cultural</li>
-        <li>Identidades nas redes sociais: performance e curadoria do eu</li>
-        <li>Homogeneização versus diversidade cultural no ambiente digital</li>
-      </ul>
+    <div class="content-topic"><h3>1. Identidade cultural, pertencimento e diferença</h3><ul><li>Identificações como relações históricas e situadas</li><li>Identidades múltiplas, fronteiras e disputas de representação</li><li>Condições sociais desiguais de reconhecimento</li></ul></div>
+    <div class="content-topic"><h3>2. Cultura de massa e indústria cultural</h3><ul><li>Produção cultural organizada por empresas, mercados e tecnologias</li><li>Padronização, diferenciação e mercantilização</li><li>Recepção, interpretação, apropriação e contestação dos públicos</li></ul></div>
+    <div class="content-topic"><h3>3. Cultura digital e apresentação de si</h3><ul><li>Plataformas como ambientes sociais e econômicos</li><li>Perfis, públicos, métricas e identidades situadas</li><li>Circulação cultural, algoritmos e desigualdade de visibilidade</li></ul></div>
+  </section>
+
+  <section id="texto-base" aria-labelledby="texto-base-title">
+    <div class="section-title" id="texto-base-title">Texto-base para acompanhamento da aula</div>
+    <div class="base-text">
+      <p class="base-intro">A aula examina como pessoas e coletivos se identificam em relações culturais atravessadas por instituições, mercados e mídias. Identidade não é essência íntima nem simples escolha; cultura de massa não produz efeitos iguais; plataformas não atuam sozinhas.</p>
+      <nav class="base-toc" aria-label="Sumário do texto-base"><h3>Nesta leitura</h3><ol>
+        <li><a href="#identidade-relacao">Identidade não é essência</a></li><li><a href="#identificacao-posicao">Identificação, posição e reconhecimento</a></li><li><a href="#pertencimento-diferenca">Pertencimento, diferença e fronteiras</a></li><li><a href="#identidades-multiplas">Identidades múltiplas e articulações</a></li><li><a href="#industria-cultural">Produção cultural em escala industrial</a></li><li><a href="#padronizacao-diferenciacao">Padronização, diferenciação e escolha</a></li><li><a href="#recepcao-apropriacao">Recepção, apropriação e contestação</a></li><li><a href="#cultura-digital">Cultura digital e apresentação de si</a></li><li><a href="#sintese-socializacao">Síntese e passagem à socialização</a></li>
+      </ol></nav>
+
+      <div class="base-subsection" id="identidade-relacao"><h3>1. Identidade não é essência</h3>
+        <p>Identidade cultural responde provisoriamente a perguntas como “quem somos?”, “com quem nos reconhecemos?” e “como somos nomeados?”. Não é uma propriedade imutável escondida dentro de cada pessoa. Forma-se historicamente nas relações, em classificações e narrativas que aproximam algumas experiências e estabelecem diferenças. Ser estudante, morador de uma região, integrante de uma religião ou público de um estilo musical pode ganhar importância em contextos específicos.</p>
+        <p>Isso não significa que a identidade seja ilusão ou escolha arbitrária. Identificações podem produzir vínculos, memórias, obrigações e acesso a recursos. Também podem ser atribuídas por outros, inclusive contra a vontade de alguém. Uma pessoa interpreta e negocia as categorias disponíveis, mas não controla sozinha seus sentidos nem as consequências sociais. A análise sociológica liga apresentação de si, reconhecimento alheio e condições históricas.</p>
+        <aside class="pause-box"><h4>Pausa 1 — um perfil em contexto</h4><p>A mesma pessoa se apresenta de modos diferentes numa sala, numa reunião familiar e numa plataforma. O que muda no público, nas expectativas e nos recursos disponíveis, sem concluir que uma das apresentações é “falsa”?</p></aside>
+      </div>
+
+      <div class="base-subsection" id="identificacao-posicao"><h3>2. Identificação, posição e reconhecimento</h3>
+        <p><strong>Identificação</strong> destaca o processo: alguém se aproxima de símbolos, histórias e coletivos, enquanto também é classificado por instituições e interlocutores. <strong>Posição social</strong> refere-se ao lugar ocupado em relações e à distribuição de autoridade e recursos. <strong>Reconhecimento</strong> indica como reivindicações de pertencimento são aceitas, recusadas ou condicionadas. Os três planos se cruzam, mas não são sinônimos.</p>
+        <p>Na universidade, uma pessoa pode identificar-se como pesquisadora iniciante, ocupar posição de estudante e ter sua competência reconhecida de maneira desigual. Um sotaque, uma roupa ou um repertório musical pode ser usado por outros para antecipar julgamentos. Por isso, identidade não explica sozinha comportamento nem capacidade. É necessário observar regras, interações, documentos e efeitos, evitando converter rótulos em causas automáticas.</p>
+      </div>
+
+      <div class="base-subsection" id="pertencimento-diferenca"><h3>3. Pertencimento, diferença e fronteiras</h3>
+        <p>Pertencer envolve relações práticas: participar, compartilhar referências, ser reconhecido e disputar o significado do próprio grupo. Fronteiras culturais não são muros territoriais. Elas podem ser marcadas por linguagem, alimentação, vestuário, rituais, gostos e memórias, mas permanecem atravessadas por circulação e contato. Pessoas situadas de lados diferentes de uma fronteira podem compartilhar muitos repertórios.</p>
+        <p>Toda afirmação de “nós” seleciona diferenças, mas diferença não precisa significar inferioridade. Relações de poder influem sobre quem pode definir a imagem pública de um coletivo, quais símbolos recebem prestígio e quais pertencimentos são tratados como suspeitos. Mesmo dentro de uma família, religião, geração ou comunidade existem discordâncias. Falar de identidade coletiva exige mostrar quem formula a representação, em qual contexto e com quais contestações.</p>
+        <aside class="pause-box"><h4>Pausa 2 — pertencimento sem homogeneidade</h4><p>Duas pessoas reivindicam o mesmo pertencimento e discordam sobre roupa, música ou ritual. Que evidência permitiria estudar a fronteira do grupo sem escolher uma delas como representante “autêntica”?</p></aside>
+      </div>
+
+      <div class="base-subsection" id="identidades-multiplas"><h3>4. Identidades múltiplas e articulações</h3>
+        <p>Uma pessoa participa simultaneamente de relações de classe, gênero, raça, território, geração, religião, trabalho, estudo e deficiência, entre outras. Essas posições não formam uma lista de etiquetas independentes. Elas se articulam e ganham relevância conforme a situação. O ingresso universitário, por exemplo, pode reforçar um pertencimento regional, modificar uma identificação profissional e criar novas redes sem apagar vínculos anteriores.</p>
+        <p>“Identidades múltiplas” não quer dizer personalidade fragmentada nem liberdade total para trocar de papel. Algumas classificações são impostas e produzem efeitos persistentes; outras podem ser reivindicadas ou recusadas. Contradições fazem parte do processo: expectativas familiares, profissionais e acadêmicas podem apontar direções diferentes. Em vez de procurar uma identidade verdadeira por trás das demais, a Sociologia investiga como a pessoa age entre posições e narrativas.</p>
+      </div>
+
+      <div class="base-subsection" id="industria-cultural"><h3>5. Produção cultural em escala industrial</h3>
+        <p>Cultura de massa refere-se à produção e circulação ampla de bens culturais em sociedades marcadas por meios técnicos, empresas, mercados e grandes públicos. O conceito de <strong>indústria cultural</strong> chama atenção para o fato de que filmes, músicas, programas e notícias não chegam ao público fora de relações econômicas. Financiamento, propriedade, publicidade, formatos e distribuição condicionam o que pode ser produzido e visto.</p>
+        <p>Essa crítica não transforma toda obra popular em objeto inferior nem supõe uma massa homogênea. Seu foco está na organização da produção cultural e na tendência de converter atenção e experiência em mercadoria. Uma plataforma ou gravadora reduz riscos ao repetir fórmulas conhecidas, enquanto procura novidades comercializáveis. Para aplicar o conceito, é preciso investigar modelos de negócio, decisões editoriais, contratos e circuitos de circulação, não apenas declarar que algo é “massificado”.</p>
+      </div>
+
+      <div class="base-subsection" id="padronizacao-diferenciacao"><h3>6. Padronização, diferenciação e escolha</h3>
+        <p>Padronização aparece quando produtos distintos repetem estruturas, durações, personagens ou estratégias de divulgação. Diferenciação apresenta variações capazes de organizar nichos e oferecer sensação de escolha. A noção de pseudoindividualização ajuda a perguntar se diferenças visíveis alteram de fato a fórmula e as relações de produção. Ela é uma ferramenta crítica, não uma conclusão automática sobre qualquer consumo.</p>
+        <p>Escolhas culturais são reais, mas acontecem em cardápios previamente organizados e com acessos desiguais. Preço, tempo, conectividade, repertório, localização e recomendação interferem no que alguém encontra. Ao mesmo tempo, públicos comparam, recusam e combinam produtos. A análise precisa sustentar juntas a estrutura do mercado e a capacidade de ação, sem imaginar consumidores inteiramente livres ou passivos.</p>
+        <aside class="pause-box"><h4>Pausa 3 — repetição e escolha</h4><p>Dois produtos têm capas e públicos diferentes, mas repetem formato, duração e modelo de receita. Que dados ajudariam a avaliar padronização sem desqualificar previamente o gosto de quem os consome?</p></aside>
+      </div>
+
+      <div class="base-subsection" id="recepcao-apropriacao"><h3>7. Recepção, apropriação e contestação</h3>
+        <p>Receber um produto cultural não é absorver uma mensagem intacta. Pessoas interpretam com repertórios e interesses diversos, conversam, criam usos imprevistos e podem rejeitar uma leitura proposta. Uma música comercial pode acompanhar celebração familiar, tornar-se símbolo político ou ser parodiada. Apropriação descreve esse trabalho de deslocar e recombinar sentidos, que ocorre em condições desiguais de autoria, remuneração e visibilidade.</p>
+        <p>Reconhecer atividade dos públicos não elimina o poder das empresas. Campanhas, direitos autorais, disponibilidade e métricas orientam circulação; grupos organizados podem negociar, contestar representações e produzir alternativas. Evidências de recepção incluem comentários, observação, entrevistas voluntárias, versões recriadas e práticas de consumo, mas nenhuma postagem isolada representa todo um público. O desafio é explicar variação e padrões.</p>
+      </div>
+
+      <div class="base-subsection" id="cultura-digital"><h3>8. Cultura digital e apresentação de si</h3>
+        <p>Plataformas são ambientes sociais organizados por regras, interfaces, empresas, trabalho e interesses econômicos. Perfis permitem apresentar versões situadas de si diante de públicos imaginados; curtidas, seguidores e recomendações oferecem medidas de visibilidade. Essas condições influem sobre escolhas, mas o algoritmo não é um agente autônomo que controla todas as pessoas igualmente. Seus efeitos dependem de dados, objetivos empresariais, uso e posição social.</p>
+        <p>Conteúdos circulam entre contextos, recebem novas legendas e podem alcançar públicos não previstos. Usuários aprendem convenções, ajustam privacidade, negociam fronteiras entre estudo, trabalho e intimidade e encontram desigualdades de acesso ou assédio. Identidade digital não é separada da vida “real”: relaciona-se com instituições, corpos e consequências fora da tela. Pesquisar exige cuidado ético, consentimento e distinção entre conteúdo público e autorização para uso.</p>
+        <aside class="pause-box"><h4>Pausa 4 — plataforma e visibilidade</h4><p>Quando um perfil muda depois de entrar na universidade, o que poderia decorrer de novo público, regras da plataforma, objetivos profissionais ou escolha pessoal? Que evidências distinguiriam essas hipóteses?</p></aside>
+      </div>
+
+      <div class="base-subsection" id="sintese-socializacao"><h3>9. Síntese e passagem à socialização</h3>
+        <p>Identidades culturais são posicionamentos relacionais e históricos, formados por pertencimentos, diferenças e reconhecimento. Bens culturais são produzidos e circulam por instituições, mercados e tecnologias; padronização convive com diferenciação, e públicos interpretam e contestam. Nas plataformas, apresentação de si, métricas e algoritmos articulam capacidade de ação e poder econômico.</p>
+        <p>A próxima aula perguntará como repertórios, normas e maneiras de participar são aprendidos ao longo da vida. Aqui identificamos que ninguém inventa sozinho as categorias com que se apresenta; na Aula 18, o conceito de socialização permitirá examinar mecanismos, vínculos e instituições dessa aprendizagem. A distinção entre socialização primária e secundária e o estudo sistemático de seus agentes ficam reservados para esse próximo movimento.</p>
+      </div>
     </div>
   </section>
 
-  <section>
-    <div class="section-title">Plano de Aula com Tempo</div>
-    <div class="timeline">
-      <div class="tl-item">
-        <span class="tl-duration">10 min</span>
-        <span class="tl-text"><strong>Retomada</strong> — Revisão dos conceitos de etnocentrismo e relativismo cultural. Conexão com o tema da identidade cultural.</span>
-      </div>
-      <div class="tl-item">
-        <span class="tl-duration">25 min</span>
-        <span class="tl-text"><strong>Exposição: Identidade cultural</strong> — Apresentação dos conceitos de identidade cultural, hibridismo e identidades múltiplas com base em Stuart Hall. Exemplos práticos de identidades culturais em contextos brasileiros.</span>
-      </div>
-      <div class="tl-item">
-        <span class="tl-duration">20 min</span>
-        <span class="tl-text"><strong>Exposição: Indústria cultural</strong> — Apresentação da teoria da indústria cultural de Adorno e Horkheimer: padronização, mercantilização e pseudoindividualização. Exemplos contemporâneos (streaming, música pop, entretenimento de massa).</span>
-      </div>
-      <div class="tl-item">
-        <span class="tl-duration">30 min</span>
-        <span class="tl-text"><strong>Análise de conteúdo de redes sociais em grupos</strong> — Cada grupo escolhe ou recebe um perfil de rede social e analisa as identidades construídas, os padrões e a diversidade cultural presentes. (Ver Atividades em Sala.)</span>
-      </div>
-      <div class="tl-item">
-        <span class="tl-duration">25 min</span>
-        <span class="tl-text"><strong>Apresentação e debate</strong> — Cada grupo apresenta em 5 minutos suas conclusões. O professor medeia o debate sobre homogeneização versus diversidade cultural no ambiente digital.</span>
-      </div>
-      <div class="tl-item">
-        <span class="tl-duration">10 min</span>
-        <span class="tl-text"><strong>Síntese</strong> — Retomada dos principais conceitos. Indicação das leituras para a próxima aula sobre socialização.</span>
-      </div>
-    </div>
+  <section id="plano-aula"><div class="section-title">Plano de Aula com Tempo</div><div class="timeline">
+    <div class="tl-item"><span class="tl-duration">10 min</span><span class="tl-text"><strong>Retomada das Aulas 15 e 16</strong> — Cultura, diferença, poder e a pergunta sobre identificação.</span></div>
+    <div class="tl-item"><span class="tl-duration">30 min</span><span class="tl-text"><strong>Exposição dialogada</strong> — Identidade relacional, pertencimento, diferença, indústria cultural e recepção.</span></div>
+    <div class="tl-item"><span class="tl-duration">20 min</span><span class="tl-text"><strong>Leitura orientada das trajetórias</strong> — Distinção entre identificação, posição, expectativa e condição material.</span></div>
+    <div class="tl-item"><span class="tl-duration">35 min</span><span class="tl-text"><strong>Oficina</strong> — Grupos analisam seis trajetórias fictícias e produzem mapa comparativo.</span></div>
+    <div class="tl-item"><span class="tl-duration">15 min</span><span class="tl-text"><strong>Socialização</strong> — Apresentação de hipóteses, evidências ausentes e alternativas justificadas.</span></div>
+    <div class="tl-item"><span class="tl-duration">10 min</span><span class="tl-text"><strong>Síntese e passagem</strong> — Sistematização e preparação da Aula 18 sobre socialização.</span></div>
+  </div></section>
+
+  <section id="leituras"><div class="section-title">Textos para Leitura Prévia</div>
+    <div class="ref-card"><div class="ref-author">HALL, Stuart</div><div class="ref-title">A identidade cultural na pós-modernidade</div></div>
+    <div class="ref-card"><div class="ref-author">ADORNO, Theodor W.; HORKHEIMER, Max</div><div class="ref-title">Dialética do esclarecimento. “A indústria cultural”</div></div>
+    <p class="base-intro">O texto-base utiliza paráfrases didáticas, sem reproduzir citações extensas nem atribuir toda a discussão de identidade ou recepção a um único referencial.</p>
   </section>
 
-  <section>
-    <div class="section-title">Textos para Leitura Prévia</div>
-    <div class="ref-card">
-      <div class="ref-author">HALL, Stuart</div>
-      <div class="ref-title">A identidade cultural na pós-modernidade. Cap. 1</div>
-      <div class="ref-pages">p. 7–22</div>
+  <section id="atividade"><div class="section-title">Atividade em Sala</div><div class="activity-card">
+    <h3>Oficina — mapa de trajetórias de socialização</h3>
+    <p><strong>Finalidade:</strong> mapear como repertórios culturais, identificações, expectativas e condições mudam em trajetórias fictícias, preparando uma pergunta para a Aula 18 sem antecipar sua distinção conceitual entre socialização primária e secundária.</p>
+    <p><strong>Grupos:</strong> seis equipes recebem uma trajetória. Distribuam leitura, registro, controle do tempo e apresentação. Se houver menos equipes, cada grupo compara duas situações.</p>
+    <p><strong>Tempos:</strong> 5 minutos para descrição; 15 para mapa de relações; 10 para hipótese e evidência; 5 para revisão. A socialização posterior dura 15 minutos.</p>
+    <p><strong>Regra de cuidado:</strong> trabalhar apenas com personagens fictícios. Não solicitar autobiografias, relatos pessoais nem identificação de quem viveu situação semelhante.</p>
+    <div class="trajectory-grid" aria-label="Seis trajetórias fictícias">
+      <article class="trajectory-card"><h4>Trajetória 1 — ingresso na universidade</h4><p>Júlia concluiu o ensino médio numa escola pequena, onde conhecia colegas e professores. Ao ingressar na universidade, encontra linguagem acadêmica, autonomia de horários e grupos com gostos diversos. Espera-se que participe de seminários; ela teme julgamento do sotaque. Uma monitoria oferece apoio, e Júlia pode ampliar sua participação sem abandonar vínculos anteriores.</p></article>
+      <article class="trajectory-card"><h4>Trajetória 2 — mudança do campo para a cidade</h4><p>Ravi trabalhava com a família no campo e muda para uma cidade para estudar. Passa a usar transporte coletivo, dividir moradia e negociar horários distintos. Colegas associam origem rural a um gosto musical fixo. Uma associação de estudantes cria rede de informação; Ravi pode combinar repertórios, contestar o estereótipo ou adotar práticas novas, sem resultado predeterminado.</p></article>
+      <article class="trajectory-card"><h4>Trajetória 3 — entrada no primeiro emprego</h4><p>Camila produzia vídeos e fazia trabalhos informais. No primeiro emprego, encontra código de vestuário, comunicação por e-mail e metas acompanhadas por plataforma. Família celebra a estabilidade, enquanto colegas valorizam disponibilidade constante. Uma supervisora explica regras e Camila negocia limites digitais; isso pode gerar reconhecimento, conflito ou revisão das normas.</p></article>
+      <article class="trajectory-card"><h4>Trajetória 4 — grupo religioso ou comunitário</h4><p>André participa de um grupo comunitário ligado a uma instituição religiosa que organiza música e ajuda local. Ele conhece rituais e linguagem novos; integrantes discordam sobre divulgar atividades nas redes. Uma coordenação jovem propõe consentimento para imagens. André pode participar, questionar formatos ou afastar-se de algumas ações sem representar todo o grupo.</p></article>
+      <article class="trajectory-card"><h4>Trajetória 5 — convivência entre gerações</h4><p>Na família fictícia de Lúcia, três gerações dividem a casa. Há desacordo sobre volume de música, refeições, uso do celular e quem fala primeiro nas decisões. Uma tabela de tarefas e reuniões semanais oferece recurso de negociação. Regras podem mudar, permanecer ou ser cumpridas de modos distintos; nenhuma geração possui posição uniforme.</p></article>
+      <article class="trajectory-card"><h4>Trajetória 6 — comunidade digital de estudos ou trabalho</h4><p>Diego entra num servidor digital de estudos usado também para oportunidades profissionais. Aprende canais, abreviações e horários de resposta; moderadores aplicam regras e métricas destacam participantes ativos. Ele consulta tutoriais e questiona uma exigência de disponibilidade. Pode ganhar rede de apoio, silenciar-se ou ajudar a mudar regras, conforme relações e recursos.</p></article>
     </div>
-    <div class="ref-card">
-      <div class="ref-author">ADORNO, Theodor W.; HORKHEIMER, Max</div>
-      <div class="ref-title">Dialética do esclarecimento. Cap. "A indústria cultural" (trechos)</div>
-      <div class="ref-pages">p. 113–156</div>
-    </div>
-  </section>
+    <h4>Oito perguntas para cada trajetória</h4>
+    <ol class="question-list"><li>Que <strong>aprendizagens anteriores</strong> aparecem?</li><li>Que <strong>novo contexto institucional</strong> foi encontrado?</li><li>Quais <strong>agentes</strong> participam?</li><li>Que <strong>normas, papéis e expectativas</strong> estão presentes?</li><li>Que <strong>sanções formais ou informais</strong> podem ocorrer?</li><li>Que <strong>conflito entre socializações</strong> aparece?</li><li>Como a pessoa <strong>interpreta, negocia ou resiste</strong>?</li><li>Que <strong>evidência</strong> seria necessária antes de concluir?</li></ol>
+    <p><strong>Produto:</strong> um mapa em três colunas — repertórios anteriores, novo contexto e respostas possíveis — mais uma hipótese e duas evidências necessárias.</p>
+    <p><strong>Socialização:</strong> cada grupo apresenta contexto, conflito e consequência não automática em até dois minutos. A turma propõe uma hipótese alternativa sem transformar o personagem em culpado pelo problema.</p>
+    <details class="teacher-guidance"><summary>Possibilidades comentadas e orientações de mediação — uso do professor</summary><div class="teacher-guidance-content">
+      <p>As possibilidades não são respostas únicas. Exigir distinção entre informação do caso e inferência, reconhecer condições materiais e aceitar alternativas justificadas por evidências.</p>
+      <h4>1. Ingresso na universidade</h4><p>Aprendizagens da escola e vínculos anteriores aparecem diante de linguagem, horários e seminários universitários. Docentes, colegas e monitoria participam; nota e correção podem ser sanções formais ou informais. Há conflito entre cautela diante da exposição e expectativa de fala. Júlia pode observar, pedir apoio, negociar formas de participação ou contestar julgamento linguístico. Isso não garante adaptação nem ruptura. Seria necessário conhecer critérios, interações e acesso efetivo à monitoria, evitando culpabilizá-la.</p>
+      <h4>2. Mudança do campo para a cidade</h4><p>Rotinas familiares e de trabalho encontram transporte, moradia compartilhada e horários urbanos. Família, colegas, associação e instituições participam; aprovação, piadas e regras de moradia podem sancionar condutas. O estereótipo sobre gosto não deriva automaticamente da origem. Ravi pode combinar repertórios e mobilizar a associação, mas renda, deslocamento e moradia condicionam opções. Entrevistas voluntárias, horários e práticas observadas seriam evidências; outras interpretações são aceitáveis sem tratar campo e cidade como blocos.</p>
+      <h4>3. Primeiro emprego</h4><p>Experiências digitais e informais precedem normas de roupa, e-mail, metas e disponibilidade. Supervisora, colegas, família e plataforma têm papéis diferentes; avaliação, elogio e exclusão de informação funcionam como sanções. Estabilidade familiar pode conflitar com limites de descanso. Camila interpreta regras, aprende procedimentos e negocia, não apenas recebe imposições. Contrato, código, jornada e registros de comunicação seriam necessários antes de atribuir o resultado à personalidade.</p>
+      <h4>4. Grupo religioso ou comunitário</h4><p>Repertórios anteriores encontram rituais, linguagem, ajuda e divulgação. Integrantes, coordenações, beneficiários e plataformas participam; reconhecimento e restrição de funções podem sancionar. A divergência sobre imagens mostra conflito interno, não “a visão” da religião. André pode aderir, propor consentimento ou recusar atividades. Espaço, tempo e acesso digital também condicionam sua participação. Seria necessário verificar regras, decisões e experiências diversas. Participação, negociação e afastamento são consequências possíveis, jamais automáticas.</p>
+      <h4>5. Convivência entre gerações</h4><p>Há aprendizagens diferentes sobre música, refeições, fala, tarefas e celular. Familiares e condições da moradia organizam expectativas; críticas, retirada de privilégios e acordos podem funcionar como sanções. A tabela e as reuniões são recursos, não soluções garantidas. Lúcia e os demais podem interpretar, negociar, cumprir seletivamente ou contestar. Observação consentida de acordos e distribuição das tarefas seria necessária, sem supor gerações homogêneas ou culpar indivíduos.</p>
+      <h4>6. Comunidade digital</h4><p>Experiências anteriores de estudo e trabalho encontram canais, abreviações, métricas e moderação. Participantes, moderadores, empresa da plataforma e recrutadores têm poderes distintos; advertência, banimento e perda de visibilidade podem sancionar. Diego usa tutoriais e questiona disponibilidade, articulando aprendizagem e resistência. Regras, desenho da interface, registros consentidos e distribuição de oportunidades seriam evidências. A tecnologia condiciona, mas não determina uma consequência única.</p>
+      <h4>Orientações gerais de mediação</h4><p>Distinguir aprendizagem, imposição e negociação; localizar socializações contraditórias e condições institucionais sem psicologizar ou culpar personagens. Solicitar evidências e aceitar hipóteses alternativas justificadas. Não perguntar qual estudante viveu situação semelhante nem exigir representação de qualquer grupo. Encerrar recolhendo as perguntas ainda abertas sobre como normas e repertórios são aprendidos; elas introduzem a Aula 18, na qual socialização primária, secundária e agentes serão conceituados sistematicamente.</p>
+    </div></details>
+  </div></section>
 
-  <section>
-    <div class="section-title">Atividades em Sala</div>
-    <div class="activity-card">
-      <strong>Análise de conteúdo em redes sociais: identidade, padronização e diversidade</strong><br><br>
-      Cada grupo escolhe (ou recebe) um perfil de rede social — pode ser um influenciador, uma página cultural, um canal de entretenimento ou um perfil temático. A análise deve responder às seguintes questões:
-      <br><br>
-      — <strong>Quais identidades são construídas ou reforçadas</strong> pelo conteúdo desse perfil?<br>
-      — <strong>Há padronização</strong> nos conteúdos, nos formatos e nas estéticas apresentadas?<br>
-      — <strong>Há espaço para diversidade cultural</strong> ou o conteúdo tende à homogeneização?<br>
-      — O perfil analisado é mais próximo da lógica da <strong>indústria cultural</strong> (Adorno) ou promove resistência criativa?<br>
-      — Como o perfil contribui para a <strong>construção de identidades</strong> dos seus seguidores?
-      <br><br>
-      Cada grupo apresenta em até 5 minutos suas conclusões, seguidas de debate coletivo.
-    </div>
-  </section>
-
-  <section>
-    <div class="section-title">Recursos Necessários</div>
-    <div class="resources-list">
-      <span class="res-tag">Projetor</span>
-      <span class="res-tag">Acesso à internet (opcional)</span>
-      <span class="res-tag">Textos impressos</span>
-      <span class="res-tag">Quadro branco</span>
-    </div>
-  </section>
-
+  <section id="recursos"><div class="section-title">Recursos Necessários</div><div class="resources-list"><span class="res-tag">Projetor</span><span class="res-tag">Quadro branco</span><span class="res-tag">Seis trajetórias impressas ou projetadas</span><span class="res-tag">Folhas para o mapa</span><span class="res-tag">Canetas</span></div></section>
 </main>
 
 <footer>
-  <a href="../index.html">← Voltar para Turma 1</a>
-  &nbsp;·&nbsp; Introdução à Sociologia 2026.1
+  <a href="/introducao-sociologia/">← Página principal</a>
+  &nbsp;·&nbsp; Introdução à Sociologia 2026.2
 </footer>
 
 </body>

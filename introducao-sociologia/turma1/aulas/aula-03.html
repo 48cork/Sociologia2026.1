@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aula 03 — Introdução à Sociologia | Turma 1</title>
+<title>Aula 03 — Introdução à Sociologia | 2026.2</title>
 <style>
   :root {
     --bg: #0a0a0f; --surface: #12121c; --card: #1a1a2e; --border: #2a2a4a;
@@ -46,18 +46,57 @@
   .ref-title { font-size: 0.9rem; color: var(--text); }
   .ref-pages { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
   .activity-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; font-size: 0.9rem; line-height: 1.7; border-left: 3px solid var(--teal-lt); }
+  .teacher-guidance { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-top: 18px; }
+  .teacher-guidance summary { cursor: pointer; color: var(--amber-lt); font-weight: 700; padding: 15px 17px; }
+  .teacher-guidance[open] summary { border-bottom: 1px solid var(--border); }
+  .teacher-guidance-content { padding: 16px 18px; }
   .resources-list { display: flex; flex-wrap: wrap; gap: 10px; }
   .res-tag { background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; }
   footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--muted); font-size: 0.85rem; }
   footer a { color: var(--purple-lt); text-decoration: none; }
   footer a:hover { text-decoration: underline; }
+
+  html, body { max-width: 100%; overflow-x: clip; }
+  body { overflow-wrap: anywhere; }
+  section { scroll-margin-top: 112px; }
+  .section-nav { position: sticky; top: 56px; z-index: 90; background: rgba(10,10,15,.97); border-bottom: 1px solid var(--border); padding: 8px 16px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: thin; }
+  .section-nav a { flex: 0 0 auto; min-height: 36px; display: inline-flex; align-items: center; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 5px 12px; text-decoration: none; font-size: .8rem; }
+  .base-text { max-width: 72ch; margin-inline: auto; }
+  .base-intro { color: var(--muted); font-size: .92rem; margin-bottom: 16px; }
+  .base-toc { position: static; height: auto; display: block; max-width: 100%; overflow: clip; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; margin-bottom: 28px; }
+  .base-toc h3 { color: var(--bloco-lt, var(--purple-lt)); font-size: .95rem; margin-bottom: 10px; }
+  .base-toc ol { width: 100%; max-width: 100%; padding-left: 22px; columns: 2; column-gap: 32px; }
+  .base-toc li { break-inside: avoid; margin: 5px 0; }
+  .base-toc a { color: var(--text); text-decoration-thickness: 1px; text-underline-offset: 3px; white-space: normal; }
+  .base-subsection { scroll-margin-top: 112px; margin-bottom: 28px; }
+  .base-subsection h3 { color: var(--bloco-lt, var(--purple-lt)); font-size: 1.15rem; line-height: 1.35; margin-bottom: 12px; }
+  .base-subsection p { color: var(--text); margin-bottom: 14px; line-height: 1.78; }
+  .base-subsection strong { color: #f1f5f9; }
+  .pause-box { background: rgba(79,70,229,.1); border: 1px solid rgba(129,140,248,.4); border-left: 4px solid var(--bloco-lt, var(--purple-lt)); border-radius: var(--radius); padding: 16px 18px; margin: 22px 0; }
+  .pause-box h4 { color: var(--amber-lt); font-size: .75rem; letter-spacing: .09em; text-transform: uppercase; margin-bottom: 6px; }
+  .pause-box p { margin: 0; color: var(--text); font-weight: 600; line-height: 1.6; }
+  .legacy-note { border: 1px solid var(--amber-lt); background: rgba(251,191,36,.08); border-radius: var(--radius); padding: 16px 18px; margin: 0 0 24px; }
+  .res-tag { max-width: 100%; min-width: 0; }
+  a:focus-visible { outline: 3px solid var(--amber-lt); outline-offset: 3px; border-radius: 3px; }
+  @media (max-width: 640px) {
+    nav { height: auto; min-height: 56px; padding: 8px 12px; flex-wrap: wrap; }
+    .nav-left, .nav-right { min-width: 0; }
+    .nav-center { display: none; }
+    .nav-right { gap: 10px; }
+    .section-nav { top: 72px; padding-inline: 10px; }
+    main { padding: 24px 14px 60px; }
+    .aula-header { padding: 22px 18px; }
+    .base-toc ol { width: auto; columns: auto; padding-left: 0; list-style-position: inside; }
+    .tl-item { flex-direction: column; gap: 8px; }
+  }
+  @media print { .teacher-guidance { break-inside: avoid; } }
 </style>
 </head>
 <body>
 
 <nav>
   <div class="nav-left">
-    <a href="../index.html">← Turma 1</a>
+    <a href="/introducao-sociologia/">← Página principal</a>
     <span class="nav-badge">Aula 03</span>
   </div>
   <span class="nav-center">Aula 03 / 30</span>
@@ -66,6 +105,7 @@
     <a href="aula-04.html">Próxima →</a>
   </div>
 </nav>
+<div class="section-nav" aria-label="Seções da aula"><a href="#objetivos">Objetivos</a><a href="#conteudo-programatico">Conteúdo</a><a href="#texto-base">Texto-base</a><a href="#plano-aula">Plano da aula</a><a href="#leituras">Leituras</a><a href="#atividade">Atividade</a><a href="#recursos">Recursos</a></div>
 
 <main>
 
@@ -73,14 +113,15 @@
     <div class="header-meta">
       <span class="bloco-badge">Bloco I</span>
       <span class="meta-chip">Aula 03</span>
-      <span class="meta-chip">22/04/2026 — Quarta-feira</span>
-      <span class="meta-chip">2 horas</span>
-      <span class="note-chip">21/04 — Feriado de Tiradentes (terça)</span>
+      <span class="meta-chip">Encontro 2 · Parte 1 de 2</span>
+      <span class="meta-chip">16/09/2026 — Quarta-feira</span>
+      <span class="meta-chip">Percurso completo do encontro: 4 horas-aula</span>
+      <span class="meta-chip">Esta página: aproximadamente 2 horas</span>
     </div>
     <h1>O pensamento iluminista e suas influências. Modernidade e crise social.</h1>
   </div>
 
-  <section>
+  <section id="objetivos">
     <div class="section-title">Objetivos da Aula</div>
     <ul class="obj-list">
       <li>Compreender o Iluminismo como contexto intelectual que possibilitou o surgimento da Sociologia.</li>
@@ -90,7 +131,7 @@
     </ul>
   </section>
 
-  <section>
+  <section id="conteudo-programatico">
     <div class="section-title">Conteúdo Programático</div>
     <div class="content-topic">
       <h3>1. O Iluminismo: razão, ciência e crítica da tradição</h3>
@@ -118,7 +159,99 @@
     </div>
   </section>
 
-  <section>
+  <section id="texto-base" aria-labelledby="texto-base-title">
+    <div class="section-title" id="texto-base-title">Texto-base para acompanhamento da aula</div>
+    <div class="base-text">
+      <p class="base-intro">Esta leitura parte das revoluções estudadas na aula anterior para examinar uma transformação intelectual: a passagem de uma ordem justificada pela tradição para um mundo em que autoridades, instituições e conhecimentos deveriam prestar contas à crítica racional.</p>
+      <nav class="base-toc" aria-label="Sumário do texto-base"><h3>Nesta leitura</h3><ol>
+        <li><a href="#a03-ponte">Depois das revoluções, uma pergunta sobre as ideias</a></li>
+        <li><a href="#a03-autoridade">Quando a tradição deixa de bastar</a></li>
+        <li><a href="#a03-razao">Razão, crítica e espaço público</a></li>
+        <li><a href="#a03-ciencia">A ciência como modelo de conhecimento</a></li>
+        <li><a href="#a03-pensadores">Um movimento plural, não uma doutrina única</a></li>
+        <li><a href="#a03-progresso">Progresso e projeto moderno</a></li>
+        <li><a href="#a03-contradicoes">Universalismo, exclusões e crítica</a></li>
+        <li><a href="#a03-linha">A linha do tempo como mapa de relações</a></li>
+        <li><a href="#a03-sintese">Síntese: da crítica ao projeto de ciência social</a></li>
+      </ol></nav>
+
+      <div class="base-subsection" id="a03-ponte"><h3>1. Depois das revoluções, uma pergunta sobre as ideias</h3>
+        <p>A aula anterior mostrou que a Revolução Francesa abalou privilégios políticos e que a Revolução Industrial reorganizou produção, trabalho e cidades. Essas mudanças não foram apenas materiais. Para contestar uma autoridade, imaginar direitos iguais ou planejar uma nova instituição, é preciso dispor de ideias que permitam julgar o presente e conceber alternativas. A modernidade também é uma transformação na maneira de justificar o conhecimento e o poder.</p>
+        <p>Durante séculos, sociedades europeias haviam organizado autoridade política, posição social e explicações do mundo por meio de tradições transmitidas, hierarquias e instituições religiosas. Isso não significa que todas as pessoas concordassem ou que não existissem conflitos e pensamento crítico. Significa que a antiguidade de uma regra, a origem de nascimento e a referência religiosa possuíam grande força de legitimação.</p>
+        <p>Entre os séculos XVII e XVIII, debates científicos, filosóficos e políticos ampliaram a exigência de que afirmações fossem justificadas por argumentos acessíveis ao exame humano. O <strong>Iluminismo</strong> designa esse campo plural de ideias que valorizou a razão, criticou autoridades tradicionais e confiou na capacidade de reformar instituições. Ele não foi uma organização centralizada, não teve um programa único e não pode ser reduzido a uma lista de pensadores.</p>
+      </div>
+
+      <div class="base-subsection" id="a03-autoridade"><h3>2. Quando a tradição deixa de bastar</h3>
+        <p>Uma regra tradicional responde à pergunta “por que agir assim?” afirmando que essa é a maneira recebida dos antepassados, consagrada pelo costume ou reconhecida por uma autoridade legítima. O pensamento iluminista não eliminou todas as tradições, mas recusou que sua antiguidade fosse prova suficiente de verdade ou justiça. Instituições poderiam ser submetidas a julgamento.</p>
+        <p>Essa mudança alcançava a política. Se governantes deveriam justificar seu poder diante de princípios discutíveis, a obediência deixava de depender exclusivamente de origem dinástica ou direito sagrado. Alcançava também a religião: a <strong>secularização</strong> não significou o desaparecimento imediato das crenças, mas a diferenciação de esferas sociais e a possibilidade de organizar conhecimento, direito e governo sem recorrer em todos os casos a uma única autoridade religiosa.</p>
+        <p>A dissolução da ordem feudal foi longa e desigual. Obrigações senhoriais, poderes locais, corporações e vínculos de dependência não desapareceram num único ato. Estados centralizaram administração, impostos e leis; mercados conectaram territórios; indivíduos foram sendo definidos de maneira mais direta como súditos e, posteriormente, cidadãos. Novos arranjos substituíam algumas certezas por instituições mais amplas e impessoais.</p>
+        <p>O crescimento do Estado-nação modificou a escala de pertencimento e governo. Autoridades centrais procuraram uniformizar leis, administrar populações e estabelecer fronteiras, enquanto identidades locais e religiosas continuavam ativas. A nação não era simples comunidade espontânea: dependia de instituições, símbolos, escolas, exércitos e narrativas capazes de apresentar habitantes diferentes como parte de um mesmo corpo político.</p>
+        <p>A expansão dos mercados também alterava dependências. Relações antes organizadas por obrigações pessoais eram crescentemente atravessadas por contratos e dinheiro. Isso podia ampliar a liberdade de escolher ocupações ou circular, mas submetia a sobrevivência a relações econômicas mais abstratas. A crise da tradição não produziu ausência de regras; produziu novas formas de regulação cuja legitimidade ainda precisava ser construída.</p>
+        <aside class="pause-box"><h4>Pausa para discussão</h4><p>Quando alguém afirma que uma prática deve continuar apenas porque “sempre foi assim”, que tipo de autoridade está sendo mobilizado? Que outra justificativa poderia ser exigida?</p></aside>
+      </div>
+
+      <div class="base-subsection" id="a03-razao"><h3>3. Razão, crítica e formação de um espaço público</h3>
+        <p>A <strong>razão</strong> iluminista não deve ser entendida apenas como capacidade individual de calcular. Ela envolve examinar argumentos, buscar coerência, confrontar afirmações e recusar mistérios impostos como barreira definitiva à investigação. Seu potencial emancipador estava na ideia de que pessoas poderiam compreender regras que governavam suas vidas e participar de sua avaliação.</p>
+        <p>A crítica dependia de circulação. Livros, periódicos, correspondências, academias e espaços de debate permitiam que argumentos atravessassem fronteiras. Esse espaço público era limitado socialmente: alfabetização, recursos e liberdade de expressão estavam distribuídos de maneira desigual. Ainda assim, a noção de que decisões e crenças deveriam poder ser discutidas diante de leitores ampliou o horizonte da crítica.</p>
+        <p>Criticar não era simplesmente negar tudo. Era distinguir uma afirmação sustentada por autoridade de outra acompanhada por razões que terceiros pudessem examinar. Essa disposição será importante para as ciências sociais: costumes e instituições deixam de ser evidências autoexplicativas e tornam-se problemas. O pesquisador pergunta como surgiram, quem os sustenta e que consequências produzem.</p>
+        <p>A confiança na razão também continha riscos. Quando uma pessoa ou instituição se apresenta como única representante do racional, pode desqualificar experiências e conhecimentos diferentes como atraso ou superstição. A crítica da autoridade pode formar uma nova autoridade. Por isso, modernidade e pensamento crítico permanecem conectados: as promessas modernas precisam ser examinadas pelos critérios que elas próprias anunciaram.</p>
+        <p>A liberdade de crítica não se distribuiu igualmente. Participar dos espaços letrados dependia de educação, tempo e proteção contra censura. Mulheres e grupos populares podiam circular ideias e intervir nos conflitos, mas frequentemente não eram reconhecidos como sujeitos completos da razão pública. A história do esclarecimento inclui, portanto, a disputa por quem teria direito de falar em nome do universal.</p>
+      </div>
+
+      <div class="base-subsection" id="a03-ciencia"><h3>4. A ciência como modelo de conhecimento legítimo</h3>
+        <p>As transformações científicas anteriores e contemporâneas ao Iluminismo mostravam que observação, demonstração e debate podiam desafiar explicações consagradas. A natureza parecia acessível a regularidades que a investigação humana poderia descobrir. A ciência ganhou prestígio não apenas por produzir respostas, mas por organizar procedimentos públicos de verificação e correção.</p>
+        <p>Esse modelo alimentou uma pergunta decisiva: seria possível estudar a sociedade de modo igualmente sistemático? Se instituições eram obra humana, talvez suas regularidades pudessem ser identificadas. Essa passagem não ocorreu sem dificuldades. Objetos naturais não atribuem sentidos às próprias ações nem mudam porque leram uma teoria sobre si; pessoas e grupos fazem isso. As primeiras ciências sociais herdariam a confiança na investigação, mas discutiriam como adaptá-la a um objeto histórico e reflexivo.</p>
+        <p>Ciência e razão também se ligaram a projetos de administração. Conhecer populações, territórios, doenças e produção podia ampliar capacidades coletivas, mas também capacidades de controle. O conhecimento não possui automaticamente finalidade emancipadora. É preciso perguntar quem define o problema, quem se beneficia da aplicação e quem suporta seus riscos.</p>
+        <p>O prestígio científico também modificou a linguagem das controvérsias. Uma proposta política podia apresentar-se como tecnicamente necessária, escondendo escolhas e valores. Reconhecer essa possibilidade não iguala ciência e opinião. Exige separar a qualidade da evidência da decisão sobre finalidades: conhecer consequências prováveis ajuda a decidir, mas não determina sozinho qual sociedade deve ser desejada.</p>
+        <aside class="pause-box"><h4>Pausa para discussão</h4><p>Que diferença existe entre afirmar que algo é verdadeiro porque uma autoridade declarou e considerá-lo confiável porque o caminho da investigação pode ser examinado?</p></aside>
+      </div>
+
+      <div class="base-subsection" id="a03-pensadores"><h3>5. Um movimento plural, não uma doutrina única</h3>
+        <p>Locke, Voltaire, Rousseau e Kant aparecem no plano da aula porque representam problemas importantes do período, não porque tenham formulado uma teoria comum. Locke discutiu conhecimento, direitos e limites do governo. Voltaire tornou-se referência de crítica à intolerância e ao dogmatismo. Rousseau problematizou desigualdade, liberdade e legitimidade política. Kant associou esclarecimento ao uso autônomo da razão. As diferenças entre eles impedem tratar o Iluminismo como voz única.</p>
+        <p>Rousseau, por exemplo, criticou efeitos da desigualdade e não compartilhou uma confiança simples de que todo avanço das artes e ciências produziria aperfeiçoamento moral. Essa divergência ajuda a evitar a imagem de um século inteiramente convencido por um progresso automático. O próprio interior do pensamento moderno produziu críticas à modernidade.</p>
+        <p>Na leitura de um trecho selecionado, a primeira tarefa será identificar o problema enfrentado: intolerância, autoridade, liberdade, desigualdade ou autonomia. Depois, convém reconstruir a resposta do texto antes de avaliá-la. Uma palavra familiar hoje pode possuir outro campo de sentido no século XVIII; por isso, a contextualização impede que o autor seja transformado em comentarista direto de debates atuais.</p>
+        <p>Também é útil perguntar a quem o texto se dirige e contra que adversário argumenta. Uma defesa da tolerância adquire sentido diante de perseguições e monopólios religiosos; uma teoria do contrato político responde ao problema da legitimidade; uma reflexão sobre autonomia enfrenta formas de tutela. Localizar a controvérsia torna as diferenças entre autores mais importantes que a etiqueta geral “iluminista”.</p>
+      </div>
+
+      <div class="base-subsection" id="a03-progresso"><h3>6. Progresso e projeto moderno</h3>
+        <p>A ideia moderna de <strong>progresso</strong> introduz uma direção no tempo. O futuro poderia superar o passado por meio de conhecimento, educação, reformas e aperfeiçoamento institucional. Diferentemente de uma visão em que a melhor ordem estaria numa origem perdida, o projeto moderno colocava possibilidades adiante.</p>
+        <p>Essa expectativa mobilizou lutas contra privilégios e ignorância, apoiou a expansão da educação e justificou reformas. Também pôde converter diferenças entre sociedades em posições numa única escala, como se todos devessem repetir o caminho europeu. Povos classificados como atrasados eram apresentados como objetos de tutela ou domínio. A linguagem do progresso podia, portanto, acompanhar projetos coloniais.</p>
+        <p>A educação ocupou lugar estratégico porque prometia formar indivíduos capazes de usar a razão e participar da vida pública. Escolas poderiam difundir conhecimento para além de grupos privilegiados, mas também uniformizar línguas, comportamentos e narrativas nacionais. A mesma instituição podia ampliar autonomia e disciplinar populações. O sentido do progresso dependia de seu conteúdo e de quem controlava sua realização.</p>
+        <p>O <strong>universalismo</strong> afirmava princípios aplicáveis a todos os seres humanos; o <strong>individualismo</strong> reconhecia o indivíduo como portador de direitos; a secularização reduzia o monopólio religioso sobre esferas públicas. Esses processos ampliaram liberdades, mas não alcançaram todos igualmente. A distância entre princípio universal e acesso concreto tornou-se fonte de crítica e mobilização.</p>
+        <p>O progresso linear pressupõe que avanços se acumulam na mesma direção. A história, porém, combina ganhos e perdas. Uma técnica pode aumentar produtividade e ampliar destruição; um Estado pode universalizar direitos e aperfeiçoar vigilância; mercados podem conectar pessoas e aprofundar dependências. Avaliar progresso exige declarar o critério: progresso para quem, em qual dimensão e com que custos?</p>
+        <p>A secularização tampouco segue uma trajetória única. Instituições religiosas podem perder monopólio jurídico sem desaparecer da vida pública; crenças podem transformar-se, e novos movimentos podem ganhar força em sociedades tecnicamente avançadas. Tratá-la como simples recuo inevitável da religião repetiria exatamente o tipo de história linear que a análise precisa questionar.</p>
+        <aside class="pause-box"><h4>Pausa para discussão</h4><p>Em que momento a ideia de progresso deixa de abrir possibilidades e passa a transformar uma experiência histórica particular em medida obrigatória para todos?</p></aside>
+      </div>
+
+      <div class="base-subsection" id="a03-contradicoes"><h3>7. Universalismo, exclusões e a crítica interna da modernidade</h3>
+        <p>Os princípios modernos não devem ser avaliados apenas pelas intenções de seus formuladores nem descartados apenas porque foram aplicados de maneira incompleta. Declarações de igualdade ofereceram linguagem para grupos denunciarem exclusões. A contradição entre uma promessa universal e uma cidadania restrita podia ser usada para ampliar a disputa sobre quem deveria ser reconhecido.</p>
+        <p>Ao mesmo tempo, não basta dizer que a exclusão foi simples falha externa ao projeto. Certas concepções de humanidade, civilização e racionalidade foram formuladas de modo a hierarquizar povos e experiências. A crítica sociológica pergunta como valores emancipadores puderam conviver com colonialismo, escravidão e desigualdades persistentes.</p>
+        <p>Modernidade e crítica são inseparáveis porque a modernidade institui a revisão como princípio e, simultaneamente, produz relações que precisam ser revistas. Razão, ciência e direitos não formam garantias automáticas. Seu alcance depende de instituições, conflitos e participação social.</p>
+        <p>Essa crítica interna é diferente de uma rejeição completa à razão. Denunciar que um princípio universal foi aplicado seletivamente pode significar exigir sua ampliação, não abandoná-lo. Movimentos posteriores recorreriam a linguagens de igualdade e liberdade para questionar escravidão, subordinação das mulheres e exclusão política. Promessas incompletas também se tornam recursos de luta.</p>
+      </div>
+
+      <div class="base-subsection" id="a03-linha"><h3>8. A linha do tempo como mapa de relações</h3>
+        <p>A atividade coletiva posicionará eventos, transformações e pensadores entre 1700 e 1900. Uma linha do tempo pode sugerir equivocadamente que cada item causa o seguinte. Sua função aqui será outra: visualizar simultaneidades, durações e relações. Um pensamento pode circular antes de uma ruptura política, ser reinterpretado durante ela e continuar influente depois.</p>
+        <p>Os grupos devem justificar cada aproximação. Colocar Revolução Industrial, urbanização e Marx próximos não significa que tenham começado na mesma data, mas que problemas produzidos pela sociedade industrial participam do contexto de sua reflexão. Posicionar Comte após a Revolução Francesa ajuda a compreender sua preocupação com reorganização, sem reduzir sua obra a reação automática ao evento.</p>
+        <p>A linha também deve registrar ausências e escalas. Um quadro europeu não representa toda a história mundial, e datas nacionais podem ocultar circulações transnacionais. Ao final, o mapa será útil se mostrar que ideias e transformações materiais interagem sem que uma sequência única explique tudo.</p>
+        <p>Os espaços vazios do mapa também ensinam. Se nenhuma trajetória de grupos colonizados, mulheres ou trabalhadores aparece, a linha pode reproduzir a própria exclusão que pretende analisar. Acrescentar uma ausência documentada não resolve toda a narrativa, mas torna visível que selecionar eventos já é interpretar a história.</p>
+        <p>Um modo de evitar a falsa sequência é utilizar cores diferentes para eventos, processos e textos. Revoluções podem receber datas de referência; industrialização deve aparecer como faixa de duração; obras e autores ocupam pontos ligados a controvérsias. Setas precisam ser acompanhadas por uma justificativa verbal. Assim, o diagrama representa relações argumentadas, não causalidades inventadas pela posição no papel.</p>
+        <aside class="pause-box"><h4>Pausa para discussão</h4><p>Na linha do tempo, que ligação entre uma ideia e uma transformação social exige explicação, em vez de simples proximidade visual?</p></aside>
+      </div>
+
+      <div class="base-subsection" id="a03-sintese"><h3>9. Síntese: da crítica ao projeto de ciência social</h3>
+        <p>O Iluminismo reuniu projetos diferentes, ligados pela confiança na crítica racional e pela recusa de que tradição e autoridade bastassem como justificativa. Razão, ciência, liberdade e progresso abriram caminhos para questionar privilégios e imaginar instituições reformáveis. A crise da ordem medieval envolveu diferenciação religiosa, centralização estatal, expansão dos mercados e novas formas de pertencimento.</p>
+        <p>O projeto moderno carregava contradições. Princípios universais conviveram com cidadanias restritas, colonialismo e desigualdades. A ideia de progresso pôde sustentar emancipação ou hierarquizar sociedades. Longe de ser um detalhe, essa tensão mostra por que pensamento moderno e crítica precisam caminhar juntos.</p>
+        <p>O colapso das certezas medievais não deixou um vazio absoluto. Estados nacionais, mercados, instituições científicas e direitos individuais formaram novas referências. Elas pareciam menos ligadas ao nascimento e mais abertas à justificação racional, mas também produziram centralização, competição e novas desigualdades. A modernidade reorganizou a ordem em vez de simplesmente dissolvê-la.</p>
+        <p>A atividade de leitura e a linha do tempo tornam visíveis dois cuidados: ideias precisam ser reconstruídas em suas controvérsias, e datas não substituem explicações. O Iluminismo participou das condições intelectuais da Sociologia porque tornou sociedade e autoridade criticáveis, não porque seus pensadores já tivessem formulado a disciplina posterior.</p>
+        <p>A próxima aula examinará uma tentativa pioneira de transformar a confiança na ciência e no progresso em teoria sistemática da sociedade. Comte procurará explicar a evolução do conhecimento e reorganizar a ordem; Spencer formulará outro evolucionismo, apoiado em analogias orgânicas. Entenderemos suas contribuições sem confundi-las nem aceitar suas hierarquias como descrição neutra.</p>
+      </div>
+    </div>
+  </section>
+
+
+
+  <section id="plano-aula">
     <div class="section-title">Plano de Aula com Tempo</div>
     <div class="timeline">
       <div class="tl-item">
@@ -148,7 +281,7 @@
     </div>
   </section>
 
-  <section>
+  <section id="leituras">
     <div class="section-title">Textos para Leitura Prévia</div>
     <div class="ref-card">
       <div class="ref-author">ELIAS, Norbert</div>
@@ -162,17 +295,29 @@
     </div>
   </section>
 
-  <section>
+  <section id="atividade">
     <div class="section-title">Atividades em Sala</div>
     <div class="activity-card">
       <strong>Construção coletiva de linha do tempo sociohistórica</strong><br><br>
       Os alunos recebem tiras de papel com eventos históricos, pensadores e transformações sociais do período 1700–1900 (Revolução Francesa, Revolução Industrial, Voltaire, Rousseau, Kant, Marx, Comte, surgimento das fábricas, abolição da servidão, etc.).<br><br>
       Em grupos, devem posicionar os itens em um papel kraft afixado na parede, construindo uma linha do tempo coletiva. A atividade estimula o reconhecimento das conexões entre contexto histórico, pensamento intelectual e transformações sociais.<br><br>
       Ao final, o professor percorre a linha do tempo com a turma, destacando como esse conjunto de transformações criou as condições para o surgimento da Sociologia como disciplina científica.
+
+      <details class="teacher-guidance">
+        <summary>Gabarito comentado e orientações de mediação — uso do professor</summary>
+        <div class="teacher-guidance-content">
+          <p><strong>Critério geral.</strong> A linha do tempo não é avaliada pela posição exata das tiras de papel, mas pela justificativa relacional que cada grupo apresenta (ver subseção 8 do texto-base). Uma resposta apenas descritiva diz "colocamos Marx depois da Revolução Industrial porque ele nasceu depois". Uma resposta fundamentada explica que relação de conteúdo, e não apenas de data, aproxima os dois itens.</p>
+          <p><strong>Justificativa esperada.</strong> Peça que cada grupo diga, para pelo menos três aproximações, qual problema ou processo conecta os itens vizinhos: por exemplo, a industrialização e a formação do proletariado, ou o Iluminismo e a crítica à autoridade tradicional. Aceite justificativas que mencionem simultaneidade, influência ou resposta a um mesmo problema; recuse justificativas que citem apenas a ordem cronológica das datas.</p>
+          <p><strong>Uso das cores e categorias.</strong> Verifique se o grupo distinguiu eventos pontuais (revoluções), processos de duração (industrialização, secularização) e obras/autores, conforme orientado no texto-base. Uma linha do tempo que trata tudo como ponto único perde a diferença entre acontecimento e processo, o que é um erro conceitual, não apenas estético.</p>
+          <p><strong>Ausências.</strong> Pergunte explicitamente se a linha registra alguma ausência (trajetórias de mulheres, populações colonizadas, trabalhadores) ou se apresenta apenas uma sequência europeia de eventos e nomes consagrados. Reconhecer e nomear essa lacuna vale mais do que preenchê-la de forma apressada.</p>
+          <p><strong>Erros conceituais prováveis.</strong> Tratar a proximidade espacial no papel como prova de causalidade ("A vem antes de B, logo A causou B"); tratar o Iluminismo como um bloco homogêneo de pensadores concordantes, ignorando divergências como as de Rousseau; e reduzir a atividade a uma prova de memorização de datas.</p>
+          <p><strong>Mediação sugerida.</strong> Se um grupo apenas alinhar itens por data, pergunte: "que problema ou pergunta liga esses dois itens, além do calendário?" Se surgir uma seta de causalidade direta, peça que o grupo descreva o mecanismo histórico concreto que a sustentaria.</p>
+        </div>
+      </details>
     </div>
   </section>
 
-  <section>
+  <section id="recursos">
     <div class="section-title">Recursos Necessários</div>
     <div class="resources-list">
       <span class="res-tag">Projetor</span>
@@ -187,9 +332,9 @@
 </main>
 
 <footer>
-  <a href="../index.html">← Voltar para Turma 1</a>
+  <a href="/introducao-sociologia/">← Página principal</a>
   <span style="margin: 0 12px; color: var(--border);">|</span>
-  <span>Introdução à Sociologia — 2026.1</span>
+  <span>Introdução à Sociologia — 2026.2</span>
 </footer>
 
 </body>

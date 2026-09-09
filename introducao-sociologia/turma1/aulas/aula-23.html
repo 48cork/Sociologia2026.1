@@ -1,239 +1,411 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aula 23 — Introdução à Sociologia | Turma 1</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aula 23 — Introdução à Sociologia | 2026.2</title>
 <style>
-  :root {
-    --bg: #0a0a0f;
-    --surface: #12121c;
-    --card: #1a1a2e;
-    --border: #2a2a4a;
-    --purple: #7c3aed;
-    --purple-lt: #a855f7;
-    --blue: #4f46e5;
-    --blue-lt: #818cf8;
-    --teal-lt: #2dd4bf;
-    --amber-lt: #fbbf24;
-    --rose-lt: #fb7185;
-    --violet: #c084fc;
-    --text: #e2e8f0;
-    --muted: #94a3b8;
-    --radius: 12px;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
-
-  nav {
-    position: sticky; top: 0; z-index: 100;
-    background: rgba(18,18,28,0.95); backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--border);
-    padding: 0 24px; height: 56px;
-    display: flex; align-items: center; justify-content: space-between; gap: 16px;
-  }
-  nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; white-space: nowrap; }
-  nav a:hover { color: var(--text); }
-  .nav-left { display: flex; align-items: center; gap: 10px; }
-  .nav-badge { background: var(--violet); color: #0a0a0f; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
-  .nav-center { font-size: 0.875rem; color: var(--muted); }
-  .nav-right { display: flex; gap: 16px; align-items: center; }
-
-  main { max-width: 860px; margin: 0 auto; padding: 40px 24px 80px; }
-
-  .aula-header {
-    background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
-    padding: 32px; margin-bottom: 32px;
-    border-top: 4px solid var(--violet);
-  }
-  .header-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; align-items: center; }
-  .bloco-badge { background: var(--violet); color: #0a0a0f; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
-  .meta-chip { background: var(--surface); border: 1px solid var(--border); font-size: 0.8rem; color: var(--muted); padding: 4px 12px; border-radius: 20px; }
-  .aula-header h1 { font-size: 1.5rem; font-weight: 700; line-height: 1.3; color: var(--text); }
-
-  section { margin-bottom: 32px; }
-  .section-title {
-    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--violet); margin-bottom: 16px; padding-bottom: 8px;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .obj-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-  .obj-list li { display: flex; gap: 12px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
-  .obj-list li::before { content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--violet); margin-top: 7px; flex-shrink: 0; }
-
-  .content-topic { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 12px; }
-  .content-topic h3 { font-size: 0.95rem; font-weight: 600; color: var(--violet); margin-bottom: 8px; }
-  .content-topic ul { list-style: none; padding: 0; }
-  .content-topic ul li { padding: 4px 0 4px 16px; position: relative; color: var(--muted); font-size: 0.9rem; }
-  .content-topic ul li::before { content: '—'; position: absolute; left: 0; color: var(--border); }
-
-  .timeline { display: flex; flex-direction: column; gap: 10px; }
-  .tl-item { display: flex; gap: 16px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; border-left: 3px solid var(--violet); }
-  .tl-duration { background: var(--surface); border: 1px solid var(--border); color: var(--amber-lt); font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
-  .tl-text { font-size: 0.9rem; color: var(--text); }
-
-  .ref-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 10px; border-left: 3px solid var(--blue-lt); }
-  .ref-author { font-size: 0.8rem; font-weight: 700; color: var(--blue-lt); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
-  .ref-title { font-size: 0.9rem; color: var(--text); }
-  .ref-pages { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
-
-  .activity-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; font-size: 0.9rem; line-height: 1.7; border-left: 3px solid var(--teal-lt); }
-
-  .resources-list { display: flex; flex-wrap: wrap; gap: 10px; }
-  .res-tag { background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; }
-
-  footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--muted); font-size: 0.85rem; }
-  footer a { color: var(--violet); text-decoration: none; }
-  footer a:hover { text-decoration: underline; }
+:root{--bg:#0a0a0f;--s:#12121c;--c:#1a1a2e;--b:#2a2a4a;--v:#c084fc;--u:#818cf8;--t:#2dd4bf;--a:#fbbf24;--x:#e2e8f0;--m:#94a3b8;--r:12px}*{box-sizing:border-box;margin:0;padding:0}html,body{max-width:100%;overflow-x:clip}body{background:var(--bg);color:var(--x);font:16px/1.65 "Segoe UI",system-ui,sans-serif;overflow-wrap:anywhere}nav{position:sticky;top:0;z-index:10;height:56px;padding:0 24px;background:#12121cf2;border-bottom:1px solid var(--b);display:flex;align-items:center;justify-content:space-between;gap:14px}nav a{color:var(--m);text-decoration:none;white-space:nowrap}.nl,.nr{display:flex;gap:12px;align-items:center}.badge,.block{background:var(--v);color:#080810;font-weight:700}.badge,.chip{padding:3px 10px;border-radius:20px;font-size:.78rem}.sn{top:56px;height:auto;padding:8px 16px;justify-content:flex-start;overflow-x:auto}.sn a,.chip{background:var(--s);border:1px solid var(--b)}main{max-width:860px;margin:auto;padding:40px 24px 80px}section{margin-bottom:32px;scroll-margin-top:110px}.head,.topic,.tl,.ref,.activity{background:var(--c);border:1px solid var(--b);border-radius:var(--r)}.head{border-top:4px solid var(--v);padding:32px;margin-bottom:32px}.meta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:15px}.block{text-transform:uppercase}.head h1{font-size:1.5rem}.st{color:var(--v);font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border-bottom:1px solid var(--b);padding-bottom:8px;margin-bottom:16px}.objs{list-style:none;display:grid;gap:10px}.objs li,.topic{padding:14px 18px}.objs li{background:var(--c);border:1px solid var(--b);border-radius:var(--r)}.topic{margin-bottom:12px}.topic h3,.base h3{color:var(--v);margin-bottom:8px}.topic ul{padding-left:20px;color:var(--m)}.base{max-width:72ch;margin:auto}.intro{color:var(--m)}.toc{position:static;height:auto;display:block;background:var(--s);border:1px solid var(--b);border-radius:var(--r);padding:18px 22px;margin:18px 0 28px}.toc ol{columns:2;padding-left:22px}.toc a{color:var(--x);white-space:normal}.sub{margin-bottom:28px;scroll-margin-top:110px}.sub p{margin-bottom:14px}.pause{background:#7c3aed18;border:1px solid #c084fc66;border-left:4px solid var(--v);border-radius:var(--r);padding:15px 18px;margin:20px 0}.pause h4{color:var(--a);text-transform:uppercase;font-size:.76rem}.timeline{display:grid;gap:10px}.tl{padding:14px 18px;border-left:3px solid var(--v);display:flex;gap:14px}.time{color:var(--a);font-weight:700;white-space:nowrap}.ref{padding:15px 18px;margin-bottom:10px;border-left:3px solid var(--u)}.ref strong{color:var(--u)}.activity{padding:20px;border-left:3px solid var(--t)}.activity h3,.activity h4{color:var(--t);margin:14px 0 7px}.activity ol{padding-left:22px}.materials{display:grid;grid-template-columns:1fr 1fr;gap:10px}.material,.questions,details{background:var(--s);border:1px solid var(--b);border-radius:var(--r);padding:13px}.material h4{margin:0;color:var(--a)}.material dl{display:grid;grid-template-columns:auto 1fr;gap:3px 8px}.material dt{font-weight:700;color:var(--m)}.questions{padding-left:34px!important}details{margin-top:18px}summary{cursor:pointer;color:var(--a);font-weight:700}.answer{padding-top:10px}.answer h4{color:var(--t)}.resources{display:flex;flex-wrap:wrap;gap:8px}footer{text-align:center;border-top:1px solid var(--b);padding:28px;color:var(--m)}footer a{color:var(--v)}a:focus-visible,summary:focus-visible{outline:3px solid var(--a)}@media(max-width:640px){nav{height:auto;min-height:56px;padding:8px 12px;flex-wrap:wrap}.nc{display:none}.sn{top:72px;flex-wrap:nowrap}main{padding:24px 14px 60px}.head{padding:20px 17px}.toc ol{columns:1;padding-left:0;list-style-position:inside}.materials{grid-template-columns:1fr}.tl{flex-direction:column}.material dl{grid-template-columns:1fr}}@media print{:root{--bg:#fff;--s:#fff;--c:#fff;--b:#999;--x:#111;--m:#333;--v:#222;--u:#222;--t:#222;--a:#222}nav{position:static}.sn{display:none}main{max-width:none;padding:10mm}.material,.ref,.tl,details{break-inside:avoid}details>.answer{display:block!important}}
 </style>
 </head>
 <body>
-
-<nav>
-  <div class="nav-left">
-    <a href="../index.html">← Turma 1</a>
-    <span class="nav-badge">Aula 23</span>
-  </div>
-  <span class="nav-center">Aula 23 / 30</span>
-  <div class="nav-right">
-    <a href="aula-22.html">← Anterior</a>
-    <a href="aula-24.html">Próxima →</a>
-  </div>
+<nav aria-label="Navegação entre aulas">
+<div class="nl">
+<a href="/introducao-sociologia/">← Página principal</a>
+<span class="badge">Aula 23</span>
+</div>
+<span class="nc">Aula 23 / 30</span>
+<div class="nr">
+<a href="aula-22.html">← Anterior</a>
+<a href="aula-24.html">Próxima →</a>
+</div>
 </nav>
-
+<nav class="sn" aria-label="Seções">
+<a href="#objetivos">Objetivos</a>
+<a href="#conteudo">Conteúdo</a>
+<a href="#texto-base">Texto-base</a>
+<a href="#plano">Plano</a>
+<a href="#referencias">Referências</a>
+<a href="#atividade">Atividade</a>
+<a href="#recursos">Recursos</a>
+</nav>
 <main>
-
-  <div class="aula-header">
-    <div class="header-meta">
-      <span class="bloco-badge">Bloco V — Instituições, Desigualdade e Diversidade</span>
-      <span class="meta-chip">Aula 23</span>
-      <span class="meta-chip">07/07/2026 — Terça-feira</span>
-      <span class="meta-chip">2 horas</span>
-    </div>
-    <h1>Estratificação social: castas, estamentos e classes.</h1>
-  </div>
-
-  <section>
-    <div class="section-title">Objetivos da Aula</div>
-    <ul class="obj-list">
-      <li>Compreender o conceito de estratificação social e suas dimensões (riqueza, status e poder).</li>
-      <li>Distinguir os sistemas históricos de estratificação: castas, estamentos e classes sociais.</li>
-      <li>Analisar as perspectivas marxista e weberiana sobre classes sociais.</li>
-      <li>Relacionar estratificação social e mobilidade social no contexto brasileiro.</li>
-    </ul>
-  </section>
-
-  <section>
-    <div class="section-title">Conteúdo Programático</div>
-    <div class="content-topic">
-      <h3>1. Estratificação social: definição e dimensões</h3>
-      <ul>
-        <li>Estratificação como hierarquização estrutural de grupos em uma sociedade</li>
-        <li>Dimensões weberianas: riqueza (classe), status (prestígio) e poder (partido)</li>
-        <li>Estratificação como fenômeno universal e historicamente variável</li>
-      </ul>
-    </div>
-    <div class="content-topic">
-      <h3>2. Sistemas de estratificação: castas, estamentos e classes</h3>
-      <ul>
-        <li>Sistema de castas (Índia): hierarquia hereditária, endogamia, imobilidade</li>
-        <li>Sistema de estamentos (feudalismo europeu): ordens, privilégios legais, nobreza, clero, servos</li>
-        <li>Classes sociais (capitalismo): baseadas na posição econômica, abertas à mobilidade</li>
-      </ul>
-    </div>
-    <div class="content-topic">
-      <h3>3. Classe em Marx e Weber. Mobilidade social</h3>
-      <ul>
-        <li>Marx: classes definidas pela relação com os meios de produção (burguesia x proletariado)</li>
-        <li>Weber: classe como chance de vida no mercado; multiplicidade de critérios</li>
-        <li>Mobilidade social: vertical (ascendente/descendente), horizontal e estrutural</li>
-      </ul>
-    </div>
-  </section>
-
-  <section>
-    <div class="section-title">Plano de Aula com Tempo</div>
-    <div class="timeline">
-      <div class="tl-item">
-        <span class="tl-duration">10 min</span>
-        <span class="tl-text"><strong>Retomada</strong> — Conexão com as instituições sociais estudadas. Pergunta disparadora: "Por que algumas pessoas têm muito mais do que outras?"</span>
-      </div>
-      <div class="tl-item">
-        <span class="tl-duration">35 min</span>
-        <span class="tl-text"><strong>Exposição: Estratificação e sistemas históricos</strong> — Apresentação do conceito de estratificação social, das dimensões weberianas e dos três sistemas históricos (castas, estamentos, classes). Exemplos históricos e contemporâneos comparativos.</span>
-      </div>
-      <div class="tl-item">
-        <span class="tl-duration">15 min</span>
-        <span class="tl-text"><strong>Análise da pirâmide social brasileira</strong> — Apresentação e análise coletiva de dados sobre a distribuição de renda e riqueza no Brasil. Como a estratificação brasileira se compara a outros países?</span>
-      </div>
-      <div class="tl-item">
-        <span class="tl-duration">30 min</span>
-        <span class="tl-text"><strong>Atividade: Mobilidade social — casos e trajetórias</strong> — Cada grupo recebe a história de vida de uma pessoa fictícia com diferentes origens sociais e analisa os fatores que favoreceram ou dificultaram a mobilidade. (Ver Atividades em Sala.)</span>
-      </div>
-      <div class="tl-item">
-        <span class="tl-duration">20 min</span>
-        <span class="tl-text"><strong>Discussão coletiva</strong> — Apresentação das análises dos grupos. Debate: a mobilidade social no Brasil é uma exceção ou uma regra? Que papel o mérito individual desempenha em relação às condições estruturais?</span>
-      </div>
-      <div class="tl-item">
-        <span class="tl-duration">10 min</span>
-        <span class="tl-text"><strong>Síntese</strong> — Retomada dos conceitos. Indicação das leituras sobre desigualdade no Brasil para a próxima aula.</span>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="section-title">Textos para Leitura Prévia</div>
-    <div class="ref-card">
-      <div class="ref-author">GIDDENS, Anthony</div>
-      <div class="ref-title">Sociologia. Cap. "Estratificação e estrutura de classes"</div>
-      <div class="ref-pages">p. 209–248</div>
-    </div>
-    <div class="ref-card">
-      <div class="ref-author">WRIGHT, Erik Olin</div>
-      <div class="ref-title">Classes (trechos selecionados)</div>
-      <div class="ref-pages">Texto selecionado pelo professor</div>
-    </div>
-  </section>
-
-  <section>
-    <div class="section-title">Atividades em Sala</div>
-    <div class="activity-card">
-      <strong>Análise de trajetórias de mobilidade social</strong><br><br>
-      Cada grupo recebe a história de vida resumida de uma pessoa fictícia com origens sociais distintas. As histórias contemplam diferentes classes de origem, regiões do Brasil, raças e gêneros.
-      <br><br>
-      <strong>Exemplos de perfis:</strong><br>
-      — Filho de trabalhador rural do Nordeste que migra para São Paulo e torna-se engenheiro;<br>
-      — Mulher negra da periferia urbana que, com bolsa universitária, ingressa na carreira pública;<br>
-      — Filho de família de classe média que perde o emprego e desce na hierarquia social;<br>
-      — Descendente de família de elite que herda capital econômico e cultural.
-      <br><br>
-      <strong>Roteiro de análise:</strong><br>
-      — Que tipo de mobilidade (vertical ascendente, descendente, horizontal) ocorreu?<br>
-      — Quais <strong>fatores estruturais</strong> favoreceram ou dificultaram a trajetória?<br>
-      — Qual é o peso do <strong>mérito individual</strong> versus as <strong>condições sociais de partida</strong>?<br>
-      — Como Marx e Weber analisariam a posição de classe desse personagem?
-      <br><br>
-      Os grupos apresentam suas análises em 3 minutos cada. O debate coletivo aprofunda a questão da mobilidade estrutural no Brasil.
-    </div>
-  </section>
-
-  <section>
-    <div class="section-title">Recursos Necessários</div>
-    <div class="resources-list">
-      <span class="res-tag">Projetor</span>
-      <span class="res-tag">Histórias de vida fictícias (impressas)</span>
-      <span class="res-tag">Pirâmide social brasileira (impressa ou projetada)</span>
-      <span class="res-tag">Quadro branco</span>
-    </div>
-  </section>
-
+<div class="head">
+<div class="meta">
+<span class="chip block">Bloco V — Instituições, Desigualdade e Diversidade</span>
+<span class="chip">Aula 23</span>
+<span class="chip">Encontro 12 · Parte 1 de 2</span>
+<span class="chip">25/11/2026 — Quarta-feira</span>
+<span class="chip">Percurso completo do encontro: 4 horas-aula</span>
+<span class="chip">Esta página: aproximadamente 2 horas</span>
+</div>
+<h1>Estratificação social: castas, estamentos e classes.</h1>
+</div>
+<section id="objetivos">
+<div class="st">Objetivos da Aula</div>
+<ul class="objs">
+<li>Definir estratificação como distribuição durável e desigual de posições, recursos e oportunidades.</li>
+<li>Comparar castas, estamentos e classes como tipos históricos, sem convertê-los em rótulos de sociedades ou pessoas.</li>
+<li>Relacionar propriedade, trabalho, situação de mercado, prestígio e poder mantendo diferenças conceituais.</li>
+<li>Analisar mobilidade como trajetória situada e mudança estrutural, sem transformá-la em prova automática de mérito.</li>
+</ul>
+</section>
+<section id="conteudo">
+<div class="st">Conteúdo Programático</div>
+<div class="topic">
+<h3>1. Estratificação e mecanismos</h3>
+<ul>
+<li>Posições, recursos, oportunidades e hierarquias</li>
+<li>Fechamento, herança, credenciais e controle de recursos</li>
+<li>Descrição, explicação e avaliação da desigualdade</li>
+</ul>
+</div>
+<div class="topic">
+<h3>2. Castas, estamentos e classes</h3>
+<ul>
+<li>Tipos históricos e variações internas</li>
+<li>Nascimento, privilégios jurídicos, propriedade e mercado</li>
+<li>Combinações, conflitos e transformações</li>
+</ul>
+</div>
+<div class="topic">
+<h3>3. Classe e mobilidade</h3>
+<ul>
+<li>Relações de produção e situações de mercado</li>
+<li>Status, poder e identidades coletivas</li>
+<li>Mobilidade individual, intergeracional e estrutural</li>
+</ul>
+</div>
+</section>
+<section id="texto-base">
+<div class="st">Texto-base para acompanhamento da aula</div>
+<div class="base">
+<p class="intro">A Aula 22 mostrou que instituições distribuem recursos e oportunidades. Agora examinamos como essas distribuições formam posições duráveis e hierarquizadas, antes de estudar, na Aula 24, indicadores específicos da desigualdade brasileira.</p>
+<nav class="toc" aria-label="Sumário do texto-base">
+<h3>Nesta leitura</h3>
+<ol>
+<li>
+<a href="#estratificacao">Estratificação: posições e relações</a>
+</li>
+<li>
+<a href="#mecanismos">Recursos e mecanismos de fechamento</a>
+</li>
+<li>
+<a href="#castas">Castas como tipo histórico</a>
+</li>
+<li>
+<a href="#estamentos">Estamentos, ordens e privilégios</a>
+</li>
+<li>
+<a href="#classes">Classes e relações econômicas</a>
+</li>
+<li>
+<a href="#marx-weber">Marx e Weber: perguntas diferentes</a>
+</li>
+<li>
+<a href="#mobilidade">Mobilidade e mudança estrutural</a>
+</li>
+<li>
+<a href="#agencia">Poder, identidades e agência</a>
+</li>
+<li>
+<a href="#sintese">Síntese e passagem à Aula 24</a>
+</li>
+</ol>
+</nav>
+<div class="sub" id="estratificacao">
+<h3>1. Estratificação: posições e relações</h3>
+<p>
+<strong>Estratificação social</strong> é a distribuição relativamente durável e desigual de posições, recursos, oportunidades e reconhecimento. O termo não descreve apenas diferenças entre indivíduos. Diferenças tornam-se estratificação quando se organizam em relações hierárquicas, atravessam instituições e afetam sistematicamente possibilidades de vida.</p>
+<p>Renda, patrimônio, controle do trabalho, escolaridade, prestígio e influência política são dimensões possíveis. Elas se relacionam, mas não coincidem. Uma ocupação pode ter prestígio e remuneração limitada; riqueza pode ampliar influência sem cargo formal. Somar tudo numa escala única apaga mecanismos distintos.</p>
+<p>Estratos são categorias construídas pelo pesquisador para comparar posições. Classes, em certas teorias, são relações sociais, não apenas faixas de renda. Nenhuma categoria deve virar rótulo moral de pessoas. Integrantes de uma posição não pensam nem agem de modo homogêneo.</p>
+<p>Descrição informa como recursos estão distribuídos. Explicação identifica mecanismos que produzem e mantêm o padrão. Avaliação discute justiça ou desejabilidade. Uma diferença observada não contém sua própria causa nem decide se é legítima.</p>
+<aside class="pause">
+<h4>Pausa 1 — Diferença ou estratificação?</h4>
+<p>Num município fictício, duas ocupações têm salários distintos. Que evidências adicionais mostrariam se a diferença integra uma hierarquia durável?</p>
+</aside>
+</div>
+<div class="sub" id="mecanismos">
+<h3>2. Recursos e mecanismos de fechamento</h3>
+<p>Hierarquias persistem por mecanismos. Herança transfere patrimônio e redes; credenciais regulam acesso a ocupações; propriedade controla ativos; regras de associação limitam participação; distância e transporte condicionam oportunidades. <strong>Fechamento social</strong> designa processos pelos quais grupos restringem acesso a recursos e posições.</p>
+<p>Nem todo fechamento é equivalente. Exigir formação para atividade especializada pode proteger usuários; critérios também podem ser excessivos ou favorecer quem já possui recursos. A análise pergunta quem define, que finalidade declara, que efeitos produz e que alternativas existem.</p>
+<p>Instituições conectam mecanismos. Escola distribui credenciais; Estado reconhece propriedade e direitos; famílias transmitem recursos; mercados organizam contratação. Essas relações não formam engrenagem harmoniosa. Regras entram em conflito, agentes interpretam e grupos contestam.</p>
+<p>Associação não prova causalidade. Se origem e destino ocupacional se relacionam, precisamos investigar educação, patrimônio, redes, discriminação e estrutura de vagas. Múltiplos fatores só explicam quando mostramos como se articulam.</p>
+</div>
+<div class="sub" id="castas">
+<h3>3. Castas como tipo histórico</h3>
+<p>“Casta” é usada comparativamente para sistemas em que posição atribuída pelo nascimento, regras de casamento, ocupação e separação social organizam hierarquias. O termo não equivale simplesmente a desigualdade extrema ou ausência total de movimento. Trata-se de tipo analítico que acentua mecanismos específicos.</p>
+<p>Reduzir castas à Índia e descrevê-las como imutáveis apaga história, regiões, reformas, disputas e ação política. Categorias e práticas variaram, foram interpretadas e contestadas. O reconhecimento jurídico de igualdade pode coexistir com efeitos sociais de classificações anteriores.</p>
+<p>Também não devemos chamar toda elite de “casta”. Uso metafórico perde precisão se não houver critérios de pertencimento atribuídos, fechamento matrimonial, ocupacional ou ritual. Comparação exige especificar dimensão e evidência.</p>
+<p>Nascimento condiciona posição, mas não programa toda trajetória. Migração, políticas, movimentos e alianças transformam oportunidades, de modo desigual. Agência opera dentro de relações e recursos, não fora deles.</p>
+<aside class="pause">
+<h4>Pausa 2 — Tipo histórico não é rótulo</h4>
+<p>Que critérios seriam necessários para comparar uma hierarquia fictícia com um sistema de castas sem chamar qualquer grupo fechado de “casta”?</p>
+</aside>
+</div>
+<div class="sub" id="estamentos">
+<h3>4. Estamentos, ordens e privilégios</h3>
+<p>Estamentos ou ordens destacam hierarquias em que direitos, deveres, honra e privilégios jurídicos diferem conforme posição reconhecida. Sociedades europeias do Antigo Regime oferecem referência frequente: clero, nobreza e outras ordens possuíam regimes distintos. Isso não resume toda experiência medieval ou europeia.</p>
+<p>Posição estamental combina direito, estilo de vida e prestígio. Riqueza importa, mas não garante automaticamente honra ou privilégio. Pessoas ricas fora da nobreza podiam buscar títulos; nobres podiam ter poucos recursos. Essa dissociação ajuda a não reduzir estratificação à renda.</p>
+<p>Ordens nunca foram blocos perfeitamente unidos. Havia diferenças internas, jurisdições sobrepostas e conflitos. Mudanças políticas, fiscais e econômicas alteraram fronteiras. O tipo analítico ilumina privilégios institucionalizados, sem sugerir sociedade parada.</p>
+<p>Resíduos estamentais podem coexistir com classes, mas a afirmação exige identificar privilégios legais ou distinções de status, não apenas hábitos exclusivos. Sistemas históricos combinam mecanismos.</p>
+</div>
+<div class="sub" id="classes">
+<h3>5. Classes e relações econômicas</h3>
+<p>Classes ganham centralidade em sociedades capitalistas, nas quais propriedade, trabalho assalariado e mercados estruturam posições. Dizer que há mobilidade possível não significa fronteiras abertas em igual medida. Origem, patrimônio, credenciais, redes e conjuntura distribuem chances diferentes.</p>
+<p>Faixas de renda são úteis para descrever distribuição, mas não esgotam classe. Pessoas com renda mensal semelhante podem diferir em propriedade, estabilidade, autonomia e autoridade no trabalho. Patrimônio amortece riscos; contrato define proteção; posição organizacional permite controlar tarefas alheias.</p>
+<p>Classe é relação: proprietários dependem de trabalho e mercados; trabalhadores ocupam posições diferenciadas e podem exercer supervisão. Pequenos proprietários e profissionais mostram situações intermediárias. Modelos simplificam para responder perguntas, não para encaixar identidades.</p>
+<p>Condições semelhantes podem favorecer interesses comuns, mas não produzem consciência ou ação coletiva automaticamente. Organização, linguagem política, experiência e alianças mediam a passagem de posição a identidade.</p>
+<aside class="pause">
+<h4>Pausa 3 — Renda não basta</h4>
+<p>Duas personagens recebem o mesmo valor mensal, mas uma possui patrimônio e outra contrato instável. Que dimensões mudam a análise de classe?</p>
+</aside>
+</div>
+<div class="sub" id="marx-weber">
+<h3>6. Marx e Weber: perguntas diferentes</h3>
+<p>Em Marx, classes são compreendidas a partir das relações de produção, especialmente controle dos meios de produção e venda da força de trabalho. A oposição entre capital e trabalho revela exploração e conflito estrutural, mas análises marxianas também consideram frações, situações intermediárias e formação histórica da ação de classe.</p>
+<p>Em Weber, situação de classe refere-se às oportunidades de obter bens e renda no mercado. Grupos de status se organizam por honra e estilos de vida; partidos buscam poder. Classe, status e poder se relacionam sem coincidirem. “Chance de vida” indica probabilidades socialmente distribuídas, não destino pessoal.</p>
+<p>As abordagens não são listas concorrentes em que uma “só vê economia” e outra “vê tudo”. Elas constroem problemas distintos: relações de produção e conflito; situações de mercado e ordens de status e poder. Aplicar exige dizer que pergunta está sendo respondida.</p>
+<p>Autores não substituem evidências. Um contrato pode informar relação de trabalho; propriedade, posição produtiva; credencial, chance de mercado; reconhecimento, status. Nenhum dado isolado classifica toda trajetória.</p>
+</div>
+<div class="sub" id="mobilidade">
+<h3>7. Mobilidade e mudança estrutural</h3>
+<p>
+<strong>Mobilidade social</strong> é mudança de posição num esquema definido. Pode ser intrageracional, ao longo da vida, ou intergeracional, entre responsáveis e descendentes. Pode ser vertical, quando muda o nível hierárquico, ou horizontal, quando há deslocamento sem mudança clara de nível.</p>
+<p>Medir mobilidade exige definir origem, destino, unidade e período. Ocupação, renda e escolaridade podem apontar direções diferentes. Promoção com perda de estabilidade não é ascensão inequívoca. Trajetórias não cabem sempre numa seta.</p>
+<p>Mobilidade estrutural ocorre quando a composição das posições muda: expansão do ensino ou redução de um setor cria destinos diferentes, mesmo sem alteração na vantagem relativa entre origens. Mobilidade individual não prova igualdade de oportunidades nem transforma necessariamente a estrutura.</p>
+<p>Mérito é avaliação sobre desempenho, não explicação suficiente. Esforço e escolhas participam das trajetórias, mas oportunidades de convertê-los em resultado variam. Explicar relaciona ação, regras, recursos e conjuntura.</p>
+<aside class="pause">
+<h4>Pausa 4 — Trajetória e estrutura</h4>
+<p>Se muitas vagas técnicas surgem, como distinguir esforço individual, mobilidade estrutural e mudança na desigualdade de oportunidades?</p>
+</aside>
+</div>
+<div class="sub" id="agencia">
+<h3>8. Poder, identidades e agência</h3>
+<p>Poder opera também na produção das categorias. Limites de faixas ocupacionais, nomes de cargos e critérios de prestígio tornam algumas diferenças visíveis e outras secundárias. Pesquisadores precisam justificar sua classificação e testar alternativas. Uma categoria administrativa criada para executar política pode não ser adequada para explicar relações de classe, mesmo quando oferece dados úteis.</p>
+<p>Conflitos distributivos não envolvem somente repartir quantidade fixa. Decisões sobre tecnologia, jornada, propriedade e serviços alteram quais recursos existem e quem assume custos. A cooperação pode produzir ganhos e ainda distribuí-los desigualmente. Por isso, consenso num acordo não prova poder equivalente; pode refletir compromisso, dependência ou alternativas limitadas.</p>
+<p>A incerteza afeta posições de modo desigual. Quem possui reserva financeira suporta período sem renda e pode esperar oportunidade; quem depende do pagamento imediato aceita riscos maiores. Segurança é recurso que influencia escolha. Comparar apenas rendimentos atuais ignora vulnerabilidade, dívida e capacidade de planejar, dimensões importantes das chances de vida.</p>
+<p>Estratificação inclui poder para definir regras, controlar recursos e tornar classificações legítimas. Poder econômico, autoridade institucional e prestígio podem reforçar-se ou entrar em tensão. A análise localiza posições e mecanismos, evitando tratar “os ricos”, “os trabalhadores” ou qualquer grupo como sujeito único.</p>
+<p>Raça, gênero, território, geração e deficiência atravessam posições de classe e oportunidades, mas ficam para análises específicas quando necessário. Não são variáveis adicionadas mecanicamente. Instituições podem converter diferenças em barreiras, e as combinações variam historicamente.</p>
+<p>Identidade de classe não deriva automaticamente da renda. Pessoas interpretam posição por comparação, trajetória, família, ocupação e repertórios políticos. Podem formar solidariedades que atravessam posições ou conflitos internos. Pesquisa precisa distinguir categoria analítica, identificação declarada e ação coletiva.</p>
+<p>Agência aparece em negociação, organização, recusa e criação de alternativas. Recursos desiguais condicionam eficácia, mas resultados não são predeterminados. Mobilizações alteram direitos, credenciais e propriedade; também enfrentam resistência e efeitos imprevistos.</p>
+</div>
+<div class="sub" id="sintese">
+<h3>9. Síntese e passagem à Aula 24</h3>
+<p>Uma hierarquia pode ser observada em resultados, mas sua estrutura aparece nas relações que os produzem. Se cargos de direção concentram remuneração, precisamos saber como pessoas chegam a eles, que autoridade exercem e que recursos controlam. Se certas origens aparecem menos, investigamos recrutamento, preparação, redes e desistências. O mapa de posições e o estudo dos mecanismos são etapas complementares.</p>
+<p>A duração também precisa de medida. Uma diferença momentânea decorrente de crise não equivale a estratificação consolidada, embora crises possam redistribuir riscos segundo posições anteriores. Séries históricas mostram persistência; trajetórias revelam transmissão; documentos informam regras; entrevistas esclarecem estratégias. Nenhuma fonte sozinha captura toda estrutura. A convergência entre fontes fortalece a explicação e divergências abrem novas perguntas.</p>
+<p>Recursos não são apenas bens possuídos. Incluem capacidade de mobilizar tempo, informação, crédito, contatos, autoridade e proteção diante de perdas. O valor de um recurso depende do contexto: uma credencial vale se instituições a reconhecem; uma rede ajuda quando conecta oportunidades; patrimônio importa por renda, garantia e segurança. Converter recursos também exige condições e pode gerar custos.</p>
+<p>O fechamento pode atuar antes da seleção visível. Preço, localização e linguagem afastam candidatos; critérios informais favorecem familiaridade; riscos impedem que alguém aceite oportunidade. Observar apenas aprovados produz viés de seleção. É necessário perguntar quem era elegível, quem tentou, quem desistiu e quem nem soube. Essa atenção liga instituições da Aula 22 à formação das hierarquias estudadas aqui.</p>
+<p>Comparar tipos históricos exige evitar uma escala de “fechado” a “aberto” como se sociedades caminhassem necessariamente na mesma direção. Castas, ordens e classes respondem a problemas analíticos diferentes. Mercados podem conviver com herança e barreiras atribuídas; privilégios jurídicos podem ser abolidos enquanto prestígio e patrimônio permanecem. A comparação procura mecanismos predominantes e combinações concretas.</p>
+<p>Direitos formais iguais modificam relações, mas não garantem recursos iguais para exercê-los. Acesso a tribunal, escola, mercado ou associação depende de informação, tempo, documentos e reconhecimento. Isso não torna direitos irrelevantes: eles abrem possibilidades de reivindicação e alteram critérios legítimos. A diferença entre regra e implementação deve ser demonstrada, não presumida.</p>
+<p>As dimensões de classe e status podem mover-se em direções diferentes ao longo de uma trajetória. Uma pessoa obtém diploma valorizado, mas encontra ocupação instável; outra acumula renda sem reconhecimento num círculo de prestígio. Poder organizacional pode crescer sem propriedade. Chamar tudo de ascensão ou descenso perde essas ambiguidades. Uma matriz multidimensional descreve melhor antes de formular síntese.</p>
+<p>Mobilidade relativa compara chances entre origens, enquanto mobilidade absoluta conta quantas pessoas chegam a posições diferentes. Se ocupações superiores se expandem, mais pessoas podem ascender em números absolutos sem que a vantagem de origens privilegiadas diminua. A distinção impede celebrar toda mudança como igualdade ou descartá-la como ilusão. Ambas as medidas respondem perguntas pertinentes.</p>
+<p>Trajetórias individuais são valiosas para conhecer mecanismos, mas não representam sozinhas uma população. Um caso de ascensão mostra possibilidade e pode revelar bolsa, rede ou setor em expansão; não informa sua frequência. Um caso de descenso evidencia risco, não destino de um grupo. Para generalizar, precisamos de critérios de seleção, comparação e distribuição.</p>
+<p>A ação coletiva altera estratificação quando disputa salários, propriedade, direitos, tributos, credenciais e reconhecimento. Seus participantes, porém, possuem interesses e posições internas diferentes. Coalizões podem atravessar classes e status; conquistas podem beneficiar grupos de modo desigual. Agência coletiva não é oposto da estrutura: é uma forma pela qual relações estruturadas são reproduzidas ou transformadas.</p>
+<p>Identidades sociais também podem ocultar posição. Duas pessoas usam a mesma identificação de “classe média” apesar de patrimônio e segurança distintos; outras em posição semelhante adotam identidades diferentes. Questionários de autodeclaração medem percepção, enquanto dados de ocupação e propriedade medem outras dimensões. Nenhuma deve substituir silenciosamente a outra.</p>
+<p>Por fim, avaliação da desigualdade requer princípios explicitados: igualdade de direitos, oportunidades, condições ou resultados não são idênticas. Uma política pode melhorar uma dimensão e manter outra. A Sociologia não decide o princípio por frequência estatística, mas esclarece consequências, grupos afetados e alternativas. Isso permite debate normativo informado sem apresentar preferência como descrição neutra.</p>
+<p>Estratificação descreve posições relacionadas e distribuição durável de recursos, oportunidades e reconhecimento. Mecanismos de herança, fechamento, propriedade e credenciais ajudam a explicá-la. Dimensões econômicas, status e poder não devem ser confundidas.</p>
+<p>Castas, estamentos e classes são tipos históricos comparativos, não etapas inevitáveis nem rótulos de sociedades inteiras. Nascimento, privilégios legais, propriedade e mercados têm pesos distintos e podem coexistir. Variação interna, conflito e mudança permanecem visíveis.</p>
+<p>Marx e Weber oferecem perguntas diferentes sobre relações de produção, mercado, status e poder. Mobilidade exige critérios e não prova meritocracia; mudança de trajetórias e mudança estrutural são fenômenos distintos. Agência e organização podem transformar mecanismos sem apagar condições desiguais.</p>
+<p>A <strong>Aula 24 — Desigualdade social no Brasil: renda, raça e território</strong> passará dos conceitos comparativos à leitura crítica de indicadores e processos brasileiros. Gini, concentração de renda, desigualdade racial e territorial ficam reservados para essa aula. A base atual permitirá interpretar dados sem confundir associação, causa e avaliação.</p>
+</div>
+</div>
+</section>
+<section id="plano">
+<div class="st">Plano de Aula com Tempo</div>
+<div class="timeline">
+<div class="tl">
+<span class="time">10 min</span>
+<span>
+<strong>Retomada</strong> — Instituições da Aula 22 e distribuição de recursos.</span>
+</div>
+<div class="tl">
+<span class="time">30 min</span>
+<span>
+<strong>Exposição dialogada</strong> — Estratificação, tipos históricos, classe e mobilidade.</span>
+</div>
+<div class="tl">
+<span class="time">20 min</span>
+<span>
+<strong>Leitura orientada</strong> — Separar observações, inferências e lacunas nos seis materiais.</span>
+</div>
+<div class="tl">
+<span class="time">35 min</span>
+<span>
+<strong>Oficina</strong> — Matriz comparativa e oito perguntas.</span>
+</div>
+<div class="tl">
+<span class="time">15 min</span>
+<span>
+<strong>Socialização</strong> — Conclusão, evidência, alternativa e limite.</span>
+</div>
+<div class="tl">
+<span class="time">10 min</span>
+<span>
+<strong>Síntese e transição</strong> — Passagem aos indicadores brasileiros.</span>
+</div>
+</div>
+</section>
+<section id="referencias">
+<div class="st">Referências</div>
+<div class="ref">
+<strong>MARX, Karl.</strong> Capital: A Critique of Political Economy. Volume I. Translated by Ben Fowkes. London: Penguin, 1976.<p>Referência para relações capitalistas de produção; paráfrases didáticas, sem citação extensa.</p>
+</div>
+<div class="ref">
+<strong>WEBER, Max.</strong> Economy and Society: An Outline of Interpretive Sociology. Berkeley: University of California Press, 1978.<p>Referência para classe, status e poder; sem paginação por não haver trecho fixado.</p>
+</div>
+</section>
+<section id="atividade">
+<div class="st">Atividade em Sala</div>
+<div class="activity">
+<h3>Oficina — posições, recursos e trajetórias</h3>
+<p>
+<strong>Finalidade:</strong> analisar hierarquias e mobilidade com materiais fictícios, sem expor estudantes.</p>
+<h4>Organização e tempos (35 min)</h4>
+<ol>
+<li>3 min: grupos de 4 ou 5; leitura, registro, tempo e apresentação.</li>
+<li>8 min: ler seis materiais e marcar observações.</li>
+<li>17 min: responder às oito perguntas em matriz.</li>
+<li>7 min: preparar conclusão e alternativa.</li>
+</ol>
+<h4>Seis materiais completos</h4>
+<div class="materials">
+<article class="material">
+<h4>1 — Oficina e propriedade</h4>
+<dl>
+<dt>Observação</dt>
+<dd>Lina possui máquinas e contrata oito pessoas; Rui opera máquina por salário.</dd>
+<dt>Recurso</dt>
+<dd>Propriedade e contrato.</dd>
+<dt>Regra</dt>
+<dd>Lina decide investimento; acordo coletivo define jornada.</dd>
+<dt>Mudança</dt>
+<dd>Rui torna-se supervisor.</dd>
+<dt>Lacuna</dt>
+<dd>Patrimônio, autonomia e renda.</dd>
+</dl>
+</article>
+<article class="material">
+<h4>2 — Credencial escassa</h4>
+<dl>
+<dt>Observação</dt>
+<dd>Conselho exige licença para atuar; curso existe só na capital.</dd>
+<dt>Recurso</dt>
+<dd>Credencial e transporte.</dd>
+<dt>Regra</dt>
+<dd>Prova anual.</dd>
+<dt>Contestação</dt>
+<dd>Candidatos propõem polos regionais.</dd>
+<dt>Lacuna</dt>
+<dd>Competências avaliadas e aprovação por origem.</dd>
+</dl>
+</article>
+<article class="material">
+<h4>3 — Ordem jurídica</h4>
+<dl>
+<dt>Observação</dt>
+<dd>Documento fictício reserva isenção tributária e cargos a uma ordem hereditária.</dd>
+<dt>Recurso</dt>
+<dd>Privilégio legal e honra.</dd>
+<dt>Regra</dt>
+<dd>Pertencimento por nascimento, com raras concessões.</dd>
+<dt>Conflito</dt>
+<dd>Mercadores ricos pedem acesso.</dd>
+<dt>Lacuna</dt>
+<dd>Período, implementação e diferenças internas.</dd>
+</dl>
+</article>
+<article class="material">
+<h4>4 — Hierarquia atribuída</h4>
+<dl>
+<dt>Observação</dt>
+<dd>Registros atribuem ocupação e casamento por nascimento; reforma proíbe discriminação.</dd>
+<dt>Recurso</dt>
+<dd>Terra, redes e reconhecimento.</dd>
+<dt>Mudança</dt>
+<dd>Movimento reivindica aplicação da reforma.</dd>
+<dt>Comparação</dt>
+<dd>Práticas diferem entre duas regiões.</dd>
+<dt>Lacuna</dt>
+<dd>Trajetórias e fiscalização.</dd>
+</dl>
+</article>
+<article class="material">
+<h4>5 — Mesma renda, riscos distintos</h4>
+<dl>
+<dt>Observação</dt>
+<dd>Ana recebe salário estável; Beto obtém média igual em trabalho variável.</dd>
+<dt>Recurso</dt>
+<dd>Ana tem proteção; Beto possui ferramentas, mas dívida.</dd>
+<dt>Poder</dt>
+<dd>Ana segue chefia; Beto escolhe horários.</dd>
+<dt>Mudança</dt>
+<dd>Ambos buscam nova credencial.</dd>
+<dt>Lacuna</dt>
+<dd>Patrimônio, custos e trajetória.</dd>
+</dl>
+</article>
+<article class="material">
+<h4>6 — Expansão ocupacional</h4>
+<dl>
+<dt>Observação</dt>
+<dd>Em dez anos, vagas técnicas passam de 100 para 300; 180 são ocupadas por filhos de trabalhadores manuais.</dd>
+<dt>Recurso</dt>
+<dd>Curso público e vagas.</dd>
+<dt>Trajetória</dt>
+<dd>Há mobilidade intergeracional.</dd>
+<dt>Alternativa</dt>
+<dd>Expansão pode explicar parte do movimento.</dd>
+<dt>Lacuna</dt>
+<dd>Taxas por origem e destinos restantes.</dd>
+</dl>
+</article>
+</div>
+<h4>Oito perguntas</h4>
+<ol class="questions">
+<li>Quais fatos podem ser observados sem avaliação?</li>
+<li>Que posições e relações aparecem?</li>
+<li>Quais recursos e mecanismos de fechamento importam?</li>
+<li>Que dimensão — econômica, status ou poder — é pertinente?</li>
+<li>Qual tipo histórico ajuda e onde encontra limite?</li>
+<li>Há mobilidade individual, intergeracional ou estrutural?</li>
+<li>Que inferência alternativa deve ser considerada?</li>
+<li>Que evidência falta antes de explicar ou avaliar?</li>
+</ol>
+<h4>Produto, socialização e cuidado</h4>
+<p>Entregar matriz de seis linhas e oito eixos, com alternativa em dois casos. Socializar conclusão citando fato, conceito, mecanismo, lacuna e limite. Não solicitar renda, origem, discriminação ou trajetórias pessoais. Categorias analisam posições fictícias, não rotulam pessoas.</p>
+<details>
+<summary>Possibilidades comentadas e orientações de mediação</summary>
+<div class="answer">
+<h4>Material 1 — Oficina</h4>
+<p>Propriedade, trabalho assalariado e autoridade são observáveis. Marx orienta relação produtiva; promoção indica mudança organizacional, não necessariamente de classe. Weber permite investigar chances de mercado e poder. Faltam patrimônio, autonomia e renda. Outra leitura pode destacar posição contraditória do supervisor; exige dados.</p>
+<h4>Material 2 — Credencial</h4>
+<p>A licença é fechamento institucional, e distância distribui acesso. Pode proteger competência ou criar barreira excessiva; não há resposta automática. Credencial afeta mercado e status. Polos expressam agência. Aprovação por origem e validade da prova são evidências necessárias antes de explicar desigualdade.</p>
+<h4>Material 3 — Ordem</h4>
+<p>Privilégio jurídico, hereditariedade e honra sustentam leitura estamental. Riqueza mercantil não garante posição, mostrando dimensões distintas. Conflito contesta fechamento. Não rotular toda sociedade: faltam período, aplicação e grupos internos. Avaliar injustiça exige critério separado da classificação.</p>
+<h4>Material 4 — Hierarquia</h4>
+<p>Nascimento, ocupação e casamento aproximam o tipo casta, sem provar imobilidade total. Reforma e movimento mostram mudança e agência; diferenças regionais rejeitam homogeneização. Recursos podem manter efeitos apesar da lei. Faltam trajetórias e fiscalização para explicar persistência.</p>
+<h4>Material 5 — Riscos</h4>
+<p>Renda igual não encerra classe. Proteção, propriedade endividada, autonomia e autoridade diferem. Nenhuma posição é automaticamente superior. Nova credencial pode alterar chances, mas seu efeito é desconhecido. Custos, patrimônio e estabilidade sustentariam inferências; alternativas marxiana e weberiana são justificáveis.</p>
+<h4>Material 6 — Expansão</h4>
+<p>Há aumento de vagas e destinos intergeracionais observados. Isso sugere mobilidade estrutural, mas não igualdade relativa de oportunidades. Precisamos de taxas por origem e de todos os destinos. Agência individual pode coexistir com expansão. Não atribuir resultado só a mérito ou só à estrutura.</p>
+<h4>Mediação e transição</h4>
+<p>Exija oito eixos, distinguindo observação, inferência, evidência e avaliação. Aceite alternativas justificadas, impeça relatos financeiros ou discriminatórios e retorne aos casos. Encerre mostrando que a Aula 24 testará conceitos com indicadores de renda, raça e território no Brasil.</p>
+</div>
+</details>
+</div>
+</section>
+<section id="recursos">
+<div class="st">Recursos Necessários</div>
+<div class="resources">
+<span class="chip">Página impressa ou digital</span>
+<span class="chip">Folha para matriz</span>
+<span class="chip">Caneta ou lápis</span>
+<span class="chip">Quadro branco</span>
+</div>
+</section>
 </main>
-
 <footer>
-  <a href="../index.html">← Voltar para Turma 1</a>
-  &nbsp;·&nbsp; Introdução à Sociologia 2026.1
-</footer>
-
+<a href="/introducao-sociologia/">← Página principal</a> · Introdução à Sociologia 2026.2</footer>
 </body>
 </html>

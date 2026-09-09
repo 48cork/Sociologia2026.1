@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aula 09 — Introdução à Sociologia | Turma 1</title>
+<title>Aula 09 — Introdução à Sociologia | 2026.2</title>
 <style>
   :root {
     --bg: #0a0a0f; --surface: #12121c; --card: #1a1a2e; --border: #2a2a4a;
@@ -46,17 +46,65 @@
   .ref-title { font-size: 0.9rem; color: var(--text); }
   .ref-pages { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
   .activity-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; font-size: 0.9rem; line-height: 1.7; border-left: 3px solid var(--teal-lt); }
+  .activity-card h3 { color: var(--teal-lt); font-size: 1.05rem; margin: 0 0 12px; }
+  .activity-card ol, .activity-card ul { padding-left: 22px; margin: 10px 0; }
+  .activity-card li { margin: 7px 0; }
+  .activity-step { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; margin: 12px 0; }
+  .didactic-passage { background: rgba(79,70,229,.1); border: 1px solid rgba(129,140,248,.45); border-radius: var(--radius); padding: 16px 18px; margin: 16px 0; }
+  .didactic-passage h4 { color: var(--amber-lt); margin-bottom: 8px; }
+  .didactic-passage p { margin: 9px 0; }
+  .source-note { color: var(--muted); font-size: .82rem; margin: 12px 0; }
+  .source-note a { color: var(--blue-lt); }
+  .teacher-guidance { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-top: 18px; }
+  .teacher-guidance summary { cursor: pointer; color: var(--amber-lt); font-weight: 700; padding: 15px 17px; }
+  .teacher-guidance[open] summary { border-bottom: 1px solid var(--border); }
+  .teacher-guidance-content { padding: 16px 18px; }
   .resources-list { display: flex; flex-wrap: wrap; gap: 10px; }
   .res-tag { background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; }
   footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--muted); font-size: 0.85rem; }
   footer a { color: var(--purple-lt); text-decoration: none; }
   footer a:hover { text-decoration: underline; }
+
+  html, body { max-width: 100%; overflow-x: clip; }
+  body { overflow-wrap: anywhere; }
+  section { scroll-margin-top: 112px; }
+  .section-nav { position: sticky; top: 56px; z-index: 90; background: rgba(10,10,15,.97); border-bottom: 1px solid var(--border); padding: 8px 16px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: thin; }
+  .section-nav a { flex: 0 0 auto; min-height: 36px; display: inline-flex; align-items: center; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 5px 12px; text-decoration: none; font-size: .8rem; }
+  .base-text { max-width: 72ch; margin-inline: auto; }
+  .base-intro { color: var(--muted); font-size: .92rem; margin-bottom: 16px; }
+  .base-toc { position: static; height: auto; display: block; max-width: 100%; overflow: clip; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; margin-bottom: 28px; }
+  .base-toc h3 { color: var(--bloco-lt, var(--purple-lt)); font-size: .95rem; margin-bottom: 10px; }
+  .base-toc ol { width: 100%; max-width: 100%; padding-left: 22px; columns: 2; column-gap: 32px; }
+  .base-toc li { break-inside: avoid; margin: 5px 0; }
+  .base-toc a { color: var(--text); text-decoration-thickness: 1px; text-underline-offset: 3px; white-space: normal; }
+  .base-subsection { scroll-margin-top: 112px; margin-bottom: 28px; }
+  .base-subsection h3 { color: var(--bloco-lt, var(--purple-lt)); font-size: 1.15rem; line-height: 1.35; margin-bottom: 12px; }
+  .base-subsection p { color: var(--text); margin-bottom: 14px; line-height: 1.78; }
+  .base-subsection strong { color: #f1f5f9; }
+  .pause-box { background: rgba(79,70,229,.1); border: 1px solid rgba(129,140,248,.4); border-left: 4px solid var(--bloco-lt, var(--purple-lt)); border-radius: var(--radius); padding: 16px 18px; margin: 22px 0; }
+  .pause-box h4 { color: var(--amber-lt); font-size: .75rem; letter-spacing: .09em; text-transform: uppercase; margin-bottom: 6px; }
+  .pause-box p { margin: 0; color: var(--text); font-weight: 600; line-height: 1.6; }
+  .legacy-note { border: 1px solid var(--amber-lt); background: rgba(251,191,36,.08); border-radius: var(--radius); padding: 16px 18px; margin: 0 0 24px; }
+  .res-tag { max-width: 100%; min-width: 0; }
+  a:focus-visible { outline: 3px solid var(--amber-lt); outline-offset: 3px; border-radius: 3px; }
+  @media (max-width: 640px) {
+    nav { height: auto; min-height: 56px; padding: 8px 12px; flex-wrap: wrap; }
+    .nav-left, .nav-right { min-width: 0; }
+    .nav-center { display: none; }
+    .nav-right { gap: 10px; }
+    .section-nav { top: 72px; padding-inline: 10px; }
+    main { padding: 24px 14px 60px; }
+    .aula-header { padding: 22px 18px; }
+    .base-toc ol { width: auto; columns: auto; padding-left: 0; list-style-position: inside; }
+    .tl-item { flex-direction: column; gap: 8px; }
+  }
+  @media print { .teacher-guidance { break-inside: avoid; } }
 </style>
 </head>
 <body>
 <nav>
   <div class="nav-left">
-    <a href="../index.html">← Turma 1</a>
+    <a href="/introducao-sociologia/">← Página principal</a>
     <span class="nav-badge">Aula 09</span>
   </div>
   <span class="nav-center">Aula 09 / 30</span>
@@ -65,126 +113,233 @@
     <a href="aula-10.html">Próxima →</a>
   </div>
 </nav>
+<div class="section-nav" aria-label="Seções da aula"><a href="#objetivos">Objetivos</a><a href="#conteudo-programatico">Conteúdo</a><a href="#texto-base">Texto-base</a><a href="#plano-aula">Plano da aula</a><a href="#leituras">Leituras</a><a href="#atividade">Atividade</a><a href="#recursos">Recursos</a></div>
 <main>
   <div class="aula-header">
     <div class="header-meta">
       <span class="bloco-badge">Bloco II — Pensamento Clássico</span>
       <span class="meta-chip">Aula 09</span>
-      <span class="meta-chip">13/05/2026 — Quarta-feira</span>
-      <span class="meta-chip">2 horas</span>
+      <span class="meta-chip">Encontro 5 · Parte 1 de 2</span>
+      <span class="meta-chip">07/10/2026 — Quarta-feira</span>
+      <span class="meta-chip">Percurso completo do encontro: 4 horas-aula</span>
+      <span class="meta-chip">Esta página: aproximadamente 2 horas</span>
     </div>
-    <h1>Karl Marx: materialismo histórico e dialético. Estrutura e superestrutura.</h1>
+    <h1>Karl Marx: concepção materialista da história, produção e transformação social.</h1>
   </div>
 
-  <section>
+  <section id="objetivos">
     <div class="section-title">Objetivos de Aprendizagem</div>
     <ul class="obj-list">
-      <li>Compreender o método materialista histórico como fundamento epistemológico do pensamento marxista.</li>
-      <li>Distinguir a estrutura econômica (base) da superestrutura ideológica e suas relações de determinação.</li>
+      <li>Compreender o materialismo histórico como abordagem relacional e histórica do pensamento marxiano.</li>
+      <li>Analisar as relações entre produção, formas políticas e jurídicas e modos de consciência sem reduzi-las a reflexo mecânico.</li>
       <li>Entender os conceitos de forças produtivas e relações de produção e sua articulação histórica.</li>
       <li>Aplicar os conceitos de base e superestrutura a exemplos concretos da realidade social contemporânea.</li>
     </ul>
   </section>
 
-  <section>
+  <section id="conteudo-programatico">
     <div class="section-title">Conteúdo Programático</div>
     <div class="content-topic">
       <h3>1. Materialismo histórico</h3>
       <ul>
         <li>Base filosófica do marxismo e crítica ao idealismo hegeliano</li>
-        <li>Primado das condições materiais de existência sobre as ideias</li>
-        <li>O ser social determina a consciência: inversão da tese idealista</li>
+        <li>Produção social da existência como ponto de partida analítico</li>
+        <li>Condições sociais, ideias e consciência em relações historicamente mediadas</li>
       </ul>
     </div>
     <div class="content-topic">
       <h3>2. Estrutura e superestrutura</h3>
       <ul>
         <li>Base econômica: forças produtivas + relações de produção</li>
-        <li>Superestrutura: Estado, direito, religião, cultura, ideologia</li>
-        <li>Determinação em última instância pelo econômico</li>
+        <li>Formas políticas, jurídicas e de consciência: Estado, direito, religião, cultura e ideologia</li>
+        <li>Condicionamentos, efeitos recíprocos e ritmos históricos distintos</li>
       </ul>
     </div>
     <div class="content-topic">
       <h3>3. Forças produtivas e relações de produção</h3>
       <ul>
-        <li>Meios de produção: terra, capital, tecnologia, instrumentos</li>
+        <li>Meios de produção: terra, instalações, máquinas, instrumentos, matérias-primas e infraestrutura</li>
         <li>Força de trabalho como elemento central do processo produtivo</li>
         <li>Relações de propriedade e sua função nas diferentes formações históricas</li>
       </ul>
     </div>
   </section>
 
-  <section>
+  <section id="texto-base" aria-labelledby="texto-base-title">
+    <div class="section-title" id="texto-base-title">Texto-base para acompanhamento da aula</div>
+    <div class="base-text">
+      <p class="base-intro">Leitura de apoio para a exposição, a discussão e a retomada dos conceitos. As pausas podem ser realizadas oralmente, em duplas ou por registro breve.</p>
+      <nav class="base-toc" aria-label="Sumário do texto-base"><h3>Nesta leitura</h3><ol><li><a href="#marx-tempo">Um autor no tempo das revoluções</a></li><li><a href="#critica-idealismo">Crítica ao idealismo e ponto de partida material</a></li><li><a href="#producao-existencia">Produção social da existência</a></li><li><a href="#forcas-relacoes">Forças produtivas e relações de produção</a></li><li><a href="#modo-contradicao">Modo de produção, contradição e mudança</a></li><li><a href="#instituicoes-consciencia">Produção, instituições e consciência</a></li><li><a href="#agencia-historia">Agência em condições herdadas</a></li><li><a href="#sintese-aula-09">Síntese e passagem para a Aula 10</a></li></ol></nav>
+
+      <div class="base-subsection" id="marx-tempo">
+        <h3>1. Um autor no tempo das revoluções</h3>
+        <p>Ao terminar o percurso por Durkheim, a Aula 08 perguntou como vínculos e regras produzem regularidades coletivas. Marx desloca o foco: como seres humanos produzem a vida material, distribuem o controle dos recursos e transformam relações históricas? A mudança não significa abandonar instituições ou consciência. Ela exige investigá-las em conexão com o trabalho, a propriedade e os conflitos que tornam uma sociedade possível.</p>
+        <p>Karl Marx nasceu em 1818, na região alemã da Renânia, e morreu em 1883, em Londres. Sua formação e sua obra atravessaram um século de industrialização, expansão dos mercados, urbanização, crises e revoluções políticas. A Europa do período não era uma unidade pronta: impérios, monarquias e Estados em formação conviviam com movimentos liberais, democráticos, nacionalistas e socialistas. O trabalho fabril crescia, mas agricultura, artesanato, serviço doméstico e formas coercivas de trabalho permaneciam decisivos. Essa diversidade impede reduzir o contexto à imagem de uma fábrica isolada.</p>
+        <p>Marx dialogou criticamente com três campos: a filosofia alemã, especialmente Hegel e os jovens hegelianos; a economia política britânica; e os movimentos socialistas e operários. Sua colaboração intelectual e política com Friedrich Engels foi duradoura. Jornalismo, exílio e participação em organizações políticas também marcaram sua trajetória. Por isso, seus textos têm gêneros e propósitos distintos: manuscritos de pesquisa, intervenções conjunturais, crítica da economia política e manifestos não devem ser lidos como se fossem capítulos de um único manual.</p>
+        <p>O objetivo desta aula não é transformar essa biografia numa explicação das ideias nem apresentar Marx como observador neutro fora dos conflitos. É reconstruir um problema: a ordem social parece natural porque as pessoas nascem em relações já estabelecidas, mas essas relações foram produzidas e podem mudar. Para analisá-las, será preciso ligar condições materiais, formas de propriedade, instituições, projetos coletivos e ação humana sem escolher uma causa única.</p>
+        <p>Há ainda uma dimensão mundial indispensável. A industrialização europeia conectava-se a matérias-primas, mercados, deslocamentos populacionais e regimes de trabalho em outros continentes. O capitalismo estudado por Marx já atravessava fronteiras, embora suas análises apresentem limites e mudanças ao longo da obra. Ler esse contexto hoje pede atenção tanto ao núcleo da crítica quanto às experiências coloniais e pós-coloniais que ampliam e contestam seu alcance.</p>
+        <aside class="pause-box"><h4>Pausa 1 — mudança de pergunta</h4><p>Que dimensões ficam visíveis quando, em vez de perguntar apenas “quais normas mantêm a sociedade?”, perguntamos “como a existência é produzida e quem controla suas condições?”</p></aside>
+      </div>
+
+      <div class="base-subsection" id="critica-idealismo">
+        <h3>2. Crítica ao idealismo e ponto de partida material</h3>
+        <p>Em termos muito gerais, o idealismo atribui papel decisivo às ideias, à consciência ou ao desenvolvimento do espírito na compreensão da realidade histórica. Marx aprende com Hegel a pensar relações, processos e contradições, mas critica explicações que tratam formas de consciência como motor autônomo da história. Não basta narrar a sucessão de doutrinas políticas, religiosas ou filosóficas; é necessário perguntar por quais práticas e relações sociais determinados problemas e ideias se tornam possíveis.</p>
+        <p>“Material” não significa somente matéria física, dinheiro ou interesse econômico imediato. O ponto de partida são seres humanos corporais que precisam produzir alimentos, moradia, cuidado, instrumentos e meios de comunicação, em cooperação e conflito com outras pessoas. Essas atividades ocorrem em ambientes transformados por gerações anteriores. A linguagem, a ciência e o direito são reais e eficazes, mas não existem sem pessoas organizadas, recursos, instituições e formas de reprodução cotidiana.</p>
+        <p>A crítica ao idealismo também não autoriza desprezar ideias. Uma constituição pode alterar relações de propriedade; uma doutrina religiosa pode orientar condutas econômicas; um projeto político pode organizar grupos e mudar instituições. A questão é não explicar sua força apenas pelo conteúdo interno. Deve-se investigar quem as produz e difunde, por quais meios, em que circunstâncias encontram adesão e como entram em relações já existentes.</p>
+        <p>Uma universidade oferece um exemplo útil. Seu projeto pedagógico contém concepções de conhecimento e cidadania, mas sua realização depende de edifícios, trabalho docente e técnico, financiamento, tecnologias, legislação e trajetórias estudantis. Nenhum desses elementos sozinho “causa” a universidade. O método materialista reconstrói a articulação histórica entre eles e pergunta como seus conflitos abrem ou fecham possibilidades.</p>
+        <p>A inversão materialista não consiste, portanto, em trocar uma frase absoluta — “as ideias fazem tudo” — por outra — “a matéria faz tudo”. Trata-se de mudar o procedimento. Antes de aceitar uma explicação que parte apenas da consciência declarada por uma época, investigam-se suas práticas de vida, divisões, dependências e conflitos. Depois se retorna às ideias para compreender o trabalho que realizam: justificar, organizar, criticar, imaginar alternativas ou nomear experiências ainda dispersas.</p>
+      </div>
+
+      <div class="base-subsection" id="producao-existencia">
+        <h3>3. A produção social da existência</h3>
+        <p>Produzir a existência é mais amplo do que fabricar mercadorias. Inclui obter e preparar alimentos, construir abrigo, transportar pessoas, cuidar de crianças e idosos, transmitir conhecimentos, manter infraestruturas e organizar a vida comum. Mesmo quando uma atividade não recebe salário ou não entra diretamente no mercado, ela pode ser indispensável à reprodução social. A forma concreta dessa produção varia historicamente.</p>
+        <p>Ninguém produz sozinho. Até uma pessoa que trabalha isolada utiliza uma língua, instrumentos, conhecimentos e redes construídos coletivamente. A produção é social porque envolve cooperação, divisão de tarefas, regras de acesso e dependências. Também envolve relações com a natureza: matérias-primas, energia e território são condições e resultados de processos históricos, não um cenário externo e infinito.</p>
+        <p>Quando Marx afirma que os seres humanos entram em relações determinadas para produzir, “determinadas” não quer dizer programadas como uma máquina. Quer dizer que uma geração encontra condições que não escolheu livremente: regimes de propriedade, técnicas, obrigações, mercados e instituições. Um agricultor pode decidir o cultivo e negociar estratégias, mas essas decisões dependem do acesso à terra, ao crédito, à água, a sementes, ao transporte e a compradores.</p>
+        <p>Essa perspectiva muda a análise de problemas públicos. Diante de uma inovação tecnológica, por exemplo, não basta perguntar se ela é boa ou ruim. É preciso identificar quem a desenvolve, quem possui a infraestrutura, como o trabalho é reorganizado, quais conhecimentos se tornam necessários e quais regras distribuem riscos e benefícios. A tecnologia aparece como parte de relações sociais, não como força exterior que conduz a história por conta própria.</p>
+        <p>Produção e reprodução também se condicionam. Uma jornada formal só é possível porque alimentação, descanso, deslocamento, formação e cuidado renovam diariamente capacidades de trabalhar. Parte dessas tarefas é remunerada; parte ocorre em domicílios e redes comunitárias, muitas vezes distribuída de modo desigual. Mesmo quando o vocabulário clássico não desenvolve todas essas dimensões, incluí-las impede que “produção da existência” seja reduzida à porta da fábrica.</p>
+        <aside class="pause-box"><h4>Pausa 2 — cadeia de dependências</h4><p>Escolha um objeto usado hoje e reconstrua cinco relações sociais necessárias para que ele chegasse até você. Em que ponto aparecem propriedade, trabalho, conhecimento e regras?</p></aside>
+      </div>
+
+      <div class="base-subsection" id="forcas-relacoes">
+        <h3>4. Forças produtivas e relações de produção</h3>
+        <p><strong>Forças produtivas</strong> designam capacidades sociais de produzir: força de trabalho, conhecimentos, técnicas, instrumentos, instalações, fontes de energia, infraestrutura e modos de cooperação. Uma máquina só integra essas forças quando pessoas sabem fabricá-la, operá-la e mantê-la numa organização concreta. Não se deve confundir forças produtivas com uma lista de equipamentos nem supor que toda inovação aumenta automaticamente autonomia ou bem-estar.</p>
+        <p><strong>Capital não é simplesmente uma máquina, uma soma de dinheiro ou qualquer recurso produtivo.</strong> Na crítica marxiana, ele deve ser compreendido como valor que se valoriza dentro de relações sociais específicas, tema que será aprofundado na Aula 10.</p>
+        <p><strong>Relações de produção</strong> são vínculos sociais por meio dos quais pessoas controlam recursos, organizam o trabalho e se apropriam de resultados. Propriedade é central, mas não é a única dimensão. Importam autoridade, obrigações, acesso aos meios de produção, formas de contratação e critérios de distribuição. Escravidão, servidão, trabalho familiar, cooperação comunitária e assalariamento configuram relações diferentes, que podem coexistir numa mesma formação histórica.</p>
+        <p>A distinção é analítica, não uma separação física. Um aplicativo, por exemplo, pode ser tratado como conhecimento e instrumento, portanto força produtiva. Mas regras de acesso aos dados, propriedade da plataforma, definição de preços e poder de bloquear usuários pertencem às relações de produção. O mesmo recurso técnico pode operar sob arranjos diferentes: empresa privada, cooperativa, órgão público ou infraestrutura comum.</p>
+        <p>A relação entre esses dois conjuntos é dinâmica. Novas capacidades podem entrar em tensão com formas existentes de controle; relações de propriedade podem incentivar certas técnicas e bloquear outras. Não há calendário inevitável segundo o qual uma invenção derruba uma ordem social. Para explicar uma mudança, é necessário observar crises, disputas políticas, organização coletiva, instituições e alternativas historicamente disponíveis.</p>
+        <p>Uma comparação ajuda a fixar o ponto. A mesma técnica de irrigação pode servir a uma grande propriedade orientada à exportação, a unidades familiares endividadas ou a uma associação comunitária. A capacidade hidráulica não informa sozinha quem decide cultivos, distribui água e recebe resultados. Inversamente, mudar a titularidade jurídica sem garantir conhecimento, infraestrutura e cooperação pode não realizar a transformação esperada. Forças e relações precisam ser examinadas juntas.</p>
+      </div>
+
+      <div class="base-subsection" id="modo-contradicao">
+        <h3>5. Modo de produção, contradição e transformação histórica</h3>
+        <p><strong>Modo de produção</strong> é uma construção que articula forças produtivas e relações de produção predominantes. Ele ajuda a comparar como sociedades organizam a produção e a apropriação, mas não descreve cada prática existente. Falar em modo de produção capitalista não significa que todo trabalho seja assalariado ou que nenhuma relação doméstica, comunitária ou coerciva permaneça. Significa investigar qual lógica organiza de maneira dominante a acumulação e conecta formas diversas.</p>
+        <p>Uma <strong>contradição</strong> não é qualquer discordância nem simples incoerência de discurso. É uma tensão constituída pelas próprias relações sociais. A produção capitalista, por exemplo, amplia a cooperação e a capacidade produtiva enquanto mantém apropriação privada e decisões desiguais sobre os resultados. Trabalhadores e proprietários dependem do mesmo processo, mas ocupam posições com interesses potencialmente conflitantes. A relação se reproduz e, ao mesmo tempo, gera disputas.</p>
+        <p>Nesse sentido, a <strong>análise dialética</strong> examina relações e processos históricos e procura tensões internas às próprias relações sociais, em vez de reduzir a história a fatos isolados. Ela não deve ser ensinada como fórmula automática de “tese, antítese e síntese” e não permite antecipar um resultado antes de investigar condições, agentes e conflitos concretos.</p>
+        <p>Contradições não produzem automaticamente revoluções. Podem ser administradas por reformas, deslocadas para outros grupos ou territórios, intensificadas por crises e reorganizadas por novas instituições. A transformação depende de como pessoas interpretam problemas, criam organizações, formam alianças e enfrentam resistências. Resultados não estão escritos de antemão: derrotas, acomodações e mudanças inesperadas fazem parte da história.</p>
+        <p>Também não se deve representar a história como escada uniforme de estágios. Formações sociais combinam temporalidades e relações diversas; processos coloniais conectaram expansão capitalista, escravização, expropriação e comércio mundial. Aplicar categorias gerais exige pesquisar as particularidades de cada caso, inclusive raça, gênero, território e poder político, sem dissolvê-las num rótulo econômico.</p>
+        <p>A transformação histórica altera mais que tecnologias e leis. Ela reorganiza necessidades, tempos, espaços e formas de perceber o possível. Uma crise pode revelar dependências antes naturalizadas; uma mobilização pode criar vocabulários e capacidades duradouras mesmo sem alcançar seu objetivo inicial. Por isso, períodos de estabilidade também contêm conflito e mudança molecular, enquanto acontecimentos dramáticos podem preservar relações fundamentais sob novas formas.</p>
+        <aside class="pause-box"><h4>Pausa 3 — contradição não é destino</h4><p>Uma nova tecnologia entra em conflito com regras de propriedade existentes. Que atores, instituições e decisões seriam necessários para transformar essa tensão em mudança histórica?</p></aside>
+      </div>
+
+      <div class="base-subsection" id="instituicoes-consciencia">
+        <h3>6. Produção, política, instituições e consciência</h3>
+        <p>A metáfora de base e superestrutura, presente no texto de 1859, organiza uma relação entre a estrutura econômica e formas jurídicas, políticas e de consciência. Ela é útil se evitar duas caricaturas: a economia como prédio pronto que sustenta um andar decorativo; ou instituições como simples espelho passivo. Direito, Estado, religião, educação, cultura e ciência possuem práticas, organizações e conflitos próprios, embora estejam ligados à produção social.</p>
+        <p>Leis de propriedade, contratos e políticas públicas ajudam a constituir mercados; não aparecem apenas depois deles. Estados garantem direitos, arrecadam, regulam moeda, constroem infraestrutura e também podem limitar proprietários. Movimentos sociais alteram leis e costumes. Instituições educacionais formam capacidades produtivas, mas também criam conhecimentos e espaços de crítica. Por isso, as relações funcionam em várias direções e em ritmos diferentes.</p>
+        <p>A consciência tampouco é reflexo fotográfico da posição ocupada. Pessoas interpretam experiências por meio de linguagens, memórias, religiões, mídias, partidos, famílias e escolas. Grupos em posições semelhantes podem formular projetos distintos; pessoas em posições diferentes podem aderir ao mesmo projeto. Condições sociais estruturam possibilidades e interesses, mas identificação e ação coletiva precisam ser explicadas.</p>
+        <p>Uma análise não mecânica pergunta como dimensões se articulam num processo concreto. Se uma reforma trabalhista ocorre, devem ser examinados mudanças produtivas, projetos políticos, decisões jurídicas, discursos públicos, organizações empresariais e de trabalhadores, além de efeitos desiguais. Declarar apenas que “a economia determinou” encerra a pesquisa justamente onde ela deveria começar.</p>
+        <p>Também importa distinguir condicionamento, limite e causa imediata. Uma estrutura de propriedade pode delimitar alternativas sem explicar o momento exato de uma decisão legislativa. Uma campanha pode ser a causa próxima de uma mudança e, ao mesmo tempo, depender de conflitos acumulados. Diferentes tempos causais se cruzam. Reconstruí-los exige cronologia e comparação, não uma seta única entre “base” e “superestrutura”.</p>
+      </div>
+
+      <div class="base-subsection" id="agencia-historia">
+        <h3>7. Agência humana em condições herdadas</h3>
+        <p>O materialismo histórico não substitui pessoas por estruturas. Os seres humanos fazem a história, mas encontram circunstâncias transmitidas pelo passado. Essa formulação mantém juntos dois aspectos: há ação, escolha, criação e conflito; há também limites, recursos e relações não escolhidos. Agência não significa liberdade sem condições, e condicionamento não equivale a ausência de alternativas.</p>
+        <p>Pense numa comunidade ameaçada por uma obra de infraestrutura. O território, a legislação, o orçamento, a propriedade e os projetos estatais antecedem a mobilização. Ainda assim, moradores podem produzir conhecimento, recorrer à justiça, formar alianças e propor alternativas. O resultado dependerá de capacidades desiguais e de conjunturas políticas. Explicá-lo exige acompanhar o processo, não declarar antecipadamente a vitória da estrutura ou da vontade.</p>
+        <p>Esse cuidado vale também para a leitura do “Prefácio” de 1859. Seu argumento é condensado e programático. Em vez de transformar cada formulação em lei universal, a atividade deve identificar relações: o que Marx chama de produção, que distinções estabelece e como pensa épocas de transformação. Depois, exemplos contemporâneos devem ser tratados como hipóteses nossas, não como casos que o autor teria analisado.</p>
+        <p>Uma boa aplicação reúne documentos sobre propriedade e regulação, informações sobre tecnologias e trabalho, registros de conflitos, discursos dos participantes e sequência temporal. Só assim é possível avaliar se uma mudança institucional reforçou relações produtivas, modificou-as ou teve efeitos contraditórios. O método se mostra mais fecundo quando orienta perguntas do que quando fornece respostas automáticas.</p>
+      </div>
+
+      <div class="base-subsection" id="sintese-aula-09">
+        <h3>8. Síntese e passagem para a Aula 10</h3>
+        <p><strong>Síntese.</strong> Marx formula seus problemas num século de industrialização, conflitos políticos e expansão mundial dos mercados. Sua crítica ao idealismo desloca o ponto de partida para a produção social da existência sem negar a eficácia das ideias. Forças produtivas são capacidades sociais de produzir; relações de produção organizam controle, trabalho e apropriação; modo de produção articula esses elementos em uma totalidade histórica.</p>
+        <p>Contradições indicam tensões internas, não resultados inevitáveis. Pessoas agem em condições herdadas e podem reproduzi-las ou transformá-las. Política, direito, instituições e consciência não são ornamentos passivos: participam da constituição e da mudança das relações sociais. Uma explicação materialista consistente reconstrói essas mediações em vez de atribuir tudo a uma causa econômica imediata.</p>
+        <p>A Aula 10 aproximará esse quadro do funcionamento capitalista. A pergunta deixará de ser apenas como modos de produção mudam e passará a examinar como trabalho assalariado, propriedade dos meios de produção e mercadorias permitem exploração; como a alienação caracteriza determinadas relações; e como posições de classe podem ou não converter-se em identificação e ação coletiva.</p>
+        <aside class="pause-box"><h4>Pausa 4 — frase de passagem</h4><p>Em duas frases, explique por que reconhecer condições herdadas não elimina a agência e por que reconhecer agência não elimina relações estruturais.</p></aside>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="plano-aula">
     <div class="section-title">Plano de Aula com Tempo</div>
     <div class="timeline">
       <div class="tl-item">
         <span class="tl-duration">10 min</span>
-        <span class="tl-text">Revisão da aula anterior (Durkheim: solidariedade e fato social) e abertura do Bloco II — Pensamento Clássico.</span>
+        <span class="tl-text"><strong>Retomada e problema de abertura</strong> — Síntese do fechamento da Aula 08 e formulação da pergunta sobre produção social da existência.</span>
       </div>
       <div class="tl-item">
         <span class="tl-duration">35 min</span>
-        <span class="tl-text">Exposição dialogada sobre o materialismo histórico: contexto biográfico e histórico de Marx, crítica ao idealismo hegeliano, a inversão materialista e o método dialético.</span>
+        <span class="tl-text"><strong>Contexto e crítica ao idealismo</strong> — Século XIX, diálogos intelectuais de Marx e ponto de partida material sem desprezar ideias.</span>
       </div>
       <div class="tl-item">
         <span class="tl-duration">30 min</span>
-        <span class="tl-text">Exposição sobre estrutura e superestrutura com exemplos concretos: escola, mídia e religião como instâncias superestruturais; análise do papel ideológico de cada uma.</span>
+        <span class="tl-text"><strong>Mapa conceitual dialogado</strong> — Produção social da existência, forças produtivas, relações de produção, modo de produção e contradição.</span>
       </div>
       <div class="tl-item">
         <span class="tl-duration">30 min</span>
-        <span class="tl-text">Análise de texto em grupos de 4: trecho do "Prefácio de 1859" (Para a Crítica da Economia Política). Questões orientadoras sobre base, superestrutura e determinação histórica.</span>
+        <span class="tl-text"><strong>Oficina de leitura em grupos</strong> — Análise orientada da passagem didática que parafraseia o argumento do “Prefácio” de 1859, com distinção entre paráfrase, interpretação e aplicação contemporânea.</span>
       </div>
       <div class="tl-item">
         <span class="tl-duration">10 min</span>
-        <span class="tl-text">Sistematização coletiva: grupos compartilham respostas, professor sintetiza os principais conceitos no quadro.</span>
+        <span class="tl-text"><strong>Socialização e mediação</strong> — Comparação das respostas, correção de leituras deterministas e construção coletiva de relações entre conceitos.</span>
       </div>
       <div class="tl-item">
         <span class="tl-duration">5 min</span>
-        <span class="tl-text">Orientações para a próxima aula: leitura do cap. I do Manifesto do Partido Comunista e do cap. Marx de Quintaneiro et al., p. 66–85.</span>
+        <span class="tl-text"><strong>Bilhete de saída</strong> — Registro de uma relação entre condições, instituições e ação; apresentação da pergunta da Aula 10.</span>
       </div>
     </div>
   </section>
 
-  <section>
+  <section id="leituras">
     <div class="section-title">Textos para Leitura Prévia</div>
     <div class="ref-card">
       <div class="ref-author">Marx, Karl</div>
-      <div class="ref-title">"Prefácio" à Contribuição à Crítica da Economia Política (1859)</div>
-      <div class="ref-pages">p. 1–5</div>
+      <div class="ref-title">“Prefácio” a <em>Contribuição à crítica da economia política</em> (1859) — <a href="https://www.marxists.org/portugues/marx/1859/01/prefacio.htm" target="_blank" rel="noopener noreferrer">leitura integral em português</a></div>
+      <div class="ref-pages">Tradução de José Barata-Moura; fonte declarada: <em>Obras escolhidas em três tomos</em>, Editorial Avante!/Edições Progresso, 1982. Transcrição autorizada; direitos da tradução reservados. Acesso em 29 ago. 2026.</div>
     </div>
     <div class="ref-card">
       <div class="ref-author">Quintaneiro, Tania; Barbosa, Maria Ligia; Oliveira, Márcia</div>
-      <div class="ref-title">Um toque de clássicos — capítulo Marx</div>
-      <div class="ref-pages">p. 43–65</div>
+      <div class="ref-title"><em>Um toque de clássicos</em> — capítulo dedicado a Marx</div>
+      <div class="ref-pages">2. ed. rev. e ampl. Belo Horizonte: Editora UFMG, 2002. ISBN 85-7041-317-3.</div>
     </div>
   </section>
 
-  <section>
+  <section id="atividade">
     <div class="section-title">Atividades em Sala</div>
     <div class="activity-card">
-      <strong>Análise de texto em grupos (30 min)</strong><br><br>
-      Em grupos de 4 alunos, leia o trecho do "Prefácio de 1859" de Karl Marx e responda às questões orientadoras:<br><br>
-      1. O que Marx entende por "base econômica" da sociedade? Identifique no texto os elementos que compõem essa base.<br>
-      2. O que constitui a "superestrutura"? Como ela se relaciona com a base econômica segundo o autor?<br>
-      3. Dê dois exemplos de instituições contemporâneas que funcionam como superestrutura e explique como elas refletem ou reforçam a base econômica.<br>
-      4. Qual é a tese central do materialismo histórico expressa neste prefácio? Como ela se diferencia do idealismo?
+      <h3>Oficina de leitura — relações históricas, não esquema automático</h3>
+      <p><strong>Organização:</strong> grupos de quatro estudantes. Cada grupo usa a passagem didática abaixo e uma folha dividida em três colunas: “o argumento apresenta”, “nossa interpretação” e “aplicação contemporânea a investigar”.</p>
+      <div class="didactic-passage" aria-labelledby="passagem-didatica-title">
+        <h4 id="passagem-didatica-title">Passagem didática — paráfrase do argumento do “Prefácio” de 1859</h4>
+        <p><strong>Atenção:</strong> os três parágrafos numerados a seguir são uma paráfrase elaborada para esta aula. Não são citação, tradução nem transcrição de Marx.</p>
+        <p><strong>1.</strong> Para compreender relações jurídicas e formas políticas, o argumento propõe investigar as condições materiais da vida social. Pessoas produzem sua existência em relações historicamente formadas, ligadas às capacidades de trabalho, aos conhecimentos, aos meios disponíveis e às formas de organizar propriedade, controle e apropriação.</p>
+        <p><strong>2.</strong> O conjunto das relações de produção condiciona processos políticos, jurídicos e modos de consciência, mas isso não transforma instituições e ideias em efeitos automáticos. Em certos períodos, capacidades produtivas e relações existentes entram em tensão. Formas de propriedade que antes favoreciam atividades podem passar a limitá-las, abrindo conflitos e possibilidades de transformação.</p>
+        <p><strong>3.</strong> Para estudar essas transformações, é necessário distinguir mudanças nas condições de produção das formas políticas, jurídicas, religiosas, artísticas e filosóficas pelas quais grupos percebem e enfrentam conflitos. Uma época não deve ser explicada apenas pela imagem que faz de si. Tampouco a existência de uma contradição garante seu desfecho: agentes, organizações, instituições e circunstâncias participam do processo.</p>
+      </div>
+      <p class="source-note"><strong>Relação com o original:</strong> a paráfrase trabalha o parágrafo do “Prefácio” que começa com o relato do resultado da investigação de Marx sobre relações jurídicas e formas de Estado e segue até a discussão das formações sociais e de suas condições de transformação. Para conferência e leitura recomendada, consulte a <a href="https://www.marxists.org/portugues/marx/1859/01/prefacio.htm" target="_blank" rel="noopener noreferrer">tradução portuguesa disponível no Marxists Internet Archive</a>. A página identifica Karl Marx, janeiro de 1859, tradução de José Barata-Moura e direitos da tradução reservados; por isso, essa tradução não foi reproduzida nem convertida em material imprimível aqui. Acesso em 29 ago. 2026.</p>
+      <div class="activity-step"><strong>Etapa 1 — leitura e marcação (8 min).</strong> Leiam os três parágrafos da passagem didática. Sublinhem termos ligados à produção, forças produtivas, relações de produção, formas jurídicas e políticas, consciência e transformação. Ao responder, chamem o material de paráfrase; usem “citação” apenas se consultarem e transcreverem brevemente o original com indicação da fonte.</div>
+      <div class="activity-step"><strong>Etapa 2 — reconstrução (12 min).</strong><ol><li>Qual é o ponto de partida do argumento e o que ele critica?</li><li>Como forças produtivas e relações de produção se articulam?</li><li>Que relação a paráfrase estabelece entre produção, instituições e consciência?</li><li>Por que uma tensão não determina antecipadamente uma transformação?</li></ol></div>
+      <div class="activity-step"><strong>Etapa 3 — teste contra simplificações (6 min).</strong><ol><li>O argumento autoriza dizer que ideias não têm efeitos? Justifiquem.</li><li>Ele autoriza prever automaticamente o resultado de uma contradição? Justifiquem.</li><li>Reescrevam a frase “a economia causa tudo” de forma histórica e verificável.</li></ol></div>
+      <div class="activity-step"><strong>Etapa 4 — aplicação controlada e socialização (4 min).</strong> Escolham universidade, plataforma digital ou política de moradia. Formulem uma pergunta que conecte produção, propriedade, instituição e consciência sem afirmar causalidade antes da pesquisa.</div>
+      <details class="teacher-guidance">
+        <summary>Orientações de mediação e critérios de resposta — uso do professor</summary>
+        <div class="teacher-guidance-content">
+          <p><strong>Critério central:</strong> avaliar relações construídas, não a reprodução de uma fórmula. Respostas devem distinguir a passagem didática em paráfrase, a interpretação do grupo e a hipótese contemporânea.</p>
+          <p><strong>Ponto de partida:</strong> espera-se reconhecer seres humanos produzindo socialmente sua existência e relações históricas que não dependem apenas da vontade individual. A crítica ao idealismo não equivale a negar ideias.</p>
+          <p><strong>Forças e relações:</strong> aceitar exemplos que incluam trabalho, conhecimentos, instrumentos e cooperação de um lado; propriedade, controle, autoridade e apropriação de outro. Corrigir listas que tratem tecnologia como agente autônomo.</p>
+          <p><strong>Instituições e consciência:</strong> respostas fortes mostram condicionamento e eficácia recíproca. Evitar o diagrama em que Estado, direito ou cultura apenas refletem uma base pronta.</p>
+          <p><strong>Transformação:</strong> contradições criam tensões e possibilidades, não um desfecho garantido. Peça que grupos nomeiem atores, organizações, disputas e conjunturas necessárias para explicar resultados.</p>
+          <p><strong>Aplicação:</strong> uma boa pergunta identifica caso, período, atores e evidências. Exemplo aceitável: “Como mudanças na propriedade de uma plataforma e na regulação do trabalho alteraram decisões gerenciais e discursos de autonomia em determinado período?”</p>
+        </div>
+      </details>
     </div>
   </section>
 
-  <section>
+  <section id="recursos">
     <div class="section-title">Recursos Necessários</div>
     <div class="resources-list">
       <span class="res-tag">Projetor</span>
-      <span class="res-tag">Slides da aula</span>
-      <span class="res-tag">Cópias do Prefácio de 1859 (um por grupo)</span>
-      <span class="res-tag">Ficha com questões orientadoras</span>
+      <span class="res-tag">Mapa conceitual projetado</span>
+      <span class="res-tag">Passagem didática imprimível desta página</span>
+      <span class="res-tag">Link verificado para o “Prefácio” de 1859</span>
+      <span class="res-tag">Folha de análise em três colunas</span>
       <span class="res-tag">Quadro branco</span>
     </div>
   </section>
 </main>
 <footer>
-  <a href="../index.html">← Voltar para Turma 1</a>
+  <a href="/introducao-sociologia/">← Página principal</a>
   <span style="margin: 0 12px; color: var(--border);">|</span>
-  <span>Introdução à Sociologia — 2026.1</span>
+  <span>Introdução à Sociologia — 2026.2</span>
 </footer>
 </body>
 </html>

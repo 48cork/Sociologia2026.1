@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aula 06 — Introdução à Sociologia | Turma 1</title>
+<title>Aula 06 — Introdução à Sociologia | 2026.2</title>
 <style>
   :root {
     --bg: #0a0a0f; --surface: #12121c; --card: #1a1a2e; --border: #2a2a4a;
@@ -13,7 +13,8 @@
     --bloco-color: #4f46e5; --bloco-lt: #818cf8;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
+  html, body { max-width: 100%; overflow-x: clip; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; min-height: 100vh; overflow-wrap: anywhere; }
   nav { position: sticky; top: 0; z-index: 100; background: rgba(18,18,28,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
   nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; white-space: nowrap; }
   nav a:hover { color: var(--text); }
@@ -37,6 +38,22 @@
   .content-topic ul { list-style: none; padding: 0; }
   .content-topic ul li { padding: 4px 0 4px 16px; position: relative; color: var(--muted); font-size: 0.9rem; }
   .content-topic ul li::before { content: '—'; position: absolute; left: 0; color: var(--border); }
+  .base-text { max-width: 72ch; margin-inline: auto; }
+  .base-intro { color: var(--muted); font-size: 0.92rem; margin-bottom: 16px; }
+  .base-toc { max-width: 100%; overflow: clip; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; margin-bottom: 28px; }
+  .base-toc h3 { color: var(--bloco-lt); font-size: 0.95rem; margin-bottom: 10px; }
+  .base-toc ol { width: 100%; max-width: 100%; padding-left: 22px; columns: 2; column-gap: 32px; }
+  .base-toc li { break-inside: avoid; margin: 5px 0; }
+  .base-toc a { color: var(--text); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  .base-toc a:hover { color: var(--bloco-lt); }
+  .base-subsection { scroll-margin-top: 76px; margin-bottom: 28px; }
+  .base-subsection h3 { color: var(--bloco-lt); font-size: 1.15rem; line-height: 1.35; margin-bottom: 12px; }
+  .base-subsection p { color: var(--text); margin-bottom: 14px; line-height: 1.78; }
+  .base-subsection strong { color: #f1f5f9; }
+  .pause-box { background: rgba(79,70,229,0.1); border: 1px solid rgba(129,140,248,0.4); border-left: 4px solid var(--bloco-lt); border-radius: var(--radius); padding: 16px 18px; margin: 22px 0; }
+  .pause-box h4 { color: var(--amber-lt); font-size: 0.75rem; letter-spacing: 0.09em; text-transform: uppercase; margin-bottom: 6px; }
+  .pause-box p { margin: 0; color: var(--text); font-weight: 600; line-height: 1.6; }
+  a:focus-visible { outline: 3px solid var(--amber-lt); outline-offset: 3px; border-radius: 3px; }
   .timeline { display: flex; flex-direction: column; gap: 10px; }
   .tl-item { display: flex; gap: 16px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; border-left: 3px solid var(--bloco-color); }
   .tl-duration { background: var(--surface); border: 1px solid var(--border); color: var(--amber-lt); font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
@@ -46,18 +63,67 @@
   .ref-title { font-size: 0.9rem; color: var(--text); }
   .ref-pages { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
   .activity-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; font-size: 0.9rem; line-height: 1.7; border-left: 3px solid var(--teal-lt); }
+  .teacher-guidance { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-top: 18px; }
+  .teacher-guidance summary { cursor: pointer; color: var(--amber-lt); font-weight: 700; padding: 15px 17px; }
+  .teacher-guidance[open] summary { border-bottom: 1px solid var(--border); }
+  .teacher-guidance-content { padding: 16px 18px; }
   .resources-list { display: flex; flex-wrap: wrap; gap: 10px; }
-  .res-tag { background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; }
+  .res-tag { max-width: 100%; min-width: 0; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; }
   footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--muted); font-size: 0.85rem; }
   footer a { color: var(--bloco-lt); text-decoration: none; }
   footer a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    nav { height: auto; min-height: 56px; padding: 8px 12px; flex-wrap: wrap; }
+    .nav-left, .nav-right { min-width: 0; }
+    .nav-center { display: none; }
+    .nav-right { gap: 10px; }
+    main { padding: 24px 14px 60px; }
+    .aula-header { padding: 22px 18px; }
+    .base-toc ol { width: auto; columns: auto; padding-left: 0; list-style-position: inside; }
+    .tl-item { flex-direction: column; gap: 8px; }
+  }
+
+  html, body { max-width: 100%; overflow-x: clip; }
+  body { overflow-wrap: anywhere; }
+  section { scroll-margin-top: 112px; }
+  .section-nav { position: sticky; top: 56px; z-index: 90; background: rgba(10,10,15,.97); border-bottom: 1px solid var(--border); padding: 8px 16px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: thin; }
+  .section-nav a { flex: 0 0 auto; min-height: 36px; display: inline-flex; align-items: center; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 5px 12px; text-decoration: none; font-size: .8rem; }
+  .base-text { max-width: 72ch; margin-inline: auto; }
+  .base-intro { color: var(--muted); font-size: .92rem; margin-bottom: 16px; }
+  .base-toc { position: static; height: auto; display: block; max-width: 100%; overflow: clip; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; margin-bottom: 28px; }
+  .base-toc h3 { color: var(--bloco-lt, var(--purple-lt)); font-size: .95rem; margin-bottom: 10px; }
+  .base-toc ol { width: 100%; max-width: 100%; padding-left: 22px; columns: 2; column-gap: 32px; }
+  .base-toc li { break-inside: avoid; margin: 5px 0; }
+  .base-toc a { color: var(--text); text-decoration-thickness: 1px; text-underline-offset: 3px; white-space: normal; }
+  .base-subsection { scroll-margin-top: 112px; margin-bottom: 28px; }
+  .base-subsection h3 { color: var(--bloco-lt, var(--purple-lt)); font-size: 1.15rem; line-height: 1.35; margin-bottom: 12px; }
+  .base-subsection p { color: var(--text); margin-bottom: 14px; line-height: 1.78; }
+  .base-subsection strong { color: #f1f5f9; }
+  .pause-box { background: rgba(79,70,229,.1); border: 1px solid rgba(129,140,248,.4); border-left: 4px solid var(--bloco-lt, var(--purple-lt)); border-radius: var(--radius); padding: 16px 18px; margin: 22px 0; }
+  .pause-box h4 { color: var(--amber-lt); font-size: .75rem; letter-spacing: .09em; text-transform: uppercase; margin-bottom: 6px; }
+  .pause-box p { margin: 0; color: var(--text); font-weight: 600; line-height: 1.6; }
+  .legacy-note { border: 1px solid var(--amber-lt); background: rgba(251,191,36,.08); border-radius: var(--radius); padding: 16px 18px; margin: 0 0 24px; }
+  .res-tag { max-width: 100%; min-width: 0; }
+  a:focus-visible { outline: 3px solid var(--amber-lt); outline-offset: 3px; border-radius: 3px; }
+  @media (max-width: 640px) {
+    nav { height: auto; min-height: 56px; padding: 8px 12px; flex-wrap: wrap; }
+    .nav-left, .nav-right { min-width: 0; }
+    .nav-center { display: none; }
+    .nav-right { gap: 10px; }
+    .section-nav { top: 72px; padding-inline: 10px; }
+    main { padding: 24px 14px 60px; }
+    .aula-header { padding: 22px 18px; }
+    .base-toc ol { width: auto; columns: auto; padding-left: 0; list-style-position: inside; }
+    .tl-item { flex-direction: column; gap: 8px; }
+  }
+  @media print { .teacher-guidance { break-inside: avoid; } }
 </style>
 </head>
 <body>
 
 <nav>
   <div class="nav-left">
-    <a href="../index.html">← Turma 1</a>
+    <a href="/introducao-sociologia/">← Página principal</a>
     <span class="nav-badge">Aula 06</span>
   </div>
   <span class="nav-center">Aula 06 / 30</span>
@@ -66,6 +132,7 @@
     <a href="aula-07.html">Próxima →</a>
   </div>
 </nav>
+<div class="section-nav" aria-label="Seções da aula"><a href="#objetivos">Objetivos</a><a href="#conteudo-programatico">Conteúdo</a><a href="#texto-base">Texto-base</a><a href="#plano-aula">Plano da aula</a><a href="#leituras">Leituras</a><a href="#atividade">Atividade</a><a href="#recursos">Recursos</a></div>
 
 <main>
 
@@ -73,13 +140,15 @@
     <div class="header-meta">
       <span class="bloco-badge">Bloco II</span>
       <span class="meta-chip">Aula 06</span>
-      <span class="meta-chip">05/05/2026 — Terça-feira</span>
-      <span class="meta-chip">2 horas</span>
+      <span class="meta-chip">Encontro 3 · Parte 2 de 2</span>
+      <span class="meta-chip">23/09/2026 — Quarta-feira</span>
+      <span class="meta-chip">Percurso completo do encontro: 4 horas-aula</span>
+      <span class="meta-chip">Esta página: aproximadamente 2 horas</span>
     </div>
     <h1>Émile Durkheim: fato social e consciência coletiva.</h1>
   </div>
 
-  <section>
+  <section id="objetivos">
     <div class="section-title">Objetivos da Aula</div>
     <ul class="obj-list">
       <li>Apresentar a biografia, o projeto científico e a importância de Durkheim para a fundação da Sociologia.</li>
@@ -89,7 +158,7 @@
     </ul>
   </section>
 
-  <section>
+  <section id="conteudo-programatico">
     <div class="section-title">Conteúdo Programático</div>
     <div class="content-topic">
       <h3>1. Durkheim e a fundação da Sociologia como ciência</h3>
@@ -117,7 +186,97 @@
     </div>
   </section>
 
-  <section>
+  <section id="texto-base" aria-labelledby="texto-base-title">
+    <div class="section-title" id="texto-base-title">Texto-base para acompanhamento da aula</div>
+    <div class="base-text">
+      <p class="base-intro">Este texto acompanha a exposição em sala. Os subtítulos permitem localizar os conceitos durante a leitura, e as pausas de discussão podem ser usadas para interromper, exemplificar e retomar o argumento.</p>
+
+      <nav class="base-toc" aria-label="Sumário do texto-base">
+        <h3>Nesta leitura</h3>
+        <ol>
+          <li><a href="#problema-inicial">O problema inicial</a></li>
+          <li><a href="#projeto-cientifico">Contexto histórico e projeto científico</a></li>
+          <li><a href="#fato-social">O conceito de fato social</a></li>
+          <li><a href="#tratar-como-coisas">Tratar os fatos sociais como coisas</a></li>
+          <li><a href="#consciencia-coletiva">Consciência individual e coletiva</a></li>
+          <li><a href="#representacoes-coletivas">Representações coletivas</a></li>
+          <li><a href="#aplicacao-smartphone">Aplicação: smartphone e disponibilidade</a></li>
+          <li><a href="#sintese-final">Síntese e passagem para a próxima aula</a></li>
+        </ol>
+      </nav>
+
+      <div class="base-subsection" id="problema-inicial">
+        <h3>1. O problema inicial: escolhas pessoais e padrões sociais</h3>
+        <p>Ao chegar à universidade, cada estudante parece realizar uma série de escolhas individuais. Decide a roupa que vai vestir, o modo de cumprimentar colegas, as palavras que considera adequadas em sala e o momento de consultar o celular. Também organiza o dia conforme horários de aula, transporte, refeições e trabalho. Muitas dessas ações são vividas como decisões pessoais. Ainda assim, quando observamos uma turma inteira, encontramos regularidades: quase todos reconhecem o significado do sinal, entendem que certas roupas são apropriadas em algumas situações e inadequadas em outras, usam formas parecidas de escrever uma mensagem ao professor e esperam comportamentos diferentes numa sala de aula, numa festa ou numa cerimônia.</p>
+        <p>Esses padrões não se limitam à universidade. As famílias comunicam expectativas sobre estudo, profissão, casamento, cuidado e sucesso. A língua oferece palavras e regras que já existiam antes de nascermos. Nas redes sociais, aprendemos rapidamente quais imagens recebem aprovação, qual velocidade de resposta parece aceitável e quais opiniões podem gerar apoio, silêncio ou hostilidade. Mesmo quando discordamos dessas expectativas, precisamos reconhecê-las para saber que estamos discordando. Surge, então, uma pergunta decisiva: <strong>Se muitas de nossas escolhas parecem individuais, por que elas apresentam padrões tão semelhantes dentro de uma sociedade?</strong></p>
+        <p>Essa pergunta introduz o problema sociológico de Émile Durkheim. Ele não pretende negar a individualidade nem afirmar que todas as pessoas agem da mesma maneira. Seu ponto de partida é outro: existem modos coletivos de agir, pensar e sentir que não podem ser explicados apenas pelas características psicológicas ou pelas intenções particulares de cada pessoa. Para compreendê-los, precisamos investigar a sociedade como uma realidade com propriedades próprias.</p>
+        <aside class="pause-box" aria-labelledby="pausa-1-title"><h4 id="pausa-1-title">Pausa para discussão</h4><p>Que comportamento aparentemente individual, dentro ou fora da universidade, revela uma pressão coletiva?</p></aside>
+      </div>
+
+      <div class="base-subsection" id="projeto-cientifico">
+        <h3>2. Contexto histórico e projeto científico</h3>
+        <p>Émile Durkheim foi um sociólogo francês que viveu entre 1858 e 1917. Ele escreveu num período em que a Europa atravessava mudanças profundas. A industrialização reorganizava o trabalho, ampliava as fábricas e alterava as relações entre empregadores e trabalhadores. A urbanização reunia populações numerosas nas cidades, muitas vezes em condições precárias. Antigas comunidades perdiam parte de sua força, enquanto mercados, administrações públicas e instituições nacionais alcançavam um número crescente de pessoas. Conflitos políticos, desigualdades e novas formas de vida colocavam em questão como uma sociedade moderna poderia permanecer unida.</p>
+        <p>A preocupação de Durkheim com a ordem social não deve ser confundida com uma defesa simples de toda ordem existente. Ele queria compreender as condições da <strong>coesão social</strong>: o que conecta indivíduos diferentes, como surgem obrigações recíprocas e o que ocorre quando regras e vínculos coletivos se enfraquecem. Em <em>Da divisão do trabalho social</em>, investigou como a especialização das atividades transforma os laços que unem as pessoas. Essa discussão será aprofundada na próxima aula, quando estudaremos solidariedade mecânica e solidariedade orgânica.</p>
+        <p>Durkheim também participou do esforço de constituir a Sociologia como ciência autônoma. Isso significava definir um objeto próprio e estabelecer procedimentos de investigação. Em <em>As regras do método sociológico</em>, apresentou os fatos sociais como objeto específico da Sociologia e discutiu como estudá-los. Em <em>O suicídio</em>, analisou variações nas taxas de suicídio entre grupos e períodos, demonstrando que até um ato extremamente pessoal pode apresentar regularidades relacionadas à integração e à regulação sociais. Em <em>As formas elementares da vida religiosa</em>, examinou rituais, crenças e classificações coletivas para compreender como a vida social produz símbolos e formas compartilhadas de pensar.</p>
+        <p>Uma explicação sociológica, nesse projeto, não se reduz a dizer se um comportamento é moralmente bom ou ruim. Tampouco se satisfaz com frases como “isso acontece porque as pessoas querem” ou “porque alguém tem determinada personalidade”. Opiniões morais podem participar do debate público, e motivações individuais são reais, mas não substituem a investigação das condições coletivas. Se uma prática aparece regularmente em muitos indivíduos, atravessa gerações e é apoiada por instituições, normas ou sanções, é necessário procurar causas e funções no plano social.</p>
+      </div>
+
+      <div class="base-subsection" id="fato-social">
+        <h3>3. O conceito de fato social</h3>
+        <p>Para Durkheim, fato social não é simplesmente qualquer coisa que acontece na sociedade. Uma conversa particular ou uma decisão isolada acontece socialmente, mas isso não basta para classificá-la como fato social. O conceito se refere a modos de agir, pensar e sentir que apresentam três características relacionadas: <strong>exterioridade, coercitividade e generalidade</strong>. Separadas, elas ajudam a análise; compreendidas em conjunto, mostram por que certos fenômenos formam uma realidade propriamente social.</p>
+        <p>A <strong>exterioridade</strong> significa que essas maneiras coletivas de agir e pensar existem antes e além de cada indivíduo. Nenhum de nós inventou a língua portuguesa, o calendário, o dinheiro ou as normas escolares que encontrou ao nascer ou ao entrar numa instituição. Podemos aprender essas regras, modificá-las em alguma medida e participar de suas transformações, mas não as criamos individualmente. Elas são transmitidas por famílias, escolas, meios de comunicação, leis, organizações e práticas cotidianas. A exterioridade não quer dizer que a norma permaneça para sempre fora de nós. Ao sermos socializados, incorporamos vocabulários, gestos, valores e expectativas. O que começou como uma realidade exterior passa a orientar também nossa maneira de perceber e escolher.</p>
+        <p>A <strong>coercitividade</strong> é a capacidade que um fato social tem de exercer pressão sobre os indivíduos. Essa pressão fica especialmente visível quando alguém tenta agir de modo diferente. Quem ignora uma lei pode receber uma sanção jurídica. Entretanto, coerção não significa apenas violência física, polícia ou punição legal. Uma pessoa pode ser constrangida, ridicularizada, reprovada, excluída de um grupo ou considerada incompetente por não seguir um costume. Um estudante que utiliza uma linguagem totalmente inadequada ao contexto acadêmico talvez não viole uma lei, mas pode perder credibilidade. Alguém que não responde mensagens no ritmo esperado pode ser chamado de desinteressado. A sanção pode ser formal ou informal, intensa ou sutil.</p>
+        <p>A <strong>generalidade</strong> indica que o fenômeno se encontra difundido num grupo ou numa sociedade. O uso do dinheiro, a organização semanal do tempo, certas expectativas profissionais e determinados padrões de conduta nas plataformas digitais não pertencem a uma única pessoa. Sua presença ampla revela uma origem coletiva. Porém, frequência por si só não é suficiente. Uma prática não se torna fato social apenas porque muitas pessoas a repetem por coincidência. Ela é geral porque está apoiada em regras, valores, instituições e formas compartilhadas de vida; não é coletiva apenas porque foi somada depois de ocorrer individualmente.</p>
+        <p>As três características precisam, portanto, ser articuladas. A língua é exterior porque recebemos um sistema já constituído; é coercitiva porque precisamos respeitar convenções mínimas para sermos compreendidos e podemos sofrer correções ou exclusões; é geral porque circula amplamente numa comunidade. O calendário organiza compromissos antes de nossa decisão particular, pressiona-nos por meio de prazos e horários e é usado coletivamente. Leis, costumes e normas escolares apresentam combinações semelhantes. Já um gosto muito particular, sem expectativa coletiva ou consequência social reconhecível, dificilmente será explicado do mesmo modo.</p>
+        <aside class="pause-box" aria-labelledby="pausa-2-title"><h4 id="pausa-2-title">Pausa para discussão</h4><p>O que acontece quando alguém se recusa a seguir determinada norma? Que sanções formais ou informais aparecem?</p></aside>
+        <p>Os fatos sociais não eliminam toda liberdade. Eles delimitam possibilidades, oferecem referências e tornam a coordenação entre pessoas possível. O dinheiro restringe maneiras de trocar bens, mas também permite transações entre desconhecidos. A língua impõe convenções, mas torna a comunicação possível. Uma regra pode ser contestada e transformada coletivamente. O conceito durkheimiano convida a observar como escolhas individuais se realizam dentro de condições sociais que não foram escolhidas individualmente.</p>
+      </div>
+
+      <div class="base-subsection" id="tratar-como-coisas">
+        <h3>4. Tratar os fatos sociais como coisas</h3>
+        <p>Ao recomendar que o pesquisador trate os fatos sociais como coisas, Durkheim não afirma que relações humanas sejam literalmente objetos materiais. A expressão tem um sentido metodológico. Significa abordar o fenômeno como uma realidade exterior ao pesquisador, que precisa ser observada e investigada, em vez de ser definida apenas por impressões pessoais, preconceitos ou ideias do senso comum. O pesquisador não deve concluir antecipadamente que já conhece a família, a religião, a escola ou o crime simplesmente porque convive com palavras e opiniões sobre esses temas.</p>
+        <p>Tratar como coisa exige construir o objeto de pesquisa com critérios explícitos e buscar indícios que outras pessoas possam examinar. Para estudar regras escolares, seria possível reunir regulamentos, observar rotinas, comparar sanções e entrevistar diferentes participantes. Para pesquisar taxas de evasão, seria necessário definir o que conta como evasão, examinar séries históricas e comparar cursos, grupos ou instituições. Padrões de casamento poderiam ser investigados por registros, legislação, mudanças de costumes e distribuição entre diferentes grupos sociais.</p>
+        <p>O mesmo procedimento vale para temas estudados por Durkheim. Índices de suicídio não explicam sozinhos cada morte individual, mas permitem observar variações coletivas que exigem interpretação sociológica. Práticas religiosas podem ser analisadas por rituais, calendários, símbolos, regras e formas de participação. Comportamentos coletivos nas redes sociais podem ser estudados por padrões de publicação, normas das plataformas, campanhas coordenadas, métricas de engajamento e sanções entre usuários. Dados não falam sozinhos: precisam de conceitos e comparação. Ao mesmo tempo, os conceitos devem ser confrontados com evidências.</p>
+        <aside class="pause-box" aria-labelledby="pausa-3-title"><h4 id="pausa-3-title">Pausa para discussão</h4><p>Toda prática frequente pode ser considerada fato social? Que outras evidências seriam necessárias além da frequência?</p></aside>
+      </div>
+
+      <div class="base-subsection" id="consciencia-coletiva">
+        <h3>5. Consciência individual e consciência coletiva</h3>
+        <p>Outro conceito central é o de <strong>consciência coletiva</strong>. Durkheim utiliza essa noção para designar o conjunto de crenças e sentimentos compartilhados pelos membros de uma sociedade. Trata-se de maneiras coletivas de reconhecer o permitido e o proibido, o sagrado e o comum, o admirável e o condenável. Elas orientam expectativas e oferecem referências para que as pessoas interpretem acontecimentos e julguem comportamentos.</p>
+        <p>A consciência coletiva não é a simples soma das opiniões individuais. Uma regra moral, um símbolo nacional ou uma cerimônia universitária possui sentidos que atravessam indivíduos particulares e podem continuar existindo quando seus participantes mudam. Ao mesmo tempo, a consciência coletiva não vive fora das pessoas como uma mente misteriosa. Ela se realiza por meio de indivíduos socializados, instituições, práticas, símbolos e rituais. Sociedade e indivíduo não são mundos completamente separados: cada pessoa incorpora elementos coletivos, interpreta-os e pode participar de sua reprodução ou mudança.</p>
+        <p>A consciência individual reúne experiências, lembranças, inclinações e decisões relacionadas à trajetória singular de cada pessoa. A consciência coletiva fornece parte das categorias e valores com que essa experiência é organizada. Um estudante pode atribuir um sentido muito pessoal à formatura, mas a cerimônia, as vestes, os discursos e o diploma dependem de significados coletivamente reconhecidos. Em manifestações públicas, palavras de ordem, gestos e símbolos produzem pertencimento. Em cerimônias cívicas ou religiosas, a reunião dos participantes reforça sentimentos comuns.</p>
+        <p>Também há comportamentos coletivos digitais. Uma hashtag, uma imagem ou uma forma ritualizada de demonstrar apoio pode reunir pessoas que nunca estiveram fisicamente juntas. Isso não significa que toda interação on-line produza coesão duradoura. Ainda assim, aprovação, indignação e pertencimento podem ser expressos por sinais compartilhados. A perspectiva durkheimiana ajuda a perguntar como esses sinais ultrapassam preferências privadas e passam a orientar a ação de um grupo.</p>
+        <p>A relação entre consciência coletiva e coesão é importante porque compartilhar algumas crenças e expectativas permite a vida em comum. Nenhuma sociedade exige concordância total, e sociedades modernas comportam múltiplos grupos, conflitos e valores. A questão sociológica é identificar quais referências tornam possíveis a cooperação e o reconhecimento mútuo, quais grupos sustentam diferentes consciências coletivas e como essas referências se transformam.</p>
+      </div>
+
+      <div class="base-subsection" id="representacoes-coletivas">
+        <h3>6. Representações coletivas</h3>
+        <p>Durkheim também trabalha com a noção de <strong>representações coletivas</strong>. Elas são categorias, imagens, símbolos e formas compartilhadas de interpretar o mundo, produzidas na vida social. Quando uma sociedade define certos objetos como sagrados, associa a nação a uma bandeira, imagina modelos de família ou estabelece ideias de trabalho digno, sucesso, mérito e normalidade, ela produz representações que organizam a experiência.</p>
+        <p>Essas representações não são fotografias neutras da realidade. Elas selecionam aspectos, estabelecem classificações e orientam sentimentos. A ideia de sucesso, por exemplo, pode valorizar renda, diplomas, reconhecimento público ou cuidado com a comunidade. A noção de mérito pode destacar esforço individual e deixar menos visíveis as condições sociais desiguais. Imagens difundidas por plataformas digitais podem associar determinados corpos, profissões e estilos de vida à normalidade ou ao prestígio. Tais sentidos são aprendidos, disputados e modificados coletivamente.</p>
+        <p>É importante manter precisão terminológica. Durkheim formulou a noção de representações coletivas. O conceito de <strong>representações sociais</strong> foi desenvolvido posteriormente por outros pesquisadores, sob influência da tradição durkheimiana, com problemas e formulações próprios. Assim, não devemos atribuir automaticamente a Durkheim tudo o que autores posteriores chamaram de representação social. Podemos, porém, reconhecer que sua análise abriu um caminho decisivo para estudar como grupos constroem conhecimentos e imagens compartilhadas.</p>
+        <aside class="pause-box" aria-labelledby="pausa-4-title"><h4 id="pausa-4-title">Pausa para discussão</h4><p>Como distinguir uma preferência pessoal de uma expectativa social? Que sinais mostram que uma imagem de sucesso ou normalidade é compartilhada?</p></aside>
+      </div>
+
+      <div class="base-subsection" id="aplicacao-smartphone">
+        <h3>7. Aplicação contemporânea: smartphone e disponibilidade permanente</h3>
+        <p>Podemos agora testar os conceitos analisando o uso permanente do smartphone e a expectativa de disponibilidade nas plataformas digitais. A proposta não é declarar que o aparelho, por si só, constitui um fato social ou que toda tecnologia seja opressiva. Precisamos delimitar o fenômeno: interessa-nos a expectativa coletiva de que uma pessoa conectada acompanhe mensagens, responda em determinado intervalo e permaneça acessível para colegas, familiares, instituições ou trabalho.</p>
+        <p>A <strong>exterioridade</strong> aparece porque quem ingressa num grupo encontra práticas e expectativas já estabelecidas. Horários de atendimento podem ter sido substituídos por mensagens contínuas. Turmas criam grupos antes da chegada de novos estudantes. Plataformas definem notificações, indicadores de leitura e mecanismos de presença. Nenhum usuário isolado inventou esse ambiente, embora as ações de muitos usuários contribuam para mantê-lo e transformá-lo.</p>
+        <p>A <strong>coercitividade</strong> pode ser percebida quando alguém se afasta do padrão. Demorar a responder pode gerar cobranças, ansiedade, suspeita de desinteresse ou exclusão de decisões. Desativar uma conta pode dificultar o acesso a informações que o grupo deixou de comunicar por outros meios. Algumas sanções são explícitas, como uma advertência profissional; outras são informais, como piadas, reprovação ou silêncio. Ao mesmo tempo, grupos podem criar regras protetoras, limitar mensagens fora do horário ou aceitar diferentes ritmos de resposta.</p>
+        <p>A <strong>generalidade</strong> exige verificar se a expectativa está difundida em determinado grupo e apoiada por práticas coletivas. Não basta observar que uma pessoa consulta muito o aparelho. Seria preciso comparar grupos, horários, regras, tipos de mensagem e consequências da ausência. A generalidade também varia: uma expectativa pode ser forte numa equipe de trabalho e fraca em outra; pode alcançar grande parte dos estudantes sem atingir toda a sociedade.</p>
+        <p>Crenças e representações coletivas ajudam a sustentar o padrão. Estar sempre disponível pode ser associado a responsabilidade, amizade, eficiência ou pertencimento. Responder lentamente pode ser interpretado como descaso, mesmo quando existem razões legítimas. Os próprios símbolos das plataformas — notificações, confirmações de leitura e contagens — oferecem categorias para perceber presença e ausência. Assim, uma infraestrutura técnica se articula a expectativas sociais; ela não determina automaticamente um único comportamento.</p>
+        <p>A análise tem limites. Pessoas usam smartphones para finalidades diferentes, possuem condições desiguais de acesso e podem negociar as normas. A pressão digital não explica toda decisão individual, e benefícios como comunicação rápida, apoio mútuo e acesso a serviços também precisam ser considerados. Uma pesquisa rigorosa examinaria evidências e compararia contextos antes de concluir. O ganho da perspectiva durkheimiana está em revelar que o uso aparentemente privado ocorre dentro de regras, sanções e sentidos coletivos.</p>
+      </div>
+
+      <div class="base-subsection" id="sintese-final">
+        <h3>8. Síntese e passagem para a próxima aula</h3>
+        <p>O projeto científico de Durkheim procura explicar a sociedade por meio de fenômenos sociais observáveis, sem reduzi-los à opinião moral ou à psicologia individual. O fato social é um modo coletivo de agir, pensar ou sentir que deve ser reconhecido pela articulação entre <strong>exterioridade, coercitividade e generalidade</strong>. Ele existe além de cada indivíduo, exerce pressão por sanções formais ou informais e se encontra difundido porque se apoia em condições coletivas.</p>
+        <p>Tratar fatos sociais como coisas significa construir uma investigação que se afaste das evidências aparentes e confronte conceitos com documentos, regras, taxas, práticas e comparações. A consciência coletiva reúne crenças e sentimentos compartilhados que orientam pertencimento e coesão, sem apagar a consciência individual nem existir de forma completamente separada dela. As representações coletivas mostram como a vida social produz símbolos, categorias e imagens com que interpretamos religião, nação, família, trabalho, mérito e normalidade.</p>
+        <p>Esses conceitos permitem observar a sociedade não como uma simples coleção de indivíduos, mas como uma realidade criada e recriada pelas relações entre eles. Resta avançar uma pergunta: se sociedades diferentes produzem formas distintas de vínculo e consciência coletiva, como a coesão se transforma quando cresce a divisão do trabalho? Na próxima aula, essa questão conduzirá ao estudo da <strong>solidariedade mecânica e da solidariedade orgânica</strong>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="plano-aula">
     <div class="section-title">Plano de Aula com Tempo</div>
     <div class="timeline">
       <div class="tl-item">
@@ -147,7 +306,7 @@
     </div>
   </section>
 
-  <section>
+  <section id="leituras">
     <div class="section-title">Textos para Leitura Prévia</div>
     <div class="ref-card">
       <div class="ref-author">DURKHEIM, Émile</div>
@@ -161,7 +320,7 @@
     </div>
   </section>
 
-  <section>
+  <section id="atividade">
     <div class="section-title">Atividades em Sala</div>
     <div class="activity-card">
       <strong>Leitura analítica d'As regras do método sociológico</strong><br><br>
@@ -170,10 +329,22 @@
       <strong>(2) Exemplos do autor:</strong> Identificar pelo menos três exemplos de fatos sociais citados pelo próprio Durkheim no texto, apontando qual característica (exterioridade, coercitividade ou generalidade) cada exemplo ilustra.<br><br>
       <strong>(3) Exemplo contemporâneo:</strong> O grupo propõe um fenômeno da sociedade atual que possa ser analisado como fato social, justificando por que ele se enquadra na definição durkheimiana.<br><br>
       Na socialização, os exemplos contemporâneos propostos pelos grupos são debatidos coletivamente, testando a aplicabilidade do conceito a diferentes contextos.
+
+      <details class="teacher-guidance">
+        <summary>Gabarito comentado e orientações de mediação — uso do professor</summary>
+        <div class="teacher-guidance-content">
+          <p><strong>Critério geral.</strong> Avalie se o grupo articula as três características do fato social de modo relacional, não apenas cada uma isoladamente. Uma resposta apenas descritiva identifica um comportamento comum e para por aí. Uma resposta sociologicamente fundamentada explica por que esse comportamento é exterior ao indivíduo, por que gera algum tipo de pressão quando é contrariado e por que está apoiado em condições coletivas, não em coincidência estatística.</p>
+          <p><strong>Questão 1 (definição).</strong> Aceite formulações próximas de Durkheim: fato social é um modo de agir, pensar ou sentir exterior ao indivíduo e dotado de poder coercitivo sobre ele, difundido de forma geral numa sociedade. Recuse definições que descrevam apenas "algo que a sociedade faz" sem mencionar coerção ou exterioridade, pois isso esvazia o conceito.</p>
+          <p><strong>Questão 2 (exemplos do autor).</strong> No Capítulo 1, Durkheim cita deveres jurídicos e morais, práticas religiosas, o sistema monetário, usos profissionais e a língua. Peça que o grupo associe cada exemplo à característica que ele melhor ilustra. A língua mostra bem a exterioridade, porque o sistema já existe antes do falante. Sanções jurídicas e morais mostram a coercitividade. Costumes profissionais amplamente seguidos mostram a generalidade. Um exemplo citado sem essa associação conta como resposta incompleta.</p>
+          <p><strong>Questão 3 (exemplo contemporâneo).</strong> Exija que o grupo teste as três características no próprio exemplo escolhido, em vez de apenas afirmar que ele é comum hoje. Exemplos fortes, como expectativas de resposta em aplicativos de mensagem ou normas de apresentação nas redes sociais, permitem mostrar sanção informal (cobrança, constrangimento, exclusão) e origem coletiva anterior à decisão de cada usuário. Um gosto pessoal ou um hábito isolado não sustenta a análise, porque falta a coerção e a base institucional que tornariam o fenômeno geral.</p>
+          <p><strong>Erros conceituais prováveis.</strong> Tratar qualquer comportamento frequente como fato social, sem indicar a sanção ou a instituição que o sustenta. Reduzir coercitividade a lei escrita ou violência física, ignorando sanções informais como ridicularização ou exclusão. Confundir fato social com consciência coletiva, dois conceitos que o texto-base distingue.</p>
+          <p><strong>Mediação sugerida.</strong> Se um grupo apresentar um exemplo sem ligá-lo a nenhuma característica, peça que localize, no próprio exemplo, um momento de constrangimento ou sanção e uma origem anterior à escolha individual. Se tratar frequência isolada como prova de generalidade, pergunte que regra, instituição ou expectativa coletiva sustenta essa frequência.</p>
+        </div>
+      </details>
     </div>
   </section>
 
-  <section>
+  <section id="recursos">
     <div class="section-title">Recursos Necessários</div>
     <div class="resources-list">
       <span class="res-tag">Projetor</span>
@@ -186,9 +357,9 @@
 </main>
 
 <footer>
-  <a href="../index.html">← Voltar para Turma 1</a>
+  <a href="/introducao-sociologia/">← Página principal</a>
   <span style="margin: 0 12px; color: var(--border);">|</span>
-  <span>Introdução à Sociologia — 2026.1</span>
+  <span>Introdução à Sociologia — 2026.2</span>
 </footer>
 
 </body>

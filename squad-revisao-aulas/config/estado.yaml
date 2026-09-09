@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "workflow": "revisar-lote",
+  "head_base": "ed45724eea0c9df260b323d8e8f4b0e2095a6ddd",
+  "mapa_progressao": "COMPLETO",
+  "aula_selecionada": 30,
+  "estados_validos": [
+    "PENDENTE",
+    "EM_RECONSTRUCAO",
+    "EM_REVISAO",
+    "PRECISA_REVISAR",
+    "PRONTO",
+    "PRONTO_AGUARDANDO_PAR",
+    "AGUARDA_HUMANO",
+    "COMMITADO",
+    "FALHA_TECNICA"
+  ],
+  "aulas": {
+    "24": {"estado": "COMMITADO", "rodadas_reparo": 0, "commit_grupo": "24"},
+    "25": {"estado": "COMMITADO", "rodadas_reparo": 0, "commit_grupo": "25-26"},
+    "26": {"estado": "COMMITADO", "rodadas_reparo": 0, "commit_grupo": "25-26"},
+    "27": {"estado": "COMMITADO", "rodadas_reparo": 0, "commit_grupo": "27-28"},
+    "28": {"estado": "COMMITADO", "rodadas_reparo": 0, "commit_grupo": "27-28"},
+    "29": {"estado": "COMMITADO", "rodadas_reparo": 0, "commit_grupo": "29-30"},
+    "30": {"estado": "COMMITADO", "rodadas_reparo": 0, "commit_grupo": "29-30"}
+  },
+  "ultima_transicao": "GATE_29_30: PRONTO + QA_OK -> COMMITADO",
+  "observacao": "Este arquivo só pode ser atualizado pelo workflow; não constitui autorização remota."
+}

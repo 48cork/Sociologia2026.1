@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aula 01 — Introdução à Sociologia | Turma 1</title>
+<title>Aula 01 — Introdução à Sociologia | 2026.2</title>
 <style>
   :root {
     --bg: #0a0a0f;
@@ -131,6 +131,10 @@
     border-radius: var(--radius); padding: 20px; font-size: 0.9rem; line-height: 1.7;
     border-left: 3px solid var(--teal-lt);
   }
+  .teacher-guidance { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-top: 18px; }
+  .teacher-guidance summary { cursor: pointer; color: var(--amber-lt); font-weight: 700; padding: 15px 17px; }
+  .teacher-guidance[open] summary { border-bottom: 1px solid var(--border); }
+  .teacher-guidance-content { padding: 16px 18px; }
 
   /* RESOURCES */
   .resources-list { display: flex; flex-wrap: wrap; gap: 10px; }
@@ -146,13 +150,48 @@
   }
   footer a { color: var(--purple-lt); text-decoration: none; }
   footer a:hover { text-decoration: underline; }
+
+  html, body { max-width: 100%; overflow-x: clip; }
+  body { overflow-wrap: anywhere; }
+  section { scroll-margin-top: 112px; }
+  .section-nav { position: sticky; top: 56px; z-index: 90; background: rgba(10,10,15,.97); border-bottom: 1px solid var(--border); padding: 8px 16px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: thin; }
+  .section-nav a { flex: 0 0 auto; min-height: 36px; display: inline-flex; align-items: center; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 5px 12px; text-decoration: none; font-size: .8rem; }
+  .base-text { max-width: 72ch; margin-inline: auto; }
+  .base-intro { color: var(--muted); font-size: .92rem; margin-bottom: 16px; }
+  .base-toc { position: static; height: auto; display: block; max-width: 100%; overflow: clip; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; margin-bottom: 28px; }
+  .base-toc h3 { color: var(--bloco-lt, var(--purple-lt)); font-size: .95rem; margin-bottom: 10px; }
+  .base-toc ol { width: 100%; max-width: 100%; padding-left: 22px; columns: 2; column-gap: 32px; }
+  .base-toc li { break-inside: avoid; margin: 5px 0; }
+  .base-toc a { color: var(--text); text-decoration-thickness: 1px; text-underline-offset: 3px; white-space: normal; }
+  .base-subsection { scroll-margin-top: 112px; margin-bottom: 28px; }
+  .base-subsection h3 { color: var(--bloco-lt, var(--purple-lt)); font-size: 1.15rem; line-height: 1.35; margin-bottom: 12px; }
+  .base-subsection p { color: var(--text); margin-bottom: 14px; line-height: 1.78; }
+  .base-subsection strong { color: #f1f5f9; }
+  .pause-box { background: rgba(79,70,229,.1); border: 1px solid rgba(129,140,248,.4); border-left: 4px solid var(--bloco-lt, var(--purple-lt)); border-radius: var(--radius); padding: 16px 18px; margin: 22px 0; }
+  .pause-box h4 { color: var(--amber-lt); font-size: .75rem; letter-spacing: .09em; text-transform: uppercase; margin-bottom: 6px; }
+  .pause-box p { margin: 0; color: var(--text); font-weight: 600; line-height: 1.6; }
+  .legacy-note { border: 1px solid var(--amber-lt); background: rgba(251,191,36,.08); border-radius: var(--radius); padding: 16px 18px; margin: 0 0 24px; }
+  .res-tag { max-width: 100%; min-width: 0; }
+  a:focus-visible { outline: 3px solid var(--amber-lt); outline-offset: 3px; border-radius: 3px; }
+  @media (max-width: 640px) {
+    nav { height: auto; min-height: 56px; padding: 8px 12px; flex-wrap: wrap; }
+    .nav-left, .nav-right { min-width: 0; }
+    .nav-center { display: none; }
+    .nav-right { gap: 10px; }
+    .section-nav { top: 72px; padding-inline: 10px; }
+    main { padding: 24px 14px 60px; }
+    .aula-header { padding: 22px 18px; }
+    .base-toc ol { width: auto; columns: auto; padding-left: 0; list-style-position: inside; }
+    .tl-item { flex-direction: column; gap: 8px; }
+  }
+  @media print { .teacher-guidance { break-inside: avoid; } }
 </style>
 </head>
 <body>
 
 <nav>
   <div class="nav-left">
-    <a href="../index.html">← Turma 1</a>
+    <a href="/introducao-sociologia/">← Página principal</a>
     <span class="nav-badge">Aula 01</span>
   </div>
   <span class="nav-center">Aula 01 / 30</span>
@@ -161,6 +200,7 @@
     <a href="aula-02.html">Próxima →</a>
   </div>
 </nav>
+<div class="section-nav" aria-label="Seções da aula"><a href="#objetivos">Objetivos</a><a href="#conteudo-programatico">Conteúdo</a><a href="#texto-base">Texto-base</a><a href="#plano-aula">Plano da aula</a><a href="#leituras">Leituras</a><a href="#atividade">Atividade</a><a href="#recursos">Recursos</a></div>
 
 <main>
 
@@ -168,13 +208,15 @@
     <div class="header-meta">
       <span class="bloco-badge">Bloco I</span>
       <span class="meta-chip">Aula 01</span>
-      <span class="meta-chip">14/04/2026 — Terça-feira</span>
-      <span class="meta-chip">2 horas</span>
+      <span class="meta-chip">Encontro 1 · Parte 1 de 2</span>
+      <span class="meta-chip">09/09/2026 — Quarta-feira</span>
+      <span class="meta-chip">Percurso completo do encontro: 4 horas-aula</span>
+      <span class="meta-chip">Esta página: aproximadamente 2 horas</span>
     </div>
     <h1>Apresentação da disciplina. O que é Sociologia? Ciência e senso comum.</h1>
   </div>
 
-  <section>
+  <section id="objetivos">
     <div class="section-title">Objetivos da Aula</div>
     <ul class="obj-list">
       <li>Apresentar o plano de curso e os critérios avaliativos da disciplina.</li>
@@ -184,7 +226,7 @@
     </ul>
   </section>
 
-  <section>
+  <section id="conteudo-programatico">
     <div class="section-title">Conteúdo Programático</div>
     <div class="content-topic">
       <h3>1. O que é Sociologia?</h3>
@@ -212,7 +254,100 @@
     </div>
   </section>
 
-  <section>
+  <section id="texto-base" aria-labelledby="texto-base-title">
+    <div class="section-title" id="texto-base-title">Texto-base para acompanhamento da aula</div>
+    <div class="base-text">
+      <p class="base-intro">Este texto acompanha a primeira parte do encontro. Ele apresenta o olhar sociológico como uma maneira disciplinada de formular perguntas sobre situações comuns, sem transformar a experiência cotidiana em inimiga do conhecimento.</p>
+      <nav class="base-toc" aria-label="Sumário do texto-base">
+        <h3>Nesta leitura</h3>
+        <ol>
+          <li><a href="#a01-sala">Uma sala de aula não é apenas uma sala</a></li>
+          <li><a href="#a01-objeto">O que torna uma pergunta sociológica?</a></li>
+          <li><a href="#a01-senso-comum">Senso comum: necessário, mas insuficiente</a></li>
+          <li><a href="#a01-naturalizacao">Naturalização e preconceito</a></li>
+          <li><a href="#a01-estranhamento">Estranhar o familiar</a></li>
+          <li><a href="#a01-desnaturalizacao">Desnaturalizar é reconstruir relações</a></li>
+          <li><a href="#a01-curso">O percurso da disciplina</a></li>
+          <li><a href="#a01-sintese">Síntese: aprender a perguntar</a></li>
+        </ol>
+      </nav>
+
+      <div class="base-subsection" id="a01-sala">
+        <h3>1. Uma sala de aula não é apenas uma sala</h3>
+        <p>Antes de definir Sociologia, observemos a situação em que esta leitura acontece. Estudantes chegam à universidade por caminhos diferentes. Alguns vêm diretamente de casa; outros já cumpriram uma jornada de trabalho; alguns moram perto, enquanto outros dependem de vários meios de transporte. Ao entrar na sala, quase todos reconhecem certas expectativas sem que seja necessário anunciá-las: há horários, lugares de fala, modos de dirigir-se ao professor, formas de registrar presença e critérios para considerar uma participação adequada. A sala contém mesas, cadeiras e equipamentos, mas também contém relações, regras e diferenças de posição.</p>
+        <p>Uma descrição imediata poderia dizer apenas que cada pessoa chegou cedo ou tarde, participou ou permaneceu calada porque quis. Essas escolhas existem, porém não esgotam o problema. O horário do transporte, a necessidade de trabalhar, experiências escolares anteriores, responsabilidades de cuidado e a segurança do trajeto distribuem possibilidades de maneira desigual. A pergunta sociológica aparece quando deixamos de enxergar somente decisões isoladas e procuramos as condições sociais nas quais elas são tomadas.</p>
+        <p>Isso não significa afirmar que todas as condutas são determinadas de fora ou que indivíduos não possuem iniciativa. Significa reconhecer que a ação ocorre num mundo já organizado. Ninguém inventa sozinho a língua em que conversa, o valor social de um diploma ou a divisão do dia entre estudo, trabalho e descanso. Ao mesmo tempo, pessoas interpretam regras, negociam expectativas e podem transformá-las. A Sociologia investiga justamente essa relação entre ação e condições sociais.</p>
+        <aside class="pause-box"><h4>Pausa para discussão</h4><p>Escolha uma regra não escrita da universidade. Como você percebe que ela existe se ninguém a entregou impressa?</p></aside>
+      </div>
+
+      <div class="base-subsection" id="a01-objeto">
+        <h3>2. O que torna uma pergunta sociológica?</h3>
+        <p>A Sociologia estuda a vida social: relações entre pessoas e grupos, instituições relativamente duradouras, normas, desigualdades, conflitos e processos de mudança. Essa definição é ampla porque nenhum objeto pertence exclusivamente à disciplina. Trabalho, família, religião, educação, política, consumo ou tecnologia também podem ser estudados por outras áreas. A especificidade sociológica está no tipo de problema formulado e nas relações que a investigação procura tornar visíveis.</p>
+        <p>Considere o desemprego. Uma pergunta individual pode indagar por que determinada pessoa perdeu o emprego ou quais qualificações possui. Uma pergunta sociológica pode examinar por que certas ocupações desapareceram, como crises econômicas atingem grupos de maneira diferente, que relações existem entre escolaridade e oportunidades ou como políticas públicas organizam a proteção social. A experiência individual continua importante, mas passa a ser relacionada a mercados, instituições, tecnologias e trajetórias coletivas.</p>
+        <p>O mesmo deslocamento pode ser feito diante do desempenho escolar. Explicações rápidas costumam atribuir sucesso ou fracasso apenas a esforço, inteligência ou falta de interesse. A investigação sociológica pergunta também pelas condições de estudo, pela formação recebida, pelas expectativas familiares, pelo acesso a livros e equipamentos, pelas maneiras como a escola reconhece diferentes conhecimentos e pelas desigualdades que acompanham os estudantes antes de entrarem na sala. Não se trata de substituir uma causa individual por uma causa social única, mas de ampliar o campo de relações examinadas.</p>
+        <p>Por isso, sociedade não é uma pessoa gigantesca nem uma força misteriosa situada acima dos indivíduos. É o conjunto historicamente formado de relações, instituições e significados por meio dos quais as pessoas vivem juntas. Esses padrões dependem da ação humana para continuar existindo, mas nenhum participante isolado os controla por completo. Uma língua muda porque muitas pessoas a usam e transformam; ainda assim, nenhum falante individual decide sozinho suas regras.</p>
+        <p>Relações sociais são vínculos orientados por expectativas recíprocas, ainda que seus participantes não possuam o mesmo poder. Uma relação de trabalho conecta quem contrata e quem vende sua capacidade de trabalhar; uma relação educacional conecta estudantes, docentes e instituições; uma relação de consumo conecta necessidades, renda, publicidade e produção. Observá-las sociologicamente significa perguntar como as posições são definidas e que recursos cada participante pode mobilizar.</p>
+        <p>As instituições dão maior duração a certas maneiras de agir. Família, escola, Estado, mercado e religião não são edifícios nem organizações isoladas: são conjuntos de práticas, normas, papéis e significados que atravessam muitas situações. Elas coordenam condutas, oferecem referências e também distribuem oportunidades e obrigações. Ao longo do curso, veremos que autores diferentes explicam sua estabilidade e suas transformações de maneiras distintas.</p>
+      </div>
+
+      <div class="base-subsection" id="a01-senso-comum">
+        <h3>3. Senso comum: necessário, mas insuficiente</h3>
+        <p>Chamamos de <strong>senso comum</strong> o conjunto de conhecimentos práticos, classificações e expectativas que aprendemos na convivência. É por meio dele que reconhecemos situações, antecipamos reações e conduzimos grande parte da vida sem investigar cada gesto desde o início. Ele reúne experiências pessoais, ensinamentos familiares, ditados, informações da mídia, crenças religiosas, memórias coletivas e conclusões que parecem evidentes porque são repetidas com frequência.</p>
+        <p>O senso comum não é simplesmente ignorância. Uma pessoa pode conhecer profundamente o funcionamento cotidiano de seu bairro ou profissão sem utilizar linguagem acadêmica. Esse conhecimento orienta decisões reais e pode revelar aspectos que escapam a um observador distante. O problema surge quando uma experiência localizada é tomada como explicação suficiente para toda a sociedade, quando uma associação é tratada como causa comprovada ou quando uma classificação herdada deixa de ser examinada.</p>
+        <p>Imagine alguém afirmar que “hoje ninguém quer trabalhar” porque encontrou dificuldade para contratar uma pessoa. A frase pode expressar uma experiência concreta, mas generaliza a partir de poucos casos. Para avaliá-la, seria necessário delimitar lugar, período e ocupação; examinar salários, jornada, transporte, qualificações exigidas e condições oferecidas; ouvir trabalhadores e empregadores; comparar vagas disponíveis e pessoas procurando trabalho. A investigação não começa aceitando ou rejeitando moralmente a frase. Começa convertendo-a em perguntas que possam ser confrontadas com evidências.</p>
+        <p>O conhecimento sociológico distingue-se, portanto, por explicitar conceitos e procedimentos, buscar informações para além da experiência imediata, comparar casos e tornar suas conclusões discutíveis. Uma interpretação científica pode estar errada e ser corrigida. Essa possibilidade de revisão não é fraqueza: é parte do modo como o conhecimento se torna mais confiável. Opiniões pessoais também podem mudar, mas não são obrigadas a apresentar o caminho pelo qual chegaram a determinada conclusão.</p>
+        <p>Também não existe uma fronteira em que o sociólogo abandona completamente o senso comum. Pesquisadores vivem na mesma sociedade que estudam e carregam categorias aprendidas antes da pesquisa. Palavras como família, violência, juventude ou mérito parecem possuir significado evidente, mas podem reunir fenômenos diferentes. Por isso, a investigação precisa definir o que observará e examinar criticamente as categorias que utiliza.</p>
+        <p>Uma notícia, uma estatística ou o depoimento de uma autoridade tampouco se torna conhecimento sociológico apenas por parecer objetivo. É preciso saber como a informação foi produzida, que população representa e que pergunta permite responder. O rigor não depende de acumular números ou termos técnicos; depende da relação coerente entre problema, conceito, procedimento e conclusão.</p>
+        <aside class="pause-box"><h4>Pausa para discussão</h4><p>Quando uma experiência pessoal é transformada numa afirmação sobre toda a sociedade, que informações desaparecem?</p></aside>
+      </div>
+
+      <div class="base-subsection" id="a01-naturalizacao">
+        <h3>4. Naturalização e preconceito</h3>
+        <p><strong>Naturalizar</strong> uma prática social é tratá-la como se resultasse diretamente da natureza humana, como se sempre tivesse existido e não pudesse ser organizada de outra maneira. Dizer que certas profissões são “naturalmente” masculinas ou femininas, que pessoas ricas ocupam sua posição apenas porque possuem mais talento ou que tarefas domésticas pertencem espontaneamente a um membro da família transforma relações históricas em fatos inevitáveis.</p>
+        <p>A naturalização é convincente porque encontramos o mundo já funcionando. Uma criança não presencia a criação das regras de parentesco, das divisões profissionais ou das convenções sobre aparência. Ela aprende essas classificações como parte da realidade. Quando uma prática se repete por gerações e recebe apoio de instituições, sua origem histórica pode desaparecer da memória cotidiana. O resultado parece tão óbvio quanto um fenômeno físico, embora dependa de aprendizagem, expectativas e sanções sociais.</p>
+        <p>O <strong>preconceito</strong> envolve juízos prévios e classificações rígidas aplicadas a pessoas ou grupos. Ele pode apoiar-se na naturalização: desigualdades produzidas socialmente são interpretadas como características essenciais de quem as sofre. Se um grupo encontrou barreiras prolongadas de acesso à educação, por exemplo, resultados escolares desiguais podem ser apresentados como prova de incapacidade natural. A explicação apaga as próprias barreiras que ajudaram a produzir o resultado.</p>
+        <p>Nem toda generalização é preconceituosa, e a Sociologia também procura padrões. A diferença está no modo de construir e revisar a afirmação. Uma análise responsável delimita o grupo observado, examina variações internas, apresenta evidências e considera processos históricos. O preconceito tende a transformar uma categoria em essência imutável e a interpretar qualquer indivíduo como representante automático do grupo.</p>
+        <p>A linguagem cotidiana pode reforçar esse processo quando descreve grupos por características supostamente permanentes. Repetir uma classificação não produz sozinho toda desigualdade, mas ajuda a definir quem parece confiável, competente, perigoso ou merecedor de atenção. Questionar essas associações exige observar tanto palavras quanto práticas institucionais: quem é ouvido, quem recebe oportunidades e quem precisa provar repetidamente sua capacidade.</p>
+        <aside class="pause-box"><h4>Pausa para discussão</h4><p>Que prática atual parece natural, mas poderia ser organizada de maneira diferente em outra sociedade ou época? O que sustenta sua aparência de naturalidade?</p></aside>
+      </div>
+
+      <div class="base-subsection" id="a01-estranhamento">
+        <h3>5. Estranhar o familiar</h3>
+        <p>O <strong>estranhamento sociológico</strong> consiste em olhar para uma prática conhecida como se ela precisasse ser explicada. Estranhar não significa desprezar, ridicularizar ou considerar exótico. Significa suspender temporariamente a resposta “é assim porque sempre foi” e observar componentes que a familiaridade tornou invisíveis.</p>
+        <p>Tomemos uma fila. As pessoas reconhecem quem chegou antes, mantêm certa distância e podem censurar quem ocupa uma posição indevida. Parece uma organização simples, mas ela depende de uma concepção de tempo, de regras de prioridade e de formas de controle informal. Em alguns serviços existem senhas; em outros, prioridades definidas por lei; em ambientes digitais, algoritmos determinam a ordem de atendimento. Estranhar a fila permite perguntar quem estabelece a ordem, quais critérios parecem legítimos e como conflitos são resolvidos.</p>
+        <p>O mesmo recurso pode ser aplicado ao celular em sala. Em vez de concluir imediatamente que seu uso expressa desinteresse, podemos diferenciar consulta ao material, comunicação de trabalho, responsabilidade de cuidado, busca de acessibilidade e distração. Isso não impede a existência de regras coletivas. Apenas mostra que a conduta precisa ser situada antes de receber uma explicação única.</p>
+        <p>Estranhar também exige voltar o olhar para o pesquisador. Aquilo que chama nossa atenção depende de experiências e valores anteriores. Uma pessoa acostumada a determinado modelo familiar pode considerar outras formas incomuns; alguém que nunca dependeu do transporte público pode interpretar atrasos apenas como falta de organização. Reconhecer a própria posição não elimina a possibilidade de conhecimento, mas ajuda a formular perguntas menos apressadas.</p>
+      </div>
+
+      <div class="base-subsection" id="a01-desnaturalizacao">
+        <h3>6. Desnaturalizar é reconstruir relações</h3>
+        <p><strong>Desnaturalizar</strong> não é afirmar que tudo muda facilmente ou que qualquer organização seria possível. É demonstrar que práticas sociais foram produzidas em condições determinadas, são mantidas por relações e podem variar. Três operações ajudam: comparação entre sociedades, comparação histórica e investigação das instituições que sustentam o padrão.</p>
+        <p>A divisão doméstica do trabalho oferece um exemplo. Se cozinhar, limpar e cuidar de crianças aparecem associados a um gênero, a análise pode comparar famílias e gerações, examinar mudanças na participação no mercado de trabalho e observar como escola, publicidade, leis e políticas de cuidado distribuem expectativas. A pergunta deixa de ser “quem nasceu com mais habilidade para cuidar?” e passa a incluir “como essa habilidade é ensinada, reconhecida e exigida?”.</p>
+        <p>A atividade “O óbvio que não é óbvio” realiza esse movimento. Quando um estudante apresenta algo que considera natural, a turma pode perguntar: desde quando funciona assim? É igual em todos os grupos? Quem realiza o trabalho necessário para manter a prática? Quem recebe benefícios e quem enfrenta custos? Que sanções aparecem quando alguém age de maneira diferente? As respostas iniciais tornam-se hipóteses, não conclusões.</p>
+        <p>Comparar não significa procurar uma sociedade totalmente oposta à nossa. Diferenças entre bairros, gerações, profissões ou instituições já permitem perceber variação. Horários comerciais, regras de vestimenta e formas de tratamento podem mudar dentro de uma mesma cidade. A comparação precisa, contudo, respeitar o contexto: duas práticas parecidas podem desempenhar funções diferentes, e uma mesma palavra pode designar relações distintas.</p>
+        <p>A reconstrução histórica acrescenta outra pergunta: por quais conflitos e decisões a prática adquiriu sua forma atual? Uma lei pode registrar mudanças conquistadas por movimentos sociais; uma rotina escolar pode conservar modelos de outra época; um hábito de consumo pode depender de tecnologias recentes. Mostrar essa trajetória impede que o presente seja tratado como destino inevitável, mas não garante que a transformação seja simples ou imediata.</p>
+        <aside class="pause-box"><h4>Pausa para discussão</h4><p>Transforme a frase “as pessoas são pobres porque não se esforçam” em duas perguntas sociológicas que possam ser investigadas.</p></aside>
+      </div>
+
+      <div class="base-subsection" id="a01-curso">
+        <h3>7. O percurso da disciplina</h3>
+        <p>As próximas aulas acrescentarão instrumentos a esse olhar. Primeiro, estudaremos as transformações históricas que tornaram necessária uma ciência da sociedade e algumas tentativas pioneiras de construí-la. Depois, examinaremos Durkheim, Marx e Weber, preservando as diferenças entre seus problemas e métodos. O curso avançará então para cultura, socialização, grupos, normas, instituições, estratificação, raça, gênero e movimentos sociais.</p>
+        <p>As leituras prévias oferecem contato com argumentos que a exposição e as atividades deverão reconstruir, não apenas resumir. Participação, frequência e produção acadêmica fazem parte do percurso. A atividade avaliativa final de 2026.2 ocorrerá em 03/02/2027, mas seu formato — dossiê sociológico, seminário ou produção equivalente — ainda será confirmado pelo professor. Materiais de seminário preservados da oferta anterior não definem, por si, a avaliação desta turma.</p>
+        <p>Nesta disciplina, aprender conceitos não será separado de usá-los. As atividades pedem que estudantes comparem situações, leiam textos, formulem problemas e justifiquem interpretações. O objetivo não é substituir uma opinião por uma palavra acadêmica, mas tornar claro o raciocínio que conecta a situação observada ao conceito escolhido. Discordâncias serão mais produtivas quando puderem identificar exatamente em que evidência, definição ou inferência se apoiam.</p>
+      </div>
+
+      <div class="base-subsection" id="a01-sintese">
+        <h3>8. Síntese: aprender a perguntar</h3>
+        <p>A Sociologia começa por situações vividas, mas não termina na impressão pessoal. Ela relaciona ações a instituições, regras, desigualdades e processos históricos. O senso comum continua sendo parte da vida social e pode oferecer conhecimentos importantes; torna-se insuficiente quando suas generalizações não são examinadas ou quando transforma relações históricas em características naturais.</p>
+        <p>Estranhar o familiar permite perceber o que a rotina esconde. Desnaturalizar exige comparar, reconstruir processos e identificar as relações que sustentam determinada prática. Essas operações não entregam automaticamente uma resposta correta. Elas tornam as perguntas mais precisas e abrem a experiência cotidiana à investigação e ao debate fundamentado.</p>
+        <p>Resta compreender por que esse modo de estudar a sociedade ganhou forma num período específico. Na segunda parte do encontro, veremos como revoluções políticas e produtivas abalaram a ordem tradicional, reorganizaram o trabalho e fizeram da própria sociedade um problema que exigia novas explicações.</p>
+      </div>
+    </div>
+  </section>
+
+
+
+  <section id="plano-aula">
     <div class="section-title">Plano de Aula com Tempo</div>
     <div class="timeline">
       <div class="tl-item">
@@ -242,7 +377,7 @@
     </div>
   </section>
 
-  <section>
+  <section id="leituras">
     <div class="section-title">Textos para Leitura Prévia</div>
     <div class="ref-card">
       <div class="ref-author">BERGER, Peter</div>
@@ -261,16 +396,28 @@
     </div>
   </section>
 
-  <section>
+  <section id="atividade">
     <div class="section-title">Atividades em Sala</div>
     <div class="activity-card">
       <strong>Roda de conversa: "O óbvio que não é óbvio"</strong><br><br>
       Os alunos são convidados a compartilhar experiências cotidianas que consideram "óbvias" ou "naturais". A partir de cada relato, o grupo é instigado a problematizar: por que isso acontece assim? Poderia ser diferente? Quem se beneficia com essa forma de organização?<br><br>
       O objetivo é mostrar que fenômenos que parecem naturais (papéis de gênero, hierarquias, divisão do trabalho, padrões de consumo) são, na verdade, construções sociais e históricas — e que o olhar sociológico consiste justamente em estranhar o familiar e problematizar o que parece dado.
+
+      <details class="teacher-guidance">
+        <summary>Gabarito comentado e orientações de mediação — uso do professor</summary>
+        <div class="teacher-guidance-content">
+          <p><strong>Critério geral.</strong> Uma resposta apenas descritiva relata o costume ("os homens não lavam roupa em casa") e para aí. Uma resposta sociologicamente fundamentada usa a tríade estranhamento–naturalização–desnaturalização do texto-base: explica por que a prática parece óbvia, mostra que essa aparência depende de aprendizagem e repetição, e indica quem sustenta e quem paga o custo da organização atual.</p>
+          <p><strong>"Por que isso acontece assim?"</strong> Recuse respostas que apenas repitam a naturalização ("é assim porque sempre foi", "é da natureza"). Aceite respostas que apontem uma origem histórica, institucional ou de aprendizagem: quem ensinou essa expectativa, que instituição a reforça (família, escola, mídia, lei), há quanto tempo ela vigora.</p>
+          <p><strong>"Poderia ser diferente?"</strong> A resposta forte compara: cita outra família, geração, bairro, profissão ou período em que a mesma esfera da vida é organizada de outro modo. A resposta fraca apenas afirma que "sim, poderia" sem examinar nenhum caso concreto de variação.</p>
+          <p><strong>"Quem se beneficia com essa forma de organização?"</strong> Espera-se identificar uma distribuição desigual de vantagens e custos (tempo, reconhecimento, remuneração, autoridade), não um juízo moral genérico sobre "certo" ou "errado". Uma resposta que apenas condena moralmente a prática, sem indicar quem ganha e quem perde com ela, ainda não fez a análise pedida.</p>
+          <p><strong>Erros prováveis.</strong> Confundir naturalização com biologia (tratar um costume como se fosse determinado pelo corpo); generalizar a partir de um único caso familiar para "a sociedade brasileira"; e reduzir a atividade a um debate de opiniões pessoais sobre se a prática é boa ou ruim, sem estranhamento nem comparação.</p>
+          <p><strong>Mediação sugerida.</strong> Se um relato ficar apenas descritivo, pergunte: "desde quando funciona assim, e quem te ensinou que era assim?" Se a turma resvalar para o julgamento moral, redirecione: "independentemente de ser certo ou errado, quem ensina essa regra e quem seria punido por descumpri-la?"</p>
+        </div>
+      </details>
     </div>
   </section>
 
-  <section>
+  <section id="recursos">
     <div class="section-title">Recursos Necessários</div>
     <div class="resources-list">
       <span class="res-tag">Projetor</span>
@@ -291,9 +438,9 @@
 </main>
 
 <footer>
-  <a href="../index.html">← Voltar para Turma 1</a>
+  <a href="/introducao-sociologia/">← Página principal</a>
   <span style="margin: 0 12px; color: var(--border);">|</span>
-  <span>Introdução à Sociologia — 2026.1</span>
+  <span>Introdução à Sociologia — 2026.2</span>
 </footer>
 
 </body>
