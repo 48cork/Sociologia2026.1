@@ -1,0 +1,602 @@
+[
+  {
+    "aula": 1,
+    "encontro": 1,
+    "existe": true,
+    "html_completo": true,
+    "situacao": "nova completa; revisar referências e requisitos",
+    "bytes": 23491,
+    "sha256": "ea9cebd76dcbd74a44c3d91594db749d8c09495c9ab2746b1cebe3e4c1eca6ad",
+    "titulo": "O que é Sociologia? Da vida cotidiana ao olhar científico."
+  },
+  {
+    "aula": 2,
+    "encontro": 1,
+    "existe": true,
+    "html_completo": true,
+    "situacao": "nova completa; revisar referências e requisitos",
+    "bytes": 22490,
+    "sha256": "f6af57c8eb7d892e348ad5b6d01d0f9ca83f1b15e0a7b6aa95a1c680e3b64cb4",
+    "titulo": "Estranhamento e desnaturalização: o método de olhar do sociólogo."
+  },
+  {
+    "aula": 3,
+    "encontro": 1,
+    "existe": true,
+    "html_completo": true,
+    "situacao": "nova completa; revisar referências e requisitos",
+    "bytes": 21739,
+    "sha256": "74e1bdff34d5d2fe9afa2736be1738415d5f57438d1b7a6ed6796e859ab2079a",
+    "titulo": "A dupla revolução: Revolução Francesa e Revolução Industrial."
+  },
+  {
+    "aula": 4,
+    "encontro": 1,
+    "existe": true,
+    "html_completo": true,
+    "situacao": "nova completa; revisar referências e requisitos",
+    "bytes": 22139,
+    "sha256": "22a2446a715e3a2bad428213a48b492483c0e5081732332b0ee542178910e442",
+    "titulo": "Da questão social ao projeto de uma ciência da sociedade."
+  },
+  {
+    "aula": 5,
+    "encontro": 2,
+    "existe": true,
+    "html_completo": true,
+    "situacao": "nova completa; revisar referências e requisitos",
+    "bytes": 22826,
+    "sha256": "20c91faf5ce908c9bfb392e393867e9a23e399290c9c3a4ea27338109ce3c858",
+    "titulo": "Da tradição à razão: o Iluminismo e a crítica do mundo dado."
+  },
+  {
+    "aula": 6,
+    "encontro": 2,
+    "existe": true,
+    "html_completo": true,
+    "situacao": "nova completa; revisar referências e requisitos",
+    "bytes": 27035,
+    "sha256": "95b09863b607ecc939b20548c94266df5de54b2bb062de02a4bd5103776609a1",
+    "titulo": "Progresso, universalismo e suas contradições."
+  },
+  {
+    "aula": 7,
+    "encontro": 2,
+    "existe": true,
+    "html_completo": true,
+    "situacao": "nova completa; revisar referências e requisitos",
+    "bytes": 23514,
+    "sha256": "35e1d91af925114e2177db09275d5c446926e6ec862ed537b7e7a646a8aa789a",
+    "titulo": "Auguste Comte: a lei dos três estados e o positivismo."
+  },
+  {
+    "aula": 8,
+    "encontro": 2,
+    "existe": true,
+    "html_completo": true,
+    "situacao": "nova completa; revisar referências e requisitos",
+    "bytes": 33089,
+    "sha256": "ac0c0431c87efb893706b4f192a4c6389582a5ff01cf26db579052f7f110b18a",
+    "titulo": "Herbert Spencer, evolucionismo social e os limites do pensamento pioneiro."
+  },
+  {
+    "aula": 9,
+    "encontro": 3,
+    "existe": true,
+    "html_completo": true,
+    "situacao": "nova completa; revisar referências e requisitos",
+    "bytes": 23605,
+    "sha256": "e467645b5c6f81e2f787609452ba8829919f77fdc718c049e9a7cec2a14cfeb6",
+    "titulo": "Da manchete ao problema sociológico: objeto e imaginação sociológica."
+  },
+  {
+    "aula": 10,
+    "encontro": 3,
+    "existe": true,
+    "html_completo": true,
+    "situacao": "nova completa; revisar referências e requisitos",
+    "bytes": 38653,
+    "sha256": "bc7a8a50257bcba3e0137e61eeb7bf6c1c003c2ac00ea969cab32e89ba1e818e",
+    "titulo": "Métodos da Sociologia e a oficina das manchetes."
+  },
+  {
+    "aula": 11,
+    "encontro": 3,
+    "existe": true,
+    "html_completo": true,
+    "situacao": "nova completa; revisar referências e requisitos",
+    "bytes": 26334,
+    "sha256": "40e78826f54b957fdc0958d58e249c48c659e80da5dfd227cc8b1738ea050e8a",
+    "titulo": "Émile Durkheim e o conceito de fato social."
+  },
+  {
+    "aula": 12,
+    "encontro": 3,
+    "existe": true,
+    "html_completo": true,
+    "situacao": "versão anterior válida; arquitetura antiga 2h",
+    "bytes": 49261,
+    "sha256": "65fc327c9fdbcd17dd05dbbe2742a559642f96162ae86a5082cb708ecb3728c0",
+    "titulo": "Weber: racionalização, burocracia e ética protestante."
+  },
+  {
+    "aula": 13,
+    "encontro": 4,
+    "existe": true,
+    "html_completo": true,
+    "situacao": "nova completa; revisar referências e requisitos",
+    "bytes": 25055,
+    "sha256": "0b5ee0e43cb13b1440c36686c814631bf048e6836dda8613735566717b25c8f7",
+    "titulo": "Solidariedade mecânica e solidariedade orgânica em Durkheim."
+  },
+  {
+    "aula": 14,
+    "encontro": 4,
+    "existe": true,
+    "html_completo": true,
+    "situacao": "versão anterior válida; arquitetura antiga 2h",
+    "bytes": 47549,
+    "sha256": "218a312ee0e54ad656270feaa9035adb9159aaba3e86ecdcc47a3de69786cb9e",
+    "titulo": "Orientação para o Seminário. Formação dos grupos e entrega da pesquisa bibliográfica."
+  },
+  {
+    "aula": 15,
+    "encontro": 4,
+    "existe": true,
+    "html_completo": true,
+    "situacao": "versão anterior válida; arquitetura antiga 2h",
+    "bytes": 42595,
+    "sha256": "21f6210ffbb6d316925e2751356597a14d554de54df67c1c3846b3834aab2b6c",
+    "titulo": "Conceito de cultura. Natureza, sociedade e cultura."
+  },
+  {
+    "aula": 16,
+    "encontro": 4,
+    "existe": true,
+    "html_completo": true,
+    "situacao": "versão anterior válida; arquitetura antiga 2h",
+    "bytes": 42566,
+    "sha256": "c3727751feefe1579e6d3a8a7b9475e49f3910afdd8afd9dc528a339a36425a5",
+    "titulo": "Cultura: etnocentrismo, relativismo cultural e diversidade."
+  },
+  {
+    "aula": 17,
+    "encontro": 5,
+    "existe": true,
+    "html_completo": true,
+    "situacao": "nova completa; revisar referências e requisitos",
+    "bytes": 25448,
+    "sha256": "19fb0450a023590a2bd3cc68652dadd4e4bc78e1df8a7dd50715b6dc7a7ef843",
+    "titulo": "Karl Marx: materialismo histórico e a produção social da existência."
+  },
+  {
+    "aula": 18,
+    "encontro": 5,
+    "existe": true,
+    "html_completo": true,
+    "situacao": "versão anterior válida; arquitetura antiga 2h",
+    "bytes": 35869,
+    "sha256": "59ede45d820500c8709dc747e1617fe5b37309029e534ff1db27b00e4bd9c64c",
+    "titulo": "Socialização primária e secundária. Agentes socializadores."
+  },
+  {
+    "aula": 19,
+    "encontro": 5,
+    "existe": true,
+    "html_completo": true,
+    "situacao": "versão anterior válida; arquitetura antiga 2h",
+    "bytes": 33685,
+    "sha256": "a145dcc4567acaa8b481f5f1d88429ac8b4002c7086b14aa2cf7170415c8b1cd",
+    "titulo": "Grupos sociais: primários, secundários e de referência."
+  },
+  {
+    "aula": 20,
+    "encontro": 5,
+    "existe": true,
+    "html_completo": true,
+    "situacao": "versão anterior válida; arquitetura antiga 2h",
+    "bytes": 40136,
+    "sha256": "3c5fd516e77064f6a59fbb3731e916f34915ed276a38230ff6f6bd9baf084816",
+    "titulo": "Desvio social, controle social e normas."
+  },
+  {
+    "aula": 21,
+    "encontro": 6,
+    "existe": true,
+    "html_completo": true,
+    "situacao": "versão anterior válida; arquitetura antiga 2h",
+    "bytes": 39200,
+    "sha256": "da8e05929b7414031ae189976736227c3f07cd8a5d5bfb5923158e3a333f9972",
+    "titulo": "Instituições sociais: família — formas, funções e transformações históricas."
+  },
+  {
+    "aula": 22,
+    "encontro": 6,
+    "existe": true,
+    "html_completo": true,
+    "situacao": "versão anterior válida; arquitetura antiga 2h",
+    "bytes": 37355,
+    "sha256": "9bb7ac3686b7366bb2f04d8b37bcdb37c1e75c9476a2eaa26c64690dfccf6949",
+    "titulo": "Instituições sociais: escola, religião e Estado."
+  },
+  {
+    "aula": 23,
+    "encontro": 6,
+    "existe": true,
+    "html_completo": true,
+    "situacao": "versão anterior válida; arquitetura antiga 2h",
+    "bytes": 35799,
+    "sha256": "1785073d3a130821785082a6c66d359a95fe5a8da4a950dc0304c797bcebc784",
+    "titulo": "Estratificação social: castas, estamentos e classes."
+  },
+  {
+    "aula": 24,
+    "encontro": 6,
+    "existe": true,
+    "html_completo": true,
+    "situacao": "versão anterior válida; arquitetura antiga 2h",
+    "bytes": 31118,
+    "sha256": "a4f29a494f20622c138e3d6827e2684c503498f70b9b9529dcb1430e628845cf",
+    "titulo": "Desigualdade social no Brasil: renda, raça e território"
+  },
+  {
+    "aula": 25,
+    "encontro": 7,
+    "existe": true,
+    "html_completo": true,
+    "situacao": "versão anterior válida; arquitetura antiga 2h",
+    "bytes": 40252,
+    "sha256": "c8f60b26719edd0699e3da41301d90b3e46688e2ef699ee6a8d7460c8c135d79",
+    "titulo": "Raça, etnia e racismo: conceitos e debate contemporâneo."
+  },
+  {
+    "aula": 26,
+    "encontro": 7,
+    "existe": true,
+    "html_completo": true,
+    "situacao": "versão anterior válida; arquitetura antiga 2h",
+    "bytes": 38609,
+    "sha256": "a18502ee6b2d1ea1c9c3e2c0423d07dfe5695a5ebe2f007f7a0cfd6b40ad4d49",
+    "titulo": "Gênero, sexualidade e feminismo: perspectivas sociológicas."
+  },
+  {
+    "aula": 27,
+    "encontro": 7,
+    "existe": true,
+    "html_completo": true,
+    "situacao": "versão anterior válida; arquitetura antiga 2h",
+    "bytes": 44363,
+    "sha256": "22e40095633d5c9c37fb6fe3a54581fd57230bbbd87e39d4f290123986bc569d",
+    "titulo": "Movimentos sociais e ativismo digital: o Experimento como estudo de caso de interpretações em disputa"
+  },
+  {
+    "aula": 28,
+    "encontro": 7,
+    "existe": true,
+    "html_completo": true,
+    "situacao": "versão anterior válida; arquitetura antiga 2h",
+    "bytes": 39794,
+    "sha256": "e4c382df567b6d74b22a7e4a4237b91cc53c092f41e12ca692f93b435d56dffb",
+    "titulo": "Socialização pública do argumento sociológico."
+  },
+  {
+    "aula": 29,
+    "encontro": 8,
+    "existe": true,
+    "html_completo": true,
+    "situacao": "versão anterior válida; arquitetura antiga 2h",
+    "bytes": 37532,
+    "sha256": "1e33a4eb203be44ec18b359310617a8311ab9e0256cc2ba10793fbce6b02e5bf",
+    "titulo": "Da devolutiva ao argumento revisado."
+  },
+  {
+    "aula": 30,
+    "encontro": 8,
+    "existe": true,
+    "html_completo": true,
+    "situacao": "versão anterior válida; arquitetura antiga 2h",
+    "bytes": 37557,
+    "sha256": "1ae8df41b6161fc6d8e8058b395392bd252a8beee3344be55a4a1b1a9774f16c",
+    "titulo": "O que aprendemos a perguntar sociologicamente?"
+  },
+  {
+    "aula": 31,
+    "encontro": 8,
+    "existe": false,
+    "html_completo": false,
+    "situacao": "não existe",
+    "bytes": 0,
+    "sha256": null,
+    "titulo": null
+  },
+  {
+    "aula": 32,
+    "encontro": 8,
+    "existe": false,
+    "html_completo": false,
+    "situacao": "não existe",
+    "bytes": 0,
+    "sha256": null,
+    "titulo": null
+  },
+  {
+    "aula": 33,
+    "encontro": 9,
+    "existe": false,
+    "html_completo": false,
+    "situacao": "não existe",
+    "bytes": 0,
+    "sha256": null,
+    "titulo": null
+  },
+  {
+    "aula": 34,
+    "encontro": 9,
+    "existe": false,
+    "html_completo": false,
+    "situacao": "não existe",
+    "bytes": 0,
+    "sha256": null,
+    "titulo": null
+  },
+  {
+    "aula": 35,
+    "encontro": 9,
+    "existe": false,
+    "html_completo": false,
+    "situacao": "não existe",
+    "bytes": 0,
+    "sha256": null,
+    "titulo": null
+  },
+  {
+    "aula": 36,
+    "encontro": 9,
+    "existe": false,
+    "html_completo": false,
+    "situacao": "não existe",
+    "bytes": 0,
+    "sha256": null,
+    "titulo": null
+  },
+  {
+    "aula": 37,
+    "encontro": 10,
+    "existe": false,
+    "html_completo": false,
+    "situacao": "não existe",
+    "bytes": 0,
+    "sha256": null,
+    "titulo": null
+  },
+  {
+    "aula": 38,
+    "encontro": 10,
+    "existe": false,
+    "html_completo": false,
+    "situacao": "não existe",
+    "bytes": 0,
+    "sha256": null,
+    "titulo": null
+  },
+  {
+    "aula": 39,
+    "encontro": 10,
+    "existe": false,
+    "html_completo": false,
+    "situacao": "não existe",
+    "bytes": 0,
+    "sha256": null,
+    "titulo": null
+  },
+  {
+    "aula": 40,
+    "encontro": 10,
+    "existe": false,
+    "html_completo": false,
+    "situacao": "não existe",
+    "bytes": 0,
+    "sha256": null,
+    "titulo": null
+  },
+  {
+    "aula": 41,
+    "encontro": 11,
+    "existe": false,
+    "html_completo": false,
+    "situacao": "não existe",
+    "bytes": 0,
+    "sha256": null,
+    "titulo": null
+  },
+  {
+    "aula": 42,
+    "encontro": 11,
+    "existe": false,
+    "html_completo": false,
+    "situacao": "não existe",
+    "bytes": 0,
+    "sha256": null,
+    "titulo": null
+  },
+  {
+    "aula": 43,
+    "encontro": 11,
+    "existe": false,
+    "html_completo": false,
+    "situacao": "não existe",
+    "bytes": 0,
+    "sha256": null,
+    "titulo": null
+  },
+  {
+    "aula": 44,
+    "encontro": 11,
+    "existe": false,
+    "html_completo": false,
+    "situacao": "não existe",
+    "bytes": 0,
+    "sha256": null,
+    "titulo": null
+  },
+  {
+    "aula": 45,
+    "encontro": 12,
+    "existe": false,
+    "html_completo": false,
+    "situacao": "não existe",
+    "bytes": 0,
+    "sha256": null,
+    "titulo": null
+  },
+  {
+    "aula": 46,
+    "encontro": 12,
+    "existe": false,
+    "html_completo": false,
+    "situacao": "não existe",
+    "bytes": 0,
+    "sha256": null,
+    "titulo": null
+  },
+  {
+    "aula": 47,
+    "encontro": 12,
+    "existe": false,
+    "html_completo": false,
+    "situacao": "não existe",
+    "bytes": 0,
+    "sha256": null,
+    "titulo": null
+  },
+  {
+    "aula": 48,
+    "encontro": 12,
+    "existe": false,
+    "html_completo": false,
+    "situacao": "não existe",
+    "bytes": 0,
+    "sha256": null,
+    "titulo": null
+  },
+  {
+    "aula": 49,
+    "encontro": 13,
+    "existe": false,
+    "html_completo": false,
+    "situacao": "não existe",
+    "bytes": 0,
+    "sha256": null,
+    "titulo": null
+  },
+  {
+    "aula": 50,
+    "encontro": 13,
+    "existe": false,
+    "html_completo": false,
+    "situacao": "não existe",
+    "bytes": 0,
+    "sha256": null,
+    "titulo": null
+  },
+  {
+    "aula": 51,
+    "encontro": 13,
+    "existe": false,
+    "html_completo": false,
+    "situacao": "não existe",
+    "bytes": 0,
+    "sha256": null,
+    "titulo": null
+  },
+  {
+    "aula": 52,
+    "encontro": 13,
+    "existe": false,
+    "html_completo": false,
+    "situacao": "não existe",
+    "bytes": 0,
+    "sha256": null,
+    "titulo": null
+  },
+  {
+    "aula": 53,
+    "encontro": 14,
+    "existe": false,
+    "html_completo": false,
+    "situacao": "não existe",
+    "bytes": 0,
+    "sha256": null,
+    "titulo": null
+  },
+  {
+    "aula": 54,
+    "encontro": 14,
+    "existe": false,
+    "html_completo": false,
+    "situacao": "não existe",
+    "bytes": 0,
+    "sha256": null,
+    "titulo": null
+  },
+  {
+    "aula": 55,
+    "encontro": 14,
+    "existe": false,
+    "html_completo": false,
+    "situacao": "não existe",
+    "bytes": 0,
+    "sha256": null,
+    "titulo": null
+  },
+  {
+    "aula": 56,
+    "encontro": 14,
+    "existe": false,
+    "html_completo": false,
+    "situacao": "não existe",
+    "bytes": 0,
+    "sha256": null,
+    "titulo": null
+  },
+  {
+    "aula": 57,
+    "encontro": 15,
+    "existe": false,
+    "html_completo": false,
+    "situacao": "não existe",
+    "bytes": 0,
+    "sha256": null,
+    "titulo": null
+  },
+  {
+    "aula": 58,
+    "encontro": 15,
+    "existe": false,
+    "html_completo": false,
+    "situacao": "não existe",
+    "bytes": 0,
+    "sha256": null,
+    "titulo": null
+  },
+  {
+    "aula": 59,
+    "encontro": 15,
+    "existe": false,
+    "html_completo": false,
+    "situacao": "não existe",
+    "bytes": 0,
+    "sha256": null,
+    "titulo": null
+  },
+  {
+    "aula": 60,
+    "encontro": 15,
+    "existe": false,
+    "html_completo": false,
+    "situacao": "não existe",
+    "bytes": 0,
+    "sha256": null,
+    "titulo": null
+  }
+]

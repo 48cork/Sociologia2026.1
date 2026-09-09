@@ -1,0 +1,95 @@
+[
+  {
+    "aula": 12,
+    "fonte": 6,
+    "secoes": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "titulo": "Consciência coletiva e representações: o smartphone como fato social",
+    "abertura": "Por que demorar a responder uma mensagem pode ser interpretado como descaso? Retomamos exterioridade, coerção e generalidade para investigar os sentidos que sustentam essa expectativa.",
+    "objetivos": [
+      "Distinguir consciência individual, consciência coletiva e representações coletivas.",
+      "Aplicar os critérios do fato social a uma expectativa delimitada de disponibilidade digital.",
+      "Propor evidências e reconhecer variações entre grupos."
+    ],
+    "atividade_fonte": true,
+    "sintese": "O objeto sociológico é a expectativa social de disponibilidade, não o aparelho isolado. Crenças compartilhadas e sanções tornam essa expectativa observável, sem eliminar negociação e resistência.",
+    "transicao": "Na Aula 13, a pergunta passa dos sentidos compartilhados aos vínculos de cooperação: como permanecemos ligados a pessoas que não conhecemos?"
+  },
+  {
+    "aula": 14,
+    "fonte": 7,
+    "secoes": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "titulo": "Direito, anomia e os limites da divisão do trabalho",
+    "abertura": "Se uma rede de trabalhadores depende de cooperação, por que a especialização também pode produzir conflito? O direito oferece indícios dos vínculos, mas não dispensa a investigação das condições de trabalho.",
+    "objetivos": [
+      "Relacionar sanções repressivas e restitutivas aos tipos de solidariedade.",
+      "Distinguir divisão anômica e divisão forçada do trabalho.",
+      "Analisar combinações de vínculos sem classificar sociedades como tipos puros."
+    ],
+    "atividade_fonte": true,
+    "sintese": "O direito torna aspectos da solidariedade observáveis. Interdependência só produz coesão sob determinadas condições; ausência de coordenação e imposição desigual das posições podem comprometer esse vínculo.",
+    "transicao": "A Aula 15 investigará como integração e regulação se tornam hipóteses para explicar variações coletivas em O suicídio.",
+    "tempos": [
+      5,
+      20,
+      30,
+      5
+    ]
+  },
+  {
+    "aula": 15,
+    "fonte": 8,
+    "secoes": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "titulo": "O suicídio como fato social: método e explicação em Durkheim",
+    "abertura": "Como estudar sociologicamente um fenômeno vivido como profundamente individual? A unidade examina taxas e condições coletivas, sem solicitar relatos pessoais nem classificar pessoas.",
+    "objetivos": [
+      "Distinguir variação de taxas e explicação de uma trajetória individual.",
+      "Definir integração e regulação como eixos diferentes.",
+      "Compreender normal e patológico como categorias analíticas historicamente situadas."
+    ],
+    "atividade": "Considere duas instituições fictícias: na primeira, regras mudam semanalmente e ninguém sabe quais expectativas serão mantidas; na segunda, as regras são estáveis, mas recém-chegados não encontram vínculos ou redes de apoio. Qual eixo — regulação ou integração — orienta melhor uma hipótese inicial em cada caso? Por que esses relatos não autorizam prever atos individuais?",
+    "gabarito": "<p>No primeiro caso, a instabilidade de expectativas orienta uma hipótese sobre regulação. Não basta contar normas: regras numerosas, contraditórias ou imprevisíveis podem não oferecer orientação estável. No segundo, a ausência de vínculos sugere investigar integração. Estabilidade normativa e participação em redes são dimensões distintas, embora possam se relacionar. Aceite respostas que reconheçam essa interdependência e explicitem os indícios usados, sem transformar cada instituição num tipo puro.</p><p>Os casos não fornecem taxas, trajetórias, duração da exposição ou composição dos grupos. Portanto, não demonstram associação com suicídio e muito menos permitem prognóstico individual. Peça que estudantes formulem hipóteses condicionais e indiquem dados necessários. Uma resposta adequada distingue conceito, evidência disponível e informação ausente. Corrija usos de anomia como sinônimo de qualquer desordem e de integração como simples obediência. A discussão é metodológica; ninguém precisa narrar experiências de sofrimento. Encerre retomando que uma explicação de padrões coletivos não substitui o cuidado com pessoas concretas.</p>",
+    "sintese": "Integração diz respeito aos vínculos de pertencimento; regulação, à orientação social de expectativas. As categorias ajudam a construir hipóteses sobre padrões, e não diagnósticos pessoais.",
+    "transicao": "Na Aula 16, vamos testar o que dados comparativos permitem afirmar e separar correlação, mecanismo e causalidade."
+  },
+  {
+    "aula": 16,
+    "fonte": 8,
+    "secoes": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "titulo": "Do dado estatístico à explicação sociológica: os limites do método",
+    "abertura": "Uma taxa aumentou enquanto regras se tornaram menos estáveis: isso demonstra que uma mudança causou a outra? A oficina transforma conceitos em hipóteses sujeitas a verificação.",
+    "objetivos": [
+      "Distinguir descrição, hipótese e conclusão causal.",
+      "Comparar taxas considerando unidades, denominadores e composição.",
+      "Indicar explicações alternativas e evidências adicionais."
+    ],
+    "atividade_fonte": true,
+    "tempos": [
+      5,
+      20,
+      30,
+      5
+    ],
+    "sintese": "Comparar não é apenas colocar números lado a lado. É verificar sua produção, formular mecanismos plausíveis e testar alternativas. Dados agregados não autorizam atribuir uma trajetória a cada indivíduo.",
+    "transicao": "Na Aula 17, Marx deslocará a investigação para a produção social da existência e suas contradições históricas."
+  }
+]

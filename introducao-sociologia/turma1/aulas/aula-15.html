@@ -1,16 +1,87 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aula 15 — Introdução à Sociologia | 2026.2</title>
-<style>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Aula 15 — O suicídio como fato social: método e explicação em Durkheim · 2026.2</title><style>
   :root {
     --bg: #0a0a0f; --surface: #12121c; --card: #1a1a2e; --border: #2a2a4a;
     --purple: #7c3aed; --purple-lt: #a855f7; --blue: #4f46e5; --blue-lt: #818cf8;
     --teal-lt: #2dd4bf; --amber-lt: #fbbf24; --rose-lt: #fb7185;
     --text: #e2e8f0; --muted: #94a3b8; --radius: 12px;
-    --bloco-color: #0284c7; --bloco-lt: #38bdf8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { max-width: 100%; overflow-x: clip; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; min-height: 100vh; overflow-wrap: anywhere; }
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(18,18,28,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; white-space: nowrap; }
+  nav a:hover { color: var(--text); }
+  .nav-left { display: flex; align-items: center; gap: 10px; }
+  .nav-badge { background: var(--purple); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+  .nav-center { font-size: 0.875rem; color: var(--muted); }
+  .nav-right { display: flex; gap: 16px; align-items: center; }
+  main { max-width: 860px; margin: 0 auto; padding: 40px 24px 80px; }
+  .aula-header { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; margin-bottom: 32px; border-top: 4px solid var(--blue); }
+  .header-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; align-items: center; }
+  .bloco-badge { background: var(--blue); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .meta-chip { background: var(--surface); border: 1px solid var(--border); font-size: 0.8rem; color: var(--muted); padding: 4px 12px; border-radius: 20px; }
+  .meta-chip strong { color: var(--text); }
+  .aula-header h1 { font-size: 1.5rem; font-weight: 700; line-height: 1.3; color: var(--text); }
+  section { margin-bottom: 32px; scroll-margin-top: 112px; }
+  .section-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue-lt); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+  .obj-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .obj-list li { display: flex; gap: 12px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
+  .obj-list li::before { content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--blue-lt); margin-top: 7px; flex-shrink: 0; }
+  .content-topic { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 12px; }
+  .content-topic h3 { font-size: 0.95rem; font-weight: 600; color: var(--purple-lt); margin-bottom: 8px; }
+  .content-topic ul { list-style: none; padding: 0; }
+  .content-topic ul li { padding: 4px 0 4px 16px; position: relative; color: var(--muted); font-size: 0.9rem; }
+  .content-topic ul li::before { content: '—'; position: absolute; left: 0; color: var(--border); }
+  .timeline { display: flex; flex-direction: column; gap: 10px; }
+  .tl-item { display: flex; gap: 16px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; border-left: 3px solid var(--blue); }
+  .tl-duration { background: var(--surface); border: 1px solid var(--border); color: var(--amber-lt); font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+  .tl-text { font-size: 0.9rem; color: var(--text); }
+  .ref-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 10px; border-left: 3px solid var(--blue-lt); }
+  .ref-author { font-size: 0.8rem; font-weight: 700; color: var(--blue-lt); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+  .ref-title { font-size: 0.9rem; color: var(--text); }
+  .ref-pages { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
+  .activity-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; font-size: 0.9rem; line-height: 1.7; border-left: 3px solid var(--teal-lt); }
+  .teacher-guidance { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-top: 18px; }
+  .teacher-guidance summary { cursor: pointer; color: var(--amber-lt); font-weight: 700; padding: 15px 17px; }
+  .teacher-guidance[open] summary { border-bottom: 1px solid var(--border); }
+  .teacher-guidance-content { padding: 16px 18px; }
+  .resources-list { display: flex; flex-wrap: wrap; gap: 10px; }
+  .res-tag { max-width: 100%; min-width: 0; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; }
+  footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--muted); font-size: 0.85rem; }
+  footer a { color: var(--purple-lt); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .section-nav { position: sticky; top: 56px; z-index: 90; background: rgba(10,10,15,.97); border-bottom: 1px solid var(--border); padding: 8px 16px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: thin; }
+  .section-nav a { flex: 0 0 auto; min-height: 36px; display: inline-flex; align-items: center; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 5px 12px; text-decoration: none; font-size: .8rem; }
+  .base-text { max-width: 72ch; margin-inline: auto; }
+  .base-intro { color: var(--muted); font-size: .92rem; margin-bottom: 16px; }
+  .base-subsection { scroll-margin-top: 112px; margin-bottom: 28px; }
+  .base-subsection h3 { color: var(--blue-lt); font-size: 1.15rem; line-height: 1.35; margin-bottom: 12px; }
+  .base-subsection p { color: var(--text); margin-bottom: 14px; line-height: 1.78; }
+  .base-subsection strong { color: #f1f5f9; }
+  .pause-box { background: rgba(79,70,229,.1); border: 1px solid rgba(129,140,248,.4); border-left: 4px solid var(--blue-lt); border-radius: var(--radius); padding: 16px 18px; margin: 22px 0; }
+  .pause-box h4 { color: var(--amber-lt); font-size: .75rem; letter-spacing: .09em; text-transform: uppercase; margin-bottom: 6px; }
+  .pause-box p { margin: 0; color: var(--text); font-weight: 600; line-height: 1.6; }
+  a:focus-visible { outline: 3px solid var(--amber-lt); outline-offset: 3px; border-radius: 3px; }
+  @media (max-width: 640px) {
+    nav { height: auto; min-height: 56px; padding: 8px 12px; flex-wrap: wrap; }
+    .nav-left, .nav-right { min-width: 0; }
+    .nav-center { display: none; }
+    .nav-right { gap: 10px; }
+    .section-nav { top: 72px; padding-inline: 10px; }
+    main { padding: 24px 14px 60px; }
+    .aula-header { padding: 22px 18px; }
+    .tl-item { flex-direction: column; gap: 8px; }
+  }
+  @media print { .teacher-guidance { break-inside: avoid; } }
+
+
+  :root {
+    --bg: #0a0a0f; --surface: #12121c; --card: #1a1a2e; --border: #2a2a4a;
+    --purple: #7c3aed; --purple-lt: #a855f7; --blue: #4f46e5; --blue-lt: #818cf8;
+    --teal-lt: #2dd4bf; --amber-lt: #fbbf24; --rose-lt: #fb7185;
+    --text: #e2e8f0; --muted: #94a3b8; --radius: 12px;
+    --bloco-color: #4f46e5; --bloco-lt: #818cf8;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
@@ -44,7 +115,23 @@
   .ref-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 10px; border-left: 3px solid var(--bloco-lt); }
   .ref-author { font-size: 0.8rem; font-weight: 700; color: var(--bloco-lt); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
   .ref-title { font-size: 0.9rem; color: var(--text); }
+  .ref-pages { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
   .activity-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; font-size: 0.9rem; line-height: 1.7; border-left: 3px solid var(--teal-lt); }
+  .activity-card h3 { color: var(--teal-lt); font-size: 1.05rem; margin: 0 0 10px; }
+  .activity-card h4 { color: var(--amber-lt); margin: 20px 0 8px; }
+  .activity-card ol, .activity-card ul { padding-left: 22px; margin: 10px 0; }
+  .activity-card li { margin: 7px 0; }
+  .data-note { background: rgba(251,191,36,.08); border: 1px solid rgba(251,191,36,.45); border-radius: var(--radius); padding: 14px 16px; margin: 14px 0; }
+  .data-table { width: 100%; table-layout: fixed; border-collapse: collapse; margin: 10px 0 18px; font-size: .82rem; }
+  .data-table caption { text-align: left; color: var(--text); font-weight: 700; margin-bottom: 8px; }
+  .data-table th, .data-table td { border: 1px solid var(--border); padding: 9px 7px; text-align: center; overflow-wrap: anywhere; }
+  .data-table th { background: var(--surface); color: var(--amber-lt); }
+  .data-table td:first-child, .data-table th:first-child { text-align: left; }
+  .teacher-guidance { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-top: 18px; }
+  .teacher-guidance summary { cursor: pointer; color: var(--amber-lt); font-weight: 700; padding: 15px 17px; }
+  .teacher-guidance[open] summary { border-bottom: 1px solid var(--border); }
+  .teacher-guidance-content { padding: 16px 18px; }
+  .guidance-note { color: var(--muted); font-size: .82rem; margin: 16px 0 0; }
   .resources-list { display: flex; flex-wrap: wrap; gap: 10px; }
   .res-tag { background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; }
   footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--muted); font-size: 0.85rem; }
@@ -83,215 +170,60 @@
     .aula-header { padding: 22px 18px; }
     .base-toc ol { width: auto; columns: auto; padding-left: 0; list-style-position: inside; }
     .tl-item { flex-direction: column; gap: 8px; }
+    .data-table { font-size: .72rem; }
+    .data-table th, .data-table td { padding: 7px 3px; }
   }
-  .activity-card h3 { color: var(--teal-lt); font-size: 1.05rem; margin: 0 0 12px; }
-  .activity-card h4 { color: var(--amber-lt); margin: 18px 0 8px; }
-  .activity-card ol, .activity-card ul { padding-left: 22px; margin: 10px 0; }
-  .activity-card li { margin: 7px 0; }
-  .situation-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 16px 0; }
-  .situation-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
-  .situation-card h4 { margin: 0 0 6px; }
-  .question-list { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px 14px 40px; }
-  .teacher-guidance { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-top: 18px; }
-  .teacher-guidance summary { cursor: pointer; color: var(--amber-lt); font-weight: 700; padding: 15px 17px; }
-  .teacher-guidance[open] summary { border-bottom: 1px solid var(--border); }
-  .teacher-guidance-content { padding: 16px 18px; }
-  .teacher-guidance-content h4 { color: var(--teal-lt); }
-  @media (max-width: 640px) { .situation-grid { grid-template-columns: 1fr; } }
-  @media print { nav, .section-nav { position: static; } .situation-card, .teacher-guidance { break-inside: avoid; } }
-</style>
-</head>
-<body>
+  @media print { .data-table, .teacher-guidance, .data-note { break-inside: avoid; } }
 
-<nav>
-  <div class="nav-left">
-    <a href="/introducao-sociologia/">← Página principal</a>
-    <span class="nav-badge">Aula 15</span>
-  </div>
-  <span class="nav-center">Aula 15 / 30</span>
-  <div class="nav-right">
-    <a href="aula-14.html">← Anterior</a>
-    <a href="aula-16.html">Próxima →</a>
-  </div>
-</nav>
-<div class="section-nav" aria-label="Seções da aula"><a href="#objetivos">Objetivos</a><a href="#conteudo-programatico">Conteúdo</a><a href="#texto-base">Texto-base</a><a href="#plano-aula">Plano da aula</a><a href="#leituras">Leituras</a><a href="#atividade">Atividade</a><a href="#recursos">Recursos</a></div>
-
-<main>
-
-  <div class="aula-header">
-    <div class="header-meta">
-      <span class="bloco-badge">Bloco IV</span>
-      <span class="meta-chip">Aula 15</span>
-      <span class="meta-chip">Encontro 8 · Parte 1 de 2</span>
-      <span class="meta-chip">28/10/2026 — Quarta-feira</span>
-      <span class="meta-chip">Percurso completo do encontro: 4 horas-aula</span>
-      <span class="meta-chip">Esta página: aproximadamente 2 horas</span>
-    </div>
-    <h1>Conceito de cultura. Natureza, sociedade e cultura.</h1>
-  </div>
-
-  <section id="objetivos">
-    <div class="section-title">Objetivos da Aula</div>
-    <ul class="obj-list">
-      <li>Explicar cultura como produção, aprendizagem, disputa e circulação social de sentidos.</li>
-      <li>Distinguir cultura, sociedade e identidade sem separá-las artificialmente.</li>
-      <li>Analisar símbolos, valores, normas e práticas em suas condições institucionais e materiais.</li>
-      <li>Interpretar práticas cotidianas sem naturalizá-las nem supor grupos homogêneos.</li>
-    </ul>
-  </section>
-
-  <section id="conteudo-programatico">
-    <div class="section-title">Conteúdo Programático</div>
-    <div class="content-topic">
-      <h3>1. Cultura como problema sociológico</h3>
-      <ul>
-        <li>Produção social de sentidos, símbolos e classificações</li>
-        <li>Diferenças entre cultura, sociedade e identidade</li>
-        <li>Interpretação contextualizada de práticas cotidianas</li>
-      </ul>
-    </div>
-    <div class="content-topic">
-      <h3>2. Aprendizagem, instituições e condições materiais</h3>
-      <ul>
-        <li>Socialização e incorporação de modos de perceber e agir</li>
-        <li>Família, universidade, religião, mídias e outras instituições</li>
-        <li>Recursos, tecnologias, espaços e desigualdades</li>
-      </ul>
-    </div>
-    <div class="content-topic">
-      <h3>3. Variação, poder e mudança cultural</h3>
-      <ul>
-        <li>Normas, valores e práticas em disputa</li>
-        <li>Circulação, apropriação e transformação de sentidos</li>
-        <li>Variação interna e produção de fronteiras sociais</li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="texto-base" aria-labelledby="texto-base-title">
-    <div class="section-title" id="texto-base-title">Texto-base para acompanhamento da aula</div>
-    <div class="base-text">
-      <p class="base-intro">O texto propõe um vocabulário para observar como sentidos se tornam compartilhados sem imaginar que sejam naturais, imóveis ou iguais para todas as pessoas. O cotidiano universitário oferece exemplos próximos, mas cada interpretação precisa de contexto e evidência.</p>
-      <nav class="base-toc" aria-label="Sumário do texto-base"><h3>Nesta leitura</h3><ol>
-        <li><a href="#cultura-alem">Cultura além da erudição</a></li><li><a href="#producao-sentidos">Cultura como produção social de sentidos</a></li><li><a href="#simbolos-linguagem">Símbolos, linguagem e classificação</a></li><li><a href="#valores-normas">Valores, normas e práticas</a></li><li><a href="#aprendizagem-socializacao">Aprendizagem cultural e socialização</a></li><li><a href="#instituicoes-materiais">Cultura, instituições e condições materiais</a></li><li><a href="#variacao-poder">Variação interna, disputa e poder</a></li><li><a href="#circulacao-mudanca">Permanência, circulação e mudança cultural</a></li><li><a href="#sintese-diversidade">Síntese e passagem à diversidade cultural</a></li>
-      </ol></nav>
-      <div class="base-subsection" id="cultura-alem"><h3>1. Cultura além da erudição</h3>
-        <p>No uso cotidiano, “ter cultura” pode significar conhecer livros, artes ou informações valorizadas. A Sociologia amplia radicalmente o foco. Cultura designa os processos pelos quais pessoas produzem, aprendem, compartilham, contestam e fazem circular sentidos para agir no mundo. Inclui modos de falar, comer, vestir, celebrar, crer, usar tecnologias e reconhecer situações. Uma conversa familiar e uma cerimônia universitária são tão analisáveis quanto uma obra artística.</p>
-        <p>Isso não transforma cultura numa coleção de costumes. Uma lista registra itens, mas não explica quem os pratica, o que significam, como foram aprendidos nem por que mudam. Também não basta opor absolutamente natureza e cultura. Seres humanos têm corpos, necessidades e capacidades biológicas, mas alimentação, cuidado, emoções e convivência assumem formas sociais. A pergunta produtiva é como dimensões corporais, ambientais e sociais se articulam em cada contexto.</p>
-        <aside class="pause-box"><h4>Pausa 1 — estranhar o familiar</h4><p>Escolha uma regra informal da sala. O que precisaríamos saber para explicá-la como prática aprendida, e não como comportamento “natural”?</p></aside>
-      </div>
-      <div class="base-subsection" id="producao-sentidos"><h3>2. Cultura como produção social de sentidos</h3>
-        <p>Sentidos não ficam guardados apenas na mente. Eles surgem e ganham alguma estabilidade nas relações. Um alimento oferecido pode expressar cuidado familiar, hospitalidade, celebração religiosa ou simples conveniência; ingredientes parecidos assumem sentidos diferentes conforme participantes, ocasião e forma de servir. Produção social significa que as interpretações dependem de convenções anteriores, mas são atualizadas por pessoas concretas.</p>
-        <p><strong>Cultura, sociedade e identidade</strong> se relacionam, porém não são sinônimos. Cultura refere-se a sentidos, classificações e modos aprendidos de agir. Sociedade indica redes de relações, posições, grupos e instituições pelas quais a vida coletiva se organiza. Identidade é uma identificação de si e dos outros, situada e relacional: ser estudante, integrante de uma família ou participante de uma religião pode tornar-se relevante em algumas interações e não em outras. Uma sociedade comporta repertórios culturais diversos, e uma pessoa combina identificações que podem mudar.</p>
-      </div>
-      <div class="base-subsection" id="simbolos-linguagem"><h3>3. Símbolos, linguagem e classificação</h3>
-        <p>Símbolos são gestos, sons, objetos ou imagens cujo sentido depende de convenções. Uma beca não é apenas tecido: em certo ritual, marca uma passagem institucional. Uma reação numa mensagem digital pode sinalizar concordância, ironia ou apenas leitura. Não há significado automático; participantes interpretam indícios com base em repertórios compartilhados e no contexto.</p>
-        <p>A linguagem permite nomear, comparar e classificar. Categorias como “formal”, “respeitoso”, “adequado” ou “competente” orientam julgamentos, mas suas fronteiras são aprendidas. Sotaques comunicam trajetórias e pertencimentos; quando um modo de falar é confundido com incapacidade, uma diferença linguística vira hierarquia social. Investigar essa classificação exige observar quem julga, em qual instituição, com quais efeitos e quais vozes contestam o julgamento.</p>
-        <aside class="pause-box"><h4>Pausa 2 — sentidos em contexto</h4><p>Uma mensagem “ok” num grupo da turma expressa concordância, pressa ou incômodo? Que elementos da sequência e da relação entre participantes sustentariam cada leitura?</p></aside>
-      </div>
-      <div class="base-subsection" id="valores-normas"><h3>4. Valores, normas e práticas</h3>
-        <p>Valores são ideias socialmente formuladas sobre o desejável, como respeito, autonomia, solidariedade ou pontualidade. Normas traduzem expectativas em orientações mais específicas: esperar a vez, entregar no prazo, usar certa forma de tratamento. Práticas são ações efetivamente realizadas. Os três planos não coincidem: uma instituição pode valorizar participação, estabelecer regras de fala e ainda produzir uma aula na qual poucas pessoas conseguem intervir.</p>
-        <p>Normas variam em grau de formalização. Algumas aparecem em regulamentos; outras são percebidas pela aprovação, pelo constrangimento ou pela correção cotidiana. Atrasos podem ser avaliados diferentemente numa conversa familiar, numa aula, num atendimento e numa celebração. Em vez de atribuir o comportamento a uma “cultura do grupo”, a análise considera transporte, trabalho, cuidado de parentes, autoridade, convenções locais e negociações entre participantes.</p>
-      </div>
-      <div class="base-subsection" id="aprendizagem-socializacao"><h3>5. Aprendizagem cultural e socialização</h3>
-        <p>A cultura é aprendida em processos de socialização que atravessam a vida. Famílias ensinam palavras, gostos, responsabilidades e maneiras de demonstrar afeto; escolas e universidades apresentam rotinas, saberes e formas legítimas de argumentar; grupos religiosos, amizades, trabalho e mídias ampliam ou desafiam esses repertórios. Aprender não é copiar mecanicamente: pessoas interpretam instruções, imitam, experimentam, erram, negociam e recusam.</p>
-        <p>Essa perspectiva evita o determinismo cultural. Ter aprendido uma regra não obriga todos a segui-la do mesmo modo. Trajetórias diferentes oferecem recursos e expectativas diferentes; uma pessoa circula por contextos com normas incompatíveis; novas experiências podem rever disposições antigas. Observar socialização é perguntar quem ensina, por quais meios, com quais sanções e como os aprendizes respondem.</p>
-      </div>
-      <div class="base-subsection" id="instituicoes-materiais"><h3>6. Cultura, instituições e condições materiais</h3>
-        <p>Sentidos precisam de suportes. Horários universitários dependem de calendários, transporte, salas, sistemas digitais e jornadas de trabalho. Alimentação compartilhada envolve renda, tempo, utensílios, restrições alimentares e acesso a cozinhas. Vestuário institucional articula representações de profissionalismo a preços, clima, regras de segurança e características corporais. A dimensão simbólica não paira fora da vida material.</p>
-        <p>Instituições organizam posições e recursos e autorizam algumas interpretações. A universidade define ritos de ingresso e conclusão, formas de avaliação e títulos; as pessoas, contudo, atribuem sentidos variados a essas regras. Analisar cultura institucional é estudar documentos e infraestrutura, mas também usos informais, experiências desiguais e disputas sobre o que a instituição deveria ser.</p>
-        <aside class="pause-box"><h4>Pausa 3 — significado e condição</h4><p>Como interpretar um atraso sem reduzi-lo a desrespeito nem explicá-lo apenas pelo transporte? Que combinação de sentidos, relações e condições investigar?</p></aside>
-      </div>
-      <div class="base-subsection" id="variacao-poder"><h3>7. Variação interna, disputa e poder</h3>
-        <p>Nenhum grupo é culturalmente homogêneo. Numa mesma turma, estudantes divergem sobre chamar docentes pelo primeiro nome, falar espontaneamente, silenciar para ouvir ou escrever no grupo fora do horário. Diferenças de geração, raça, gênero, religião, região, classe, deficiência e trajetória escolar podem cruzar essas práticas, sem produzir respostas automáticas.</p>
-        <p>O poder aparece na capacidade desigual de definir a interpretação legítima, transformar preferências em regras e aplicar sanções. Um padrão de fala pode ser apresentado como neutro; um código de vestuário pode favorecer certos corpos e recursos; plataformas podem tornar algumas mensagens mais visíveis. Ainda assim, poder não elimina disputa: participantes justificam, adaptam e contestam classificações. A análise deve localizar essas vozes, inclusive as menos ouvidas.</p>
-      </div>
-      <div class="base-subsection" id="circulacao-mudanca"><h3>8. Permanência, circulação e mudança cultural</h3>
-        <p>Práticas permanecem porque são repetidas, ensinadas, registradas e ligadas a afetos, interesses ou autoridades. Permanência não significa imobilidade. Uma celebração universitária pode conservar nomes e símbolos enquanto muda de local, inclui transmissão por mídia digital ou recebe reivindicações de acessibilidade. Toda repetição ocorre em novas circunstâncias.</p>
-        <p>Circulação ocorre quando palavras, roupas, receitas, imagens e rituais atravessam famílias, religiões, mercados, instituições e plataformas. Ao circular, um elemento é selecionado e reinterpretado; não transporta intacto um sentido original. Mudanças podem decorrer de conflito, migração, tecnologia, política institucional ou improvisação cotidiana. Perguntar quem ganha visibilidade e quem controla os meios de circulação conecta cultura e poder.</p>
-        <aside class="pause-box"><h4>Pausa 4 — rastrear uma mudança</h4><p>Que prática universitária mudou com os grupos digitais? O que permaneceu, quem impulsionou a mudança e quais novas desigualdades apareceram?</p></aside>
-      </div>
-      <div class="base-subsection" id="sintese-diversidade"><h3>9. Síntese e passagem à diversidade cultural</h3>
-        <p>Cultura é produção social de sentidos: aprendida na socialização, sustentada por símbolos e condições materiais, disputada em relações de poder e transformada pela circulação. Essa definição impede tratar uma prática como essência de um povo ou uma diferença como destino individual. Interpretar requer contexto, comparação, atenção à variação e evidência.</p>
-        <p>A próxima aula desloca esse vocabulário para a diversidade cultural. Se existem repertórios variados dentro das sociedades e se interpretações circulam em relações desiguais, como compreender diferenças sem converter o próprio ponto de vista em medida universal? Antes de avaliar uma prática, será necessário reconstruir seus sentidos e efeitos para participantes situados.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="plano-aula"><div class="section-title">Plano de Aula com Tempo</div><div class="timeline">
-    <div class="tl-item"><span class="tl-duration">10 min</span><span class="tl-text"><strong>Abertura e sondagem</strong> — Contraste entre usos cotidianos e sociológicos de cultura.</span></div>
-    <div class="tl-item"><span class="tl-duration">30 min</span><span class="tl-text"><strong>Exposição dialogada</strong> — Produção de sentidos; símbolos, linguagem, valores, normas e práticas.</span></div>
-    <div class="tl-item"><span class="tl-duration">20 min</span><span class="tl-text"><strong>Análise orientada</strong> — Cultura, sociedade e identidade; socialização, instituições e condições materiais.</span></div>
-    <div class="tl-item"><span class="tl-duration">35 min</span><span class="tl-text"><strong>Oficina em grupos</strong> — Interpretação das oito situações e produção da ficha analítica.</span></div>
-    <div class="tl-item"><span class="tl-duration">15 min</span><span class="tl-text"><strong>Socialização</strong> — Comparação de hipóteses, variações e evidências necessárias.</span></div>
-    <div class="tl-item"><span class="tl-duration">10 min</span><span class="tl-text"><strong>Síntese e passagem</strong> — Retomada do conceito e preparação da Aula 16 sobre diversidade cultural.</span></div>
-  </div></section>
-
-  <section id="leituras"><div class="section-title">Textos para Leitura Prévia</div>
-    <div class="ref-card"><div class="ref-author">LARAIA, Roque de Barros</div><div class="ref-title">Cultura: um conceito antropológico. Capítulos 1 e 2</div></div>
-    <div class="ref-card"><div class="ref-author">GIDDENS, Anthony</div><div class="ref-title">Sociologia. Capítulo sobre cultura</div></div>
-  </section>
-
-  <section id="atividade"><div class="section-title">Atividade em Sala</div><div class="activity-card">
-    <h3>Oficina — interpretar práticas sem naturalizá-las</h3>
-    <p><strong>Finalidade:</strong> construir hipóteses sociológicas que relacionem sentidos, aprendizagem, instituições, materiais, variação e mudança, evitando transformar uma observação em essência de um grupo.</p>
-    <p><strong>Organização:</strong> oito grupos recebem uma situação; se houver menos grupos, cada equipe analisa duas. Papéis sugeridos: leitura, registro, controle do tempo e apresentação. As descrições oferecem indícios, não respostas completas.</p>
-    <p><strong>Tempos:</strong> 5 minutos para leitura e distribuição de papéis; 20 para responder; 10 para revisar a diferença entre hipótese e evidência. A socialização posterior dura 15 minutos.</p>
-    <div class="situation-grid" aria-label="Oito situações para análise">
-      <article class="situation-card"><h4>Situação 1 — formas de chamar professores</h4><p>Na primeira semana, parte da turma usa “professor”, algumas pessoas dizem o primeiro nome e outras evitam chamar diretamente. Uma docente aceita todas as formas; outro pede o título. Estudantes discordam sobre qual modo demonstra respeito.</p></article>
-      <article class="situation-card"><h4>Situação 2 — silêncio e participação</h4><p>Durante um debate, algumas pessoas falam rapidamente e outras anotam, escutam e só comentam depois. O silêncio é interpretado por uns como desinteresse e por outros como atenção; a nota inclui participação oral.</p></article>
-      <article class="situation-card"><h4>Situação 3 — horários e atrasos</h4><p>A aula noturna começa às 19h. Estudantes que chegam do trabalho dependem de ônibus e entram em momentos diferentes. Parte da turma quer tolerância; outra teme repetir explicações. O regulamento fixa frequência, mas não resolve a convivência.</p></article>
-      <article class="situation-card"><h4>Situação 4 — alimentação compartilhada</h4><p>Um grupo organiza lanche e cada pessoa deve levar algo. Há restrições religiosas, alergias, dieta vegetariana e rendas distintas. Uma comida caseira é celebrada como afeto, enquanto quem compra algo pronto teme ser visto como pouco comprometido.</p></article>
-      <article class="situation-card"><h4>Situação 5 — vestuário institucional</h4><p>Antes de uma apresentação, recomenda-se “roupa adequada”. Surgem leituras diferentes sobre formalidade. O calor, o custo das peças, a expressão religiosa e de gênero e uma regra de segurança do laboratório limitam escolhas de maneiras distintas.</p></article>
-      <article class="situation-card"><h4>Situação 6 — mensagens em grupos digitais</h4><p>No grupo da disciplina, avisos oficiais se misturam a memes e pedidos enviados tarde. Algumas pessoas esperam resposta imediata; outras silenciam notificações por trabalho ou descanso. Administradores discutem apagar mensagens e definir horários.</p></article>
-      <article class="situation-card"><h4>Situação 7 — sotaques e julgamentos de competência</h4><p>Após um seminário, um comentário associa o sotaque de uma estudante a menor domínio do conteúdo, embora a avaliação escrita seja alta. Colegas contestam; outros dizem que existe um modo “mais profissional” de falar.</p></article>
-      <article class="situation-card"><h4>Situação 8 — celebração ou ritual universitário</h4><p>Uma cerimônia de recepção usa hino, fala de autoridades, camisetas e fotos nas redes. Para alguns, marca pertencimento; outros não participam por trabalho, acessibilidade, crença ou discordância e propõem mudar o formato.</p></article>
-    </div>
-    <h4>Oito perguntas aplicáveis a cada situação</h4>
-    <ol class="question-list"><li>Qual é a <strong>prática observada</strong>, sem ainda julgá-la?</li><li>Qual <strong>significado possível</strong> ela assume para participantes diferentes?</li><li>Que <strong>norma ou valor</strong> orienta expectativas e avaliações?</li><li>Como essa maneira de perceber ou agir pode ter sido objeto de <strong>aprendizagem</strong>?</li><li>Que <strong>instituição ou condição material</strong> possibilita ou limita a prática?</li><li>Que <strong>variação interna</strong> impede generalizar sobre o grupo?</li><li>Que <strong>mudança histórica</strong> pode ser investigada?</li><li>Qual <strong>evidência necessária</strong> permitiria testar a interpretação?</li></ol>
-    <p><strong>Produto:</strong> uma ficha de uma página com as oito respostas, uma hipótese central escrita como possibilidade e uma frase indicando o risco de naturalização.</p>
-    <p><strong>Socialização:</strong> cada grupo apresenta prática, hipótese e evidência em até um minuto. A turma acrescenta uma variação; o professor organiza no quadro “sentido”, “condição”, “disputa” e “mudança”.</p>
-    <details class="teacher-guidance"><summary>Possibilidades comentadas e orientações de mediação — uso do professor</summary><div class="teacher-guidance-content">
-      <p>As indicações abaixo são hipóteses de leitura, não respostas únicas. Outra interpretação pode ser aceita quando sustentada por evidências e quando distingue aquilo que foi observado daquilo que foi inferido.</p>
-
-      <h4>1. Situação 1 — formas de chamar professores</h4>
-      <p><strong>Prática observada:</strong> estudantes empregam título, primeiro nome ou evitam o chamado direto, enquanto docentes aceitam ou solicitam tratamentos diferentes. <strong>Significado possível:</strong> uma hipótese possível é que as formas comuniquem respeito, proximidade, cautela ou reconhecimento de autoridade; nenhuma delas é universalmente mais respeitosa. <strong>Norma ou valor:</strong> hierarquia, igualdade, formalidade e acolhimento podem orientar expectativas concorrentes. <strong>Aprendizagem:</strong> o grupo pode investigar como família, escola, universidade e experiências profissionais ensinaram modos de tratamento. <strong>Instituição ou condição material:</strong> posição docente, regras departamentais, tamanho da turma e canais de contato afetam a interação. <strong>Variação interna:</strong> docentes e estudantes divergem entre si e mudam o tratamento conforme ocasião. <strong>Mudança histórica:</strong> seria necessário verificar se gerações, cursos ou meios digitais alteraram as convenções. <strong>Evidência necessária:</strong> observação em situações distintas, orientações institucionais e entrevistas voluntárias permitiriam testar as hipóteses.</p>
-
-      <h4>2. Situação 2 — silêncio e participação</h4>
-      <p><strong>Prática observada:</strong> algumas pessoas falam durante o debate; outras escutam, anotam ou comentam depois, e a nota considera participação oral. <strong>Significado possível:</strong> silêncio pode indicar atenção, elaboração, insegurança, discordância ou dificuldade de entrada na conversa, não desinteresse automático. <strong>Norma ou valor:</strong> expressão pública, escuta, desempenho e igualdade de participação podem entrar em tensão. <strong>Aprendizagem:</strong> trajetórias escolares e familiares ensinam diferentes relações com fala, autoridade e exposição. <strong>Instituição ou condição material:</strong> critério de avaliação, tempo, acessibilidade, tamanho da turma e disposição da sala distribuem oportunidades. <strong>Variação interna:</strong> a mesma pessoa pode falar em grupos pequenos e silenciar no plenário. <strong>Mudança histórica:</strong> o grupo pode investigar a adoção de fóruns, registros escritos e outras modalidades. <strong>Evidência necessária:</strong> rubricas, observação dos turnos, produções escritas e consulta voluntária à turma ajudariam a comparar interpretações.</p>
-
-      <h4>3. Situação 3 — horários e atrasos</h4>
-      <p><strong>Prática observada:</strong> estudantes entram depois das 19h, colegas discutem tolerância e repetição de explicações, e o regulamento fixa frequência. <strong>Significado possível:</strong> atraso pode ser lido como desrespeito, dificuldade de deslocamento ou esforço para permanecer, mas seria necessário verificar cada ocorrência. <strong>Norma ou valor:</strong> pontualidade, continuidade da aula, equidade e cuidado coletivo orientam posições distintas. <strong>Aprendizagem:</strong> escola, trabalho e família ensinam relações variadas com relógios e compromissos. <strong>Instituição ou condição material:</strong> transporte, jornada de trabalho, cuidado de dependentes, horário do curso e regras institucionais se articulam sem formar causa única. <strong>Variação interna:</strong> trajetos, responsabilidades e frequências diferem. <strong>Mudança histórica:</strong> horários de ônibus, oferta noturna e controle de presença podem ter mudado. <strong>Evidência necessária:</strong> itinerários, registros de chegada, calendários, regulamentos e relatos voluntários sustentariam uma explicação mais precisa.</p>
-
-      <h4>4. Situação 4 — alimentação compartilhada</h4>
-      <p><strong>Prática observada:</strong> participantes levam alimentos caseiros ou comprados e lidam com restrições religiosas, alergias, dieta vegetariana e rendas diferentes. <strong>Significado possível:</strong> cozinhar pode expressar afeto, mas comprar também pode comunicar compromisso quando faltam tempo, recursos ou acesso a cozinha. <strong>Norma ou valor:</strong> reciprocidade, hospitalidade, inclusão, saúde e responsabilidade podem orientar o encontro. <strong>Aprendizagem:</strong> família, religião, amizades e mídias ensinam receitas e modos de oferecer ou recusar. <strong>Instituição ou condição material:</strong> renda, tempo, preço, utensílios, refrigeração e informação sobre ingredientes limitam escolhas. <strong>Variação interna:</strong> pessoas da mesma família ou religião podem adotar práticas distintas. <strong>Mudança histórica:</strong> preços, dietas e serviços de entrega transformam o compartilhamento. <strong>Evidência necessária:</strong> seria necessário verificar custos, ingredientes, condições de preparo e sentidos declarados, sem exigir exposição pessoal.</p>
-
-      <h4>5. Situação 5 — vestuário institucional</h4>
-      <p><strong>Prática observada:</strong> recomenda-se “roupa adequada” e existe uma regra de segurança do laboratório, enquanto participantes interpretam formalidade de modos diferentes. <strong>Significado possível:</strong> vestuário pode comunicar profissionalismo, pertencimento, expressão religiosa ou de gênero, conforto ou adequação técnica. <strong>Norma ou valor:</strong> é preciso distinguir proteção física, convenções de formalidade, autonomia e inclusão. <strong>Aprendizagem:</strong> família, escola, religião, trabalho e mídias ensinam códigos de apresentação. <strong>Instituição ou condição material:</strong> risco laboratorial, custo, clima, disponibilidade de peças e características corporais afetam escolhas. <strong>Variação interna:</strong> não há resposta uniforme entre pessoas de um gênero, religião ou curso. <strong>Mudança histórica:</strong> fotografias e códigos antigos podem mostrar transformações na formalidade. <strong>Evidência necessária:</strong> análise de riscos, regulamentos, preços, condições climáticas e consulta aos participantes permitiria separar necessidade de segurança de preferência estética.</p>
-
-      <h4>6. Situação 6 — mensagens em grupos digitais</h4>
-      <p><strong>Prática observada:</strong> avisos, memes e pedidos circulam em horários variados; pessoas esperam respostas, silenciam notificações e administradores cogitam regras. <strong>Significado possível:</strong> resposta rápida pode indicar cooperação, enquanto silêncio pode proteger descanso ou refletir trabalho e acesso intermitente. <strong>Norma ou valor:</strong> disponibilidade, urgência, privacidade, descanso e relevância são negociados. <strong>Aprendizagem:</strong> usos anteriores de plataformas e orientações da turma formam expectativas. <strong>Instituição ou condição material:</strong> aparelho, internet, jornada, notificações e autoridade dos administradores estruturam a comunicação. <strong>Variação interna:</strong> rotinas, acessibilidade e preferências diferem. <strong>Mudança histórica:</strong> o grupo pode comparar regras antes e depois da adoção das plataformas. <strong>Evidência necessária:</strong> regras registradas, recursos técnicos, horários agregados e consulta consentida seriam necessários; mensagens privadas não devem ser expostas.</p>
-
-      <h4>7. Situação 7 — sotaques e julgamentos de competência</h4>
-      <p><strong>Prática observada:</strong> um comentário associa sotaque a menor domínio, colegas contestam e a avaliação escrita da estudante é alta. <strong>Significado possível:</strong> o sotaque pode comunicar trajetória e pertencimento; a associação com competência transforma variação linguística em hierarquia. <strong>Norma ou valor:</strong> inteligibilidade, prestígio linguístico, mérito e igualdade de avaliação precisam ser diferenciados. <strong>Aprendizagem:</strong> escola, mídia e mercado de trabalho ensinam quais falas recebem autoridade. <strong>Instituição ou condição material:</strong> rubricas, bancas, tecnologias de áudio e acesso a oportunidades influem nos efeitos. <strong>Variação interna:</strong> falantes e ouvintes avaliam de modos diversos. <strong>Mudança histórica:</strong> seria possível investigar alterações nos padrões de fala valorizados. <strong>Evidência necessária:</strong> critérios de avaliação, notas, oportunidades posteriores e comparações entre apresentações são indispensáveis antes de concluir discriminação.</p>
-
-      <h4>8. Situação 8 — celebração ou ritual universitário</h4>
-      <p><strong>Prática observada:</strong> a cerimônia utiliza hino, autoridades, camisetas e fotografias; algumas pessoas participam, outras se ausentam e há proposta de mudança. <strong>Significado possível:</strong> uma hipótese possível é que o ritual produza pertencimento para uns e exclusão ou distanciamento para outros. <strong>Norma ou valor:</strong> tradição, integração, liberdade de crença, representação e inclusão podem conflitar. <strong>Aprendizagem:</strong> ritos escolares e universitários ensinam símbolos e papéis. <strong>Instituição ou condição material:</strong> horário, trabalho, acessibilidade, espaço, custo, crença e controle do programa afetam a presença. <strong>Variação interna:</strong> participantes e ausentes têm motivos diferentes; nenhum grupo fala com uma só voz. <strong>Mudança histórica:</strong> programas, formatos híbridos e reivindicações revelam disputas pelo ritual. <strong>Evidência necessária:</strong> documentos, dados de participação, auditoria de acessibilidade e entrevistas voluntárias ajudariam a avaliar interpretações.</p>
-
-      <h4>Orientações gerais de mediação</h4>
-      <p>Separar observação e inferência no quadro e solicitar evidências para cada hipótese. Interromper frases como “a cultura desse grupo é...” quando não houver demonstração, pedindo recorte, contexto e reconhecimento das variações internas. Não solicitar relatos pessoais obrigatórios nem transformar estudantes em representantes de famílias, religiões ou regiões. Aceitar hipóteses alternativas justificadas e explicitar o que permitiria compará-las. Encerrar retomando que julgar outras práticas pela centralidade dos próprios padrões abre o problema do etnocentrismo, enquanto reconstruir contextos prepara a relativização metodológica da Aula 16.</p>
-    </div><style>@media print { details.teacher-guidance > .teacher-guidance-content { display: block !important; } }</style></details>
-  </div></section>
-
-  <section id="recursos"><div class="section-title">Recursos Necessários</div><div class="resources-list"><span class="res-tag">Projetor</span><span class="res-tag">Quadro branco</span><span class="res-tag">Oito situações impressas ou projetadas</span><span class="res-tag">Fichas de resposta</span><span class="res-tag">Canetas</span></div></section>
-
-</main>
-
-<footer>
-  <a href="/introducao-sociologia/">← Página principal</a>
-  <span style="margin: 0 12px; color: var(--border);">|</span>
-  <span>Introdução à Sociologia — 2026.2</span>
-</footer>
-
-</body>
-</html>
+body {max-width:100%; overflow-x:hidden; overflow-wrap:anywhere;} main{max-width:960px;margin:auto} .base-text{max-width:72ch} .base-subsection{margin-bottom:24px} table{width:100%;border-collapse:collapse}th,td{padding:8px;border:1px solid var(--border);overflow-wrap:anywhere} .table-wrap,.table-region{overflow-x:auto;max-width:100%} .teacher-guidance{margin-top:20px;padding:16px;border:1px solid var(--border)} summary{cursor:pointer;font-weight:bold} .skip{position:absolute;left:-9999px}.skip:focus{left:12px;top:12px;z-index:300;background:var(--bg);padding:10px} a{overflow-wrap:anywhere} @media(max-width:640px){nav{position:static;flex-wrap:wrap;height:auto;padding:12px}.nav-center{display:none}.section-nav{position:static;flex-wrap:wrap}main{padding:20px 14px}.tl-item{flex-direction:column}.aula-header{padding:20px 14px}} @media print{nav,.section-nav,.skip{display:none!important}body,main,section,.aula-header,.activity-card,.pause-box,details{background:white!important;color:black!important}*{color:inherit!important;text-shadow:none!important;box-shadow:none!important}main{max-width:none;padding:0}.base-text{max-width:none}h1,h2,h3,summary{break-after:avoid}p{orphans:3;widows:3}table{font-size:9pt}.teacher-guidance{break-inside:auto}}
+</style></head><body>
+<a class="skip" href="#objetivos">Pular para o conteúdo</a>
+<nav aria-label="Navegação entre aulas"><div class="nav-left"><a href="../../index.html">Voltar ao curso</a></div><span class="nav-center">Encontro 04 de 15 · Aula 15 de 60</span><div class="nav-right"><a href="aula-14.html">← Aula anterior</a><a href="aula-16.html">Próxima aula →</a></div></nav>
+<div class="section-nav" aria-label="Seções"><a href="#objetivos">Objetivos</a><a href="#texto-base">Texto-base</a><a href="#plano-aula">Plano</a><a href="#atividade">Discussão</a><a href="#sintese">Síntese</a><a href="#leituras">Referências</a></div>
+<main><header class="aula-header"><div class="header-meta"><span class="meta-chip">Encontro <strong>04</strong> de 15 — 30/09/2026, quarta-feira</span><span class="meta-chip">Aula <strong>15</strong> de 60</span><span class="meta-chip">3ª aula do encontro</span><span class="meta-chip">Aproximadamente 1 hora-aula</span></div><h1>O suicídio como fato social: método e explicação em Durkheim</h1><p>Introdução à Sociologia · T01 · 2026.2 · Código 2101000 · SIGAA 4M1234</p></header>
+<section id="objetivos"><h2>Objetivos</h2><ul class="obj-list"><li>Distinguir variação de taxas e explicação de uma trajetória individual.</li><li>Definir integração e regulação como eixos diferentes.</li><li>Compreender normal e patológico como categorias analíticas historicamente situadas.</li></ul></section>
+<section id="texto-base" aria-labelledby="texto-base-title"><h2 id="texto-base-title">Texto-base</h2><div class="base-text"><p class="base-intro">Como estudar sociologicamente um fenômeno vivido como profundamente individual? A unidade examina taxas e condições coletivas, sem solicitar relatos pessoais nem classificar pessoas.</p><div class="base-subsection" id="a15-conceito-1">
+<h3>1. Do caso singular à comparação de taxas</h3>
+<p>Imagine duas notícias. A primeira relata uma morte específica e reconstrói fragmentos de uma trajetória. A segunda informa que uma taxa variou entre dois períodos ou entre grupos. Embora tratem de um mesmo tipo geral de ocorrência, elas fazem perguntas diferentes. A primeira pode buscar acontecimentos, relações e sofrimentos vividos por uma pessoa. A segunda pergunta se existe uma regularidade na distribuição coletiva dos casos. Confundir esses planos produz conclusões indevidas.</p>
+<p>Em <em>O suicídio</em>, Durkheim escolhe deliberadamente trabalhar com taxas. Seu problema não é explicar cada decisão individual nem negar a singularidade de cada trajetória. Ele procura compreender por que, em determinadas condições históricas, certos grupos apresentam regularidades diferentes de outros. A taxa relaciona o número de ocorrências a uma população de referência durante um período. Isso permite comparações que números absolutos não permitem: cem ocorrências em populações de tamanhos muito diferentes não representam a mesma frequência.</p>
+<p>Esse deslocamento é metodologicamente ousado. Um ato frequentemente interpretado como estritamente pessoal passa a ser interrogado como fenômeno que também possui dimensões sociais. A existência de padrões relativamente estáveis sugere que vínculos, normas e transformações coletivas podem influenciar a distribuição dos casos. “Influenciar”, contudo, não significa determinar mecanicamente cada pessoa. Uma explicação de taxas opera em nível agregado; uma explicação de trajetória exige outras informações.</p>
+<p>Para perceber a diferença, pense em uma escola que registra ausências. A taxa mensal pode revelar que faltas aumentaram depois de uma mudança no transporte. Ela não explica por que determinado estudante faltou em uma terça-feira: doença, cuidado de familiares, trabalho ou outro motivo podem estar envolvidos. Ainda assim, o padrão coletivo orienta uma pergunta sobre infraestrutura. O exemplo não equipara fenômenos; apenas mostra por que nível agregado e nível individual pedem evidências diferentes.</p>
+<p>A aula, portanto, não utiliza sofrimento pessoal como ilustração banal. Seu objeto é o raciocínio sociológico: como construir comparações, distinguir níveis de análise e avaliar hipóteses. Relatos individuais não serão solicitados. O debate deve permanecer acadêmico, respeitoso e orientado por dados, conceitos e limites.</p>
+<aside class="pause-box"><h4>Pausa para discussão</h4><p>Por que comparar números absolutos pode enganar quando as populações têm tamanhos diferentes? Que informação uma taxa acrescenta e que informação ela não oferece?</p></aside>
+</div><div class="base-subsection" id="a15-conceito-2">
+<h3>2. Normal e patológico: um diagnóstico da vida social</h3>
+<p>Antes de tratar da anomia, é necessário retomar a distinção durkheimiana entre <strong>normal</strong> e <strong>patológico</strong>. No uso cotidiano, “normal” costuma significar correto, saudável ou desejável. Em Durkheim, o ponto de partida é morfológico e comparativo: um fato pode ser considerado normal quando aparece de modo geral em sociedades de determinado tipo e fase de desenvolvimento. Patológico é o que indica funcionamento excepcional ou perturbado em relação a essas condições.</p>
+<p>Essa definição não transforma frequência em aprovação moral. Um fenômeno frequente pode ser injusto, e um fenômeno raro pode ser desejável. Também não autoriza aplicar categorias médicas diretamente a pessoas ou culturas. Durkheim procura criar critérios para examinar o funcionamento de sociedades, não distribuir insultos. Para saber se uma forma de divisão do trabalho é normal, por exemplo, não basta constatar que ela existe; é preciso investigar se produz coordenação e vínculo ou se opera sob desregulação e coerção desigual.</p>
+<p>A comparação precisa respeitar sociedades e períodos comparáveis. Uma taxa esperada em determinada composição populacional pode ter significado diferente em outra. Mudanças no registro, na legislação ou na classificação também alteram séries. O pesquisador deve definir a população, o intervalo temporal e o critério do fenômeno antes de interpretar variações. Sem esse controle, “normal” corre o risco de virar apenas a média de dados incompatíveis.</p>
+<p>Também é preciso escolher o grupo de comparação sem circularidade. Se primeiro chamamos um caso de patológico e depois selecionamos apenas casos que confirmam essa impressão, o conceito deixa de testar a realidade. A classificação deve ser construída com critérios anteriores à conclusão, admitir contraexemplos e ser revista quando sociedades comparáveis mostram variações relevantes.</p>
+<p>A ideia de patologia social tem ainda uma consequência crítica: a ordem existente não é automaticamente funcional. Instituições podem falhar em integrar ou regular; a divisão do trabalho pode ser anômica ou forçada; transformações podem gerar descompassos. Durkheim não reduz a Sociologia à defesa de qualquer estabilidade. Ele oferece instrumentos para perguntar quando as regras sustentam cooperação e quando deixam pessoas e grupos diante de expectativas contraditórias ou sem limites reconhecidos.</p>
+</div><div class="base-subsection" id="a15-conceito-3">
+<h3>3. Anomia e o problema da regulação</h3>
+<p>Na Aula 13, anomia apareceu como falha de coordenação entre funções especializadas. Agora o conceito ganha alcance mais amplo. <strong>Anomia</strong> designa insuficiência ou desorganização da regulação social: regras deixam de orientar de modo estável as expectativas, e a relação entre aspirações e meios disponíveis perde limites reconhecidos. Não é simplesmente ausência total de leis, nem sinônimo de crime, caos visível ou escolha individual de “não seguir regras”.</p>
+<p>Transformações rápidas ajudam a compreender o problema. Em uma crise econômica, ocupações desaparecem, rendas mudam e projetos deixam de parecer viáveis. Em uma expansão repentina, novas possibilidades também podem desorganizar referências, porque desejos crescem mais rápido do que os critérios coletivos capazes de limitá-los. O ponto durkheimiano é que tanto perdas quanto ganhos abruptos podem perturbar expectativas. A anomia não deriva automaticamente de pobreza; refere-se à relação instável entre aspirações, regras e posições.</p>
+<p>Durkheim discute a regulação econômica e também mudanças nas normas que organizavam a vida conjugal. Essas análises pertencem ao contexto histórico de sua obra e não devem ser transportadas sem crítica para o presente. Estruturas familiares, direitos e relações de gênero mudaram. O conceito pode continuar útil se a aplicação contemporânea identificar quais regras estão em transformação e evitar transformar uma configuração histórica particular em padrão universal.</p>
+<p>Um exemplo atual pode ser construído sem afirmar causalidade pronta. Trabalhadores de uma plataforma recebem pontuações, metas e remunerações alteradas com pouca previsibilidade. A hipótese de desregulação pergunta se as regras são compreensíveis, estáveis e negociáveis; quais expectativas elas produzem; e como mudanças afetam diferentes grupos. Não basta observar insegurança e chamá-la de anomia. É necessário reunir documentos, séries de remuneração, entrevistas e informações institucionais.</p>
+<p>A regulação não se reduz ao volume de normas. Um ambiente pode acumular regulamentos e continuar imprevisível se eles se contradizem, mudam sem aviso ou são aplicados seletivamente. Inversamente, poucas regras amplamente compreendidas podem coordenar expectativas. Investigar anomia exige observar legitimidade, estabilidade, alcance e capacidade efetiva de orientar condutas.</p>
+<aside class="pause-box"><h4>Pausa para discussão</h4><p>Uma mudança rápida de regras é necessariamente anômica? Que sinais permitiriam distinguir adaptação regulada de desregulação persistente?</p></aside>
+</div><div class="base-subsection" id="a15-conceito-4">
+<h3>4. Integração e regulação como eixos analíticos</h3>
+<p><strong>Integração</strong> diz respeito à intensidade e à qualidade dos vínculos que conectam pessoas a grupos e instituições. Participação, pertencimento, obrigações recíprocas e objetivos comuns podem integrar. <strong>Regulação</strong> diz respeito às regras que estabelecem limites, coordenam expectativas e tornam condutas relativamente previsíveis. Os eixos se relacionam, mas não são equivalentes: alguém pode pertencer intensamente a um grupo submetido a regras excessivas, ou viver sob muitas normas formais com vínculos frágeis.</p>
+<p>A tipologia apresentada por Durkheim organiza diferenças por insuficiência ou excesso desses mecanismos. O tipo egoísta é associado à integração insuficiente; o altruísta, à integração excessiva e à subordinação intensa do indivíduo ao grupo; o anômico, à regulação insuficiente. A obra também discute regulação excessiva em outro tipo. O roteiro da aula concentra-se nos três primeiros, mas é importante perceber a lógica: não há uma quantidade abstrata de vínculo ou regra que seja sempre melhor. O problema é a configuração social e seus efeitos.</p>
+<p>Os tipos não são diagnósticos de pessoas. Não se deve olhar para alguém e classificá-lo como “egoísta”, “altruísta” ou “anômico”. As palavras nomeiam relações causais propostas para explicar variações agregadas, não traços de personalidade. Tampouco uma taxa elevada autoriza escolher um tipo por intuição. Seriam necessárias evidências independentes sobre participação coletiva, mudanças normativas, instituições e períodos.</p>
+<p>Essa distinção protege a análise de dois reducionismos. O individualismo metodológico ingênuo explicaria toda ocorrência apenas por características pessoais. O sociologismo igualmente ingênuo apagaria biografias, sofrimento psíquico e condições clínicas. Uma pesquisa responsável pode articular níveis: estatísticas descrevem distribuição; estudos institucionais examinam contextos; abordagens qualitativas investigam sentidos e trajetórias; conhecimentos psicológicos e clínicos tratam dimensões que a taxa não alcança.</p>
+<aside class="pause-box"><h4>Pausa para discussão</h4><p>Pense em uma instituição com regras numerosas, mas vínculos frágeis. Ela é altamente regulada, altamente integrada, ambas ou nenhuma? Que observações sustentariam sua resposta?</p></aside>
+</div></div></section>
+<section id="plano-aula"><h2>Percurso da hora-aula</h2><div class="timeline"><div class="tl-item"><span class="tl-duration">10 min</span><span class="tl-text">Como estudar sociologicamente um fenômeno vivido como profundamente individual? A unidade examina taxas e condições coletivas, sem solicitar relatos pessoais nem classificar pessoas.</span></div><div class="tl-item"><span class="tl-duration">25 min</span><span class="tl-text">Leitura dialogada e desenvolvimento dos conceitos desta unidade.</span></div><div class="tl-item"><span class="tl-duration">20 min</span><span class="tl-text">Discussão e elaboração do registro proposto; comparação das justificativas com mediação docente.</span></div><div class="tl-item"><span class="tl-duration">5 min</span><span class="tl-text">Síntese e transição: Na Aula 16, vamos testar o que dados comparativos permitem afirmar e separar correlação, mecanismo e causalidade.</span></div></div></section>
+<section id="atividade"><h2>Discussão e registro</h2><div class="activity-card" data-gabarito="obrigatorio"><p>Considere duas instituições fictícias: na primeira, regras mudam semanalmente e ninguém sabe quais expectativas serão mantidas; na segunda, as regras são estáveis, mas recém-chegados não encontram vínculos ou redes de apoio. Qual eixo — regulação ou integração — orienta melhor uma hipótese inicial em cada caso? Por que esses relatos não autorizam prever atos individuais?</p><details class="teacher-guidance"><summary>Orientação docente e resposta comentada</summary><p>No primeiro caso, a instabilidade de expectativas orienta uma hipótese sobre regulação. Não basta contar normas: regras numerosas, contraditórias ou imprevisíveis podem não oferecer orientação estável. No segundo, a ausência de vínculos sugere investigar integração. Estabilidade normativa e participação em redes são dimensões distintas, embora possam se relacionar. Aceite respostas que reconheçam essa interdependência e explicitem os indícios usados, sem transformar cada instituição num tipo puro.</p><p>Os casos não fornecem taxas, trajetórias, duração da exposição ou composição dos grupos. Portanto, não demonstram associação com suicídio e muito menos permitem prognóstico individual. Peça que estudantes formulem hipóteses condicionais e indiquem dados necessários. Uma resposta adequada distingue conceito, evidência disponível e informação ausente. Corrija usos de anomia como sinônimo de qualquer desordem e de integração como simples obediência. A discussão é metodológica; ninguém precisa narrar experiências de sofrimento. Encerre retomando que uma explicação de padrões coletivos não substitui o cuidado com pessoas concretas.</p></details></div></section>
+<section id="sintese"><h2>Síntese e continuidade</h2><p>Integração diz respeito aos vínculos de pertencimento; regulação, à orientação social de expectativas. As categorias ajudam a construir hipóteses sobre padrões, e não diagnósticos pessoais.</p><p>Na Aula 16, vamos testar o que dados comparativos permitem afirmar e separar correlação, mecanismo e causalidade.</p></section><section id="leituras">
+<div class="section-title">Textos para Leitura Prévia</div>
+<div class="ref-card">
+<div class="ref-author">DURKHEIM, Émile</div>
+<div class="ref-title"><em>O suicídio</em>. Livro II, capítulo 1, trechos selecionados</div>
+</div>
+<div class="ref-card">
+<div class="ref-author">QUINTANEIRO, Tania et al.</div>
+<div class="ref-title"><em>Um toque de clássicos</em>. Capítulo dedicado a Durkheim</div>
+</div>
+</section>
+</main><footer>Introdução à Sociologia · T01 · 2026.2 · <a href="../../index.html">Voltar ao curso</a></footer></body></html>
