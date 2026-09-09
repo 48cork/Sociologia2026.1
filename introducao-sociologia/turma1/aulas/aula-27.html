@@ -1,95 +1,127 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aula 27 — Introdução à Sociologia | 2026.2</title>
-<style>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Aula 27 — Formar o grupo e delimitar o problema do experimento sociológico · 2026.2</title><style>
   :root {
-    --bg: #0a0a0f;
-    --surface: #12121c;
-    --card: #1a1a2e;
-    --border: #2a2a4a;
-    --purple: #7c3aed;
-    --purple-lt: #a855f7;
-    --blue: #4f46e5;
-    --blue-lt: #818cf8;
-    --teal-lt: #2dd4bf;
-    --amber-lt: #fbbf24;
-    --rose-lt: #fb7185;
-    --text: #e2e8f0;
-    --muted: #94a3b8;
-    --radius: 12px;
+    --bg: #0a0a0f; --surface: #12121c; --card: #1a1a2e; --border: #2a2a4a;
+    --purple: #7c3aed; --purple-lt: #a855f7; --blue: #4f46e5; --blue-lt: #818cf8;
+    --teal-lt: #2dd4bf; --amber-lt: #fbbf24; --rose-lt: #fb7185;
+    --text: #e2e8f0; --muted: #94a3b8; --radius: 12px;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
-
-  nav {
-    position: sticky; top: 0; z-index: 100;
-    background: rgba(18,18,28,0.95); backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--border);
-    padding: 0 24px; height: 56px;
-    display: flex; align-items: center; justify-content: space-between; gap: 16px;
-  }
+  html, body { max-width: 100%; overflow-x: clip; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; min-height: 100vh; overflow-wrap: anywhere; }
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(18,18,28,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
   nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; white-space: nowrap; }
   nav a:hover { color: var(--text); }
   .nav-left { display: flex; align-items: center; gap: 10px; }
-  .nav-badge { background: var(--rose-lt); color: #0a0a0f; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+  .nav-badge { background: var(--purple); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
   .nav-center { font-size: 0.875rem; color: var(--muted); }
   .nav-right { display: flex; gap: 16px; align-items: center; }
-
   main { max-width: 860px; margin: 0 auto; padding: 40px 24px 80px; }
-
-  .aula-header {
-    background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
-    padding: 32px; margin-bottom: 32px;
-    border-top: 4px solid var(--rose-lt);
-  }
+  .aula-header { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; margin-bottom: 32px; border-top: 4px solid var(--blue); }
   .header-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; align-items: center; }
-  .bloco-badge { background: var(--rose-lt); color: #0a0a0f; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .bloco-badge { background: var(--blue); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
   .meta-chip { background: var(--surface); border: 1px solid var(--border); font-size: 0.8rem; color: var(--muted); padding: 4px 12px; border-radius: 20px; }
+  .meta-chip strong { color: var(--text); }
   .aula-header h1 { font-size: 1.5rem; font-weight: 700; line-height: 1.3; color: var(--text); }
-
-  section { margin-bottom: 32px; }
-  .section-title {
-    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--rose-lt); margin-bottom: 16px; padding-bottom: 8px;
-    border-bottom: 1px solid var(--border);
-  }
-
+  section { margin-bottom: 32px; scroll-margin-top: 112px; }
+  .section-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue-lt); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
   .obj-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
   .obj-list li { display: flex; gap: 12px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
-  .obj-list li::before { content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--rose-lt); margin-top: 7px; flex-shrink: 0; }
-
+  .obj-list li::before { content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--blue-lt); margin-top: 7px; flex-shrink: 0; }
   .content-topic { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 12px; }
-  .content-topic h3 { font-size: 0.95rem; font-weight: 600; color: var(--rose-lt); margin-bottom: 8px; }
+  .content-topic h3 { font-size: 0.95rem; font-weight: 600; color: var(--purple-lt); margin-bottom: 8px; }
   .content-topic ul { list-style: none; padding: 0; }
   .content-topic ul li { padding: 4px 0 4px 16px; position: relative; color: var(--muted); font-size: 0.9rem; }
   .content-topic ul li::before { content: '—'; position: absolute; left: 0; color: var(--border); }
-
   .timeline { display: flex; flex-direction: column; gap: 10px; }
-  .tl-item { display: flex; gap: 16px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; border-left: 3px solid var(--rose-lt); }
+  .tl-item { display: flex; gap: 16px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; border-left: 3px solid var(--blue); }
   .tl-duration { background: var(--surface); border: 1px solid var(--border); color: var(--amber-lt); font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
   .tl-text { font-size: 0.9rem; color: var(--text); }
-
   .ref-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 10px; border-left: 3px solid var(--blue-lt); }
   .ref-author { font-size: 0.8rem; font-weight: 700; color: var(--blue-lt); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
   .ref-title { font-size: 0.9rem; color: var(--text); }
   .ref-pages { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
-
   .activity-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; font-size: 0.9rem; line-height: 1.7; border-left: 3px solid var(--teal-lt); }
+  .teacher-guidance { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-top: 18px; }
+  .teacher-guidance summary { cursor: pointer; color: var(--amber-lt); font-weight: 700; padding: 15px 17px; }
+  .teacher-guidance[open] summary { border-bottom: 1px solid var(--border); }
+  .teacher-guidance-content { padding: 16px 18px; }
+  .resources-list { display: flex; flex-wrap: wrap; gap: 10px; }
+  .res-tag { max-width: 100%; min-width: 0; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; }
+  footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--muted); font-size: 0.85rem; }
+  footer a { color: var(--purple-lt); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .section-nav { position: sticky; top: 56px; z-index: 90; background: rgba(10,10,15,.97); border-bottom: 1px solid var(--border); padding: 8px 16px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: thin; }
+  .section-nav a { flex: 0 0 auto; min-height: 36px; display: inline-flex; align-items: center; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 5px 12px; text-decoration: none; font-size: .8rem; }
+  .base-text { max-width: 72ch; margin-inline: auto; }
+  .base-intro { color: var(--muted); font-size: .92rem; margin-bottom: 16px; }
+  .base-subsection { scroll-margin-top: 112px; margin-bottom: 28px; }
+  .base-subsection h3 { color: var(--blue-lt); font-size: 1.15rem; line-height: 1.35; margin-bottom: 12px; }
+  .base-subsection p { color: var(--text); margin-bottom: 14px; line-height: 1.78; }
+  .base-subsection strong { color: #f1f5f9; }
+  .pause-box { background: rgba(79,70,229,.1); border: 1px solid rgba(129,140,248,.4); border-left: 4px solid var(--blue-lt); border-radius: var(--radius); padding: 16px 18px; margin: 22px 0; }
+  .pause-box h4 { color: var(--amber-lt); font-size: .75rem; letter-spacing: .09em; text-transform: uppercase; margin-bottom: 6px; }
+  .pause-box p { margin: 0; color: var(--text); font-weight: 600; line-height: 1.6; }
+  a:focus-visible { outline: 3px solid var(--amber-lt); outline-offset: 3px; border-radius: 3px; }
+  @media (max-width: 640px) {
+    nav { height: auto; min-height: 56px; padding: 8px 12px; flex-wrap: wrap; }
+    .nav-left, .nav-right { min-width: 0; }
+    .nav-center { display: none; }
+    .nav-right { gap: 10px; }
+    .section-nav { top: 72px; padding-inline: 10px; }
+    main { padding: 24px 14px 60px; }
+    .aula-header { padding: 22px 18px; }
+    .tl-item { flex-direction: column; gap: 8px; }
+  }
+  @media print { .teacher-guidance { break-inside: avoid; } }
 
+
+  :root {
+    --bg: #0a0a0f; --surface: #12121c; --card: #1a1a2e; --border: #2a2a4a;
+    --purple: #7c3aed; --purple-lt: #a855f7; --blue: #4f46e5; --blue-lt: #818cf8;
+    --teal-lt: #2dd4bf; --amber-lt: #fbbf24; --rose-lt: #fb7185;
+    --text: #e2e8f0; --muted: #94a3b8; --radius: 12px;
+    --bloco-color: #0d9488; --bloco-lt: #2dd4bf;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(18,18,28,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; white-space: nowrap; }
+  nav a:hover { color: var(--text); }
+  .nav-left { display: flex; align-items: center; gap: 10px; }
+  .nav-badge { background: var(--bloco-color); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+  .nav-center { font-size: 0.875rem; color: var(--muted); }
+  .nav-right { display: flex; gap: 16px; align-items: center; }
+  main { max-width: 860px; margin: 0 auto; padding: 40px 24px 80px; }
+  .aula-header { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; margin-bottom: 32px; border-top: 4px solid var(--bloco-color); }
+  .header-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; align-items: center; }
+  .bloco-badge { background: var(--bloco-color); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .meta-chip { background: var(--surface); border: 1px solid var(--border); font-size: 0.8rem; color: var(--muted); padding: 4px 12px; border-radius: 20px; }
+  .aula-header h1 { font-size: 1.5rem; font-weight: 700; line-height: 1.3; color: var(--text); }
+  section { margin-bottom: 32px; }
+  .section-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--bloco-lt); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+  .obj-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .obj-list li { display: flex; gap: 12px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
+  .obj-list li::before { content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--bloco-lt); margin-top: 7px; flex-shrink: 0; }
+  .content-topic { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 12px; }
+  .content-topic h3 { font-size: 0.95rem; font-weight: 600; color: var(--bloco-lt); margin-bottom: 8px; }
+  .content-topic ul { list-style: none; padding: 0; }
+  .content-topic ul li { padding: 4px 0 4px 16px; position: relative; color: var(--muted); font-size: 0.9rem; }
+  .content-topic ul li::before { content: '—'; position: absolute; left: 0; color: var(--border); }
+  .timeline { display: flex; flex-direction: column; gap: 10px; }
+  .tl-item { display: flex; gap: 16px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; border-left: 3px solid var(--bloco-color); }
+  .tl-duration { background: var(--surface); border: 1px solid var(--border); color: var(--amber-lt); font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+  .tl-text { font-size: 0.9rem; color: var(--text); }
+  .ref-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 10px; border-left: 3px solid var(--bloco-lt); }
+  .ref-author { font-size: 0.8rem; font-weight: 700; color: var(--bloco-lt); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+  .ref-title { font-size: 0.9rem; color: var(--text); }
+  .ref-pages { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
+  .activity-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; font-size: 0.9rem; line-height: 1.7; border-left: 3px solid var(--teal-lt); }
+  .info-card { background: rgba(13,148,136,0.08); border: 1px solid rgba(45,212,191,0.25); border-radius: var(--radius); padding: 20px; font-size: 0.9rem; line-height: 1.7; margin-bottom: 12px; }
   .resources-list { display: flex; flex-wrap: wrap; gap: 10px; }
   .res-tag { background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; }
-
-  .bloco-opening { background: rgba(251,113,133,0.08); border: 1px solid rgba(251,113,133,0.25); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 24px; font-size: 0.9rem; color: var(--muted); }
-  .bloco-opening strong { color: var(--rose-lt); }
-
-  .status-note { background: rgba(251,191,36,0.06); border: 1px solid rgba(251,191,36,0.2); border-radius: var(--radius); padding: 16px 20px; margin-top: 12px; font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
-  .status-note strong { color: var(--amber-lt); }
-
   footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--muted); font-size: 0.85rem; }
-  footer a { color: var(--rose-lt); text-decoration: none; }
+  footer a { color: var(--bloco-lt); text-decoration: none; }
   footer a:hover { text-decoration: underline; }
 
   html, body { max-width: 100%; overflow-x: clip; }
@@ -125,288 +157,36 @@
     .base-toc ol { width: auto; columns: auto; padding-left: 0; list-style-position: inside; }
     .tl-item { flex-direction: column; gap: 8px; }
   }
-  .material-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin-top:16px; }
-  .material-card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:16px; }
-  .material-card h3 { color:var(--teal-lt); font-size:.95rem; margin-bottom:8px; }
-  details { margin-top:18px; padding:16px 18px; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); }
-  summary { cursor:pointer; color:var(--amber-lt); font-weight:700; }
-  @media (max-width:640px) { .material-grid { grid-template-columns:1fr; } }
-  @media print { nav,.section-nav { display:none; } body { background:#fff; color:#111; font-size:11pt; } main { max-width:none; padding:0; } .aula-header,.content-topic,.activity-card,.material-card,details { background:#fff; color:#111; border-color:#777; break-inside:avoid; } a { color:#111; } }
-</style>
-</head>
-<body>
 
-<nav>
-  <div class="nav-left">
-    <a href="/introducao-sociologia/">← Página principal</a>
-    <span class="nav-badge">Aula 27</span>
-  </div>
-  <span class="nav-center">Aula 27 / 30</span>
-  <div class="nav-right">
-    <a href="aula-26.html">← Anterior</a>
-    <a href="aula-28.html">Próxima →</a>
-  </div>
-</nav>
-<div class="section-nav" aria-label="Seções da aula">
-<a href="#objetivos">Objetivos</a>
-<a href="#conteudo-programatico">Conteúdo</a>
-<a href="#texto-base">Texto-base</a>
-<a href="#plano-aula">Plano da aula</a>
-<a href="#leituras">Leituras</a>
-<a href="#atividade">Atividade</a>
-<a href="#recursos">Recursos</a>
-</div>
+  /* activity-materials-2026-2 */
+  .activity-card h3 { color: var(--teal-lt); font-size: 1.05rem; margin: 0 0 12px; }
+  .activity-card h4 { color: var(--amber-lt); margin: 18px 0 8px; }
+  .activity-card ol, .activity-card ul { padding-left: 22px; margin: 10px 0; }
+  .activity-card li { margin: 7px 0; }
+  .material-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 15px 17px; margin: 14px 0; break-inside: avoid; overflow-x: auto; }
+  .material-box table { width: 100%; min-width: 680px; table-layout: fixed; border-collapse: collapse; font-size: .82rem; }
+  .material-box caption { color: var(--text); text-align: left; font-weight: 700; padding-bottom: 8px; }
+  .material-box th, .material-box td { border: 1px solid var(--border); padding: 8px; text-align: left; vertical-align: top; overflow-wrap: anywhere; }
+  .material-box th { color: var(--amber-lt); background: var(--card); }
+  .teacher-guidance { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-top: 18px; }
+  .teacher-guidance summary { cursor: pointer; color: var(--amber-lt); font-weight: 700; padding: 15px 17px; }
+  .teacher-guidance[open] summary { border-bottom: 1px solid var(--border); }
+  .teacher-guidance-content { padding: 16px 18px; }
+  @media (max-width: 640px) { .material-box { padding: 12px; } }
+  @media print { nav, .section-nav { position: static; } .material-box, .teacher-guidance { break-inside: avoid; } .material-box { overflow: visible; } .material-box table { min-width: 0; font-size: 8pt; } }
 
-<main>
-
-  <div class="bloco-opening">
-    <strong>Início do Bloco VI — Mudança Social e Apresentações.</strong> O bloco final abre com movimentos sociais — a forma coletiva de mudança social — e usa o Experimento "A IA Tem Classe Social?" como estudo de caso de um fenômeno análogo: a mobilização de interpretações distintas em torno de uma mesma questão.
-  </div>
-
-  <div class="aula-header">
-    <div class="header-meta">
-      <span class="bloco-badge">Bloco VI — Mudança Social e Apresentações</span>
-      <span class="meta-chip">Aula 27</span>
-      <span class="meta-chip">Encontro 14 · Parte 1 de 2</span>
-      <span class="meta-chip">09/12/2026 — Quarta-feira</span>
-      <span class="meta-chip">Percurso completo do encontro: 4 horas-aula</span>
-      <span class="meta-chip">Esta página: aproximadamente 2 horas</span>
-    </div>
-    <h1>Movimentos sociais e ativismo digital: o Experimento como estudo de caso de interpretações em disputa</h1>
-  </div>
-
-  <section id="objetivos">
-    <div class="section-title">Objetivos da Aula</div>
-    <ul class="obj-list">
-      <li>Definir movimentos sociais, suas características e sua tipologia, com atenção ao ativismo digital como forma contemporânea de mobilização.</li>
-      <li>Usar o Experimento "A IA Tem Classe Social?" como estudo de caso de como diferentes grupos sociais mobilizam interpretações distintas diante de uma mesma questão tecnológica.</li>
-      <li>Apresentar, como achado agregado e anônimo, a divergência entre turmas de cursos diferentes como exemplo concreto dessa mobilização de interpretações.</li>
-      <li>Situar o estado atual da coleta de dados do Experimento e refletir sobre o viés de formação disciplinar na leitura de tecnologia.</li>
-    </ul>
-  </section>
-
-  <section id="conteudo-programatico">
-    <div class="section-title">Conteúdo Programático</div>
-
-    <div class="content-topic">
-      <h3>1. Movimentos sociais: conceito, características e tipologia</h3>
-      <ul>
-        <li>Definição: ação coletiva organizada, contínua, orientada para a mudança social; identidade coletiva e adversário como elementos-chave</li>
-        <li>Movimentos trabalhistas e sindicais: luta por direitos no capitalismo</li>
-        <li>Movimentos camponeses e de luta pela terra: Ligas Camponesas (Nordeste, décadas de 1950–60) e MST — disputas por território, trabalho e dignidade</li>
-        <li>Movimentos feministas, antirracistas e LGBTQIA+: demandas por reconhecimento (retomando conceitos já vistos nas Aulas 25 e 26)</li>
-      </ul>
-    </div>
-
-    <div class="content-topic">
-      <h3>2. Ativismo digital como movimento social contemporâneo</h3>
-      <ul>
-        <li>Redes sociais como plataforma de mobilização e organização coletiva</li>
-        <li>Movimentos "em rede" (Castells): #MeToo, #BlackLivesMatter, Primavera Árabe</li>
-        <li>Potencialidades e limites do ativismo digital: slacktivismo versus organização real</li>
-      </ul>
-    </div>
-
-    <div class="content-topic">
-      <h3>3. Do movimento social à mobilização de interpretações: o Experimento como estudo de caso</h3>
-      <ul>
-        <li>Se um movimento social mobiliza pessoas em torno de uma causa, o Experimento revela algo próximo: grupos sociais diferentes mobilizando <strong>interpretações diferentes</strong> diante do mesmo estímulo</li>
-        <li>Recapitulação do protocolo: as personas <strong>Seu Francisco</strong> (54 anos, agricultor, R$ 600/mês, São João do Rio do Peixe-PB) e <strong>Dra. Mariana</strong> (35 anos, advogada, R$ 12.000/mês, João Pessoa-PB); os 10 temas sorteáveis (Saúde, Saúde Mental, Educação Infantil, Carreira, Dívidas, Investimento, Trabalho, Família, Direito do Consumidor, Futuro e Tecnologia)</li>
-        <li>As Três Perguntas de Ouro: lente da <strong>Organização</strong> (Weber), lente do <strong>Silêncio</strong> (crítica), lente do <strong>Estilo de Vida</strong> (Bourdieu)</li>
-        <li>O Experimento não foi conduzido apenas nesta turma: rodou como projeto agregado em Introdução à Sociologia e Fundamentos do Pensamento Sociológico, com alunos de Letras, Geografia e Biologia</li>
-      </ul>
-    </div>
-
-    <div class="content-topic">
-      <h3>4. Achado agregado: a divergência entre turmas como exemplo concreto</h3>
-      <ul>
-        <li>Ao consolidar os relatórios já recebidos, um padrão de divergência se destacou: a turma de <strong>Letras</strong> (matutino) tendeu majoritariamente a defender que a IA é uma <strong>ferramenta neutra</strong>; a turma de <strong>Biologia</strong> sustentou majoritariamente que a <strong>IA tem classe social</strong>
-</li>
-        <li>Achado tratado de forma agregada e anônima — sem identificar grupos ou nomes além do curso de origem — porque o que importa sociologicamente é o padrão, não quem o produziu</li>
-        <li>Assim como um movimento social constrói identidade coletiva em torno de uma leitura compartilhada da realidade, cada curso parece ter mobilizado uma leitura compartilhada — e oposta — sobre a mesma tecnologia</li>
-      </ul>
-    </div>
-
-    <div class="content-topic">
-      <h3>5. Onde estamos na coleta de dados</h3>
-      <ul>
-        <li>A coleta ainda está em andamento: parte dos relatórios de grupos chegou sem os prints de evidência das conversas com a IA, que já foram solicitados novamente</li>
-        <li>Os resultados completos, organizados por tema sorteado, ainda não estão consolidados — o quadro de hoje é parcial, sobre a divergência geral entre cursos, não sobre cada tema</li>
-        <li>Nenhum resultado por tema será antecipado nesta aula: o que ainda não foi apurado não deve ser tratado como dado</li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="texto-base" aria-labelledby="texto-base-title">
-    <div class="section-title" id="texto-base-title">Texto-base para acompanhamento da aula</div>
-    <div class="base-text">
-      <p class="base-intro">Leitura de apoio para a exposição, a discussão e a retomada dos conceitos. As pausas podem ser realizadas oralmente, em duplas ou por registro breve.</p>
-      <nav class="base-toc" aria-label="Sumário do texto-base">
-<h3>Nesta leitura</h3>
-<ol>
-<li>
-<a href="#texto-problema">Uma pergunta para abrir: Quando uma indignação compartilhada se converte em ação coletiva duradoura?</a>
-</li>
-<li>
-<a href="#texto-contexto">Localizar o problema histórica e conceitualmente</a>
-</li>
-<li>
-<a href="#texto-1-movimentos-sociais-conceito-caracteristicas-e-tipolog">Movimentos sociais: conceito, características e tipologia</a>
-</li>
-<li>
-<a href="#texto-2-ativismo-digital-como-movimento-social-contemporaneo">Ativismo digital como movimento social contemporâneo</a>
-</li>
-<li>
-<a href="#texto-3-do-movimento-social-a-mobilizacao-de-interpretacoes-o">Do movimento social à mobilização de interpretações: o Experimento como estudo de caso</a>
-</li>
-<li><a href="#texto-recursos">Redes, recursos, repertórios e contexto</a></li>
-<li>
-<a href="#texto-aplicacao">Aplicação e trabalho com evidências</a>
-</li>
-<li>
-<a href="#texto-cuidados">Distinções, limites e cuidados conceituais</a>
-</li>
-<li>
-<a href="#texto-sintese">Síntese e passagem para a próxima aula</a>
-</li>
-</ol>
-</nav>
-      <div class="base-subsection" id="texto-problema">
-<h3>1. Uma pergunta para abrir: Quando uma indignação compartilhada se converte em ação coletiva duradoura?</h3>
-<p>
-<strong>Quando uma indignação compartilhada se converte em ação coletiva duradoura?</strong> Essa pergunta organiza a Aula 27, dedicada a movimentos sociais e ativismo digital: o experimento como estudo de caso de interpretações em disputa Ela parte de uma dificuldade reconhecível: o cotidiano nos oferece respostas rápidas, mas essas respostas frequentemente transformam costumes históricos em fatos naturais ou atribuem a indivíduos fenômenos produzidos por relações mais amplas.</p>
-<p>Pensemos em Ligas Camponesas, MST e mobilizações digitais comparados ao experimento pedagógico. A cena pode ser descrita de muitas maneiras, porém a descrição sociológica pergunta quem participa, quais posições ocupa, que regras orientam a conduta, como essas regras foram formadas e quais consequências recaem de modo desigual sobre os envolvidos. O exemplo funciona como porta de entrada; não substitui a análise nem autoriza generalizações sobre todos os casos.</p>
-<p>Os objetivos do roteiro apontam o percurso: Definir movimentos sociais, suas características e sua tipologia, com atenção ao ativismo digital como forma contemporânea de mobilização. Usar o Experimento &quot;A IA Tem Classe Social?&quot; como estudo de caso de como diferentes grupos sociais mobilizam interpretações distintas diante de uma mesma questão tecnológica. Apresentar, como achado agregado e anônimo, a divergência entre turmas de cursos diferentes como exemplo concreto dessa mobilização de interpretações. Situar o estado atual da coleta de dados do Experimento e refletir sobre o viés de formação disciplinar na leitura de tecnologia. Em vez de tratar essas metas como itens separados, o texto as encadeia. Definir permite observar; contextualizar evita anacronismos; comparar explicita diferenças; aplicar conceitos exige evidências; e discutir limites impede que uma teoria se torne resposta automática para qualquer problema.</p>
-<p>O olhar sociológico começa quando suspendemos por um momento a resposta evidente. Isso não significa abandonar conhecimentos cotidianos, mas interrogá-los. O senso comum é uma orientação prática compartilhada, indispensável à vida; a investigação sociológica, por sua vez, precisa explicitar procedimentos, conceitos e fontes, aceitar contestação e distinguir aquilo que sabe daquilo que apenas supõe.</p>
-<aside class="pause-box">
-<h4>Pausa para discussão</h4>
-<p>Que resposta de senso comum aparece primeiro diante da pergunta de abertura? Que informação seria necessária para testá-la sociologicamente?</p>
-</aside>
-</div>
-<div class="base-subsection" id="texto-contexto">
-<h3>2. Localizar o problema histórica e conceitualmente</h3>
-<p>Nenhum conceito desta aula surgiu fora do tempo. O problema de movimentos sociais e ativismo digital: o experimento como estudo de caso de interpretações em disputa deve ser ligado às transformações históricas, aos debates intelectuais e às experiências coletivas que lhe deram forma. Contextualizar não é decorar datas ou biografias: é compreender por que certas perguntas se tornaram relevantes e por que respostas concorrentes foram formuladas.</p>
-<p>A Sociologia trabalha numa tensão produtiva entre continuidade e mudança. Pessoas recebem instituições, linguagens e classificações já existentes, mas as reproduzem, interpretam e contestam em circunstâncias novas. Por isso, uma explicação não pode escolher simplesmente entre indivíduo e sociedade. Ela precisa mostrar por quais relações uma experiência singular se conecta a padrões, conflitos e processos históricos.</p>
-<p>As leituras indicadas no roteiro — GOHN, Maria da Glória Teoria dos movimentos sociais. Cap. 1 p. 11–40 CASTELLS, Manuel Redes de indignação e esperança: movimentos sociais na era da internet. Cap. 1 p. 1–28 BOURDIEU, Pierre O poder simbólico. Parte I, Cap. 2 — &quot;Campo intelectual e projeto criador&quot; p. 105–128 — servem de apoio a essa reconstrução. Elas não devem ser convertidas em frases de autoridade. O procedimento mais seguro é paráfrase responsável: apresentar o problema do autor, reconstruir seu argumento e indicar como ele ajuda a ler o conteúdo da aula, sem criar citações literais, páginas ou conclusões que o material não confirme.</p>
-<p>Também é necessário separar três planos. A explicação de um autor reconstrói seus conceitos nos termos do problema que ele enfrentou. A contextualização histórica situa as condições de produção e circulação dessas ideias. A aplicação contemporânea é uma operação nossa, que testa a fecundidade do conceito em outro cenário. Misturar os planos produz anacronismos e faz parecer que o autor comentou diretamente fatos que não conheceu.</p>
-</div>
-<div class="base-subsection" id="texto-1-movimentos-sociais-conceito-caracteristicas-e-tipolog"><h3>3. Como reconhecer um movimento social</h3><p>Movimento social é uma forma de ação coletiva que sustenta demandas públicas ao longo do tempo por meio de relações, coordenação e práticas compartilhadas. Uma opinião comum, uma multidão ocasional, uma organização isolada ou uma hashtag não constituem automaticamente movimento. A classificação depende de evidências sobre continuidade, participantes, demanda, interlocutores, redes e ações.</p><p>Demandas nomeiam problemas e mudanças pretendidas. Identidades coletivas são fronteiras e sentidos construídos na ação, não essências anteriores à mobilização. Interlocutores podem ser autoridades, empresas ou públicos; adversários não precisam formar bloco único. Movimentos também contêm disputas sobre objetivos, representação e estratégia. Por isso, não se deve falar como se “o movimento” tivesse voz perfeitamente homogênea.</p><p>As desigualdades estudadas nas Aulas 24–26 podem gerar reivindicações, mas não produzem mobilização por si. Pessoas em posições semelhantes podem não se reconhecer como coletivo, enfrentar custos diferentes ou escolher estratégias distintas. A passagem à ação exige investigar relações e condições concretas. Esse cuidado preserva agência sem supor que indignação individual basta.</p></div>
-<div class="base-subsection" id="texto-recursos"><h3>4. Redes, recursos, repertórios e contexto</h3><p>Redes conectam participantes, organizações e aliados; recursos incluem tempo, conhecimento, espaços, dinheiro, legitimidade e comunicação. Nenhum recurso garante sucesso, e grupos com poucos recursos formais podem criar apoios alternativos. Lideranças importam, mas coordenação também pode ser distribuída. A pergunta é como capacidades são reunidas, mantidas e convertidas em ação.</p><p><strong>Repertório</strong> é o conjunto historicamente disponível de formas de reivindicar: assembleia, abaixo-assinado, greve, ocupação, marcha, campanha, ação judicial ou produção cultural. Escolhas respondem a experiência, risco, público e reação das autoridades. Um mesmo recurso pode abrir possibilidade e impor limite. Comparar períodos evita tratar qualquer forma como eterna ou universal.</p><p>Contexto político inclui acesso a instituições, repressão, aliados, divisões entre autoridades e acontecimentos que mudam expectativas. Não funciona como cenário externo: movimentos interpretam oportunidades e ameaças, e suas ações também alteram o contexto. Explicações rigorosas conectam mecanismo e evidência, evitando atribuir êxito apenas à “força da causa”.</p><aside class="pause-box"><h4>Pausa para discussão</h4><p>Que combinação de rede, recurso, repertório e contexto sustentaria uma demanda além de um evento isolado?</p></aside></div>
-<div class="base-subsection" id="texto-2-ativismo-digital-como-movimento-social-contemporaneo"><h3>5. Mediação digital: alcance, infraestrutura e risco</h3><p>Plataformas digitais podem reduzir custos de comunicação, conectar redes dispersas, registrar abusos e acelerar circulação de enquadramentos. Também ordenam visibilidade por regras opacas, coletam dados e permitem vigilância, assédio ou desinformação. “Digital” descreve mediação e infraestrutura, não um tipo social separado do mundo presencial.</p><p>Uma hashtag pode integrar um repertório, mas sua popularidade não demonstra organização continuada. Para avaliar ativismo digital, procuramos coordenação, vínculos com ações fora da plataforma, produção de recursos, decisões, duração e resposta de interlocutores. A oposição entre “slacktivismo” e “organização real” simplifica: participação de baixo custo pode ser porta de entrada, ritual público ou ação sem continuidade; o efeito precisa ser investigado.</p><p>Plataformas não são canais neutros. Seus modelos de negócio, moderação e arquitetura afetam quem aparece e que riscos enfrenta. Movimentos adaptam táticas, migram de serviço e combinam presença física e digital. A análise precisa distinguir alcance de engajamento, visibilidade de poder e correlação temporal de causalidade.</p></div>
-<div class="base-subsection" id="texto-3-do-movimento-social-a-mobilizacao-de-interpretacoes-o"><h3>6. O Experimento como contraste, não como movimento</h3><p>Respostas agregadas do Experimento “A IA Tem Classe Social?” podem mostrar interpretações diferentes de um estímulo, desde que protocolo, amostra e evidências estejam completos. Elas não demonstram identidade coletiva, rede, demanda, interlocutor, repertório ou mobilização. Compará-las a um movimento como se fossem equivalentes seria um erro de categoria.</p><p>O Experimento pode cumprir função metodológica mais modesta: contrastar opinião agrupada com ação coletiva organizada. Uma regularidade entre cursos pode resultar de formação, composição da turma, formulação da pergunta, dinâmica da atividade ou acaso. Sem dados consolidados, nenhum padrão deve ser anunciado como achado. Relatórios ausentes impedem conclusão; não autorizam preencher lacunas com expectativa.</p><p>A oficina usa seis dossiês inteiramente fictícios para classificar casos por evidências. Um deles apresenta respostas semelhantes sem coordenação; outro documenta rede, demanda e repertório. O contraste ensina a perguntar o que falta. Assim, o experimento pedagógico é preservado como pergunta sobre interpretação, não promovido indevidamente a prova de movimento social.</p></div>
-<div class="base-subsection" id="texto-aplicacao">
-<h3>7. Aplicação e trabalho com evidências</h3>
-<p>O estudo de caso desta aula parte de Ligas Camponesas, MST e mobilizações digitais comparados ao experimento pedagógico. A finalidade não é decidir depressa se o caso confirma a teoria. Antes, é decompor a situação: identificar atores, posições, recursos, normas, discursos, escalas de tempo e possíveis efeitos. Somente depois se pergunta quais conceitos do roteiro oferecem uma interpretação consistente e quais aspectos permanecem fora de alcance.</p>
-<p>A atividade prevista ajuda a realizar essa passagem. De movimentos sociais à mobilização de interpretações: comparando os dois casos A turma se divide em grupos pequenos (3–4 alunos). Cada grupo escolhe (ou recebe) um movimento social entre os discutidos na exposição — Ligas Camponesas, MST, ativismo digital (#MeToo, #BlackLivesMatter) — e responde: — Identidade coletiva: que leitura compartilhada da realidade esse movimento constrói entre seus participantes? — Adversário ou questão comum: qual é o problema em torno do qual o movimento se organiza? Em seguida, cada grupo aplica a mesma pergunta ao achado agregado do Experimento — a divergência entre a turma de Letras (IA como ferramenta neutra) e a turma de Biologia (IA tem classe social) — e discute, sem consultar prints ou relatórios de nenhuma turma específica: — Que elementos da formação em Letras poderiam levar a uma leitura da IA como &quot;apenas ferramenta&quot;? — Que elementos da formação em Biologia poderiam levar a uma leitura da IA como um sistema com efeitos sociais desiguais? — Em que sentido cada curso &quot;mobilizou&quot; uma interpretação compartilhada, como um movimento social mobiliza uma identidade coletiva? Em que sentido essa analogia tem limites? — Como os conceitos de campo e habitus (Bourdieu) ajudam a explicar por que a mesma pergunta gera respostas opostas dependendo de quem pergunta? Cada grupo apresenta uma síntese de 2 minutos. O professor fecha destacando que a divergência entre cursos — como a identidade coletiva de um movimento social — não é um ruído a ser eliminado, mas um dado sociológico sobre como grupos sociais diferentes constroem leituras diferentes da mesma realidade. Nota metodológica sobre o estado da coleta: alguns relatórios de grupos ainda foram entregues sem os prints de evidência das conversas com a IA. Esses prints já foram solicitados novamente e são condição para a consolidação dos resultados por tema sorteado, que ainda está em andamento. Os dados apresentados hoje se referem apenas ao padrão agregado entre cursos — não há, ainda, resultado fechado por tema. O exercício ganha qualidade quando cada afirmação vem acompanhada de uma evidência observável ou de uma pergunta de pesquisa. Se a turma discorda, a divergência pode ser produtiva: os grupos devem indicar se usam conceitos diferentes, se selecionam evidências distintas ou se atribuem significados diferentes à mesma informação.</p>
-<p>Uma aplicação contemporânea rigorosa também considera alternativas. O mesmo padrão pode resultar de processos distintos, e uma evidência pode ser compatível com mais de uma interpretação. Entrevistas esclarecem sentidos atribuídos pelos participantes, observação acompanha práticas, documentos mostram regras e justificativas, e dados quantitativos revelam distribuição e variação. Nenhuma técnica responde sozinha a todas as perguntas.</p>
-<p>Ao apresentar o caso, é útil distinguir exemplo, ilustração e evidência. Um exemplo torna o conceito inteligível; uma ilustração aproxima o tema da experiência da turma; evidência é informação coletada e analisada por procedimento explícito. Confundir essas funções leva a tomar uma história convincente como prova suficiente. A Sociologia procura justamente controlar esse salto.</p>
-</div>
-<div class="base-subsection" id="texto-cuidados">
-<h3>8. Distinções, limites e cuidados conceituais</h3>
-<p>O principal cuidado desta aula é marcar como parcial todo achado não consolidado e reconhecer os limites da analogia. A advertência não enfraquece o conteúdo; ela define seu alcance. Conceitos bons simplificam a realidade de maneira controlada. Quando aplicados fora de suas condições, perdem precisão e viram apenas palavras sofisticadas para confirmar uma opinião anterior.</p>
-<p>Outra distinção necessária separa explicação causal, interpretação de sentidos e avaliação normativa. Podemos investigar por que algo acontece, compreender como os participantes lhe atribuem significado e discutir se suas consequências são desejáveis. São perguntas legítimas, mas não idênticas. Uma posição ética deve ser assumida com clareza, e não apresentada como se decorresse automaticamente de um dado ou de um autor.</p>
-<p>A escala também importa. Uma interação em sala, uma organização, uma cidade, um Estado e um processo transnacional não funcionam do mesmo modo. O que aparece como escolha numa escala pode ser condicionado por regras em outra. Ao mudar a escala, mudam as evidências e às vezes muda a própria pergunta. Especificar tempo, lugar e grupo torna a análise menos grandiosa e mais verificável.</p>
-<p>Por fim, diferenças internas precisam permanecer visíveis. Grupos sociais não são sujeitos homogêneos; instituições abrigam disputas; normas podem ser obedecidas, negociadas ou contestadas; identidades se cruzam. Evitar generalizações não significa abandonar padrões coletivos, mas explicar como eles se distribuem e por que não afetam todas as pessoas da mesma maneira.</p>
-<aside class="pause-box">
-<h4>Pausa para discussão</h4>
-<p>Que generalização apressada seria mais provável neste tema? Como reformulá-la para torná-la histórica, comparável e verificável?</p>
-</aside>
-</div>
-<div class="base-subsection" id="texto-sintese">
-<h3>9. Síntese e passagem para a próxima aula</h3>
-<p>
-<strong>Síntese.</strong> A Aula 27 mostrou que movimentos sociais e ativismo digital: o experimento como estudo de caso de interpretações em disputa deve ser estudado por meio de perguntas delimitadas, conceitos diferenciados e evidências adequadas. O problema de abertura conduziu da experiência cotidiana à contextualização, e os três núcleos do conteúdo programático foram articulados sem serem tratados como equivalentes.</p>
-<p>Ao final, o estudante deve ser capaz de retomar as metas do roteiro com suas próprias palavras: Definir movimentos sociais, suas características e sua tipologia, com atenção ao ativismo digital como forma contemporânea de mobilização. Usar o Experimento &quot;A IA Tem Classe Social?&quot; como estudo de caso de como diferentes grupos sociais mobilizam interpretações distintas diante de uma mesma questão tecnológica. Apresentar, como achado agregado e anônimo, a divergência entre turmas de cursos diferentes como exemplo concreto dessa mobilização de interpretações. Situar o estado atual da coleta de dados do Experimento e refletir sobre o viés de formação disciplinar na leitura de tecnologia. Esse domínio não se mede apenas pela lembrança de definições. Ele aparece quando alguém consegue reconhecer uma situação pertinente, justificar a escolha do conceito, propor uma evidência e indicar os limites da interpretação.</p>
-<p>As pausas de discussão transformam a leitura em trabalho coletivo. Elas permitem que o professor interrompa a exposição, recolha hipóteses, identifique confusões e retome o argumento. A síntese pode ser concluída no quadro com quatro colunas — problema, conceito, evidência e limite — de modo que a turma visualize o caminho percorrido durante aproximadamente duas horas desta parte do encontro.</p>
-<p>A passagem seguinte não reinicia o curso. Ela desloca a pergunta construída aqui para <strong>a socialização provisória das produções</strong>. O que aprendemos nesta aula funcionará como condição para a próxima: conceitos serão retomados apenas quando necessários, agora diante de outro problema. Assim, as duas partes do encontro e a sequência semanal formam um percurso contínuo, e não uma coleção de resumos independentes.</p>
-<aside class="pause-box">
-<h4>Pausa para discussão</h4>
-<p>Em uma frase, que relação entre experiência individual e processo social esta aula tornou mais visível?</p>
-</aside>
-</div>
-    </div>
-  </section>
-
-
-  <section id="plano-aula">
-    <div class="section-title">Plano de Aula com Tempo</div>
-    <div class="timeline">
-      <div class="tl-item">
-        <span class="tl-duration">10 min</span>
-        <span class="tl-text">
-<strong>Abertura do Bloco VI</strong> — Movimentos sociais como fio condutor do bloco final: da mudança social coletiva às apresentações dos seminários. Apresentação da pauta da aula.</span>
-      </div>
-      <div class="tl-item">
-        <span class="tl-duration">20 min</span>
-        <span class="tl-text">
-<strong>Exposição: Conceito e tipologia dos movimentos sociais</strong> — Definição, características e tipos, com destaque para Ligas Camponesas e MST como exemplos regionais de luta por terra e trabalho.</span>
-      </div>
-      <div class="tl-item">
-        <span class="tl-duration">15 min</span>
-        <span class="tl-text">
-<strong>Ativismo digital como movimento social contemporâneo</strong> — Movimentos em rede (Castells), exemplos (#MeToo, #BlackLivesMatter), potenciais e limites (slacktivismo).</span>
-      </div>
-      <div class="tl-item">
-        <span class="tl-duration">15 min</span>
-        <span class="tl-text">
-<strong>Transição: do movimento social à mobilização de interpretações</strong> — Recapitulação do protocolo do Experimento (personas, temas sorteados, Três Perguntas de Ouro) como estudo de caso análogo.</span>
-      </div>
-      <div class="tl-item">
-        <span class="tl-duration">25 min</span>
-        <span class="tl-text">
-<strong>Apresentação do achado agregado</strong> — A divergência entre a turma de Letras (IA como ferramenta neutra) e a turma de Biologia (IA tem classe social), como exemplo concreto de interpretações mobilizadas de forma distinta por grupos sociais diferentes.</span>
-      </div>
-      <div class="tl-item">
-        <span class="tl-duration">25 min</span>
-        <span class="tl-text">
-<strong>Atividade: movimentos, mobilização e interpretação</strong> — Em grupos, comparação entre a lógica de um movimento social e a divergência Letras x Biologia. (Ver Atividades em Sala.)</span>
-      </div>
-      <div class="tl-item">
-        <span class="tl-duration">10 min</span>
-        <span class="tl-text">
-<strong>Síntese e encaminhamentos</strong> — Status da coleta de dados do Experimento: relatórios pendentes de prints, novo pedido de envio, e cronograma de consolidação dos resultados por tema sorteado.</span>
-      </div>
-    </div>
-  </section>
-
-  <section id="leituras">
-    <div class="section-title">Textos para Leitura Prévia</div>
-    <div class="ref-card">
-      <div class="ref-author">GOHN, Maria da Glória</div>
-      <div class="ref-title">Teorias dos movimentos sociais: paradigmas clássicos e contemporâneos. 11. ed. São Paulo: Loyola, 2014.</div>
-      <div class="ref-pages">Referência identificada; sem paginação presumida.</div>
-    </div>
-    <div class="ref-card">
-      <div class="ref-author">CASTELLS, Manuel</div>
-      <div class="ref-title">Redes de indignação e esperança: movimentos sociais na era da internet. Rio de Janeiro: Zahar, 2013.</div>
-      <div class="ref-pages">Referência para mediação digital.</div>
-    </div>
-    <div class="ref-card">
-      <div class="ref-author">BOURDIEU, Pierre</div>
-      <div class="ref-title">O poder simbólico. Rio de Janeiro: Bertrand Brasil, 1989.</div>
-      <div class="ref-pages">Leitura complementar; não sustenta equivalência entre opinião e movimento.</div>
-    </div>
-  </section>
-
-  <section id="atividade"><div class="section-title">Atividade — Classificar seis dossiês de ação</div><div class="activity-card"><p>Grupos de três ou quatro classificam os seis dossiês fictícios como movimento social, organização, evento, campanha, opinião agregada ou caso inconclusivo. Produto: matriz com demanda, rede, continuidade, recursos, repertório, interlocutor, contexto, evidência ausente e classificação. Leitura: 7 min; análise: 10 min; matriz: 5 min; socialização: 3 min.</p><p><strong>Cuidado:</strong> os casos são didáticos; não exija filiação política, opinião pessoal ou relato de participação.</p></div>
-  <div class="material-grid"><article class="material-card"><h3>Dossiê A</h3><p>Moradores mantêm rede há três anos, assembleias mensais, demanda de saneamento, abaixo-assinados, audiência e negociação com prefeitura.</p></article><article class="material-card"><h3>Dossiê B</h3><p>Pesquisa encontra 72% de concordância com uma frase; não há contato, demanda conjunta, coordenação ou ação entre respondentes.</p></article><article class="material-card"><h3>Dossiê C</h3><p>Associação presta serviço aos membros e possui diretoria, mas não apresenta reivindicação pública ou campanha de mudança.</p></article><article class="material-card"><h3>Dossiê D</h3><p>Hashtag cresce após um evento; perfis divulgam ato, arrecadam recursos, criam grupos locais e mantêm pressão por seis meses.</p></article><article class="material-card"><h3>Dossiê E</h3><p>Multidão protesta uma tarde após decisão inesperada. Há demanda e interlocutor, mas o material não informa rede ou continuidade.</p></article><article class="material-card"><h3>Dossiê F</h3><p>Coletivos antigos formam coalizão, combinam ação judicial, vigília e campanha digital; divergem sobre estratégia e representação.</p></article></div>
-  <div class="activity-card"><h3>Oito perguntas</h3><ol><li>Qual dossiê traz apenas opinião agregada?</li><li>Em quais há demanda pública e interlocutor?</li><li>Que evidência demonstra continuidade?</li><li>Que recursos e repertórios aparecem?</li><li>Como a mediação digital muda possibilidades e riscos no D?</li><li>Por que organização formal não basta no C?</li><li>Que dado falta para classificar E?</li><li>Como divergência interna em F afeta, sem anular, ação coletiva?</li></ol><details><summary>Gabarito comentado</summary><p>B é opinião agregada: concordância não prova vínculo nem mobilização. A apresenta dimensões suficientes de movimento; C é organização de serviço sem demanda pública documentada. D pode integrar movimento em rede porque há grupos, recursos, ação presencial, demanda e continuidade; a hashtag isolada não bastaria. E permanece inconclusivo: evento de protesto pode iniciar mobilização, mas faltam rede, coordenação e duração. F mostra coalizão e repertórios diversos; conflito interno não elimina ação coletiva.</p><p>Demandas e interlocutores aparecem claramente em A, D, E e F. Assembleias por três anos, seis meses de pressão e coletivos antigos sustentam continuidade. Tempo, dinheiro, conhecimento jurídico, espaços, contatos e visibilidade são recursos; petição, audiência, ato, campanha, vigília e ação judicial são repertórios. Em D, plataformas ampliam alcance, mas trazem dependência algorítmica, vigilância e assédio. Classificações alternativas são aceitas quando indicam evidência, limite e informação necessária, sem converter opinião comum em movimento.</p></details></div></section>
-
-  <section id="recursos">
-    <div class="section-title">Recursos Necessários</div>
-    <div class="resources-list">
-      <span class="res-tag">Seis dossiês integrais nesta página</span>
-      <span class="res-tag">Matriz em papel ou editor</span>
-      <span class="res-tag">Quadro para síntese</span>
-    </div>
-  </section>
-
-</main>
-
-<footer>
-  <a href="/introducao-sociologia/">← Página principal</a>
-  &nbsp;·&nbsp; Introdução à Sociologia 2026.2
-</footer>
-
-</body>
-</html>
+body {max-width:100%; overflow-x:hidden; overflow-wrap:anywhere;} main{max-width:960px;margin:auto} .base-text{max-width:72ch} .base-subsection{margin-bottom:24px} table{width:100%;border-collapse:collapse}th,td{padding:8px;border:1px solid var(--border);overflow-wrap:anywhere} .table-wrap,.table-region{overflow-x:auto;max-width:100%} .teacher-guidance{margin-top:20px;padding:16px;border:1px solid var(--border)} summary{cursor:pointer;font-weight:bold} .skip{position:absolute;left:-9999px}.skip:focus{left:12px;top:12px;z-index:300;background:var(--bg);padding:10px} a{overflow-wrap:anywhere} @media(max-width:640px){nav{position:static;flex-wrap:wrap;height:auto;padding:12px}.nav-center{display:none}.section-nav{position:static;flex-wrap:wrap}main{padding:20px 14px}.tl-item{flex-direction:column}.aula-header{padding:20px 14px}} @media print{nav,.section-nav,.skip{display:none!important}body,main,section,.aula-header,.activity-card,.pause-box,details{background:white!important;color:black!important}*{color:inherit!important;text-shadow:none!important;box-shadow:none!important}main{max-width:none;padding:0}.base-text{max-width:none}h1,h2,h3,summary{break-after:avoid}p{orphans:3;widows:3}table{font-size:9pt}.teacher-guidance{break-inside:auto}}
+</style></head><body>
+<a class="skip" href="#objetivos">Pular para o conteúdo</a>
+<nav aria-label="Navegação entre aulas"><div class="nav-left"><a href="../../index.html">Voltar ao curso</a></div><span class="nav-center">Encontro 07 de 15 · Aula 27 de 60</span><div class="nav-right"><a href="aula-26.html">← Aula anterior</a><a href="aula-28.html">Próxima aula →</a></div></nav>
+<div class="section-nav" aria-label="Seções"><a href="#objetivos">Objetivos</a><a href="#texto-base">Texto-base</a><a href="#plano-aula">Plano</a><a href="#atividade">Discussão</a><a href="#sintese">Síntese</a><a href="#leituras">Referências</a></div>
+<main><header class="aula-header"><div class="header-meta"><span class="meta-chip">Encontro <strong>07</strong> de 15 — 21/10/2026, quarta-feira</span><span class="meta-chip">Aula <strong>27</strong> de 60</span><span class="meta-chip">3ª aula do encontro</span><span class="meta-chip">Aproximadamente 1 hora-aula</span></div><h1>Formar o grupo e delimitar o problema do experimento sociológico</h1><p>Introdução à Sociologia · T01 · 2026.2 · Código 2101000 · SIGAA 4M1234</p></header>
+<section id="objetivos"><h2>Objetivos</h2><ul class="obj-list"><li>Delimitar um problema dentro da questão central fixa.</li><li>Distinguir hipótese, evidência e conclusão.</li><li>Organizar responsabilidades e leitura bibliográfica.</li></ul></section>
+<section id="texto-base" aria-labelledby="texto-base-title"><h2 id="texto-base-title">Texto-base</h2><div class="base-text"><p class="base-intro">Como investigar desigualdade sem definir a conclusão antes de observar as respostas? Esta oficina inicia o planejamento da avaliação já aprovada.</p><div class="base-subsection" id="a27-problema"><h3>1. Da questão central a um problema observável</h3><p>A questão aprovada da avaliação é “Como a inteligência artificial reproduz desigualdades sociais?”. Ela organiza a investigação, mas não contém uma conclusão obrigatória. O grupo pode encontrar reprodução, contestação, adaptação pertinente ou ausência de diferenças consistentes. O trabalho será avaliado pela qualidade do método e da interpretação. A pergunta pública é ampla; o objeto observável será um conjunto documentado de respostas de uma ferramenta em condições delimitadas.</p><p>Para tornar a investigação viável, escolham um problema ao qual as cinco perguntas possam se referir, como possibilidades de formação e inserção profissional. Isso não abre um seminário de tema livre: o problema continua sendo o tratamento de personas que diferem somente pela renda. Um recorte adequado explicita qual situação será apresentada e quais oportunidades, custos ou expectativas serão comparados. Não é necessário representar todas as formas de desigualdade numa única experiência.</p><p>Uma hipótese é uma expectativa provisória. O grupo poderia esperar que uma persona receba opções mais restritas, mas precisa indicar o que contaria como restrição e admitir resultados contrários. Pedir à ferramenta que demonstre seu preconceito produziria uma resposta orientada pela própria pergunta. A investigação precisa permitir que o fenômeno apareça ou não, em vez de fabricar a confirmação esperada.</p></div>
+<div class="base-subsection" id="a27-conceitos"><h3>2. Conceitos com função na comparação</h3><p>Os clássicos oferecem perguntas, não respostas antecipadas sobre sistemas que não conheceram. Classe ajuda a distinguir recursos e relações sociais de uma identidade pessoal; racionalização permite interrogar padrões de classificação e cálculo; representações coletivas orientam a observação de imagens de sucesso e normalidade. Cada conceito deve fazer trabalho analítico: mostrar uma relação que não seria visível apenas resumindo as respostas.</p><p>Usar renda como variável do experimento não significa reduzir classe social à renda. As personas são construções sintéticas e sua diferença deliberada é monetária. Posições de classe envolvem propriedade, trabalho e poder, dimensões que não podem ser deduzidas automaticamente de dois valores declarados. Essa distinção impede que o desenho didático se torne uma descrição simplificada da sociedade.</p><p>Na etapa final, pelo menos três conceitos estudados devem interpretar evidências concretas. Hoje, registrem possibilidades teóricas e o tipo de trecho que cada uma ajudaria a analisar. As próximas aulas sobre cultura, instituições e desigualdade ampliarão essas escolhas. Selecionar conceitos agora não obriga a mantê-los quando os resultados indicarem outro caminho.</p></div>
+<div class="base-subsection" id="a27-evidencia"><h3>3. Evidência produzida e evidência interpretada</h3><p>O protocolo mínimo combina cinco perguntas, duas aplicações e duas personas: vinte respostas e dez comparações pareadas. Em cada envio, uma conversa nova recebe novamente o perfil completo e a pergunta exata. Repetir em conversa já utilizada introduziria contexto anterior. A ferramenta e o modelo, quando identificável, devem ser os mesmos, com condições equivalentes e registro das intercorrências.</p><p>As duas aplicações permitem observar variação, mas não produzem comprovação estatística. Um modelo pode formular respostas diferentes ao mesmo comando. É necessário preservar comandos e respostas integrais, inclusive semelhanças e resultados que contrariem a hipótese. A matriz separará o trecho observado, o conceito empregado, a explicação alternativa e a interpretação provisória. Essa separação torna o argumento verificável.</p><p>Recomendar uma opção gratuita a quem declara menos renda pode ser pertinente. Restringir sem justificativa suas aspirações ou atribuir incapacidade ao perfil exige outra análise. Uma diferença textual não é, por definição, discriminação. O grupo terá de explicar por que determinada formulação adapta uma recomendação ou naturaliza uma desigualdade, apoiando a inferência nos registros.</p></div>
+<div class="base-subsection" id="a27-grupo"><h3>4. Pesquisa coletiva e leitura responsável</h3><p>Os grupos têm até cinco estudantes. Distribuam tarefas de leitura, revisão das perguntas, organização dos registros e comparação, mas mantenham responsabilidade coletiva pelo argumento. Cada integrante deve conseguir explicar o procedimento e os limites da conclusão. Registrem contribuições e considerem as condições de acesso; não é exigida assinatura paga.</p><p>Uma referência localizada ainda não é uma referência lida. A ficha bibliográfica precisa identificar obra e edição, registrar a ideia relevante e distinguir paráfrase de citação. Respostas de IA não substituem a conferência das fontes. O uso adicional da ferramenta na preparação do trabalho deve ser declarado. As personas serão inteiramente fictícias, sem dados pessoais de colegas ou familiares.</p><p>O produto de hoje é uma proposta revisável: problema delimitado, hipótese provisória, possibilidades conceituais e responsabilidades. A entrega final permanece em 03/02/2027, conforme a home, com relatório de seis a oito páginas de texto principal e apresentação de até quinze minutos. As atividades de preparação não criam novas notas nem alteram a rubrica aprovada.</p></div></div></section>
+<section id="plano-aula"><h2>Percurso da hora-aula</h2><div class="timeline"><div class="tl-item"><span class="tl-duration">10 min</span><span class="tl-text">Como investigar desigualdade sem definir a conclusão antes de observar as respostas? Esta oficina inicia o planejamento da avaliação já aprovada.</span></div><div class="tl-item"><span class="tl-duration">25 min</span><span class="tl-text">Leitura dialogada e desenvolvimento dos conceitos desta unidade.</span></div><div class="tl-item"><span class="tl-duration">20 min</span><span class="tl-text">Discussão e elaboração do registro proposto; comparação das justificativas com mediação docente.</span></div><div class="tl-item"><span class="tl-duration">5 min</span><span class="tl-text">Síntese e transição: Na Aula 28, vamos construir os perfis comparáveis e revisar o controle da variável renda.</span></div></div></section>
+<section id="atividade"><h2>Discussão e registro</h2><div class="activity-card" data-gabarito="obrigatorio"><p>Em grupos de até cinco, registrem o problema escolhido dentro da questão central, uma hipótese que possa ser contrariada, duas possibilidades conceituais e a divisão inicial de responsabilidades. Formulem uma pergunta de teste idêntica para ambos os perfis. Troquem a ficha com outro grupo: a pergunta permite observar uma diferença ou já induz a conclusão?</p><details class="teacher-guidance"><summary>Orientação docente e resposta comentada</summary><p>Uma proposta adequada mantém a questão central sobre desigualdade nas respostas de IA e delimita um problema comum às personas. Pode investigar recomendações de formação profissional, por exemplo, sem introduzir idades, profissões ou territórios diferentes. A hipótese deve indicar algo observável e admitir refutação. “A IA sempre discrimina” não é hipótese bem delimitada; uma expectativa sobre restrição de oportunidades nas respostas selecionadas pode ser testada com os limites devidos.</p><p>Avalie se os conceitos têm função na leitura de evidências e se as responsabilidades incluem revisão coletiva, não apenas divisão de páginas. Na revisão entre pares, identifique perguntas que atribuem explicitamente preconceito à ferramenta antes da aplicação. Peça reformulação para uma solicitação comum às duas personas. Não exija resultado positivo, escolha de plataforma paga ou entrega bibliográfica adicional com nota. A oficina produz planejamento formativo. Registre dúvidas para a orientação docente e preserve integralmente os parâmetros da avaliação presentes na home do curso.</p></details></div></section>
+<section id="sintese"><h2>Síntese e continuidade</h2><p>O recorte transforma a questão ampla em investigação viável. A hipótese pode ser contrariada; conceitos e evidências precisam ter funções explícitas.</p><p>Na Aula 28, vamos construir os perfis comparáveis e revisar o controle da variável renda.</p></section><section id="leituras"><h2>Referências para aprofundamento</h2><p>MILLS, C. Wright. <em>A imaginação sociológica</em>. Capítulo sobre a promessa da Sociologia.</p><p>Instrumento canônico: avaliação na home do curso, seção “Como a inteligência artificial reproduz desigualdades sociais?”.</p></section>
+</main><footer>Introdução à Sociologia · T01 · 2026.2 · <a href="../../index.html">Voltar ao curso</a></footer></body></html>
