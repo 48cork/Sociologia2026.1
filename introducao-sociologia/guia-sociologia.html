@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="pt-BR">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Guia de Introdução à Sociologia · T01</title>
+<style>
+:root{font-family:system-ui,sans-serif;color:#19312e;background:#f4f5ef;line-height:1.6}*{box-sizing:border-box}body{margin:0}main{max-width:900px;margin:auto;padding:40px 20px 64px}h1{font-size:clamp(1.8rem,5vw,2.7rem);line-height:1.2;margin:8px 0 16px}h2{font-size:1.25rem;margin:0 0 10px}p{margin:8px 0}.eyebrow{font-weight:700;letter-spacing:.08em;font-size:.8rem;text-transform:uppercase}.muted{color:#526460}.panel{background:white;border:1px solid #ccd7cf;border-radius:16px;padding:24px;margin:24px 0}.status{background:#163e36;color:white}.status .muted{color:#d4e6df}.count{font-size:2rem;font-weight:750;display:block}progress{width:100%;height:18px;accent-color:#256958}ol{padding:0;list-style:none;display:grid;gap:12px}li{background:white;border:1px solid #ccd7cf;border-radius:12px;padding:20px}li.current{border:3px solid #256958;padding:18px;background:#eaf6ef}li h3{font-size:1.08rem;margin:6px 0}.badge{display:inline-block;background:#256958;color:white;border-radius:5px;padding:2px 8px;font-weight:700;font-size:.8rem;margin-bottom:8px}label{display:flex;align-items:center;gap:10px;cursor:pointer;margin-top:14px;padding:8px 0}input{width:22px;height:22px;accent-color:#256958}input:focus-visible{outline:3px solid #ad6600;outline-offset:4px}[hidden]{display:none!important}footer{font-size:.9rem;color:#526460}noscript{display:block;padding:24px;background:#ffe5b5}
+</style>
+<main>
+<header><div class="eyebrow">T01 · 2026.2 · 60h</div><h1>Introdução à Sociologia</h1><p>Guia de acompanhamento · 15 encontros semanais às quartas de manhã.</p></header>
+<noscript>Ative o JavaScript do navegador para exibir o cronograma, identificar a semana e registrar seu progresso.</noscript>
+<section class="panel status" aria-label="Situação da semana"><p id="today" class="muted"></p><h2 id="week"></h2><p id="weekDetail"></p><p><span class="count" id="countdown" role="status"></span>Entrega e apresentação do experimento sociológico final: <strong>03/02/2027</strong>.</p></section>
+<div id="regular">
+<section class="panel"><h2>Experimento sociológico final</h2><p>Avaliação final em grupo respondendo à pergunta:</p><p><strong>“Como a inteligência artificial reproduz desigualdades sociais?”</strong></p><p>Recesso acadêmico: 21/12/2026 a 31/01/2027, sem aulas nem obrigações.</p></section>
+<section class="panel" aria-label="Seu progresso"><h2>Seu acompanhamento</h2><p>Marque os encontros que você já revisou/preparou. Para desfazer, desmarque a caixa.</p><p id="progressText" role="status"></p><progress id="progress" max="15" value="0" aria-label="Encontros revisados/preparados"></progress><p id="storageNote" class="muted">As marcações ficam salvas neste navegador e neste dispositivo. Não são um registro de presença ou de nota.</p></section>
+<section><h2>Os 15 encontros</h2><p class="muted">O destaque usa a data do seu dispositivo e considera a semana de segunda-feira a domingo.</p><ol id="meetings"></ol></section>
+</div>
+<footer>Durante o recesso, o guia exibe somente o aviso de que não há aula na semana e a contagem regressiva para a entrega. Suas marcações são mantidas.</footer>
+</main>
+<script>
+'use strict';
+const meetings = [
+['2026-09-09','Introdução e contexto de surgimento da Sociologia','Roteiros 01 e 02'],
+['2026-09-16','Modernidade e primeiras formulações sociológicas','Roteiros 03 e 04'],
+['2026-09-23','A Sociologia como ciência e Durkheim','Roteiros 05 e 06'],
+['2026-09-30','Durkheim: integração, anomia e método','Roteiros 07 e 08'],
+['2026-10-07','Marx: história, produção e classes','Roteiros 09 e 10'],
+['2026-10-14','Weber: ação social e racionalização','Roteiros 11 e 12'],
+['2026-10-21','Síntese dos clássicos e elaboração inicial do projeto','Roteiros 13 e 14'],
+['2026-10-28','Cultura e diversidade','Roteiros 15 e 16'],
+['2026-11-04','Identidade, cultura de massa e socialização','Roteiros 17 e 18'],
+['2026-11-11','Grupos, normas e controle social','Roteiros 19 e 20'],
+['2026-11-18','Instituições sociais','Roteiros 21 e 22'],
+['2026-11-25','Estratificação e desigualdade social','Roteiros 23 e 24'],
+['2026-12-02','Raça, gênero e diferença','Roteiros 25 e 26'],
+['2026-12-09','Movimentos sociais e socialização preliminar da pesquisa','Roteiros 27 e 28'],
+['2026-12-16','Revisão, síntese teórica e fechamento','Roteiros 29 e 30']
+];
+const DAY=86400000, KEY='sociologia-t01-2026-2-progresso-v1';
+function dayNumber(iso){return Date.parse(iso+'T00:00:00Z')/DAY;}
+function localISO(date){return date.getFullYear()+'-'+String(date.getMonth()+1).padStart(2,'0')+'-'+String(date.getDate()).padStart(2,'0');}
+function formatDate(iso){return iso.split('-').reverse().join('/');}
+function stateFor(iso){
+ const day=dayNumber(iso),weekday=new Date(day*DAY).getUTCDay();
+ const monday=day-((weekday+6)%7);
+ const recess=iso>='2026-12-21'&&iso<='2027-01-31';
+ return {recess,days:dayNumber('2027-02-03')-day,index:recess?-1:meetings.findIndex(m=>dayNumber(m[0])>=monday&&dayNumber(m[0])<monday+7)};
+}
+let checked=Array(15).fill(false);
+const $=id=>document.getElementById(id);
+function storageWarning(){$('storageNote').textContent='Este navegador não permitiu salvar as marcações. Elas ficam disponíveis apenas enquanto esta página estiver aberta.';}
+try{const saved=JSON.parse(localStorage.getItem(KEY));if(Array.isArray(saved)&&saved.length===15)checked=saved.map(v=>v===true);}catch(e){storageWarning();}
+function updateProgress(){const total=checked.filter(Boolean).length;$('progress').value=total;$('progressText').textContent=total+' de 15 encontros revisados/preparados · '+Math.round(total/15*100)+'%';}
+meetings.forEach((m,i)=>{
+ const li=document.createElement('li');li.id='encontro-'+(i+1);
+ const badge=document.createElement('span');badge.className='badge';badge.textContent='Encontro da semana';badge.hidden=true;li.append(badge);
+ const date=document.createElement('div');date.className='muted';date.textContent='Encontro '+String(i+1).padStart(2,'0')+' · '+formatDate(m[0]);li.append(date);
+ const title=document.createElement('h3');title.textContent=m[1];li.append(title);
+ const roteiro=document.createElement('p');roteiro.textContent=m[2];li.append(roteiro);
+ const label=document.createElement('label'),input=document.createElement('input');input.type='checkbox';input.checked=checked[i];input.setAttribute('aria-label','Encontro '+String(i+1).padStart(2,'0')+' revisado/preparado');
+ input.addEventListener('change',()=>{checked[i]=input.checked;updateProgress();try{localStorage.setItem(KEY,JSON.stringify(checked));}catch(e){storageWarning();}});
+ label.append(input,document.createTextNode('Revisado/preparado'));li.append(label);$('meetings').append(li);
+});
+function renderToday(){
+ const iso=localISO(new Date()),s=stateFor(iso);
+ $('today').textContent='Hoje: '+formatDate(iso);$('regular').hidden=s.recess;
+ $('countdown').textContent=s.days>0?'Faltam '+s.days+(s.days===1?' dia':' dias'):s.days===0?'A entrega é hoje':'A data de entrega passou há '+Math.abs(s.days)+(s.days===-1?' dia':' dias');
+ $('week').textContent=s.recess?'Recesso acadêmico — não há aula na semana':s.index>=0?'Encontro '+String(s.index+1).padStart(2,'0')+' · nesta semana':iso==='2027-02-03'?'Entrega e apresentação hoje':'Nenhum encontro previsto para esta semana';
+ $('weekDetail').textContent=s.recess?'21/12/2026 a 31/01/2027 · Sem aulas nem obrigações.':s.index>=0?meetings[s.index][1]+' · '+meetings[s.index][2]:'';
+ meetings.forEach((m,i)=>{const li=$('encontro-'+(i+1));li.classList.toggle('current',i===s.index);li.firstElementChild.hidden=i!==s.index;if(i===s.index)li.setAttribute('aria-current','date');else li.removeAttribute('aria-current');});
+}
+updateProgress();renderToday();setInterval(renderToday,30000);document.addEventListener('visibilitychange',renderToday);
+</script>
+</html>
