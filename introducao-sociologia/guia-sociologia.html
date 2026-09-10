@@ -9,7 +9,7 @@
 <main>
 <header><div class="eyebrow">T01 · 2026.2 · 60h</div><h1>Introdução à Sociologia</h1><p>Guia de acompanhamento · 15 encontros semanais às quartas de manhã.</p></header>
 <noscript>Ative o JavaScript do navegador para exibir o cronograma, identificar a semana e registrar seu progresso.</noscript>
-<section class="panel status" aria-label="Situação da semana"><p id="today" class="muted"></p><h2 id="week"></h2><p id="weekDetail"></p><p><span class="count" id="countdown" role="status"></span>Entrega e apresentação do experimento sociológico final: <strong>03/02/2027</strong>.</p></section>
+<section class="panel status" aria-label="Situação da semana"><p id="today" class="muted"></p><h2 id="week"></h2><p id="weekDetail"></p><p><span class="count" id="countdown" role="status"></span>Entrega e apresentação do experimento sociológico final: <strong>11/02/2027</strong>.</p></section>
 <div id="regular">
 <section class="panel"><h2>Experimento sociológico final</h2><p>Avaliação final em grupo respondendo à pergunta:</p><p><strong>“Como a inteligência artificial reproduz desigualdades sociais?”</strong></p><p>Recesso acadêmico: 21/12/2026 a 31/01/2027, sem aulas nem obrigações.</p></section>
 <section class="panel" aria-label="Seu progresso"><h2>Seu acompanhamento</h2><p>Marque os encontros que você já revisou/preparou. Para desfazer, desmarque a caixa.</p><p id="progressText" role="status"></p><progress id="progress" max="15" value="0" aria-label="Encontros revisados/preparados"></progress><p id="storageNote" class="muted">As marcações ficam salvas neste navegador e neste dispositivo. Não são um registro de presença ou de nota.</p></section>
@@ -44,7 +44,7 @@ function stateFor(iso){
  const day=dayNumber(iso),weekday=new Date(day*DAY).getUTCDay();
  const monday=day-((weekday+6)%7);
  const recess=iso>='2026-12-21'&&iso<='2027-01-31';
- return {recess,days:dayNumber('2027-02-03')-day,index:recess?-1:meetings.findIndex(m=>dayNumber(m[0])>=monday&&dayNumber(m[0])<monday+7)};
+ return {recess,days:dayNumber('2027-02-11')-day,index:recess?-1:meetings.findIndex(m=>dayNumber(m[0])>=monday&&dayNumber(m[0])<monday+7)};
 }
 let checked=Array(15).fill(false);
 const $=id=>document.getElementById(id);
@@ -65,7 +65,7 @@ function renderToday(){
  const iso=localISO(new Date()),s=stateFor(iso);
  $('today').textContent='Hoje: '+formatDate(iso);$('regular').hidden=s.recess;
  $('countdown').textContent=s.days>0?'Faltam '+s.days+(s.days===1?' dia':' dias'):s.days===0?'A entrega é hoje':'A data de entrega passou há '+Math.abs(s.days)+(s.days===-1?' dia':' dias');
- $('week').textContent=s.recess?'Recesso acadêmico — não há aula na semana':s.index>=0?'Encontro '+String(s.index+1).padStart(2,'0')+' · nesta semana':iso==='2027-02-03'?'Entrega e apresentação hoje':'Nenhum encontro previsto para esta semana';
+ $('week').textContent=s.recess?'Recesso acadêmico — não há aula na semana':s.index>=0?'Encontro '+String(s.index+1).padStart(2,'0')+' · nesta semana':iso==='2027-02-11'?'Entrega e apresentação hoje':'Nenhum encontro previsto para esta semana';
  $('weekDetail').textContent=s.recess?'21/12/2026 a 31/01/2027 · Sem aulas nem obrigações.':s.index>=0?meetings[s.index][1]+' · '+meetings[s.index][2]:'';
  meetings.forEach((m,i)=>{const li=$('encontro-'+(i+1));li.classList.toggle('current',i===s.index);li.firstElementChild.hidden=i!==s.index;if(i===s.index)li.setAttribute('aria-current','date');else li.removeAttribute('aria-current');});
 }
