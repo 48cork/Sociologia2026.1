@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Encontro 13, Aula 4 — Viés interseccional em sistemas de IA</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#0e0e12; --surface:#17171d; --amber:#d9a441; --teal:#3ec9b0; --text1:#eae7e0; --text2:#a3a09a; --border:#26262e; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:var(--bg); color:var(--text1); font-family:'Inter',sans-serif; font-weight:300; line-height:1.7; }
+  .wrap { max-width:760px; margin:0 auto; padding:3rem 1.5rem 5rem; }
+  .eyebrow { font-family:'JetBrains Mono',monospace; font-size:0.75rem; color:var(--teal); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.8rem; }
+  h1 { font-size:2rem; font-weight:600; line-height:1.25; margin-bottom:1.2rem; }
+  .objetivo { background:var(--surface); border-left:3px solid var(--amber); padding:1rem 1.2rem; border-radius:4px; margin-bottom:2.5rem; color:var(--text2); font-size:0.95rem; }
+  .objetivo strong { color:var(--amber); font-weight:500; }
+  h2 { font-size:1.2rem; font-weight:600; color:var(--teal); margin:2.2rem 0 0.8rem; }
+  p { margin-bottom:1.1rem; font-size:1rem; }
+  .destaque { background:linear-gradient(135deg, rgba(217,164,65,0.12), rgba(62,201,176,0.12)); border:1px solid var(--border); border-radius:6px; padding:1.3rem 1.5rem; margin:2rem 0; }
+  .destaque .label { font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--teal); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.6rem; }
+  .caso { background:var(--surface); border:1px solid var(--border); border-radius:6px; padding:1.3rem 1.5rem; margin:2rem 0; }
+  .caso .label { font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--amber); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.6rem; }
+  .perguntas { margin-top:2.5rem; padding-top:1.5rem; border-top:1px solid var(--border); }
+  .perguntas h2 { margin-top:0; }
+  .perguntas ol { padding-left:1.3rem; }
+  .perguntas li { margin-bottom:0.8rem; }
+  footer { margin-top:3rem; padding-top:1.5rem; border-top:1px solid var(--border); font-family:'JetBrains Mono',monospace; font-size:0.75rem; color:var(--text2); display:flex; justify-content:space-between; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">Encontro 13 · Aula 4 · Introdução à Sociologia 2026.2</div>
+  <h1>Viés interseccional em sistemas de IA</h1>
+  <div class="objetivo"><strong>Objetivo:</strong> Aplicar o conceito de interseccionalidade para entender por que sistemas de IA podem funcionar de forma especialmente injusta em pessoas que combinam múltiplas identidades marginalizadas.</div>
+
+  <p>Um dos achados mais importantes da pesquisa técnica sobre viés algorítmico nos últimos anos confirma, de forma quase literal, a intuição original da interseccionalidade: sistemas de IA frequentemente apresentam taxas de erro muito mais altas para pessoas que combinam múltiplas categorias marginalizadas simultaneamente, em comparação com o erro médio calculado para cada categoria isoladamente.</p>
+
+  <h2>O estudo pioneiro sobre reconhecimento facial</h2>
+  <p>Um dos estudos mais citados sobre esse tema, conduzido pela pesquisadora Joy Buolamwini (do MIT) em parceria com Timnit Gebru, mostrou que sistemas comerciais de reconhecimento facial apresentavam taxas de erro dramaticamente mais altas ao classificar o gênero de mulheres negras, em comparação com homens brancos — uma diferença muito maior do que se poderia prever apenas combinando separadamente o erro médio para "pessoas negras" e o erro médio para "mulheres". Isso confirma, com dados técnicos concretos, exatamente o que Crenshaw havia previsto teoricamente décadas antes: a combinação específica de raça e gênero gera um padrão de desvantagem próprio, não redutível à soma das partes.</p>
+
+  <div class="destaque">
+    <div class="label">Conectando com o experimento</div>
+    <p style="margin-bottom:0">Um grupo interessado em investigar viés algorítmico deveria, idealmente, buscar dados desagregados por combinações de categorias (por exemplo, "mulheres negras rurais" e não apenas "mulheres" ou "negros" separadamente), já que a análise interseccional frequentemente revela padrões de desigualdade muito mais severos do que análises de categoria única — e esse tipo de dado desagregado, embora nem sempre disponível publicamente, é justamente o tipo de lacuna que uma boa pesquisa bibliográfica deve identificar e discutir.</p>
+  </div>
+
+  <h2>Por que isso acontece tecnicamente</h2>
+  <p>Do ponto de vista técnico, esse padrão ocorre porque os dados de treinamento de muitos sistemas de IA sub-representam combinações específicas de categorias sociais: há relativamente mais dados disponíveis de "homens brancos" (o grupo historicamente mais representado em bases de dados de imagem e texto na internet) do que de "mulheres negras", e ainda menos de subcategorias mais específicas (mulheres negras rurais, por exemplo). Como sistemas de IA aprendem padrões estatísticos a partir dos dados disponíveis, grupos sub-representados nos dados tendem a receber um desempenho pior do sistema — exatamente o mecanismo técnico que explica, na prática, por que a interseccionalidade de Crenshaw se mostra tão relevante para entender viés algorítmico contemporâneo.</p>
+
+  <div class="perguntas">
+    <h2>Perguntas para discussão</h2>
+    <ol>
+      <li>Explique, com suas palavras, o achado do estudo de Joy Buolamwini sobre reconhecimento facial.</li>
+      <li>Por que dados desagregados por combinações de categorias sociais são importantes para identificar viés algorítmico interseccional?</li>
+      <li>Como esse conceito de viés interseccional poderia se conectar ao recorte de pesquisa do seu grupo?</li>
+    </ol>
+  </div>
+
+  <footer>
+    <span>Introdução à Sociologia · 2026.2</span>
+    <span>Encontro 13 de 15</span>
+  </footer>
+</div>
+</body>
+</html>
