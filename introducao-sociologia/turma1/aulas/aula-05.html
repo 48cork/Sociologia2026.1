@@ -12,7 +12,8 @@
     --text: #e2e8f0; --muted: #94a3b8; --radius: 12px;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
+  html, body { max-width: 100%; overflow-x: clip; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; min-height: 100vh; overflow-wrap: anywhere; }
   nav { position: sticky; top: 0; z-index: 100; background: rgba(18,18,28,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
   nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; white-space: nowrap; }
   nav a:hover { color: var(--text); }
@@ -25,8 +26,9 @@
   .header-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; align-items: center; }
   .bloco-badge { background: var(--purple); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
   .meta-chip { background: var(--surface); border: 1px solid var(--border); font-size: 0.8rem; color: var(--muted); padding: 4px 12px; border-radius: 20px; }
+  .meta-chip strong { color: var(--text); }
   .aula-header h1 { font-size: 1.5rem; font-weight: 700; line-height: 1.3; color: var(--text); }
-  section { margin-bottom: 32px; }
+  section { margin-bottom: 32px; scroll-margin-top: 112px; }
   .section-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--purple-lt); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
   .obj-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
   .obj-list li { display: flex; gap: 12px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
@@ -45,58 +47,26 @@
   .ref-title { font-size: 0.9rem; color: var(--text); }
   .ref-pages { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
   .activity-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; font-size: 0.9rem; line-height: 1.7; border-left: 3px solid var(--teal-lt); }
-  .activity-card h2 { color: var(--teal-lt); font-size: 1.2rem; line-height: 1.35; margin-bottom: 10px; }
-  .activity-card h3 { color: var(--text); font-size: 1rem; line-height: 1.4; margin: 24px 0 10px; }
-  .activity-card p { margin-bottom: 12px; }
-  .headline-bank { margin-top: 22px; }
-  .headline-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 14px; }
-  .headline-card { min-width: 0; background: var(--surface); border: 1px solid var(--border); border-top: 3px solid var(--teal-lt); border-radius: var(--radius); padding: 18px; break-inside: avoid; }
-  .headline-number { display: inline-block; color: var(--bg); background: var(--teal-lt); border-radius: 999px; padding: 2px 10px; font-size: .75rem; font-weight: 800; margin-bottom: 10px; }
-  .headline-card h4 { font-size: 1rem; line-height: 1.45; margin-bottom: 10px; }
-  .headline-card h4 a { color: var(--text); text-decoration-color: var(--teal-lt); text-underline-offset: 3px; }
-  .headline-meta { color: var(--muted); font-size: .82rem; margin: 0 0 5px; }
-  .headline-theme { color: var(--amber-lt); font-weight: 700; }
-  .headline-context { border-top: 1px solid var(--border); margin-top: 12px; padding-top: 10px; color: var(--text); }
-  .student-task { background: rgba(45,212,191,.08); border: 1px solid rgba(45,212,191,.4); border-radius: var(--radius); padding: 18px; margin-top: 24px; }
-  .student-task ol { padding-left: 22px; }
-  .student-task li { margin: 7px 0; }
-  .teacher-guidance { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-top: 20px; }
-  .teacher-guidance summary { cursor: pointer; color: var(--amber-lt); font-weight: 700; padding: 16px 18px; }
+  .teacher-guidance { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-top: 18px; }
+  .teacher-guidance summary { cursor: pointer; color: var(--amber-lt); font-weight: 700; padding: 15px 17px; }
   .teacher-guidance[open] summary { border-bottom: 1px solid var(--border); }
-  .guidance-content { padding: 4px 18px 18px; }
-  .guidance-item { padding: 16px 0; border-bottom: 1px solid var(--border); }
-  .guidance-item:last-child { border-bottom: 0; padding-bottom: 0; }
-  .guidance-item h4 { color: var(--teal-lt); margin-bottom: 8px; }
-  .guidance-item ul { padding-left: 20px; }
-  .guidance-item li { margin: 5px 0; }
-  .semester-note { color: var(--muted); font-size: .8rem; border-left: 2px solid var(--border); padding-left: 12px; margin-top: 18px; }
+  .teacher-guidance-content { padding: 16px 18px; }
   .resources-list { display: flex; flex-wrap: wrap; gap: 10px; }
-  .res-tag { background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; }
+  .res-tag { max-width: 100%; min-width: 0; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; }
   footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--muted); font-size: 0.85rem; }
   footer a { color: var(--purple-lt); text-decoration: none; }
   footer a:hover { text-decoration: underline; }
-
-  html, body { max-width: 100%; overflow-x: clip; }
-  body { overflow-wrap: anywhere; }
-  section { scroll-margin-top: 112px; }
   .section-nav { position: sticky; top: 56px; z-index: 90; background: rgba(10,10,15,.97); border-bottom: 1px solid var(--border); padding: 8px 16px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: thin; }
   .section-nav a { flex: 0 0 auto; min-height: 36px; display: inline-flex; align-items: center; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 5px 12px; text-decoration: none; font-size: .8rem; }
   .base-text { max-width: 72ch; margin-inline: auto; }
   .base-intro { color: var(--muted); font-size: .92rem; margin-bottom: 16px; }
-  .base-toc { position: static; height: auto; display: block; max-width: 100%; overflow: clip; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; margin-bottom: 28px; }
-  .base-toc h3 { color: var(--bloco-lt, var(--purple-lt)); font-size: .95rem; margin-bottom: 10px; }
-  .base-toc ol { width: 100%; max-width: 100%; padding-left: 22px; columns: 2; column-gap: 32px; }
-  .base-toc li { break-inside: avoid; margin: 5px 0; }
-  .base-toc a { color: var(--text); text-decoration-thickness: 1px; text-underline-offset: 3px; white-space: normal; }
   .base-subsection { scroll-margin-top: 112px; margin-bottom: 28px; }
-  .base-subsection h3 { color: var(--bloco-lt, var(--purple-lt)); font-size: 1.15rem; line-height: 1.35; margin-bottom: 12px; }
+  .base-subsection h3 { color: var(--purple-lt); font-size: 1.15rem; line-height: 1.35; margin-bottom: 12px; }
   .base-subsection p { color: var(--text); margin-bottom: 14px; line-height: 1.78; }
   .base-subsection strong { color: #f1f5f9; }
-  .pause-box { background: rgba(79,70,229,.1); border: 1px solid rgba(129,140,248,.4); border-left: 4px solid var(--bloco-lt, var(--purple-lt)); border-radius: var(--radius); padding: 16px 18px; margin: 22px 0; }
+  .pause-box { background: rgba(79,70,229,.1); border: 1px solid rgba(129,140,248,.4); border-left: 4px solid var(--purple-lt); border-radius: var(--radius); padding: 16px 18px; margin: 22px 0; }
   .pause-box h4 { color: var(--amber-lt); font-size: .75rem; letter-spacing: .09em; text-transform: uppercase; margin-bottom: 6px; }
   .pause-box p { margin: 0; color: var(--text); font-weight: 600; line-height: 1.6; }
-  .legacy-note { border: 1px solid var(--amber-lt); background: rgba(251,191,36,.08); border-radius: var(--radius); padding: 16px 18px; margin: 0 0 24px; }
-  .res-tag { max-width: 100%; min-width: 0; }
   a:focus-visible { outline: 3px solid var(--amber-lt); outline-offset: 3px; border-radius: 3px; }
   @media (max-width: 640px) {
     nav { height: auto; min-height: 56px; padding: 8px 12px; flex-wrap: wrap; }
@@ -106,29 +76,22 @@
     .section-nav { top: 72px; padding-inline: 10px; }
     main { padding: 24px 14px 60px; }
     .aula-header { padding: 22px 18px; }
-    .base-toc ol { width: auto; columns: auto; padding-left: 0; list-style-position: inside; }
     .tl-item { flex-direction: column; gap: 8px; }
-    .headline-grid { grid-template-columns: minmax(0, 1fr); }
   }
-  @media print {
-    .headline-grid { display: block; }
-    .headline-card { margin: 0 0 12mm; border: 1px dashed #555; page-break-inside: avoid; }
-    .headline-card a { color: #000; text-decoration: none; }
-    .student-task, .teacher-guidance { page-break-inside: avoid; }
-  }
+  @media print { .teacher-guidance { break-inside: avoid; } }
 </style>
 </head>
 <body>
 
 <nav>
   <div class="nav-left">
-    <a href="/introducao-sociologia/">← Página principal</a>
+    <a href="../../index.html">← Voltar ao curso</a>
     <span class="nav-badge">Aula 05</span>
   </div>
-  <span class="nav-center">Aula 05 / 30</span>
+  <span class="nav-center">Encontro 02 de 15 · Aula 05 de 60</span>
   <div class="nav-right">
-    <a href="aula-04.html">← Anterior</a>
-    <a href="aula-06.html">Próxima →</a>
+    <a href="aula-04.html">← Aula anterior</a>
+    <a href="aula-06.html">Próxima aula →</a>
   </div>
 </nav>
 <div class="section-nav" aria-label="Seções da aula"><a href="#objetivos">Objetivos</a><a href="#conteudo-programatico">Conteúdo</a><a href="#texto-base">Texto-base</a><a href="#plano-aula">Plano da aula</a><a href="#leituras">Leituras</a><a href="#atividade">Atividade</a><a href="#recursos">Recursos</a></div>
@@ -138,49 +101,40 @@
   <div class="aula-header">
     <div class="header-meta">
       <span class="bloco-badge">Bloco I</span>
-      <span class="meta-chip">Aula 05</span>
-      <span class="meta-chip">Encontro 3 · Parte 1 de 2</span>
-      <span class="meta-chip">23/09/2026 — Quarta-feira</span>
-      <span class="meta-chip">Percurso completo do encontro: 4 horas-aula</span>
-      <span class="meta-chip">Esta página: aproximadamente 2 horas</span>
+      <span class="meta-chip">Encontro <strong>02</strong> de 15 — 16/09/2026, quarta-feira</span>
+      <span class="meta-chip">Aula <strong>05</strong> de 60</span>
+      <span class="meta-chip">1ª aula do encontro</span>
+      <span class="meta-chip">Esta aula: aproximadamente 1 hora-aula</span>
     </div>
-    <h1>A Sociologia como disciplina acadêmica: objeto, método e especificidade científica.</h1>
+    <h1>Da tradição à razão: o Iluminismo e a crítica do mundo dado.</h1>
   </div>
 
   <section id="objetivos">
     <div class="section-title">Objetivos da Aula</div>
     <ul class="obj-list">
-      <li>Definir o objeto específico da Sociologia: estruturas, relações e processos sociais.</li>
-      <li>Compreender os principais métodos sociológicos e suas lógicas de aplicação.</li>
-      <li>Diferenciar a Sociologia de outras ciências sociais afins (Antropologia, Ciência Política, Psicologia Social).</li>
-      <li>Apresentar a especificidade do olhar sociológico e o conceito de "imaginação sociológica".</li>
+      <li>Explicar por que as revoluções do final do século XVIII tornaram necessária uma nova forma de justificar conhecimento e poder.</li>
+      <li>Definir o Iluminismo como campo plural de crítica à tradição, não como doutrina única.</li>
+      <li>Analisar a razão iluminista como prática de exame público de argumentos, não apenas cálculo individual.</li>
+      <li>Discutir por que a ciência se tornou modelo de conhecimento legítimo no período.</li>
     </ul>
   </section>
 
   <section id="conteudo-programatico">
     <div class="section-title">Conteúdo Programático</div>
     <div class="content-topic">
-      <h3>1. O objeto da Sociologia: estruturas, relações e processos sociais</h3>
+      <h3>1. Da crise da tradição ao Iluminismo</h3>
       <ul>
-        <li>O social como objeto: o que torna algo um fenômeno sociológico?</li>
-        <li>Estruturas sociais, instituições e relações de poder</li>
-        <li>A imaginação sociológica: articular biografia e história</li>
+        <li>Dissolução da ordem feudal e diferenciação religiosa (secularização)</li>
+        <li>Formação do Estado-nação moderno e expansão dos mercados</li>
+        <li>O Iluminismo como crítica plural da autoridade tradicional</li>
       </ul>
     </div>
     <div class="content-topic">
-      <h3>2. Métodos sociológicos</h3>
+      <h3>2. Razão, crítica pública e ciência</h3>
       <ul>
-        <li>Observação participante e etnografia</li>
-        <li>Entrevista, análise documental e survey</li>
-        <li>Pesquisa quantitativa x qualitativa: complementaridade e tensões</li>
-      </ul>
-    </div>
-    <div class="content-topic">
-      <h3>3. Sociologia e suas vizinhas: Antropologia, Ciência Política, Psicologia Social</h3>
-      <ul>
-        <li>Objetos, métodos e tradições distintas</li>
-        <li>Fronteiras porosas e diálogos interdisciplinares</li>
-        <li>O lugar da Sociologia no campo das ciências sociais</li>
+        <li>A razão como exame de argumentos, não apenas cálculo isolado</li>
+        <li>Formação de um espaço público de circulação de ideias</li>
+        <li>A ciência como novo modelo de conhecimento legítimo</li>
       </ul>
     </div>
   </section>
@@ -188,133 +142,64 @@
   <section id="texto-base" aria-labelledby="texto-base-title">
     <div class="section-title" id="texto-base-title">Texto-base para acompanhamento da aula</div>
     <div class="base-text">
-      <p class="base-intro">Depois de acompanhar o nascimento histórico e alguns sistemas pioneiros da Sociologia, esta leitura entra na oficina da pesquisa: como transformar um acontecimento em problema, escolher evidências e sustentar uma interpretação.</p>
-      <nav class="base-toc" aria-label="Sumário do texto-base"><h3>Nesta leitura</h3><ol>
-        <li><a href="#a05-manchete">Uma manchete ainda não é um problema sociológico</a></li>
-        <li><a href="#a05-objeto">Estruturas, relações e processos</a></li>
-        <li><a href="#a05-imaginacao">Biografia e história</a></li>
-        <li><a href="#a05-pergunta">Delimitar uma pergunta pesquisável</a></li>
-        <li><a href="#a05-observacao">Observar e participar</a></li>
-        <li><a href="#a05-entrevistas">Entrevistas, documentos e surveys</a></li>
-        <li><a href="#a05-quantitativo">Quantitativo e qualitativo</a></li>
-        <li><a href="#a05-vizinhas">A Sociologia e suas vizinhas</a></li>
-        <li><a href="#a05-oficina">Oficina das manchetes</a></li>
-        <li><a href="#a05-sintese">Síntese: preparar um objeto para Durkheim</a></li>
-      </ol></nav>
+      <p class="base-intro">A Aula 04 fechou o Encontro 01 perguntando por que a sociedade moderna passou a exigir uma ciência própria, capaz de investigar problemas que a política sozinha não resolvia. Este texto recua um passo e examina o solo intelectual que tornou essa pergunta possível: o movimento de ideias que ficou conhecido como Iluminismo.</p>
 
-      <div class="base-subsection" id="a05-manchete"><h3>1. Uma manchete ainda não é um problema sociológico</h3>
-        <p>Uma notícia informa que aumentou o número de trabalhadores de determinado setor que pedem demissão. O acontecimento pode provocar comentários imediatos: falta comprometimento, as condições pioraram, uma geração mudou. Nenhuma dessas frases é ainda uma explicação sociológica. Antes de escolher uma resposta, precisamos saber quem são os trabalhadores, em que período ocorreu a mudança, como o setor se organiza e com que situações será comparado.</p>
-        <p>A manchete seleciona um aspecto da realidade e o apresenta segundo critérios jornalísticos. Ela pode iniciar uma investigação, mas não define sozinha o fenômeno. “Pedidos de demissão” podem reunir saídas para empregos melhores, abandono por adoecimento, conflito com chefias ou mudanças familiares. O mesmo indicador visível pode resultar de processos diferentes.</p>
-        <p>Construir um objeto sociológico significa recortar relações e processos que não aparecem prontos no título da notícia. Em vez de perguntar apenas “por que as pessoas saem?”, poderíamos investigar como jornadas, formas de supervisão e oportunidades profissionais influenciam a permanência de trabalhadores jovens num setor e numa cidade determinados. A nova pergunta identifica relações, população, espaço e período.</p>
-        <aside class="pause-box"><h4>Pausa para discussão</h4><p>O que uma manchete precisa informar — e normalmente não informa — para que possamos transformá-la numa pergunta de pesquisa?</p></aside>
+      <div class="base-subsection" id="a05-ponte">
+        <h3>1. Depois das revoluções, uma pergunta sobre as ideias</h3>
+        <p>A Revolução Francesa abalara privilégios políticos, e a Revolução Industrial reorganizara produção, trabalho e cidades, mas essas mudanças não foram apenas materiais. Para contestar uma autoridade, imaginar direitos iguais ou planejar uma nova instituição, é preciso dispor de ideias que permitam julgar o presente e conceber alternativas. A modernidade também é uma transformação na maneira de justificar o conhecimento e o poder.</p>
+        <p>Durante séculos, sociedades europeias haviam organizado autoridade política, posição social e explicações do mundo por meio de tradições transmitidas, hierarquias e instituições religiosas. Isso não significa que todas as pessoas concordassem ou que não existissem conflitos e pensamento crítico. Significa que a antiguidade de uma regra, a origem de nascimento e a referência religiosa possuíam grande força de legitimação.</p>
+        <p>Entre os séculos XVII e XVIII, debates científicos, filosóficos e políticos ampliaram a exigência de que afirmações fossem justificadas por argumentos acessíveis ao exame humano. O <strong>Iluminismo</strong> designa esse campo plural de ideias que valorizou a razão, criticou autoridades tradicionais e confiou na capacidade de reformar instituições. Ele não foi uma organização centralizada, não teve um programa único e não pode ser reduzido a uma lista de pensadores.</p>
       </div>
 
-      <div class="base-subsection" id="a05-objeto"><h3>2. Estruturas, relações e processos</h3>
-        <p>A Sociologia estuda <strong>estruturas sociais</strong>: padrões relativamente duradouros que distribuem posições, recursos e possibilidades. Estrutura não é uma armação invisível que decide cada ação. É um conjunto de relações que torna algumas trajetórias mais prováveis e oferece capacidades diferentes aos participantes.</p>
-        <p>O sistema educacional, por exemplo, organiza níveis, credenciais, regras de acesso e posições profissionais. Estudantes agem dentro dele, tomam decisões e podem contestá-lo, mas não começam em condições idênticas nem controlam individualmente seus critérios. Observar estrutura significa relacionar escolhas a oportunidades e barreiras distribuídas socialmente.</p>
-        <p><strong>Relações sociais</strong> colocam atores e posições em referência recíproca. Empregador e empregado, representante e eleitor, professor e estudante só existem como posições relacionadas. Relações de poder aparecem quando participantes possuem capacidades desiguais de definir regras, controlar recursos ou fazer valer interpretações.</p>
-        <p><strong>Processos sociais</strong> destacam mudança e duração: urbanização, burocratização, secularização, mobilidade ou formação de movimentos não são objetos imóveis. A pesquisa acompanha sequências, mecanismos e disputas. Estrutura, relação e processo são perspectivas complementares, não compartimentos isolados.</p>
-        <p>Tomemos uma plataforma de transporte. Sua estrutura distribui posições entre empresa, motoristas e passageiros; as relações incluem contratação, avaliação e negociação; o processo envolve expansão tecnológica, mudanças regulatórias e organização dos trabalhadores. Escolher apenas um nível pode ser necessário para a pesquisa, mas a delimitação deve reconhecer aquilo que ficou fora.</p>
-        <p>O poder atravessa essas dimensões. Ele não aparece somente quando alguém dá uma ordem explícita. Pode estar na capacidade de estabelecer categorias, definir preços, controlar informações ou tornar uma alternativa inviável. Investigar poder requer observar recursos e consequências, não supor que toda relação desigual seja idêntica.</p>
+      <div class="base-subsection" id="a05-autoridade">
+        <h3>2. Quando a tradição deixa de bastar</h3>
+        <p>Uma regra tradicional responde à pergunta “por que agir assim?” afirmando que essa é a maneira recebida dos antepassados, consagrada pelo costume ou reconhecida por uma autoridade legítima. O pensamento iluminista não eliminou todas as tradições, mas recusou que sua antiguidade fosse prova suficiente de verdade ou justiça. Instituições poderiam ser submetidas a julgamento.</p>
+        <p>Essa mudança alcançava a política. Se governantes deveriam justificar seu poder diante de princípios discutíveis, a obediência deixava de depender exclusivamente de origem dinástica ou direito sagrado. Alcançava também a religião: a <strong>secularização</strong> não significou o desaparecimento imediato das crenças, mas a diferenciação de esferas sociais e a possibilidade de organizar conhecimento, direito e governo sem recorrer em todos os casos a uma única autoridade religiosa.</p>
+        <p>A dissolução da ordem feudal foi longa e desigual. Obrigações senhoriais, poderes locais, corporações e vínculos de dependência não desapareceram num único ato. Estados centralizaram administração, impostos e leis; mercados conectaram territórios; indivíduos foram sendo definidos de maneira mais direta como súditos e, posteriormente, cidadãos. Novos arranjos substituíam algumas certezas por instituições mais amplas e impessoais.</p>
+        <p>O crescimento do Estado-nação modificou a escala de pertencimento e governo. Autoridades centrais procuraram uniformizar leis, administrar populações e estabelecer fronteiras, enquanto identidades locais e religiosas continuavam ativas. A nação não era simples comunidade espontânea: dependia de instituições, símbolos, escolas, exércitos e narrativas capazes de apresentar habitantes diferentes como parte de um mesmo corpo político.</p>
+        <p>A expansão dos mercados também alterava dependências. Relações antes organizadas por obrigações pessoais eram crescentemente atravessadas por contratos e dinheiro. Isso podia ampliar a liberdade de escolher ocupações ou circular, mas submetia a sobrevivência a relações econômicas mais abstratas. A crise da tradição não produziu ausência de regras; produziu novas formas de regulação cuja legitimidade ainda precisava ser construída.</p>
+        <aside class="pause-box"><h4>Pausa para discussão</h4><p>Quando alguém afirma que uma prática deve continuar apenas porque “sempre foi assim”, que tipo de autoridade está sendo mobilizado? Que outra justificativa poderia ser exigida?</p></aside>
       </div>
 
-      <div class="base-subsection" id="a05-imaginacao"><h3>3. Biografia e história: a imaginação sociológica</h3>
-        <p>A <strong>imaginação sociológica</strong>, associada a C. Wright Mills, é a capacidade de relacionar experiências biográficas a transformações históricas e estruturas sociais. Ela não apaga a singularidade de uma vida. Permite compreender como possibilidades pessoais são configuradas por circunstâncias que alcançam muitas pessoas.</p>
-        <p>Uma dívida pode resultar de uma decisão particular, mas o endividamento de grande parcela de um grupo exige examinar renda, crédito, preços e proteção social. A ansiedade de um estudante possui história individual; quando aparece de modo recorrente entre estudantes submetidos a condições semelhantes, torna-se pertinente investigar organização acadêmica, trabalho, competição e expectativas de futuro.</p>
-        <p>Mills distingue analiticamente dificuldades vividas no ambiente imediato e questões relacionadas à organização mais ampla da sociedade. A passagem entre esses planos não é automática. Nem toda dor pessoal possui a mesma causa, e uma estatística coletiva não explica integralmente cada caso. A imaginação sociológica constrói conexões que precisam ser demonstradas.</p>
-        <p>A conexão exige comparar biografias. Se pessoas de origens distintas enfrentam o mesmo resultado, talvez compartilhem uma condição institucional; se trajetórias semelhantes produzem destinos diferentes, é preciso procurar recursos, redes ou acontecimentos que fizeram diferença. Biografias não são exemplos decorativos: oferecem evidências sobre como estruturas são vividas.</p>
-        <p>História também não significa apenas passado distante. Uma mudança recente em legislação, tecnologia ou mercado pode reorganizar escolhas presentes. Perguntar “quando isso se tornou possível?” ajuda a localizar experiências que parecem puramente pessoais numa sequência de transformações coletivas.</p>
-        <aside class="pause-box"><h4>Pausa para discussão</h4><p>Escolha uma dificuldade frequentemente apresentada como individual. Que mudança histórica ou estrutura social poderia participar de sua explicação sem eliminar a responsabilidade pessoal?</p></aside>
+      <div class="base-subsection" id="a05-razao">
+        <h3>3. Razão, crítica e formação de um espaço público</h3>
+        <p>A <strong>razão</strong> iluminista não deve ser entendida apenas como capacidade individual de calcular. Ela envolve examinar argumentos, buscar coerência, confrontar afirmações e recusar mistérios impostos como barreira definitiva à investigação. Seu potencial emancipador estava na ideia de que pessoas poderiam compreender regras que governavam suas vidas e participar de sua avaliação.</p>
+        <p>A crítica dependia de circulação. Livros, periódicos, correspondências, academias e espaços de debate permitiam que argumentos atravessassem fronteiras. Esse espaço público era limitado socialmente: alfabetização, recursos e liberdade de expressão estavam distribuídos de maneira desigual. Ainda assim, a noção de que decisões e crenças deveriam poder ser discutidas diante de leitores ampliou o horizonte da crítica.</p>
+        <p>Criticar não era simplesmente negar tudo. Era distinguir uma afirmação sustentada por autoridade de outra acompanhada por razões que terceiros pudessem examinar. Essa disposição será importante para as ciências sociais: costumes e instituições deixam de ser evidências autoexplicativas e tornam-se problemas. O pesquisador pergunta como surgiram, quem os sustenta e que consequências produzem.</p>
+        <p>A confiança na razão também continha riscos. Quando uma pessoa ou instituição se apresenta como única representante do racional, pode desqualificar experiências e conhecimentos diferentes como atraso ou superstição. A crítica da autoridade pode formar uma nova autoridade. Por isso, modernidade e pensamento crítico permanecem conectados: as promessas modernas precisam ser examinadas pelos critérios que elas próprias anunciaram.</p>
+        <p>A liberdade de crítica não se distribuiu igualmente. Participar dos espaços letrados dependia de educação, tempo e proteção contra censura. Mulheres e grupos populares podiam circular ideias e intervir nos conflitos, mas frequentemente não eram reconhecidos como sujeitos completos da razão pública. A história do esclarecimento inclui, portanto, a disputa por quem teria direito de falar em nome do universal.</p>
       </div>
 
-      <div class="base-subsection" id="a05-pergunta"><h3>4. Delimitar uma pergunta pesquisável</h3>
-        <p>Temas como violência, desigualdade ou tecnologia são amplos demais para orientar diretamente uma pesquisa. Uma pergunta precisa indicar qual aspecto será examinado, entre quais grupos, em que contexto e com relação a que processo. “Como a tecnologia afeta a sociedade?” pode tornar-se “como sistemas de mensagens alteram expectativas de disponibilidade entre trabalhadores de determinada organização?”.</p>
-        <p>Uma boa pergunta sociológica não precisa começar com “por quê”. Questões descritivas podem mapear a distribuição de um fenômeno; questões comparativas examinam diferenças; questões explicativas investigam mecanismos; questões interpretativas procuram sentidos atribuídos pelos participantes. O método depende do que se pretende saber.</p>
-        <p>Conceitos delimitam a observação. Se a pesquisa utiliza “desigualdade”, precisa indicar se examina renda, acesso, prestígio, poder ou outra dimensão. Definições não servem apenas para ornamentar o texto: determinam o que será reconhecido como evidência e impedem que a conclusão mude o significado das palavras durante o argumento.</p>
-        <p>A pergunta também precisa ser viável. Investigar “a sociedade brasileira” em poucas semanas produz generalizações frágeis. Um recorte menor não torna a questão irrelevante; permite construir evidências controladas e relacioná-las cautelosamente a debates amplos. Escala e tempo disponíveis fazem parte do desenho.</p>
-        <p>Hipóteses são respostas provisórias que organizam a busca, não conclusões antecipadas. Uma hipótese precisa poder encontrar evidências contrárias. Se qualquer resultado for interpretado como confirmação, a pesquisa apenas protege uma crença inicial.</p>
-      </div>
-
-      <div class="base-subsection" id="a05-observacao"><h3>5. Observar e participar</h3>
-        <p>A <strong>observação</strong> acompanha práticas em seus contextos. Em vez de perguntar somente o que as pessoas dizem fazer, registra interações, rotinas, espaços e acontecimentos. Uma pesquisa sobre uso da biblioteca pode observar circulação, distribuição dos lugares, pedidos de ajuda e horários, produzindo notas sistemáticas.</p>
-        <p>Na <strong>observação participante</strong>, o pesquisador participa em algum grau da vida do grupo estudado. A <strong>etnografia</strong> envolve imersão prolongada e interpretação das práticas e significados de um contexto. Participar não oferece acesso transparente à verdade: a presença do pesquisador interfere na situação, e proximidade pode revelar detalhes ou dificultar distanciamento.</p>
-        <p>O registro precisa distinguir descrição, interpretação e reação pessoal. Escrever “três estudantes mudaram de lugar quando o grupo chegou” descreve uma sequência; afirmar “eles sentiram medo” já interpreta uma motivação. A interpretação pode ser plausível, mas exige outras evidências.</p>
-        <p>Questões éticas atravessam o método. Pessoas precisam ser respeitadas, riscos devem ser avaliados e informações sensíveis não podem ser tratadas como material disponível sem responsabilidade. O fato de uma situação ocorrer em público não elimina toda obrigação de cuidado.</p>
-        <p>A posição do pesquisador influencia acesso e interpretação. Idade, profissão, gênero, linguagem e vínculo com a instituição podem aproximar alguns participantes e afastar outros. Registrar essas condições não invalida a pesquisa; permite avaliar como os dados foram produzidos e quais perspectivas podem ter permanecido menos visíveis.</p>
-      </div>
-
-      <div class="base-subsection" id="a05-entrevistas"><h3>6. Entrevistas, documentos e surveys</h3>
-        <p>A <strong>entrevista</strong> permite explorar experiências, justificativas e sentidos atribuídos pelos participantes. Perguntas abertas favorecem narrativas e temas não previstos; roteiros mais estruturados facilitam comparação. A fala não é espelho perfeito do comportamento: pessoas lembram seletivamente, administram a própria imagem e interpretam perguntas a partir de suas posições.</p>
-        <p>A <strong>análise documental</strong> examina leis, atas, relatórios, jornais, publicações digitais e outros registros. Documentos foram produzidos para finalidades específicas. Um regulamento mostra a norma oficial, não prova que ela seja cumprida; uma ata registra o que a instituição decidiu preservar, não tudo que ocorreu.</p>
-        <p>O <strong>survey</strong> coleta respostas padronizadas de um conjunto de participantes. Pode estimar distribuição de opiniões, práticas ou características quando a seleção dos respondentes e a formulação das perguntas são adequadas. Resultados dependem de quem respondeu, de quem ficou de fora e das categorias oferecidas.</p>
-        <p>Perguntas de entrevista podem induzir respostas quando já contêm julgamento. Documentos podem silenciar grupos que não participaram de sua produção. Surveys podem forçar experiências diversas em alternativas estreitas. Cada técnica possui vieses previsíveis; rigor significa reconhecê-los e reduzir seus efeitos, não prometer neutralidade absoluta.</p>
-        <p>Fontes também podem ser trianguladas. Se um regulamento proíbe determinada prática, entrevistas indicam como a regra é interpretada e observações mostram o que ocorre no cotidiano. Divergências entre fontes não são necessariamente erro: podem revelar distância entre norma, discurso e ação.</p>
-        <aside class="pause-box"><h4>Pausa para discussão</h4><p>Para estudar por que estudantes faltam às aulas, o que uma entrevista revelaria que um questionário talvez não revele — e o que o questionário permitiria comparar melhor?</p></aside>
-      </div>
-
-      <div class="base-subsection" id="a05-quantitativo"><h3>7. Quantitativo e qualitativo: perguntas diferentes, combinações possíveis</h3>
-        <p>Pesquisas <strong>quantitativas</strong> trabalham com informações padronizadas e relações expressas numericamente. Permitem examinar distribuição, frequência e associação em conjuntos amplos. Uma associação, contudo, não demonstra sozinha causalidade. Duas variáveis podem mudar juntas por influência de outros processos.</p>
-        <p>Pesquisas <strong>qualitativas</strong> aprofundam contextos, práticas e significados por meio de entrevistas, observações, documentos ou outras fontes. Não são simplesmente pesquisas com poucas pessoas nem dispensam sistematização. Sua força está em reconstruir mecanismos e perspectivas com atenção à situação.</p>
-        <p>As abordagens podem entrar em tensão porque respondem a tradições e critérios diferentes, mas também podem ser combinadas. Um survey identifica um padrão; entrevistas investigam como participantes o experimentam; observação mostra como regras operam. A combinação só é útil quando cada técnica possui função clara na pergunta.</p>
-        <p>Generalização também assume sentidos diferentes. Um estudo quantitativo pode estimar a frequência de um resultado numa população. Uma pesquisa qualitativa pode propor que um mecanismo identificado ajuda a compreender situações semelhantes. Nenhuma das duas autoriza falar de todos os contextos sem demonstrar as condições da comparação.</p>
-        <p>Escolher método pelo prestígio ou facilidade produz inadequação. Números não são automaticamente objetivos, e depoimentos não são automaticamente profundos. Categorias, amostras, roteiros e interpretações resultam de decisões que precisam ser justificadas.</p>
-        <p>Uma tabela pode mostrar que faltas se concentram em determinado horário, mas não explicar por quê. Entrevistas podem mencionar transporte, trabalho ou cansaço, sem informar a frequência de cada motivo na turma. A combinação permite formular uma explicação mais robusta, desde que não confunda relatos com medidas nem medidas com sentidos.</p>
-      </div>
-
-      <div class="base-subsection" id="a05-vizinhas"><h3>8. A Sociologia e suas vizinhas</h3>
-        <p>Antropologia, Ciência Política e Psicologia Social compartilham temas e métodos com a Sociologia. As fronteiras são históricas e porosas, não muros naturais. A Antropologia consolidou forte tradição etnográfica e atenção à diversidade cultural; a Ciência Política concentra-se em poder, Estado, instituições e ação política; a Psicologia Social investiga relações entre processos psicológicos e contextos sociais.</p>
-        <p>A Sociologia destaca relações, instituições, desigualdades e processos em diferentes escalas. Mas sociólogos realizam etnografias, antropólogos estudam Estados, cientistas políticos analisam movimentos e psicólogos sociais investigam grupos. O objeto concreto não determina sozinho a disciplina.</p>
-        <p>Um protesto pode ser estudado por sua organização coletiva, por símbolos culturais, por instituições políticas ou por processos de identidade. As perguntas e tradições teóricas orientam o recorte. O diálogo interdisciplinar torna-se produtivo quando reconhece diferenças, em vez de afirmar que todas as áreas fazem exatamente a mesma coisa.</p>
-        <p>As fronteiras também mudam ao longo do tempo e variam entre países e instituições. Temas hoje centrais à Sociologia podem ter sido desenvolvidos em departamentos diferentes. Por isso, apresentar uma disciplina por uma definição imutável seria contraditório com a própria história das ciências sociais.</p>
-      </div>
-
-      <div class="base-subsection" id="a05-oficina"><h3>9. Oficina das manchetes: do acontecimento ao desenho de pesquisa</h3>
-        <p>Na atividade, cada grupo receberá manchetes sobre violência, trabalho, desigualdade, saúde ou tecnologia. A primeira operação é separar acontecimento e fenômeno: o que ocorreu no caso noticiado e que padrão mais amplo poderia ser investigado? A segunda é formular uma pergunta que não contenha a resposta antecipadamente.</p>
-        <p>A terceira operação é escolher método. Uma manchete sobre aumento de violência pode levar à análise de registros para verificar distribuição, a entrevistas para estudar experiências ou à observação de práticas institucionais. Cada fonte ilumina algo e deixa outra dimensão fora. O grupo deverá justificar a correspondência entre pergunta e evidência.</p>
-        <p>Também será preciso identificar conceitos. “Violência”, “trabalho precário” ou “acesso à saúde” precisam ser desdobrados em dimensões observáveis. Finalmente, a turma examinará limites: a notícia fornece período e fonte? Generaliza a partir de um episódio? Confunde associação e causa? Quais vozes aparecem?</p>
-        <p>Ao socializar o desenho, os colegas não avaliarão se concordam com a opinião política do grupo, mas se pergunta, conceito e método estão alinhados. Uma proposta pode tratar tema relevante e ainda usar técnica inadequada. A revisão coletiva deve melhorar o desenho: estreitar o recorte, acrescentar fonte ou reformular uma categoria.</p>
-        <aside class="pause-box"><h4>Pausa para discussão</h4><p>Qual método seria inadequado para a pergunta formulada por seu grupo? Explicar uma inadequação ajuda a justificar a escolha feita?</p></aside>
-      </div>
-
-      <div class="base-subsection" id="a05-sintese"><h3>10. Síntese: preparar um objeto para Durkheim</h3>
-        <p>A pesquisa sociológica não encontra seu objeto pronto numa manchete. Ela relaciona biografia e história, recorta estruturas, relações e processos, define conceitos e escolhe evidências compatíveis com a pergunta. Observação, etnografia, entrevista, documentos e survey produzem conhecimentos diferentes e podem ser combinados sem perder suas especificidades.</p>
-        <p>A Sociologia possui identidade disciplinar, mas dialoga com áreas vizinhas. Sua força não decorre de monopolizar temas, e sim de construir problemas sobre relações sociais, instituições, poder, desigualdade e mudança. A imaginação sociológica permite reconhecer que experiências pessoais podem expressar questões coletivas, desde que a conexão seja demonstrada.</p>
-        <p>O percurso do Bloco I partiu do estranhamento do cotidiano, reconstruiu as revoluções e o Iluminismo, examinou positivismo e evolucionismo e chegou à pesquisa. Cada etapa respondeu a uma pergunta diferente. O resultado não é uma definição final e fechada da Sociologia, mas um conjunto inicial de operações: desnaturalizar, historicizar, conceituar, comparar e produzir evidências.</p>
-        <p>A atividade com manchetes funciona como verificação prática. Se um grupo consegue sair de uma afirmação geral, delimitar população e contexto, definir conceitos e justificar técnica, demonstrou mais do que memorização de métodos. Se reconhece o que sua fonte não pode mostrar, já iniciou uma avaliação crítica da própria conclusão.</p>
-        <p>Na aula seguinte, Durkheim enfrentará uma versão precisa do problema aberto aqui: como definir um objeto específico para a Sociologia e estudá-lo sem reduzi-lo à intenção individual? Não anteciparemos sua resposta. Chegamos apenas às condições para compreendê-la: um problema delimitado, conceitos explícitos, evidências examináveis e atenção a padrões que ultrapassam um caso isolado.</p>
-        <p>A abertura de Durkheim retomará situações familiares — língua, normas, horários e expectativas — mas com uma questão nova: que características permitem tratá-las como realidade propriamente social? A Aula 05 entrega ferramentas para acompanhar a resposta e questionar seus critérios, sem apresentar de antemão os conceitos de exterioridade, coerção e generalidade.</p>
+      <div class="base-subsection" id="a05-ciencia">
+        <h3>4. A ciência como modelo de conhecimento legítimo</h3>
+        <p>As transformações científicas anteriores e contemporâneas ao Iluminismo mostravam que observação, demonstração e debate podiam desafiar explicações consagradas. A natureza parecia acessível a regularidades que a investigação humana poderia descobrir. A ciência ganhou prestígio não apenas por produzir respostas, mas por organizar procedimentos públicos de verificação e correção.</p>
+        <p>Esse modelo alimentou uma pergunta decisiva: seria possível estudar a sociedade de modo igualmente sistemático? Se instituições eram obra humana, talvez suas regularidades pudessem ser identificadas. Essa passagem não ocorreu sem dificuldades. Objetos naturais não atribuem sentidos às próprias ações nem mudam porque leram uma teoria sobre si; pessoas e grupos fazem isso. As primeiras ciências sociais herdariam a confiança na investigação, mas discutiriam como adaptá-la a um objeto histórico e reflexivo.</p>
+        <p>Ciência e razão também se ligaram a projetos de administração. Conhecer populações, territórios, doenças e produção podia ampliar capacidades coletivas, mas também capacidades de controle. O conhecimento não possui automaticamente finalidade emancipadora. É preciso perguntar quem define o problema, quem se beneficia da aplicação e quem suporta seus riscos.</p>
+        <p>O prestígio científico também modificou a linguagem das controvérsias. Uma proposta política podia apresentar-se como tecnicamente necessária, escondendo escolhas e valores. Reconhecer essa possibilidade não iguala ciência e opinião. Exige separar a qualidade da evidência da decisão sobre finalidades: conhecer consequências prováveis ajuda a decidir, mas não determina sozinho qual sociedade deve ser desejada.</p>
+        <p>Essa confiança compartilhada na razão e na ciência não pertence a um único pensador. A próxima aula mostra como ela se distribuiu entre autores com problemas diferentes, e como a promessa de progresso que dali nasceu carregou desde o início suas próprias contradições.</p>
+        <aside class="pause-box"><h4>Pausa para discussão</h4><p>Que diferença existe entre afirmar que algo é verdadeiro porque uma autoridade declarou e considerá-lo confiável porque o caminho da investigação pode ser examinado?</p></aside>
       </div>
     </div>
   </section>
-
-
 
   <section id="plano-aula">
     <div class="section-title">Plano de Aula com Tempo</div>
     <div class="timeline">
       <div class="tl-item">
         <span class="tl-duration">10 min</span>
-        <span class="tl-text"><strong>Retomada</strong> — Revisão dos autores fundadores (Comte, Spencer). Conexão com a consolidação da Sociologia como disciplina autônoma.</span>
-      </div>
-      <div class="tl-item">
-        <span class="tl-duration">35 min</span>
-        <span class="tl-text"><strong>Exposição: objeto e método da Sociologia</strong> — Apresentação do objeto específico, da imaginação sociológica (Mills) e dos principais métodos de investigação sociológica. Exemplos de pesquisas clássicas e contemporâneas.</span>
+        <span class="tl-text"><strong>Retomada</strong> — Da questão social discutida na Aula 04 ao problema das ideias: por que uma sociedade em crise passou a exigir novas justificativas para autoridade e conhecimento.</span>
       </div>
       <div class="tl-item">
         <span class="tl-duration">20 min</span>
-        <span class="tl-text"><strong>Análise de um estudo sociológico clássico (resumo)</strong> — Leitura comentada de um resumo de estudo clássico (ex.: estudo de comunidade, pesquisa de estratificação). O professor demonstra como o olhar sociológico opera na prática.</span>
+        <span class="tl-text"><strong>Exposição: crise da tradição, secularização e Estado-nação</strong> — Apresentação da dissolução da ordem feudal, da diferenciação religiosa e da formação do Estado-nação moderno como pano de fundo do Iluminismo.</span>
       </div>
       <div class="tl-item">
-        <span class="tl-duration">30 min</span>
-        <span class="tl-text"><strong>Atividade: identificação de objetos de pesquisa sociológica em manchetes de jornal</strong> — Os alunos recebem 5 manchetes de jornal e devem identificar o fenômeno social, formular uma questão sociológica e propor o método adequado.</span>
-      </div>
-      <div class="tl-item">
-        <span class="tl-duration">15 min</span>
-        <span class="tl-text"><strong>Discussão coletiva</strong> — Socialização das questões e métodos propostos. O professor comenta e aprofunda as escolhas metodológicas.</span>
+        <span class="tl-duration">20 min</span>
+        <span class="tl-text"><strong>Leitura dialogada: razão, crítica pública e ciência</strong> — Leitura orientada das subseções 3 e 4 do texto-base, com pausas para discussão em voz alta.</span>
       </div>
       <div class="tl-item">
         <span class="tl-duration">10 min</span>
-        <span class="tl-text"><strong>Síntese do Bloco I e preparação para o Bloco II</strong> — Recapitulação dos temas do Bloco I. Antecipação do Bloco II: os clássicos da Sociologia (Durkheim, Marx, Weber).</span>
+        <span class="tl-text"><strong>Síntese e ponte para a Aula 06</strong> — Retomada dos conceitos de razão e ciência como critérios de legitimidade. Indicação de que a próxima aula examina quem deu corpo a esse movimento de ideias e suas contradições.</span>
       </div>
     </div>
   </section>
@@ -322,154 +207,17 @@
   <section id="leituras">
     <div class="section-title">Textos para Leitura Prévia</div>
     <div class="ref-card">
-      <div class="ref-author">MILLS, C. Wright</div>
-      <div class="ref-title">A imaginação sociológica. Cap. 1</div>
-      <div class="ref-pages">p. 9–28</div>
-    </div>
-    <div class="ref-card">
-      <div class="ref-author">BECKER, Howard</div>
-      <div class="ref-title">Métodos de pesquisa em ciências sociais. Cap. 1</div>
-      <div class="ref-pages">p. 11–30</div>
+      <div class="ref-author">ELIAS, Norbert</div>
+      <div class="ref-title">O processo civilizador. Vol. 1 — trechos selecionados</div>
+      <div class="ref-pages">Consultar a seção indicada na edição disponível; a paginação varia por edição.</div>
     </div>
   </section>
 
   <section id="atividade">
-    <div class="section-title">Atividades em Sala</div>
-    <div class="activity-card">
-      <h2>Sociologia nas manchetes: do fato ao problema sociológico</h2>
-      <p>As notícias abaixo funcionam como pontos de partida. O trabalho do grupo não é apenas resumir o que ocorreu, mas construir uma questão capaz de relacionar experiências particulares, instituições e processos sociais.</p>
-
-      <div class="headline-bank" aria-labelledby="headline-bank-title">
-        <h3 id="headline-bank-title">Banco de manchetes para a atividade</h3>
-        <div class="headline-grid">
-          <article class="headline-card">
-            <span class="headline-number">Manchete 1</span>
-            <h4><a href="https://agenciabrasil.ebc.com.br/economia/noticia/2026-08/desigualdades-marcam-formalizacao-do-trabalho-entre-jovens-brasileiros" target="_blank" rel="noopener noreferrer">Desigualdades marcam formalização do trabalho entre jovens brasileiros</a></h4>
-            <p class="headline-meta"><strong>Veículo ou instituição:</strong> Agência Brasil</p>
-            <p class="headline-meta"><strong>Publicação:</strong> <time datetime="2026-08-21">21/08/2026</time></p>
-            <p class="headline-meta"><strong>Tema sociológico predominante:</strong> <span class="headline-theme">mercado de trabalho, informalidade juvenil e diferenças regionais</span></p>
-            <p class="headline-meta"><strong>Acesso:</strong> <time datetime="2026-08-29">29/08/2026</time></p>
-            <p class="headline-context">A pesquisa permite comparar inserção formal e dependência de trabalhos ocasionais entre jovens de diferentes grupos e regiões, com atenção ao Norte e ao Nordeste.</p>
-          </article>
-
-          <article class="headline-card">
-            <span class="headline-number">Manchete 2</span>
-            <h4><a href="https://www.cnnbrasil.com.br/educacao/pe-de-meia-comeca-a-pagar-parcelas-de-agosto-esta-segunda-feira-24/" target="_blank" rel="noopener noreferrer">Pé-de-meia começa a pagar parcelas de agosto esta segunda-feira (24)</a></h4>
-            <p class="headline-meta"><strong>Veículo ou instituição:</strong> CNN Brasil</p>
-            <p class="headline-meta"><strong>Publicação:</strong> <time datetime="2026-08-24">24/08/2026</time></p>
-            <p class="headline-meta"><strong>Tema sociológico predominante:</strong> <span class="headline-theme">educação pública, frequência e permanência escolar</span></p>
-            <p class="headline-meta"><strong>Acesso:</strong> <time datetime="2026-08-29">29/08/2026</time></p>
-            <p class="headline-context">O calendário do benefício oferece um ponto de partida para discutir renda familiar, frequência e políticas de permanência no ensino médio público.</p>
-          </article>
-
-          <article class="headline-card">
-            <span class="headline-number">Manchete 3</span>
-            <h4><a href="https://www.sume.pb.gov.br/2026/08/feira-de-saude-leva-atendimento-ampliado-a-comunidade-riacho-da-roca-em-sume/" target="_blank" rel="noopener noreferrer">Feira de Saúde leva atendimento ampliado à comunidade Riacho da Roça, em Sumé</a></h4>
-            <p class="headline-meta"><strong>Veículo ou instituição:</strong> Prefeitura Municipal de Sumé</p>
-            <p class="headline-meta"><strong>Publicação:</strong> <time datetime="2026-08-28">28/08/2026</time></p>
-            <p class="headline-meta"><strong>Tema sociológico predominante:</strong> <span class="headline-theme">saúde pública e acesso a serviços na zona rural do semiárido</span></p>
-            <p class="headline-meta"><strong>Acesso:</strong> <time datetime="2026-08-29">29/08/2026</time></p>
-            <p class="headline-context">A iniciativa reúne serviços em uma comunidade rural e oferece um caso próximo para examinar território, deslocamento e acesso à saúde.</p>
-          </article>
-
-          <article class="headline-card">
-            <span class="headline-number">Manchete 4</span>
-            <h4><a href="https://www.poder360.com.br/poder-economia/endividamento-bate-recorde-e-atinge-82-das-familias/" target="_blank" rel="noopener noreferrer">Endividamento bate recorde e atinge 82,0% das famílias em julho</a></h4>
-            <p class="headline-meta"><strong>Veículo ou instituição:</strong> Poder360</p>
-            <p class="headline-meta"><strong>Publicação:</strong> <time datetime="2026-08-06">06/08/2026</time></p>
-            <p class="headline-meta"><strong>Tema sociológico predominante:</strong> <span class="headline-theme">endividamento, renda e condições de vida das famílias</span></p>
-            <p class="headline-meta"><strong>Acesso:</strong> <time datetime="2026-08-29">29/08/2026</time></p>
-            <p class="headline-context">A notícia apresenta resultados da pesquisa da CNC e possibilita investigar diferenças entre dívida, inadimplência e comprometimento da renda.</p>
-          </article>
-
-          <article class="headline-card">
-            <span class="headline-number">Manchete 5</span>
-            <h4><a href="https://www.metropoles.com/brasil/brasil-melhora-em-71-dos-indicadores-sobre-desigualdade-diz-estudo" target="_blank" rel="noopener noreferrer">Brasil melhora em 71% dos indicadores sobre desigualdade, diz estudo</a></h4>
-            <p class="headline-meta"><strong>Veículo ou instituição:</strong> Metrópoles</p>
-            <p class="headline-meta"><strong>Publicação:</strong> <time datetime="2026-08-12">12/08/2026</time></p>
-            <p class="headline-meta"><strong>Tema sociológico predominante:</strong> <span class="headline-theme">desigualdades de gênero, raça, origem social e região</span></p>
-            <p class="headline-meta"><strong>Acesso:</strong> <time datetime="2026-08-29">29/08/2026</time></p>
-            <p class="headline-context">O balanço reúne avanços e persistências em diferentes dimensões, permitindo examinar como médias nacionais se distribuem entre grupos e territórios.</p>
-          </article>
-        </div>
-      </div>
-
-      <div class="student-task" aria-labelledby="student-task-title">
-        <h3 id="student-task-title">Tarefa dos estudantes</h3>
-        <p><strong>Em grupo, escolha uma das cinco manchetes e transforme-a em problema sociológico.</strong></p>
-        <ol>
-          <li>Qual explicação individual ou de senso comum poderia ser dada inicialmente?</li>
-          <li>Que relações, instituições e processos sociais precisam ser considerados?</li>
-          <li>Como a imaginação sociológica permite relacionar experiências individuais e questões coletivas?</li>
-          <li>Que pergunta sociológica investigável pode ser formulada?</li>
-          <li>Que dados ou fontes seriam necessários?</li>
-          <li>Uma abordagem quantitativa, qualitativa ou combinada seria mais adequada? Justifique.</li>
-          <li>Que contribuição poderia vir da História, Geografia, Antropologia, Economia ou Ciência Política?</li>
-        </ol>
-      </div>
-
-      <details class="teacher-guidance">
-        <summary>Orientações para a mediação — uso do professor</summary>
-        <div class="guidance-content">
-          <article class="guidance-item">
-            <h4>Manchete 1 — Trabalho e diferenças regionais</h4>
-            <ul>
-              <li><strong>Biografia e estrutura:</strong> a experiência de procurar trabalho depende de trajetórias individuais, mas também da estrutura produtiva, do ciclo econômico e da distribuição territorial das oportunidades.</li>
-              <li><strong>Instituições:</strong> empresas, Estado, legislação trabalhista, sistemas de intermediação de mão de obra e famílias.</li>
-              <li><strong>Escalas:</strong> pessoa, domicílio, estado, Nordeste e Brasil, com comparação entre áreas urbanas e rurais.</li>
-              <li><strong>Fontes complementares:</strong> microdados e tabelas da PNAD Contínua, Novo Caged, Dieese e observatórios estaduais do trabalho.</li>
-              <li><strong>Risco individualizante:</strong> atribuir a desocupação apenas a esforço, qualificação ou escolha pessoal, ignorando oferta de postos e segmentações sociais.</li>
-              <li><strong>Pergunta sociológica possível:</strong> como a estrutura produtiva e o perfil social dos trabalhadores ajudam a explicar diferenças de desocupação entre estados do Nordeste?</li>
-            </ul>
-          </article>
-          <article class="guidance-item">
-            <h4>Manchete 2 — Frequência e permanência na educação pública</h4>
-            <ul>
-              <li><strong>Biografia e estrutura:</strong> frequência e permanência envolvem decisões e experiências estudantis, além de renda, trabalho juvenil, responsabilidades de cuidado e condições de oferta escolar.</li>
-              <li><strong>Instituições:</strong> escolas, redes públicas de ensino, MEC, Caixa Econômica Federal, Cadastro Único e famílias.</li>
-              <li><strong>Escalas:</strong> estudante, escola, rede municipal ou estadual, região e país.</li>
-              <li><strong>Fontes complementares:</strong> Censo Escolar, dados administrativos do Pé-de-Meia, indicadores de abandono e pesquisas com estudantes, docentes e famílias.</li>
-              <li><strong>Risco individualizante:</strong> tratar desempenho, ausência ou abandono apenas como falta de interesse do estudante.</li>
-              <li><strong>Pergunta sociológica possível:</strong> como renda familiar, trabalho e responsabilidades de cuidado influenciam a frequência e a permanência de estudantes no ensino médio público?</li>
-            </ul>
-          </article>
-          <article class="guidance-item">
-            <h4>Manchete 3 — Acesso à saúde no território rural</h4>
-            <ul>
-              <li><strong>Biografia e estrutura:</strong> buscar atendimento é uma decisão pessoal condicionada por distância, transporte, renda, organização da atenção básica e disponibilidade de profissionais.</li>
-              <li><strong>Instituições:</strong> SUS, Secretaria Municipal de Saúde, unidades de atenção básica, equipes profissionais e comunidades rurais.</li>
-              <li><strong>Escalas:</strong> usuário, comunidade, município, Cariri paraibano e políticas nacionais de saúde.</li>
-              <li><strong>Fontes complementares:</strong> e-SUS APS, DataSUS, Cadastro Nacional de Estabelecimentos de Saúde, planos municipais e entrevistas com moradores e equipes.</li>
-              <li><strong>Risco individualizante:</strong> atribuir o não atendimento a descuido pessoal sem considerar deslocamento, horários, oferta e continuidade dos serviços.</li>
-              <li><strong>Pergunta sociológica possível:</strong> como distância, transporte e organização dos serviços influenciam o acesso regular à atenção básica nas comunidades rurais de Sumé?</li>
-            </ul>
-          </article>
-          <article class="guidance-item">
-            <h4>Manchete 4 — Endividamento familiar</h4>
-            <ul>
-              <li><strong>Biografia e estrutura:</strong> decisões de consumo e crédito se relacionam com renda, preços, juros, instabilidade do trabalho e responsabilidades familiares.</li>
-              <li><strong>Instituições:</strong> famílias, bancos, comércio, empresas de crédito, Banco Central, órgãos de defesa do consumidor e políticas de renegociação.</li>
-              <li><strong>Escalas:</strong> orçamento doméstico, grupos de renda, mercado de crédito e conjuntura econômica nacional.</li>
-              <li><strong>Fontes complementares:</strong> Peic/CNC, Banco Central, Pesquisa de Orçamentos Familiares, Serasa e entrevistas sobre estratégias domésticas.</li>
-              <li><strong>Risco individualizante:</strong> reduzir toda dívida a irresponsabilidade financeira, sem distinguir crédito planejado, despesas essenciais e inadimplência.</li>
-              <li><strong>Pergunta sociológica possível:</strong> como renda, composição familiar e acesso ao crédito afetam o comprometimento do orçamento doméstico entre diferentes grupos sociais?</li>
-            </ul>
-          </article>
-          <article class="guidance-item">
-            <h4>Manchete 5 — Mobilidade e desigualdades</h4>
-            <ul>
-              <li><strong>Biografia e estrutura:</strong> trajetórias de ascensão resultam de ações individuais em condições desiguais de origem, educação, trabalho, gênero, raça e território.</li>
-              <li><strong>Instituições:</strong> famílias, escolas, mercado de trabalho, Estado, sistemas tributário e de proteção social.</li>
-              <li><strong>Escalas:</strong> geração, grupo racial e de gênero, município, região e país.</li>
-              <li><strong>Fontes complementares:</strong> relatório do Observatório Brasileiro das Desigualdades, PNAD Contínua, Censo Demográfico e indicadores desagregados por sexo, cor ou raça e região.</li>
-              <li><strong>Risco individualizante:</strong> explicar renda, pobreza ou acesso a direitos somente por mérito, talento ou escolhas pessoais.</li>
-              <li><strong>Pergunta sociológica possível:</strong> por que a melhora de indicadores nacionais pode coexistir com desigualdades persistentes entre grupos raciais, gêneros e regiões?</li>
-            </ul>
-          </article>
-        </div>
-      </details>
-
-      <p class="semester-note">As manchetes foram selecionadas para o semestre 2026.2. O professor poderá substituí-las por notícias mais recentes, preservando o roteiro de análise.</p>
+    <div class="section-title">Atividade / Ponte para a Aula 06</div>
+    <div class="activity-card" data-gabarito="dispensado">
+      <strong>Registro pessoal — pontes para a linha do tempo</strong><br><br>
+      Antes da próxima aula, pense em um evento histórico ou um pensador do século XVIII que você já ouviu mencionar, mesmo vagamente. Que relação você imagina entre esse nome ou evento e a crise da autoridade tradicional discutida hoje? Guarde essa hipótese: a Aula 06 vai testá-la numa linha do tempo coletiva que reconstrói essas conexões.
     </div>
   </section>
 
@@ -477,15 +225,15 @@
     <div class="section-title">Recursos Necessários</div>
     <div class="resources-list">
       <span class="res-tag">Projetor</span>
-      <span class="res-tag">Manchetes de jornal impressas</span>
       <span class="res-tag">Quadro branco</span>
+      <span class="res-tag">Trechos de texto impressos</span>
     </div>
   </section>
 
 </main>
 
 <footer>
-  <a href="/introducao-sociologia/">← Página principal</a>
+  <a href="../../index.html">← Voltar ao curso</a>
   <span style="margin: 0 12px; color: var(--border);">|</span>
   <span>Introdução à Sociologia — 2026.2</span>
 </footer>

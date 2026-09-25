@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Aula 44 — Religião e Estado como instituições sociais · 2026.2</title><style>
+  :root {
+    --bg: #0a0a0f; --surface: #12121c; --card: #1a1a2e; --border: #2a2a4a;
+    --purple: #7c3aed; --purple-lt: #a855f7; --blue: #4f46e5; --blue-lt: #818cf8;
+    --teal-lt: #2dd4bf; --amber-lt: #fbbf24; --rose-lt: #fb7185;
+    --text: #e2e8f0; --muted: #94a3b8; --radius: 12px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { max-width: 100%; overflow-x: clip; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; min-height: 100vh; overflow-wrap: anywhere; }
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(18,18,28,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; white-space: nowrap; }
+  nav a:hover { color: var(--text); }
+  .nav-left { display: flex; align-items: center; gap: 10px; }
+  .nav-badge { background: var(--purple); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+  .nav-center { font-size: 0.875rem; color: var(--muted); }
+  .nav-right { display: flex; gap: 16px; align-items: center; }
+  main { max-width: 860px; margin: 0 auto; padding: 40px 24px 80px; }
+  .aula-header { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; margin-bottom: 32px; border-top: 4px solid var(--blue); }
+  .header-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; align-items: center; }
+  .bloco-badge { background: var(--blue); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .meta-chip { background: var(--surface); border: 1px solid var(--border); font-size: 0.8rem; color: var(--muted); padding: 4px 12px; border-radius: 20px; }
+  .meta-chip strong { color: var(--text); }
+  .aula-header h1 { font-size: 1.5rem; font-weight: 700; line-height: 1.3; color: var(--text); }
+  section { margin-bottom: 32px; scroll-margin-top: 112px; }
+  .section-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue-lt); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+  .obj-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .obj-list li { display: flex; gap: 12px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
+  .obj-list li::before { content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--blue-lt); margin-top: 7px; flex-shrink: 0; }
+  .content-topic { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 12px; }
+  .content-topic h3 { font-size: 0.95rem; font-weight: 600; color: var(--purple-lt); margin-bottom: 8px; }
+  .content-topic ul { list-style: none; padding: 0; }
+  .content-topic ul li { padding: 4px 0 4px 16px; position: relative; color: var(--muted); font-size: 0.9rem; }
+  .content-topic ul li::before { content: '—'; position: absolute; left: 0; color: var(--border); }
+  .timeline { display: flex; flex-direction: column; gap: 10px; }
+  .tl-item { display: flex; gap: 16px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; border-left: 3px solid var(--blue); }
+  .tl-duration { background: var(--surface); border: 1px solid var(--border); color: var(--amber-lt); font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+  .tl-text { font-size: 0.9rem; color: var(--text); }
+  .ref-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 10px; border-left: 3px solid var(--blue-lt); }
+  .ref-author { font-size: 0.8rem; font-weight: 700; color: var(--blue-lt); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+  .ref-title { font-size: 0.9rem; color: var(--text); }
+  .ref-pages { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
+  .activity-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; font-size: 0.9rem; line-height: 1.7; border-left: 3px solid var(--teal-lt); }
+  .teacher-guidance { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-top: 18px; }
+  .teacher-guidance summary { cursor: pointer; color: var(--amber-lt); font-weight: 700; padding: 15px 17px; }
+  .teacher-guidance[open] summary { border-bottom: 1px solid var(--border); }
+  .teacher-guidance-content { padding: 16px 18px; }
+  .resources-list { display: flex; flex-wrap: wrap; gap: 10px; }
+  .res-tag { max-width: 100%; min-width: 0; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; }
+  footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--muted); font-size: 0.85rem; }
+  footer a { color: var(--purple-lt); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .section-nav { position: sticky; top: 56px; z-index: 90; background: rgba(10,10,15,.97); border-bottom: 1px solid var(--border); padding: 8px 16px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: thin; }
+  .section-nav a { flex: 0 0 auto; min-height: 36px; display: inline-flex; align-items: center; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 5px 12px; text-decoration: none; font-size: .8rem; }
+  .base-text { max-width: 72ch; margin-inline: auto; }
+  .base-intro { color: var(--muted); font-size: .92rem; margin-bottom: 16px; }
+  .base-subsection { scroll-margin-top: 112px; margin-bottom: 28px; }
+  .base-subsection h3 { color: var(--blue-lt); font-size: 1.15rem; line-height: 1.35; margin-bottom: 12px; }
+  .base-subsection p { color: var(--text); margin-bottom: 14px; line-height: 1.78; }
+  .base-subsection strong { color: #f1f5f9; }
+  .pause-box { background: rgba(79,70,229,.1); border: 1px solid rgba(129,140,248,.4); border-left: 4px solid var(--blue-lt); border-radius: var(--radius); padding: 16px 18px; margin: 22px 0; }
+  .pause-box h4 { color: var(--amber-lt); font-size: .75rem; letter-spacing: .09em; text-transform: uppercase; margin-bottom: 6px; }
+  .pause-box p { margin: 0; color: var(--text); font-weight: 600; line-height: 1.6; }
+  a:focus-visible { outline: 3px solid var(--amber-lt); outline-offset: 3px; border-radius: 3px; }
+  @media (max-width: 640px) {
+    nav { height: auto; min-height: 56px; padding: 8px 12px; flex-wrap: wrap; }
+    .nav-left, .nav-right { min-width: 0; }
+    .nav-center { display: none; }
+    .nav-right { gap: 10px; }
+    .section-nav { top: 72px; padding-inline: 10px; }
+    main { padding: 24px 14px 60px; }
+    .aula-header { padding: 22px 18px; }
+    .tl-item { flex-direction: column; gap: 8px; }
+  }
+  @media print { .teacher-guidance { break-inside: avoid; } }
+
+
+:root{--bg:#0a0a0f;--s:#12121c;--c:#1a1a2e;--b:#2a2a4a;--v:#c084fc;--u:#818cf8;--t:#2dd4bf;--a:#fbbf24;--x:#e2e8f0;--m:#94a3b8;--r:12px}*{box-sizing:border-box;margin:0;padding:0}html,body{max-width:100%;overflow-x:clip}body{background:var(--bg);color:var(--x);font:16px/1.65 "Segoe UI",system-ui,sans-serif;overflow-wrap:anywhere}nav{position:sticky;top:0;z-index:10;height:56px;padding:0 24px;background:#12121cf2;border-bottom:1px solid var(--b);display:flex;align-items:center;justify-content:space-between;gap:14px}nav a{color:var(--m);text-decoration:none;white-space:nowrap}.nl,.nr{display:flex;gap:12px;align-items:center}.badge,.block{background:var(--v);color:#080810;font-weight:700}.badge,.chip{padding:3px 10px;border-radius:20px;font-size:.78rem}.sn{top:56px;height:auto;padding:8px 16px;justify-content:flex-start;overflow-x:auto}.sn a,.chip{background:var(--s);border:1px solid var(--b)}main{max-width:860px;margin:auto;padding:40px 24px 80px}section{margin-bottom:32px;scroll-margin-top:110px}.head,.topic,.tl,.ref,.activity{background:var(--c);border:1px solid var(--b);border-radius:var(--r)}.head{border-top:4px solid var(--v);padding:32px;margin-bottom:32px}.meta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:15px}.block{background:var(--v);text-transform:uppercase}.head h1{font-size:1.5rem}.st{color:var(--v);font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border-bottom:1px solid var(--b);padding-bottom:8px;margin-bottom:16px}.objs{list-style:none;display:grid;gap:10px}.objs li,.topic{padding:14px 18px}.objs li{background:var(--c);border:1px solid var(--b);border-radius:var(--r)}.topic{margin-bottom:12px}.topic h3,.base h3{color:var(--v);margin-bottom:8px}.topic ul{padding-left:20px;color:var(--m)}.base{max-width:72ch;margin:auto}.intro{color:var(--m)}.toc{position:static;height:auto;display:block;background:var(--s);border:1px solid var(--b);border-radius:var(--r);padding:18px 22px;margin:18px 0 28px}.toc ol{columns:2;padding-left:22px}.toc a{color:var(--x);white-space:normal}.sub{margin-bottom:28px;scroll-margin-top:110px}.sub p{margin-bottom:14px}.pause{background:#7c3aed18;border:1px solid #c084fc66;border-left:4px solid var(--v);border-radius:var(--r);padding:15px 18px;margin:20px 0}.pause h4{color:var(--a);text-transform:uppercase;font-size:.76rem}.timeline{display:grid;gap:10px}.tl{padding:14px 18px;border-left:3px solid var(--v);display:flex;gap:14px}.time{color:var(--a);font-weight:700;white-space:nowrap}.ref{padding:15px 18px;margin-bottom:10px;border-left:3px solid var(--u)}.ref strong{color:var(--u)}.activity{padding:20px;border-left:3px solid var(--t)}.activity h3,.activity h4{color:var(--t);margin:14px 0 7px}.activity ol{padding-left:22px}.docs{display:grid;grid-template-columns:1fr 1fr;gap:10px}.doc,.questions,details{background:var(--s);border:1px solid var(--b);border-radius:var(--r);padding:13px}.doc h4{margin:0;color:var(--a)}.doc dl{display:grid;grid-template-columns:auto 1fr;gap:3px 8px}.doc dt{font-weight:700;color:var(--m)}.questions{padding-left:34px!important}details{margin-top:18px}summary{cursor:pointer;color:var(--a);font-weight:700}.answer{padding-top:10px}.answer h4{color:var(--t)}.resources{display:flex;flex-wrap:wrap;gap:8px}footer{text-align:center;border-top:1px solid var(--b);padding:28px;color:var(--m)}footer a{color:var(--v)}a:focus-visible,summary:focus-visible{outline:3px solid var(--a)}@media(max-width:640px){nav{height:auto;min-height:56px;padding:8px 12px;flex-wrap:wrap}.nc{display:none}.sn{top:72px;flex-wrap:nowrap}main{padding:24px 14px 60px}.head{padding:20px 17px}.toc ol{columns:1;padding-left:0;list-style-position:inside}.docs{grid-template-columns:1fr}.tl{flex-direction:column}.doc dl{grid-template-columns:1fr}}@media print{:root{--bg:#fff;--s:#fff;--c:#fff;--b:#999;--x:#111;--m:#333;--v:#222;--u:#222;--t:#222;--a:#222}nav{position:static}.sn{display:none}main{max-width:none;padding:10mm}.doc,.ref,.tl,details{break-inside:avoid}details>.answer{display:block!important}}
+
+body {max-width:100%; overflow-x:hidden; overflow-wrap:anywhere;} main{max-width:960px;margin:auto} .base-text{max-width:72ch} .base-subsection{margin-bottom:24px} table{width:100%;border-collapse:collapse}th,td{padding:8px;border:1px solid var(--border);overflow-wrap:anywhere} .table-wrap,.table-region{overflow-x:auto;max-width:100%} .teacher-guidance{margin-top:20px;padding:16px;border:1px solid var(--border)} summary{cursor:pointer;font-weight:bold} .skip{position:absolute;left:-9999px}.skip:focus{left:12px;top:12px;z-index:300;background:var(--bg);padding:10px} a{overflow-wrap:anywhere} @media(max-width:640px){nav{position:static;flex-wrap:wrap;height:auto;padding:12px}.nav-center{display:none}.section-nav{position:static;flex-wrap:wrap}main{padding:20px 14px}.tl-item{flex-direction:column}.aula-header{padding:20px 14px}} @media print{nav,.section-nav,.skip{display:none!important}body,main,section,.aula-header,.activity-card,.pause-box,details{background:white!important;color:black!important}*{color:inherit!important;text-shadow:none!important;box-shadow:none!important}main{max-width:none;padding:0}.base-text{max-width:none}h1,h2,h3,summary{break-after:avoid}p{orphans:3;widows:3}table{font-size:9pt}.teacher-guidance{break-inside:auto}}
+</style></head><body>
+<a class="skip" href="#objetivos">Pular para o conteúdo</a>
+<nav aria-label="Navegação entre aulas"><div class="nav-left"><a href="../../index.html">Voltar ao curso</a></div><span class="nav-center">Encontro 11 de 15 · Aula 44 de 60</span><div class="nav-right"><a href="aula-43.html">← Aula anterior</a><a href="aula-45.html">Próxima aula →</a></div></nav>
+<div class="section-nav" aria-label="Seções"><a href="#objetivos">Objetivos</a><a href="#texto-base">Texto-base</a><a href="#plano-aula">Plano</a><a href="#atividade">Discussão</a><a href="#sintese">Síntese</a><a href="#leituras">Referências</a></div>
+<main><header class="aula-header"><div class="header-meta"><span class="meta-chip">Encontro <strong>11</strong> de 15 — 18/11/2026, quarta-feira</span><span class="meta-chip">Aula <strong>44</strong> de 60</span><span class="meta-chip">4ª aula do encontro</span><span class="meta-chip">Aproximadamente 1 hora-aula</span></div><h1>Religião e Estado como instituições sociais</h1><p>Introdução à Sociologia · T01 · 2026.2 · Código 2101000 · SIGAA 4M1234</p></header>
+<section id="objetivos"><h2>Objetivos</h2><ul class="obj-list"><li>Analisar diversidade e autoridade em organizações religiosas.</li><li>Distinguir Estado e governo.</li><li>Comparar regras, recursos e contestação em instituições.</li></ul></section>
+<section id="texto-base" aria-labelledby="texto-base-title"><h2 id="texto-base-title">Texto-base</h2><div class="base-text"><p class="base-intro">Uma autoridade pode ser reconhecida e ainda ter suas decisões contestadas. Como diferenciar pertencimento, legitimidade, capacidade e justiça?</p><div class="sub base-subsection" id="a44-conceito-1">
+<h3>1. Religião: pertencimento, sentido e organização</h3>
+<p>Religião envolve crenças, narrativas, rituais, comunidades, autoridades, organizações e práticas. Não se reduz a convicção privada nem a frequência a templo. Pessoas produzem sentidos para sofrimento, celebração e obrigação; rituais organizam tempos e pertencimentos; comunidades mobilizam cuidado, disciplina e recursos.</p>
+<p>Durkheim ajuda a investigar como práticas relativas ao sagrado constituem comunidade moral, mas coesão não é efeito universal nem harmonia. Rituais podem unir participantes e demarcar fronteiras. Perspectivas inspiradas em Marx perguntam como ideias religiosas legitimam relações ou expressam sofrimento e crítica; isso não autoriza reduzir toda religião à alienação.</p>
+<p>Organização religiosa concreta possui membros, patrimônio e procedimentos. Uma tradição inclui organizações diversas, participantes não organizados e interpretações concorrentes. Projetos assistenciais podem distribuir alimento, criar redes, reivindicar direitos ou reforçar autoridade. Consequências precisam ser demonstradas.</p>
+<p>A análise sociológica não decide a verdade da crença. Examina práticas, relações e efeitos, distinguindo explicação de julgamento religioso ou moral. Cuidado em sala significa não pedir identificação nem usar pessoas como exemplos.</p>
+</div><div class="sub base-subsection" id="a44-conceito-2">
+<h3>2. Religião: diversidade interna, autoridade e mudança</h3>
+<p>Tradições religiosas não são blocos homogêneos. Diferem por região, geração, gênero, interpretação e organização. Autoridade pode derivar de cargo, conhecimento, carisma, antiguidade ou reconhecimento comunitário. Fontes competem, e nenhum porta-voz representa automaticamente todos.</p>
+<p>Religião pode produzir pertencimento, disciplina, conflito, assistência, legitimação e contestação. O mesmo projeto tem efeitos contraditórios: oferece recurso e define condições de acesso; amplia voz de alguns e limita outros. Dizer apenas “a religião faz” apaga agentes e mecanismos.</p>
+<p>Mudança ocorre por interpretações internas, mobilidade, debate público, transformação jurídica e contato entre grupos. Participantes negociam regras, formam dissidências e criam organizações. Continuidade de símbolos pode acompanhar mudança de práticas.</p>
+<p>Comparar exige critérios equivalentes. Um conflito visível não prova desintegração, e consenso declarado não prova ausência de disputa. Atas, observação, entrevistas voluntárias e distribuição de recursos oferecem evidências diferentes.</p>
+</div><div class="sub base-subsection" id="a44-conceito-3">
+<h3>3. Estado: regras, capacidades e legitimidade</h3>
+<p>Estado não é sinônimo de governo do momento. Compreende instituições, regras, agentes, capacidades administrativas e disputas pela autoridade num território. Governos dirigem temporariamente partes desse aparato; órgãos, carreiras, tribunais e níveis federativos possuem competências e continuidades próprias.</p>
+<p>O Estado formula e implementa políticas, arrecada, registra, regula e provê direitos e serviços. Não é ator neutro ou unitário: órgãos divergem, agentes interpretam regras e capacidades variam entre territórios. Uma lei nacional pode produzir implementações locais distintas por orçamento, informação, infraestrutura e coordenação.</p>
+<p>Em Weber, legitimidade refere-se à crença na validade de uma ordem ou autoridade. Não significa que ela seja justa, verdadeira ou moralmente aprovada pelo analista. Pessoas podem reconhecer competência legal e criticar resultado; podem cumprir por cálculo ou coerção sem considerar a autoridade legítima.</p>
+<p>Capacidade estatal é possibilidade de realizar decisões, não garantia de finalidade justa. Cadastros e equipes permitem distribuir recursos, mas categorias podem deixar necessidades invisíveis. Avaliar requer critérios de direitos e efeitos; explicar requer mecanismos.</p>
+<aside class="pause">
+<h4>Pausa 4 — Legitimidade estatal sem equivalência moral</h4>
+<p>Uma decisão segue procedimento reconhecido, mas é contestada como injusta. Que evidências tratam da legitimidade e quais sustentam a avaliação moral?</p>
+</aside>
+</div><div class="sub base-subsection" id="a44-conceito-4">
+<h3>4. Estado: conflito, seletividade e participação</h3>
+<p>Políticas distribuem recursos, riscos e reconhecimento. Regras gerais afetam grupos diferentemente devido a renda, território, raça, gênero, geração, deficiência e posição institucional. Seletividade deve ser investigada comparando casos semelhantes, frequência de fiscalização, acesso e decisões, não presumida por resultado isolado.</p>
+<p>Implementação é parte da política. Agentes de atendimento traduzem normas em decisões; sistemas exigem documentos; filas e transporte condicionam acesso. Discricionariedade pode adaptar a necessidade ou reproduzir favoritismo. Protocolos, treinamento, recurso e transparência alteram possibilidades.</p>
+<p>Cidadãos não são receptores passivos. Participam por eleições, conselhos, audiências, associações, protestos, ouvidorias e ações judiciais. Canais têm barreiras e capacidades distintas. Movimentos tornam problemas visíveis e disputam categorias, enquanto organizações também cooperam com o Estado.</p>
+<p>Conflito não indica necessariamente ausência de Estado ou ilegitimidade. Pode ocorrer dentro de procedimentos reconhecidos e gerar mudança. Da mesma forma, estabilidade não prova justiça. A análise identifica atores, posições, recursos e resultados.</p>
+</div><p>Uma comparação institucional deve procurar também quem não aparece nos registros. Quem desistiu de um atendimento não consta necessariamente entre usuários; quem se afastou de uma organização pode não participar de sua consulta. Essa seleção anterior limita conclusões baseadas apenas em presenças e formulários concluídos. Comparar discurso, procedimento e resultado exige perguntar como os dados foram produzidos e quais pessoas ficaram fora do campo de observação. O problema prepara a análise de estratificação: oportunidades não se distribuem somente no momento formal de uma decisão.</p></div></section>
+<section id="plano-aula"><h2>Percurso da hora-aula</h2><div class="timeline"><div class="tl-item"><span class="tl-duration">5 min</span><span class="tl-text">Uma autoridade pode ser reconhecida e ainda ter suas decisões contestadas. Como diferenciar pertencimento, legitimidade, capacidade e justiça?</span></div><div class="tl-item"><span class="tl-duration">15 min</span><span class="tl-text">Leitura dialogada e desenvolvimento dos conceitos desta unidade.</span></div><div class="tl-item"><span class="tl-duration">35 min</span><span class="tl-text">Discussão e elaboração do registro proposto; comparação das justificativas com mediação docente.</span></div><div class="tl-item"><span class="tl-duration">5 min</span><span class="tl-text">Síntese e transição: A Aula 45 tratará da distribuição estruturada de posições, recursos e oportunidades.</span></div></div></section>
+<section id="atividade">
+<div class="st">Atividade em Sala</div>
+<div class="activity">
+<h3>Oficina — três instituições, múltiplos efeitos</h3>
+<p>
+<strong>Finalidade:</strong> comparar instituições e organizações, consequências, desigualdades e contestação usando documentos fictícios.</p>
+<h4>Organização e tempos (35 min)</h4>
+<ol>
+<li>3 min: grupos de 4 ou 5 e funções de leitura, registro, tempo e apresentação.</li>
+<li>8 min: ler seis documentos e marcar oito campos.</li>
+<li>17 min: responder às oito perguntas numa matriz.</li>
+<li>7 min: preparar conclusão e alternativa.</li>
+</ol>
+<h4>Seis documentos completos</h4>
+<div class="docs">
+<article class="doc">
+<h4>1 — Escola pública</h4>
+<dl>
+<dt>Objetivo</dt>
+<dd>Ampliar leitura por estudo diário.</dd>
+<dt>Atores</dt>
+<dd>Direção, docentes, estudantes.</dd>
+<dt>Regra</dt>
+<dd>Trinta minutos iniciais de leitura.</dd>
+<dt>Recurso</dt>
+<dd>Acervo e tempo.</dd>
+<dt>Consequência</dt>
+<dd>Empréstimos crescem; transporte atrasa parte da turma.</dd>
+<dt>Afetados</dt>
+<dd>Especialmente estudantes da rota distante.</dd>
+<dt>Contestação</dt>
+<dd>Rodízio de horário.</dd>
+<dt>Lacuna</dt>
+<dd>Aprendizagem e frequência comparadas.</dd>
+</dl>
+</article>
+<article class="doc">
+<h4>2 — Certificação</h4>
+<dl>
+<dt>Objetivo</dt>
+<dd>Certificar informática e selecionar bolsas.</dd>
+<dt>Atores</dt>
+<dd>Universidade, banca, candidatos.</dd>
+<dt>Regra</dt>
+<dd>Prova presencial em computador.</dd>
+<dt>Recurso</dt>
+<dd>Certificado e vinte bolsas.</dd>
+<dt>Consequência</dt>
+<dd>Aprovados criam rede de estudo; faltas concentram-se longe.</dd>
+<dt>Afetados</dt>
+<dd>Candidatos sem transporte.</dd>
+<dt>Contestação</dt>
+<dd>Prova em polos.</dd>
+<dt>Lacuna</dt>
+<dd>Motivos das faltas e desempenho.</dd>
+</dl>
+</article>
+<article class="doc">
+<h4>3 — Projeto assistencial</h4>
+<dl>
+<dt>Objetivo</dt>
+<dd>Distribuir refeições sem exigir filiação.</dd>
+<dt>Atores</dt>
+<dd>Conselho, voluntários, beneficiários.</dd>
+<dt>Regra</dt>
+<dd>Cadastro e fila semanal.</dd>
+<dt>Recurso</dt>
+<dd>Refeições e informação.</dd>
+<dt>Consequência</dt>
+<dd>Rede de apoio; voluntários divergem sobre mensagem ritual.</dd>
+<dt>Afetados</dt>
+<dd>Usuários e voluntários.</dd>
+<dt>Contestação</dt>
+<dd>Escolha facultativa de atividade.</dd>
+<dt>Lacuna</dt>
+<dd>Experiência dos usuários e decisões do conselho.</dd>
+</dl>
+</article>
+<article class="doc">
+<h4>4 — Autoridade religiosa</h4>
+<dl>
+<dt>Objetivo</dt>
+<dd>Rever calendário comunitário.</dd>
+<dt>Atores</dt>
+<dd>Liderança, jovens, conselho.</dd>
+<dt>Regra</dt>
+<dd>Conselho decide após consulta.</dd>
+<dt>Recurso</dt>
+<dd>Espaço e horários.</dd>
+<dt>Consequência</dt>
+<dd>Consulta amplia propostas; decisão mantém horário.</dd>
+<dt>Afetados</dt>
+<dd>Participantes com jornadas diversas.</dd>
+<dt>Contestação</dt>
+<dd>Comissão jovem propõe voto.</dd>
+<dt>Lacuna</dt>
+<dd>Critérios e distribuição de participação.</dd>
+</dl>
+</article>
+<article class="doc">
+<h4>5 — Transporte estudantil</h4>
+<dl>
+<dt>Objetivo</dt>
+<dd>Garantir acesso de residentes rurais.</dd>
+<dt>Atores</dt>
+<dd>Prefeitura, escola, motoristas, famílias.</dd>
+<dt>Regra</dt>
+<dd>Residência a mais de cinco quilômetros.</dd>
+<dt>Recurso</dt>
+<dd>Vagas e rotas.</dd>
+<dt>Consequência</dt>
+<dd>Presença cresce; uma comunidade fica fora da rota.</dd>
+<dt>Afetados</dt>
+<dd>Estudantes rurais.</dd>
+<dt>Contestação</dt>
+<dd>Audiência solicita revisão.</dd>
+<dt>Lacuna</dt>
+<dd>Capacidade, custos e critérios cartográficos.</dd>
+</dl>
+</article>
+<article class="doc">
+<h4>6 — Atendimento estatal</h4>
+<dl>
+<dt>Objetivo</dt>
+<dd>Emitir documento em dez dias.</dd>
+<dt>Atores</dt>
+<dd>Órgão, atendentes, requerentes.</dd>
+<dt>Regra</dt>
+<dd>Mesmo formulário em três postos.</dd>
+<dt>Recurso</dt>
+<dd>Documento e acesso a serviços.</dd>
+<dt>Consequência</dt>
+<dd>Prazos variam por posto; um aceita correção local.</dd>
+<dt>Afetados</dt>
+<dd>Requerentes, sobretudo os que viajam longe.</dd>
+<dt>Contestação</dt>
+<dd>Ouvidoria e protocolo comum.</dd>
+<dt>Lacuna</dt>
+<dd>Equipe, demanda e registros de prazo.</dd>
+</dl>
+</article>
+</div>
+<h4>Oito perguntas</h4>
+<ol class="questions">
+<li>Que instituição e que organização aparecem?</li>
+<li>Qual objetivo ou função manifesta é declarado?</li>
+<li>Que consequência latente pode ser investigada?</li>
+<li>Há disfunção ou efeito contraditório? Para quem?</li>
+<li>Que forma de socialização, seleção ou autoridade está presente?</li>
+<li>Que desigualdade ou relação de poder interfere?</li>
+<li>Que contestação ou possibilidade de mudança aparece?</li>
+<li>Que evidência falta antes de concluir?</li>
+</ol>
+<h4>Produto, socialização e cuidado</h4>
+<p>Entregar matriz de seis linhas por oito eixos, com alternativa em dois documentos. Socializar uma conclusão citando dado, conceito, grupo afetado, alternativa e lacuna. Não solicitar identificação religiosa ou relatos pessoais; analisar documentos e interromper exposição de experiências.</p>
+<details>
+<summary>Possibilidades comentadas e orientações de mediação — uso do professor</summary>
+<div class="answer">
+<h4>Documento 1 — Escola</h4>
+<p>Educação é instituição; escola, organização. Leitura é objetivo manifesto. Empréstimos são efeito observado, ainda não função latente; faltam aprendizagem e comparação. Horário pode ser disfuncional para rota distante. Socialização leitora e autoridade escolar aparecem. Rodízio contesta o procedimento. Outra explicação para atrasos exige evidência.</p>
+<h4>Documento 2 — Certificação</h4>
+<p>Instituição educacional e universidade distinguem-se. Certificar e selecionar bolsas são manifestos; rede pode ser latente se não prevista e sustentada. Faltas são efeito contraditório para candidatos distantes, não prova causal. Prova seleciona e distribui credencial. Polos são mudança possível; faltam motivos e resultados.</p>
+<h4>Documento 3 — Assistência religiosa</h4>
+<p>Religião é instituição; organização executa projeto. Refeição é manifesta; rede de apoio pode ser latente. Mensagem ritual produz conflito, não benefício geral presumido. Conselho detém autoridade, mas voluntários divergem. Opção facultativa negocia prática. Faltam experiências dos usuários; não solicitar crenças da turma.</p>
+<h4>Documento 4 — Participação religiosa</h4>
+<p>Organização concreta integra tradição mais ampla. Rever calendário é objetivo; novas propostas são consequência observada. Manutenção pode afetar jornadas de modo desigual. Conselho possui autoridade, jovens contestam por voto. Não se presume tradição homogênea ou ilegitimidade. Critérios e participação faltam.</p>
+<h4>Documento 5 — Transporte</h4>
+<p>Estado é instituição; prefeitura e escola são organizações. Acesso é manifesto. Presença maior pode ser consequência pretendida, não latente sem informação sobre reconhecimento. Exclusão territorial é efeito contraditório para uma comunidade. Audiência expressa participação. Faltam capacidade, custo e mapa antes de avaliar justiça.</p>
+<h4>Documento 6 — Atendimento</h4>
+<p>Instituição estatal aparece em órgão e postos. Prazo uniforme é manifesto; variação é efeito observado, possivelmente disfunção para quem viaja. Regra geral não gera implementação unitária. Correção local pode ampliar acesso ou discricionariedade desigual. Ouvidoria oferece recurso. Dados de demanda e equipe são indispensáveis; legitimidade procedimental não garante justiça.</p>
+<h4>Mediação e transição</h4>
+<p>Exija os oito eixos e diferencie instituição, organização, intenção, consequência observada e função demonstrada. Admita alternativas apoiadas em evidência; não presuma que efeitos beneficiem todos ou que reprodução seja destino. Proteja identificação religiosa e interrompa relatos pessoais. Encerre ligando a distribuição institucional de recursos à Aula 45 sobre estratificação social.</p>
+</div>
+</details>
+</div>
+</section>
+<section id="sintese"><h2>Síntese e continuidade</h2><p>Instituições não são atores homogêneos. Legitimidade diz respeito ao reconhecimento da autoridade; capacidade e justiça são questões diferentes, que também exigem investigação.</p><p>A Aula 45 tratará da distribuição estruturada de posições, recursos e oportunidades.</p></section><section id="leituras">
+<div class="st">Referências</div>
+<div class="ref">
+<strong>MERTON, Robert K.</strong> Social Theory and Social Structure. New York: Free Press, 1968.<p>Base para funções manifestas, latentes e disfunções; paráfrases didáticas.</p>
+</div>
+<div class="ref">
+<strong>BOURDIEU, Pierre; PASSERON, Jean-Claude.</strong> La reproduction: éléments pour une théorie du système d'enseignement. Paris: Minuit, 1970.<p>Base para reprodução no ensino; sem paginação ou tradução presumida.</p>
+</div>
+<div class="ref">
+<strong>WEBER, Max.</strong> Economy and Society: An Outline of Interpretive Sociology. Berkeley: University of California Press, 1978.<p>Base para Estado e legitimidade; paráfrases didáticas.</p>
+</div>
+</section>
+</main><footer>Introdução à Sociologia · T01 · 2026.2 · <a href="../../index.html">Voltar ao curso</a></footer></body></html>

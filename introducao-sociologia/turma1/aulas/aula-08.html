@@ -10,84 +10,77 @@
     --purple: #7c3aed; --purple-lt: #a855f7; --blue: #4f46e5; --blue-lt: #818cf8;
     --teal-lt: #2dd4bf; --amber-lt: #fbbf24; --rose-lt: #fb7185;
     --text: #e2e8f0; --muted: #94a3b8; --radius: 12px;
-    --bloco-color: #4f46e5; --bloco-lt: #818cf8;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
+  html, body { max-width: 100%; overflow-x: clip; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; min-height: 100vh; overflow-wrap: anywhere; }
   nav { position: sticky; top: 0; z-index: 100; background: rgba(18,18,28,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
   nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; white-space: nowrap; }
   nav a:hover { color: var(--text); }
   .nav-left { display: flex; align-items: center; gap: 10px; }
-  .nav-badge { background: var(--bloco-color); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+  .nav-badge { background: var(--purple); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
   .nav-center { font-size: 0.875rem; color: var(--muted); }
   .nav-right { display: flex; gap: 16px; align-items: center; }
   main { max-width: 860px; margin: 0 auto; padding: 40px 24px 80px; }
-  .aula-header { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; margin-bottom: 32px; border-top: 4px solid var(--bloco-color); }
+  .aula-header { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; margin-bottom: 32px; border-top: 4px solid var(--purple); }
   .header-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; align-items: center; }
-  .bloco-badge { background: var(--bloco-color); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .bloco-badge { background: var(--purple); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
   .meta-chip { background: var(--surface); border: 1px solid var(--border); font-size: 0.8rem; color: var(--muted); padding: 4px 12px; border-radius: 20px; }
+  .meta-chip strong { color: var(--text); }
   .aula-header h1 { font-size: 1.5rem; font-weight: 700; line-height: 1.3; color: var(--text); }
-  section { margin-bottom: 32px; }
-  .section-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--bloco-lt); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+  section { margin-bottom: 32px; scroll-margin-top: 112px; }
+  .section-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--purple-lt); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
   .obj-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
   .obj-list li { display: flex; gap: 12px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
-  .obj-list li::before { content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--bloco-lt); margin-top: 7px; flex-shrink: 0; }
+  .obj-list li::before { content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--purple-lt); margin-top: 7px; flex-shrink: 0; }
   .content-topic { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 12px; }
-  .content-topic h3 { font-size: 0.95rem; font-weight: 600; color: var(--bloco-lt); margin-bottom: 8px; }
+  .content-topic h3 { font-size: 0.95rem; font-weight: 600; color: var(--purple-lt); margin-bottom: 8px; }
   .content-topic ul { list-style: none; padding: 0; }
   .content-topic ul li { padding: 4px 0 4px 16px; position: relative; color: var(--muted); font-size: 0.9rem; }
   .content-topic ul li::before { content: '—'; position: absolute; left: 0; color: var(--border); }
   .timeline { display: flex; flex-direction: column; gap: 10px; }
-  .tl-item { display: flex; gap: 16px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; border-left: 3px solid var(--bloco-color); }
+  .tl-item { display: flex; gap: 16px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; border-left: 3px solid var(--purple); }
   .tl-duration { background: var(--surface); border: 1px solid var(--border); color: var(--amber-lt); font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
   .tl-text { font-size: 0.9rem; color: var(--text); }
-  .ref-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 10px; border-left: 3px solid var(--bloco-lt); }
-  .ref-author { font-size: 0.8rem; font-weight: 700; color: var(--bloco-lt); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+  .ref-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 10px; border-left: 3px solid var(--blue-lt); }
+  .ref-author { font-size: 0.8rem; font-weight: 700; color: var(--blue-lt); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
   .ref-title { font-size: 0.9rem; color: var(--text); }
   .ref-pages { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
   .activity-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; font-size: 0.9rem; line-height: 1.7; border-left: 3px solid var(--teal-lt); }
-  .activity-card h3 { color: var(--teal-lt); font-size: 1.05rem; margin: 0 0 10px; }
-  .activity-card h4 { color: var(--amber-lt); margin: 20px 0 8px; }
-  .activity-card ol, .activity-card ul { padding-left: 22px; margin: 10px 0; }
-  .activity-card li { margin: 7px 0; }
-  .data-note { background: rgba(251,191,36,.08); border: 1px solid rgba(251,191,36,.45); border-radius: var(--radius); padding: 14px 16px; margin: 14px 0; }
-  .data-table { width: 100%; table-layout: fixed; border-collapse: collapse; margin: 10px 0 18px; font-size: .82rem; }
-  .data-table caption { text-align: left; color: var(--text); font-weight: 700; margin-bottom: 8px; }
-  .data-table th, .data-table td { border: 1px solid var(--border); padding: 9px 7px; text-align: center; overflow-wrap: anywhere; }
-  .data-table th { background: var(--surface); color: var(--amber-lt); }
-  .data-table td:first-child, .data-table th:first-child { text-align: left; }
-  .teacher-guidance { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-top: 18px; }
-  .teacher-guidance summary { cursor: pointer; color: var(--amber-lt); font-weight: 700; padding: 15px 17px; }
-  .teacher-guidance[open] summary { border-bottom: 1px solid var(--border); }
-  .teacher-guidance-content { padding: 16px 18px; }
-  .guidance-note { color: var(--muted); font-size: .82rem; margin: 16px 0 0; }
+  .activity-card h3 { color: var(--teal-lt); font-size: 1.25rem; margin-bottom: 12px; }
+  .activity-card h4 { color: var(--amber-lt); font-size: 1rem; margin: 24px 0 8px; }
+  .activity-card p { margin-bottom: 12px; }
+  .activity-card ol, .activity-card ul { padding-left: 24px; margin: 8px 0 16px; }
+  .activity-card li { margin-bottom: 6px; }
+  .activity-note { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; margin: 18px 0; }
+  .thesis-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin: 20px 0 24px; }
+  .thesis-card { min-width: 0; break-inside: avoid; page-break-inside: avoid; background: var(--surface); border: 1px dashed var(--blue-lt); border-radius: 10px; padding: 16px; }
+  .thesis-number { display: inline-block; color: #0a0a0f; background: var(--amber-lt); border-radius: 999px; padding: 2px 10px; margin-bottom: 10px; font-size: .78rem; font-weight: 800; }
+  .thesis-card p { margin: 0; color: var(--text); }
+  .teacher-key { margin-top: 24px; border: 1px solid var(--amber-lt); border-radius: 10px; background: rgba(251,191,36,.06); }
+  .teacher-key summary { cursor: pointer; min-height: 48px; display: flex; align-items: center; padding: 12px 16px; color: var(--amber-lt); font-weight: 800; }
+  .teacher-key summary::marker { color: var(--amber-lt); }
+  .teacher-key-body { padding: 0 18px 18px; }
+  .teacher-key-body > p { color: var(--muted); }
+  .answer-list { display: grid; gap: 12px; padding-left: 24px; }
+  .answer-list li { padding-left: 4px; }
+  .concept-care { border-left: 3px solid var(--rose-lt); background: rgba(251,113,133,.07); border-radius: 8px; padding: 14px 16px; margin-top: 20px; }
   .resources-list { display: flex; flex-wrap: wrap; gap: 10px; }
-  .res-tag { background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; }
+  .res-tag { max-width: 100%; min-width: 0; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; }
   footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--muted); font-size: 0.85rem; }
-  footer a { color: var(--bloco-lt); text-decoration: none; }
+  footer a { color: var(--purple-lt); text-decoration: none; }
   footer a:hover { text-decoration: underline; }
-
-  html, body { max-width: 100%; overflow-x: clip; }
-  body { overflow-wrap: anywhere; }
-  section { scroll-margin-top: 112px; }
   .section-nav { position: sticky; top: 56px; z-index: 90; background: rgba(10,10,15,.97); border-bottom: 1px solid var(--border); padding: 8px 16px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: thin; }
   .section-nav a { flex: 0 0 auto; min-height: 36px; display: inline-flex; align-items: center; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 5px 12px; text-decoration: none; font-size: .8rem; }
   .base-text { max-width: 72ch; margin-inline: auto; }
   .base-intro { color: var(--muted); font-size: .92rem; margin-bottom: 16px; }
-  .base-toc { position: static; height: auto; display: block; max-width: 100%; overflow: clip; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; margin-bottom: 28px; }
-  .base-toc h3 { color: var(--bloco-lt, var(--purple-lt)); font-size: .95rem; margin-bottom: 10px; }
-  .base-toc ol { width: 100%; max-width: 100%; padding-left: 22px; columns: 2; column-gap: 32px; }
-  .base-toc li { break-inside: avoid; margin: 5px 0; }
-  .base-toc a { color: var(--text); text-decoration-thickness: 1px; text-underline-offset: 3px; white-space: normal; }
   .base-subsection { scroll-margin-top: 112px; margin-bottom: 28px; }
-  .base-subsection h3 { color: var(--bloco-lt, var(--purple-lt)); font-size: 1.15rem; line-height: 1.35; margin-bottom: 12px; }
+  .base-subsection h3 { color: var(--purple-lt); font-size: 1.15rem; line-height: 1.35; margin-bottom: 12px; }
   .base-subsection p { color: var(--text); margin-bottom: 14px; line-height: 1.78; }
   .base-subsection strong { color: #f1f5f9; }
-  .pause-box { background: rgba(79,70,229,.1); border: 1px solid rgba(129,140,248,.4); border-left: 4px solid var(--bloco-lt, var(--purple-lt)); border-radius: var(--radius); padding: 16px 18px; margin: 22px 0; }
+  .pause-box { background: rgba(79,70,229,.1); border: 1px solid rgba(129,140,248,.4); border-left: 4px solid var(--purple-lt); border-radius: var(--radius); padding: 16px 18px; margin: 22px 0; }
   .pause-box h4 { color: var(--amber-lt); font-size: .75rem; letter-spacing: .09em; text-transform: uppercase; margin-bottom: 6px; }
   .pause-box p { margin: 0; color: var(--text); font-weight: 600; line-height: 1.6; }
-  .legacy-note { border: 1px solid var(--amber-lt); background: rgba(251,191,36,.08); border-radius: var(--radius); padding: 16px 18px; margin: 0 0 24px; }
-  .res-tag { max-width: 100%; min-width: 0; }
   a:focus-visible { outline: 3px solid var(--amber-lt); outline-offset: 3px; border-radius: 3px; }
   @media (max-width: 640px) {
     nav { height: auto; min-height: 56px; padding: 8px 12px; flex-wrap: wrap; }
@@ -97,25 +90,24 @@
     .section-nav { top: 72px; padding-inline: 10px; }
     main { padding: 24px 14px 60px; }
     .aula-header { padding: 22px 18px; }
-    .base-toc ol { width: auto; columns: auto; padding-left: 0; list-style-position: inside; }
     .tl-item { flex-direction: column; gap: 8px; }
-    .data-table { font-size: .72rem; }
-    .data-table th, .data-table td { padding: 7px 3px; }
+    .activity-card { padding: 16px; }
+    .thesis-grid { grid-template-columns: 1fr; }
   }
-  @media print { .data-table, .teacher-guidance, .data-note { break-inside: avoid; } }
+  @media print { .teacher-guidance, .teacher-key { break-inside: avoid; } }
 </style>
 </head>
 <body>
 
 <nav>
   <div class="nav-left">
-    <a href="/introducao-sociologia/">← Página principal</a>
+    <a href="../../index.html">← Voltar ao curso</a>
     <span class="nav-badge">Aula 08</span>
   </div>
-  <span class="nav-center">Aula 08 / 30</span>
+  <span class="nav-center">Encontro 02 de 15 · Aula 08 de 60</span>
   <div class="nav-right">
-    <a href="aula-07.html">← Anterior</a>
-    <a href="aula-09.html">Próxima →</a>
+    <a href="aula-07.html">← Aula anterior</a>
+    <a href="aula-09.html">Próxima aula →</a>
   </div>
 </nav>
 <div class="section-nav" aria-label="Seções da aula"><a href="#objetivos">Objetivos</a><a href="#conteudo-programatico">Conteúdo</a><a href="#texto-base">Texto-base</a><a href="#plano-aula">Plano da aula</a><a href="#leituras">Leituras</a><a href="#atividade">Atividade</a><a href="#recursos">Recursos</a></div>
@@ -124,50 +116,41 @@
 
   <div class="aula-header">
     <div class="header-meta">
-      <span class="bloco-badge">Bloco II</span>
-      <span class="meta-chip">Aula 08</span>
-      <span class="meta-chip">Encontro 4 · Parte 2 de 2</span>
-      <span class="meta-chip">30/09/2026 — Quarta-feira</span>
-      <span class="meta-chip">Percurso completo do encontro: 4 horas-aula</span>
-      <span class="meta-chip">Esta página: aproximadamente 2 horas</span>
+      <span class="bloco-badge">Bloco I</span>
+      <span class="meta-chip">Encontro <strong>02</strong> de 15 — 16/09/2026, quarta-feira</span>
+      <span class="meta-chip">Aula <strong>08</strong> de 60</span>
+      <span class="meta-chip">4ª aula do encontro</span>
+      <span class="meta-chip">Esta aula: aproximadamente 1 hora-aula</span>
     </div>
-    <h1>Durkheim: anomia e método sociológico. O suicídio como estudo de caso.</h1>
+    <h1>Herbert Spencer, evolucionismo social e os limites do pensamento pioneiro.</h1>
   </div>
 
   <section id="objetivos">
     <div class="section-title">Objetivos da Aula</div>
     <ul class="obj-list">
-      <li>Compreender o conceito de anomia e seus desdobramentos para o estudo da desregulação social.</li>
-      <li>Analisar O suicídio como exemplo paradigmático da aplicação do método sociológico.</li>
-      <li>Distinguir níveis individuais e coletivos de análise, reconhecendo que regularidades sociais ajudam a explicar a distribuição dos casos, mas não determinam trajetórias individuais.</li>
-      <li>Discutir a atualidade do conceito de anomia para compreender fenômenos sociais contemporâneos.</li>
+      <li>Explicar o evolucionismo social de Spencer e a analogia entre sociedade e organismo.</li>
+      <li>Distinguir evolucionismo social e darwinismo social de conceitos de evolução biológica.</li>
+      <li>Comparar Comte e Spencer sem fundir seus conceitos.</li>
+      <li>Avaliar criticamente as contribuições e os limites do pensamento sociológico pioneiro.</li>
     </ul>
   </section>
 
   <section id="conteudo-programatico">
     <div class="section-title">Conteúdo Programático</div>
     <div class="content-topic">
-      <h3>1. Anomia: insuficiência e instabilidade da regulação social</h3>
+      <h3>1. Spencer: organismo, diferenciação e evolução</h3>
       <ul>
-        <li>Anomia como fragilidade ou instabilidade das regras que regulam expectativas, aspirações e condutas.</li>
-        <li>Anomia econômica e anomia conjugal</li>
-        <li>Anomia e modernidade: a crise das referências normativas</li>
+        <li>Analogia orgânica e diferenciação funcional</li>
+        <li>Do evolucionismo social ao darwinismo social</li>
+        <li>Usos coloniais e racistas dessas ideias</li>
       </ul>
     </div>
     <div class="content-topic">
-      <h3>2. O suicídio como fenômeno social</h3>
+      <h3>2. Comparar, criticar e preparar a pesquisa</h3>
       <ul>
-        <li>Suicídio egoísta: excesso de individualismo e fraco vínculo social</li>
-        <li>Suicídio altruísta: excesso de integração, subordinação total ao grupo</li>
-        <li>Suicídio anômico: desregulação social, ausência de normas estabilizadoras</li>
-      </ul>
-    </div>
-    <div class="content-topic">
-      <h3>3. O método: estatísticas sociais como evidência sociológica</h3>
-      <ul>
-        <li>O uso de dados estatísticos para revelar regularidades sociais</li>
-        <li>A taxa de suicídio como fato social mensurável</li>
-        <li>Críticas ao uso durkheimiano das estatísticas</li>
+        <li>Comte e Spencer sem fusão conceitual</li>
+        <li>Contribuições e limites do pensamento pioneiro</li>
+        <li>Da teoria geral à construção de problemas sociológicos</li>
       </ul>
     </div>
   </section>
@@ -175,122 +158,69 @@
   <section id="texto-base" aria-labelledby="texto-base-title">
     <div class="section-title" id="texto-base-title">Texto-base para acompanhamento da aula</div>
     <div class="base-text">
-      <p class="base-intro">Leitura de apoio para compreender como Durkheim compara regularidades coletivas sem transformar estatísticas em diagnósticos individuais. O tema exige precisão conceitual, linguagem responsável e atenção aos limites das evidências.</p>
-      <nav class="base-toc" aria-label="Sumário do texto-base">
-        <h3>Nesta leitura</h3>
-        <ol>
-          <li><a href="#investigacao-taxas">Do caso singular à comparação de taxas</a></li>
-          <li><a href="#normal-patologico">Normal e patológico: um diagnóstico da vida social</a></li>
-          <li><a href="#anomia-regulacao">Anomia e o problema da regulação</a></li>
-          <li><a href="#integracao-regulacao">Integração e regulação como eixos analíticos</a></li>
-          <li><a href="#taxas-e-trajetorias">Taxas coletivas e trajetórias individuais</a></li>
-          <li><a href="#inferencias-causais">Comparar, formular hipóteses e limitar inferências</a></li>
-          <li><a href="#aplicacao-metodo">Aplicar o método sem mecanizar a tipologia</a></li>
-          <li><a href="#sintese-aula-08">Síntese: o alcance e os limites da explicação</a></li>
-        </ol>
-      </nav>
+      <p class="base-intro">A Aula 07 reconstruiu o projeto de Comte: uma ciência positiva capaz de reorganizar moralmente a sociedade, do estado teológico ao estado positivo. Herbert Spencer, contemporâneo inglês de Comte, respondeu ao mesmo problema com outro sistema, apoiado numa analogia diferente: o organismo vivo.</p>
 
-      <div class="base-subsection" id="investigacao-taxas">
-        <h3>1. Do caso singular à comparação de taxas</h3>
-        <p>Imagine duas notícias. A primeira relata uma morte específica e reconstrói fragmentos de uma trajetória. A segunda informa que uma taxa variou entre dois períodos ou entre grupos. Embora tratem de um mesmo tipo geral de ocorrência, elas fazem perguntas diferentes. A primeira pode buscar acontecimentos, relações e sofrimentos vividos por uma pessoa. A segunda pergunta se existe uma regularidade na distribuição coletiva dos casos. Confundir esses planos produz conclusões indevidas.</p>
-        <p>Em <em>O suicídio</em>, Durkheim escolhe deliberadamente trabalhar com taxas. Seu problema não é explicar cada decisão individual nem negar a singularidade de cada trajetória. Ele procura compreender por que, em determinadas condições históricas, certos grupos apresentam regularidades diferentes de outros. A taxa relaciona o número de ocorrências a uma população de referência durante um período. Isso permite comparações que números absolutos não permitem: cem ocorrências em populações de tamanhos muito diferentes não representam a mesma frequência.</p>
-        <p>Esse deslocamento é metodologicamente ousado. Um ato frequentemente interpretado como estritamente pessoal passa a ser interrogado como fenômeno que também possui dimensões sociais. A existência de padrões relativamente estáveis sugere que vínculos, normas e transformações coletivas podem influenciar a distribuição dos casos. “Influenciar”, contudo, não significa determinar mecanicamente cada pessoa. Uma explicação de taxas opera em nível agregado; uma explicação de trajetória exige outras informações.</p>
-        <p>Para perceber a diferença, pense em uma escola que registra ausências. A taxa mensal pode revelar que faltas aumentaram depois de uma mudança no transporte. Ela não explica por que determinado estudante faltou em uma terça-feira: doença, cuidado de familiares, trabalho ou outro motivo podem estar envolvidos. Ainda assim, o padrão coletivo orienta uma pergunta sobre infraestrutura. O exemplo não equipara fenômenos; apenas mostra por que nível agregado e nível individual pedem evidências diferentes.</p>
-        <p>A aula, portanto, não utiliza sofrimento pessoal como ilustração banal. Seu objeto é o raciocínio sociológico: como construir comparações, distinguir níveis de análise e avaliar hipóteses. Relatos individuais não serão solicitados. O debate deve permanecer acadêmico, respeitoso e orientado por dados, conceitos e limites.</p>
-        <aside class="pause-box"><h4>Pausa para discussão</h4><p>Por que comparar números absolutos pode enganar quando as populações têm tamanhos diferentes? Que informação uma taxa acrescenta e que informação ela não oferece?</p></aside>
+      <div class="base-subsection" id="a08-spencer">
+        <h3>1. Spencer: organismo, diferenciação e evolução</h3>
+        <p>Herbert Spencer construiu na Inglaterra vitoriana um sistema evolucionista amplo. Para ele, processos de evolução envolveriam passagem de formas relativamente homogêneas para formas heterogêneas, diferenciadas e integradas. Nas sociedades, crescimento e diferenciação produziriam instituições e funções especializadas.</p>
+        <p>A analogia entre sociedade e <strong>organismo</strong> destaca interdependência. Assim como partes de um corpo exercem funções distintas, instituições sociais dependeriam umas das outras. Economia, governo, comunicação e outras esferas tornam-se mais especializadas à medida que a sociedade se diferencia.</p>
+        <p>Spencer também reconheceu diferenças entre organismo biológico e sociedade. Num organismo, a consciência concentra-se de modo particular; numa sociedade, indivíduos possuem consciência própria. Ainda assim, a analogia pode levar a tratar conflitos e desigualdades como necessidades funcionais, como se toda instituição existente contribuísse para o bem do conjunto.</p>
+        <p>Seu evolucionismo valorizou a passagem de formas consideradas simples para complexas e atribuiu grande peso à adaptação. Essa classificação influenciou comparações entre sociedades, mas frequentemente organizou diversidade histórica numa escala hierárquica. Complexidade institucional não equivale automaticamente a superioridade moral.</p>
+        <p>A diferenciação pode ser observada numa cidade em que transporte, saúde, educação e abastecimento dependem de organizações especializadas. Nenhuma pessoa domina todas as funções; a coordenação aumenta. Entretanto, especialização também pode produzir assimetrias, falhas e dependências. A existência de partes diferenciadas não demonstra que todas estejam integradas de maneira justa.</p>
+        <p>A metáfora orgânica tende a imaginar limites claros do corpo social. Sociedades, porém, mantêm migrações, comércio, conflitos e redes que atravessam fronteiras. Indivíduos podem sair de organizações, pertencer a grupos diferentes e contestar sua função. Essas diferenças restringem o alcance da comparação biológica.</p>
+        <aside class="pause-box"><h4>Pausa para discussão</h4><p>O que a metáfora da sociedade como organismo ajuda a perceber? O que ela oculta quando existem conflito, exploração ou transformação deliberada?</p></aside>
       </div>
 
-      <div class="base-subsection" id="normal-patologico">
-        <h3>2. Normal e patológico: um diagnóstico da vida social</h3>
-        <p>Antes de tratar da anomia, é necessário retomar a distinção durkheimiana entre <strong>normal</strong> e <strong>patológico</strong>. No uso cotidiano, “normal” costuma significar correto, saudável ou desejável. Em Durkheim, o ponto de partida é morfológico e comparativo: um fato pode ser considerado normal quando aparece de modo geral em sociedades de determinado tipo e fase de desenvolvimento. Patológico é o que indica funcionamento excepcional ou perturbado em relação a essas condições.</p>
-        <p>Essa definição não transforma frequência em aprovação moral. Um fenômeno frequente pode ser injusto, e um fenômeno raro pode ser desejável. Também não autoriza aplicar categorias médicas diretamente a pessoas ou culturas. Durkheim procura criar critérios para examinar o funcionamento de sociedades, não distribuir insultos. Para saber se uma forma de divisão do trabalho é normal, por exemplo, não basta constatar que ela existe; é preciso investigar se produz coordenação e vínculo ou se opera sob desregulação e coerção desigual.</p>
-        <p>A comparação precisa respeitar sociedades e períodos comparáveis. Uma taxa esperada em determinada composição populacional pode ter significado diferente em outra. Mudanças no registro, na legislação ou na classificação também alteram séries. O pesquisador deve definir a população, o intervalo temporal e o critério do fenômeno antes de interpretar variações. Sem esse controle, “normal” corre o risco de virar apenas a média de dados incompatíveis.</p>
-        <p>Também é preciso escolher o grupo de comparação sem circularidade. Se primeiro chamamos um caso de patológico e depois selecionamos apenas casos que confirmam essa impressão, o conceito deixa de testar a realidade. A classificação deve ser construída com critérios anteriores à conclusão, admitir contraexemplos e ser revista quando sociedades comparáveis mostram variações relevantes.</p>
-        <p>A ideia de patologia social tem ainda uma consequência crítica: a ordem existente não é automaticamente funcional. Instituições podem falhar em integrar ou regular; a divisão do trabalho pode ser anômica ou forçada; transformações podem gerar descompassos. Durkheim não reduz a Sociologia à defesa de qualquer estabilidade. Ele oferece instrumentos para perguntar quando as regras sustentam cooperação e quando deixam pessoas e grupos diante de expectativas contraditórias ou sem limites reconhecidos.</p>
+      <div class="base-subsection" id="a08-darwinismo">
+        <h3>2. Do evolucionismo ao darwinismo social</h3>
+        <p>Spencer utilizou a expressão “sobrevivência do mais apto” em seu próprio sistema evolucionista. A relação entre suas ideias e a teoria biológica de Darwin não deve ser narrada como simples cópia: Spencer já formulava um evolucionismo social e filosófico, e os dois projetos possuíam objetos e mecanismos distintos.</p>
+        <p>O termo <strong>darwinismo social</strong> reúne usos diversos de linguagens de competição, seleção e evolução para interpretar sociedades. Em versões políticas, desigualdade e dominação foram apresentadas como resultado natural da competição. Intervenções públicas em favor dos vulneráveis podiam ser condenadas por supostamente interferir numa seleção espontânea.</p>
+        <p>Esse raciocínio comete uma passagem indevida do descritivo para o normativo. Mesmo que um processo exista na natureza, disso não se conclui que seja moralmente desejável ou politicamente obrigatório. Além disso, posições sociais não resultam de competição em condições iguais: propriedade, leis, colonialismo e discriminação moldam oportunidades.</p>
+        <p>Classificações evolucionistas forneceram linguagem para justificar expansão colonial e racismo científico. Sociedades dominadas eram descritas como atrasadas, e o domínio aparecia como etapa civilizadora. A Sociologia posterior criticaria essas hierarquias e desenvolveria comparações mais atentas à história e ao poder.</p>
+        <p>“Aptidão” também pode tornar-se explicação circular: os vencedores seriam considerados mais aptos porque venceram, e sua vitória provaria a aptidão. Essa fórmula apaga herança, coerção e regras institucionais. Numa competição social, participantes não escolhem conjuntamente condições neutras; alguns contribuem para definir as próprias regras.</p>
       </div>
 
-      <div class="base-subsection" id="anomia-regulacao">
-        <h3>3. Anomia e o problema da regulação</h3>
-        <p>Na Aula 07, anomia apareceu como falha de coordenação entre funções especializadas. Agora o conceito ganha alcance mais amplo. <strong>Anomia</strong> designa insuficiência ou desorganização da regulação social: regras deixam de orientar de modo estável as expectativas, e a relação entre aspirações e meios disponíveis perde limites reconhecidos. Não é simplesmente ausência total de leis, nem sinônimo de crime, caos visível ou escolha individual de “não seguir regras”.</p>
-        <p>Transformações rápidas ajudam a compreender o problema. Em uma crise econômica, ocupações desaparecem, rendas mudam e projetos deixam de parecer viáveis. Em uma expansão repentina, novas possibilidades também podem desorganizar referências, porque desejos crescem mais rápido do que os critérios coletivos capazes de limitá-los. O ponto durkheimiano é que tanto perdas quanto ganhos abruptos podem perturbar expectativas. A anomia não deriva automaticamente de pobreza; refere-se à relação instável entre aspirações, regras e posições.</p>
-        <p>Durkheim discute a regulação econômica e também mudanças nas normas que organizavam a vida conjugal. Essas análises pertencem ao contexto histórico de sua obra e não devem ser transportadas sem crítica para o presente. Estruturas familiares, direitos e relações de gênero mudaram. O conceito pode continuar útil se a aplicação contemporânea identificar quais regras estão em transformação e evitar transformar uma configuração histórica particular em padrão universal.</p>
-        <p>Um exemplo atual pode ser construído sem afirmar causalidade pronta. Trabalhadores de uma plataforma recebem pontuações, metas e remunerações alteradas com pouca previsibilidade. A hipótese de desregulação pergunta se as regras são compreensíveis, estáveis e negociáveis; quais expectativas elas produzem; e como mudanças afetam diferentes grupos. Não basta observar insegurança e chamá-la de anomia. É necessário reunir documentos, séries de remuneração, entrevistas e informações institucionais.</p>
-        <p>A regulação não se reduz ao volume de normas. Um ambiente pode acumular regulamentos e continuar imprevisível se eles se contradizem, mudam sem aviso ou são aplicados seletivamente. Inversamente, poucas regras amplamente compreendidas podem coordenar expectativas. Investigar anomia exige observar legitimidade, estabilidade, alcance e capacidade efetiva de orientar condutas.</p>
-        <aside class="pause-box"><h4>Pausa para discussão</h4><p>Uma mudança rápida de regras é necessariamente anômica? Que sinais permitiriam distinguir adaptação regulada de desregulação persistente?</p></aside>
+      <div class="base-subsection" id="a08-comparacao">
+        <h3>3. Comparar sem fundir os autores</h3>
+        <p>Comte e Spencer compartilham confiança na ciência, interesse por regularidades e concepções evolucionistas. Ambos procuram explicar diferenciação e mudança em grandes escalas. Essa proximidade justifica estudá-los juntos, mas não autoriza atribuir a um os conceitos do outro.</p>
+        <p>Comte organiza a evolução pelo desenvolvimento intelectual dos três estados e vincula a ciência positiva a uma reorganização moral. Spencer formula uma evolução mais abrangente, baseada em diferenciação, integração e adaptação, e emprega a analogia orgânica. “Lei dos três estados” é comtiana; “sobrevivência do mais apto” pertence ao vocabulário de Spencer.</p>
+        <p>A atividade de classificação das teses exige justificativa. Identificar uma frase pela presença de uma palavra-chave é insuficiente. O grupo deve reconstruir o problema: a tese trata de formas de conhecimento e ordem positiva ou de diferenciação e adaptação? Depois, a crítica precisa indicar qual pressuposto está em questão, e não apenas declarar que a teoria é antiga.</p>
+        <p>Uma ficha pode combinar ideias próximas para testar a compreensão. A defesa da ciência não identifica automaticamente Comte; o interesse por evolução não identifica automaticamente Spencer. A autoria deve ser inferida pelo mecanismo do argumento. Esse exercício treina uma habilidade que será necessária ao estudar os clássicos: não atribuir conceitos a um autor apenas porque pertencem ao mesmo período.</p>
       </div>
 
-      <div class="base-subsection" id="integracao-regulacao">
-        <h3>4. Integração e regulação como eixos analíticos</h3>
-        <p><strong>Integração</strong> diz respeito à intensidade e à qualidade dos vínculos que conectam pessoas a grupos e instituições. Participação, pertencimento, obrigações recíprocas e objetivos comuns podem integrar. <strong>Regulação</strong> diz respeito às regras que estabelecem limites, coordenam expectativas e tornam condutas relativamente previsíveis. Os eixos se relacionam, mas não são equivalentes: alguém pode pertencer intensamente a um grupo submetido a regras excessivas, ou viver sob muitas normas formais com vínculos frágeis.</p>
-        <p>A tipologia apresentada por Durkheim organiza diferenças por insuficiência ou excesso desses mecanismos. O tipo egoísta é associado à integração insuficiente; o altruísta, à integração excessiva e à subordinação intensa do indivíduo ao grupo; o anômico, à regulação insuficiente. A obra também discute regulação excessiva em outro tipo. O roteiro da aula concentra-se nos três primeiros, mas é importante perceber a lógica: não há uma quantidade abstrata de vínculo ou regra que seja sempre melhor. O problema é a configuração social e seus efeitos.</p>
-        <p>Os tipos não são diagnósticos de pessoas. Não se deve olhar para alguém e classificá-lo como “egoísta”, “altruísta” ou “anômico”. As palavras nomeiam relações causais propostas para explicar variações agregadas, não traços de personalidade. Tampouco uma taxa elevada autoriza escolher um tipo por intuição. Seriam necessárias evidências independentes sobre participação coletiva, mudanças normativas, instituições e períodos.</p>
-        <p>Essa distinção protege a análise de dois reducionismos. O individualismo metodológico ingênuo explicaria toda ocorrência apenas por características pessoais. O sociologismo igualmente ingênuo apagaria biografias, sofrimento psíquico e condições clínicas. Uma pesquisa responsável pode articular níveis: estatísticas descrevem distribuição; estudos institucionais examinam contextos; abordagens qualitativas investigam sentidos e trajetórias; conhecimentos psicológicos e clínicos tratam dimensões que a taxa não alcança.</p>
-        <aside class="pause-box"><h4>Pausa para discussão</h4><p>Pense em uma instituição com regras numerosas, mas vínculos frágeis. Ela é altamente regulada, altamente integrada, ambas ou nenhuma? Que observações sustentariam sua resposta?</p></aside>
+      <div class="base-subsection" id="a08-critica">
+        <h3>4. Contribuições, limites e responsabilidade crítica</h3>
+        <p>Essas teorias contribuíram para afirmar que fenômenos sociais mereciam explicação sistemática e que instituições se relacionavam historicamente. Comte ajudou a nomear e legitimar a Sociologia; Spencer chamou atenção para diferenciação e interdependência. Reconhecer contribuições não exige aceitar seus sistemas completos.</p>
+        <p>A distância histórica permite ver ainda como conceitos ganham efeitos fora dos textos. Uma teoria pode orientar pesquisa, ensino, administração ou propaganda política. Esses usos não são todos controlados pelo autor, mas também não são irrelevantes para avaliar a circulação das ideias. Positivismo e evolucionismo tornaram-se linguagens públicas, muitas vezes simplificadas.</p>
+        <p>Seus limites incluem linearidade histórica, hierarquização de sociedades, confiança excessiva num progresso necessário e aproximações problemáticas entre processos sociais e biológicos. Tais limites não são apenas erros externos julgados depois: relacionam-se aos contextos europeus e imperiais em que as teorias foram produzidas.</p>
+        <p>Uma crítica fundamentada precisa evitar dois atalhos. O primeiro é rejeitar toda obra porque contém pressupostos hoje recusados; isso impede compreender sua influência. O segundo é apresentar conceitos como neutros, desligados de usos políticos. A leitura sociológica reconstrói argumento, contexto, efeitos e controvérsias.</p>
+        <aside class="pause-box"><h4>Pausa para discussão</h4><p>Escolha uma tese de Comte ou Spencer: que contribuição analítica pode ser preservada e que pressuposto histórico precisa ser recusado?</p></aside>
       </div>
 
-      <div class="base-subsection" id="taxas-e-trajetorias">
-        <h3>5. Taxas coletivas e trajetórias individuais</h3>
-        <p>Uma taxa é construída. Ela depende de definição do evento, qualidade dos registros, tamanho da população de referência e período observado. Categorias como idade, gênero, ocupação, religião ou região também resultam de classificações administrativas e científicas. Elas não são recipientes naturais e imutáveis. Mudanças de formulário, subnotificação, diferenças no acesso aos serviços e práticas institucionais podem alterar o que aparece nos dados.</p>
-        <p>Comparações requerem denominadores equivalentes. Se uma tabela usa casos por 100 mil habitantes e outra apresenta percentuais entre registros, não se pode alinhá-las como se medissem o mesmo. Períodos precisam ter duração comparável; faixas etárias precisam possuir os mesmos limites; territórios podem ter estruturas populacionais distintas. Uma diferença observada pode refletir composição, registro ou acaso, e não o mecanismo teórico imaginado.</p>
-        <p>Além disso, propriedades de grupos não podem ser automaticamente atribuídas a indivíduos. Se um grupo apresenta taxa maior, não se conclui que cada integrante possua risco alto nem que uma característica compartilhada seja a causa. Esse salto é conhecido como erro de inferência entre níveis. A taxa localiza uma questão coletiva e orienta investigação; não identifica o destino de uma pessoa.</p>
-        <p>Há ainda o problema da composição. Dois territórios podem apresentar taxas diferentes porque possuem distribuições etárias distintas, e não porque o território em si produza o resultado. Um grupo pode mudar entre períodos porque sua população mudou. Pesquisadores recorrem a padronizações e análises multivariadas para enfrentar parte dessas diferenças, mas nenhum procedimento técnico dispensa conhecimento histórico e institucional do caso. Números comparáveis são uma conquista metodológica, não uma propriedade automática das bases.</p>
-        <p>O caminho inverso também é problemático. Uma história individual convincente não prova por si só por que uma taxa coletiva variou. Trajetórias ajudam a revelar mecanismos possíveis, mas precisam ser relacionadas a outras evidências. A força do método está justamente em alternar escalas sem confundi-las.</p>
-      </div>
-
-      <div class="base-subsection" id="inferencias-causais">
-        <h3>6. Comparar, formular hipóteses e limitar inferências</h3>
-        <p>Correlação significa que duas variações aparecem associadas nos dados. Causalidade exige demonstrar que uma condição participa da produção de outra, descartando explicações alternativas de modo razoável. Se uma taxa muda após uma crise, a sequência temporal é relevante, porém insuficiente. Podem ter mudado simultaneamente registro, composição populacional, políticas públicas e acesso a serviços. A hipótese causal precisa especificar um mecanismo e buscar evidências que o sustentem.</p>
-        <p>Durkheim utiliza comparação entre grupos e períodos como uma espécie de experimento indireto. Quando não é possível manipular sociedades em laboratório, o pesquisador observa variações: onde um fator está mais presente, o resultado também varia? Essa estratégia permite formular explicações, mas depende da qualidade das categorias e do controle das diferenças relevantes. Críticas posteriores mostram problemas em registros históricos, classificações e interpretações. Reconhecer limites não elimina a contribuição metodológica; ensina a trabalhar melhor com ela.</p>
-        <p>A atividade usa <strong>dados hipotéticos</strong> justamente para isolar o raciocínio. Os números não descrevem o Brasil nem qualquer população real. Eles permitem verificar se estudantes distinguem descrição, comparação, hipótese e conclusão causal. Numa pesquisa real, seria obrigatório consultar metadados, avaliar qualidade dos registros e combinar fontes.</p>
-        <p>Também é útil distinguir causa necessária, causa suficiente e condição que altera probabilidades. Explicações sociológicas raramente sustentam que um único fator seja necessário e suficiente para todas as ocorrências. Com frequência, investigam condições que tornam determinados resultados mais ou menos prováveis em combinação com outras. Integração e regulação devem ser tratadas como dimensões relacionais a serem medidas e qualificadas, não como botões que produzem automaticamente um efeito.</p>
-        <p>Uma estratégia de pesquisa mais robusta poderia combinar quatro movimentos. Primeiro, verificar a série histórica e a comparabilidade dos registros. Segundo, localizar mudanças institucionais ocorridas antes da variação. Terceiro, comparar grupos semelhantes que foram expostos de modo diferente a essas mudanças. Quarto, realizar estudos qualitativos capazes de examinar mecanismos e significados. Mesmo assim, a conclusão precisaria declarar incertezas e evitar extrapolar resultados agregados para casos pessoais.</p>
-        <aside class="pause-box"><h4>Pausa para discussão</h4><p>Se duas taxas variam juntas, que três explicações alternativas deveriam ser consideradas antes de afirmar causalidade?</p></aside>
-      </div>
-
-      <div class="base-subsection" id="aplicacao-metodo">
-        <h3>7. Aplicar o método sem mecanizar a tipologia</h3>
-        <p>O primeiro passo diante de uma tabela é descrever sem explicar: identificar maior e menor valor, direção da mudança e diferenças entre grupos. O segundo é verificar comparabilidade. Somente então se formula uma hipótese. Essa ordem evita que o conceito seja escolhido antes da leitura dos dados. Se o Grupo B aumenta entre dois períodos, a descrição é segura; dizer que o aumento decorre de anomia exige informação sobre mudanças regulatórias e mecanismos.</p>
-        <p>A tipologia durkheimiana funciona como conjunto de perguntas: houve enfraquecimento de vínculos? Houve subordinação excessiva ao grupo? Regras tornaram-se instáveis ou insuficientes? Cada pergunta demanda indicadores próprios. Taxas, isoladamente, não respondem. Seriam úteis dados sobre participação associativa, redes de apoio, mudanças no trabalho, proteção social e instituições, além de pesquisas qualitativas e históricas.</p>
-        <p>A reflexão crítica faz parte do método, não é um apêndice. Uma hipótese pode ser plausível e ainda insuficiente. O estudante deve aprender a dizer o que os dados permitem afirmar, o que apenas sugerem e o que permanece desconhecido. Essa disciplina da linguagem é uma das contribuições mais duradouras da Sociologia científica.</p>
-        <p class="base-intro"><strong>Nota de cuidado.</strong> Situações pessoais de sofrimento devem ser recebidas com acolhimento e encaminhadas aos serviços e profissionais adequados. Este material tem finalidade acadêmica, não realiza avaliação individual nem substitui atenção psicológica, médica ou de emergência.</p>
-      </div>
-
-      <div class="base-subsection" id="sintese-aula-08">
-        <h3>8. Síntese: o alcance e os limites da explicação</h3>
-        <p><strong>Síntese.</strong> A Aula 08 transformou a leitura de taxas em exercício de prudência. Normal e patológico são categorias comparativas da vida social, não sinônimos imediatos de bom e ruim. Anomia designa desregulação de expectativas; integração e regulação permitem formular hipóteses sobre vínculos e limites sociais. Taxas revelam distribuições coletivas, mas não diagnosticam indivíduos.</p>
-        <p>Comparações válidas exigem populações, períodos, unidades e critérios equivalentes. Correlações orientam perguntas, mas não provam causas automaticamente. Categorias estatísticas são produzidas por práticas de registro e precisam ser examinadas. A explicação sociológica acrescenta uma dimensão indispensável sem eliminar conhecimentos psicológicos, biográficos ou clínicos.</p>
-        <p>Com isso se encerra o primeiro percurso por Durkheim: fatos sociais, consciência coletiva, divisão do trabalho, solidariedade, anomia e método formam um projeto coerente, mas não uma resposta universal. A Aula 09 mudará a pergunta. Marx investigará como seres humanos produzem sua existência em relações históricas de propriedade e trabalho. A transição não opõe simplesmente “ordem” a “conflito”: desloca o foco das condições de coesão e regulação para as condições materiais, contradições e transformações da vida social.</p>
+      <div class="base-subsection" id="a08-sintese">
+        <h3>5. Síntese: do sistema geral à pesquisa sociológica</h3>
+        <p>Comte transformou a confiança iluminista na ciência em positivismo: lei dos três estados, classificação das ciências e projeto de articular ordem e progresso. Spencer explicou evolução social por diferenciação e integração, utilizando a analogia orgânica. Suas formulações não são equivalentes e precisam conservar autoria e problema próprios.</p>
+        <p>Os dois projetos ajudaram a estabelecer a sociedade como objeto de ciência, mas organizaram a história em trajetórias lineares e hierárquicas. O evolucionismo social pôde naturalizar desigualdades e sustentar ideologias coloniais e racistas. A crítica contemporânea separa investigação de regularidades, que permanece relevante, da afirmação de uma única escala de civilização.</p>
+        <p>A comparação também mostrou que uma palavra compartilhada não garante teoria compartilhada. “Evolução”, “ciência” e “progresso” ocupam lugares diferentes em cada sistema. Ler com precisão exige identificar o mecanismo explicativo, a unidade analisada e a finalidade do argumento. Esse cuidado evitará que os autores clássicos sejam convertidos numa coleção indiferenciada de conceitos.</p>
+        <p>A próxima aula deslocará a atenção dos grandes sistemas de evolução para a construção concreta de problemas e métodos. Perguntaremos o que torna um fenômeno objeto sociológico, como relacionar biografia e história e que evidências diferentes técnicas de pesquisa podem produzir. Esse passo preparará a entrada em Durkheim sem antecipar sua definição de fato social.</p>
       </div>
     </div>
   </section>
-
 
   <section id="plano-aula">
     <div class="section-title">Plano de Aula com Tempo</div>
     <div class="timeline">
       <div class="tl-item">
+        <span class="tl-duration">5 min</span>
+        <span class="tl-text"><strong>Retomada</strong> — De Comte a Spencer: outra resposta ao mesmo problema.</span>
+      </div>
+      <div class="tl-item">
         <span class="tl-duration">10 min</span>
-        <span class="tl-text"><strong>Abertura, enquadramento acadêmico e protocolo de cuidado</strong> — Retomada da solidariedade mecânica e orgânica e apresentação do objetivo metodológico da aula. Orientação oral do professor: “Esta atividade tratará de conceitos, taxas e procedimentos de pesquisa. Ninguém será solicitado a compartilhar experiências pessoais. Caso o tema provoque desconforto, a pessoa poderá se preservar e procurar acolhimento nos serviços institucionais adequados.” Esta formulação é uma orientação pedagógica, não aconselhamento clínico.</span>
+        <span class="tl-text"><strong>Exposição: organicismo social e darwinismo social</strong> — Síntese da analogia orgânica, da diferenciação social e dos usos ideológicos do darwinismo social, antes da atividade.</span>
       </div>
       <div class="tl-item">
-        <span class="tl-duration">30 min</span>
-        <span class="tl-text"><strong>Exposição: normal, patológico, anomia, integração e regulação</strong> — Retomada da distinção entre funcionamento social geral e patologia, desenvolvimento da anomia e apresentação dos eixos de integração e regulação. A obra <em>O suicídio</em> será situada como investigação sociológica, sem transformar casos individuais em exemplos banais.</span>
-      </div>
-      <div class="tl-item">
-        <span class="tl-duration">20 min</span>
-        <span class="tl-text"><strong>Como ler taxas: denominadores, comparação e níveis de análise</strong> — Explicação de população de referência, períodos equivalentes, categorias estatísticas, diferença entre taxa agregada e trajetória individual, correlação e causalidade.</span>
-      </div>
-      <div class="tl-item">
-        <span class="tl-duration">25 min</span>
-        <span class="tl-text"><strong>Oficina com as duas tabelas hipotéticas</strong> — Grupos de 4–5 estudantes descrevem padrões, comparam períodos e grupos, formulam hipóteses sobre integração, regulação e anomia, e registram limites e informações adicionais necessárias.</span>
-      </div>
-      <div class="tl-item">
-        <span class="tl-duration">20 min</span>
-        <span class="tl-text"><strong>Debate estruturado: “O que padrões coletivos permitem explicar — e o que não permitem?”</strong> — Discussão sobre a contribuição sociológica, limites dos dados, necessidade de abordagens complementares e impossibilidade de inferir a causa de um caso individual a partir de uma taxa coletiva. Não serão solicitadas experiências pessoais.</span>
-      </div>
-      <div class="tl-item">
-        <span class="tl-duration">15 min</span>
-        <span class="tl-text"><strong>Socialização, síntese e passagem para Marx</strong> — Grupos compartilham descrições e hipóteses; a turma diferencia o que os dados permitem afirmar do que permanece em aberto. Fechamento do percurso de Durkheim e transição para as condições materiais e históricas examinadas na Aula 09.</span>
+        <span class="tl-duration">45 min</span>
+        <span class="tl-text"><strong>Atividade: "Comte ou Spencer?"</strong> — Classificação de dez fichas em duplas, comparação entre autores, crítica e socialização (etapas detalhadas na atividade abaixo).</span>
       </div>
     </div>
   </section>
@@ -298,71 +228,96 @@
   <section id="leituras">
     <div class="section-title">Textos para Leitura Prévia</div>
     <div class="ref-card">
-      <div class="ref-author">DURKHEIM, Émile</div>
-      <div class="ref-title"><em>O suicídio</em>. Livro II, capítulo 1, trechos selecionados</div>
-    </div>
-    <div class="ref-card">
-      <div class="ref-author">QUINTANEIRO, Tania et al.</div>
-      <div class="ref-title"><em>Um toque de clássicos</em>. Capítulo dedicado a Durkheim</div>
+      <div class="ref-author">SELL, Carlos Eduardo</div>
+      <div class="ref-title">Sociologia clássica. Cap. 1</div>
+      <div class="ref-pages">Consultar a seção indicada na edição disponível; a paginação varia por edição.</div>
     </div>
   </section>
 
   <section id="atividade">
     <div class="section-title">Atividades em Sala</div>
-    <div class="activity-card">
-      <h3>Oficina metodológica — o que uma taxa permite afirmar?</h3>
-      <div class="data-note"><strong>Natureza do material:</strong> os valores abaixo são <strong>dados hipotéticos para exercício metodológico</strong>. Não foram extraídos do IBGE, da OMS ou de qualquer população real e não devem ser citados como retrato do Brasil, de uma região ou de um grupo social. A unidade da primeira tabela é uma taxa simulada por 100 mil habitantes.</div>
+    <div class="activity-card" data-gabarito="obrigatorio">
+      <h3>ATIVIDADE — Comte ou Spencer?</h3>
 
-      <table class="data-table">
-        <caption>Tabela 1 — Taxas hipotéticas por grupo e período (por 100 mil habitantes)</caption>
-        <thead>
-          <tr><th scope="col">Grupo hipotético</th><th scope="col">Período 1</th><th scope="col">Período 2</th><th scope="col">Variação</th></tr>
-        </thead>
-        <tbody>
-          <tr><th scope="row">Grupo A</th><td>8,0</td><td>8,2</td><td>+0,2</td></tr>
-          <tr><th scope="row">Grupo B</th><td>7,5</td><td>11,0</td><td>+3,5</td></tr>
-          <tr><th scope="row">Grupo C</th><td>12,0</td><td>9,0</td><td>−3,0</td></tr>
-          <tr><th scope="row">Grupo D</th><td>6,0</td><td>6,1</td><td>+0,1</td></tr>
-        </tbody>
-      </table>
+      <div class="activity-note">
+        <p>Você receberá dez fichas com teses e proposições inspiradas nas formulações de Auguste Comte e Herbert Spencer. As fichas estão embaralhadas. Trabalhe em dupla. Não identifique o autor apenas por palavras isoladas como “ciência”, “ordem” ou “evolução”. Examine o mecanismo explicativo, o problema central e o modo como a transformação social é compreendida.</p>
+        <p><strong>Nota:</strong> as fichas são paráfrases didáticas, não citações literais dos autores.</p>
+      </div>
 
-      <table class="data-table">
-        <caption>Tabela 2 — Indicadores contextuais hipotéticos no Período 2</caption>
-        <thead>
-          <tr><th scope="col">Grupo</th><th scope="col">Participação associativa</th><th scope="col">Estabilidade das regras (0–10)</th><th scope="col">Mudança econômica recente</th></tr>
-        </thead>
-        <tbody>
-          <tr><th scope="row">A</th><td>55%</td><td>7</td><td>Moderada</td></tr>
-          <tr><th scope="row">B</th><td>30%</td><td>3</td><td>Intensa</td></tr>
-          <tr><th scope="row">C</th><td>70%</td><td>8</td><td>Moderada</td></tr>
-          <tr><th scope="row">D</th><td>50%</td><td>7</td><td>Baixa</td></tr>
-        </tbody>
-      </table>
+      <div class="activity-steps">
+        <h4>Etapa 1 — Identificação e justificativa — 15 minutos</h4>
+        <p>Para cada ficha, a dupla deverá responder:</p>
+        <ol>
+          <li>A tese se aproxima de Comte ou de Spencer?</li>
+          <li>Que elemento do argumento justifica a classificação?</li>
+          <li>Que conceito estudado na aula está presente?</li>
+        </ol>
 
-      <p>Em grupos de 4–5 estudantes, registrem respostas separando claramente <strong>descrição</strong>, <strong>hipótese</strong> e <strong>conclusão que os dados não autorizam</strong>.</p>
-      <ol>
-        <li><strong>Descrição:</strong> quais padrões aparecem na Tabela 1, sem explicar suas causas?</li>
-        <li><strong>Comparação:</strong> quais grupos e períodos podem ser comparados diretamente? Qual variação merece investigação?</li>
-        <li><strong>Hipótese:</strong> usando integração, regulação ou anomia, formule uma hipótese para o Grupo B. Indique o mecanismo esperado.</li>
-        <li><strong>Limites:</strong> que características da construção das tabelas impedem generalizar os resultados?</li>
-        <li><strong>Correlação e causalidade:</strong> por que a associação entre mudança econômica, estabilidade das regras e taxa não comprova uma relação causal?</li>
-        <li><strong>Informações adicionais:</strong> que dados quantitativos, documentos ou pesquisas qualitativas seriam necessários para testar a hipótese?</li>
-      </ol>
-      <p class="data-note"><strong>Cuidado com o tema:</strong> a atividade examina raciocínio metodológico e não solicita relatos pessoais. Situações de sofrimento devem ser acolhidas e encaminhadas aos serviços e profissionais adequados; a análise sociológica de taxas não substitui cuidado psicológico, médico ou de emergência.</p>
+        <h4>Etapa 2 — Comparação — 10 minutos</h4>
+        <p>Depois de classificar as dez fichas, a dupla deverá escolher uma ficha atribuída a Comte e uma ficha atribuída a Spencer. Em seguida, deverá explicar:</p>
+        <ol>
+          <li>Em que os dois argumentos se aproximam?</li>
+          <li>Em que diferem?</li>
+          <li>Qual mecanismo de transformação social aparece em cada um?</li>
+        </ol>
 
-      <p class="guidance-note">O bloco abaixo permanece fechado por padrão. O professor pode abri-lo durante a correção e a socialização.</p>
-      <details class="teacher-guidance">
-        <summary>Gabarito comentado e orientações de mediação — uso do professor</summary>
-        <div class="teacher-guidance-content">
-          <p><strong>1. Descrição:</strong> o Grupo B apresenta a maior alta (+3,5); o Grupo C apresenta queda (−3,0); A e D ficam praticamente estáveis. Nesse estágio, não se deve mencionar anomia como causa.</p>
-          <p><strong>2. Comparação:</strong> o exercício declara unidade e períodos comuns, permitindo comparações internas. A alta de B e a queda de C merecem investigação. Em dados reais, seria necessário confirmar denominadores, composição e método de registro.</p>
-          <p><strong>3. Hipótese:</strong> uma resposta possível relaciona, em B, mudança econômica intensa e baixa estabilidade das regras a uma hipótese de regulação insuficiente. Participação associativa menor pode motivar hipótese sobre integração. Nenhuma delas é resposta única ou conclusão demonstrada.</p>
-          <p><strong>4. Limites:</strong> dados são hipotéticos, grupos não têm composição definida, indicadores resumem fenômenos complexos e há somente dois períodos. Não há informação sobre qualidade de registro, idade, gênero, território, serviços ou trajetórias.</p>
-          <p><strong>5. Causalidade:</strong> variáveis podem mudar juntas por acaso, por uma terceira condição ou por mecanismos inversos. Para sustentar causalidade seria preciso estabelecer sequência temporal, mecanismo, alternativas e evidências adicionais.</p>
-          <p><strong>6. Informações adicionais:</strong> aceitar propostas como séries mais longas, composição demográfica, políticas e mudanças institucionais, documentação dos critérios, entrevistas, redes de apoio e acesso a serviços. Reforce que tipos durkheimianos explicam padrões coletivos e não classificam pessoas.</p>
-          <p><strong>Mediação responsável:</strong> interrompa interpretações que culpabilizem grupos ou transformem valores simulados em notícias. Não peça que estudantes revelem experiências pessoais. Se o tema mobilizar sofrimento, priorize acolhimento e os protocolos institucionais de encaminhamento.</p>
+        <h4>Etapa 3 — Crítica — 10 minutos</h4>
+        <p>Escolha duas fichas e responda:</p>
+        <ol>
+          <li>Que contribuição analítica a tese oferece?</li>
+          <li>Que pressuposto histórico, normativo ou ideológico precisa ser questionado?</li>
+          <li>A crítica aponta uma incoerência interna do argumento ou questiona seus pressupostos a partir de conhecimentos históricos e sociológicos posteriores?</li>
+        </ol>
+
+        <h4>Socialização — 10 minutos</h4>
+        <p>Cada dupla apresenta uma classificação ou crítica que tenha provocado dúvida. O professor organiza no quadro duas colunas — Comte e Spencer — e sistematiza aproximações, diferenças, contribuições e limites.</p>
+      </div>
+
+      <h4 id="fichas-title">Dez fichas embaralhadas</h4>
+      <div class="thesis-grid" aria-labelledby="fichas-title">
+        <article class="thesis-card"><span class="thesis-number">Ficha 1</span><p>As sociedades se transformam quando suas partes se tornam mais diferenciadas e especializadas, ao mesmo tempo que cresce a dependência entre elas.</p></article>
+        <article class="thesis-card"><span class="thesis-number">Ficha 2</span><p>O conhecimento humano atravessa formas teológicas e abstratas antes de alcançar uma etapa baseada na observação e na descoberta de regularidades.</p></article>
+        <article class="thesis-card"><span class="thesis-number">Ficha 3</span><p>A sociedade pode ser comparada a um organismo: suas instituições desempenham funções distintas, mas permanecem interdependentes.</p></article>
+        <article class="thesis-card"><span class="thesis-number">Ficha 4</span><p>Uma ciência da sociedade deve investigar as relações constantes entre os fenômenos, evitando explicações baseadas em causas absolutas ou entidades não observáveis.</p></article>
+        <article class="thesis-card"><span class="thesis-number">Ficha 5</span><p>A reconstrução da sociedade moderna depende de uma reorganização intelectual e moral orientada pelo conhecimento científico.</p></article>
+        <article class="thesis-card"><span class="thesis-number">Ficha 6</span><p>As sociedades podem passar de organizações predominantemente militares, baseadas em coerção e centralização, para organizações industriais, apoiadas em contratos e cooperação voluntária.</p></article>
+        <article class="thesis-card"><span class="thesis-number">Ficha 7</span><p>O estudo da sociedade deve articular as condições de manutenção da ordem com as leis que orientam sua transformação.</p></article>
+        <article class="thesis-card"><span class="thesis-number">Ficha 8</span><p>A persistência de determinadas instituições e grupos pode ser explicada por sua maior capacidade de adaptação às condições do ambiente social.</p></article>
+        <article class="thesis-card"><span class="thesis-number">Ficha 9</span><p>As ciências formam uma hierarquia conforme a complexidade de seus objetos, e o estudo científico da sociedade ocupa a posição mais complexa.</p></article>
+        <article class="thesis-card"><span class="thesis-number">Ficha 10</span><p>A transformação social não deve ser compreendida apenas como decisão consciente de governantes; instituições também resultam de processos graduais de adaptação e diferenciação.</p></article>
+      </div>
+
+      <details class="teacher-key">
+        <summary>Gabarito comentado — uso do professor</summary>
+        <div class="teacher-key-body">
+          <p><strong>Abra somente durante a correção e a socialização.</strong></p>
+          <ol class="answer-list">
+            <li><strong>Ficha 1 — Spencer:</strong> diferenciação, especialização e interdependência. A transformação ocorre pelo desenvolvimento de partes funcionalmente distintas que permanecem integradas. A presença de interdependência não deve levar à atribuição automática a Comte por associação com “ordem”.</li>
+            <li><strong>Ficha 2 — Comte:</strong> lei dos três estados. A sequência entre explicações teológicas, metafísicas ou abstratas e positivas organiza o desenvolvimento intelectual. “Evolução” do conhecimento não torna a ficha spenceriana.</li>
+            <li><strong>Ficha 3 — Spencer:</strong> analogia orgânica e diferenciação funcional. A sociedade é comparada a um organismo composto por partes especializadas e interdependentes. A analogia ajuda a perceber integração, mas não elimina conflito nem transforma instituições em órgãos biológicos literais.</li>
+            <li><strong>Ficha 4 — Comte:</strong> conhecimento positivo e busca de relações regulares entre fenômenos. O argumento recusa causas absolutas e concentra a investigação em regularidades observáveis. A palavra “ciência” isolada seria insuficiente, pois Spencer também buscava uma explicação científica.</li>
+            <li><strong>Ficha 5 — Comte:</strong> reorganização intelectual e moral da sociedade. O conhecimento científico participa de um projeto de reconstrução da ordem moderna. A referência à reorganização dirigida distingue a tese do evolucionismo mais gradual de Spencer.</li>
+            <li><strong>Ficha 6 — Spencer:</strong> distinção entre sociedades militares e industriais. O mecanismo é uma passagem evolutiva de coerção e centralização para contratos e cooperação voluntária. “Industrial” aqui nomeia um tipo de organização social e não apenas a existência de fábricas.</li>
+            <li><strong>Ficha 7 — Comte:</strong> estática social, dinâmica social, ordem e progresso. A tese combina condições de coexistência da sociedade e leis de transformação histórica. A palavra “ordem” ajuda, mas a classificação depende da articulação entre manutenção e progresso.</li>
+            <li><strong>Ficha 8 — Spencer:</strong> a tese mobiliza adaptação e persistência diferencial para explicar por que determinadas instituições e grupos permaneceriam em certas condições sociais. Essa formulação precisa ser criticada quando é empregada para naturalizar hierarquias e desigualdades sociais, como se posições historicamente produzidas demonstrassem maior aptidão.</li>
+            <li><strong>Ficha 9 — Comte:</strong> classificação e hierarquia das ciências, culminando na Sociologia. A posição da disciplina decorre da maior complexidade de seu objeto. Complexidade não deve ser confundida automaticamente com superioridade moral ou importância absoluta.</li>
+            <li><strong>Ficha 10 — Spencer:</strong> evolução social gradual, diferenciação institucional e restrição à direção centralizada da sociedade. Instituições emergem de processos acumulativos que não se reduzem ao planejamento de governantes. A crítica pode questionar se a ênfase na adaptação subestima conflitos e decisões políticas.</li>
+          </ol>
         </div>
       </details>
+
+      <div class="concept-care">
+        <h4>Cuidados conceituais</h4>
+        <ul>
+          <li>Comte e Spencer compartilham a busca de explicações científicas para a sociedade, mas não possuem teorias idênticas.</li>
+          <li>“Evolução” não identifica automaticamente Spencer; “ordem” não identifica automaticamente Comte.</li>
+          <li>Spencer não deve ser confundido com Charles Darwin.</li>
+          <li>Evolução biológica, evolucionismo social e darwinismo social não são sinônimos.</li>
+          <li>A analogia entre sociedade e organismo possui alcance e limites.</li>
+          <li>Contribuições analíticas não eliminam os pressupostos históricos e ideológicos das teorias.</li>
+          <li>As fichas são paráfrases didáticas, não citações literais dos autores.</li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -370,9 +325,7 @@
     <div class="section-title">Recursos Necessários</div>
     <div class="resources-list">
       <span class="res-tag">Projetor</span>
-      <span class="res-tag">Duas tabelas hipotéticas da página</span>
-      <span class="res-tag">Roteiro de análise da oficina</span>
-      <span class="res-tag">Texto impresso de <em>O suicídio</em></span>
+      <span class="res-tag">Fichas impressas com teses dos autores</span>
       <span class="res-tag">Quadro branco</span>
     </div>
   </section>
@@ -380,7 +333,7 @@
 </main>
 
 <footer>
-  <a href="/introducao-sociologia/">← Página principal</a>
+  <a href="../../index.html">← Voltar ao curso</a>
   <span style="margin: 0 12px; color: var(--border);">|</span>
   <span>Introdução à Sociologia — 2026.2</span>
 </footer>

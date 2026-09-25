@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Aula 47 — Medir a desigualdade: indicadores, renda e coeficiente de Gini · 2026.2</title><style>
+  :root {
+    --bg: #0a0a0f; --surface: #12121c; --card: #1a1a2e; --border: #2a2a4a;
+    --purple: #7c3aed; --purple-lt: #a855f7; --blue: #4f46e5; --blue-lt: #818cf8;
+    --teal-lt: #2dd4bf; --amber-lt: #fbbf24; --rose-lt: #fb7185;
+    --text: #e2e8f0; --muted: #94a3b8; --radius: 12px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { max-width: 100%; overflow-x: clip; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; min-height: 100vh; overflow-wrap: anywhere; }
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(18,18,28,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; white-space: nowrap; }
+  nav a:hover { color: var(--text); }
+  .nav-left { display: flex; align-items: center; gap: 10px; }
+  .nav-badge { background: var(--purple); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+  .nav-center { font-size: 0.875rem; color: var(--muted); }
+  .nav-right { display: flex; gap: 16px; align-items: center; }
+  main { max-width: 860px; margin: 0 auto; padding: 40px 24px 80px; }
+  .aula-header { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; margin-bottom: 32px; border-top: 4px solid var(--blue); }
+  .header-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; align-items: center; }
+  .bloco-badge { background: var(--blue); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .meta-chip { background: var(--surface); border: 1px solid var(--border); font-size: 0.8rem; color: var(--muted); padding: 4px 12px; border-radius: 20px; }
+  .meta-chip strong { color: var(--text); }
+  .aula-header h1 { font-size: 1.5rem; font-weight: 700; line-height: 1.3; color: var(--text); }
+  section { margin-bottom: 32px; scroll-margin-top: 112px; }
+  .section-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue-lt); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+  .obj-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .obj-list li { display: flex; gap: 12px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
+  .obj-list li::before { content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--blue-lt); margin-top: 7px; flex-shrink: 0; }
+  .content-topic { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 12px; }
+  .content-topic h3 { font-size: 0.95rem; font-weight: 600; color: var(--purple-lt); margin-bottom: 8px; }
+  .content-topic ul { list-style: none; padding: 0; }
+  .content-topic ul li { padding: 4px 0 4px 16px; position: relative; color: var(--muted); font-size: 0.9rem; }
+  .content-topic ul li::before { content: '—'; position: absolute; left: 0; color: var(--border); }
+  .timeline { display: flex; flex-direction: column; gap: 10px; }
+  .tl-item { display: flex; gap: 16px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; border-left: 3px solid var(--blue); }
+  .tl-duration { background: var(--surface); border: 1px solid var(--border); color: var(--amber-lt); font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+  .tl-text { font-size: 0.9rem; color: var(--text); }
+  .ref-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 10px; border-left: 3px solid var(--blue-lt); }
+  .ref-author { font-size: 0.8rem; font-weight: 700; color: var(--blue-lt); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+  .ref-title { font-size: 0.9rem; color: var(--text); }
+  .ref-pages { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
+  .activity-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; font-size: 0.9rem; line-height: 1.7; border-left: 3px solid var(--teal-lt); }
+  .teacher-guidance { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-top: 18px; }
+  .teacher-guidance summary { cursor: pointer; color: var(--amber-lt); font-weight: 700; padding: 15px 17px; }
+  .teacher-guidance[open] summary { border-bottom: 1px solid var(--border); }
+  .teacher-guidance-content { padding: 16px 18px; }
+  .resources-list { display: flex; flex-wrap: wrap; gap: 10px; }
+  .res-tag { max-width: 100%; min-width: 0; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; }
+  footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--muted); font-size: 0.85rem; }
+  footer a { color: var(--purple-lt); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .section-nav { position: sticky; top: 56px; z-index: 90; background: rgba(10,10,15,.97); border-bottom: 1px solid var(--border); padding: 8px 16px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: thin; }
+  .section-nav a { flex: 0 0 auto; min-height: 36px; display: inline-flex; align-items: center; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 5px 12px; text-decoration: none; font-size: .8rem; }
+  .base-text { max-width: 72ch; margin-inline: auto; }
+  .base-intro { color: var(--muted); font-size: .92rem; margin-bottom: 16px; }
+  .base-subsection { scroll-margin-top: 112px; margin-bottom: 28px; }
+  .base-subsection h3 { color: var(--blue-lt); font-size: 1.15rem; line-height: 1.35; margin-bottom: 12px; }
+  .base-subsection p { color: var(--text); margin-bottom: 14px; line-height: 1.78; }
+  .base-subsection strong { color: #f1f5f9; }
+  .pause-box { background: rgba(79,70,229,.1); border: 1px solid rgba(129,140,248,.4); border-left: 4px solid var(--blue-lt); border-radius: var(--radius); padding: 16px 18px; margin: 22px 0; }
+  .pause-box h4 { color: var(--amber-lt); font-size: .75rem; letter-spacing: .09em; text-transform: uppercase; margin-bottom: 6px; }
+  .pause-box p { margin: 0; color: var(--text); font-weight: 600; line-height: 1.6; }
+  a:focus-visible { outline: 3px solid var(--amber-lt); outline-offset: 3px; border-radius: 3px; }
+  @media (max-width: 640px) {
+    nav { height: auto; min-height: 56px; padding: 8px 12px; flex-wrap: wrap; }
+    .nav-left, .nav-right { min-width: 0; }
+    .nav-center { display: none; }
+    .nav-right { gap: 10px; }
+    .section-nav { top: 72px; padding-inline: 10px; }
+    main { padding: 24px 14px 60px; }
+    .aula-header { padding: 22px 18px; }
+    .tl-item { flex-direction: column; gap: 8px; }
+  }
+  @media print { .teacher-guidance { break-inside: avoid; } }
+
+:root{--bg:#0a0a0f;--card:#1a1a2e;--line:#34345b;--text:#e2e8f0;--muted:#a8b3c5;--violet:#c084fc;--amber:#fbbf24;--teal:#2dd4bf}*{box-sizing:border-box}html,body{max-width:100%;overflow-x:clip}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.7 system-ui,sans-serif;overflow-wrap:anywhere}a{color:#a5b4fc}a:focus-visible,summary:focus-visible{outline:3px solid var(--amber);outline-offset:3px}nav.top{position:sticky;top:0;z-index:3;display:flex;justify-content:space-between;gap:15px;padding:14px 24px;background:#12121cf5;border-bottom:1px solid var(--line)}nav.top div{display:flex;gap:14px}.sections{position:sticky;top:57px;z-index:2;display:flex;gap:8px;overflow-x:auto;padding:8px 16px;background:#0a0a0ff5}.sections a,.chip{white-space:nowrap;padding:4px 11px;border:1px solid var(--line);border-radius:20px;text-decoration:none}.chip{background:var(--violet);color:#111;font-weight:800}main{max-width:900px;margin:auto;padding:36px 24px 70px}header,.card,.material,.activity,details{background:var(--card);border:1px solid var(--line);border-radius:12px}header{padding:28px;border-top:4px solid var(--violet)}header div{display:flex;flex-wrap:wrap;gap:8px}h1{font-size:1.65rem}section{margin:34px 0;scroll-margin-top:110px}.title{color:var(--violet);font-size:.75rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;border-bottom:1px solid var(--line)}.objectives{display:grid;gap:9px;padding:0;list-style:none}.objectives li,.card{padding:14px 17px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.base{max-width:74ch;margin:auto}.toc{padding:16px 22px;background:#12121c;border:1px solid var(--line);border-radius:12px}.toc ol{columns:2}.base article{margin:30px 0}.base h3{color:var(--violet)}.pause-box{padding:14px 17px;border:1px solid #818cf866;border-left:4px solid var(--violet);border-radius:10px;background:#4f46e51a}.pause-box h4{margin:0;color:var(--amber)}.pause-box p{margin:4px 0;font-weight:650}.timeline{display:grid;gap:9px}.tl-item{display:flex;gap:14px;padding:13px 16px;background:var(--card);border:1px solid var(--line);border-left:3px solid var(--violet);border-radius:10px}.tl-duration{flex:none;color:var(--amber);font-weight:800}.activity{padding:19px;border-left:3px solid var(--teal)}.materials{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:15px 0}.material{padding:14px}.material h3{color:var(--teal)}.fake{color:var(--amber);font-weight:800}table{width:100%;border-collapse:collapse;font-size:.88rem}th,td{padding:6px;border:1px solid var(--line);text-align:left}details{padding:15px;margin-top:15px}summary{color:var(--amber);font-weight:800;cursor:pointer}.refs .card{margin:9px 0}footer{text-align:center;border-top:1px solid var(--line);padding:25px;color:var(--muted)}@media(max-width:700px){nav.top{flex-wrap:wrap}.sections{top:89px}main{padding:24px 13px}.grid,.materials{grid-template-columns:1fr}.toc ol{columns:1}.tl-item{flex-direction:column;gap:3px}table{display:block;overflow-x:auto}}@media print{nav,.sections{display:none!important}:root{--bg:#fff;--card:#fff;--line:#888;--text:#111;--muted:#333;--violet:#4c1d95;--amber:#713f12;--teal:#065f46}body{font-size:11pt}main{max-width:none;padding:0}.card,.material,details{break-inside:avoid}}
+body {max-width:100%; overflow-x:hidden; overflow-wrap:anywhere;} main{max-width:960px;margin:auto} .base-text{max-width:72ch} .base-subsection{margin-bottom:24px} table{width:100%;border-collapse:collapse}th,td{padding:8px;border:1px solid var(--border);overflow-wrap:anywhere} .table-wrap,.table-region{overflow-x:auto;max-width:100%} .teacher-guidance{margin-top:20px;padding:16px;border:1px solid var(--border)} summary{cursor:pointer;font-weight:bold} .skip{position:absolute;left:-9999px}.skip:focus{left:12px;top:12px;z-index:300;background:var(--bg);padding:10px} a{overflow-wrap:anywhere} @media(max-width:640px){nav{position:static;flex-wrap:wrap;height:auto;padding:12px}.nav-center{display:none}.section-nav{position:static;flex-wrap:wrap}main{padding:20px 14px}.tl-item{flex-direction:column}.aula-header{padding:20px 14px}} @media print{nav,.section-nav,.skip{display:none!important}body,main,section,.aula-header,.activity-card,.pause-box,details{background:white!important;color:black!important}*{color:inherit!important;text-shadow:none!important;box-shadow:none!important}main{max-width:none;padding:0}.base-text{max-width:none}h1,h2,h3,summary{break-after:avoid}p{orphans:3;widows:3}table{font-size:9pt}.teacher-guidance{break-inside:auto}}
+</style></head><body>
+<a class="skip" href="#objetivos">Pular para o conteúdo</a>
+<nav aria-label="Navegação entre aulas"><div class="nav-left"><a href="../../index.html">Voltar ao curso</a></div><span class="nav-center">Encontro 12 de 15 · Aula 47 de 60</span><div class="nav-right"><a href="aula-46.html">← Aula anterior</a><a href="aula-48.html">Próxima aula →</a></div></nav>
+<div class="section-nav" aria-label="Seções"><a href="#objetivos">Objetivos</a><a href="#texto-base">Texto-base</a><a href="#plano-aula">Plano</a><a href="#atividade">Discussão</a><a href="#sintese">Síntese</a><a href="#leituras">Referências</a></div>
+<main><header class="aula-header"><div class="header-meta"><span class="meta-chip">Encontro <strong>12</strong> de 15 — 25/11/2026, quarta-feira</span><span class="meta-chip">Aula <strong>47</strong> de 60</span><span class="meta-chip">3ª aula do encontro</span><span class="meta-chip">Aproximadamente 1 hora-aula</span></div><h1>Medir a desigualdade: indicadores, renda e coeficiente de Gini</h1><p>Introdução à Sociologia · T01 · 2026.2 · Código 2101000 · SIGAA 4M1234</p></header>
+<section id="objetivos"><h2>Objetivos</h2><ul class="obj-list"><li>Distinguir renda, riqueza e condições de vida.</li><li>Ler média, mediana e Gini com metadados.</li><li>Identificar limites da comparação.</li></ul></section>
+<section id="texto-base" aria-labelledby="texto-base-title"><h2 id="texto-base-title">Texto-base</h2><div class="base-text"><p class="base-intro">Dois municípios têm o mesmo Gini: suas condições de vida são iguais? A pergunta revela o que um indicador mede e o que deixa de fora.</p><article class="base-subsection" id="a47-conceito-1">
+<h3>1. Da estratificação à desigualdade observável</h3>
+<p>A Aula 45 apresentou <strong>estratificação</strong> como organização durável de posições e de acessos desiguais a recursos, reconhecimento e poder. Também mostrou que mobilidade não elimina hierarquias. Agora mudamos a operação: perguntamos como observar desigualdades concretas no Brasil. Uma posição de classe não pode ser deduzida de um único salário, e uma tabela de renda não descreve toda a estrutura social. O indicador recorta uma dimensão; a análise sociológica reconstrói relações que dão sentido ao recorte.</p>
+<p>
+<strong>Desigualdade</strong> designa diferenças socialmente produzidas na distribuição de recursos, oportunidades, riscos ou reconhecimento. Nem toda diferença é uma desigualdade. Idades distintas, por exemplo, tornam-se relevantes quando regras e instituições distribuem direitos ou riscos sistematicamente segundo a idade. Também não basta encontrar dois valores distintos. É preciso definir quem foi comparado, quando, sob quais condições e por que a diferença importa. A desigualdade é relacional: posições dependem de como recursos e decisões circulam entre grupos e instituições.</p>
+<p>Falar em desigualdade brasileira não atribui essência ao país nem presume que regiões e pessoas vivam o mesmo padrão. O adjetivo delimita uma formação histórica e um campo de investigação. Escravidão, regimes de propriedade, urbanização, políticas públicas, mercados de trabalho e classificações sociais podem participar da explicação, mas seus efeitos variam. O objetivo é formular relações investigáveis, não decorar uma lista de causas.</p>
+<p>A mobilidade precisa ser medida em relação a pontos de partida e chegada. A intrageracional acompanha mudanças na trajetória de uma pessoa; a intergeracional compara gerações. Uma sociedade pode registrar deslocamentos individuais e conservar grande desigualdade. Pode ampliar escolaridade sem converter diplomas em posições equivalentes para todos. Histórias de ascensão ou queda abrem perguntas, mas não substituem evidência sobre probabilidades, barreiras e recursos.</p>
+</article><article class="base-subsection" id="a47-conceito-2">
+<h3>2. Indicadores: escolhas antes dos números</h3>
+<p>Um <strong>indicador social</strong> é uma medida construída para representar uma dimensão coletiva. Antes do número existem decisões: conceito, população, unidade, período e classificação. “Renda média” pode se referir a pessoas, domicílios ou trabalhadores; incluir fontes diferentes; usar valores nominais ou corrigidos. Sem metadados, números de mesmo nome talvez não sejam comparáveis.</p>
+<p>A média soma valores e divide pelo número de observações; valores extremos a afetam. A mediana ordena os valores e identifica o ponto central. Proporções, taxas e índices respondem a outras perguntas. Uma taxa relaciona ocorrências a uma população; um índice combina informações segundo regras declaradas. Título, fonte, definição, universo, período e notas metodológicas integram a evidência.</p>
+<p>Indicadores permitem comparar padrões que experiências isoladas não revelam, mas comprimem variações. Uma média municipal pode esconder bairros diferentes; uma categoria ampla reúne trajetórias diversas; melhora geral pode coexistir com distância crescente entre grupos. A leitura começa com descrição disciplinada e só então propõe inferências. Esse intervalo entre ver e explicar impede conclusões automáticas.</p>
+<p>A comparação temporal exige atenção. Inflação, alteração do questionário, mudança da população coberta ou revisão de classificação podem produzir diferenças que não correspondem diretamente a transformação social. Ausência de mudança tampouco prova estabilidade: movimentos opostos podem se compensar. Séries devem usar conceitos compatíveis e registrar quebras metodológicas. Quando isso não é possível, a conclusão correta pode ser limitar a comparação.</p>
+<p>A qualidade de uma estimativa também depende do modo de produção do dado. Pesquisas amostrais observam parte da população e estimam valores para um universo, trazendo incerteza; registros administrativos cobrem quem acessa determinado sistema e podem excluir quem não chega ao serviço; censos buscam cobertura extensa, mas ocorrem em intervalos maiores. Nenhuma fonte é automaticamente superior. A pergunta define qual é adequada, e a triangulação entre fontes pode revelar lacunas de cobertura, diferenças de definição ou padrões que merecem investigação qualitativa.</p>
+<aside class="pause-box">
+<h4>Pausa 1 — Ler antes de explicar</h4>
+<p>Quais cinco informações metodológicas devem acompanhar uma tabela para permitir comparação segura?</p>
+</aside>
+</article><article class="base-subsection" id="a47-conceito-3">
+<h3>3. Renda, riqueza e condições de vida</h3>
+<p>
+<strong>Renda</strong> é fluxo recebido em um período: salários, benefícios, aposentadorias ou outras entradas, conforme a pesquisa. <strong>Riqueza</strong> é estoque de ativos e dívidas em certo momento: imóveis, terras, aplicações, empresas e obrigações. Alguém pode ter renda temporariamente baixa e patrimônio elevado; outra pessoa pode receber mais, carregar dívidas e não possuir ativos. Concentração de renda e de riqueza são relacionadas, não intercambiáveis.</p>
+<p>Renda domiciliar per capita divide a renda pelo número de moradores. Facilita comparações, mas pressupõe distribuição interna que talvez não ocorra. Não registra diretamente cuidado não remunerado, estabilidade, jornada, deslocamento ou serviços. Domicílios de renda semelhante podem enfrentar custos, infraestrutura e tempos distintos. A medida permanece útil quando seu limite acompanha a conclusão.</p>
+<p>
+<strong>Condições de vida</strong> ampliam a pergunta para moradia, saneamento, alimentação, educação, saúde, mobilidade, segurança, conectividade e tempo. Não se trata de substituir renda por um índice total. Dimensões pedem medidas próprias, e agregá-las exige escolhas de peso. O ganho está em investigar como recursos monetários, serviços, redes e regras se combinam.</p>
+<p>O tempo constitui recurso oculto. Longos deslocamentos, filas, jornadas imprevisíveis e cuidado necessário diminuem o tempo para descanso, estudo ou participação pública. Essas restrições não aparecem integralmente no rendimento, embora afetem mobilidade futura. Serviços públicos também modificam o que uma renda permite realizar. Comparar somente poder de compra privado subestima o papel institucional na produção ou redução das desigualdades.</p>
+<p>Segurança e previsibilidade completam esse quadro. Duas rendas mensais iguais podem resultar de vínculos muito distintos: uma regular e protegida, outra oscilante e sujeita a interrupções. A média de um mês não capta risco acumulado, possibilidade de planejar nem acesso a proteção. Perguntar pela estabilidade do fluxo aproxima a medida das trajetórias sem confundi-la com patrimônio.</p>
+</article><article class="base-subsection" id="a47-conceito-4">
+<h3>4. Distribuições e coeficiente de Gini</h3>
+<p>Uma distribuição mostra como um recurso se reparte. Participação de décimos, razão entre grupos, média, mediana e curvas acumuladas iluminam aspectos diferentes. O <strong>coeficiente de Gini</strong> resume concentração: aproxima-se de zero em distribuições mais iguais e de um nas mais concentradas. É indispensável saber variável, população, fonte e período.</p>
+<p>O Gini não mede riqueza, pobreza ou bem-estar por natureza; mede concentração da variável escolhida. Duas sociedades podem ter o mesmo coeficiente e níveis de renda distintos. Um Gini menor pode surgir por aumento na base, queda no topo ou combinações. O índice não identifica quem mudou nem onde a diferença ocorre; deve acompanhar níveis, percentis, grupos e contexto.</p>
+<p>Imagine municípios fictícios com o mesmo Gini. No primeiro, mediana maior, saneamento amplo e aluguel moderado; no segundo, mediana menor, infraestrutura desigual e aluguel oneroso. A igualdade relativa resumida não torna equivalentes suas condições. Rankings isolados também ocultam distância, incerteza e mecanismos.</p>
+<p>O coeficiente depende da unidade analisada. O Gini individual pode diferir do domiciliar per capita porque o segundo reúne rendas e moradores. Incluir ou excluir rendas não monetárias, impostos, benefícios ou pessoas sem rendimento altera a distribuição. Comparações históricas só são defensáveis com escolhas compatíveis. O valor não é falso por ser construído; torna-se enganoso quando se esconde a construção ou se exige resposta para a qual não foi desenhado.</p>
+<aside class="pause-box">
+<h4>Pausa 2 — Limites do resumo</h4>
+<p>Com o mesmo Gini, quais três informações adicionais seriam necessárias para comparar condições de vida?</p>
+</aside>
+</article></div></section>
+<section id="plano-aula"><h2>Percurso da hora-aula</h2><div class="timeline"><div class="tl-item"><span class="tl-duration">10 min</span><span class="tl-text">Dois municípios têm o mesmo Gini: suas condições de vida são iguais? A pergunta revela o que um indicador mede e o que deixa de fora.</span></div><div class="tl-item"><span class="tl-duration">25 min</span><span class="tl-text">Leitura dialogada e desenvolvimento dos conceitos desta unidade.</span></div><div class="tl-item"><span class="tl-duration">20 min</span><span class="tl-text">Discussão e elaboração do registro proposto; comparação das justificativas com mediação docente.</span></div><div class="tl-item"><span class="tl-duration">5 min</span><span class="tl-text">Síntese e transição: A Aula 48 cruzará dimensões e escalas para formular explicações da desigualdade.</span></div></div></section>
+<section id="atividade"><h2>Discussão e registro</h2><div class="activity-card" data-gabarito="obrigatorio"><p>Dados fictícios: município Ipê tem Gini 0,40 e renda mediana de 120 unidades monetárias; Jatobá tem Gini 0,40 e mediana de 75, no mesmo ano e definição. Escreva duas conclusões permitidas, uma proibida e três informações adicionais sobre condições de vida.</p><details class="teacher-guidance"><summary>Orientação docente e resposta comentada</summary><p>Os municípios apresentam a mesma concentração resumida pelo Gini e medianas diferentes. Isso não significa distribuições inteiramente idênticas nem condições de vida equivalentes. Também não permite concluir qual política produziu os valores. A mediana maior informa uma posição central mais elevada na variável observada, mas não esclarece preços, serviços ou desigualdades internas. Peça formulações que preservem unidade, período e natureza fictícia dos dados.</p><p>Informações pertinentes incluem custos de moradia, acesso a saneamento, saúde, transporte e estabilidade da renda. Para estudar mecanismos, seriam necessários séries históricas, composição da população e decisões institucionais. Corrija a confusão entre renda como fluxo e riqueza como estoque, bem como a ideia de que Gini mede pobreza por definição. Uma resposta forte sabe parar onde termina a evidência. Na comparação, não se exige escolher o município melhor; exige-se explicar o que cada medida permite observar e qual pergunta permanece sem resposta, preparando o cruzamento de dimensões da próxima aula.</p></details></div></section>
+<section id="sintese"><h2>Síntese e continuidade</h2><p>Indicadores são medidas construídas para perguntas específicas. Gini resume concentração de uma variável, sem identificar sozinho níveis de renda, bem-estar ou mecanismos.</p><p>A Aula 48 cruzará dimensões e escalas para formular explicações da desigualdade.</p></section><section id="leituras">
+<h2 class="title">Referências verificáveis</h2>
+<div class="refs">
+<div class="card">
+<strong>IBGE.</strong> <em>Síntese de indicadores sociais: uma análise das condições de vida da população brasileira 2023.</em> Rio de Janeiro, 2023. <a href="https://biblioteca.ibge.gov.br/visualizacao/livros/liv102052.pdf">PDF oficial</a>.</div>
+<div class="card">
+<strong>IPEA.</strong> <em>Atlas da vulnerabilidade social nos municípios brasileiros.</em> Brasília, 2015. <a href="https://repositorio.ipea.gov.br/handle/11058/4381">Registro oficial</a>.</div>
+<div class="card">
+<strong>IBGE.</strong> <em>Desigualdades sociais por cor ou raça no Brasil.</em> n. 48. Rio de Janeiro, 2022. <a href="https://biblioteca.ibge.gov.br/visualizacao/livros/liv101972_informativo.pdf">PDF oficial</a>. Nenhum valor da atividade foi extraído dessas obras.</div>
+</div>
+</section>
+</main><footer>Introdução à Sociologia · T01 · 2026.2 · <a href="../../index.html">Voltar ao curso</a></footer></body></html>

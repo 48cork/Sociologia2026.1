@@ -1,88 +1,139 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aula 18 — Introdução à Sociologia | 2026.2</title>
-<style>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Aula 18 — Modo de produção, contradição e agência histórica em Marx · 2026.2</title><style>
   :root {
-    --bg: #0a0a0f;
-    --surface: #12121c;
-    --card: #1a1a2e;
-    --border: #2a2a4a;
-    --purple: #7c3aed;
-    --purple-lt: #a855f7;
-    --blue: #4f46e5;
-    --blue-lt: #818cf8;
-    --teal-lt: #2dd4bf;
-    --amber-lt: #fbbf24;
-    --rose-lt: #fb7185;
-    --sky: #38bdf8;
-    --text: #e2e8f0;
-    --muted: #94a3b8;
-    --radius: 12px;
+    --bg: #0a0a0f; --surface: #12121c; --card: #1a1a2e; --border: #2a2a4a;
+    --purple: #7c3aed; --purple-lt: #a855f7; --blue: #4f46e5; --blue-lt: #818cf8;
+    --teal-lt: #2dd4bf; --amber-lt: #fbbf24; --rose-lt: #fb7185;
+    --text: #e2e8f0; --muted: #94a3b8; --radius: 12px;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
-
-  nav {
-    position: sticky; top: 0; z-index: 100;
-    background: rgba(18,18,28,0.95); backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--border);
-    padding: 0 24px; height: 56px;
-    display: flex; align-items: center; justify-content: space-between; gap: 16px;
-  }
+  html, body { max-width: 100%; overflow-x: clip; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; min-height: 100vh; overflow-wrap: anywhere; }
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(18,18,28,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
   nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; white-space: nowrap; }
   nav a:hover { color: var(--text); }
   .nav-left { display: flex; align-items: center; gap: 10px; }
-  .nav-badge { background: var(--sky); color: #0a0a0f; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+  .nav-badge { background: var(--purple); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
   .nav-center { font-size: 0.875rem; color: var(--muted); }
   .nav-right { display: flex; gap: 16px; align-items: center; }
-
   main { max-width: 860px; margin: 0 auto; padding: 40px 24px 80px; }
-
-  .aula-header {
-    background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
-    padding: 32px; margin-bottom: 32px;
-    border-top: 4px solid var(--sky);
-  }
+  .aula-header { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; margin-bottom: 32px; border-top: 4px solid var(--blue); }
   .header-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; align-items: center; }
-  .bloco-badge { background: var(--sky); color: #0a0a0f; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .bloco-badge { background: var(--blue); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
   .meta-chip { background: var(--surface); border: 1px solid var(--border); font-size: 0.8rem; color: var(--muted); padding: 4px 12px; border-radius: 20px; }
+  .meta-chip strong { color: var(--text); }
   .aula-header h1 { font-size: 1.5rem; font-weight: 700; line-height: 1.3; color: var(--text); }
-
-  section { margin-bottom: 32px; }
-  .section-title {
-    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--sky); margin-bottom: 16px; padding-bottom: 8px;
-    border-bottom: 1px solid var(--border);
-  }
-
+  section { margin-bottom: 32px; scroll-margin-top: 112px; }
+  .section-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue-lt); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
   .obj-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
   .obj-list li { display: flex; gap: 12px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
-  .obj-list li::before { content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--sky); margin-top: 7px; flex-shrink: 0; }
-
+  .obj-list li::before { content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--blue-lt); margin-top: 7px; flex-shrink: 0; }
   .content-topic { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 12px; }
-  .content-topic h3 { font-size: 0.95rem; font-weight: 600; color: var(--sky); margin-bottom: 8px; }
+  .content-topic h3 { font-size: 0.95rem; font-weight: 600; color: var(--purple-lt); margin-bottom: 8px; }
   .content-topic ul { list-style: none; padding: 0; }
   .content-topic ul li { padding: 4px 0 4px 16px; position: relative; color: var(--muted); font-size: 0.9rem; }
   .content-topic ul li::before { content: '—'; position: absolute; left: 0; color: var(--border); }
-
   .timeline { display: flex; flex-direction: column; gap: 10px; }
-  .tl-item { display: flex; gap: 16px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; border-left: 3px solid var(--sky); }
+  .tl-item { display: flex; gap: 16px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; border-left: 3px solid var(--blue); }
   .tl-duration { background: var(--surface); border: 1px solid var(--border); color: var(--amber-lt); font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
   .tl-text { font-size: 0.9rem; color: var(--text); }
-
   .ref-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 10px; border-left: 3px solid var(--blue-lt); }
   .ref-author { font-size: 0.8rem; font-weight: 700; color: var(--blue-lt); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
   .ref-title { font-size: 0.9rem; color: var(--text); }
+  .ref-pages { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
   .activity-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; font-size: 0.9rem; line-height: 1.7; border-left: 3px solid var(--teal-lt); }
+  .teacher-guidance { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-top: 18px; }
+  .teacher-guidance summary { cursor: pointer; color: var(--amber-lt); font-weight: 700; padding: 15px 17px; }
+  .teacher-guidance[open] summary { border-bottom: 1px solid var(--border); }
+  .teacher-guidance-content { padding: 16px 18px; }
+  .resources-list { display: flex; flex-wrap: wrap; gap: 10px; }
+  .res-tag { max-width: 100%; min-width: 0; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; }
+  footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--muted); font-size: 0.85rem; }
+  footer a { color: var(--purple-lt); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .section-nav { position: sticky; top: 56px; z-index: 90; background: rgba(10,10,15,.97); border-bottom: 1px solid var(--border); padding: 8px 16px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: thin; }
+  .section-nav a { flex: 0 0 auto; min-height: 36px; display: inline-flex; align-items: center; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 5px 12px; text-decoration: none; font-size: .8rem; }
+  .base-text { max-width: 72ch; margin-inline: auto; }
+  .base-intro { color: var(--muted); font-size: .92rem; margin-bottom: 16px; }
+  .base-subsection { scroll-margin-top: 112px; margin-bottom: 28px; }
+  .base-subsection h3 { color: var(--blue-lt); font-size: 1.15rem; line-height: 1.35; margin-bottom: 12px; }
+  .base-subsection p { color: var(--text); margin-bottom: 14px; line-height: 1.78; }
+  .base-subsection strong { color: #f1f5f9; }
+  .pause-box { background: rgba(79,70,229,.1); border: 1px solid rgba(129,140,248,.4); border-left: 4px solid var(--blue-lt); border-radius: var(--radius); padding: 16px 18px; margin: 22px 0; }
+  .pause-box h4 { color: var(--amber-lt); font-size: .75rem; letter-spacing: .09em; text-transform: uppercase; margin-bottom: 6px; }
+  .pause-box p { margin: 0; color: var(--text); font-weight: 600; line-height: 1.6; }
+  a:focus-visible { outline: 3px solid var(--amber-lt); outline-offset: 3px; border-radius: 3px; }
+  @media (max-width: 640px) {
+    nav { height: auto; min-height: 56px; padding: 8px 12px; flex-wrap: wrap; }
+    .nav-left, .nav-right { min-width: 0; }
+    .nav-center { display: none; }
+    .nav-right { gap: 10px; }
+    .section-nav { top: 72px; padding-inline: 10px; }
+    main { padding: 24px 14px 60px; }
+    .aula-header { padding: 22px 18px; }
+    .tl-item { flex-direction: column; gap: 8px; }
+  }
+  @media print { .teacher-guidance { break-inside: avoid; } }
 
+
+  :root {
+    --bg: #0a0a0f; --surface: #12121c; --card: #1a1a2e; --border: #2a2a4a;
+    --purple: #7c3aed; --purple-lt: #a855f7; --blue: #4f46e5; --blue-lt: #818cf8;
+    --teal-lt: #2dd4bf; --amber-lt: #fbbf24; --rose-lt: #fb7185;
+    --text: #e2e8f0; --muted: #94a3b8; --radius: 12px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(18,18,28,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; white-space: nowrap; }
+  nav a:hover { color: var(--text); }
+  .nav-left { display: flex; align-items: center; gap: 10px; }
+  .nav-badge { background: var(--purple); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+  .nav-center { font-size: 0.875rem; color: var(--muted); }
+  .nav-right { display: flex; gap: 16px; align-items: center; }
+  main { max-width: 860px; margin: 0 auto; padding: 40px 24px 80px; }
+  .aula-header { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; margin-bottom: 32px; border-top: 4px solid var(--purple); }
+  .header-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; align-items: center; }
+  .bloco-badge { background: var(--purple); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .meta-chip { background: var(--surface); border: 1px solid var(--border); font-size: 0.8rem; color: var(--muted); padding: 4px 12px; border-radius: 20px; }
+  .aula-header h1 { font-size: 1.5rem; font-weight: 700; line-height: 1.3; color: var(--text); }
+  section { margin-bottom: 32px; }
+  .section-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--purple-lt); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; margin-bottom: 12px; }
+  .obj-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .obj-list li { display: flex; gap: 12px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
+  .obj-list li::before { content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--purple-lt); margin-top: 7px; flex-shrink: 0; }
+  .content-topic { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 12px; }
+  .content-topic h3 { font-size: 0.95rem; font-weight: 600; color: var(--purple-lt); margin-bottom: 8px; }
+  .content-topic ul { list-style: none; padding: 0; }
+  .content-topic ul li { padding: 4px 0 4px 16px; position: relative; color: var(--muted); font-size: 0.9rem; }
+  .content-topic ul li::before { content: '—'; position: absolute; left: 0; color: var(--border); }
+  .timeline { display: flex; flex-direction: column; gap: 10px; }
+  .tl-item { display: flex; gap: 16px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; border-left: 3px solid var(--purple); }
+  .tl-duration { background: var(--surface); border: 1px solid var(--border); color: var(--amber-lt); font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+  .tl-text { font-size: 0.9rem; color: var(--text); }
+  .ref-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 10px; border-left: 3px solid var(--blue-lt); }
+  .ref-author { font-size: 0.8rem; font-weight: 700; color: var(--blue-lt); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+  .ref-title { font-size: 0.9rem; color: var(--text); }
+  .ref-pages { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
+  .activity-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; font-size: 0.9rem; line-height: 1.7; border-left: 3px solid var(--teal-lt); }
+  .activity-card h3 { color: var(--teal-lt); font-size: 1.05rem; margin: 0 0 12px; }
+  .activity-card ol, .activity-card ul { padding-left: 22px; margin: 10px 0; }
+  .activity-card li { margin: 7px 0; }
+  .activity-step { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; margin: 12px 0; }
+  .didactic-passage { background: rgba(79,70,229,.1); border: 1px solid rgba(129,140,248,.45); border-radius: var(--radius); padding: 16px 18px; margin: 16px 0; }
+  .didactic-passage h4 { color: var(--amber-lt); margin-bottom: 8px; }
+  .didactic-passage p { margin: 9px 0; }
+  .source-note { color: var(--muted); font-size: .82rem; margin: 12px 0; }
+  .source-note a { color: var(--blue-lt); }
+  .teacher-guidance { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-top: 18px; }
+  .teacher-guidance summary { cursor: pointer; color: var(--amber-lt); font-weight: 700; padding: 15px 17px; }
+  .teacher-guidance[open] summary { border-bottom: 1px solid var(--border); }
+  .teacher-guidance-content { padding: 16px 18px; }
   .resources-list { display: flex; flex-wrap: wrap; gap: 10px; }
   .res-tag { background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; }
-
   footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--muted); font-size: 0.85rem; }
-  footer a { color: var(--sky); text-decoration: none; }
+  footer a { color: var(--purple-lt); text-decoration: none; }
   footer a:hover { text-decoration: underline; }
 
   html, body { max-width: 100%; overflow-x: clip; }
@@ -118,177 +169,86 @@
     .base-toc ol { width: auto; columns: auto; padding-left: 0; list-style-position: inside; }
     .tl-item { flex-direction: column; gap: 8px; }
   }
-  .activity-card h3 { color: var(--teal-lt); font-size: 1.05rem; margin: 0 0 12px; }
-  .activity-card h4 { color: var(--amber-lt); margin: 18px 0 8px; }
-  .activity-card ol, .activity-card ul { padding-left: 22px; margin: 10px 0; }
-  .activity-card li { margin: 7px 0; }
-  .scene-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 16px 0; }
-  .scene-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
-  .scene-card h4 { margin: 0 0 6px; }
-  .question-list { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px 14px 40px; }
-  .teacher-guidance { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-top: 18px; }
-  .teacher-guidance summary { cursor: pointer; color: var(--amber-lt); font-weight: 700; padding: 15px 17px; }
-  .teacher-guidance[open] summary { border-bottom: 1px solid var(--border); }
-  .teacher-guidance-content { padding: 16px 18px; }
-  .teacher-guidance-content h4 { color: var(--teal-lt); }
-  @media (max-width: 640px) { .scene-grid { grid-template-columns: 1fr; } }
-  @media print {
-    nav, .section-nav { position: static; }
-    .scene-card, .teacher-guidance, .tl-item, .ref-card { break-inside: avoid; }
-    .teacher-guidance > .teacher-guidance-content { display: block !important; }
-  }
-</style>
-</head>
-<body>
+  @media print { .teacher-guidance { break-inside: avoid; } }
 
-<nav>
-  <div class="nav-left">
-    <a href="/introducao-sociologia/">← Página principal</a>
-    <span class="nav-badge">Aula 18</span>
-  </div>
-  <span class="nav-center">Aula 18 / 30</span>
-  <div class="nav-right">
-    <a href="aula-17.html">← Anterior</a>
-    <a href="aula-19.html">Próxima →</a>
-  </div>
-</nav>
-<div class="section-nav" aria-label="Seções da aula"><a href="#objetivos">Objetivos</a><a href="#conteudo-programatico">Conteúdo</a><a href="#texto-base">Texto-base</a><a href="#plano-aula">Plano da aula</a><a href="#leituras">Leituras</a><a href="#atividade">Atividade</a><a href="#recursos">Recursos</a></div>
-
-<main>
-
-  <div class="aula-header">
-    <div class="header-meta">
-      <span class="bloco-badge">Bloco IV — Sociedade, Cultura e Socialização</span>
-      <span class="meta-chip">Aula 18</span>
-      <span class="meta-chip">Encontro 9 · Parte 2 de 2</span>
-      <span class="meta-chip">04/11/2026 — Quarta-feira</span>
-      <span class="meta-chip">Percurso completo do encontro: 4 horas-aula</span>
-      <span class="meta-chip">Esta página: aproximadamente 2 horas</span>
-    </div>
-    <h1>Socialização primária e secundária. Agentes socializadores.</h1>
-  </div>
-
-  <section id="objetivos"><div class="section-title">Objetivos da Aula</div><ul class="obj-list">
-    <li>Explicar socialização como processo contínuo de aprendizagem, participação e formação social do sujeito.</li>
-    <li>Distinguir socialização primária e secundária sem convertê-las em fases fechadas ou substitutivas.</li>
-    <li>Analisar mecanismos de transmissão, interpretação, negociação, sanção e resistência em instituições diversas.</li>
-    <li>Relacionar socialização, desigualdades, agência e ressocialização por meio de evidências.</li>
-  </ul></section>
-
-  <section id="conteudo-programatico"><div class="section-title">Conteúdo Programático</div>
-    <div class="content-topic"><h3>1. Socialização e formação do sujeito</h3><ul><li>Aprendizagem e participação social ao longo da vida</li><li>Cultura, relações e capacidade de ação</li><li>Socialização primária e secundária como distinção analítica</li></ul></div>
-    <div class="content-topic"><h3>2. Contextos e mecanismos de socialização</h3><ul><li>Famílias, escola, universidade, pares, religião, trabalho e mídias</li><li>Transmissão direta, imitação, rotina, pertencimento e negociação</li><li>Normas, papéis, expectativas e sanções</li></ul></div>
-    <div class="content-topic"><h3>3. Conflitos, desigualdades e mudança</h3><ul><li>Socializações contraditórias e trajetórias diferenciadas</li><li>Reprodução e contestação de desigualdades</li><li>Ressocialização e reelaboração de disposições</li></ul></div>
-  </section>
-
-  <section id="texto-base" aria-labelledby="texto-base-title"><div class="section-title" id="texto-base-title">Texto-base para acompanhamento da aula</div><div class="base-text">
-    <p class="base-intro">A Aula 17 mostrou que identidades e repertórios não são inventados individualmente. Agora examinamos os processos pelos quais pessoas aprendem a participar de relações sociais, interpretando expectativas e agindo em condições que não escolheram sozinhas.</p>
-    <nav class="base-toc" aria-label="Sumário do texto-base"><h3>Nesta leitura</h3><ol>
-      <li><a href="#participacao-aprendida">Socialização como participação aprendida</a></li><li><a href="#formacao-sujeito">Formação social do sujeito</a></li><li><a href="#primaria-vinculos">Socialização primária e vínculos iniciais</a></li><li><a href="#secundaria-contextos">Socialização secundária e novos contextos</a></li><li><a href="#familia-escola">Família, escola e universidade em sua diversidade</a></li><li><a href="#pares-religiao">Pares, religião, trabalho e mídias</a></li><li><a href="#normas-papeis">Normas, papéis, expectativas e sanções</a></li><li><a href="#conflitos-ressocializacao">Conflitos de socialização, agência e ressocialização</a></li><li><a href="#sintese-aula19">Síntese e passagem à Aula 19</a></li>
-    </ol></nav>
-
-    <div class="base-subsection" id="participacao-aprendida"><h3>1. Socialização como participação aprendida</h3>
-      <p>Socialização é o processo contínuo pelo qual pessoas aprendem e reelaboram maneiras de participar da vida social. Aprendem linguagens, gestos, horários, usos de objetos, expectativas e critérios para reconhecer situações. Esse processo não acontece somente quando alguém ensina uma regra em voz alta. Rotinas, exemplos, recompensas, correções, afetos e condições materiais também comunicam o que é esperado.</p>
-      <p>Participar não equivale a copiar. Uma criança observa, pergunta, testa limites e responde; estudantes interpretam regras universitárias; trabalhadores negociam orientações; idosos aprendem tecnologias novas. Cultura oferece repertórios, mas não determina mecanicamente a conduta. Aprender que se deve esperar a vez não garante obediência em toda ocasião: a pessoa pode esquecer, discordar, adaptar ou contestar a norma.</p>
-      <aside class="pause-box"><h4>Pausa 1 — regra sem aula formal</h4><p>Pense numa regra de fila, conversa ou uso de espaço que ninguém explicou diretamente. Por quais rotinas, exemplos, correções ou recompensas uma personagem fictícia poderia aprendê-la?</p></aside>
-    </div>
-
-    <div class="base-subsection" id="formacao-sujeito"><h3>2. Formação social do sujeito</h3>
-      <p>Sujeito e sociedade não são polos independentes que depois entram em contato. Pessoas tornam-se capazes de falar, escolher e justificar ações em relações já organizadas; ao agir, reproduzem ou alteram essas relações. A individualidade não desaparece na socialização: ela se forma em combinações singulares de vínculos, posições, experiências e respostas. Mesmo irmãos criados na mesma casa não percorrem situações idênticas.</p>
-      <p>O termo “internalização” pode ser útil se não significar transferência automática de fora para dentro. Incorporar uma disposição é adquirir familiaridade prática: perceber o que costuma caber numa situação e agir com alguma fluência. Essa incorporação inclui interpretação e pode ser ambivalente. Alguém conhece a expectativa de formalidade, mas decide quando segui-la, quando negociá-la e quando denunciá-la como barreira.</p>
-    </div>
-
-    <div class="base-subsection" id="primaria-vinculos"><h3>3. Socialização primária e vínculos iniciais</h3>
-      <p>Socialização primária destaca aprendizagens produzidas em vínculos iniciais intensos, nos quais linguagem, confiança, cuidado e primeiras classificações do mundo ganham força. Famílias costumam ser centrais, mas existem em formas diversas: uma criança pode conviver com mães, pais, avós, irmãos, responsáveis, famílias extensas ou redes de cuidado. Distribuição de tarefas, afeto e autoridade varia dentro e entre famílias.</p>
-      <p>Crianças não são recipientes passivos. Imitam, perguntam, recusam alimentos, inventam brincadeiras e respondem às expectativas. Tampouco a socialização primária termina de modo absoluto na infância. Vínculos iniciais continuam sendo reinterpretados, e famílias aprendem novas rotinas quando mudam trabalho, moradia, composição ou condições de saúde. “Primária” indica intensidade e caráter fundante, não destino definitivo nem modelo familiar único.</p>
-    </div>
-
-    <div class="base-subsection" id="secundaria-contextos"><h3>4. Socialização secundária e novos contextos</h3>
-      <p>Socialização secundária destaca a entrada em novos contextos institucionais, conhecimentos especializados e papéis: escola, universidade, profissão, associação, religião ou serviço público. A pessoa aprende vocabulários, procedimentos, hierarquias e modos de demonstrar competência. Esses aprendizados não substituem automaticamente os anteriores. Podem confirmar disposições, combiná-las com regras novas ou produzir conflito.</p>
-      <p>A distinção entre primária e secundária é analítica, não uma linha rígida do tempo. Uma relação de trabalho pode tornar-se afetivamente intensa; uma mudança familiar adulta pode demandar aprendizagem profunda. O importante é perguntar quais vínculos sustentam a expectativa, como a regra é transmitida, que recursos existem e como aprendizagens de contextos diferentes se encontram na prática.</p>
-      <aside class="pause-box"><h4>Pausa 2 — expectativas familiares e universitárias</h4><p>Uma personagem é esperada numa responsabilidade familiar no mesmo horário de uma atividade acadêmica obrigatória. Que normas, recursos e relações de poder estruturam o conflito, além de sua vontade individual?</p></aside>
-    </div>
-
-    <div class="base-subsection" id="familia-escola"><h3>5. Família, escola e universidade em sua diversidade</h3>
-      <p>Famílias socializam por cuidado, divisão de tarefas, narrativas, conversas, rotinas e sanções. Não transmitem uma mensagem única: responsáveis podem discordar, gerações podem negociar e condições de renda, tempo, território e deficiência alteram possibilidades. Evitar determinismo familiar significa investigar relações concretas em vez de explicar toda conduta adulta por uma experiência inicial presumida.</p>
-      <p>Escola e universidade ensinam conteúdos e também horários, circulação em espaços, linguagens, hierarquias, cooperação e formas de avaliação. Regulamentos transmitem diretamente; calendários criam rotina; docentes e colegas oferecem modelos; notas, elogios e constrangimentos sinalizam expectativas. Instituições e turmas variam, e estudantes não respondem igualmente. Acesso a transporte, tecnologia, alimentação e apoio pedagógico condiciona a participação.</p>
-    </div>
-
-    <div class="base-subsection" id="pares-religiao"><h3>6. Pares, religião, trabalho e mídias</h3>
-      <p>Grupos de pares oferecem pertencimento, apoio, comparação e sanções. Uma reação de aprovação pode reforçar uma fala; silêncio ou piada pode constranger. Religiões, trabalhos e associações possuem doutrinas ou regulamentos, mas também correntes internas, práticas locais e posições hierárquicas. Listar “agentes” é insuficiente: é preciso mostrar mecanismos, relações e recursos que tornam uma aprendizagem possível.</p>
-      <p>Mídias e plataformas são ambientes organizados por empresas, algoritmos, públicos, regras e trabalho. Tutoriais ensinam diretamente; repetição e imitação difundem formatos; métricas recompensam visibilidade; moderação sanciona. A tecnologia não age sozinha nem controla todos igualmente. Conectividade, letramento, objetivos empresariais, redes de contato e usos concretos produzem efeitos variados e contestáveis.</p>
-    </div>
-
-    <div class="base-subsection" id="normas-papeis"><h3>7. Normas, papéis, expectativas e sanções</h3>
-      <p>Normas orientam condutas; expectativas antecipam o que alguém deveria fazer; papéis sociais reúnem expectativas ligadas a uma posição, como estudante, cuidador ou supervisor. Papel não é identidade fixa nem roteiro completo. Duas pessoas podem ocupar a mesma posição e desempenhá-la de modos diferentes, enquanto uma pessoa combina papéis cujas exigências entram em conflito.</p>
-      <p>Sanções podem ser formais ou informais, positivas ou negativas. Nota, advertência e suspensão são formalizadas; elogio, convite, olhar de reprovação e exclusão de conversa podem ser informais. Recompensas também orientam aprendizagem. Para analisar uma sanção, é preciso verificar quem pode aplicá-la, que regra invoca, como se distribui e quais efeitos produz. Aprender a expectativa não significa aceitá-la como legítima.</p>
-      <aside class="pause-box"><h4>Pausa 3 — papel sem identidade fixa</h4><p>Duas pessoas ocupam o papel de representante de turma de maneiras diferentes. Que expectativas compartilham, que margem de interpretação possuem e por que o papel não define toda a identidade delas?</p></aside>
-    </div>
-
-    <div class="base-subsection" id="conflitos-ressocializacao"><h3>8. Conflitos de socialização, agência e ressocialização</h3>
-      <p>Uma pessoa participa simultaneamente de contextos com exigências contraditórias. Trabalho pode premiar disponibilidade permanente, enquanto família e saúde exigem descanso; pares podem valorizar uma prática censurada pela instituição. Classe, raça, gênero, geração, território, deficiência e recursos influenciam exposição a expectativas e sanções, sem determinar respostas. Agência é a capacidade situada de interpretar, negociar e agir, não liberdade fora das estruturas.</p>
-      <p>Socialização pode reproduzir desigualdades quando naturaliza hierarquias ou distribui conhecimentos e oportunidades de modo desigual. Também pode oferecer linguagem, alianças e competências para contestá-las. Ressocialização ocorre quando novas condições demandam aprendizagens e reelaboração de disposições: mudança de trabalho, religião, cidade, curso ou configuração familiar. Não apaga totalmente o passado; combina continuidade, conflito e mudança biográfica.</p>
-      <aside class="pause-box"><h4>Pausa 4 — disposições numa nova trajetória</h4><p>Após mudar de ocupação, uma personagem revê maneiras de falar e organizar o tempo. O que pode permanecer, ser combinado ou mudar, e que evidência evitaria chamar isso de transformação completa?</p></aside>
-    </div>
-
-    <div class="base-subsection" id="sintese-aula19"><h3>9. Síntese e passagem à Aula 19</h3>
-      <p>Socialização é aprendizagem participativa e contínua. Vínculos iniciais, instituições e novos contextos oferecem repertórios, posições e recursos por transmissão direta, rotina, imitação, recompensa, constrangimento, pertencimento e negociação. Sujeitos interpretam essas expectativas; sanções orientam sem garantir obediência; socializações podem convergir ou entrar em conflito.</p>
-      <p>A Aula 19 deslocará o foco para grupos sociais e pertencimento. Depois de compreender como se aprende a participar, será possível perguntar como grupos se constituem, delimitam membros, distribuem posições e produzem vínculos. Os conceitos desta aula servirão como base, mas não substituirão a análise das relações entre grupos, categorias e organizações.</p>
-    </div>
-  </div></section>
-
-  <section id="plano-aula"><div class="section-title">Plano de Aula com Tempo</div><div class="timeline">
-    <div class="tl-item"><span class="tl-duration">10 min</span><span class="tl-text"><strong>Retomada da Aula 17</strong> — Das identidades e repertórios à pergunta sobre como se aprende a participar.</span></div>
-    <div class="tl-item"><span class="tl-duration">30 min</span><span class="tl-text"><strong>Exposição dialogada</strong> — Socialização contínua, primária e secundária, mecanismos, papéis e sanções.</span></div>
-    <div class="tl-item"><span class="tl-duration">20 min</span><span class="tl-text"><strong>Leitura orientada das cenas</strong> — Identificação de expectativa, transmissão, resposta e condição institucional.</span></div>
-    <div class="tl-item"><span class="tl-duration">35 min</span><span class="tl-text"><strong>Oficina</strong> — Análise dos seis circuitos institucionais e produção de quadro comparativo.</span></div>
-    <div class="tl-item"><span class="tl-duration">15 min</span><span class="tl-text"><strong>Socialização</strong> — Comparação de mecanismos, conflitos, sanções e evidências.</span></div>
-    <div class="tl-item"><span class="tl-duration">10 min</span><span class="tl-text"><strong>Síntese e passagem</strong> — Sistematização e transição para grupos sociais na Aula 19.</span></div>
-  </div></section>
-
-  <section id="leituras"><div class="section-title">Textos para Leitura Prévia</div>
-    <div class="ref-card"><div class="ref-author">BERGER, Peter; LUCKMANN, Thomas</div><div class="ref-title">A construção social da realidade. “A internalização da realidade”</div></div>
-    <div class="ref-card"><div class="ref-author">GIDDENS, Anthony</div><div class="ref-title">Sociologia. Discussão sobre socialização</div></div>
-    <p class="base-intro">As formulações do texto-base são paráfrases didáticas. A aula não atribui toda a teoria da socialização a um único autor nem reproduz citações extensas.</p>
-  </section>
-
-  <section id="atividade"><div class="section-title">Atividade em Sala</div><div class="activity-card">
-    <h3>Oficina — circuito de socialização</h3>
-    <p><strong>Finalidade:</strong> reconhecer mecanismos de aprendizagem, expectativas, sanções, respostas e condições institucionais sem reduzir socialização a transmissão automática.</p>
-    <p><strong>Organização:</strong> seis grupos recebem uma cena fictícia. Distribuam leitura, registro, controle do tempo e apresentação. Ninguém deve relatar experiências pessoais ou representar um grupo social.</p>
-    <p><strong>Etapas e tempos:</strong> 5 minutos para descrição; 15 para mapear o circuito; 10 para discutir reprodução ou mudança; 5 para revisar evidências. A socialização posterior dura 15 minutos.</p>
-    <div class="scene-grid" aria-label="Seis cenas institucionais fictícias">
-      <article class="scene-card"><h4>Cena 1 — tarefas em rotinas familiares negociadas</h4><p>Numa família com dois responsáveis, uma avó e duas crianças, um quadro distribui tarefas semanais. Uma criança observa o irmão, recebe lembrete e propõe trocar dias por causa do treino. Cumprir rende elogio; deixar a tarefa gera conversa e redistribuição. Horários de trabalho mudam a rotina, e os adultos discordam entre cobrança e autonomia.</p></article>
-      <article class="scene-card"><h4>Cena 2 — regras informais de participação universitária</h4><p>Em uma disciplina, o regulamento informa frequência e avaliação, mas não explica como entrar num debate. Uma estudante observa colegas levantarem a mão, recebe convite da docente e depois é interrompida. Um grupo combina apoiar turnos de fala. Tamanho da sala, nota de participação e acessibilidade condicionam respostas diferentes.</p></article>
-      <article class="scene-card"><h4>Cena 3 — linguagem e hierarquia numa equipe de trabalho</h4><p>Um jovem entra numa equipe que usa siglas, relatórios e cadeia de aprovação. Colegas oferecem modelo; o supervisor corrige publicamente um e-mail, enquanto outra colega explica em particular. O manual prevê advertência por erro repetido. Pressão de prazo divide a equipe sobre perguntar ou improvisar, e o jovem sugere glossário coletivo.</p></article>
-      <article class="scene-card"><h4>Cena 4 — grupo religioso internamente diverso</h4><p>Uma participante ingressa num grupo religioso que organiza encontros e ação comunitária. Aprende cantos por imitação e recebe orientação direta sobre tarefas. Integrantes divergem quanto a vestuário e divulgação digital; a coordenação elogia participação, mas restringe algumas funções. Espaço, transporte e horário limitam presença, e ela propõe alternativa híbrida.</p></article>
-      <article class="scene-card"><h4>Cena 5 — aprovação e censura entre pares</h4><p>Num grupo de estudos, colegas recompensam explicações claras com convites e reações positivas. Quando um estudante faz perguntas consideradas básicas, surgem risos; duas pessoas contestam e criam rodízio de dúvidas. A reserva da sala e os horários favorecem alguns. O estudante pode silenciar, procurar apoio ou participar da mudança do acordo.</p></article>
-      <article class="scene-card"><h4>Cena 6 — interação numa plataforma digital</h4><p>Uma pessoa entra numa plataforma de portfólios. Tutoriais recomendam frequência, métricas destacam publicações e moderadores removem conteúdo fora das regras. Usuários divergem sobre autopromoção; colegas compartilham estratégias. Plano pago, algoritmo e tempo disponível afetam alcance. Ela ajusta privacidade e questiona uma regra no fórum, sem resultado garantido.</p></article>
-    </div>
-    <h4>Oito perguntas para cada cena</h4><ol class="question-list">
-      <li>O que está sendo <strong>aprendido</strong>?</li><li>Quem participa da <strong>aprendizagem</strong>?</li><li>Por qual <strong>mecanismo</strong> a expectativa é transmitida?</li><li>Que <strong>sanção formal ou informal</strong> aparece?</li><li>Que <strong>papel social</strong> é esperado?</li><li>Como a pessoa <strong>interpreta, negocia ou resiste</strong>?</li><li>Que <strong>desigualdade ou condição institucional</strong> interfere?</li><li>O processo reproduz, transforma ou combina disposições? Que <strong>evidência</strong> sustenta a resposta?</li>
-    </ol>
-    <p><strong>Produto:</strong> quadro com expectativa, mecanismo, sanção, resposta, condição e evidência, seguido de hipótese sobre reprodução ou mudança.</p>
-    <p><strong>Socialização:</strong> cada grupo apresenta o circuito em até dois minutos. A turma identifica um mecanismo alternativo e uma informação ainda necessária, sem culpabilizar o personagem.</p>
-    <details class="teacher-guidance"><summary>Possibilidades comentadas e orientações de mediação — uso do professor</summary><div class="teacher-guidance-content">
-      <p>Os comentários indicam possibilidades, não respostas únicas. Exigir evidências e distinguir aprendizagem, imposição e negociação.</p>
-      <h4>1. Tarefas familiares</h4><p>Aprendem-se divisão de tarefas e organização do tempo por quadro, observação, lembrete e rotina. Responsáveis, avó, irmão e criança participam; elogio é sanção positiva, conversa e redistribuição podem ser negativas ou reparadoras. Espera-se papel de participante do cuidado doméstico. A proposta de troca mostra negociação. Jornada de trabalho e treino condicionam opções; discordância adulta revela socialização contraditória. O circuito pode reproduzir divisão ou transformá-la. Seria necessário observar distribuição real, revisões e falas, sem culpar a criança.</p>
-      <h4>2. Participação universitária</h4><p>Aprendem-se turnos, linguagem e modos de intervir por observação, convite, interrupção e apoio dos pares. Docente, colegas e regras de avaliação participam; nota é sanção formal, convite ou constrangimento são informais. Espera-se o papel de estudante participante, não uma identidade extrovertida. A estudante pode testar estratégias e negociar turnos. Sala, acessibilidade e critério de nota distribuem oportunidades. Registros de fala, rubrica e consulta voluntária sustentariam conclusão sobre reprodução ou mudança.</p>
-      <h4>3. Equipe de trabalho</h4><p>Siglas, relatórios e hierarquia são aprendidos por manual, modelo, correção, imitação e ajuda. Supervisor e colegas possuem poderes diferentes; advertência é formal, exposição e apoio são sanções informais. O papel esperado é de integrante competente e responsivo. O glossário combina adaptação e transformação da rotina. Prazo, acesso à informação e posição contratual interferem. Seria necessário verificar manual, recorrência das correções e uso do glossário, evitando atribuir dificuldades a incapacidade individual.</p>
-      <h4>4. Grupo religioso</h4><p>Aprendem-se cantos, tarefas e formas de participação por imitação, orientação, pertencimento e recompensa. Coordenação e integrantes divergem, mostrando que religião não é agente homogêneo. Elogio reforça; restrição de função sanciona. A participante interpreta regras e propõe formato híbrido. Transporte, horário e espaço limitam presença. O processo pode combinar disposições anteriores e novas. Regras, decisões e experiências diversas seriam evidências; alternativas fundamentadas devem ser aceitas.</p>
-      <h4>5. Grupo de pares</h4><p>Aprendem-se critérios informais sobre perguntas e explicações por reações, convites, risos e rodízio. Pares apoiam e censuram; pertencimento funciona como recompensa, ridicularização como constrangimento. Espera-se papel de colega que contribui, mas há disputa sobre o significado. Silêncio, busca de apoio e mudança do acordo são respostas possíveis. Horário e sala distribuem participação. Observação, convites e funcionamento do rodízio permitiriam avaliar se desigualdade foi reproduzida ou contestada.</p>
-      <h4>6. Plataforma digital</h4><p>Aprendem-se frequência, formato, visibilidade e interação por tutorial, métricas, moderação, imitação e troca entre usuários. Empresa, moderadores, colegas e algoritmo organizam relações; destaque recompensa e remoção sanciona formalmente. Espera-se produtor visível, não uma essência pessoal. Ajustar privacidade e questionar regra combinam adaptação e resistência. Plano pago, tempo e alcance criam desigualdade. Dados de recomendação, regras e comparação entre contas seriam necessários; tecnologia condiciona sem determinar.</p>
-      <h4>Orientações gerais de mediação</h4><p>Não culpabilizar indivíduos por conflitos institucionais nem perguntar quem viveu situação semelhante. Solicitar evidências, localizar condições materiais e aceitar alternativas justificadas. Distinguir transmissão direta, imitação, rotina, recompensa, constrangimento, pertencimento e negociação, observando socializações contraditórias. Encerrar mostrando que aprendizagens ajudam a constituir pertencimentos; a Aula 19 examinará grupos sociais, fronteiras e posições coletivas.</p>
-    </div></details>
-  </div></section>
-
-  <section id="recursos"><div class="section-title">Recursos Necessários</div><div class="resources-list"><span class="res-tag">Projetor</span><span class="res-tag">Quadro branco</span><span class="res-tag">Seis cenas impressas ou projetadas</span><span class="res-tag">Quadros de análise</span><span class="res-tag">Canetas</span></div></section>
-</main>
-
-<footer>
-  <a href="/introducao-sociologia/">← Página principal</a>
-  &nbsp;·&nbsp; Introdução à Sociologia 2026.2
-</footer>
-
-</body>
-</html>
+body {max-width:100%; overflow-x:hidden; overflow-wrap:anywhere;} main{max-width:960px;margin:auto} .base-text{max-width:72ch} .base-subsection{margin-bottom:24px} table{width:100%;border-collapse:collapse}th,td{padding:8px;border:1px solid var(--border);overflow-wrap:anywhere} .table-wrap,.table-region{overflow-x:auto;max-width:100%} .teacher-guidance{margin-top:20px;padding:16px;border:1px solid var(--border)} summary{cursor:pointer;font-weight:bold} .skip{position:absolute;left:-9999px}.skip:focus{left:12px;top:12px;z-index:300;background:var(--bg);padding:10px} a{overflow-wrap:anywhere} @media(max-width:640px){nav{position:static;flex-wrap:wrap;height:auto;padding:12px}.nav-center{display:none}.section-nav{position:static;flex-wrap:wrap}main{padding:20px 14px}.tl-item{flex-direction:column}.aula-header{padding:20px 14px}} @media print{nav,.section-nav,.skip{display:none!important}body,main,section,.aula-header,.activity-card,.pause-box,details{background:white!important;color:black!important}*{color:inherit!important;text-shadow:none!important;box-shadow:none!important}main{max-width:none;padding:0}.base-text{max-width:none}h1,h2,h3,summary{break-after:avoid}p{orphans:3;widows:3}table{font-size:9pt}.teacher-guidance{break-inside:auto}}
+</style></head><body>
+<a class="skip" href="#objetivos">Pular para o conteúdo</a>
+<nav aria-label="Navegação entre aulas"><div class="nav-left"><a href="../../index.html">Voltar ao curso</a></div><span class="nav-center">Encontro 05 de 15 · Aula 18 de 60</span><div class="nav-right"><a href="aula-17.html">← Aula anterior</a><a href="aula-19.html">Próxima aula →</a></div></nav>
+<div class="section-nav" aria-label="Seções"><a href="#objetivos">Objetivos</a><a href="#texto-base">Texto-base</a><a href="#plano-aula">Plano</a><a href="#atividade">Discussão</a><a href="#sintese">Síntese</a><a href="#leituras">Referências</a></div>
+<main><header class="aula-header"><div class="header-meta"><span class="meta-chip">Encontro <strong>05</strong> de 15 — 07/10/2026, quarta-feira</span><span class="meta-chip">Aula <strong>18</strong> de 60</span><span class="meta-chip">2ª aula do encontro</span><span class="meta-chip">Aproximadamente 1 hora-aula</span></div><h1>Modo de produção, contradição e agência histórica em Marx</h1><p>Introdução à Sociologia · T01 · 2026.2 · Código 2101000 · SIGAA 4M1234</p></header>
+<section id="objetivos"><h2>Objetivos</h2><ul class="obj-list"><li>Definir modo de produção pela articulação entre forças e relações de produção.</li><li>Explicar contradição sem prever um desfecho automático.</li><li>Analisar a participação das ideias e instituições na transformação histórica.</li></ul></section>
+<section id="texto-base" aria-labelledby="texto-base-title"><h2 id="texto-base-title">Texto-base</h2><div class="base-text"><p class="base-intro">Tecnologias novas produzem necessariamente uma sociedade nova? A pergunta exige relacionar capacidades produtivas, propriedade, instituições e ação coletiva.</p><div class="base-subsection" id="a18-conceito-1">
+<h3>1. Modo de produção, contradição e transformação histórica</h3>
+<p><strong>Modo de produção</strong> é uma construção que articula forças produtivas e relações de produção predominantes. Ele ajuda a comparar como sociedades organizam a produção e a apropriação, mas não descreve cada prática existente. Falar em modo de produção capitalista não significa que todo trabalho seja assalariado ou que nenhuma relação doméstica, comunitária ou coerciva permaneça. Significa investigar qual lógica organiza de maneira dominante a acumulação e conecta formas diversas.</p>
+<p>Uma <strong>contradição</strong> não é qualquer discordância nem simples incoerência de discurso. É uma tensão constituída pelas próprias relações sociais. A produção capitalista, por exemplo, amplia a cooperação e a capacidade produtiva enquanto mantém apropriação privada e decisões desiguais sobre os resultados. Trabalhadores e proprietários dependem do mesmo processo, mas ocupam posições com interesses potencialmente conflitantes. A relação se reproduz e, ao mesmo tempo, gera disputas.</p>
+<p>Nesse sentido, a <strong>análise dialética</strong> examina relações e processos históricos e procura tensões internas às próprias relações sociais, em vez de reduzir a história a fatos isolados. Ela não deve ser ensinada como fórmula automática de “tese, antítese e síntese” e não permite antecipar um resultado antes de investigar condições, agentes e conflitos concretos.</p>
+<p>Contradições não produzem automaticamente revoluções. Podem ser administradas por reformas, deslocadas para outros grupos ou territórios, intensificadas por crises e reorganizadas por novas instituições. A transformação depende de como pessoas interpretam problemas, criam organizações, formam alianças e enfrentam resistências. Resultados não estão escritos de antemão: derrotas, acomodações e mudanças inesperadas fazem parte da história.</p>
+<p>Também não se deve representar a história como escada uniforme de estágios. Formações sociais combinam temporalidades e relações diversas; processos coloniais conectaram expansão capitalista, escravização, expropriação e comércio mundial. Aplicar categorias gerais exige pesquisar as particularidades de cada caso, inclusive raça, gênero, território e poder político, sem dissolvê-las num rótulo econômico.</p>
+<p>A transformação histórica altera mais que tecnologias e leis. Ela reorganiza necessidades, tempos, espaços e formas de perceber o possível. Uma crise pode revelar dependências antes naturalizadas; uma mobilização pode criar vocabulários e capacidades duradouras mesmo sem alcançar seu objetivo inicial. Por isso, períodos de estabilidade também contêm conflito e mudança molecular, enquanto acontecimentos dramáticos podem preservar relações fundamentais sob novas formas.</p>
+<aside class="pause-box"><h4>Pausa 3 — contradição não é destino</h4><p>Uma nova tecnologia entra em conflito com regras de propriedade existentes. Que atores, instituições e decisões seriam necessários para transformar essa tensão em mudança histórica?</p></aside>
+</div><div class="base-subsection" id="a18-conceito-2">
+<h3>2. Produção, política, instituições e consciência</h3>
+<p>A metáfora de base e superestrutura, presente no texto de 1859, organiza uma relação entre a estrutura econômica e formas jurídicas, políticas e de consciência. Ela é útil se evitar duas caricaturas: a economia como prédio pronto que sustenta um andar decorativo; ou instituições como simples espelho passivo. Direito, Estado, religião, educação, cultura e ciência possuem práticas, organizações e conflitos próprios, embora estejam ligados à produção social.</p>
+<p>Leis de propriedade, contratos e políticas públicas ajudam a constituir mercados; não aparecem apenas depois deles. Estados garantem direitos, arrecadam, regulam moeda, constroem infraestrutura e também podem limitar proprietários. Movimentos sociais alteram leis e costumes. Instituições educacionais formam capacidades produtivas, mas também criam conhecimentos e espaços de crítica. Por isso, as relações funcionam em várias direções e em ritmos diferentes.</p>
+<p>A consciência tampouco é reflexo fotográfico da posição ocupada. Pessoas interpretam experiências por meio de linguagens, memórias, religiões, mídias, partidos, famílias e escolas. Grupos em posições semelhantes podem formular projetos distintos; pessoas em posições diferentes podem aderir ao mesmo projeto. Condições sociais estruturam possibilidades e interesses, mas identificação e ação coletiva precisam ser explicadas.</p>
+<p>Uma análise não mecânica pergunta como dimensões se articulam num processo concreto. Se uma reforma trabalhista ocorre, devem ser examinados mudanças produtivas, projetos políticos, decisões jurídicas, discursos públicos, organizações empresariais e de trabalhadores, além de efeitos desiguais. Declarar apenas que “a economia determinou” encerra a pesquisa justamente onde ela deveria começar.</p>
+<p>Também importa distinguir condicionamento, limite e causa imediata. Uma estrutura de propriedade pode delimitar alternativas sem explicar o momento exato de uma decisão legislativa. Uma campanha pode ser a causa próxima de uma mudança e, ao mesmo tempo, depender de conflitos acumulados. Diferentes tempos causais se cruzam. Reconstruí-los exige cronologia e comparação, não uma seta única entre “base” e “superestrutura”.</p>
+</div><div class="base-subsection" id="a18-conceito-3">
+<h3>3. Agência humana em condições herdadas</h3>
+<p>O materialismo histórico não substitui pessoas por estruturas. Os seres humanos fazem a história, mas encontram circunstâncias transmitidas pelo passado. Essa formulação mantém juntos dois aspectos: há ação, escolha, criação e conflito; há também limites, recursos e relações não escolhidos. Agência não significa liberdade sem condições, e condicionamento não equivale a ausência de alternativas.</p>
+<p>Pense numa comunidade ameaçada por uma obra de infraestrutura. O território, a legislação, o orçamento, a propriedade e os projetos estatais antecedem a mobilização. Ainda assim, moradores podem produzir conhecimento, recorrer à justiça, formar alianças e propor alternativas. O resultado dependerá de capacidades desiguais e de conjunturas políticas. Explicá-lo exige acompanhar o processo, não declarar antecipadamente a vitória da estrutura ou da vontade.</p>
+<p>Esse cuidado vale também para a leitura do “Prefácio” de 1859. Seu argumento é condensado e programático. Em vez de transformar cada formulação em lei universal, a atividade deve identificar relações: o que Marx chama de produção, que distinções estabelece e como pensa épocas de transformação. Depois, exemplos contemporâneos devem ser tratados como hipóteses nossas, não como casos que o autor teria analisado.</p>
+<p>Uma boa aplicação reúne documentos sobre propriedade e regulação, informações sobre tecnologias e trabalho, registros de conflitos, discursos dos participantes e sequência temporal. Só assim é possível avaliar se uma mudança institucional reforçou relações produtivas, modificou-as ou teve efeitos contraditórios. O método se mostra mais fecundo quando orienta perguntas do que quando fornece respostas automáticas.</p>
+</div><div class="base-subsection" id="a18-conceito-4">
+<h3>4. Síntese e passagem para a Aula 19</h3>
+<p><strong>Síntese.</strong> Marx formula seus problemas num século de industrialização, conflitos políticos e expansão mundial dos mercados. Sua crítica ao idealismo desloca o ponto de partida para a produção social da existência sem negar a eficácia das ideias. Forças produtivas são capacidades sociais de produzir; relações de produção organizam controle, trabalho e apropriação; modo de produção articula esses elementos em uma totalidade histórica.</p>
+<p>Contradições indicam tensões internas, não resultados inevitáveis. Pessoas agem em condições herdadas e podem reproduzi-las ou transformá-las. Política, direito, instituições e consciência não são ornamentos passivos: participam da constituição e da mudança das relações sociais. Uma explicação materialista consistente reconstrói essas mediações em vez de atribuir tudo a uma causa econômica imediata.</p>
+<p>A Aula 19 aproximará esse quadro do funcionamento capitalista. A pergunta deixará de ser apenas como modos de produção mudam e passará a examinar como trabalho assalariado, propriedade dos meios de produção e mercadorias permitem exploração; como a alienação caracteriza determinadas relações; e como posições de classe podem ou não converter-se em identificação e ação coletiva.</p>
+<aside class="pause-box"><h4>Pausa 4 — frase de passagem</h4><p>Em duas frases, explique por que reconhecer condições herdadas não elimina a agência e por que reconhecer agência não elimina relações estruturais.</p></aside>
+</div></div></section>
+<section id="plano-aula"><h2>Percurso da hora-aula</h2><div class="timeline"><div class="tl-item"><span class="tl-duration">5 min</span><span class="tl-text">Tecnologias novas produzem necessariamente uma sociedade nova? A pergunta exige relacionar capacidades produtivas, propriedade, instituições e ação coletiva.</span></div><div class="tl-item"><span class="tl-duration">20 min</span><span class="tl-text">Leitura dialogada e desenvolvimento dos conceitos desta unidade.</span></div><div class="tl-item"><span class="tl-duration">30 min</span><span class="tl-text">Discussão e elaboração do registro proposto; comparação das justificativas com mediação docente.</span></div><div class="tl-item"><span class="tl-duration">5 min</span><span class="tl-text">Síntese e transição: Na Aula 19, a investigação se concentra na mercadoria e na relação entre trabalho, exploração e alienação.</span></div></div></section>
+<section id="atividade">
+<div class="section-title">Atividades em Sala</div>
+<div class="activity-card" data-gabarito="obrigatorio">
+<h3>Oficina de leitura — relações históricas, não esquema automático</h3>
+<p><strong>Organização:</strong> grupos de quatro estudantes. Cada grupo usa a passagem didática abaixo e uma folha dividida em três colunas: “o argumento apresenta”, “nossa interpretação” e “aplicação contemporânea a investigar”.</p>
+<div aria-labelledby="passagem-didatica-title" class="didactic-passage">
+<h4 id="passagem-didatica-title">Passagem didática — paráfrase do argumento do “Prefácio” de 1859</h4>
+<p><strong>Atenção:</strong> os três parágrafos numerados a seguir são uma paráfrase elaborada para esta aula. Não são citação, tradução nem transcrição de Marx.</p>
+<p><strong>1.</strong> Para compreender relações jurídicas e formas políticas, o argumento propõe investigar as condições materiais da vida social. Pessoas produzem sua existência em relações historicamente formadas, ligadas às capacidades de trabalho, aos conhecimentos, aos meios disponíveis e às formas de organizar propriedade, controle e apropriação.</p>
+<p><strong>2.</strong> O conjunto das relações de produção condiciona processos políticos, jurídicos e modos de consciência, mas isso não transforma instituições e ideias em efeitos automáticos. Em certos períodos, capacidades produtivas e relações existentes entram em tensão. Formas de propriedade que antes favoreciam atividades podem passar a limitá-las, abrindo conflitos e possibilidades de transformação.</p>
+<p><strong>3.</strong> Para estudar essas transformações, é necessário distinguir mudanças nas condições de produção das formas políticas, jurídicas, religiosas, artísticas e filosóficas pelas quais grupos percebem e enfrentam conflitos. Uma época não deve ser explicada apenas pela imagem que faz de si. Tampouco a existência de uma contradição garante seu desfecho: agentes, organizações, instituições e circunstâncias participam do processo.</p>
+</div>
+<p class="source-note"><strong>Relação com o original:</strong> a paráfrase trabalha o parágrafo do “Prefácio” que começa com o relato do resultado da investigação de Marx sobre relações jurídicas e formas de Estado e segue até a discussão das formações sociais e de suas condições de transformação. Para conferência e leitura recomendada, consulte a <a href="https://www.marxists.org/portugues/marx/1859/01/prefacio.htm" rel="noopener noreferrer" target="_blank">tradução portuguesa disponível no Marxists Internet Archive</a>. A página identifica Karl Marx, janeiro de 1859, tradução de José Barata-Moura e direitos da tradução reservados; por isso, essa tradução não foi reproduzida nem convertida em material imprimível aqui. Acesso em 29 ago. 2026.</p>
+<div class="activity-step"><strong>Etapa 1 — leitura e marcação (8 min).</strong> Leiam os três parágrafos da passagem didática. Sublinhem termos ligados à produção, forças produtivas, relações de produção, formas jurídicas e políticas, consciência e transformação. Ao responder, chamem o material de paráfrase; usem “citação” apenas se consultarem e transcreverem brevemente o original com indicação da fonte.</div>
+<div class="activity-step"><strong>Etapa 2 — reconstrução (12 min).</strong><ol><li>Qual é o ponto de partida do argumento e o que ele critica?</li><li>Como forças produtivas e relações de produção se articulam?</li><li>Que relação a paráfrase estabelece entre produção, instituições e consciência?</li><li>Por que uma tensão não determina antecipadamente uma transformação?</li></ol></div>
+<div class="activity-step"><strong>Etapa 3 — teste contra simplificações (6 min).</strong><ol><li>O argumento autoriza dizer que ideias não têm efeitos? Justifiquem.</li><li>Ele autoriza prever automaticamente o resultado de uma contradição? Justifiquem.</li><li>Reescrevam a frase “a economia causa tudo” de forma histórica e verificável.</li></ol></div>
+<div class="activity-step"><strong>Etapa 4 — aplicação controlada e socialização (4 min).</strong> Escolham universidade, plataforma digital ou política de moradia. Formulem uma pergunta que conecte produção, propriedade, instituição e consciência sem afirmar causalidade antes da pesquisa.</div>
+<details class="teacher-guidance">
+<summary>Orientações de mediação e critérios de resposta — uso do professor</summary>
+<div class="teacher-guidance-content">
+<p><strong>Critério central:</strong> avaliar relações construídas, não a reprodução de uma fórmula. Respostas devem distinguir a passagem didática em paráfrase, a interpretação do grupo e a hipótese contemporânea.</p>
+<p><strong>Ponto de partida:</strong> espera-se reconhecer seres humanos produzindo socialmente sua existência e relações históricas que não dependem apenas da vontade individual. A crítica ao idealismo não equivale a negar ideias.</p>
+<p><strong>Forças e relações:</strong> aceitar exemplos que incluam trabalho, conhecimentos, instrumentos e cooperação de um lado; propriedade, controle, autoridade e apropriação de outro. Corrigir listas que tratem tecnologia como agente autônomo.</p>
+<p><strong>Instituições e consciência:</strong> respostas fortes mostram condicionamento e eficácia recíproca. Evitar o diagrama em que Estado, direito ou cultura apenas refletem uma base pronta.</p>
+<p><strong>Transformação:</strong> contradições criam tensões e possibilidades, não um desfecho garantido. Peça que grupos nomeiem atores, organizações, disputas e conjunturas necessárias para explicar resultados.</p>
+<p><strong>Aplicação:</strong> uma boa pergunta identifica caso, período, atores e evidências. Exemplo aceitável: “Como mudanças na propriedade de uma plataforma e na regulação do trabalho alteraram decisões gerenciais e discursos de autonomia em determinado período?”</p>
+</div>
+</details>
+</div>
+</section>
+<section id="sintese"><h2>Síntese e continuidade</h2><p>Condições materiais não são um destino automático. A transformação envolve relações de produção, conflitos, organizações e formas de consciência.</p><p>Na Aula 19, a investigação se concentra na mercadoria e na relação entre trabalho, exploração e alienação.</p></section><section id="leituras">
+<div class="section-title">Textos para Leitura Prévia</div>
+<div class="ref-card">
+<div class="ref-author">Marx, Karl</div>
+<div class="ref-title">“Prefácio” a <em>Contribuição à crítica da economia política</em> (1859) — <a href="https://www.marxists.org/portugues/marx/1859/01/prefacio.htm" rel="noopener noreferrer" target="_blank">leitura integral em português</a></div>
+<div class="ref-pages">Tradução de José Barata-Moura; fonte declarada: <em>Obras escolhidas em três tomos</em>, Editorial Avante!/Edições Progresso, 1982. Transcrição autorizada; direitos da tradução reservados. Acesso em 29 ago. 2026.</div>
+</div>
+<div class="ref-card">
+<div class="ref-author">Quintaneiro, Tania; Barbosa, Maria Ligia; Oliveira, Márcia</div>
+<div class="ref-title"><em>Um toque de clássicos</em> — capítulo dedicado a Marx</div>
+<div class="ref-pages">2. ed. rev. e ampl. Belo Horizonte: Editora UFMG, 2002. ISBN 85-7041-317-3.</div>
+</div>
+</section>
+</main><footer>Introdução à Sociologia · T01 · 2026.2 · <a href="../../index.html">Voltar ao curso</a></footer></body></html>

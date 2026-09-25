@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Aula 32 — Estereótipo, poder e direitos: os limites do relativismo · 2026.2</title><style>
+  :root {
+    --bg: #0a0a0f; --surface: #12121c; --card: #1a1a2e; --border: #2a2a4a;
+    --purple: #7c3aed; --purple-lt: #a855f7; --blue: #4f46e5; --blue-lt: #818cf8;
+    --teal-lt: #2dd4bf; --amber-lt: #fbbf24; --rose-lt: #fb7185;
+    --text: #e2e8f0; --muted: #94a3b8; --radius: 12px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { max-width: 100%; overflow-x: clip; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; min-height: 100vh; overflow-wrap: anywhere; }
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(18,18,28,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; white-space: nowrap; }
+  nav a:hover { color: var(--text); }
+  .nav-left { display: flex; align-items: center; gap: 10px; }
+  .nav-badge { background: var(--purple); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+  .nav-center { font-size: 0.875rem; color: var(--muted); }
+  .nav-right { display: flex; gap: 16px; align-items: center; }
+  main { max-width: 860px; margin: 0 auto; padding: 40px 24px 80px; }
+  .aula-header { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; margin-bottom: 32px; border-top: 4px solid var(--blue); }
+  .header-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; align-items: center; }
+  .bloco-badge { background: var(--blue); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .meta-chip { background: var(--surface); border: 1px solid var(--border); font-size: 0.8rem; color: var(--muted); padding: 4px 12px; border-radius: 20px; }
+  .meta-chip strong { color: var(--text); }
+  .aula-header h1 { font-size: 1.5rem; font-weight: 700; line-height: 1.3; color: var(--text); }
+  section { margin-bottom: 32px; scroll-margin-top: 112px; }
+  .section-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue-lt); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+  .obj-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .obj-list li { display: flex; gap: 12px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
+  .obj-list li::before { content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--blue-lt); margin-top: 7px; flex-shrink: 0; }
+  .content-topic { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 12px; }
+  .content-topic h3 { font-size: 0.95rem; font-weight: 600; color: var(--purple-lt); margin-bottom: 8px; }
+  .content-topic ul { list-style: none; padding: 0; }
+  .content-topic ul li { padding: 4px 0 4px 16px; position: relative; color: var(--muted); font-size: 0.9rem; }
+  .content-topic ul li::before { content: '—'; position: absolute; left: 0; color: var(--border); }
+  .timeline { display: flex; flex-direction: column; gap: 10px; }
+  .tl-item { display: flex; gap: 16px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; border-left: 3px solid var(--blue); }
+  .tl-duration { background: var(--surface); border: 1px solid var(--border); color: var(--amber-lt); font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+  .tl-text { font-size: 0.9rem; color: var(--text); }
+  .ref-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 10px; border-left: 3px solid var(--blue-lt); }
+  .ref-author { font-size: 0.8rem; font-weight: 700; color: var(--blue-lt); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+  .ref-title { font-size: 0.9rem; color: var(--text); }
+  .ref-pages { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
+  .activity-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; font-size: 0.9rem; line-height: 1.7; border-left: 3px solid var(--teal-lt); }
+  .teacher-guidance { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-top: 18px; }
+  .teacher-guidance summary { cursor: pointer; color: var(--amber-lt); font-weight: 700; padding: 15px 17px; }
+  .teacher-guidance[open] summary { border-bottom: 1px solid var(--border); }
+  .teacher-guidance-content { padding: 16px 18px; }
+  .resources-list { display: flex; flex-wrap: wrap; gap: 10px; }
+  .res-tag { max-width: 100%; min-width: 0; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; }
+  footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--muted); font-size: 0.85rem; }
+  footer a { color: var(--purple-lt); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .section-nav { position: sticky; top: 56px; z-index: 90; background: rgba(10,10,15,.97); border-bottom: 1px solid var(--border); padding: 8px 16px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: thin; }
+  .section-nav a { flex: 0 0 auto; min-height: 36px; display: inline-flex; align-items: center; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 5px 12px; text-decoration: none; font-size: .8rem; }
+  .base-text { max-width: 72ch; margin-inline: auto; }
+  .base-intro { color: var(--muted); font-size: .92rem; margin-bottom: 16px; }
+  .base-subsection { scroll-margin-top: 112px; margin-bottom: 28px; }
+  .base-subsection h3 { color: var(--blue-lt); font-size: 1.15rem; line-height: 1.35; margin-bottom: 12px; }
+  .base-subsection p { color: var(--text); margin-bottom: 14px; line-height: 1.78; }
+  .base-subsection strong { color: #f1f5f9; }
+  .pause-box { background: rgba(79,70,229,.1); border: 1px solid rgba(129,140,248,.4); border-left: 4px solid var(--blue-lt); border-radius: var(--radius); padding: 16px 18px; margin: 22px 0; }
+  .pause-box h4 { color: var(--amber-lt); font-size: .75rem; letter-spacing: .09em; text-transform: uppercase; margin-bottom: 6px; }
+  .pause-box p { margin: 0; color: var(--text); font-weight: 600; line-height: 1.6; }
+  a:focus-visible { outline: 3px solid var(--amber-lt); outline-offset: 3px; border-radius: 3px; }
+  @media (max-width: 640px) {
+    nav { height: auto; min-height: 56px; padding: 8px 12px; flex-wrap: wrap; }
+    .nav-left, .nav-right { min-width: 0; }
+    .nav-center { display: none; }
+    .nav-right { gap: 10px; }
+    .section-nav { top: 72px; padding-inline: 10px; }
+    main { padding: 24px 14px 60px; }
+    .aula-header { padding: 22px 18px; }
+    .tl-item { flex-direction: column; gap: 8px; }
+  }
+  @media print { .teacher-guidance { break-inside: avoid; } }
+
+
+  :root {
+    --bg: #0a0a0f;
+    --surface: #12121c;
+    --card: #1a1a2e;
+    --border: #2a2a4a;
+    --purple: #7c3aed;
+    --purple-lt: #a855f7;
+    --blue: #4f46e5;
+    --blue-lt: #818cf8;
+    --teal-lt: #2dd4bf;
+    --amber-lt: #fbbf24;
+    --rose-lt: #fb7185;
+    --sky: #38bdf8;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --radius: 12px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
+
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(18,18,28,0.95); backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px; height: 56px;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  }
+  nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; white-space: nowrap; }
+  nav a:hover { color: var(--text); }
+  .nav-left { display: flex; align-items: center; gap: 10px; }
+  .nav-badge { background: var(--sky); color: #0a0a0f; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+  .nav-center { font-size: 0.875rem; color: var(--muted); }
+  .nav-right { display: flex; gap: 16px; align-items: center; }
+
+  main { max-width: 860px; margin: 0 auto; padding: 40px 24px 80px; }
+
+  .aula-header {
+    background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 32px; margin-bottom: 32px;
+    border-top: 4px solid var(--sky);
+  }
+  .header-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; align-items: center; }
+  .bloco-badge { background: var(--sky); color: #0a0a0f; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .meta-chip { background: var(--surface); border: 1px solid var(--border); font-size: 0.8rem; color: var(--muted); padding: 4px 12px; border-radius: 20px; }
+  .aula-header h1 { font-size: 1.5rem; font-weight: 700; line-height: 1.3; color: var(--text); }
+
+  section { margin-bottom: 32px; }
+  .section-title {
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--sky); margin-bottom: 16px; padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; margin-bottom: 12px; }
+
+  .obj-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .obj-list li { display: flex; gap: 12px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
+  .obj-list li::before { content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--sky); margin-top: 7px; flex-shrink: 0; }
+
+  .content-topic { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 12px; }
+  .content-topic h3 { font-size: 0.95rem; font-weight: 600; color: var(--sky); margin-bottom: 8px; }
+  .content-topic ul { list-style: none; padding: 0; }
+  .content-topic ul li { padding: 4px 0 4px 16px; position: relative; color: var(--muted); font-size: 0.9rem; }
+  .content-topic ul li::before { content: '—'; position: absolute; left: 0; color: var(--border); }
+
+  .timeline { display: flex; flex-direction: column; gap: 10px; }
+  .tl-item { display: flex; gap: 16px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; border-left: 3px solid var(--sky); }
+  .tl-duration { background: var(--surface); border: 1px solid var(--border); color: var(--amber-lt); font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+  .tl-text { font-size: 0.9rem; color: var(--text); }
+
+  .ref-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 10px; border-left: 3px solid var(--blue-lt); }
+  .ref-author { font-size: 0.8rem; font-weight: 700; color: var(--blue-lt); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+  .ref-title { font-size: 0.9rem; color: var(--text); }
+  .activity-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; font-size: 0.9rem; line-height: 1.7; border-left: 3px solid var(--teal-lt); }
+
+  .resources-list { display: flex; flex-wrap: wrap; gap: 10px; }
+  .res-tag { background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; }
+
+  footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--muted); font-size: 0.85rem; }
+  footer a { color: var(--sky); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  html, body { max-width: 100%; overflow-x: clip; }
+  body { overflow-wrap: anywhere; }
+  section { scroll-margin-top: 112px; }
+  .section-nav { position: sticky; top: 56px; z-index: 90; background: rgba(10,10,15,.97); border-bottom: 1px solid var(--border); padding: 8px 16px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: thin; }
+  .section-nav a { flex: 0 0 auto; min-height: 36px; display: inline-flex; align-items: center; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 5px 12px; text-decoration: none; font-size: .8rem; }
+  .base-text { max-width: 72ch; margin-inline: auto; }
+  .base-intro { color: var(--muted); font-size: .92rem; margin-bottom: 16px; }
+  .base-toc { position: static; height: auto; display: block; max-width: 100%; overflow: clip; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; margin-bottom: 28px; }
+  .base-toc h3 { color: var(--bloco-lt, var(--purple-lt)); font-size: .95rem; margin-bottom: 10px; }
+  .base-toc ol { width: 100%; max-width: 100%; padding-left: 22px; columns: 2; column-gap: 32px; }
+  .base-toc li { break-inside: avoid; margin: 5px 0; }
+  .base-toc a { color: var(--text); text-decoration-thickness: 1px; text-underline-offset: 3px; white-space: normal; }
+  .base-subsection { scroll-margin-top: 112px; margin-bottom: 28px; }
+  .base-subsection h3 { color: var(--bloco-lt, var(--purple-lt)); font-size: 1.15rem; line-height: 1.35; margin-bottom: 12px; }
+  .base-subsection p { color: var(--text); margin-bottom: 14px; line-height: 1.78; }
+  .base-subsection strong { color: #f1f5f9; }
+  .pause-box { background: rgba(79,70,229,.1); border: 1px solid rgba(129,140,248,.4); border-left: 4px solid var(--bloco-lt, var(--purple-lt)); border-radius: var(--radius); padding: 16px 18px; margin: 22px 0; }
+  .pause-box h4 { color: var(--amber-lt); font-size: .75rem; letter-spacing: .09em; text-transform: uppercase; margin-bottom: 6px; }
+  .pause-box p { margin: 0; color: var(--text); font-weight: 600; line-height: 1.6; }
+  .legacy-note { border: 1px solid var(--amber-lt); background: rgba(251,191,36,.08); border-radius: var(--radius); padding: 16px 18px; margin: 0 0 24px; }
+  .res-tag { max-width: 100%; min-width: 0; }
+  a:focus-visible { outline: 3px solid var(--amber-lt); outline-offset: 3px; border-radius: 3px; }
+  @media (max-width: 640px) {
+    nav { height: auto; min-height: 56px; padding: 8px 12px; flex-wrap: wrap; }
+    .nav-left, .nav-right { min-width: 0; }
+    .nav-center { display: none; }
+    .nav-right { gap: 10px; }
+    .section-nav { top: 72px; padding-inline: 10px; }
+    main { padding: 24px 14px 60px; }
+    .aula-header { padding: 22px 18px; }
+    .base-toc ol { width: auto; columns: auto; padding-left: 0; list-style-position: inside; }
+    .tl-item { flex-direction: column; gap: 8px; }
+  }
+  .activity-card h3 { color: var(--teal-lt); font-size: 1.05rem; margin: 0 0 12px; }
+  .activity-card h4 { color: var(--amber-lt); margin: 18px 0 8px; }
+  .activity-card ol, .activity-card ul { padding-left: 22px; margin: 10px 0; }
+  .activity-card li { margin: 7px 0; }
+  .case-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 16px 0; }
+  .case-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
+  .case-card h4 { margin: 0 0 6px; }
+  .question-list, .criteria-list { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px 14px 40px; }
+  .teacher-guidance { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-top: 18px; }
+  .teacher-guidance summary { cursor: pointer; color: var(--amber-lt); font-weight: 700; padding: 15px 17px; }
+  .teacher-guidance[open] summary { border-bottom: 1px solid var(--border); }
+  .teacher-guidance-content { padding: 16px 18px; }
+  .teacher-guidance-content h4 { color: var(--teal-lt); }
+  @media (max-width: 640px) { .case-grid { grid-template-columns: 1fr; } }
+  @media print {
+    nav, .section-nav { position: static; }
+    .case-card, .teacher-guidance, .tl-item, .ref-card { break-inside: avoid; }
+    .teacher-guidance > .teacher-guidance-content { display: block !important; }
+  }
+
+body {max-width:100%; overflow-x:hidden; overflow-wrap:anywhere;} main{max-width:960px;margin:auto} .base-text{max-width:72ch} .base-subsection{margin-bottom:24px} table{width:100%;border-collapse:collapse}th,td{padding:8px;border:1px solid var(--border);overflow-wrap:anywhere} .table-wrap,.table-region{overflow-x:auto;max-width:100%} .teacher-guidance{margin-top:20px;padding:16px;border:1px solid var(--border)} summary{cursor:pointer;font-weight:bold} .skip{position:absolute;left:-9999px}.skip:focus{left:12px;top:12px;z-index:300;background:var(--bg);padding:10px} a{overflow-wrap:anywhere} @media(max-width:640px){nav{position:static;flex-wrap:wrap;height:auto;padding:12px}.nav-center{display:none}.section-nav{position:static;flex-wrap:wrap}main{padding:20px 14px}.tl-item{flex-direction:column}.aula-header{padding:20px 14px}} @media print{nav,.section-nav,.skip{display:none!important}body,main,section,.aula-header,.activity-card,.pause-box,details{background:white!important;color:black!important}*{color:inherit!important;text-shadow:none!important;box-shadow:none!important}main{max-width:none;padding:0}.base-text{max-width:none}h1,h2,h3,summary{break-after:avoid}p{orphans:3;widows:3}table{font-size:9pt}.teacher-guidance{break-inside:auto}}
+</style></head><body>
+<a class="skip" href="#objetivos">Pular para o conteúdo</a>
+<nav aria-label="Navegação entre aulas"><div class="nav-left"><a href="../../index.html">Voltar ao curso</a></div><span class="nav-center">Encontro 08 de 15 · Aula 32 de 60</span><div class="nav-right"><a href="aula-31.html">← Aula anterior</a><a href="aula-33.html">Próxima aula →</a></div></nav>
+<div class="section-nav" aria-label="Seções"><a href="#objetivos">Objetivos</a><a href="#texto-base">Texto-base</a><a href="#plano-aula">Plano</a><a href="#atividade">Discussão</a><a href="#sintese">Síntese</a><a href="#leituras">Referências</a></div>
+<main><header class="aula-header"><div class="header-meta"><span class="meta-chip">Encontro <strong>08</strong> de 15 — 28/10/2026, quarta-feira</span><span class="meta-chip">Aula <strong>32</strong> de 60</span><span class="meta-chip">4ª aula do encontro</span><span class="meta-chip">Aproximadamente 1 hora-aula</span></div><h1>Estereótipo, poder e direitos: os limites do relativismo</h1><p>Introdução à Sociologia · T01 · 2026.2 · Código 2101000 · SIGAA 4M1234</p></header>
+<section id="objetivos"><h2>Objetivos</h2><ul class="obj-list"><li>Diferenciar estereótipo, preconceito e discriminação.</li><li>Identificar relações de poder na definição da diferença.</li><li>Formular uma posição normativa contextualizada.</li></ul></section>
+<section id="texto-base" aria-labelledby="texto-base-title"><h2 id="texto-base-title">Texto-base</h2><div class="base-text"><p class="base-intro">Como uma diferença se transforma em hierarquia ou exclusão? Vamos distinguir classificações, atitudes e práticas.</p><div class="base-subsection" id="a32-conceito-1"><h3>1. Estereótipo, preconceito e discriminação</h3>
+<p><strong>Estereótipo</strong> é uma representação simplificada que atribui características fixas a integrantes de uma categoria: associar certo gosto musical a pouca inteligência, por exemplo. <strong>Preconceito</strong> é uma disposição ou julgamento prévio, frequentemente desfavorável, mantido sem exame adequado. <strong>Discriminação</strong> é tratamento desigual em práticas, decisões ou regras, como impedir uma pessoa de apresentar trabalho por causa de sua roupa ou avaliar sua competência pelo sotaque.</p>
+<p>Os conceitos podem se articular, mas não são etapas automáticas. Um estereótipo pode circular sem que toda pessoa que o encontre o adote; um preconceito pode orientar decisões mesmo sem declaração explícita; uma regra aparentemente neutra pode produzir discriminação. A análise procura enunciados, procedimentos, distribuição de oportunidades e efeitos, evitando diagnosticar intenções apenas por impressão.</p>
+</div><div class="base-subsection" id="a32-conceito-2"><h3>2. Diferença, hierarquia e relações de poder</h3>
+<p>Diferenças tornam-se hierarquias quando são ordenadas como superior e inferior e conectadas a recursos, prestígio ou direitos. Modos de falar existem em variação; uma instituição cria desigualdade quando trata apenas um deles como prova de inteligência. Gostos musicais diferem; ganham efeitos hierárquicos quando servem para excluir pessoas de espaços ou desacreditar suas opiniões.</p>
+<p>Cultura e poder se relacionam porque nem todos têm igual capacidade de nomear o “adequado”, fazer sua interpretação circular ou convertê-la em regra. Autoridades, mercados, mídias, plataformas e instituições distribuem visibilidade e sanções. Tolerância pode significar apenas suportar quem permanece em posição inferior; é insuficiente quando barreiras de acesso ou violações de direitos continuam. Examinar poder pergunta quem decide, quem suporta custos e quem pode contestar.</p>
+<aside class="pause-box"><h4>Pausa 3 — estereótipo e desigualdade de poder</h4><p>Quando o rótulo “música sem cultura” deixa de ser apenas opinião de gosto e passa a afetar oportunidades, voz ou pertencimento? Quem pode fazer essa classificação valer?</p></aside>
+</div><div class="base-subsection" id="a32-conceito-3"><h3>3. Culturas internamente diversas e conectadas</h3>
+<p>Sociedades contêm conflitos culturais, e culturas não são blocos homogêneos, isolados ou fechados em territórios. Pessoas de uma mesma religião divergem sobre presença no espaço público; famílias negociam regras; estudantes usam de modos diferentes os mesmos corredores, bibliotecas e redes. Diferenças de geração, classe, raça, gênero, trajetória e posição institucional cruzam identificações sem determinar respostas.</p>
+<p>Repertórios circulam por contato, migração, mercado, religião, universidade e mídias digitais. A circulação de imagens e conteúdos digitais amplia audiências e acelera reinterpretações. Tradução adapta sentidos entre contextos; apropriação seleciona elementos em relações que podem ser recíprocas ou desiguais; transformação ocorre quando usos novos alteram forma e significado. Uma imagem retirada de contexto demonstra que circulação não é transporte neutro: legenda, recorte, algoritmo e audiência podem reconstruir o acontecimento.</p>
+</div><div class="base-subsection" id="a32-conceito-4"><h3>4. Direitos, conflitos e posição normativa argumentada</h3>
+<p>Conflitos culturais raramente cabem no binário “respeitar tudo” ou “condenar tudo”. Pode haver liberdade religiosa, igualdade de acesso, segurança, privacidade, liberdade de expressão e proteção contra discriminação na mesma situação. Nomear um direito não encerra o debate: é preciso identificar titulares, obrigações, efeitos, alternativas menos restritivas e condições reais de escolha.</p>
+<p>Uma posição normativa argumentada explicita valores e razões. Direitos oferecem limites e garantias; consequências mostram quem recebe benefícios ou danos; reciprocidade pergunta se o critério poderia valer para pessoas em posições trocadas; contexto impede aplicar uma regra abstrata sem história social. Esse procedimento evita tanto a aprovação automática quanto um universalismo abstrato que ignora desigualdades e vozes afetadas.</p>
+<aside class="pause-box"><h4>Pausa 4 — conflito de valores e argumentação normativa</h4><p>Uma instituição limita manifestações religiosas alegando neutralidade. Que direitos e consequências devem ser examinados, e qual regra seria justificável por reciprocidade?</p></aside>
+</div><div class="base-subsection" id="a32-conceito-5"><h3>5. Síntese e passagem à socialização</h3>
+<p>Etnocentrismo centraliza padrões próprios no julgamento; relativização reconstrói contextos e sentidos; avaliação normativa formula uma posição depois dessa investigação. Estereótipo simplifica, preconceito antecipa um julgamento e discriminação produz tratamento desigual. Essas distinções permitem analisar como diferenças culturais circulam e podem tornar-se hierarquias em relações de poder.</p>
+<p>A Aula 33 perguntará como esses padrões são aprendidos e reelaborados por meio da socialização. Se ninguém nasce conhecendo qual fala é tratada como formal, que roupa parece adequada ou como participar de uma reunião, por quais agentes e experiências essas disposições se formam? A passagem desloca o foco do julgamento da diferença para os processos que produzem maneiras de perceber e agir.</p>
+</div></div></section>
+<section id="plano-aula"><h2>Percurso da hora-aula</h2><div class="timeline"><div class="tl-item"><span class="tl-duration">5 min</span><span class="tl-text">Como uma diferença se transforma em hierarquia ou exclusão? Vamos distinguir classificações, atitudes e práticas.</span></div><div class="tl-item"><span class="tl-duration">15 min</span><span class="tl-text">Leitura dialogada e desenvolvimento dos conceitos desta unidade.</span></div><div class="tl-item"><span class="tl-duration">35 min</span><span class="tl-text">Discussão e elaboração do registro proposto; comparação das justificativas com mediação docente.</span></div><div class="tl-item"><span class="tl-duration">5 min</span><span class="tl-text">Síntese e transição: A Aula 33 investigará como pertencimentos e fronteiras participam da construção de identidades.</span></div></div></section>
+<section id="atividade"><div class="section-title">Atividade em Sala</div><div class="activity-card" data-gabarito="obrigatorio">
+<h3>Oficina — descrever, contextualizar e argumentar</h3>
+<p><strong>Finalidade:</strong> praticar a passagem da descrição à contextualização e desta à posição normativa, identificando etnocentrismo, classificações e poder sem confundir compreensão com aprovação.</p>
+<p><strong>Organização dos grupos:</strong> seis equipes recebem um caso; com menos equipes, cada uma compara dois. Distribuam leitura, registro, controle do tempo e apresentação. Ninguém representa automaticamente um grupo social.</p>
+<p><strong>Etapas e tempos:</strong> 5 minutos para leitura silenciosa e descrição; 10 para contexto e conceitos; 10 para posição normativa; 5 para revisão; 5 para comparação entre pares. A comparação entre grupos integra os últimos 5 minutos dos 35 reservados; não há bloco adicional de socialização.</p>
+<p><strong>Regra de cuidado:</strong> não solicitar relatos pessoais nem perguntar quem pertence aos grupos mencionados. Trabalhar somente com o material didático. Interromper generalizações discriminatórias, convertendo-as em objeto de análise conceitual e de evidências.</p>
+<p><strong>Orientação:</strong> compreender sentidos e origens melhora a análise, mas não equivale a aprovar. A avaliação normativa deve aparecer depois da descrição e do contexto.</p>
+<div aria-label="Seis casos didáticos para análise" class="case-grid">
+<article class="case-card"><h4>Caso 1 — julgamento de sotaque numa apresentação acadêmica</h4><p>Uma estudante apresenta pesquisa com dados claros. Na devolutiva, um colega afirma que seu sotaque “não soa acadêmico”; outra pessoa contesta e aponta a qualidade do argumento. A rubrica avalia clareza, mas não define um padrão de pronúncia.</p></article>
+<article class="case-card"><h4>Caso 2 — alimento em espaço coletivo</h4><p>Num intervalo, um estudante leva alimento de aroma intenso, preparado em casa conforme restrições religiosas. Dois colegas pedem que não o consuma ali; outra pessoa diz que alimentos comprados no campus também têm cheiro. Não há regra publicada para a sala.</p></article>
+<article class="case-card"><h4>Caso 3 — vestuário religioso em instituição pública</h4><p>Uma servidora usa peça religiosa visível no atendimento. Usuários divergem: alguns veem liberdade pessoal; outros entendem que a neutralidade exige retirar qualquer símbolo. A instituição não possui orientação específica e o atendimento permanece igual.</p></article>
+<article class="case-card"><h4>Caso 4 — estilos musicais e inteligência</h4><p>Na escolha da trilha de um evento, participantes associam música clássica a inteligência e um estilo popular a “falta de educação”. Outros lembram que todos os estilos têm públicos diversos. A comissão tem poder para selecionar repertório e artistas.</p></article>
+<article class="case-card"><h4>Caso 5 — participação em reunião familiar ou comunitária</h4><p>Em uma reunião, algumas pessoas esperam a fala dos mais velhos; outras propõem inscrição por ordem de pedido. Ambos os procedimentos são apresentados como respeitosos. Jovens e adultos divergem dentro da mesma família e precisam decidir sobre um espaço comum.</p></article>
+<article class="case-card"><h4>Caso 6 — imagem fora de contexto numa rede social</h4><p>Uma fotografia de estudantes sentados no chão de um corredor circula com legenda que os chama de desordeiros. A imagem não mostra que a sala estava fechada nem o aviso de espera. Alguns perfis repetem a legenda; outros pedem fonte e publicam o enquadramento ampliado.</p></article>
+</div>
+<h4>Oito perguntas para cada caso</h4>
+<ol class="question-list"><li>O que pode ser <strong>descrito sem inferência</strong>?</li><li>Que <strong>julgamento etnocêntrico</strong> aparece ou poderia aparecer?</li><li>Que <strong>informações contextuais</strong> estão faltando?</li><li>Como realizar a <strong>relativização metodológica</strong>?</li><li>Que <strong>estereótipo, preconceito ou discriminação</strong> pode estar envolvido?</li><li>Que <strong>relação de poder</strong> afeta a situação?</li><li>Existe <strong>conflito de direitos ou valores</strong>?</li><li>Qual <strong>posição normativa</strong> o grupo sustenta e com quais razões?</li></ol>
+<p><strong>Produto esperado:</strong> uma ficha com três blocos — descrição, contextualização e posição normativa —, respostas às oito perguntas e duas evidências ainda necessárias.</p>
+<h4>Critérios para socialização</h4><ul class="criteria-list"><li>Separar fato observável de inferência.</li><li>Nomear o conceito sem rotular pessoas.</li><li>Explicitar poder e informação ausente.</li><li>Justificar a posição por direitos, consequências, reciprocidade e contexto.</li><li>Admitir alternativa quando sustentada por evidências e razões.</li></ul>
+<details class="teacher-guidance"><summary>Possibilidades comentadas e orientações de mediação — uso do professor</summary><div class="teacher-guidance-content">
+<p>As possibilidades não formam resposta única. Cada análise deve manter separados descrição, contextualização e posição normativa, indicar evidências ausentes e admitir alternativas sustentadas por razões.</p>
+<h4>1. Caso 1 — julgamento de sotaque</h4>
+<p><strong>Descrição sem inferência:</strong> a estudante apresentou dados, um colega comentou o sotaque, outra pessoa contestou e a rubrica menciona clareza sem prescrever pronúncia. Isso não permite inferir intenção nem qualidade geral da apresentação. <strong>Possível julgamento etnocêntrico:</strong> tomar uma pronúncia familiar ou prestigiosa como única forma acadêmica. <strong>Informações contextuais ausentes:</strong> gravação consentida, conteúdo apresentado, avaliações completas, aplicação da rubrica e comparação com outros seminários. <strong>Relativização metodológica:</strong> reconstruir a variação linguística e os critérios institucionais, distinguindo inteligibilidade, clareza argumentativa e julgamento social de competência. <strong>Estereótipo, preconceito ou discriminação:</strong> associar sotaque a incapacidade é estereótipo; sustentar antecipadamente menor competência pode ser preconceito; reduzir nota ou oportunidade por essa associação pode configurar discriminação. <strong>Relação de poder:</strong> docentes, bancas e colegas com prestígio influem na avaliação e nas credenciais. <strong>Conflito de direitos ou valores:</strong> qualidade acadêmica, igualdade e reconhecimento da diversidade linguística. <strong>Posição normativa argumentada:</strong> uma posição possível defende avaliação por conteúdo e inteligibilidade mediante critérios transparentes e recíprocos; outra proposta pode ser aceita se enfrentar os efeitos hierárquicos com evidências.</p>
+<h4>2. Caso 2 — alimento em espaço coletivo</h4>
+<p><strong>Descrição sem inferência:</strong> há um alimento de aroma percebido como intenso, pedidos para não consumi-lo, comparação com produtos do campus e ausência de regra publicada. A reação ao aroma, isoladamente, não prova etnocentrismo. <strong>Possível julgamento etnocêntrico:</strong> classificar como impróprio apenas o alimento pouco familiar, mantendo sem exame outros com efeitos semelhantes. <strong>Informações contextuais ausentes:</strong> ventilação, finalidade da sala, riscos de alergia, alternativas de local, aplicação anterior de regras e necessidades dos presentes. <strong>Relativização metodológica:</strong> investigar o significado do alimento e comparar consequências por um critério comum, sem presumir que a restrição religiosa explique tudo. <strong>Estereótipo, preconceito ou discriminação:</strong> generalizações sobre quem consome o alimento seriam estereótipos; rejeição prévia pode ser preconceito; proibição seletiva pode discriminar. <strong>Relação de poder:</strong> gestão, maioria e quem controla o espaço definem permanência. <strong>Conflito de direitos ou valores:</strong> expressão religiosa, alimentação, saúde e convivência. <strong>Posição normativa argumentada:</strong> regras proporcionais devem valer igualmente para alimentos comparáveis, prever reciprocidade e oferecer alternativa viável; seria necessário verificar efeitos concretos antes de decidir.</p>
+<h4>3. Caso 3 — vestuário religioso em instituição pública</h4>
+<p><strong>Descrição sem inferência:</strong> a servidora usa peça visível, usuários apresentam interpretações distintas, o atendimento não mudou e falta orientação específica. <strong>Possível julgamento etnocêntrico:</strong> tratar apenas símbolos alheios como incompatíveis com a instituição, naturalizando convenções majoritárias. <strong>Informações contextuais ausentes:</strong> função exercida, regras gerais de vestuário, segurança, prática comparada e efeitos relatados por usuários. <strong>Relativização metodológica:</strong> reconstruir significados atribuídos pela servidora e diferentes concepções institucionais de neutralidade, sem falar por toda uma religião. <strong>Estereótipo, preconceito ou discriminação:</strong> presumir proselitismo pela roupa é estereótipo; hostilidade prévia pode ser preconceito; restrição seletiva pode constituir discriminação. <strong>Relação de poder:</strong> administração regula o trabalho, e usuários e agentes públicos ocupam posições distintas. <strong>Conflito de direitos ou valores:</strong> liberdade religiosa, neutralidade institucional e igualdade de tratamento. <strong>Posição normativa argumentada:</strong> não cabe oferecer resposta jurídica definitiva; o grupo deve ponderar regras gerais, proporcionalidade e efeitos concretos, podendo sustentar posições diferentes quando justificadas.</p>
+<h4>4. Caso 4 — estilos musicais e inteligência</h4>
+<p><strong>Descrição sem inferência:</strong> participantes associam estilos a inteligência ou educação, há contestação e a comissão seleciona repertório e artistas. <strong>Possível julgamento etnocêntrico:</strong> converter o próprio gosto e seu prestígio social em medida universal de valor intelectual. <strong>Informações contextuais ausentes:</strong> finalidade do evento, critérios de escolha, públicos, repertórios, remuneração e histórico da programação. <strong>Relativização metodológica:</strong> investigar trajetórias dos estilos, sentidos atribuídos por públicos diversos e critérios efetivamente relevantes ao evento. <strong>Estereótipo, preconceito ou discriminação:</strong> atribuir capacidade fixa a ouvintes é estereótipo; desprezo antecipado pode ser preconceito; excluir artistas ou participantes por essa associação pode discriminar. <strong>Relação de poder:</strong> a comissão controla seleção, orçamento, visibilidade, prestígio e possível remuneração. <strong>Conflito de direitos ou valores:</strong> autonomia curatorial, diversidade, finalidade institucional e acesso. <strong>Posição normativa argumentada:</strong> julgamentos de gosto tornam-se hierarquias quando afetam participação e recursos; uma seleção justificável explicita critérios, consequências e tratamento recíproco, admitindo arranjos alternativos fundamentados.</p>
+<h4>5. Caso 5 — participação em reunião familiar ou comunitária</h4>
+<p><strong>Descrição sem inferência:</strong> existem duas propostas de ordem de fala, ambas justificadas como respeitosas, e jovens e adultos divergem sobre decisão referente a espaço comum. <strong>Possível julgamento etnocêntrico:</strong> classificar automaticamente a precedência por idade como atraso ou a inscrição por ordem como falta de respeito. <strong>Informações contextuais ausentes:</strong> finalidade, regras decisórias, quem costuma falar, consequências anteriores e possibilidades de revisão. <strong>Relativização metodológica:</strong> reconstruir os sentidos de respeito e participação para posições diferentes, reconhecendo conflito interno. <strong>Estereótipo, preconceito ou discriminação:</strong> atribuir uma opinião única a jovens, idosos, “à família” ou “à comunidade” cria estereótipo; exclusão sistemática de voz pode produzir discriminação. <strong>Relação de poder:</strong> idade, controle da pauta, propriedade do espaço e autoridade decisória distribuem influência. <strong>Conflito de direitos ou valores:</strong> tradição, igualdade de voz, cuidado e efetividade. <strong>Posição normativa argumentada:</strong> formatos híbridos podem ser defendidos por reciprocidade e oportunidade real de participação; outras posições são aceitáveis se reconhecerem divergência interna e enfrentarem desigualdades.</p>
+<h4>6. Caso 6 — imagem fora de contexto numa rede social</h4>
+<p><strong>Descrição sem inferência:</strong> a fotografia mostra estudantes sentados; uma legenda os chama de desordeiros; o enquadramento omite sala fechada e aviso; perfis republicam ou apresentam contexto ampliado. <strong>Possível julgamento etnocêntrico:</strong> ler a ocupação do corredor apenas pela expectativa própria de ordem, sem verificar a situação. <strong>Informações contextuais ausentes:</strong> autoria, sequência temporal, aviso completo, consentimento, edição, alcance e regras da plataforma. <strong>Relativização metodológica:</strong> comparar fotografia, legenda, enquadramentos e fontes, reconstruindo a circunstância e a mudança de sentido durante a circulação. <strong>Estereótipo, preconceito ou discriminação:</strong> generalizar “estudantes são desordeiros” é estereótipo; adesão prévia pode reforçar preconceito; sanções seletivas baseadas na narrativa podem discriminar. <strong>Relação de poder:</strong> perfis com audiência, algoritmos, moderação e instituição têm capacidades desiguais de definir a narrativa. <strong>Conflito de direitos ou valores:</strong> expressão, privacidade, reputação e direito à informação. <strong>Posição normativa argumentada:</strong> uma resposta possível exige correção contextual, cuidado com consentimento e proporcionalidade; relativizar esclarece a circulação, mas não encerra a avaliação de consequências.</p>
+<h4>Orientações gerais de mediação</h4>
+<p>Manter separadas descrição, contextualização e posição normativa e exigir evidências antes de classificar uma prática. Reiterar que relativizar não significa aprovar. Diferenciar estereótipo, preconceito e discriminação e localizar relações de poder sem presumir intenção individual. Aceitar posições normativas distintas quando fundamentadas, usando direitos, consequências, reciprocidade e contexto como critérios. Não obrigar estudantes a representar grupos aos quais pertençam. Diante de generalização discriminatória, interrompê-la, nomear o problema e convertê-la em objeto de análise de conceitos, efeitos e evidências, sem transformar a aula em simples exposição moral. Ao final, destacar que referências, julgamentos e modos de agir são aprendidos, preparando a transição para a socialização na Aula 33.</p>
+</div></details>
+</div></section>
+<section id="sintese"><h2>Síntese e continuidade</h2><p>Reconhecer diversidade não exige aceitar toda prática. Uma crítica rigorosa identifica efeitos, posições e vozes em disputa, sem homogeneizar os participantes.</p><p>A Aula 33 investigará como pertencimentos e fronteiras participam da construção de identidades.</p></section><section id="leituras"><div class="section-title">Textos para Leitura Prévia</div>
+<div class="ref-card"><div class="ref-author">LARAIA, Roque de Barros</div><div class="ref-title">Cultura: um conceito antropológico. “Como o homem vê o mundo”</div></div>
+<div class="ref-card"><div class="ref-author">GEERTZ, Clifford</div><div class="ref-title">A interpretação das culturas. Introdução</div></div>
+<p class="base-intro">As formulações desta página são paráfrases didáticas para o curso; não são citações literais nem atribuem o procedimento de relativização a um único autor.</p>
+</section>
+</main><footer>Introdução à Sociologia · T01 · 2026.2 · <a href="../../index.html">Voltar ao curso</a></footer></body></html>

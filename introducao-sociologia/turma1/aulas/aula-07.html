@@ -10,78 +10,63 @@
     --purple: #7c3aed; --purple-lt: #a855f7; --blue: #4f46e5; --blue-lt: #818cf8;
     --teal-lt: #2dd4bf; --amber-lt: #fbbf24; --rose-lt: #fb7185;
     --text: #e2e8f0; --muted: #94a3b8; --radius: 12px;
-    --bloco-color: #4f46e5; --bloco-lt: #818cf8;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
+  html, body { max-width: 100%; overflow-x: clip; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; min-height: 100vh; overflow-wrap: anywhere; }
   nav { position: sticky; top: 0; z-index: 100; background: rgba(18,18,28,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
   nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; white-space: nowrap; }
   nav a:hover { color: var(--text); }
   .nav-left { display: flex; align-items: center; gap: 10px; }
-  .nav-badge { background: var(--bloco-color); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+  .nav-badge { background: var(--purple); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
   .nav-center { font-size: 0.875rem; color: var(--muted); }
   .nav-right { display: flex; gap: 16px; align-items: center; }
   main { max-width: 860px; margin: 0 auto; padding: 40px 24px 80px; }
-  .aula-header { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; margin-bottom: 32px; border-top: 4px solid var(--bloco-color); }
+  .aula-header { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; margin-bottom: 32px; border-top: 4px solid var(--purple); }
   .header-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; align-items: center; }
-  .bloco-badge { background: var(--bloco-color); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .bloco-badge { background: var(--purple); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
   .meta-chip { background: var(--surface); border: 1px solid var(--border); font-size: 0.8rem; color: var(--muted); padding: 4px 12px; border-radius: 20px; }
+  .meta-chip strong { color: var(--text); }
   .aula-header h1 { font-size: 1.5rem; font-weight: 700; line-height: 1.3; color: var(--text); }
-  section { margin-bottom: 32px; }
-  .section-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--bloco-lt); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+  section { margin-bottom: 32px; scroll-margin-top: 112px; }
+  .section-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--purple-lt); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
   .obj-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
   .obj-list li { display: flex; gap: 12px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
-  .obj-list li::before { content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--bloco-lt); margin-top: 7px; flex-shrink: 0; }
+  .obj-list li::before { content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--purple-lt); margin-top: 7px; flex-shrink: 0; }
   .content-topic { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 12px; }
-  .content-topic h3 { font-size: 0.95rem; font-weight: 600; color: var(--bloco-lt); margin-bottom: 8px; }
+  .content-topic h3 { font-size: 0.95rem; font-weight: 600; color: var(--purple-lt); margin-bottom: 8px; }
   .content-topic ul { list-style: none; padding: 0; }
   .content-topic ul li { padding: 4px 0 4px 16px; position: relative; color: var(--muted); font-size: 0.9rem; }
   .content-topic ul li::before { content: '—'; position: absolute; left: 0; color: var(--border); }
   .timeline { display: flex; flex-direction: column; gap: 10px; }
-  .tl-item { display: flex; gap: 16px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; border-left: 3px solid var(--bloco-color); }
+  .tl-item { display: flex; gap: 16px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; border-left: 3px solid var(--purple); }
   .tl-duration { background: var(--surface); border: 1px solid var(--border); color: var(--amber-lt); font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
   .tl-text { font-size: 0.9rem; color: var(--text); }
-  .ref-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 10px; border-left: 3px solid var(--bloco-lt); }
-  .ref-author { font-size: 0.8rem; font-weight: 700; color: var(--bloco-lt); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+  .ref-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 10px; border-left: 3px solid var(--blue-lt); }
+  .ref-author { font-size: 0.8rem; font-weight: 700; color: var(--blue-lt); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
   .ref-title { font-size: 0.9rem; color: var(--text); }
   .ref-pages { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
   .activity-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; font-size: 0.9rem; line-height: 1.7; border-left: 3px solid var(--teal-lt); }
-  .activity-card h3 { color: var(--teal-lt); font-size: 1.05rem; margin: 0 0 12px; }
-  .activity-card ol, .activity-card ul { padding-left: 22px; margin: 10px 0; }
-  .activity-card li { margin: 6px 0; }
-  .case-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; margin: 12px 0; break-inside: avoid; }
-  .case-card h4 { color: var(--amber-lt); margin-bottom: 6px; }
   .teacher-guidance { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-top: 18px; }
   .teacher-guidance summary { cursor: pointer; color: var(--amber-lt); font-weight: 700; padding: 15px 17px; }
   .teacher-guidance[open] summary { border-bottom: 1px solid var(--border); }
   .teacher-guidance-content { padding: 16px 18px; }
   .resources-list { display: flex; flex-wrap: wrap; gap: 10px; }
-  .res-tag { background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; }
+  .res-tag { max-width: 100%; min-width: 0; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; }
   footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--muted); font-size: 0.85rem; }
-  footer a { color: var(--bloco-lt); text-decoration: none; }
+  footer a { color: var(--purple-lt); text-decoration: none; }
   footer a:hover { text-decoration: underline; }
-
-  html, body { max-width: 100%; overflow-x: clip; }
-  body { overflow-wrap: anywhere; }
-  section { scroll-margin-top: 112px; }
   .section-nav { position: sticky; top: 56px; z-index: 90; background: rgba(10,10,15,.97); border-bottom: 1px solid var(--border); padding: 8px 16px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: thin; }
   .section-nav a { flex: 0 0 auto; min-height: 36px; display: inline-flex; align-items: center; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 5px 12px; text-decoration: none; font-size: .8rem; }
   .base-text { max-width: 72ch; margin-inline: auto; }
   .base-intro { color: var(--muted); font-size: .92rem; margin-bottom: 16px; }
-  .base-toc { position: static; height: auto; display: block; max-width: 100%; overflow: clip; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; margin-bottom: 28px; }
-  .base-toc h3 { color: var(--bloco-lt, var(--purple-lt)); font-size: .95rem; margin-bottom: 10px; }
-  .base-toc ol { width: 100%; max-width: 100%; padding-left: 22px; columns: 2; column-gap: 32px; }
-  .base-toc li { break-inside: avoid; margin: 5px 0; }
-  .base-toc a { color: var(--text); text-decoration-thickness: 1px; text-underline-offset: 3px; white-space: normal; }
   .base-subsection { scroll-margin-top: 112px; margin-bottom: 28px; }
-  .base-subsection h3 { color: var(--bloco-lt, var(--purple-lt)); font-size: 1.15rem; line-height: 1.35; margin-bottom: 12px; }
+  .base-subsection h3 { color: var(--purple-lt); font-size: 1.15rem; line-height: 1.35; margin-bottom: 12px; }
   .base-subsection p { color: var(--text); margin-bottom: 14px; line-height: 1.78; }
   .base-subsection strong { color: #f1f5f9; }
-  .pause-box { background: rgba(79,70,229,.1); border: 1px solid rgba(129,140,248,.4); border-left: 4px solid var(--bloco-lt, var(--purple-lt)); border-radius: var(--radius); padding: 16px 18px; margin: 22px 0; }
+  .pause-box { background: rgba(79,70,229,.1); border: 1px solid rgba(129,140,248,.4); border-left: 4px solid var(--purple-lt); border-radius: var(--radius); padding: 16px 18px; margin: 22px 0; }
   .pause-box h4 { color: var(--amber-lt); font-size: .75rem; letter-spacing: .09em; text-transform: uppercase; margin-bottom: 6px; }
   .pause-box p { margin: 0; color: var(--text); font-weight: 600; line-height: 1.6; }
-  .legacy-note { border: 1px solid var(--amber-lt); background: rgba(251,191,36,.08); border-radius: var(--radius); padding: 16px 18px; margin: 0 0 24px; }
-  .res-tag { max-width: 100%; min-width: 0; }
   a:focus-visible { outline: 3px solid var(--amber-lt); outline-offset: 3px; border-radius: 3px; }
   @media (max-width: 640px) {
     nav { height: auto; min-height: 56px; padding: 8px 12px; flex-wrap: wrap; }
@@ -91,23 +76,22 @@
     .section-nav { top: 72px; padding-inline: 10px; }
     main { padding: 24px 14px 60px; }
     .aula-header { padding: 22px 18px; }
-    .base-toc ol { width: auto; columns: auto; padding-left: 0; list-style-position: inside; }
     .tl-item { flex-direction: column; gap: 8px; }
   }
-  @media print { .case-card, .teacher-guidance { break-inside: avoid; } }
+  @media print { .teacher-guidance { break-inside: avoid; } }
 </style>
 </head>
 <body>
 
 <nav>
   <div class="nav-left">
-    <a href="/introducao-sociologia/">← Página principal</a>
+    <a href="../../index.html">← Voltar ao curso</a>
     <span class="nav-badge">Aula 07</span>
   </div>
-  <span class="nav-center">Aula 07 / 30</span>
+  <span class="nav-center">Encontro 02 de 15 · Aula 07 de 60</span>
   <div class="nav-right">
-    <a href="aula-06.html">← Anterior</a>
-    <a href="aula-08.html">Próxima →</a>
+    <a href="aula-06.html">← Aula anterior</a>
+    <a href="aula-08.html">Próxima aula →</a>
   </div>
 </nav>
 <div class="section-nav" aria-label="Seções da aula"><a href="#objetivos">Objetivos</a><a href="#conteudo-programatico">Conteúdo</a><a href="#texto-base">Texto-base</a><a href="#plano-aula">Plano da aula</a><a href="#leituras">Leituras</a><a href="#atividade">Atividade</a><a href="#recursos">Recursos</a></div>
@@ -116,50 +100,41 @@
 
   <div class="aula-header">
     <div class="header-meta">
-      <span class="bloco-badge">Bloco II</span>
-      <span class="meta-chip">Aula 07</span>
-      <span class="meta-chip">Encontro 4 · Parte 1 de 2</span>
-      <span class="meta-chip">30/09/2026 — Quarta-feira</span>
-      <span class="meta-chip">Percurso completo do encontro: 4 horas-aula</span>
-      <span class="meta-chip">Esta página: aproximadamente 2 horas</span>
+      <span class="bloco-badge">Bloco I</span>
+      <span class="meta-chip">Encontro <strong>02</strong> de 15 — 16/09/2026, quarta-feira</span>
+      <span class="meta-chip">Aula <strong>07</strong> de 60</span>
+      <span class="meta-chip">3ª aula do encontro</span>
+      <span class="meta-chip">Esta aula: aproximadamente 1 hora-aula</span>
     </div>
-    <h1>Durkheim: solidariedade mecânica e orgânica. Divisão do trabalho social.</h1>
+    <h1>Auguste Comte: a lei dos três estados e o positivismo.</h1>
   </div>
 
   <section id="objetivos">
     <div class="section-title">Objetivos da Aula</div>
     <ul class="obj-list">
-      <li>Compreender os dois tipos de solidariedade em Durkheim: mecânica (sociedades tradicionais) e orgânica (sociedades modernas).</li>
-      <li>Analisar a relação entre divisão do trabalho e coesão social no pensamento durkheimiano.</li>
-      <li>Identificar as formas patológicas da divisão do trabalho: anomia e divisão forçada.</li>
-      <li>Relacionar esses conceitos com a organização da sociedade contemporânea.</li>
+      <li>Situar o projeto positivista de Comte como resposta ao problema de uma ciência da sociedade.</li>
+      <li>Definir a lei dos três estados e reconhecer seus limites quando aplicada a povos e culturas inteiras.</li>
+      <li>Explicar a hierarquia comtiana das ciências e o lugar da Sociologia nela.</li>
+      <li>Reconhecer a circulação do lema "Ordem e Progresso" no positivismo brasileiro.</li>
     </ul>
   </section>
 
   <section id="conteudo-programatico">
     <div class="section-title">Conteúdo Programático</div>
     <div class="content-topic">
-      <h3>1. Solidariedade mecânica e orgânica</h3>
+      <h3>1. O projeto positivista de Comte</h3>
       <ul>
-        <li>Solidariedade mecânica: semelhança, tradição, consciência coletiva forte</li>
-        <li>Solidariedade orgânica: diferença, especialização, interdependência</li>
-        <li>A passagem histórica de um tipo ao outro</li>
+        <li>Da confiança iluminista à busca de leis da sociedade</li>
+        <li>Positivismo como conhecimento relativo a fenômenos observáveis</li>
+        <li>Ciência e política articuladas no projeto de reorganização</li>
       </ul>
     </div>
     <div class="content-topic">
-      <h3>2. A divisão do trabalho como fenômeno moral</h3>
+      <h3>2. A lei dos três estados e a hierarquia das ciências</h3>
       <ul>
-        <li>Divisão do trabalho como fato social e moral, não apenas econômico</li>
-        <li>A função moral da divisão do trabalho: produzir solidariedade</li>
-        <li>Consciência coletiva e direito como indicadores do tipo de solidariedade</li>
-      </ul>
-    </div>
-    <div class="content-topic">
-      <h3>3. Formas anormais: anomia e divisão forçada do trabalho</h3>
-      <ul>
-        <li>Anomia: divisão do trabalho sem regulação moral suficiente</li>
-        <li>Divisão forçada: ausência de igualdade de oportunidades</li>
-        <li>Atualidade das formas patológicas na sociedade contemporânea</li>
+        <li>Os estados teológico, metafísico e positivo</li>
+        <li>Hierarquia das ciências e o lugar da Sociologia</li>
+        <li>"Ordem e Progresso" e sua circulação no Brasil</li>
       </ul>
     </div>
   </section>
@@ -167,119 +142,73 @@
   <section id="texto-base" aria-labelledby="texto-base-title">
     <div class="section-title" id="texto-base-title">Texto-base para acompanhamento da aula</div>
     <div class="base-text">
-      <p class="base-intro">Leitura de apoio para acompanhar a exposição e observar como a divisão social do trabalho pode produzir vínculos, tensões e formas distintas de regulação. As pausas foram formuladas para análise coletiva de situações concretas.</p>
-      <nav class="base-toc" aria-label="Sumário do texto-base">
-        <h3>Nesta leitura</h3>
-        <ol>
-          <li><a href="#rede-interdependencias">Uma manhã sustentada por desconhecidos</a></li>
-          <li><a href="#problema-solidariedade">Da divisão de tarefas ao problema da solidariedade</a></li>
-          <li><a href="#solidariedade-mecanica">Semelhança, consciência coletiva e solidariedade mecânica</a></li>
-          <li><a href="#solidariedade-organica">Diferenciação, interdependência e solidariedade orgânica</a></li>
-          <li><a href="#direito-indicador">Direito repressivo e restitutivo como indicadores</a></li>
-          <li><a href="#formas-reais">Coexistências, combinações e passagens históricas</a></li>
-          <li><a href="#patologias-divisao">Quando a divisão não produz solidariedade</a></li>
-          <li><a href="#sintese-aula-07">Síntese: da interdependência à anomia</a></li>
-        </ol>
-      </nav>
+      <p class="base-intro">A Aula 06 fechou o Encontro 02 organizando, numa linha do tempo coletiva, revoluções, pensadores e processos entre 1700 e 1900. Este texto isola um desses nomes para examiná-lo em profundidade: Auguste Comte, que tentou transformar a confiança iluminista na razão e na ciência num sistema capaz de reorganizar a própria sociedade.</p>
 
-      <div class="base-subsection" id="rede-interdependencias">
-        <h3>1. Uma manhã sustentada por desconhecidos</h3>
-        <p>Uma pessoa acorda, acende a luz, abre a torneira, consulta mensagens, prepara o café e se desloca para estudar ou trabalhar. A sequência parece composta de atos individuais. No entanto, cada gesto depende de uma rede que quase nunca aparece inteira diante de quem a utiliza. A eletricidade exige geração, transmissão, manutenção e regulação; a água passa por captação, tratamento, distribuição e controle sanitário; o alimento liga trabalho rural, transporte, armazenamento, comércio e fiscalização; a mensagem percorre aparelhos, redes, programas, centros de dados e regras de telecomunicação. Antes de chegar à sala, essa pessoa já dependeu do trabalho coordenado de milhares de desconhecidos.</p>
-        <p>A rede continua na saúde, na comunicação e na educação. Uma consulta médica envolve recepção, prontuário, enfermagem, laboratório, farmácia, limpeza, transporte de insumos e formação profissional. Uma escola depende de docentes, estudantes, famílias, gestão, merenda, manutenção, políticas públicas e materiais produzidos em outros lugares. Nenhum participante domina sozinho o conjunto. O motorista não precisa conhecer quem refinou o combustível; a professora não precisa conhecer quem manteve o servidor que armazena um documento; a agricultora não precisa conhecer quem consumirá seu produto. Mesmo assim, as atividades precisam encaixar-se com alguma regularidade.</p>
-        <p>É esse fato que permite formular o problema central da aula: <strong>como uma sociedade formada por pessoas diferentes, especializadas e muitas vezes desconhecidas permanece ligada?</strong> Dizer apenas que todos “precisam uns dos outros” ainda não explica o vínculo. É necessário perguntar como as funções são distribuídas, que normas coordenam expectativas, o que acontece quando uma parte falha e por que certas posições recebem mais reconhecimento, autonomia e recompensa do que outras. Para Durkheim, a divisão do trabalho interessa porque transforma a estrutura das relações sociais e pode criar uma forma específica de solidariedade.</p>
-        <p>A palavra <strong>solidariedade</strong>, aqui, não significa somente generosidade, amizade ou ajuda voluntária. Ela designa os vínculos que fazem os membros de uma sociedade dependerem de uma vida coletiva relativamente estável. Uma sociedade pode ser solidária nesse sentido analítico mesmo contendo desacordos e desigualdades. A pergunta sociológica não é se todos se tratam bem, mas que relações tornam possível agir em conjunto e reconhecer obrigações recíprocas.</p>
-        <p>Esse significado evita uma confusão importante: cooperação objetiva e sentimento de proximidade não são a mesma coisa. Podemos depender intensamente de pessoas que nunca veremos e sentir grande proximidade de pessoas cujas atividades pouco se complementam. A teoria procura explicar o primeiro vínculo sem negar a existência do segundo.</p>
-        <aside class="pause-box"><h4>Pausa para discussão</h4><p>Escolha um objeto usado hoje — alimento, ônibus, celular, caderno ou medicamento. Quantas funções sociais diferentes precisam cooperar para que ele chegue até você? O que aconteceria se uma dessas funções deixasse de operar?</p></aside>
+      <div class="base-subsection" id="a07-problema">
+        <h3>1. É possível descobrir leis da sociedade?</h3>
+        <p>O Iluminismo, estudado nas Aulas 05 e 06, tornou a razão e a ciência critérios importantes de legitimidade. Depois das revoluções, essa confiança encontrou um problema concreto: como compreender uma sociedade marcada por instabilidade política, industrialização e conflitos? Alguns pensadores imaginaram que o conhecimento científico poderia identificar a direção da mudança e orientar uma nova ordem.</p>
+        <p>Esse projeto parecia promissor porque as ciências da natureza haviam produzido explicações sistemáticas e aplicações técnicas. Se os fenômenos sociais também apresentassem regularidades, seria possível substituir disputas consideradas especulativas por conhecimento positivo. Mas sociedade e natureza não são objetos idênticos. Pessoas interpretam regras, disputam interesses e transformam as instituições estudadas.</p>
+        <p>Auguste Comte e Herbert Spencer participam desse esforço de construir uma ciência social, porém não são versões de uma mesma teoria. Comte formulou o positivismo como projeto intelectual e político de reorganização. Spencer desenvolveu um evolucionismo baseado em diferenciação e analogia entre sociedade e organismo. A comparação exige reconhecer aproximações e diferenças.</p>
       </div>
 
-      <div class="base-subsection" id="problema-solidariedade">
-        <h3>2. Da divisão de tarefas ao problema da solidariedade</h3>
-        <p>A divisão de tarefas não nasceu com a fábrica moderna. Famílias, comunidades, ofícios e administrações antigas já distribuíam atividades por idade, gênero, posição, aprendizagem ou pertencimento. A transformação observada por Durkheim no século XIX foi de escala e intensidade: crescimento populacional, concentração urbana, ampliação dos mercados, expansão das comunicações e multiplicação das profissões aumentavam os contatos e a especialização. O mesmo processo que distinguia os indivíduos tornava cada um menos autossuficiente.</p>
-        <p>Uma leitura exclusivamente econômica perguntaria quanto a especialização eleva a produtividade. Durkheim desloca a questão: qual é a <strong>função moral</strong> da divisão social do trabalho? “Moral” não indica sermão ou virtude pessoal. Refere-se à constituição de regras, deveres e compromissos que ligam pessoas e grupos. Quando um profissional reconhece deveres diante de colegas e usuários, quando contratos definem expectativas e quando instituições organizam responsabilidades, a especialização deixa de ser simples separação técnica e passa a estruturar relações sociais.</p>
-        <p>Esse argumento continua o percurso da Aula 06. Se os fatos sociais são externos, gerais e dotados de força coercitiva, a divisão do trabalho também precisa ser observada como realidade coletiva. Uma pessoa escolhe uma profissão, mas encontra um sistema de ocupações, diplomas, hierarquias, salários e normas já organizado. A escolha é real, porém não ocorre no vazio. Ao mesmo tempo, pessoas e grupos podem negociar, contestar e transformar esse sistema. A teoria não exige imaginar indivíduos passivos; exige localizar suas ações dentro de condições sociais.</p>
-        <p>A <strong>função</strong> de um fenômeno não deve ser confundida com sua origem nem com sua justificação. Dizer que a divisão do trabalho pode produzir solidariedade não significa que toda divisão existente tenha sido criada com essa finalidade, nem que toda hierarquia profissional seja justa. A análise funcional procura saber que necessidade da vida coletiva um fenômeno atende em determinadas condições. Depois ainda é preciso investigar como surgiu, quem se beneficia e se opera de modo normal ou patológico.</p>
+      <div class="base-subsection" id="a07-comte">
+        <h3>2. Comte: ciência para reorganizar a ordem</h3>
+        <p>Comte escreveu na França do século XIX, sob o impacto prolongado da Revolução Francesa e de sucessivas mudanças políticas. Seu problema não era apenas descrever desordem. Ele buscava compreender como a humanidade chegara à ciência e como um conhecimento seguro poderia fornecer bases intelectuais e morais para reorganizar a sociedade.</p>
+        <p>O <strong>positivismo</strong> comtiano defendia que o conhecimento válido deveria apoiar-se em fenômenos observáveis e em suas relações regulares, abandonando a busca de causas absolutas inacessíveis. “Positivo” não queria dizer simplesmente otimista. Indicava um saber relativo aos fenômenos, orientado pela investigação de leis e capaz de substituir explicações consideradas teológicas ou metafísicas.</p>
+        <p>Comte inicialmente chamou a nova ciência de física social e posteriormente utilizou o nome Sociologia. Seu projeto reunia uma dimensão de ordem — estudar condições de coexistência — e uma dimensão de progresso — estudar a sucessão histórica. Essa articulação mostra que ciência e política não estavam separadas em sua proposta: conhecer a sociedade deveria contribuir para reorganizá-la.</p>
+        <p>Em sua visão, a crise moderna era também uma crise intelectual: explicações teológicas, metafísicas e positivas coexistiam sem formar consenso. A reorganização dependeria de um sistema comum de ideias. Essa preocupação ajuda a entender por que Comte não concebeu a Sociologia apenas como técnica de pesquisa; ela ocupava posição central numa filosofia da história e numa proposta moral.</p>
+        <p>O projeto revela uma tensão. Se a ciência deveria substituir disputas improdutivas por conhecimento, quem determinaria quais conflitos eram apenas desordem e quais expressavam injustiças reais? A busca de consenso pode esclarecer condições de cooperação, mas também pode silenciar antagonismos. Essa questão reaparecerá quando compararmos teorias de coesão e conflito.</p>
+        <aside class="pause-box"><h4>Pausa para discussão</h4><p>Que riscos aparecem quando uma teoria afirma conhecer não apenas como a sociedade funciona, mas também a direção necessária de sua reorganização?</p></aside>
       </div>
 
-      <div class="base-subsection" id="solidariedade-mecanica">
-        <h3>3. Semelhança, consciência coletiva e solidariedade mecânica</h3>
-        <p>Durkheim chama de <strong>solidariedade mecânica</strong> o vínculo apoiado sobretudo na semelhança entre membros do grupo. Pessoas que compartilham crenças, práticas, ritmos de vida e representações comuns reconhecem-se como partes de um mesmo conjunto. O adjetivo “mecânica” não quer dizer artificial ou produzida por máquinas. Ele indica uma ligação relativamente direta entre indivíduo e coletividade: a coesão decorre do que as pessoas têm em comum.</p>
-        <p>Nessa configuração, a <strong>consciência coletiva</strong> ocupa ampla porção da vida social. As crenças e sentimentos compartilhados estabelecem limites fortes para comportamentos considerados aceitáveis. Uma ofensa a um símbolo sagrado, a uma tradição central ou à honra do grupo pode ser percebida como agressão contra todos, não apenas contra uma vítima particular. A reação coletiva reafirma a fronteira moral da comunidade.</p>
-        <p>É tentador transformar esse tipo em retrato de sociedades “atrasadas”, mas isso produz dois erros. Primeiro, reduz uma ferramenta comparativa a uma escala de superioridade. Segundo, impede reconhecer vínculos por semelhança dentro de sociedades altamente diferenciadas. Torcidas, comunidades religiosas, corporações profissionais, movimentos políticos e grupos nacionais podem mobilizar símbolos, rituais e sentimentos comuns intensos. Uma cerimônia pública, um luto coletivo ou a defesa de valores constitucionais mostra que a semelhança moral não desaparece com a especialização.</p>
-        <p>Também seria incorreto imaginar unanimidade completa. Toda coletividade contém divergências, e nenhuma consciência coletiva absorve integralmente as consciências individuais. O conceito destaca o peso relativo do comum. Quanto mais extensa e intensa é a esfera compartilhada, maior tende a ser a pressão para conformidade e mais grave pode parecer a violação de suas regras centrais.</p>
-        <aside class="pause-box"><h4>Pausa para discussão</h4><p>Em uma universidade ou escola, quais símbolos, rituais ou regras produzem pertencimento por semelhança? Eles incluem todas as pessoas da mesma maneira ou também criam fronteiras e exclusões?</p></aside>
+      <div class="base-subsection" id="a07-estados">
+        <h3>3. A lei dos três estados</h3>
+        <p>A <strong>lei dos três estados</strong> descreve, para Comte, uma evolução do espírito humano. No estado teológico, fenômenos são explicados por vontades sobrenaturais. No estado metafísico, entidades abstratas e essências substituem agentes sobrenaturais. No estado positivo, a investigação renuncia a causas absolutas e procura relações regulares entre fenômenos.</p>
+        <p>Os estados são uma classificação do desenvolvimento do conhecimento, não três calendários que mudam no mesmo dia para toda a população. Comte entendia que diferentes áreas poderiam avançar em ritmos distintos e que modos anteriores de pensar poderiam permanecer. Ainda assim, sua formulação estabelece uma direção universal, da teologia à ciência positiva.</p>
+        <p>Um exemplo ajuda a compreender sem validar automaticamente a sequência. Diante de uma epidemia, explicações podem atribuí-la à vontade sobrenatural, recorrer a uma essência abstrata ou investigar transmissão e condições observáveis. A pesquisa científica produz ganhos evidentes. O problema começa quando essa passagem é usada para classificar povos inteiros como estágios inferiores, ignorando a pluralidade de conhecimentos e trajetórias históricas.</p>
+        <p>A lei também contém uma filosofia da história: a humanidade seria conduzida a uma maturidade positiva. Essa confiança prepara a noção de progresso comtiana, mas transforma a experiência intelectual europeia em modelo universal. A crítica contemporânea precisa separar a defesa da investigação empírica da hierarquia civilizacional associada ao sistema.</p>
+        <p>Os estados não correspondem simplesmente a religião, filosofia e ciência entendidas como instituições que jamais poderiam coexistir. Uma pessoa pode recorrer à medicina científica e manter crenças religiosas; uma sociedade tecnologicamente complexa pode sustentar explicações metafísicas na política. Essa coexistência mostra o limite de usar a classificação como retrato literal de toda consciência.</p>
+        <p>A formulação continua pedagogicamente útil para perguntar como diferentes tipos de explicação justificam afirmações. Seu uso responsável, entretanto, abandona a pretensão de classificar sociedades inteiras por um único estágio. O conceito deve ser reconstruído como parte do sistema de Comte e submetido à crítica histórica.</p>
       </div>
 
-      <div class="base-subsection" id="solidariedade-organica">
-        <h3>4. Diferenciação, interdependência e solidariedade orgânica</h3>
-        <p>A <strong>solidariedade orgânica</strong> nasce principalmente da diferenciação das funções. A comparação com um organismo sugere partes distintas que só operam porque se relacionam, mas deve ser usada com cautela: sociedades não possuem uma única vontade biológica, e seus membros interpretam regras, disputam posições e podem reorganizar instituições. O ponto da analogia é a interdependência, não a identidade entre sociedade e corpo.</p>
-        <p>Retomemos a equipe de saúde. Médica, enfermeiro, técnica de laboratório, agente comunitária, farmacêutico e profissional de limpeza realizam tarefas diferentes. A diferença não precisa separá-los; pode produzir cooperação porque nenhum substitui inteiramente os demais. O vínculo não repousa em todos pensarem ou trabalharem do mesmo modo, mas na coordenação de competências complementares. Quanto mais especializada a atividade, mais cada participante depende de circuitos que não controla sozinho.</p>
-        <p>A especialização amplia espaço para individualidade. Trajetórias, opiniões e estilos de vida tornam-se mais variados porque a consciência coletiva já não regula todos os detalhes com a mesma intensidade. Isso não significa ausência de normas. Ao contrário, contratos, códigos profissionais, direitos, procedimentos e instituições tornam-se essenciais para coordenar diferenças. A autonomia moderna é relacional: uma pessoa pode construir uma vida singular porque outras cumprem funções das quais ela depende e porque existem regras que estabilizam expectativas.</p>
-        <p>Interdependência, porém, não equivale automaticamente a igualdade. Uma rede pode depender de trabalhadores cuja contribuição é pouco reconhecida, mal remunerada ou submetida a riscos. Durante uma paralisação de transporte ou de limpeza, atividades tornadas invisíveis revelam sua centralidade. O conceito permite enxergar a dependência recíproca; não obriga a aprovar a distribuição existente de poder e recompensa. Durkheim estava preocupado justamente com as condições morais necessárias para que a diferenciação produzisse cooperação, e não apenas competição desordenada.</p>
-        <p>A oposição entre mecânico e orgânico, portanto, não é entre “ruim” e “bom”. Cada tipo destaca uma base predominante da coesão. A solidariedade por diferenciação oferece possibilidades de autonomia e cooperação ampliada, mas também é vulnerável a rupturas de coordenação. A solidariedade por semelhança pode sustentar confiança e pertencimento, mas também pressionar dissidentes. Avaliar casos reais requer examinar combinações, efeitos e condições.</p>
+      <div class="base-subsection" id="a07-hierarquia">
+        <h3>4. Hierarquia das ciências e o lugar da Sociologia</h3>
+        <p>Comte organizou as ciências segundo uma ordem de crescente complexidade e menor generalidade. Matemática, astronomia, física, química e biologia preparariam o estudo da sociedade. A Sociologia ocuparia o ponto mais complexo porque seu objeto depende de múltiplas condições e envolve fenômenos que não podem ser isolados com a mesma facilidade.</p>
+        <p>Chamá-la de ciência culminante não significa que poderia ignorar as anteriores. O conhecimento avançaria do mais simples ao mais complexo, e cada ciência dependeria de aquisições precedentes sem reduzir-se a elas. A vida não seria explicada apenas pela química; a sociedade não seria explicada apenas pela biologia.</p>
+        <p>Essa tentativa contribuiu para definir um lugar autônomo para o estudo científico do social. Contudo, uma hierarquia rígida pode apresentar a história das ciências como caminho linear e consensual. Disciplinas reais desenvolvem-se por intercâmbios, conflitos e revisões; novos conhecimentos numa área podem transformar problemas de outra.</p>
+        <p>A posição da Sociologia levanta ainda uma questão metodológica: complexidade maior não autoriza menor rigor. Como fenômenos sociais possuem muitas condições e não podem ser reproduzidos livremente em laboratório, comparação histórica, observação e análise de variações tornam-se importantes. Comte ofereceu uma resposta geral; a disciplina posterior desenvolveria métodos mais específicos.</p>
+        <aside class="pause-box"><h4>Pausa para discussão</h4><p>Considerar a Sociologia mais complexa que a biologia significa considerá-la superior? Que diferença existe entre dependência, complexidade e hierarquia?</p></aside>
       </div>
 
-      <div class="base-subsection" id="direito-indicador">
-        <h3>5. Direito repressivo e restitutivo como indicadores</h3>
-        <p>Como observar empiricamente algo tão amplo quanto a solidariedade? Durkheim procura um indicador visível: o <strong>direito</strong>. As normas jurídicas condensam obrigações que uma sociedade considera importantes e registram modos de reagir à sua violação. Ele distingue a predominância de sanções repressivas e restitutivas, sem afirmar que um sistema jurídico real contenha apenas uma delas.</p>
-        <p>O <strong>direito repressivo</strong> responde à infração com pena, censura ou privação imposta ao autor. Sua força é especialmente compreensível quando a conduta atinge sentimentos coletivos intensos. A punição não apenas produz consequência para quem infringiu; ela reafirma diante do grupo que determinada fronteira continua válida. Por isso Durkheim associa sua maior presença à solidariedade mecânica.</p>
-        <p>O <strong>direito restitutivo</strong> procura recompor relações, restaurar obrigações ou colocar as partes em situação juridicamente regulada. Contratos, relações administrativas, comerciais e profissionais frequentemente exigem correção, reparação ou cumprimento, e não uma reação emocional de toda a comunidade. Esse direito acompanha a multiplicação de funções especializadas e é associado à solidariedade orgânica.</p>
-        <p>A distinção descreve tendências, não caixas fechadas. Sociedades contemporâneas mantêm amplo direito penal repressivo, enquanto comunidades com forte semelhança também resolvem obrigações por restituição. Além disso, uma reparação pode envolver coerção estatal, e uma pena pode ter objetivos diversos. O valor metodológico está em comparar quais tipos de regra e sanção predominam em diferentes domínios e o que revelam sobre os vínculos sociais.</p>
-        <aside class="pause-box"><h4>Pausa para discussão</h4><p>Compare uma pena por agressão e uma decisão que determina o cumprimento de um contrato. Que relação social cada resposta procura proteger? Em que sentido uma é predominantemente repressiva e a outra restitutiva?</p></aside>
-      </div>
-
-      <div class="base-subsection" id="formas-reais">
-        <h3>6. Coexistências, combinações e passagens históricas</h3>
-        <p>Falar em passagem da solidariedade mecânica para a orgânica não autoriza contar uma história linear na qual todas as sociedades percorrem a mesma escada. Durkheim examinava uma tendência associada ao aumento da diferenciação. Processos históricos são irregulares: regiões, instituições e grupos combinam formas diversas; mudanças podem avançar em um domínio e recuar em outro; vínculos tradicionais podem ser recriados por tecnologias modernas.</p>
-        <p>Uma metrópole oferece bom exemplo. O abastecimento de alimentos depende de longa cadeia especializada, característica da solidariedade orgânica. Ao mesmo tempo, bairros, religiões, torcidas e movimentos constroem pertencimento pela partilha de símbolos. A própria categoria de cidadania combina diferenciação de funções com a afirmação de direitos comuns. Não se trata de escolher qual tipo “é” a cidade, mas de identificar onde cada mecanismo atua e como se articula aos demais.</p>
-        <p>A escola permite observar a mesma composição em escala menor. Docência, gestão, alimentação, limpeza, transporte e apoio especializado formam uma rede de funções complementares. Paralelamente, calendário, hino, formatura, regras de convivência e memória institucional criam referências comuns. Quando estudantes defendem simultaneamente o respeito às diferenças e um princípio compartilhado de igualdade, diferenciação e semelhança não aparecem como forças incompatíveis: uma sustenta a singularidade das posições e a outra oferece linguagem comum para reivindicar reconhecimento.</p>
-        <p>O Contexto C da atividade — uma empresa tecnológica com equipes multidisciplinares, trabalho remoto e participantes de diferentes culturas — também não admite classificação automática. A complementaridade de funções aponta para solidariedade orgânica. Entretanto, rituais corporativos, vocabulário interno e valores compartilhados podem produzir semelhança. A análise precisa verificar se a diversidade é acompanhada por coordenação justa ou se hierarquias bloqueiam pessoas de ocupar funções compatíveis com suas capacidades.</p>
-        <p>Essa observação impede usar os tipos como retratos completos. Eles funcionam como instrumentos para decompor vínculos. A pergunta adequada não é “qual solidariedade existe?”, no singular, mas quais mecanismos criam obrigações em cada domínio, qual deles predomina e como mudam ao longo do tempo. Documentos jurídicos, rituais, trajetórias ocupacionais e conflitos oferecem evidências distintas para essa reconstrução.</p>
-      </div>
-
-      <div class="base-subsection" id="patologias-divisao">
-        <h3>7. Quando a divisão não produz solidariedade</h3>
-        <p>A divisão do trabalho pode deixar de cumprir sua função moral. Na <strong>divisão anômica</strong>, as atividades se especializam sem que regras e contatos suficientes coordenem as partes. Objetivos se tornam ilimitados, responsabilidades ficam obscuras e crises rompem expectativas. Pense em uma plataforma que altera unilateralmente critérios de remuneração: trabalhadores, usuários e empresa permanecem conectados, mas a regulação da relação pode ser insuficiente ou imprevisível.</p>
-        <p>Na <strong>divisão forçada</strong>, posições não correspondem livremente a capacidades e vocações porque desigualdades herdadas, discriminações ou concentração de recursos restringem oportunidades. Uma pessoa pode estar formalmente livre para concorrer a uma profissão, mas enfrentar escolarização desigual, barreiras raciais, responsabilidades de cuidado ou redes de indicação fechadas. A crítica mostra que Durkheim não legitima qualquer ordem existente: uma divisão imposta por privilégios produz tensão em vez de cooperação moral.</p>
-        <p>Há ainda situações de coordenação inadequada, nas quais a especialização extrema enfraquece a percepção do resultado comum. Um trabalhador pode executar uma tarefa fragmentada sem compreender como ela se liga às demais; departamentos podem proteger metas próprias e prejudicar o serviço inteiro. A interdependência objetiva existe, mas não basta. São necessárias regras legítimas, comunicação e algum reconhecimento da contribuição recíproca.</p>
-        <aside class="pause-box"><h4>Pausa para discussão</h4><p>Uma rede de trabalho pode ser muito interdependente e, ainda assim, pouco solidária? Que evidências permitiriam distinguir falta de regulação, divisão forçada e simples conflito de interesses?</p></aside>
-      </div>
-
-      <div class="base-subsection" id="sintese-aula-07">
-        <h3>8. Síntese: da interdependência à anomia</h3>
-        <p><strong>Síntese.</strong> A manhã sustentada por desconhecidos revelou que divisão social do trabalho não é somente técnica econômica. Ela distribui funções, cria obrigações e modifica a base da coesão. A solidariedade mecânica liga sobretudo pela semelhança e pela força de crenças comuns; a orgânica liga pela diferenciação e dependência entre funções. Direito repressivo e restitutivo oferecem indicadores dessas formas, sem representar sistemas puros.</p>
-        <p>Sociedades reais combinam semelhança e diferenciação. Nenhum dos tipos constitui medida simples de atraso ou superioridade. A questão decisiva é saber em que condições a especialização se converte em cooperação regulada. Quando faltam normas capazes de coordenar expectativas, surge a divisão anômica; quando desigualdades impõem posições, aparece a divisão forçada. Assim, ordem social não é aceita como dado: suas condições e patologias tornam-se objeto de investigação.</p>
-        <p>A Aula 08 partirá exatamente desse limite. Se vínculos podem ser insuficientes ou excessivos, e se a regulação pode falhar em períodos de transformação, como reconhecer efeitos coletivos em fenômenos vividos individualmente? O passo seguinte será examinar <strong>integração, regulação e anomia</strong> por meio da comparação de taxas, aprendendo tanto a força quanto os limites das inferências sociológicas.</p>
+      <div class="base-subsection" id="a07-ordem">
+        <h3>5. Ordem e progresso — inclusive no Brasil</h3>
+        <p>Para Comte, <strong>ordem</strong> e <strong>progresso</strong> deveriam ser articulados. Uma sociedade incapaz de coordenação não sustentaria mudanças; uma ordem sem desenvolvimento produziria estagnação. A fórmula respondia ao temor de que a ruptura revolucionária destruísse vínculos sem criar um consenso substituto.</p>
+        <p>O lema “Ordem e Progresso” da bandeira brasileira mostra a circulação internacional do positivismo. Setores republicanos brasileiros do final do século XIX foram influenciados por ideias positivistas, embora sua apropriação não correspondesse integralmente ao sistema de Comte. O lema tornou-se símbolo nacional e adquiriu sentidos próprios em disputas brasileiras.</p>
+        <p>Essa circulação ensina um cuidado: ideias não viajam intactas. Grupos selecionam conceitos conforme problemas locais. No Brasil, a linguagem de modernização e ordem conviveu com uma sociedade recém-saída formalmente da escravidão, marcada por exclusões políticas e raciais. Invocar progresso não garantia democratização das relações sociais.</p>
+        <p>O lema também demonstra como um fragmento pode sobreviver separado do sistema que o originou. Muitas pessoas reconhecem “Ordem e Progresso” sem conhecer a classificação das ciências ou a lei dos três estados. Símbolos políticos condensam ideias, mas sua repetição não prova fidelidade teórica. Estudar recepção exige distinguir autor, apropriação e uso posterior.</p>
+        <p>Comte ofereceu uma resposta ampla e sistemática ao problema de uma ciência da sociedade. A próxima aula apresenta outra resposta ao mesmo problema, construída na Inglaterra vitoriana a partir de uma analogia diferente: não mais a evolução do conhecimento, mas a evolução do organismo social.</p>
       </div>
     </div>
   </section>
-
 
   <section id="plano-aula">
     <div class="section-title">Plano de Aula com Tempo</div>
     <div class="timeline">
       <div class="tl-item">
         <span class="tl-duration">10 min</span>
-        <span class="tl-text"><strong>Retomada</strong> — Revisão do conceito de fato social e consciência coletiva (Aula 06). Conexão com o tema da solidariedade e da coesão social.</span>
-      </div>
-      <div class="tl-item">
-        <span class="tl-duration">30 min</span>
-        <span class="tl-text"><strong>Exposição: os dois tipos de solidariedade</strong> — Apresentação sistemática da solidariedade mecânica e orgânica, com exemplos históricos e contemporâneos. Discussão da transição da sociedade tradicional para a moderna.</span>
+        <span class="tl-text"><strong>Retomada</strong> — Da linha do tempo da Aula 06 ao recorte de um nome: Auguste Comte.</span>
       </div>
       <div class="tl-item">
         <span class="tl-duration">15 min</span>
-        <span class="tl-text"><strong>Exibição orientada — <em>Tempos Modernos</em> (Charles Chaplin, 1936)</strong> — Seleção de cenas da fábrica, totalizando até 15 minutos: linha de montagem; aceleração do ritmo da esteira; repetição e especialização das tarefas; interrupções provocadas quando uma parte do processo falha; e tentativa de controlar o tempo corporal do trabalhador.<br><br>O trecho será utilizado para observar especialização, interdependência, disciplina do tempo e formas patológicas da divisão do trabalho. O filme não deve ser apresentado como ilustração perfeita da solidariedade orgânica, mas como situação crítica que permite distinguir interdependência funcional, divisão anômica e divisão forçada.<br><br><strong>Perguntas para orientar a exibição:</strong> 1. De que modo os trabalhadores dependem uns dos outros na linha de montagem? 2. Quem controla o ritmo e as regras da cooperação? 3. A interdependência apresentada produz coesão, anomia ou coerção? Justifique.</span>
+        <span class="tl-text"><strong>Exposição: o projeto positivista e a lei dos três estados</strong> — O problema de uma ciência da sociedade, o positivismo comtiano e os três estados do espírito humano.</span>
       </div>
       <div class="tl-item">
-        <span class="tl-duration">30 min</span>
-        <span class="tl-text"><strong>Discussão: "Em que tipo de solidariedade vivemos hoje?"</strong> — Debate mediado a partir do documentário e das exposições. O professor introduz as formas anormais (anomia e divisão forçada) e sua atualidade.</span>
+        <span class="tl-duration">20 min</span>
+        <span class="tl-text"><strong>Leitura dialogada: hierarquia das ciências e "Ordem e Progresso" no Brasil</strong> — Leitura orientada das subseções 4 e 5 do texto-base, com pausas para discussão em voz alta.</span>
       </div>
       <div class="tl-item">
-        <span class="tl-duration">25 min</span>
-        <span class="tl-text"><strong>Exercício escrito individual</strong> — Os alunos respondem por escrito a uma questão aplicando os dois tipos de solidariedade a três contextos diferentes.</span>
-      </div>
-      <div class="tl-item">
-        <span class="tl-duration">10 min</span>
-        <span class="tl-text"><strong>Síntese</strong> — Correção coletiva do exercício. Indicação das leituras para a Aula 08 (anomia e O suicídio).</span>
+        <span class="tl-duration">15 min</span>
+        <span class="tl-text"><strong>Síntese e ponte para a Aula 08</strong> — Retomada do projeto de Comte. Indicação de que a próxima aula compara sua resposta com a de Herbert Spencer.</span>
       </div>
     </div>
   </section>
@@ -287,72 +216,32 @@
   <section id="leituras">
     <div class="section-title">Textos para Leitura Prévia</div>
     <div class="ref-card">
-      <div class="ref-author">DURKHEIM, Émile</div>
-      <div class="ref-title">Da divisão do trabalho social. Prefácio da 1ª edição e Livro I, Cap. 1</div>
-      <div class="ref-pages">p. 1–24</div>
-    </div>
-    <div class="ref-card">
-      <div class="ref-author">GIDDENS, Anthony</div>
-      <div class="ref-title">Sociologia. Seção sobre Durkheim</div>
-      <div class="ref-pages">p. 14–18</div>
+      <div class="ref-author">COMTE, Auguste</div>
+      <div class="ref-title">Curso de filosofia positiva. Primeira lição (1830)</div>
+      <div class="ref-pages">Texto original: Cours de philosophie positive. Première leçon (1830). Consultar a tradução disponível, sem paginação presumida.</div>
     </div>
   </section>
 
   <section id="atividade">
-    <div class="section-title">Atividades em Sala</div>
-    <div class="activity-card">
-      <h3>Exercício escrito — vínculos sociais em três contextos</h3>
-      <p>Analise individualmente os três contextos. Em cada resposta, identifique o mecanismo predominante de solidariedade, apresente duas evidências do caso e indique elementos que impedem tratar o contexto como tipo puro.</p>
-      <article class="case-card"><h4>Contexto A — Comunidade rural no século XIX</h4><p>A maioria das famílias trabalha na agricultura, participa das mesmas celebrações religiosas e transmite costumes comuns. Há divisão de tarefas por idade, gênero e ofício; ferramentas são reparadas por artesãos especializados e parte da produção circula em mercados regionais. Violações de rituais centrais provocam forte reprovação coletiva.</p></article>
-      <article class="case-card"><h4>Contexto B — Abastecimento de uma metrópole</h4><p>Alimentos chegam diariamente por meio de produtores, transportadores, centrais de distribuição, vigilância sanitária, comércio e serviços de limpeza. Os participantes não compartilham necessariamente as mesmas crenças, mas dependem de contratos, licenças, horários e padrões técnicos. Uma paralisação em um elo repercute nos demais.</p></article>
-      <section class="case-card" aria-labelledby="guided-tech-example">
-        <h4 id="guided-tech-example">Exemplo guiado — como funciona a interdependência numa empresa de tecnologia</h4>
-        <p>Uma plataforma educacional depende de profissionais de programação, design, produção de conteúdo, suporte aos usuários, segurança dos dados, administração, atendimento e comercialização. A programação mantém as funções técnicas; o design organiza a experiência de uso; a produção de conteúdo prepara o material pedagógico; suporte e atendimento recebem dificuldades dos usuários; segurança protege informações; administração coordena recursos; e comercialização conecta o serviço a escolas e estudantes. Nenhum desses profissionais produz sozinho o serviço completo. A especialização aumenta a diferenciação entre as tarefas, mas também aumenta a dependência recíproca.</p>
-        <p>Essa interdependência não significa automaticamente harmonia. Podem existir desigualdade salarial, falta de reconhecimento, metas contraditórias, decisões tomadas sem participação, mudanças imprevistas nas regras e conflitos entre qualidade, prazo e lucro. O funcionamento conjunto precisa, portanto, ser investigado tanto pela complementaridade das funções quanto pelas relações de poder, reconhecimento, proteção e controle existentes entre os trabalhadores.</p>
-        <ol>
-          <li>Quais funções são diferentes, mas dependem umas das outras?</li>
-          <li>Que regras ou contratos coordenam essa cooperação?</li>
-          <li>Em que situação a divisão do trabalho poderia se tornar anômica ou forçada?</li>
-        </ol>
-      </section>
-      <article class="case-card"><h4>Contexto C — Empresa de tecnologia</h4><p>Equipes de programação, design, suporte, vendas e proteção de dados trabalham presencialmente e a distância. A empresa promove valores e rituais comuns, mas terceirizados recebem menos proteção, algoritmos distribuem tarefas sem transparência e indicações pessoais influenciam promoções.</p></article>
-      <ol>
-        <li>Que solidariedade predomina em cada contexto? Justifique sem usar apenas “antigo” ou “moderno”.</li>
-        <li>Que evidências mostram semelhança, diferenciação ou interdependência?</li>
-        <li>Que forma de direito ou sanção seria mais provável em cada relação: repressiva, restitutiva ou uma combinação?</li>
-        <li>Há indícios de divisão anômica ou forçada? O que ainda seria necessário investigar?</li>
-        <li>Escolha um contexto e explique como solidariedade mecânica e orgânica coexistem nele.</li>
-      </ol>
-      <details class="teacher-guidance">
-        <summary>Orientações para a mediação — uso do professor</summary>
-        <div class="teacher-guidance-content">
-          <p><strong>Critério geral:</strong> avaliar o raciocínio e as evidências, não a simples escolha de um rótulo. Respostas devem distinguir tipo predominante de tipo exclusivo e reconhecer que interdependência não prova, sozinha, regulação justa.</p>
-          <p><strong>Contexto A:</strong> a partilha de crenças e a reprovação coletiva sustentam a hipótese de predomínio mecânico. Artesanato, mercados e divisão de tarefas mostram diferenciação; por isso, “mecânico puro” seria inadequado.</p>
-          <p><strong>Contexto B:</strong> a complementaridade de funções e as regras contratuais favorecem a classificação orgânica. A turma deve relacionar restituição ao restabelecimento de obrigações, sem concluir que não existe direito repressivo na metrópole.</p>
-          <p><strong>Contexto C:</strong> há solidariedade orgânica nas equipes especializadas e componentes mecânicos nos rituais corporativos. Falta de transparência pode sugerir regulação insuficiente; proteção desigual e promoções por redes fechadas podem sugerir divisão forçada. São hipóteses, não conclusões automáticas.</p>
-          <p><strong>Mediação:</strong> peça que cada afirmação aponte uma frase do caso. Quando houver divergência, separe três perguntas: qual vínculo predomina, quais mecanismos coexistem e quais informações faltam. Não trate comunidade rural como inferior nem empresa tecnológica como moralmente superior.</p>
-        </div>
-      </details>
+    <div class="section-title">Atividade / Ponte para a Aula 08</div>
+    <div class="activity-card" data-gabarito="dispensado">
+      <strong>Registro pessoal — o que torna uma explicação "positiva"?</strong><br><br>
+      Antes da próxima aula, escreva uma frase que resuma, com suas palavras, o que torna uma explicação positiva para Auguste Comte. Guarde essa frase: na Aula 08 você vai usá-la para separar teses de Comte de teses de Herbert Spencer, autor que a atividade da próxima aula compara diretamente.
     </div>
   </section>
 
   <section id="recursos">
     <div class="section-title">Recursos Necessários</div>
     <div class="resources-list">
-      <span class="res-tag">Texto impresso</span>
-      <span class="res-tag">Folhas para exercício escrito</span>
-      <span class="res-tag">Trecho previamente selecionado de <em>Tempos Modernos</em></span>
-      <span class="res-tag">Computador</span>
       <span class="res-tag">Projetor</span>
-      <span class="res-tag">Equipamento de áudio</span>
-      <span class="res-tag">Arquivo ou acesso legalmente disponível testado antes da aula</span>
+      <span class="res-tag">Quadro branco</span>
     </div>
   </section>
 
 </main>
 
 <footer>
-  <a href="/introducao-sociologia/">← Página principal</a>
+  <a href="../../index.html">← Voltar ao curso</a>
   <span style="margin: 0 12px; color: var(--border);">|</span>
   <span>Introdução à Sociologia — 2026.2</span>
 </footer>

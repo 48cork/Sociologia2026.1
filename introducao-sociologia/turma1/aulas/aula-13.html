@@ -12,7 +12,8 @@
     --text: #e2e8f0; --muted: #94a3b8; --radius: 12px;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
+  html, body { max-width: 100%; overflow-x: clip; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; min-height: 100vh; overflow-wrap: anywhere; }
   nav { position: sticky; top: 0; z-index: 100; background: rgba(18,18,28,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
   nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; white-space: nowrap; }
   nav a:hover { color: var(--text); }
@@ -21,24 +22,24 @@
   .nav-center { font-size: 0.875rem; color: var(--muted); }
   .nav-right { display: flex; gap: 16px; align-items: center; }
   main { max-width: 860px; margin: 0 auto; padding: 40px 24px 80px; }
-  .aula-header { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; margin-bottom: 32px; border-top: 4px solid var(--purple); }
+  .aula-header { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; margin-bottom: 32px; border-top: 4px solid var(--blue); }
   .header-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; align-items: center; }
-  .bloco-badge { background: var(--purple); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .bloco-badge { background: var(--blue); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
   .meta-chip { background: var(--surface); border: 1px solid var(--border); font-size: 0.8rem; color: var(--muted); padding: 4px 12px; border-radius: 20px; }
+  .meta-chip strong { color: var(--text); }
   .aula-header h1 { font-size: 1.5rem; font-weight: 700; line-height: 1.3; color: var(--text); }
-  section { margin-bottom: 32px; }
-  .section-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--purple-lt); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
-  .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; margin-bottom: 12px; }
+  section { margin-bottom: 32px; scroll-margin-top: 112px; }
+  .section-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue-lt); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
   .obj-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
   .obj-list li { display: flex; gap: 12px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
-  .obj-list li::before { content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--purple-lt); margin-top: 7px; flex-shrink: 0; }
+  .obj-list li::before { content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--blue-lt); margin-top: 7px; flex-shrink: 0; }
   .content-topic { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 12px; }
   .content-topic h3 { font-size: 0.95rem; font-weight: 600; color: var(--purple-lt); margin-bottom: 8px; }
   .content-topic ul { list-style: none; padding: 0; }
   .content-topic ul li { padding: 4px 0 4px 16px; position: relative; color: var(--muted); font-size: 0.9rem; }
   .content-topic ul li::before { content: '—'; position: absolute; left: 0; color: var(--border); }
   .timeline { display: flex; flex-direction: column; gap: 10px; }
-  .tl-item { display: flex; gap: 16px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; border-left: 3px solid var(--purple); }
+  .tl-item { display: flex; gap: 16px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; border-left: 3px solid var(--blue); }
   .tl-duration { background: var(--surface); border: 1px solid var(--border); color: var(--amber-lt); font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
   .tl-text { font-size: 0.9rem; color: var(--text); }
   .ref-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 10px; border-left: 3px solid var(--blue-lt); }
@@ -46,33 +47,26 @@
   .ref-title { font-size: 0.9rem; color: var(--text); }
   .ref-pages { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
   .activity-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; font-size: 0.9rem; line-height: 1.7; border-left: 3px solid var(--teal-lt); }
+  .teacher-guidance { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-top: 18px; }
+  .teacher-guidance summary { cursor: pointer; color: var(--amber-lt); font-weight: 700; padding: 15px 17px; }
+  .teacher-guidance[open] summary { border-bottom: 1px solid var(--border); }
+  .teacher-guidance-content { padding: 16px 18px; }
   .resources-list { display: flex; flex-wrap: wrap; gap: 10px; }
-  .res-tag { background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; }
+  .res-tag { max-width: 100%; min-width: 0; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; }
   footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--muted); font-size: 0.85rem; }
   footer a { color: var(--purple-lt); text-decoration: none; }
   footer a:hover { text-decoration: underline; }
-
-  html, body { max-width: 100%; overflow-x: clip; }
-  body { overflow-wrap: anywhere; }
-  section { scroll-margin-top: 112px; }
   .section-nav { position: sticky; top: 56px; z-index: 90; background: rgba(10,10,15,.97); border-bottom: 1px solid var(--border); padding: 8px 16px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: thin; }
   .section-nav a { flex: 0 0 auto; min-height: 36px; display: inline-flex; align-items: center; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 5px 12px; text-decoration: none; font-size: .8rem; }
   .base-text { max-width: 72ch; margin-inline: auto; }
   .base-intro { color: var(--muted); font-size: .92rem; margin-bottom: 16px; }
-  .base-toc { position: static; height: auto; display: block; max-width: 100%; overflow: clip; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; margin-bottom: 28px; }
-  .base-toc h3 { color: var(--bloco-lt, var(--purple-lt)); font-size: .95rem; margin-bottom: 10px; }
-  .base-toc ol { width: 100%; max-width: 100%; padding-left: 22px; columns: 2; column-gap: 32px; }
-  .base-toc li { break-inside: avoid; margin: 5px 0; }
-  .base-toc a { color: var(--text); text-decoration-thickness: 1px; text-underline-offset: 3px; white-space: normal; }
   .base-subsection { scroll-margin-top: 112px; margin-bottom: 28px; }
-  .base-subsection h3 { color: var(--bloco-lt, var(--purple-lt)); font-size: 1.15rem; line-height: 1.35; margin-bottom: 12px; }
+  .base-subsection h3 { color: var(--blue-lt); font-size: 1.15rem; line-height: 1.35; margin-bottom: 12px; }
   .base-subsection p { color: var(--text); margin-bottom: 14px; line-height: 1.78; }
   .base-subsection strong { color: #f1f5f9; }
-  .pause-box { background: rgba(79,70,229,.1); border: 1px solid rgba(129,140,248,.4); border-left: 4px solid var(--bloco-lt, var(--purple-lt)); border-radius: var(--radius); padding: 16px 18px; margin: 22px 0; }
+  .pause-box { background: rgba(79,70,229,.1); border: 1px solid rgba(129,140,248,.4); border-left: 4px solid var(--blue-lt); border-radius: var(--radius); padding: 16px 18px; margin: 22px 0; }
   .pause-box h4 { color: var(--amber-lt); font-size: .75rem; letter-spacing: .09em; text-transform: uppercase; margin-bottom: 6px; }
   .pause-box p { margin: 0; color: var(--text); font-weight: 600; line-height: 1.6; }
-  .legacy-note { border: 1px solid var(--amber-lt); background: rgba(251,191,36,.08); border-radius: var(--radius); padding: 16px 18px; margin: 0 0 24px; }
-  .res-tag { max-width: 100%; min-width: 0; }
   a:focus-visible { outline: 3px solid var(--amber-lt); outline-offset: 3px; border-radius: 3px; }
   @media (max-width: 640px) {
     nav { height: auto; min-height: 56px; padding: 8px 12px; flex-wrap: wrap; }
@@ -82,234 +76,166 @@
     .section-nav { top: 72px; padding-inline: 10px; }
     main { padding: 24px 14px 60px; }
     .aula-header { padding: 22px 18px; }
-    .base-toc ol { width: auto; columns: auto; padding-left: 0; list-style-position: inside; }
     .tl-item { flex-direction: column; gap: 8px; }
   }
-
-  /* activity-materials-2026-2 */
-  .activity-card h3 { color: var(--teal-lt); font-size: 1.05rem; margin: 0 0 12px; }
-  .activity-card h4 { color: var(--amber-lt); margin: 18px 0 8px; }
-  .activity-card ol, .activity-card ul { padding-left: 22px; margin: 10px 0; }
-  .activity-card li { margin: 7px 0; }
-  .material-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 15px 17px; margin: 14px 0; break-inside: avoid; }
-  .matrix-region { max-width: 100%; overflow-x: auto; }
-  .material-box table { width: 100%; min-width: 680px; table-layout: fixed; border-collapse: collapse; font-size: .82rem; }
-  .material-box caption { color: var(--text); text-align: left; font-weight: 700; padding-bottom: 8px; }
-  .material-box th, .material-box td { border: 1px solid var(--border); padding: 8px; text-align: left; vertical-align: top; overflow-wrap: anywhere; }
-  .material-box tbody td { height: 68px; background: var(--bg); }
-  .material-box th { color: var(--amber-lt); background: var(--card); }
-  .teacher-guidance { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-top: 18px; }
-  .teacher-guidance summary { cursor: pointer; color: var(--amber-lt); font-weight: 700; padding: 15px 17px; }
-  .teacher-guidance[open] summary { border-bottom: 1px solid var(--border); }
-  .teacher-guidance-content { padding: 16px 18px; }
-  @media (max-width: 640px) { .material-box { padding: 12px; } }
-  @media print { nav, .section-nav { position: static; } .material-box, .teacher-guidance, .material-box tr { break-inside: avoid; } .matrix-region { overflow: visible; } .material-box table { min-width: 0; font-size: 8pt; } }
+  @media print { .teacher-guidance { break-inside: avoid; } }
 </style>
 </head>
 <body>
+
 <nav>
   <div class="nav-left">
-    <a href="/introducao-sociologia/">← Página principal</a>
+    <a href="../../index.html">← Voltar ao curso</a>
     <span class="nav-badge">Aula 13</span>
   </div>
-  <span class="nav-center">Aula 13 / 30</span>
+  <span class="nav-center">Encontro 04 de 15 · Aula 13 de 60</span>
   <div class="nav-right">
-    <a href="aula-12.html">← Anterior</a>
-    <a href="aula-14.html">Próxima →</a>
+    <a href="aula-12.html">← Aula anterior</a>
+    <a href="aula-14.html">Próxima aula →</a>
   </div>
 </nav>
 <div class="section-nav" aria-label="Seções da aula"><a href="#objetivos">Objetivos</a><a href="#conteudo-programatico">Conteúdo</a><a href="#texto-base">Texto-base</a><a href="#plano-aula">Plano da aula</a><a href="#leituras">Leituras</a><a href="#atividade">Atividade</a><a href="#recursos">Recursos</a></div>
+
 <main>
+
   <div class="aula-header">
     <div class="header-meta">
-      <span class="bloco-badge">Bloco II — Pensamento Clássico</span><span class="meta-chip">Aula 13</span><span class="meta-chip">Encontro 7 · Parte 1 de 2</span><span class="meta-chip">21/10/2026 — Quarta-feira</span><span class="meta-chip">Percurso completo do encontro: 4 horas-aula</span><span class="meta-chip">Esta página: aproximadamente 2 horas</span>
+      <span class="bloco-badge">Bloco II</span>
+      <span class="meta-chip">Encontro <strong>04</strong> de 15 — 30/09/2026, quarta-feira</span>
+      <span class="meta-chip">Aula <strong>13</strong> de 60</span>
+      <span class="meta-chip">1ª aula do encontro</span>
+      <span class="meta-chip">Esta aula: aproximadamente 1 hora-aula</span>
     </div>
-    <h1>Comparação entre Durkheim, Marx e Weber: convergências e divergências teóricas.</h1>
+    <h1>Solidariedade mecânica e solidariedade orgânica em Durkheim.</h1>
   </div>
 
-  <section id="objetivos"><div class="section-title">Objetivos de Aprendizagem</div><ul class="obj-list">
-    <li>Comparar problemas, conceitos, métodos e escalas de análise nas obras de Durkheim, Marx e Weber.</li>
-    <li>Mobilizar as três abordagens diante de um mesmo fenômeno sem reduzi-las a etiquetas ou respostas excludentes.</li>
-    <li>Distinguir comparação analítica, complementaridade possível e mistura conceitual indiscriminada.</li>
-    <li>Construir uma síntese comparativa que sustente a escolha de referenciais para uma investigação sociológica.</li>
-  </ul></section>
-
-  <section id="conteudo-programatico"><div class="section-title">Conteúdo Programático</div>
-    <div class="content-topic"><h3>1. Comparar perguntas e objetos</h3><ul><li>Modernidade, diferenciação, capitalismo e racionalização como problemas históricos</li><li>Fato social, relações de produção e ação social como recortes analíticos distintos</li><li>Explicação, crítica e compreensão causalmente orientada</li></ul></div>
-    <div class="content-topic"><h3>2. Conceitos, métodos e escalas</h3><ul><li>Durkheim: coerção, integração, regulação e comparação</li><li>Marx: produção social, contradição, classe e transformação histórica</li><li>Weber: sentido, tipo ideal, dominação e racionalização</li></ul></div>
-    <div class="content-topic"><h3>3. Comparação sem caricaturas</h3><ul><li>Convergências, divergências e limites de aplicação</li><li>Um mesmo fenômeno, perguntas e evidências diferentes</li><li>Articulação controlada sem apagar incompatibilidades</li></ul></div>
+  <section id="objetivos">
+    <div class="section-title">Objetivos da Aula</div>
+    <ul class="obj-list">
+      <li>Reconhecer a rede de interdependências que sustenta a vida cotidiana em sociedades diferenciadas.</li>
+      <li>Compreender a divisão do trabalho como fenômeno moral, não apenas econômico, no pensamento de Durkheim.</li>
+      <li>Distinguir solidariedade mecânica e solidariedade orgânica como dois mecanismos de coesão social.</li>
+    </ul>
   </section>
 
-  <section id="texto-base" aria-labelledby="texto-base-title"><div class="section-title" id="texto-base-title">Texto-base para acompanhamento da aula</div><div class="base-text">
-    <p class="base-intro">Comparar teorias não é procurar um vencedor nem encaixar cada autor numa palavra. O percurso parte de um problema comum, reconstrói perguntas diferentes e examina o que cada abordagem permite ver.</p>
-    <nav class="base-toc" aria-label="Sumário do texto-base"><h3>Nesta leitura</h3><ol>
-      <li><a href="#comparar-perguntas">Comparar perguntas, não slogans</a></li><li><a href="#horizonte-moderno">Um horizonte histórico compartilhado</a></li><li><a href="#durkheim-comparacao">Durkheim: regras, integração e diferenciação</a></li><li><a href="#marx-comparacao">Marx: produção, classe e contradição</a></li><li><a href="#weber-comparacao">Weber: sentidos, ordens e racionalização</a></li><li><a href="#caso-permanencia">Um fenômeno comum: permanência universitária</a></li><li><a href="#metodos-evidencias">Métodos, evidências e escalas</a></li><li><a href="#articular-limitar">Articular sem misturar</a></li><li><a href="#sintese-comparativa">Síntese e passagem ao projeto</a></li>
-    </ol></nav>
-
-    <div class="base-subsection" id="comparar-perguntas"><h3>1. Comparar perguntas, não slogans</h3>
-      <p>Durkheim, Marx e Weber são chamados clássicos não porque tenham produzido um dicionário definitivo da sociedade, mas porque formularam problemas, conceitos e procedimentos que ainda organizam debates. Uma comparação rigorosa começa antes das respostas: pergunta o que cada autor pretende explicar, qual unidade de análise constrói e que evidências consideraria pertinentes. Se começarmos pelas etiquetas “coesão”, “conflito” e “ação”, perdemos justamente o trabalho teórico que tornou essas categorias significativas.</p>
-      <p>Uma teoria não é uma opinião sobre qualquer assunto. Ela seleciona relações e propõe conexões que precisam ser reconstruídas. O fato social durkheimiano não equivale a tudo que é coletivo; a classe em Marx não é apenas uma faixa de renda; a ação social em Weber não é qualquer escolha individual. Cada conceito responde a uma pergunta e inclui critérios de aplicação. Comparar exige conservar esses critérios antes de aproximar os autores.</p>
-      <p>Também não basta compilar três pequenos resumos. Uma boa comparação estabelece um eixo comum — por exemplo, como se produz e se transforma uma ordem social — e observa respostas distintas. Em certos pontos, os diagnósticos podem convergir; em outros, partem de pressupostos incompatíveis ou enfatizam mecanismos diferentes. Convergência não significa identidade, divergência não significa que apenas um possa contribuir.</p>
-      <p>Essa postura evita dois erros opostos. O primeiro é a competição escolar em que cada autor oferece uma resposta completa e o estudante escolhe sua preferência. O segundo é a mistura indiscriminada, na qual qualquer conceito pode ser combinado sem justificar escala, método ou significado. Comparar é construir relações controladas: explicitar o eixo, respeitar diferenças e indicar limites.</p>
-      <p>O vocabulário da comparação precisa acompanhar esse cuidado. Dizer que um autor “enfatiza” determinada relação não significa que ignore todas as outras; afirmar que duas análises “convergem” num diagnóstico não significa que compartilhem método ou fundamento. Termos como contraste, aproximação e incompatibilidade devem vir acompanhados do aspecto preciso a que se referem.</p>
-      <aside class="pause-box"><h4>Pausa 1 — antes das respostas</h4><p>Ao analisar evasão universitária, que diferença existe entre perguntar “que regra perdeu força?”, “que relações produzem a dificuldade?” e “que sentidos orientam a decisão de sair”?</p></aside>
+  <section id="conteudo-programatico">
+    <div class="section-title">Conteúdo Programático</div>
+    <div class="content-topic">
+      <h3>1. O problema da interdependência social</h3>
+      <ul>
+        <li>A rede de desconhecidos que sustenta a vida cotidiana</li>
+        <li>Solidariedade como conceito sociológico, não como sinônimo de afeto</li>
+      </ul>
     </div>
-
-    <div class="base-subsection" id="horizonte-moderno"><h3>2. Um horizonte histórico compartilhado</h3>
-      <p>Os três autores escreveram diante de transformações associadas à expansão capitalista, industrialização, urbanização, formação dos Estados nacionais e reorganização de instituições. Esse horizonte compartilhado não produz uma única “teoria da modernidade”. Marx nasceu antes de Durkheim e Weber e escreveu em conjunturas políticas diferentes; Durkheim procurou consolidar a Sociologia acadêmica na França; Weber participou de debates históricos e econômicos no espaço alemão. Contextos próximos não eliminam trajetórias intelectuais distintas.</p>
-      <p>Todos recusam a ideia de que a sociedade seja simples soma de vontades isoladas. Marx examina relações sociais de produção que precedem indivíduos concretos. Durkheim trata maneiras coletivas de agir e pensar como realidades que não se reduzem a consciências particulares. Weber parte da ação dotada de sentido, mas investiga relações, ordens, organizações, dominação e processos históricos. Nenhum deles cabe na oposição “sociedade versus indivíduo”.</p>
-      <p>Há ainda interesse comum pela mudança. Durkheim estuda passagem entre formas de solidariedade e problemas de regulação; Marx analisa contradições em modos de produção e práticas transformadoras; Weber reconstrói processos de racionalização que alteram religião, economia, direito e administração. Nenhum processo é uma cronologia automática. Diferenciação pode gerar cooperação e anomia; contradições abrem possibilidades cujo resultado depende de ação histórica; racionalização produz capacidades e restrições sem destino previamente garantido.</p>
-      <p>Chamar os três de fundadores não apaga interlocutores, movimentos políticos, pesquisadoras e tradições que participaram da constituição das ciências sociais. O cânone é uma seleção histórica. Nesta aula, a comparação possui função delimitada: consolidar ferramentas estudadas nas Aulas 06–12 e preparar escolhas teóricas mais conscientes, não contar toda a história da disciplina.</p>
+    <div class="content-topic">
+      <h3>2. Dois tipos de solidariedade</h3>
+      <ul>
+        <li>Solidariedade mecânica: semelhança e consciência coletiva</li>
+        <li>Solidariedade orgânica: diferenciação e interdependência funcional</li>
+      </ul>
     </div>
-
-    <div class="base-subsection" id="durkheim-comparacao"><h3>3. Durkheim: regras, integração e diferenciação</h3>
-      <p>Durkheim pergunta como estudar fatos sociais e como sociedades diferenciadas mantêm vínculos. Exterioridade e coerção indicam que língua, direito, calendário e regras educacionais existem antes de cada participante e orientam condutas. Coerção não significa apenas punição visível: expectativas e classificações podem ser incorporadas. A investigação deve tratar esses fatos como coisas, suspendendo explicações imediatas e buscando causas sociais em outros fatos sociais.</p>
-      <p>Sua análise da divisão do trabalho não afirma que toda diferença seja funcional ou justa. A especialização pode ampliar interdependência e solidariedade orgânica, mas formas anômicas ou forçadas revelam falta de regulação e desigualdade nas condições de acesso às posições. Integração e regulação são problemas empíricos: podem ser insuficientes ou excessivas, e seus efeitos variam.</p>
-      <p>O método comparativo procura variações regulares entre fenômenos. Para estudar permanência universitária, uma pergunta durkheimiana poderia comparar regras, vínculos coletivos e taxas de abandono entre cursos ou períodos. A análise observaria como calendário, avaliação, pertencimento e serviços acadêmicos integram e regulam estudantes. Depoimentos individuais ajudam, mas não substituem a comparação de padrões coletivos.</p>
-      <p>O ganho é revelar propriedades institucionais que não aparecem quando cada saída é narrada como decisão privada. O limite surge se “integração” vira sinônimo de harmonia desejável ou se desigualdades são justificadas por sua suposta função. Conflitos e coerções também pertencem ao objeto durkheimiano; sua abordagem não deve ser usada para naturalizar a ordem existente.</p>
-      <p>A normalidade, em Durkheim, também não equivale a aprovação moral. Um fenômeno pode ser recorrente em certo tipo social e ainda suscitar investigação sobre suas formas patológicas. Essa distinção impede concluir que frequência estatística seja sinônimo de justiça ou que toda reforma represente desorganização.</p>
-      <aside class="pause-box"><h4>Pausa 2 — vínculo e coerção</h4><p>Uma regra de frequência pode integrar estudantes a uma rotina e, ao mesmo tempo, afastar quem trabalha. Que comparações permitiriam investigar ambos os efeitos?</p></aside>
-    </div>
-
-    <div class="base-subsection" id="marx-comparacao"><h3>4. Marx: produção, classe e contradição</h3>
-      <p>Marx desloca a análise para a produção social da existência. Pessoas produzem meios de vida em relações historicamente determinadas, com forças produtivas e relações de produção que constituem modos de produção. A economia não é esfera isolada que movimenta mecanicamente política e consciência. Direito, Estado, instituições e formas de representação participam da reprodução e da transformação dessas relações.</p>
-      <p>No capitalismo, propriedade dos meios de produção, venda da força de trabalho e apropriação do excedente estruturam posições de classe. Burguesia e proletariado são relações objetivas, não sinônimos de ricos e pobres. Renda, profissão, identificação e consciência de classe podem se relacionar sem coincidir. As classes se formam historicamente por experiências, organização e conflito, não apenas por uma tabela administrativa.</p>
-      <p>Para examinar permanência universitária, uma análise marxiana pode perguntar como trabalho assalariado, distribuição de recursos e mercantilização da educação condicionam tempo, moradia, transporte e alimentação. Também perguntaria quem produz serviços universitários, como são financiados e quais grupos conseguem converter formação em oportunidades. O abandono não seria deduzido automaticamente da classe: estudantes em posições próximas podem agir de modos diferentes.</p>
-      <p>Contradição designa tensões internas às relações sociais, não qualquer discordância. A universidade pode prometer acesso universal enquanto sua organização pressupõe disponibilidade de tempo e recursos desigualmente distribuídos. Essa tensão pode ser administrada, naturalizada ou politizada. Transformação depende de práticas em condições herdadas, e não de uma conclusão garantida.</p>
-    </div>
-
-    <div class="base-subsection" id="weber-comparacao"><h3>5. Weber: sentidos, ordens e racionalização</h3>
-      <p>Weber define a Sociologia pela interpretação do sentido visado e pela explicação causal do curso e dos efeitos da ação. Isso não reduz a análise à psicologia. Sentidos são reconstruídos por declarações, documentos, condutas e contextos; ações orientam-se por outras pessoas e ocorrem em ordens que distribuem recursos e expectativas. Compreender não é concordar nem acessar diretamente uma consciência interior.</p>
-      <p>Tipos ideais acentuam traços para comparação. Ações orientadas a fins, valores, afetos ou tradições podem combinar-se; burocracia reúne cargos, competências, hierarquia, regras e registros sem descrever perfeitamente toda organização. A racionalização amplia cálculo e previsibilidade, mas não equivale a progresso. Racionalidade formal pode entrar em tensão com necessidades substantivas.</p>
-      <p>Diante da permanência, Weber permitiria perguntar que sentidos estudantes atribuem ao diploma, ao trabalho e à saída; como antecipam reações familiares ou institucionais; e como procedimentos burocráticos tornam decisões previsíveis ou inacessíveis. Também caberia examinar poder, legitimidade e conhecimento especializado na concessão de bolsas. A escala vai da orientação da ação ao funcionamento da organização.</p>
-      <p>O ganho é reconstruir motivos sem tratá-los como causas suficientes e analisar efeitos não pretendidos. Uma plataforma criada para facilitar matrícula pode intensificar disciplina por prazos e registros; uma bolsa concebida como direito pode ser vivida como favor. O limite aparece quando relatos são aceitos sem confronto com condições objetivas ou quando tipos ideais viram etiquetas para pessoas.</p>
-      <aside class="pause-box"><h4>Pausa 3 — motivos e condições</h4><p>Se uma estudante diz que saiu porque “não se identificou”, quais evidências ajudariam a reconstruir esse sentido e quais condições institucionais ainda precisariam ser examinadas?</p></aside>
-    </div>
-
-    <div class="base-subsection" id="caso-permanencia"><h3>6. Um fenômeno comum: permanência universitária</h3>
-      <p>Considere uma universidade que amplia vagas noturnas. Muitos ingressantes trabalham, dependem de transporte intermunicipal e são os primeiros da família no ensino superior. O currículo exige atividades diurnas; pedidos de auxílio passam por sistema digital; estudantes organizam uma mobilização após atrasos no pagamento. Alguns permanecem por compromisso profissional, outros interrompem temporariamente o curso e outros abandonam sem formalizar a saída.</p>
-      <p>Durkheim pode orientar comparações entre regras, integração e padrões de abandono. Marx pode relacionar tempo de estudo, trabalho e distribuição material de recursos. Weber pode reconstruir sentidos da permanência e analisar a administração dos auxílios. Essas perguntas não são paráfrases do que os autores disseram sobre universidades atuais; são aplicações contemporâneas de ferramentas conceituais.</p>
-      <p>As abordagens selecionam evidências diferentes. Taxas por curso e turno ajudam a localizar padrões; orçamento e contratos mostram condições de produção dos serviços; regulamentos explicitam deveres; entrevistas revelam orientações; observação acompanha interações. Uma fonte pode servir a várias perguntas, mas muda de função conforme o argumento. Um relato não comprova uma taxa, e uma taxa não reconstrói sozinha um motivo.</p>
-      <p>O caso também impede soluções rápidas. “Falta de integração”, “exploração” ou “racionalidade burocrática” não podem ser proclamadas sem mediações. É preciso mostrar mecanismos e variações. A comparação é mais forte quando cada grupo formula uma hipótese, indica evidência capaz de contrariá-la e reconhece o que permanece sem explicação.</p>
-      <p>Suponha, por exemplo, que o abandono seja maior entre estudantes que trabalham. A associação orienta novas perguntas, mas não demonstra sozinha mecanismo causal. Horários incompatíveis, renda, cuidado, deslocamento, expectativas profissionais e experiências de pertencimento podem participar de combinações diferentes. Os conceitos ajudam a organizar a investigação dessas mediações.</p>
-    </div>
-
-    <div class="base-subsection" id="metodos-evidencias"><h3>7. Métodos, evidências e escalas</h3>
-      <p>Não existe correspondência simples entre autor e técnica. Durkheim usou comparação e estatísticas, mas também documentos; Marx trabalhou com economia política, história e conflitos concretos; Weber mobilizou interpretação documental e comparação histórica. Questionários, entrevistas, observação e arquivos não pertencem exclusivamente a uma teoria. O vínculo metodológico aparece na pergunta, nos conceitos e no modo de relacionar evidências.</p>
-      <p>Escalas precisam ser explicitadas. Uma decisão de abandonar o curso ocorre numa biografia, numa organização e num mercado de trabalho. Explicar em uma escala não elimina as demais. O problema surge quando uma conclusão individual é generalizada para a instituição ou quando uma estrutura ampla é usada para deduzir cada conduta particular.</p>
-      <p>Também importa distinguir explicação e julgamento. Constatar que uma regra aumenta previsibilidade não decide se ela é justa. Mostrar desigualdade de recursos não determina sozinho uma estratégia política. Reconstruir convicções não as torna verdadeiras. Teoria orienta análise empírica; escolhas normativas precisam ser assumidas e argumentadas.</p>
-      <p>Uma comparação produtiva termina com perguntas melhores. Quais relações se repetem? Que sentidos variam? Como regras distribuem possibilidades? Que processo histórico formou a situação? Que consequência não foi pretendida? Em vez de acumular nomes, o estudante aprende a escolher um recorte e justificar por que determinado conceito é adequado.</p>
-      <p>Esse procedimento também organiza a discordância em sala. Grupos podem propor explicações diferentes sem transformar o debate em preferência pessoal. Precisam localizar o ponto de divergência: definição do conceito, seleção das evidências, mecanismo causal, escala ou julgamento normativo. A discordância então produz uma agenda de investigação.</p>
-    </div>
-
-    <div class="base-subsection" id="articular-limitar"><h3>8. Articular sem misturar</h3>
-      <p>É possível articular abordagens quando o problema exige dimensões distintas. Uma pesquisa pode comparar taxas de abandono, examinar condições de trabalho e entrevistar estudantes. Isso não cria automaticamente uma síntese entre Durkheim, Marx e Weber. O pesquisador deve dizer qual conceito organiza cada etapa, como os resultados se relacionam e onde pressupostos permanecem diferentes.</p>
-      <p>A comparação também revela ausências. Os clássicos escreveram em sociedades marcadas por colonialismo e desigualdades de gênero e raça que nem sempre receberam tratamento suficiente em suas obras. Mobilizá-los hoje exige perguntar o que seus conceitos iluminam e o que demanda outras tradições. Reconhecer limite não invalida uma ferramenta; impede sua universalização indevida.</p>
-      <p>Outro cuidado é não projetar posições contemporâneas nos autores. Durkheim não é defensor de toda instituição; Marx não explica qualquer conflito como luta de classes; Weber não afirma que toda ação seja cálculo. Uma leitura rigorosa reconstrói argumentos antes de aplicá-los e identifica como interpretações posteriores ampliaram ou disputaram seu alcance.</p>
-      <p>Na prática acadêmica, essa disciplina aparece na escrita: definir o conceito, formular a pergunta, apresentar evidência, desenvolver a inferência e registrar a limitação. A atividade desta aula transforma esse caminho em uma matriz comparativa. Seu produto não será um placar, mas três hipóteses sobre o mesmo caso e uma decisão argumentada sobre possíveis articulações.</p>
-      <aside class="pause-box"><h4>Pausa 4 — limite produtivo</h4><p>Qual dimensão do caso universitário permanece pouco explicada pelas três leituras apresentadas e que nova pergunta deveria ser formulada?</p></aside>
-    </div>
-
-    <div class="base-subsection" id="sintese-comparativa"><h3>9. Síntese e passagem ao projeto</h3>
-      <p>Durkheim, Marx e Weber compartilham o esforço de explicar sociedades historicamente transformadas, mas constroem objetos diferentes. Durkheim investiga fatos sociais, integração, regulação e diferenciação; Marx analisa produção social, classe, contradição e práxis; Weber interpreta ações e explica seus efeitos em relações, ordens e processos de racionalização. Nenhuma sequência reduz um autor a uma palavra.</p>
-      <p>Comparar significa perguntar com cada perspectiva, não recitar respostas prontas. O mesmo fenômeno universitário pode revelar padrões institucionais, relações materiais e orientações de sentido. As leituras podem dialogar desde que conceitos, escalas e evidências sejam explicitados. Quando incompatibilidades aparecem, devem permanecer visíveis.</p>
-      <p>A próxima aula muda de função. Em vez de acrescentar outra teoria clássica, converterá uma inquietação em projeto de investigação: tema, recorte, pergunta, conceitos, fontes e divisão de trabalho. A comparação realizada aqui oferece um critério decisivo para o seminário: o referencial não será escolhido por afinidade pessoal com um autor, mas pela relação demonstrável entre problema, conceito e evidência.</p>
-    </div>
-  </div></section>
-
-  <section id="plano-aula"><div class="section-title">Plano de Aula com Tempo</div><div class="timeline">
-    <div class="tl-item"><span class="tl-duration">10 min</span><span class="tl-text"><strong>Retomada</strong> — Conceitos indispensáveis das Aulas 06–12 e critérios para comparar.</span></div>
-    <div class="tl-item"><span class="tl-duration">30 min</span><span class="tl-text"><strong>Exposição comparativa</strong> — Problemas, métodos e escalas nos três autores.</span></div>
-    <div class="tl-item"><span class="tl-duration">20 min</span><span class="tl-text"><strong>Leitura orientada do caso</strong> — Permanência universitária e seleção das evidências.</span></div>
-    <div class="tl-item"><span class="tl-duration">35 min</span><span class="tl-text"><strong>Oficina da matriz</strong> — Três hipóteses, limites e articulação controlada.</span></div>
-    <div class="tl-item"><span class="tl-duration">15 min</span><span class="tl-text"><strong>Socialização</strong> — Comparação das matrizes por pergunta, evidência e limite.</span></div>
-    <div class="tl-item"><span class="tl-duration">10 min</span><span class="tl-text"><strong>Síntese e transição</strong> — Do referencial comparado ao projeto do seminário.</span></div>
-  </div></section>
-
-  <section id="leituras"><div class="section-title">Textos para Leitura Prévia</div>
-    <div class="ref-card"><div class="ref-author">QUINTANEIRO, Tania; BARBOSA, Maria Ligia de Oliveira; OLIVEIRA, Márcia Gardênia Monteiro de</div><div class="ref-title"><em>Um toque de clássicos: Marx, Durkheim e Weber</em>. 2. ed. rev. ampl. Belo Horizonte: Editora UFMG, 2002.</div><div class="ref-pages">Conclusão. Sem paginação indicada nesta página.</div></div>
-    <div class="ref-card"><div class="ref-author">COHN, Gabriel</div><div class="ref-title"><em>Sociologia: para ler os clássicos</em> — Introdução.</div><div class="ref-pages">Leitura comparativa recomendada; consultar a edição disponível.</div></div>
   </section>
 
-  <section id="atividade"><div class="section-title">Atividades em Sala</div><div class="activity-card">
-    <h3>Oficina — três perguntas para um mesmo campus</h3>
-    <p><strong>Finalidade:</strong> produzir uma comparação conceitualmente controlada a partir do caso completo apresentado na subseção 6.</p>
-    <p><strong>Organização e tempo:</strong> grupos de quatro ou cinco. Leitura e distribuição de funções, 5 min; matriz, 20 min; articulação e produto, 10 min; socialização no tempo reservado pelo plano.</p>
-    <div class="material-box">
-      <h4>Matriz de trabalho</h4>
-      <div class="matrix-region" role="region" aria-label="Matriz para comparar as possibilidades durkheimiana, marxiana e weberiana" tabindex="0">
-        <table>
-          <caption>Matriz para registrar perguntas, conceitos, evidências, hipóteses e limites das três abordagens</caption>
-          <thead>
-            <tr>
-              <th scope="col">Eixo</th>
-              <th scope="col">Durkheim</th>
-              <th scope="col">Marx</th>
-              <th scope="col">Weber</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><th scope="row">Pergunta central</th><td></td><td></td><td></td></tr>
-            <tr><th scope="row">Conceitos</th><td></td><td></td><td></td></tr>
-            <tr><th scope="row">Evidência necessária</th><td></td><td></td><td></td></tr>
-            <tr><th scope="row">Hipótese</th><td></td><td></td><td></td></tr>
-            <tr><th scope="row">Limite</th><td></td><td></td><td></td></tr>
-          </tbody>
-        </table>
+  <section id="texto-base" aria-labelledby="texto-base-title">
+    <div class="section-title" id="texto-base-title">Texto-base para acompanhamento da aula</div>
+    <div class="base-text">
+      <p class="base-intro">A Aula 12 mostrou como a consciência coletiva se manifesta até em um objeto banal como o smartphone. Esta aula desloca a pergunta para outra escala: como uma sociedade formada por funções diferentes e por pessoas desconhecidas entre si permanece unida?</p>
+
+      <div class="base-subsection" id="a13-rede-interdependencias">
+        <h3>1. Uma manhã sustentada por desconhecidos</h3>
+        <p>Uma pessoa acorda, acende a luz, abre a torneira, consulta mensagens, prepara o café e se desloca para estudar ou trabalhar. A sequência parece composta de atos individuais. No entanto, cada gesto depende de uma rede que quase nunca aparece inteira diante de quem a utiliza. A eletricidade exige geração, transmissão, manutenção e regulação; a água passa por captação, tratamento, distribuição e controle sanitário; o alimento liga trabalho rural, transporte, armazenamento, comércio e fiscalização; a mensagem percorre aparelhos, redes, programas, centros de dados e regras de telecomunicação. Antes de chegar à sala, essa pessoa já dependeu do trabalho coordenado de milhares de desconhecidos.</p>
+        <p>A rede continua na saúde, na comunicação e na educação. Uma consulta médica envolve recepção, prontuário, enfermagem, laboratório, farmácia, limpeza, transporte de insumos e formação profissional. Uma escola depende de docentes, estudantes, famílias, gestão, merenda, manutenção, políticas públicas e materiais produzidos em outros lugares. Nenhum participante domina sozinho o conjunto. O motorista não precisa conhecer quem refinou o combustível; a professora não precisa conhecer quem manteve o servidor que armazena um documento; a agricultora não precisa conhecer quem consumirá seu produto. Mesmo assim, as atividades precisam encaixar-se com alguma regularidade.</p>
+        <p>É esse fato que permite formular o problema central da aula: <strong>como uma sociedade formada por pessoas diferentes, especializadas e muitas vezes desconhecidas permanece ligada?</strong> Dizer apenas que todos “precisam uns dos outros” ainda não explica o vínculo. É necessário perguntar como as funções são distribuídas, que normas coordenam expectativas, o que acontece quando uma parte falha e por que certas posições recebem mais reconhecimento, autonomia e recompensa do que outras. Para Durkheim, a divisão do trabalho interessa porque transforma a estrutura das relações sociais e pode criar uma forma específica de solidariedade.</p>
+        <p>A palavra <strong>solidariedade</strong>, aqui, não significa somente generosidade, amizade ou ajuda voluntária. Ela designa os vínculos que fazem os membros de uma sociedade dependerem de uma vida coletiva relativamente estável. Uma sociedade pode ser solidária nesse sentido analítico mesmo contendo desacordos e desigualdades. A pergunta sociológica não é se todos se tratam bem, mas que relações tornam possível agir em conjunto e reconhecer obrigações recíprocas.</p>
+        <p>Esse significado evita uma confusão importante: cooperação objetiva e sentimento de proximidade não são a mesma coisa. Podemos depender intensamente de pessoas que nunca veremos e sentir grande proximidade de pessoas cujas atividades pouco se complementam. A teoria procura explicar o primeiro vínculo sem negar a existência do segundo.</p>
+        <aside class="pause-box"><h4>Pausa para discussão</h4><p>Escolha um objeto usado hoje — alimento, ônibus, celular, caderno ou medicamento. Quantas funções sociais diferentes precisam cooperar para que ele chegue até você? O que aconteceria se uma dessas funções deixasse de operar?</p></aside>
+      </div>
+
+      <div class="base-subsection" id="a13-problema-solidariedade">
+        <h3>2. Da divisão de tarefas ao problema da solidariedade</h3>
+        <p>A divisão de tarefas não nasceu com a fábrica moderna. Famílias, comunidades, ofícios e administrações antigas já distribuíam atividades por idade, gênero, posição, aprendizagem ou pertencimento. A transformação observada por Durkheim no século XIX foi de escala e intensidade: crescimento populacional, concentração urbana, ampliação dos mercados, expansão das comunicações e multiplicação das profissões aumentavam os contatos e a especialização. O mesmo processo que distinguia os indivíduos tornava cada um menos autossuficiente.</p>
+        <p>Uma leitura exclusivamente econômica perguntaria quanto a especialização eleva a produtividade. Durkheim desloca a questão: qual é a <strong>função moral</strong> da divisão social do trabalho? “Moral” não indica sermão ou virtude pessoal. Refere-se à constituição de regras, deveres e compromissos que ligam pessoas e grupos. Quando um profissional reconhece deveres diante de colegas e usuários, quando contratos definem expectativas e quando instituições organizam responsabilidades, a especialização deixa de ser simples separação técnica e passa a estruturar relações sociais.</p>
+        <p>Esse argumento dá continuidade ao percurso iniciado com o conceito de fato social. Se os fatos sociais são externos, gerais e dotados de força coercitiva, a divisão do trabalho também precisa ser observada como realidade coletiva. Uma pessoa escolhe uma profissão, mas encontra um sistema de ocupações, diplomas, hierarquias, salários e normas já organizado. A escolha é real, porém não ocorre no vazio. Ao mesmo tempo, pessoas e grupos podem negociar, contestar e transformar esse sistema. A teoria não exige imaginar indivíduos passivos; exige localizar suas ações dentro de condições sociais.</p>
+        <p>A <strong>função</strong> de um fenômeno não deve ser confundida com sua origem nem com sua justificação. Dizer que a divisão do trabalho pode produzir solidariedade não significa que toda divisão existente tenha sido criada com essa finalidade, nem que toda hierarquia profissional seja justa. A análise funcional procura saber que necessidade da vida coletiva um fenômeno atende em determinadas condições. Depois ainda é preciso investigar como surgiu, quem se beneficia e se opera de modo normal ou patológico.</p>
+      </div>
+
+      <div class="base-subsection" id="a13-solidariedade-mecanica">
+        <h3>3. Semelhança, consciência coletiva e solidariedade mecânica</h3>
+        <p>Durkheim chama de <strong>solidariedade mecânica</strong> o vínculo apoiado sobretudo na semelhança entre membros do grupo. Pessoas que compartilham crenças, práticas, ritmos de vida e representações comuns reconhecem-se como partes de um mesmo conjunto. O adjetivo “mecânica” não quer dizer artificial ou produzida por máquinas. Ele indica uma ligação relativamente direta entre indivíduo e coletividade: a coesão decorre do que as pessoas têm em comum.</p>
+        <p>Nessa configuração, a <strong>consciência coletiva</strong> ocupa ampla porção da vida social. As crenças e sentimentos compartilhados estabelecem limites fortes para comportamentos considerados aceitáveis. Uma ofensa a um símbolo sagrado, a uma tradição central ou à honra do grupo pode ser percebida como agressão contra todos, não apenas contra uma vítima particular. A reação coletiva reafirma a fronteira moral da comunidade.</p>
+        <p>É tentador transformar esse tipo em retrato de sociedades “atrasadas”, mas isso produz dois erros. Primeiro, reduz uma ferramenta comparativa a uma escala de superioridade. Segundo, impede reconhecer vínculos por semelhança dentro de sociedades altamente diferenciadas. Torcidas, comunidades religiosas, corporações profissionais, movimentos políticos e grupos nacionais podem mobilizar símbolos, rituais e sentimentos comuns intensos. Uma cerimônia pública, um luto coletivo ou a defesa de valores constitucionais mostra que a semelhança moral não desaparece com a especialização.</p>
+        <p>Também seria incorreto imaginar unanimidade completa. Toda coletividade contém divergências, e nenhuma consciência coletiva absorve integralmente as consciências individuais. O conceito destaca o peso relativo do comum. Quanto mais extensa e intensa é a esfera compartilhada, maior tende a ser a pressão para conformidade e mais grave pode parecer a violação de suas regras centrais.</p>
+        <aside class="pause-box"><h4>Pausa para discussão</h4><p>Em uma universidade ou escola, quais símbolos, rituais ou regras produzem pertencimento por semelhança? Eles incluem todas as pessoas da mesma maneira ou também criam fronteiras e exclusões?</p></aside>
+      </div>
+
+      <div class="base-subsection" id="a13-solidariedade-organica">
+        <h3>4. Diferenciação, interdependência e solidariedade orgânica</h3>
+        <p>A <strong>solidariedade orgânica</strong> nasce principalmente da diferenciação das funções. A comparação com um organismo sugere partes distintas que só operam porque se relacionam, mas deve ser usada com cautela: sociedades não possuem uma única vontade biológica, e seus membros interpretam regras, disputam posições e podem reorganizar instituições. O ponto da analogia é a interdependência, não a identidade entre sociedade e corpo.</p>
+        <p>Retomemos a equipe de saúde. Médica, enfermeiro, técnica de laboratório, agente comunitária, farmacêutico e profissional de limpeza realizam tarefas diferentes. A diferença não precisa separá-los; pode produzir cooperação porque nenhum substitui inteiramente os demais. O vínculo não repousa em todos pensarem ou trabalharem do mesmo modo, mas na coordenação de competências complementares. Quanto mais especializada a atividade, mais cada participante depende de circuitos que não controla sozinho.</p>
+        <p>A especialização amplia espaço para individualidade. Trajetórias, opiniões e estilos de vida tornam-se mais variados porque a consciência coletiva já não regula todos os detalhes com a mesma intensidade. Isso não significa ausência de normas. Ao contrário, contratos, códigos profissionais, direitos, procedimentos e instituições tornam-se essenciais para coordenar diferenças. A autonomia moderna é relacional: uma pessoa pode construir uma vida singular porque outras cumprem funções das quais ela depende e porque existem regras que estabilizam expectativas.</p>
+        <p>Interdependência, porém, não equivale automaticamente a igualdade. Uma rede pode depender de trabalhadores cuja contribuição é pouco reconhecida, mal remunerada ou submetida a riscos. Durante uma paralisação de transporte ou de limpeza, atividades tornadas invisíveis revelam sua centralidade. O conceito permite enxergar a dependência recíproca; não obriga a aprovar a distribuição existente de poder e recompensa. Durkheim estava preocupado justamente com as condições morais necessárias para que a diferenciação produzisse cooperação, e não apenas competição desordenada.</p>
+        <p>A oposição entre mecânico e orgânico, portanto, não é entre “ruim” e “bom”. Cada tipo destaca uma base predominante da coesão. A solidariedade por diferenciação oferece possibilidades de autonomia e cooperação ampliada, mas também é vulnerável a rupturas de coordenação. A solidariedade por semelhança pode sustentar confiança e pertencimento, mas também pressionar dissidentes. Avaliar casos reais requer examinar combinações, efeitos e condições.</p>
+        <p>Essa distinção entre semelhança e diferenciação ainda não diz como observar o vínculo social de fora. A Aula 14 mostra que Durkheim recorre ao direito como indicador empírico da solidariedade e examina o que ocorre quando a divisão do trabalho deixa de produzir coesão.</p>
       </div>
     </div>
-    <h4>Perguntas de análise</h4><ol><li>Qual problema cada autor permite formular?</li><li>Que dois conceitos sustentam cada hipótese?</li><li>Que evidência poderia fortalecer ou enfraquecer cada hipótese?</li><li>Em que escala cada explicação opera?</li><li>Que aspecto o respectivo enquadramento deixa em segundo plano?</li><li>Duas abordagens podem ser articuladas neste caso? Sob quais condições?</li><li>Que combinação seria apenas mistura de vocabulários?</li></ol>
-    <p><strong>Produto esperado:</strong> matriz preenchida e uma conclusão de até cinco frases que apresente a articulação escolhida e um limite. Na socialização, cada grupo dispõe de dois minutos e deve apresentar uma diferença de pergunta, uma evidência decisiva e um limite.</p>
-    <details class="teacher-guidance">
-      <summary>Possibilidades comentadas e orientações de mediação — uso do professor</summary>
-      <div class="teacher-guidance-content">
-        <h4>A. Possibilidade durkheimiana</h4>
-        <p><strong>Pergunta possível:</strong> como variam os padrões de abandono entre cursos e turnos, e como essas variações se relacionam com formas de integração e regulação acadêmica?</p>
-        <p><strong>Conceitos possíveis:</strong> fato social, coerção, integração, regulação, anomia e solidariedade. O grupo não precisa empregar todos; deve selecionar os que efetivamente organizam sua hipótese.</p>
-        <p><strong>Evidências pertinentes:</strong> taxas de abandono por curso e turno, regras acadêmicas, registros de frequência, participação em atividades coletivas e funcionamento dos serviços de apoio.</p>
-        <p><strong>Hipótese didática possível:</strong> incompatibilidades entre as regras acadêmicas, as rotinas dos estudantes trabalhadores e vínculos coletivos frágeis podem contribuir para padrões mais altos de interrupção em certos turnos. A comparação entre grupos e períodos seria necessária para testar a hipótese.</p>
-        <p><strong>Limite:</strong> integração não é sinônimo de harmonia ou justiça. Padrões coletivos tornam visíveis regularidades institucionais, mas não explicam sozinhos todos os sentidos atribuídos por estudantes à permanência ou à saída.</p>
+  </section>
 
-        <h4>B. Possibilidade marxiana</h4>
-        <p><strong>Pergunta possível:</strong> como trabalho, renda, transporte, responsabilidades de cuidado e distribuição de recursos universitários condicionam as possibilidades de permanecer no curso?</p>
-        <p><strong>Conceitos possíveis:</strong> relações sociais de produção, força de trabalho, classe, contradição, reprodução e mercantilização.</p>
-        <p><strong>Evidências pertinentes:</strong> jornadas e contratos de trabalho, orçamento e critérios da assistência estudantil, custos de transporte e alimentação, contratos de serviços e distribuição material dos recursos entre turnos e unidades.</p>
-        <p><strong>Hipótese didática possível:</strong> a universidade amplia formalmente o acesso, mas sua organização pode pressupor tempo, renda e disponibilidade desigualmente distribuídos, produzindo uma contradição entre ingresso e condições efetivas de permanência.</p>
-        <p><strong>Limite:</strong> posição de classe não determina automaticamente cada decisão individual. “Conflito” não deve ser usado como sinônimo genérico de dificuldade, divergência ou falha administrativa; é preciso demonstrar relações, posições e mecanismos.</p>
-
-        <h4>C. Possibilidade weberiana</h4>
-        <p><strong>Pergunta possível:</strong> que sentidos estudantes atribuem ao diploma, ao trabalho, à permanência e à interrupção do curso, e como os procedimentos administrativos dos auxílios orientam suas ações?</p>
-        <p><strong>Conceitos possíveis:</strong> ação social, tipos ideais, racionalização, burocracia, dominação racional-legal e legitimidade.</p>
-        <p><strong>Evidências pertinentes:</strong> entrevistas e declarações, regulamentos, registros do sistema, recursos administrativos e observação das interações entre estudantes e setores responsáveis.</p>
-        <p><strong>Hipótese didática possível:</strong> estudantes podem combinar compromisso profissional, cálculo de custos e expectativas familiares, enquanto procedimentos burocráticos ampliam previsibilidade para alguns e criam barreiras para quem não domina prazos, documentos ou sistemas.</p>
-        <p><strong>Limite:</strong> motivos declarados não constituem causas suficientes. Devem ser reconstruídos analiticamente e confrontados com condições institucionais e materiais, além dos efeitos não pretendidos das ações e dos procedimentos.</p>
-
-        <h4>D. Articulação controlada</h4>
-        <p>Uma articulação justificável pode localizar padrões coletivos com ferramentas durkheimianas, examinar condições materiais e relações de classe com Marx e reconstruir sentidos e procedimentos burocráticos com Weber. Isso não produz automaticamente uma teoria única.</p>
-        <p>O grupo deve indicar qual conceito orienta cada etapa, manter visíveis diferenças de escala e método, mostrar como cada evidência se relaciona com a hipótese correspondente e registrar incompatibilidades e limites.</p>
-        <p><strong>Misturas indevidas:</strong> chamar qualquer dificuldade de “anomia, exploração e racionalização” sem demonstrar os respectivos mecanismos; ou reduzir teorias inteiras a uma palavra, como “Durkheim = coesão”, “Marx = conflito” e “Weber = indivíduo”. Justapor vocabulários não substitui uma articulação argumentada.</p>
-
-        <h4>E. Orientações para a mediação</h4>
-        <ul>
-          <li>Peça que cada grupo formule perguntas antes de apresentar respostas.</li>
-          <li>Exija dois conceitos e evidências correspondentes para cada hipótese.</li>
-          <li>Solicite uma evidência que poderia enfraquecer a hipótese apresentada.</li>
-          <li>Impeça que associação estatística seja apresentada automaticamente como causa.</li>
-          <li>Distinga explicação sociológica de julgamento moral.</li>
-          <li>Aceite articulações alternativas quando forem conceitualmente justificadas.</li>
-          <li>Use o limite reconhecido pelo próprio grupo como critério de qualidade analítica.</li>
-          <li>Evite transformar a socialização numa escolha do “melhor autor”. Compare a qualidade das perguntas, evidências e inferências.</li>
-        </ul>
+  <section id="plano-aula">
+    <div class="section-title">Plano de Aula com Tempo</div>
+    <div class="timeline">
+      <div class="tl-item">
+        <span class="tl-duration">10 min</span>
+        <span class="tl-text"><strong>Retomada e apresentação do problema</strong> — Ponte com a consciência coletiva (Aula 12) e formulação da pergunta central: como uma sociedade de funções diferentes e pessoas desconhecidas permanece unida?</span>
       </div>
-    </details>
-  </div></section>
+      <div class="tl-item">
+        <span class="tl-duration">25 min</span>
+        <span class="tl-text"><strong>Exposição: os dois tipos de solidariedade</strong> — Apresentação sistemática da solidariedade mecânica e orgânica, com os exemplos da rede de interdependências e da equipe de saúde.</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-duration">15 min</span>
+        <span class="tl-text"><strong>Leitura dialogada</strong> — Leitura orientada das subseções 3 e 4 do texto-base, com pausas para discussão em voz alta sobre pertencimento e interdependência.</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-duration">10 min</span>
+        <span class="tl-text"><strong>Síntese e fechamento</strong> — Retomada da oposição entre mecânico e orgânico como dois mecanismos de coesão, sem hierarquia de valor entre eles. Indicação do problema da Aula 14: como observar esse vínculo na prática.</span>
+      </div>
+    </div>
+  </section>
 
-  <section id="recursos"><div class="section-title">Recursos Necessários</div><div class="resources-list"><span class="res-tag">Caso e matriz disponíveis nesta página</span><span class="res-tag">Folhas A4</span><span class="res-tag">Canetas</span><span class="res-tag">Quadro</span><span class="res-tag">Projetor opcional</span></div></section>
+  <section id="leituras">
+    <div class="section-title">Textos para Leitura Prévia</div>
+    <div class="ref-card">
+      <div class="ref-author">DURKHEIM, Émile</div>
+      <div class="ref-title">Da divisão do trabalho social. Prefácio da 1ª edição e Livro I, Cap. 1</div>
+      <div class="ref-pages">Consultar a seção indicada na edição disponível; a paginação varia por edição.</div>
+    </div>
+  </section>
+
+  <section id="atividade">
+    <div class="section-title">Atividade / Ponte para a Aula 14</div>
+    <div class="activity-card" data-gabarito="dispensado">
+      <strong>Registro breve — mapeando um vínculo</strong><br><br>
+      Pense em uma atividade cotidiana, como se alimentar, se deslocar ou se comunicar. Liste três funções sociais desconhecidas entre si que precisam cooperar para que essa atividade aconteça. Depois, classifique o vínculo predominante entre elas: semelhança de crenças e práticas, ou diferenciação de funções especializadas? Guarde essa análise, porque a Aula 14 vai pedir um indicador mais preciso desse vínculo, o direito.
+    </div>
+  </section>
+
+  <section id="recursos">
+    <div class="section-title">Recursos Necessários</div>
+    <div class="resources-list">
+      <span class="res-tag">Projetor</span>
+      <span class="res-tag">Texto impresso</span>
+      <span class="res-tag">Quadro branco</span>
+      <span class="res-tag">Caneta para quadro</span>
+    </div>
+  </section>
+
 </main>
+
 <footer>
-  <a href="/introducao-sociologia/">← Página principal</a>
+  <a href="../../index.html">← Voltar ao curso</a>
   <span style="margin: 0 12px; color: var(--border);">|</span>
   <span>Introdução à Sociologia — 2026.2</span>
 </footer>
+
 </body>
 </html>

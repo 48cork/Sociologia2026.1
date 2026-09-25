@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Aula 31 — Etnocentrismo e relativização cultural · 2026.2</title><style>
+  :root {
+    --bg: #0a0a0f; --surface: #12121c; --card: #1a1a2e; --border: #2a2a4a;
+    --purple: #7c3aed; --purple-lt: #a855f7; --blue: #4f46e5; --blue-lt: #818cf8;
+    --teal-lt: #2dd4bf; --amber-lt: #fbbf24; --rose-lt: #fb7185;
+    --text: #e2e8f0; --muted: #94a3b8; --radius: 12px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { max-width: 100%; overflow-x: clip; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; min-height: 100vh; overflow-wrap: anywhere; }
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(18,18,28,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; white-space: nowrap; }
+  nav a:hover { color: var(--text); }
+  .nav-left { display: flex; align-items: center; gap: 10px; }
+  .nav-badge { background: var(--purple); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+  .nav-center { font-size: 0.875rem; color: var(--muted); }
+  .nav-right { display: flex; gap: 16px; align-items: center; }
+  main { max-width: 860px; margin: 0 auto; padding: 40px 24px 80px; }
+  .aula-header { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; margin-bottom: 32px; border-top: 4px solid var(--blue); }
+  .header-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; align-items: center; }
+  .bloco-badge { background: var(--blue); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .meta-chip { background: var(--surface); border: 1px solid var(--border); font-size: 0.8rem; color: var(--muted); padding: 4px 12px; border-radius: 20px; }
+  .meta-chip strong { color: var(--text); }
+  .aula-header h1 { font-size: 1.5rem; font-weight: 700; line-height: 1.3; color: var(--text); }
+  section { margin-bottom: 32px; scroll-margin-top: 112px; }
+  .section-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue-lt); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+  .obj-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .obj-list li { display: flex; gap: 12px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
+  .obj-list li::before { content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--blue-lt); margin-top: 7px; flex-shrink: 0; }
+  .content-topic { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 12px; }
+  .content-topic h3 { font-size: 0.95rem; font-weight: 600; color: var(--purple-lt); margin-bottom: 8px; }
+  .content-topic ul { list-style: none; padding: 0; }
+  .content-topic ul li { padding: 4px 0 4px 16px; position: relative; color: var(--muted); font-size: 0.9rem; }
+  .content-topic ul li::before { content: '—'; position: absolute; left: 0; color: var(--border); }
+  .timeline { display: flex; flex-direction: column; gap: 10px; }
+  .tl-item { display: flex; gap: 16px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; border-left: 3px solid var(--blue); }
+  .tl-duration { background: var(--surface); border: 1px solid var(--border); color: var(--amber-lt); font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+  .tl-text { font-size: 0.9rem; color: var(--text); }
+  .ref-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 10px; border-left: 3px solid var(--blue-lt); }
+  .ref-author { font-size: 0.8rem; font-weight: 700; color: var(--blue-lt); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+  .ref-title { font-size: 0.9rem; color: var(--text); }
+  .ref-pages { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
+  .activity-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; font-size: 0.9rem; line-height: 1.7; border-left: 3px solid var(--teal-lt); }
+  .teacher-guidance { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-top: 18px; }
+  .teacher-guidance summary { cursor: pointer; color: var(--amber-lt); font-weight: 700; padding: 15px 17px; }
+  .teacher-guidance[open] summary { border-bottom: 1px solid var(--border); }
+  .teacher-guidance-content { padding: 16px 18px; }
+  .resources-list { display: flex; flex-wrap: wrap; gap: 10px; }
+  .res-tag { max-width: 100%; min-width: 0; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; }
+  footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--muted); font-size: 0.85rem; }
+  footer a { color: var(--purple-lt); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .section-nav { position: sticky; top: 56px; z-index: 90; background: rgba(10,10,15,.97); border-bottom: 1px solid var(--border); padding: 8px 16px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: thin; }
+  .section-nav a { flex: 0 0 auto; min-height: 36px; display: inline-flex; align-items: center; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 5px 12px; text-decoration: none; font-size: .8rem; }
+  .base-text { max-width: 72ch; margin-inline: auto; }
+  .base-intro { color: var(--muted); font-size: .92rem; margin-bottom: 16px; }
+  .base-subsection { scroll-margin-top: 112px; margin-bottom: 28px; }
+  .base-subsection h3 { color: var(--blue-lt); font-size: 1.15rem; line-height: 1.35; margin-bottom: 12px; }
+  .base-subsection p { color: var(--text); margin-bottom: 14px; line-height: 1.78; }
+  .base-subsection strong { color: #f1f5f9; }
+  .pause-box { background: rgba(79,70,229,.1); border: 1px solid rgba(129,140,248,.4); border-left: 4px solid var(--blue-lt); border-radius: var(--radius); padding: 16px 18px; margin: 22px 0; }
+  .pause-box h4 { color: var(--amber-lt); font-size: .75rem; letter-spacing: .09em; text-transform: uppercase; margin-bottom: 6px; }
+  .pause-box p { margin: 0; color: var(--text); font-weight: 600; line-height: 1.6; }
+  a:focus-visible { outline: 3px solid var(--amber-lt); outline-offset: 3px; border-radius: 3px; }
+  @media (max-width: 640px) {
+    nav { height: auto; min-height: 56px; padding: 8px 12px; flex-wrap: wrap; }
+    .nav-left, .nav-right { min-width: 0; }
+    .nav-center { display: none; }
+    .nav-right { gap: 10px; }
+    .section-nav { top: 72px; padding-inline: 10px; }
+    main { padding: 24px 14px 60px; }
+    .aula-header { padding: 22px 18px; }
+    .tl-item { flex-direction: column; gap: 8px; }
+  }
+  @media print { .teacher-guidance { break-inside: avoid; } }
+
+
+  :root {
+    --bg: #0a0a0f;
+    --surface: #12121c;
+    --card: #1a1a2e;
+    --border: #2a2a4a;
+    --purple: #7c3aed;
+    --purple-lt: #a855f7;
+    --blue: #4f46e5;
+    --blue-lt: #818cf8;
+    --teal-lt: #2dd4bf;
+    --amber-lt: #fbbf24;
+    --rose-lt: #fb7185;
+    --sky: #38bdf8;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --radius: 12px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
+
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(18,18,28,0.95); backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px; height: 56px;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  }
+  nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; white-space: nowrap; }
+  nav a:hover { color: var(--text); }
+  .nav-left { display: flex; align-items: center; gap: 10px; }
+  .nav-badge { background: var(--sky); color: #0a0a0f; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+  .nav-center { font-size: 0.875rem; color: var(--muted); }
+  .nav-right { display: flex; gap: 16px; align-items: center; }
+
+  main { max-width: 860px; margin: 0 auto; padding: 40px 24px 80px; }
+
+  .aula-header {
+    background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 32px; margin-bottom: 32px;
+    border-top: 4px solid var(--sky);
+  }
+  .header-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; align-items: center; }
+  .bloco-badge { background: var(--sky); color: #0a0a0f; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .meta-chip { background: var(--surface); border: 1px solid var(--border); font-size: 0.8rem; color: var(--muted); padding: 4px 12px; border-radius: 20px; }
+  .aula-header h1 { font-size: 1.5rem; font-weight: 700; line-height: 1.3; color: var(--text); }
+
+  section { margin-bottom: 32px; }
+  .section-title {
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--sky); margin-bottom: 16px; padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; margin-bottom: 12px; }
+
+  .obj-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .obj-list li { display: flex; gap: 12px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
+  .obj-list li::before { content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--sky); margin-top: 7px; flex-shrink: 0; }
+
+  .content-topic { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 12px; }
+  .content-topic h3 { font-size: 0.95rem; font-weight: 600; color: var(--sky); margin-bottom: 8px; }
+  .content-topic ul { list-style: none; padding: 0; }
+  .content-topic ul li { padding: 4px 0 4px 16px; position: relative; color: var(--muted); font-size: 0.9rem; }
+  .content-topic ul li::before { content: '—'; position: absolute; left: 0; color: var(--border); }
+
+  .timeline { display: flex; flex-direction: column; gap: 10px; }
+  .tl-item { display: flex; gap: 16px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; border-left: 3px solid var(--sky); }
+  .tl-duration { background: var(--surface); border: 1px solid var(--border); color: var(--amber-lt); font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+  .tl-text { font-size: 0.9rem; color: var(--text); }
+
+  .ref-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 10px; border-left: 3px solid var(--blue-lt); }
+  .ref-author { font-size: 0.8rem; font-weight: 700; color: var(--blue-lt); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+  .ref-title { font-size: 0.9rem; color: var(--text); }
+  .activity-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; font-size: 0.9rem; line-height: 1.7; border-left: 3px solid var(--teal-lt); }
+
+  .resources-list { display: flex; flex-wrap: wrap; gap: 10px; }
+  .res-tag { background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; }
+
+  footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--muted); font-size: 0.85rem; }
+  footer a { color: var(--sky); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  html, body { max-width: 100%; overflow-x: clip; }
+  body { overflow-wrap: anywhere; }
+  section { scroll-margin-top: 112px; }
+  .section-nav { position: sticky; top: 56px; z-index: 90; background: rgba(10,10,15,.97); border-bottom: 1px solid var(--border); padding: 8px 16px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: thin; }
+  .section-nav a { flex: 0 0 auto; min-height: 36px; display: inline-flex; align-items: center; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 5px 12px; text-decoration: none; font-size: .8rem; }
+  .base-text { max-width: 72ch; margin-inline: auto; }
+  .base-intro { color: var(--muted); font-size: .92rem; margin-bottom: 16px; }
+  .base-toc { position: static; height: auto; display: block; max-width: 100%; overflow: clip; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; margin-bottom: 28px; }
+  .base-toc h3 { color: var(--bloco-lt, var(--purple-lt)); font-size: .95rem; margin-bottom: 10px; }
+  .base-toc ol { width: 100%; max-width: 100%; padding-left: 22px; columns: 2; column-gap: 32px; }
+  .base-toc li { break-inside: avoid; margin: 5px 0; }
+  .base-toc a { color: var(--text); text-decoration-thickness: 1px; text-underline-offset: 3px; white-space: normal; }
+  .base-subsection { scroll-margin-top: 112px; margin-bottom: 28px; }
+  .base-subsection h3 { color: var(--bloco-lt, var(--purple-lt)); font-size: 1.15rem; line-height: 1.35; margin-bottom: 12px; }
+  .base-subsection p { color: var(--text); margin-bottom: 14px; line-height: 1.78; }
+  .base-subsection strong { color: #f1f5f9; }
+  .pause-box { background: rgba(79,70,229,.1); border: 1px solid rgba(129,140,248,.4); border-left: 4px solid var(--bloco-lt, var(--purple-lt)); border-radius: var(--radius); padding: 16px 18px; margin: 22px 0; }
+  .pause-box h4 { color: var(--amber-lt); font-size: .75rem; letter-spacing: .09em; text-transform: uppercase; margin-bottom: 6px; }
+  .pause-box p { margin: 0; color: var(--text); font-weight: 600; line-height: 1.6; }
+  .legacy-note { border: 1px solid var(--amber-lt); background: rgba(251,191,36,.08); border-radius: var(--radius); padding: 16px 18px; margin: 0 0 24px; }
+  .res-tag { max-width: 100%; min-width: 0; }
+  a:focus-visible { outline: 3px solid var(--amber-lt); outline-offset: 3px; border-radius: 3px; }
+  @media (max-width: 640px) {
+    nav { height: auto; min-height: 56px; padding: 8px 12px; flex-wrap: wrap; }
+    .nav-left, .nav-right { min-width: 0; }
+    .nav-center { display: none; }
+    .nav-right { gap: 10px; }
+    .section-nav { top: 72px; padding-inline: 10px; }
+    main { padding: 24px 14px 60px; }
+    .aula-header { padding: 22px 18px; }
+    .base-toc ol { width: auto; columns: auto; padding-left: 0; list-style-position: inside; }
+    .tl-item { flex-direction: column; gap: 8px; }
+  }
+  .activity-card h3 { color: var(--teal-lt); font-size: 1.05rem; margin: 0 0 12px; }
+  .activity-card h4 { color: var(--amber-lt); margin: 18px 0 8px; }
+  .activity-card ol, .activity-card ul { padding-left: 22px; margin: 10px 0; }
+  .activity-card li { margin: 7px 0; }
+  .case-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 16px 0; }
+  .case-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
+  .case-card h4 { margin: 0 0 6px; }
+  .question-list, .criteria-list { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px 14px 40px; }
+  .teacher-guidance { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-top: 18px; }
+  .teacher-guidance summary { cursor: pointer; color: var(--amber-lt); font-weight: 700; padding: 15px 17px; }
+  .teacher-guidance[open] summary { border-bottom: 1px solid var(--border); }
+  .teacher-guidance-content { padding: 16px 18px; }
+  .teacher-guidance-content h4 { color: var(--teal-lt); }
+  @media (max-width: 640px) { .case-grid { grid-template-columns: 1fr; } }
+  @media print {
+    nav, .section-nav { position: static; }
+    .case-card, .teacher-guidance, .tl-item, .ref-card { break-inside: avoid; }
+    .teacher-guidance > .teacher-guidance-content { display: block !important; }
+  }
+
+body {max-width:100%; overflow-x:hidden; overflow-wrap:anywhere;} main{max-width:960px;margin:auto} .base-text{max-width:72ch} .base-subsection{margin-bottom:24px} table{width:100%;border-collapse:collapse}th,td{padding:8px;border:1px solid var(--border);overflow-wrap:anywhere} .table-wrap,.table-region{overflow-x:auto;max-width:100%} .teacher-guidance{margin-top:20px;padding:16px;border:1px solid var(--border)} summary{cursor:pointer;font-weight:bold} .skip{position:absolute;left:-9999px}.skip:focus{left:12px;top:12px;z-index:300;background:var(--bg);padding:10px} a{overflow-wrap:anywhere} @media(max-width:640px){nav{position:static;flex-wrap:wrap;height:auto;padding:12px}.nav-center{display:none}.section-nav{position:static;flex-wrap:wrap}main{padding:20px 14px}.tl-item{flex-direction:column}.aula-header{padding:20px 14px}} @media print{nav,.section-nav,.skip{display:none!important}body,main,section,.aula-header,.activity-card,.pause-box,details{background:white!important;color:black!important}*{color:inherit!important;text-shadow:none!important;box-shadow:none!important}main{max-width:none;padding:0}.base-text{max-width:none}h1,h2,h3,summary{break-after:avoid}p{orphans:3;widows:3}table{font-size:9pt}.teacher-guidance{break-inside:auto}}
+</style></head><body>
+<a class="skip" href="#objetivos">Pular para o conteúdo</a>
+<nav aria-label="Navegação entre aulas"><div class="nav-left"><a href="../../index.html">Voltar ao curso</a></div><span class="nav-center">Encontro 08 de 15 · Aula 31 de 60</span><div class="nav-right"><a href="aula-30.html">← Aula anterior</a><a href="aula-32.html">Próxima aula →</a></div></nav>
+<div class="section-nav" aria-label="Seções"><a href="#objetivos">Objetivos</a><a href="#texto-base">Texto-base</a><a href="#plano-aula">Plano</a><a href="#atividade">Discussão</a><a href="#sintese">Síntese</a><a href="#leituras">Referências</a></div>
+<main><header class="aula-header"><div class="header-meta"><span class="meta-chip">Encontro <strong>08</strong> de 15 — 28/10/2026, quarta-feira</span><span class="meta-chip">Aula <strong>31</strong> de 60</span><span class="meta-chip">3ª aula do encontro</span><span class="meta-chip">Aproximadamente 1 hora-aula</span></div><h1>Etnocentrismo e relativização cultural</h1><p>Introdução à Sociologia · T01 · 2026.2 · Código 2101000 · SIGAA 4M1234</p></header>
+<section id="objetivos"><h2>Objetivos</h2><ul class="obj-list"><li>Definir etnocentrismo como ponto de vista social.</li><li>Reconstruir sentidos antes de formular avaliação.</li><li>Distinguir compreensão e aprovação.</li></ul></section>
+<section id="texto-base" aria-labelledby="texto-base-title"><h2 id="texto-base-title">Texto-base</h2><div class="base-text"><p class="base-intro">Quando uma prática parece estranha, estamos descrevendo seu funcionamento ou usando nossos hábitos como medida universal?</p><div class="base-subsection" id="a31-conceito-1"><h3>1. Da diferença ao julgamento</h3>
+<p>Perceber diferenças é parte da vida social. Numa universidade, pessoas encontram sotaques, alimentos, roupas, músicas, crenças e maneiras de ocupar espaços que não coincidem com os repertórios aprendidos em suas famílias e trajetórias. A diferença observada, porém, não traz uma avaliação pronta. Dizer que alguém pronuncia uma palavra de outro modo descreve um contraste; concluir que fala “errado” mobiliza um padrão e uma hierarquia.</p>
+<p>Para analisar essa passagem, é preciso separar três operações. A <strong>descrição empírica</strong> registra o que pode ser observado ou documentado. A <strong>explicação contextual</strong> investiga sentidos, trajetórias, regras e condições. A <strong>posição normativa</strong> avalia o que deveria ocorrer e apresenta razões. Misturá-las faz uma preferência parecer fato ou transforma uma explicação em desculpa.</p>
+<aside class="pause-box"><h4>Pausa 1 — julgamento de uma prática cotidiana</h4><p>Uma comida levada a um espaço coletivo recebe o comentário “isso não combina com este lugar”. O que foi observado e qual padrão converteu a diferença em julgamento?</p></aside>
+</div><div class="base-subsection" id="a31-conceito-2"><h3>2. Etnocentrismo como ponto de vista social</h3>
+<p><strong>Etnocentrismo é o julgamento de outras práticas pela centralidade dos próprios padrões culturais.</strong> O familiar funciona como medida do normal, do correto ou do superior, enquanto o diferente aparece como falta, desvio ou atraso. Isso pode ocorrer quando um sotaque é tomado como incapacidade, um estilo musical como ausência de educação ou uma regra familiar diferente como sinal automático de desorganização.</p>
+<p>Todas as pessoas começam a interpretar com referências aprendidas; ninguém observa a partir de lugar neutro. Reconhecer esse ponto de partida não torna inevitável qualquer julgamento. É possível examinar as categorias usadas, procurar informação e revisar uma conclusão. O problema sociológico não é possuir referências, mas universalizá-las sem investigação, apagar variações e ignorar os efeitos desiguais de quem pode impor seu padrão.</p>
+</div><div class="base-subsection" id="a31-conceito-3"><h3>3. Relativização como procedimento de compreensão</h3>
+<p>Relativização é um procedimento metodológico de reconstrução contextual. Em vez de usar imediatamente a própria convenção como medida, pergunta-se como participantes definem a situação, como aprenderam a prática, que valores estão em jogo, quais condições a sustentam e que divergências existem. Relativizar uma forma de vestuário religioso em instituição pública, por exemplo, requer conhecer regras institucionais, significados atribuídos por quem a usa e experiências variadas, não presumir uma essência religiosa.</p>
+<p>O procedimento exige fontes. Observação descreve interações; entrevistas voluntárias registram interpretações; documentos mostram normas; dados revelam distribuições; comparações históricas identificam mudanças. Nenhuma pessoa deve ser tratada como representante automática de um grupo. Quando faltam evidências, a formulação rigorosa é uma hipótese acompanhada da informação necessária para testá-la.</p>
+</div><div class="base-subsection" id="a31-conceito-4"><h3>4. Compreender não é aprovar</h3>
+<p>Reconstruir a origem e o significado de uma prática não obriga a aceitá-la. A relativização metodológica suspende provisoriamente o julgamento para melhorar a descrição e a explicação; ela não estabelece aprovação moral irrestrita. A frase “cada cultura está sempre certa” é inadequada porque culturas não são sujeitos únicos, participantes discordam e consequências atingem pessoas de maneira desigual.</p>
+<p>Contextualizar pode revelar por que uma regra surgiu, quem a defende, quem a contesta e quais alternativas existem. Justificar é oferecer razões para considerá-la aceitável. Esses movimentos podem levar a conclusões diferentes. Uma regra de uso de espaço universitário talvez tenha finalidade administrativa compreensível e, ainda assim, produza barreiras desnecessárias. A avaliação vem depois da investigação, apoiada em direitos, consequências, reciprocidade e alternativas.</p>
+<aside class="pause-box"><h4>Pausa 2 — contextualizar e justificar</h4><p>Uma regra familiar reserva a fala inicial à pessoa mais velha. Que informações ajudam a contextualizá-la? Que argumento adicional seria necessário para justificá-la?</p></aside>
+</div><p>Na comparação de respostas da IA, relativizar também exige reconstruir a situação apresentada ao sistema. Uma frase pode parecer depreciativa quando isolada e assumir outra função no conjunto; pode igualmente parecer neutra e restringir possibilidades sem justificativa. Por isso, preservamos a resposta integral e explicitamos o critério de avaliação. Contextualizar torna a crítica mais precisa, sem obrigar o pesquisador a aceitar o tratamento observado.</p></div></section>
+<section id="plano-aula"><h2>Percurso da hora-aula</h2><div class="timeline"><div class="tl-item"><span class="tl-duration">10 min</span><span class="tl-text">Quando uma prática parece estranha, estamos descrevendo seu funcionamento ou usando nossos hábitos como medida universal?</span></div><div class="tl-item"><span class="tl-duration">25 min</span><span class="tl-text">Leitura dialogada e desenvolvimento dos conceitos desta unidade.</span></div><div class="tl-item"><span class="tl-duration">20 min</span><span class="tl-text">Discussão e elaboração do registro proposto; comparação das justificativas com mediação docente.</span></div><div class="tl-item"><span class="tl-duration">5 min</span><span class="tl-text">Síntese e transição: Na Aula 32, estereótipos, discriminação e conflitos de direitos mostrarão os efeitos sociais das classificações.</span></div></div></section>
+<section id="atividade"><h2>Discussão e registro</h2><div class="activity-card" data-gabarito="obrigatorio"><p>Uma visitante interpreta como desinteresse o silêncio de estudantes durante uma discussão. Outra sugere que esperar uma autorização para falar pode ser uma norma aprendida. Separe observação, hipótese e julgamento. Que evidências permitiriam avaliar as duas interpretações?</p><details class="teacher-guidance"><summary>Orientação docente e resposta comentada</summary><p>A observação disponível é o silêncio; desinteresse e espera por autorização são hipóteses de sentido. Chamar o grupo de apático introduziria um julgamento que não está demonstrado. São pertinentes observação de outras aulas, instruções de participação, perguntas aos estudantes e comparação de situações nas quais falam ou silenciam. A relativização exige reconstruir regras e expectativas, inclusive divergências entre integrantes. Não transforma a explicação alternativa em verdade apenas porque parece mais compreensiva.</p><p>Peça que estudantes evitem representar toda uma cultura com uma cena. Pode haver receio de avaliação, dificuldade com o tema, barreira linguística ou diferentes relações com autoridade. Cada hipótese precisa de evidências. Compreender uma norma de silêncio tampouco obriga a aprovar seus efeitos: seria possível defender maior participação e explicar o critério usado. A avaliação docente deve reconhecer a separação entre descrição, contextualização e posição argumentada. O exercício permanece fictício e não solicita que colegas expliquem comportamentos de grupos aos quais são associados.</p></details></div></section>
+<section id="sintese"><h2>Síntese e continuidade</h2><p>Relativizar significa reconstruir contexto e sentidos. Isso não obriga a abandonar uma posição normativa, mas exige justificá-la.</p><p>Na Aula 32, estereótipos, discriminação e conflitos de direitos mostrarão os efeitos sociais das classificações.</p></section><section id="leituras"><div class="section-title">Textos para Leitura Prévia</div>
+<div class="ref-card"><div class="ref-author">LARAIA, Roque de Barros</div><div class="ref-title">Cultura: um conceito antropológico. “Como o homem vê o mundo”</div></div>
+<div class="ref-card"><div class="ref-author">GEERTZ, Clifford</div><div class="ref-title">A interpretação das culturas. Introdução</div></div>
+<p class="base-intro">As formulações desta página são paráfrases didáticas para o curso; não são citações literais nem atribuem o procedimento de relativização a um único autor.</p>
+</section>
+</main><footer>Introdução à Sociologia · T01 · 2026.2 · <a href="../../index.html">Voltar ao curso</a></footer></body></html>

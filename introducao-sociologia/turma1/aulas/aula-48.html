@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Aula 48 — Desigualdade no Brasil: raça, território e explicação · 2026.2</title><style>
+  :root {
+    --bg: #0a0a0f; --surface: #12121c; --card: #1a1a2e; --border: #2a2a4a;
+    --purple: #7c3aed; --purple-lt: #a855f7; --blue: #4f46e5; --blue-lt: #818cf8;
+    --teal-lt: #2dd4bf; --amber-lt: #fbbf24; --rose-lt: #fb7185;
+    --text: #e2e8f0; --muted: #94a3b8; --radius: 12px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { max-width: 100%; overflow-x: clip; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; min-height: 100vh; overflow-wrap: anywhere; }
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(18,18,28,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; white-space: nowrap; }
+  nav a:hover { color: var(--text); }
+  .nav-left { display: flex; align-items: center; gap: 10px; }
+  .nav-badge { background: var(--purple); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+  .nav-center { font-size: 0.875rem; color: var(--muted); }
+  .nav-right { display: flex; gap: 16px; align-items: center; }
+  main { max-width: 860px; margin: 0 auto; padding: 40px 24px 80px; }
+  .aula-header { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; margin-bottom: 32px; border-top: 4px solid var(--blue); }
+  .header-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; align-items: center; }
+  .bloco-badge { background: var(--blue); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .meta-chip { background: var(--surface); border: 1px solid var(--border); font-size: 0.8rem; color: var(--muted); padding: 4px 12px; border-radius: 20px; }
+  .meta-chip strong { color: var(--text); }
+  .aula-header h1 { font-size: 1.5rem; font-weight: 700; line-height: 1.3; color: var(--text); }
+  section { margin-bottom: 32px; scroll-margin-top: 112px; }
+  .section-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue-lt); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+  .obj-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .obj-list li { display: flex; gap: 12px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
+  .obj-list li::before { content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--blue-lt); margin-top: 7px; flex-shrink: 0; }
+  .content-topic { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 12px; }
+  .content-topic h3 { font-size: 0.95rem; font-weight: 600; color: var(--purple-lt); margin-bottom: 8px; }
+  .content-topic ul { list-style: none; padding: 0; }
+  .content-topic ul li { padding: 4px 0 4px 16px; position: relative; color: var(--muted); font-size: 0.9rem; }
+  .content-topic ul li::before { content: '—'; position: absolute; left: 0; color: var(--border); }
+  .timeline { display: flex; flex-direction: column; gap: 10px; }
+  .tl-item { display: flex; gap: 16px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; border-left: 3px solid var(--blue); }
+  .tl-duration { background: var(--surface); border: 1px solid var(--border); color: var(--amber-lt); font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+  .tl-text { font-size: 0.9rem; color: var(--text); }
+  .ref-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 10px; border-left: 3px solid var(--blue-lt); }
+  .ref-author { font-size: 0.8rem; font-weight: 700; color: var(--blue-lt); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+  .ref-title { font-size: 0.9rem; color: var(--text); }
+  .ref-pages { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
+  .activity-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; font-size: 0.9rem; line-height: 1.7; border-left: 3px solid var(--teal-lt); }
+  .teacher-guidance { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-top: 18px; }
+  .teacher-guidance summary { cursor: pointer; color: var(--amber-lt); font-weight: 700; padding: 15px 17px; }
+  .teacher-guidance[open] summary { border-bottom: 1px solid var(--border); }
+  .teacher-guidance-content { padding: 16px 18px; }
+  .resources-list { display: flex; flex-wrap: wrap; gap: 10px; }
+  .res-tag { max-width: 100%; min-width: 0; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; }
+  footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--muted); font-size: 0.85rem; }
+  footer a { color: var(--purple-lt); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .section-nav { position: sticky; top: 56px; z-index: 90; background: rgba(10,10,15,.97); border-bottom: 1px solid var(--border); padding: 8px 16px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: thin; }
+  .section-nav a { flex: 0 0 auto; min-height: 36px; display: inline-flex; align-items: center; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 5px 12px; text-decoration: none; font-size: .8rem; }
+  .base-text { max-width: 72ch; margin-inline: auto; }
+  .base-intro { color: var(--muted); font-size: .92rem; margin-bottom: 16px; }
+  .base-subsection { scroll-margin-top: 112px; margin-bottom: 28px; }
+  .base-subsection h3 { color: var(--blue-lt); font-size: 1.15rem; line-height: 1.35; margin-bottom: 12px; }
+  .base-subsection p { color: var(--text); margin-bottom: 14px; line-height: 1.78; }
+  .base-subsection strong { color: #f1f5f9; }
+  .pause-box { background: rgba(79,70,229,.1); border: 1px solid rgba(129,140,248,.4); border-left: 4px solid var(--blue-lt); border-radius: var(--radius); padding: 16px 18px; margin: 22px 0; }
+  .pause-box h4 { color: var(--amber-lt); font-size: .75rem; letter-spacing: .09em; text-transform: uppercase; margin-bottom: 6px; }
+  .pause-box p { margin: 0; color: var(--text); font-weight: 600; line-height: 1.6; }
+  a:focus-visible { outline: 3px solid var(--amber-lt); outline-offset: 3px; border-radius: 3px; }
+  @media (max-width: 640px) {
+    nav { height: auto; min-height: 56px; padding: 8px 12px; flex-wrap: wrap; }
+    .nav-left, .nav-right { min-width: 0; }
+    .nav-center { display: none; }
+    .nav-right { gap: 10px; }
+    .section-nav { top: 72px; padding-inline: 10px; }
+    main { padding: 24px 14px 60px; }
+    .aula-header { padding: 22px 18px; }
+    .tl-item { flex-direction: column; gap: 8px; }
+  }
+  @media print { .teacher-guidance { break-inside: avoid; } }
+
+:root{--bg:#0a0a0f;--card:#1a1a2e;--line:#34345b;--text:#e2e8f0;--muted:#a8b3c5;--violet:#c084fc;--amber:#fbbf24;--teal:#2dd4bf}*{box-sizing:border-box}html,body{max-width:100%;overflow-x:clip}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.7 system-ui,sans-serif;overflow-wrap:anywhere}a{color:#a5b4fc}a:focus-visible,summary:focus-visible{outline:3px solid var(--amber);outline-offset:3px}nav.top{position:sticky;top:0;z-index:3;display:flex;justify-content:space-between;gap:15px;padding:14px 24px;background:#12121cf5;border-bottom:1px solid var(--line)}nav.top div{display:flex;gap:14px}.sections{position:sticky;top:57px;z-index:2;display:flex;gap:8px;overflow-x:auto;padding:8px 16px;background:#0a0a0ff5}.sections a,.chip{white-space:nowrap;padding:4px 11px;border:1px solid var(--line);border-radius:20px;text-decoration:none}.chip{background:var(--violet);color:#111;font-weight:800}main{max-width:900px;margin:auto;padding:36px 24px 70px}header,.card,.material,.activity,details{background:var(--card);border:1px solid var(--line);border-radius:12px}header{padding:28px;border-top:4px solid var(--violet)}header div{display:flex;flex-wrap:wrap;gap:8px}h1{font-size:1.65rem}section{margin:34px 0;scroll-margin-top:110px}.title{color:var(--violet);font-size:.75rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;border-bottom:1px solid var(--line)}.objectives{display:grid;gap:9px;padding:0;list-style:none}.objectives li,.card{padding:14px 17px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.base{max-width:74ch;margin:auto}.toc{padding:16px 22px;background:#12121c;border:1px solid var(--line);border-radius:12px}.toc ol{columns:2}.base article{margin:30px 0}.base h3{color:var(--violet)}.pause-box{padding:14px 17px;border:1px solid #818cf866;border-left:4px solid var(--violet);border-radius:10px;background:#4f46e51a}.pause-box h4{margin:0;color:var(--amber)}.pause-box p{margin:4px 0;font-weight:650}.timeline{display:grid;gap:9px}.tl-item{display:flex;gap:14px;padding:13px 16px;background:var(--card);border:1px solid var(--line);border-left:3px solid var(--violet);border-radius:10px}.tl-duration{flex:none;color:var(--amber);font-weight:800}.activity{padding:19px;border-left:3px solid var(--teal)}.materials{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:15px 0}.material{padding:14px}.material h3{color:var(--teal)}.fake{color:var(--amber);font-weight:800}table{width:100%;border-collapse:collapse;font-size:.88rem}th,td{padding:6px;border:1px solid var(--line);text-align:left}details{padding:15px;margin-top:15px}summary{color:var(--amber);font-weight:800;cursor:pointer}.refs .card{margin:9px 0}footer{text-align:center;border-top:1px solid var(--line);padding:25px;color:var(--muted)}@media(max-width:700px){nav.top{flex-wrap:wrap}.sections{top:89px}main{padding:24px 13px}.grid,.materials{grid-template-columns:1fr}.toc ol{columns:1}.tl-item{flex-direction:column;gap:3px}table{display:block;overflow-x:auto}}@media print{nav,.sections{display:none!important}:root{--bg:#fff;--card:#fff;--line:#888;--text:#111;--muted:#333;--violet:#4c1d95;--amber:#713f12;--teal:#065f46}body{font-size:11pt}main{max-width:none;padding:0}.card,.material,details{break-inside:avoid}}
+body {max-width:100%; overflow-x:hidden; overflow-wrap:anywhere;} main{max-width:960px;margin:auto} .base-text{max-width:72ch} .base-subsection{margin-bottom:24px} table{width:100%;border-collapse:collapse}th,td{padding:8px;border:1px solid var(--border);overflow-wrap:anywhere} .table-wrap,.table-region{overflow-x:auto;max-width:100%} .teacher-guidance{margin-top:20px;padding:16px;border:1px solid var(--border)} summary{cursor:pointer;font-weight:bold} .skip{position:absolute;left:-9999px}.skip:focus{left:12px;top:12px;z-index:300;background:var(--bg);padding:10px} a{overflow-wrap:anywhere} @media(max-width:640px){nav{position:static;flex-wrap:wrap;height:auto;padding:12px}.nav-center{display:none}.section-nav{position:static;flex-wrap:wrap}main{padding:20px 14px}.tl-item{flex-direction:column}.aula-header{padding:20px 14px}} @media print{nav,.section-nav,.skip{display:none!important}body,main,section,.aula-header,.activity-card,.pause-box,details{background:white!important;color:black!important}*{color:inherit!important;text-shadow:none!important;box-shadow:none!important}main{max-width:none;padding:0}.base-text{max-width:none}h1,h2,h3,summary{break-after:avoid}p{orphans:3;widows:3}table{font-size:9pt}.teacher-guidance{break-inside:auto}}
+</style></head><body>
+<a class="skip" href="#objetivos">Pular para o conteúdo</a>
+<nav aria-label="Navegação entre aulas"><div class="nav-left"><a href="../../index.html">Voltar ao curso</a></div><span class="nav-center">Encontro 12 de 15 · Aula 48 de 60</span><div class="nav-right"><a href="aula-47.html">← Aula anterior</a><a href="aula-49.html">Próxima aula →</a></div></nav>
+<div class="section-nav" aria-label="Seções"><a href="#objetivos">Objetivos</a><a href="#texto-base">Texto-base</a><a href="#plano-aula">Plano</a><a href="#atividade">Discussão</a><a href="#sintese">Síntese</a><a href="#leituras">Referências</a></div>
+<main><header class="aula-header"><div class="header-meta"><span class="meta-chip">Encontro <strong>12</strong> de 15 — 25/11/2026, quarta-feira</span><span class="meta-chip">Aula <strong>48</strong> de 60</span><span class="meta-chip">4ª aula do encontro</span><span class="meta-chip">Aproximadamente 1 hora-aula</span></div><h1>Desigualdade no Brasil: raça, território e explicação</h1><p>Introdução à Sociologia · T01 · 2026.2 · Código 2101000 · SIGAA 4M1234</p></header>
+<section id="objetivos"><h2>Objetivos</h2><ul class="obj-list"><li>Relacionar raça, renda e território sem determinismo.</li><li>Distinguir composição, contexto e mecanismo.</li><li>Construir inferências proporcionais aos dados.</li></ul></section>
+<section id="texto-base" aria-labelledby="texto-base-title"><h2 id="texto-base-title">Texto-base</h2><div class="base-text"><p class="base-intro">Uma média municipal pode esconder diferenças entre bairros e grupos. Como desagregar dados sem transformar categorias em causas?</p><article class="base-subsection" id="a48-conceito-1">
+<h3>1. Raça como dimensão dos dados</h3>
+<p>Desagregar indicadores por cor ou raça permite perguntar se oportunidades, recursos e riscos se distribuem semelhantemente. Diferenças não demonstram capacidades naturais nem essências. Categorias raciais são sociais e históricas; sua formação e a racialização serão centrais na Aula 49. Aqui servem para localizar padrões que pedem explicação, sem converter coluna em causa.</p>
+<p>Diferenças persistentes em renda, escolaridade, ocupação ou serviços levam a examinar mecanismos: recrutamento, distribuição de escolas e empregos, redes, herança patrimonial, discriminação, políticas e trajetórias. O agregado não decide entre hipóteses. Documentos, séries, entrevistas, observação ou comparações podem ser necessários.</p>
+<p>Há variação interna em cada categoria. Gênero, idade, região, escolaridade e ocupação modificam padrões, sem transformar análise em soma de identidades. Formas de coleta e autodeclaração também importam. Mudança estatística pode combinar transformação social, classificação e método. Reconhecer possibilidades define melhor o alcance da evidência.</p>
+<p>Desagregar é decisão analítica, não receita. Muitas subdivisões podem produzir grupos pequenos e estimativas instáveis; poucas podem ocultar diferenças. Importa saber quem ficou fora e como respostas ausentes foram tratadas. A categoria permite comparação quando definida consistentemente, mas não resume identidade, trajetória ou posição de cada pessoa. Estatísticas de grupo informam padrões coletivos e não autorizam prever indivíduos.</p>
+</article><article class="base-subsection" id="a48-conceito-2">
+<h3>2. Território, acesso e escalas</h3>
+<p>Território não é só lugar onde desigualdade aparece. É espaço produzido por decisões sobre moradia, transporte, propriedade, serviços e investimento. Distância ao emprego, frequência do transporte, saneamento, saúde e preço da moradia organizam possibilidades. Renda semelhante pode oferecer capacidades diferentes em infraestruturas distintas.</p>
+<p>A escala muda a pergunta. Região, estado, município, campo, bairro e setor censitário não são equivalentes. Média regional oculta cidades; média municipal esconde segregação; bairro reúne contrastes. Norte, Nordeste, periferia ou campo não são blocos homogêneos: cada denominação reúne histórias e capacidades diversas.</p>
+<p>Um padrão territorial pode resultar de preço da terra, localização de empregos, infraestrutura, barreiras ambientais ou decisões acumuladas. Hipóteses podem atuar juntas, mas precisam ser verificadas. Mapas mostram distribuição, não explicam por que existe. Devemos perguntar por quais instituições recursos e riscos foram alocados e que evidência distingue mecanismos.</p>
+<p>Há efeitos de composição e contexto. Um território pode apresentar resultado porque reúne pessoas com certas características, porque infraestrutura e instituições afetam moradores, ou por ambos. Comparar moradores semelhantes em áreas distintas ajuda, mas não resolve a seleção de quem consegue morar em cada lugar. Documentos de planejamento, trajetórias residenciais e mudanças de oferta complementam o retrato. Uma explicação territorial rigorosa evita culpar o lugar ou seus habitantes.</p>
+<aside class="pause-box">
+<h4>Pausa 3 — Trocar de escala</h4>
+<p>Que padrão pode desaparecer ao passar do bairro à média municipal? Formule hipótese e evidência para testá-la.</p>
+</aside>
+</article><article class="base-subsection" id="a48-conceito-3">
+<h3>3. Cruzar dimensões sem somá-las</h3>
+<p>Renda, raça e território articulam-se porque mercados, políticas e instituições distribuem recursos em espaços concretos. Não formam uma escada em que cada desvantagem soma quantidade fixa. Transporte pode ampliar emprego, mas efeitos variam com horários, cuidado e recrutamento. Política de renda reduz privação sem alterar imediatamente segregação ou patrimônio.</p>
+<p>Cruzar dimensões é comparar relações específicas: a diferença entre categorias varia entre territórios? O acesso a serviço altera associação entre renda e educação? Unidades e tamanhos devem estar claros. Percentuais sem denominador enganam; grupos pequenos oscilam; associação agregada pode mudar após desagregação.</p>
+<p>A linguagem importa. “Território causa” e “raça determina” fazem categorias agir. Formulações precisas nomeiam processos: crédito restringe acesso; transporte alonga deslocamentos; discriminação altera oportunidades; tributação e herança afetam acúmulo. Isso abre a explicação à investigação e reconhece instituições mantidas, disputadas e alteradas.</p>
+<p>Uma tabela cruzada pode revelar que a distância entre grupos aumenta ou diminui conforme o território. Essa variação sugere interação entre dimensões, mas ainda não identifica o processo. Valores absolutos importam: distância menor pode coexistir com piora para todos, enquanto melhora geral pode manter distância relativa. Dizer quem ganhou, quanto, em qual medida e comparado a quê evita que entrelaçamento vire fórmula vazia.</p>
+</article><article class="base-subsection" id="a48-conceito-4">
+<h3>4. Do padrão à explicação</h3>
+<p>
+<strong>Descrição</strong> registra padrão. <strong>Inferência</strong> estima o que se afirma além das observações. <strong>Explicação</strong> propõe mecanismos ligando condições e resultados. <strong>Avaliação</strong> julga segundo critérios declarados. Confundi-las transforma diferença em prova causal e preferência política em consequência automática da tabela.</p>
+<p>A atividade constrói cadeia: evidência, inferência delimitada, dois mecanismos possíveis, informação adicional e limite. Se há menor acesso a um serviço, distância, preço, oferta, horário e barreiras administrativas são hipóteses distintas. Outra fonte deve ajudar a separá-las.</p>
+<p>Políticas são objetos analisáveis. Uma proposta identifica mecanismo, população, recursos, implementação, efeitos desiguais e acompanhamento. O dado inicial justifica investigação, não garante solução. Argumentar sociologicamente é explicitar pontes entre padrão, processo e decisão, inclusive onde termina a evidência.</p>
+<p>Correlação é associação entre variações; causalidade afirma que uma condição participa da produção de outra segundo mecanismo e condições especificadas. Associação pode decorrer de causalidade direta, influência inversa, fator comum ou seleção. Nenhuma alternativa deve ser escolhida só por parecer intuitiva. Bons argumentos registram o grau de certeza e preveem o que observaríamos sob cada hipótese. Evidência contrária ajuda a revisar alcance e mecanismo.</p>
+<p>O mecanismo funciona como uma ponte verificável, não como palavra geral. “Estrutura”, “cultura” ou “história” não bastam se não dissermos que regras, práticas e sequências conectam posições a resultados. Um mecanismo pode envolver critérios de contratação, financiamento municipal, preço da terra ou desenho de benefício. Sua existência em um caso não garante igual efeito em outro: contexto, capacidade institucional e respostas dos atores importam. Delimitar onde e quando a hipótese vale evita determinismo e permite comparação produtiva.</p>
+</article><article class="base-subsection" id="a48-conceito-5">
+<h3>5. Síntese e passagem à Aula 49</h3>
+<p>Posições estratificadas tornam-se observáveis por medidas parciais de recursos, oportunidades e riscos. Renda informa fluxo; riqueza, estoque; condições de vida exigem dimensões múltiplas. Média, mediana, proporções e Gini resumem distribuições de modos distintos. Todos dependem de definição, população, período e escala. Indicador é ferramenta, não fotografia neutra nem teoria pronta.</p>
+<p>Raça e território localizam padrões, mas não são causas únicas. Explicar requer instituições, mecanismos, história e evidências complementares. A análise preserva variação e distingue observação, inferência, explicação e avaliação. Evita individualizar desigualdades estruturadas e retirar a agência de quem negocia e contesta regras.</p>
+<p>A Aula 49 perguntará como categorias raciais são produzidas, ganham efeitos e participam de poder. Hoje usamos classificação para ler diferenças; depois distinguiremos raça, etnia, racialização, preconceito, discriminação e racismo, sem essência. A transição aprofunda mecanismos sem presumir que toda diferença estatística já esteja explicada.</p>
+<p>O percurso pode ser resumido como disciplina de perguntas. O que foi medido? Quem está incluído? Qual comparação sustenta a descrição? Que mecanismo liga condições e resultado? Que fonte poderia contrariar a hipótese? Qual limite acompanha a conclusão? Essas perguntas conectam estratificação, mobilidade e indicadores sem reduzir teoria a estatística. Também preparam a racialização, em que classificações, práticas e instituições serão examinadas historicamente.</p>
+<aside class="pause-box">
+<h4>Pausa 4 — Bilhete de saída</h4>
+<p>Registre uma afirmação sustentada, um limite e uma pergunta que a Aula 49 deverá ajudar a responder.</p>
+</aside>
+</article></div></section>
+<section id="plano-aula"><h2>Percurso da hora-aula</h2><div class="timeline"><div class="tl-item"><span class="tl-duration">5 min</span><span class="tl-text">Uma média municipal pode esconder diferenças entre bairros e grupos. Como desagregar dados sem transformar categorias em causas?</span></div><div class="tl-item"><span class="tl-duration">15 min</span><span class="tl-text">Leitura dialogada e desenvolvimento dos conceitos desta unidade.</span></div><div class="tl-item"><span class="tl-duration">35 min</span><span class="tl-text">Discussão e elaboração do registro proposto; comparação das justificativas com mediação docente.</span></div><div class="tl-item"><span class="tl-duration">5 min</span><span class="tl-text">Síntese e transição: A Aula 49 aprofundará a construção social das classificações raciais e seus efeitos.</span></div></div></section>
+<section id="atividade">
+<h2 class="title">Atividade — Laboratório de indicadores</h2>
+<div class="activity">
+<p>Grupos de três ou quatro analisam os seis boletins. Todos os números são <strong>fictícios e exclusivamente didáticos</strong>; não descrevem lugares ou grupos reais. Produto: ficha com duas descrições, uma inferência, dois mecanismos, informação adicional, limite e ação associada a indicador. Sequência: metadados (5 min), perguntas (15), ficha (10), revisão (5). Ninguém deve informar renda, raça, endereço ou discriminação vivida; acolha relatos sem pedir detalhes e retorne aos casos.</p>
+</div>
+<div class="materials">
+<div class="material">
+<h3>1. Fluxo e estoque</h3>
+<p class="fake">Dados fictícios.</p>
+<table>
+<tr>
+<th>Grupo</th>
+<th>Renda mediana</th>
+<th>Reserva</th>
+</tr>
+<tr>
+<td>Sol</td>
+<td>100 u.m.</td>
+<td>18%</td>
+</tr>
+<tr>
+<td>Lua</td>
+<td>130 u.m.</td>
+<td>8%</td>
+</tr>
+</table>
+<p>1.000 domicílios; reserva para três meses.</p>
+</div>
+<div class="material">
+<h3>2. Mesmo Gini</h3>
+<p class="fake">Dados fictícios.</p>
+<table>
+<tr>
+<th>Município</th>
+<th>Gini</th>
+<th>Mediana</th>
+</tr>
+<tr>
+<td>Ipê</td>
+<td>0,40</td>
+<td>120 u.m.</td>
+</tr>
+<tr>
+<td>Jatobá</td>
+<td>0,40</td>
+<td>75 u.m.</td>
+</tr>
+</table>
+<p>Mesma definição e ano.</p>
+</div>
+<div class="material">
+<h3>3. Média e mediana</h3>
+<p class="fake">Dados fictícios.</p>
+<table>
+<tr>
+<th>Área</th>
+<th>Média</th>
+<th>Mediana</th>
+</tr>
+<tr>
+<td>Centro</td>
+<td>190</td>
+<td>95</td>
+</tr>
+<tr>
+<td>Margem</td>
+<td>105</td>
+<td>90</td>
+</tr>
+</table>
+<p>500 adultos por área.</p>
+</div>
+<div class="material">
+<h3>4. Acesso</h3>
+<p class="fake">Dados fictícios.</p>
+<table>
+<tr>
+<th>Zona</th>
+<th>Mediana</th>
+<th>Tempo à saúde</th>
+</tr>
+<tr>
+<td>A</td>
+<td>100</td>
+<td>18 min</td>
+</tr>
+<tr>
+<td>B</td>
+<td>101</td>
+<td>57 min</td>
+</tr>
+</table>
+</div>
+<div class="material">
+<h3>5. Desagregação</h3>
+<p class="fake">Categorias e dados fictícios.</p>
+<table>
+<tr>
+<th>Categoria</th>
+<th>Emprego formal</th>
+<th>n</th>
+</tr>
+<tr>
+<td>Azul</td>
+<td>62%</td>
+<td>600</td>
+</tr>
+<tr>
+<td>Verde</td>
+<td>46%</td>
+<td>600</td>
+</tr>
+</table>
+<p>Mesma cidade e ano; não mede escolaridade ou discriminação.</p>
+</div>
+<div class="material">
+<h3>6. Cruzamento</h3>
+<p class="fake">Categorias e dados fictícios.</p>
+<table>
+<tr>
+<th>Zona/categoria</th>
+<th>Acesso a curso</th>
+</tr>
+<tr>
+<td>A/Azul</td>
+<td>70%</td>
+</tr>
+<tr>
+<td>A/Verde</td>
+<td>59%</td>
+</tr>
+<tr>
+<td>B/Azul</td>
+<td>45%</td>
+</tr>
+<tr>
+<td>B/Verde</td>
+<td>28%</td>
+</tr>
+</table>
+<p>400 pessoas por célula.</p>
+</div>
+</div>
+<div class="activity">
+<h3>Oito perguntas</h3>
+<ol>
+<li>Que diferença entre renda e riqueza aparece no boletim 1?</li>
+<li>Por que o mesmo Gini não torna os municípios equivalentes?</li>
+<li>O que a distância entre média e mediana sugere, sem provar?</li>
+<li>Que dimensão de condições de vida o boletim 4 acrescenta?</li>
+<li>Escreva uma descrição válida e uma explicação não autorizada pelo boletim 5.</li>
+<li>No boletim 6, calcule as diferenças em pontos percentuais por zona.</li>
+<li>Proponha dois mecanismos e evidência capaz de distingui-los.</li>
+<li>Formule ação, mecanismo, indicador e possível efeito desigual.</li>
+</ol>
+<details>
+<summary>Gabarito comentado</summary>
+<p>
+<strong>1–4.</strong> Sol tem menor renda, mas maior reserva: fluxo e estoque não coincidem. O Gini igual informa concentração relativa, não nível; as medianas diferem. A média elevada no Centro é compatível com valores altos puxando-a, mas não prova formato completo. O quarto boletim acrescenta tempo e acesso territorial a serviço.</p>
+<p>
+<strong>5–6.</strong> Descrição: no caso fictício, emprego formal é 16 pontos maior em Azul. Não se pode dizer que a categoria causa o resultado ou provar discriminação. No sexto, diferenças são 11 pontos na zona A e 17 na B, variando seis pontos.</p>
+<p>
+<strong>7–8.</strong> Oferta/transporte e seleção/informação são mecanismos alternativos; mapas, horários, candidaturas e critérios ajudariam a distingui-los. Ações aceitáveis devem ligar intervenção a mecanismo e indicador, definir população e observar efeitos por zona e categoria. Avalia-se coerência entre dado, inferência, mecanismo, limite e informação adicional, não uma política única.</p>
+</details>
+</div>
+</section>
+<section id="sintese"><h2>Síntese e continuidade</h2><p>Desagregar localiza padrões; explicar exige processos, instituições e evidências adicionais. Categorias de grupo não autorizam previsões individuais.</p><p>A Aula 49 aprofundará a construção social das classificações raciais e seus efeitos.</p></section><section id="leituras">
+<h2 class="title">Referências verificáveis</h2>
+<div class="refs">
+<div class="card">
+<strong>IBGE.</strong> <em>Síntese de indicadores sociais: uma análise das condições de vida da população brasileira 2023.</em> Rio de Janeiro, 2023. <a href="https://biblioteca.ibge.gov.br/visualizacao/livros/liv102052.pdf">PDF oficial</a>.</div>
+<div class="card">
+<strong>IPEA.</strong> <em>Atlas da vulnerabilidade social nos municípios brasileiros.</em> Brasília, 2015. <a href="https://repositorio.ipea.gov.br/handle/11058/4381">Registro oficial</a>.</div>
+<div class="card">
+<strong>IBGE.</strong> <em>Desigualdades sociais por cor ou raça no Brasil.</em> n. 48. Rio de Janeiro, 2022. <a href="https://biblioteca.ibge.gov.br/visualizacao/livros/liv101972_informativo.pdf">PDF oficial</a>. Nenhum valor da atividade foi extraído dessas obras.</div>
+</div>
+</section>
+</main><footer>Introdução à Sociologia · T01 · 2026.2 · <a href="../../index.html">Voltar ao curso</a></footer></body></html>

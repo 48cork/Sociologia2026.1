@@ -1,103 +1,125 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aula 29 — Introdução à Sociologia | 2026.2</title>
-<style>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Aula 29 — Cultura como produção social de sentidos · 2026.2</title><style>
   :root {
-    --bg: #0a0a0f;
-    --surface: #12121c;
-    --card: #1a1a2e;
-    --border: #2a2a4a;
-    --purple: #7c3aed;
-    --purple-lt: #a855f7;
-    --blue: #4f46e5;
-    --blue-lt: #818cf8;
-    --teal-lt: #2dd4bf;
-    --amber-lt: #fbbf24;
-    --rose-lt: #fb7185;
-    --text: #e2e8f0;
-    --muted: #94a3b8;
-    --radius: 12px;
+    --bg: #0a0a0f; --surface: #12121c; --card: #1a1a2e; --border: #2a2a4a;
+    --purple: #7c3aed; --purple-lt: #a855f7; --blue: #4f46e5; --blue-lt: #818cf8;
+    --teal-lt: #2dd4bf; --amber-lt: #fbbf24; --rose-lt: #fb7185;
+    --text: #e2e8f0; --muted: #94a3b8; --radius: 12px;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
-
-  nav {
-    position: sticky; top: 0; z-index: 100;
-    background: rgba(18,18,28,0.95); backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--border);
-    padding: 0 24px; height: 56px;
-    display: flex; align-items: center; justify-content: space-between; gap: 16px;
-  }
+  html, body { max-width: 100%; overflow-x: clip; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; min-height: 100vh; overflow-wrap: anywhere; }
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(18,18,28,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
   nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; white-space: nowrap; }
   nav a:hover { color: var(--text); }
   .nav-left { display: flex; align-items: center; gap: 10px; }
-  .nav-badge { background: var(--rose-lt); color: #0a0a0f; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+  .nav-badge { background: var(--purple); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
   .nav-center { font-size: 0.875rem; color: var(--muted); }
   .nav-right { display: flex; gap: 16px; align-items: center; }
-
   main { max-width: 860px; margin: 0 auto; padding: 40px 24px 80px; }
-
-  .aula-header {
-    background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
-    padding: 32px; margin-bottom: 32px;
-    border-top: 4px solid var(--rose-lt);
-  }
+  .aula-header { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; margin-bottom: 32px; border-top: 4px solid var(--blue); }
   .header-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; align-items: center; }
-  .bloco-badge { background: var(--rose-lt); color: #0a0a0f; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .bloco-badge { background: var(--blue); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
   .meta-chip { background: var(--surface); border: 1px solid var(--border); font-size: 0.8rem; color: var(--muted); padding: 4px 12px; border-radius: 20px; }
-  .eval-chip { background: rgba(251,113,133,0.12); border: 1px solid rgba(251,113,133,0.3); font-size: 0.8rem; color: var(--rose-lt); padding: 4px 12px; border-radius: 20px; }
+  .meta-chip strong { color: var(--text); }
   .aula-header h1 { font-size: 1.5rem; font-weight: 700; line-height: 1.3; color: var(--text); }
-
-  section { margin-bottom: 32px; }
-  .section-title {
-    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--rose-lt); margin-bottom: 16px; padding-bottom: 8px;
-    border-bottom: 1px solid var(--border);
-  }
-
+  section { margin-bottom: 32px; scroll-margin-top: 112px; }
+  .section-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue-lt); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
   .obj-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
   .obj-list li { display: flex; gap: 12px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
-  .obj-list li::before { content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--rose-lt); margin-top: 7px; flex-shrink: 0; }
-
+  .obj-list li::before { content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--blue-lt); margin-top: 7px; flex-shrink: 0; }
   .content-topic { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 12px; }
-  .content-topic h3 { font-size: 0.95rem; font-weight: 600; color: var(--rose-lt); margin-bottom: 8px; }
+  .content-topic h3 { font-size: 0.95rem; font-weight: 600; color: var(--purple-lt); margin-bottom: 8px; }
   .content-topic ul { list-style: none; padding: 0; }
   .content-topic ul li { padding: 4px 0 4px 16px; position: relative; color: var(--muted); font-size: 0.9rem; }
   .content-topic ul li::before { content: '—'; position: absolute; left: 0; color: var(--border); }
-
   .timeline { display: flex; flex-direction: column; gap: 10px; }
-  .tl-item { display: flex; gap: 16px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; border-left: 3px solid var(--rose-lt); }
+  .tl-item { display: flex; gap: 16px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; border-left: 3px solid var(--blue); }
   .tl-duration { background: var(--surface); border: 1px solid var(--border); color: var(--amber-lt); font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
   .tl-text { font-size: 0.9rem; color: var(--text); }
-
   .ref-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 10px; border-left: 3px solid var(--blue-lt); }
   .ref-author { font-size: 0.8rem; font-weight: 700; color: var(--blue-lt); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
   .ref-title { font-size: 0.9rem; color: var(--text); }
   .ref-pages { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
-
   .activity-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; font-size: 0.9rem; line-height: 1.7; border-left: 3px solid var(--teal-lt); }
-  .activity-card h3, .activity-card h4 { color: var(--teal-lt); margin: 16px 0 8px; }
-  .activity-card ol, .activity-card ul { padding-left: 22px; margin: 8px 0 14px; }
-  .material-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(245px, 1fr)); gap: 12px; margin: 16px 0; }
-  .material-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px; min-width: 0; }
-  .material-card h4 { margin-top: 0; }
-  details { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; margin-top: 18px; }
-  summary { color: var(--amber-lt); cursor: pointer; font-weight: 700; }
+  .teacher-guidance { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-top: 18px; }
+  .teacher-guidance summary { cursor: pointer; color: var(--amber-lt); font-weight: 700; padding: 15px 17px; }
+  .teacher-guidance[open] summary { border-bottom: 1px solid var(--border); }
+  .teacher-guidance-content { padding: 16px 18px; }
+  .resources-list { display: flex; flex-wrap: wrap; gap: 10px; }
+  .res-tag { max-width: 100%; min-width: 0; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; }
+  footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--muted); font-size: 0.85rem; }
+  footer a { color: var(--purple-lt); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .section-nav { position: sticky; top: 56px; z-index: 90; background: rgba(10,10,15,.97); border-bottom: 1px solid var(--border); padding: 8px 16px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: thin; }
+  .section-nav a { flex: 0 0 auto; min-height: 36px; display: inline-flex; align-items: center; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 5px 12px; text-decoration: none; font-size: .8rem; }
+  .base-text { max-width: 72ch; margin-inline: auto; }
+  .base-intro { color: var(--muted); font-size: .92rem; margin-bottom: 16px; }
+  .base-subsection { scroll-margin-top: 112px; margin-bottom: 28px; }
+  .base-subsection h3 { color: var(--blue-lt); font-size: 1.15rem; line-height: 1.35; margin-bottom: 12px; }
+  .base-subsection p { color: var(--text); margin-bottom: 14px; line-height: 1.78; }
+  .base-subsection strong { color: #f1f5f9; }
+  .pause-box { background: rgba(79,70,229,.1); border: 1px solid rgba(129,140,248,.4); border-left: 4px solid var(--blue-lt); border-radius: var(--radius); padding: 16px 18px; margin: 22px 0; }
+  .pause-box h4 { color: var(--amber-lt); font-size: .75rem; letter-spacing: .09em; text-transform: uppercase; margin-bottom: 6px; }
+  .pause-box p { margin: 0; color: var(--text); font-weight: 600; line-height: 1.6; }
+  a:focus-visible { outline: 3px solid var(--amber-lt); outline-offset: 3px; border-radius: 3px; }
+  @media (max-width: 640px) {
+    nav { height: auto; min-height: 56px; padding: 8px 12px; flex-wrap: wrap; }
+    .nav-left, .nav-right { min-width: 0; }
+    .nav-center { display: none; }
+    .nav-right { gap: 10px; }
+    .section-nav { top: 72px; padding-inline: 10px; }
+    main { padding: 24px 14px 60px; }
+    .aula-header { padding: 22px 18px; }
+    .tl-item { flex-direction: column; gap: 8px; }
+  }
+  @media print { .teacher-guidance { break-inside: avoid; } }
 
-  .deadline-card { background: rgba(251,191,36,0.07); border: 1px solid rgba(251,191,36,0.25); border-radius: var(--radius); padding: 18px 20px; margin-bottom: 12px; }
-  .deadline-card h3 { font-size: 0.9rem; font-weight: 700; color: var(--amber-lt); margin-bottom: 8px; }
-  .deadline-card ul { list-style: none; padding: 0; }
-  .deadline-card ul li { padding: 4px 0 4px 16px; position: relative; color: var(--muted); font-size: 0.88rem; }
-  .deadline-card ul li::before { content: '→'; position: absolute; left: 0; color: var(--amber-lt); }
 
+  :root {
+    --bg: #0a0a0f; --surface: #12121c; --card: #1a1a2e; --border: #2a2a4a;
+    --purple: #7c3aed; --purple-lt: #a855f7; --blue: #4f46e5; --blue-lt: #818cf8;
+    --teal-lt: #2dd4bf; --amber-lt: #fbbf24; --rose-lt: #fb7185;
+    --text: #e2e8f0; --muted: #94a3b8; --radius: 12px;
+    --bloco-color: #0284c7; --bloco-lt: #38bdf8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(18,18,28,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; white-space: nowrap; }
+  nav a:hover { color: var(--text); }
+  .nav-left { display: flex; align-items: center; gap: 10px; }
+  .nav-badge { background: var(--bloco-color); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+  .nav-center { font-size: 0.875rem; color: var(--muted); }
+  .nav-right { display: flex; gap: 16px; align-items: center; }
+  main { max-width: 860px; margin: 0 auto; padding: 40px 24px 80px; }
+  .aula-header { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; margin-bottom: 32px; border-top: 4px solid var(--bloco-color); }
+  .header-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; align-items: center; }
+  .bloco-badge { background: var(--bloco-color); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .meta-chip { background: var(--surface); border: 1px solid var(--border); font-size: 0.8rem; color: var(--muted); padding: 4px 12px; border-radius: 20px; }
+  .aula-header h1 { font-size: 1.5rem; font-weight: 700; line-height: 1.3; color: var(--text); }
+  section { margin-bottom: 32px; }
+  .section-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--bloco-lt); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+  .obj-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .obj-list li { display: flex; gap: 12px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
+  .obj-list li::before { content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--bloco-lt); margin-top: 7px; flex-shrink: 0; }
+  .content-topic { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 12px; }
+  .content-topic h3 { font-size: 0.95rem; font-weight: 600; color: var(--bloco-lt); margin-bottom: 8px; }
+  .content-topic ul { list-style: none; padding: 0; }
+  .content-topic ul li { padding: 4px 0 4px 16px; position: relative; color: var(--muted); font-size: 0.9rem; }
+  .content-topic ul li::before { content: '—'; position: absolute; left: 0; color: var(--border); }
+  .timeline { display: flex; flex-direction: column; gap: 10px; }
+  .tl-item { display: flex; gap: 16px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; border-left: 3px solid var(--bloco-color); }
+  .tl-duration { background: var(--surface); border: 1px solid var(--border); color: var(--amber-lt); font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+  .tl-text { font-size: 0.9rem; color: var(--text); }
+  .ref-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 10px; border-left: 3px solid var(--bloco-lt); }
+  .ref-author { font-size: 0.8rem; font-weight: 700; color: var(--bloco-lt); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+  .ref-title { font-size: 0.9rem; color: var(--text); }
+  .activity-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; font-size: 0.9rem; line-height: 1.7; border-left: 3px solid var(--teal-lt); }
   .resources-list { display: flex; flex-wrap: wrap; gap: 10px; }
   .res-tag { background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; }
-
   footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--muted); font-size: 0.85rem; }
-  footer a { color: var(--rose-lt); text-decoration: none; }
+  footer a { color: var(--bloco-lt); text-decoration: none; }
   footer a:hover { text-decoration: underline; }
 
   html, body { max-width: 100%; overflow-x: clip; }
@@ -133,326 +155,48 @@
     .base-toc ol { width: auto; columns: auto; padding-left: 0; list-style-position: inside; }
     .tl-item { flex-direction: column; gap: 8px; }
   }
-  @media print {
-    :root { --bg:#fff; --surface:#fff; --card:#fff; --border:#888; --text:#111; --muted:#333; }
-    nav, .section-nav, footer { display:none !important; }
-    body, main { background:#fff; color:#111; max-width:none; padding:0; }
-    .aula-header, .content-topic, .activity-card, .material-card, .ref-card, .tl-item, details, .pause-box { break-inside:avoid; box-shadow:none; }
-    details > * { display:block; }
-  }
-</style>
-</head>
-<body>
+  .activity-card h3 { color: var(--teal-lt); font-size: 1.05rem; margin: 0 0 12px; }
+  .activity-card h4 { color: var(--amber-lt); margin: 18px 0 8px; }
+  .activity-card ol, .activity-card ul { padding-left: 22px; margin: 10px 0; }
+  .activity-card li { margin: 7px 0; }
+  .situation-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 16px 0; }
+  .situation-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
+  .situation-card h4 { margin: 0 0 6px; }
+  .question-list { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px 14px 40px; }
+  .teacher-guidance { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-top: 18px; }
+  .teacher-guidance summary { cursor: pointer; color: var(--amber-lt); font-weight: 700; padding: 15px 17px; }
+  .teacher-guidance[open] summary { border-bottom: 1px solid var(--border); }
+  .teacher-guidance-content { padding: 16px 18px; }
+  .teacher-guidance-content h4 { color: var(--teal-lt); }
+  @media (max-width: 640px) { .situation-grid { grid-template-columns: 1fr; } }
+  @media print { nav, .section-nav { position: static; } .situation-card, .teacher-guidance { break-inside: avoid; } }
 
-<nav>
-  <div class="nav-left">
-    <a href="/introducao-sociologia/">← Página principal</a>
-    <span class="nav-badge">Aula 29</span>
-  </div>
-  <span class="nav-center">Aula 29 / 30</span>
-  <div class="nav-right">
-    <a href="aula-28.html">← Anterior</a>
-    <a href="aula-30.html">Próxima →</a>
-  </div>
-</nav>
-<div class="section-nav" aria-label="Seções da aula">
-<a href="#objetivos">Objetivos</a>
-<a href="#conteudo-programatico">Conteúdo</a>
-<a href="#texto-base">Texto-base</a>
-<a href="#plano-aula">Plano da aula</a>
-<a href="#leituras">Leituras</a>
-<a href="#atividade">Atividade</a>
-<a href="#recursos">Recursos</a>
-</div>
-
-<main>
-  <aside class="legacy-note" aria-label="Aviso sobre material legado">
-<strong>Escopo de 2026.2.</strong> Esta oficina trabalha revisão entre pares sem confirmar notas, apresentações, relatórios, vídeos, prazos ou formatos avaliativos legados.</aside>
-
-
-  <div class="aula-header">
-    <div class="header-meta">
-      <span class="bloco-badge">Bloco VI — Mudança Social e Apresentações</span>
-      <span class="meta-chip">Aula 29</span>
-      <span class="meta-chip">Encontro 15 · Parte 1 de 2</span>
-      <span class="meta-chip">16/12/2026 — Quarta-feira</span>
-      <span class="meta-chip">Percurso completo do encontro: 4 horas-aula</span>
-      <span class="meta-chip">Esta página: aproximadamente 2 horas</span>
-      <span class="eval-chip">Oficina de revisão — não avaliativa</span>
-    </div>
-    <h1>Da devolutiva ao argumento revisado.</h1>
-  </div>
-
-  <section id="objetivos">
-    <div class="section-title">Objetivos da Aula</div>
-    <ul class="obj-list">
-      <li>Classificar devolutivas como pedidos de clareza, objeções, contraexemplos ou questões de alcance.</li>
-      <li>Decidir justificadamente entre manter, qualificar ou revisar uma tese.</li>
-      <li>Produzir um memorando que rastreie evidência recebida, decisão e mudança realizada.</li>
-    </ul>
-  </section>
-
-  <section id="conteudo-programatico">
-    <div class="section-title">Conteúdo Programático</div>
-    <div class="content-topic">
-      <h3>Revisão rastreável do argumento sociológico</h3>
-      <ul>
-        <li>Devolutiva, objeção, evidência contrária e contraexemplo</li>
-        <li>Alcance, resposta e critérios para manter ou revisar</li>
-        <li>Memorando de revisão com mudanças localizáveis</li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="texto-base" aria-labelledby="texto-base-title">
-    <div class="section-title" id="texto-base-title">Texto-base para acompanhamento da aula</div>
-    <div class="base-text">
-      <p class="base-intro">Leitura de apoio para a exposição, a discussão e a retomada dos conceitos. As pausas podem ser realizadas oralmente, em duplas ou por registro breve.</p>
-      <nav class="base-toc" aria-label="Sumário do texto-base">
-<h3>Nesta leitura</h3>
-<ol>
-<li>
-<a href="#texto-devolutiva">Devolutiva como dado de revisão</a>
-</li>
-<li>
-<a href="#texto-classificar">Classificar antes de responder</a>
-</li>
-<li>
-<a href="#texto-objecao">Objeção e resposta</a>
-</li>
-<li>
-<a href="#texto-contraexemplo">Contraexemplo e evidência contrária</a>
-</li>
-<li>
-<a href="#texto-alcance">Revisar o alcance</a>
-</li>
-<li>
-<a href="#texto-decidir">Manter, qualificar ou substituir</a>
-</li>
-<li>
-<a href="#texto-rastrear">Rastrear a mudança</a>
-</li>
-<li>
-<a href="#texto-etica">Crítica ao argumento</a>
-</li>
-<li>
-<a href="#texto-sintese">Síntese rumo à Aula 30</a>
-</li>
-</ol>
-</nav>
-      <div class="base-subsection" id="texto-devolutiva">
-<h3>1. Devolutiva como dado de revisão</h3>
-<p>Na Aula 28, a turma transformou investigação em fala pública: apresentou problema, tese, evidência, inferência e limite, enquanto ouvintes reconstruíram o argumento antes de perguntar. A Aula 29 começa onde aquela escuta terminou. Uma <strong>devolutiva</strong> é uma resposta localizada ao argumento. Ela pode mostrar dúvida, formular objeção, oferecer informação contrária ou apontar que a conclusão ultrapassa o material disponível.</p>
-<p>Receber comentários não obriga a aceitar todos eles. Também não autoriza descartá-los porque incomodam. Revisar exige converter a fala do outro em questão verificável: qual trecho foi contestado? Que razão foi oferecida? Há nova evidência? Qual parte do argumento mudaria se a crítica procedesse? Esse procedimento desloca o debate da simpatia pessoal para decisões justificadas.</p>
-<p>A devolutiva é um material de segunda ordem: informa como o argumento foi compreendido, não prova diretamente o fenômeno investigado. Se vários ouvintes não identificam a tese, pode haver problema de comunicação. Isso não demonstra que a tese é falsa, mas indica que sua formulação precisa ser examinada. Da mesma forma, concordância do público não substitui evidência sociológica.</p>
-<p>A revisão é uma prática intelectual, não confissão de fracasso. Um argumento melhora quando explicita condições, corrige inferências ou reconhece o que ainda não sabe. Preservar a versão anterior permite ver essa aprendizagem. Por isso, a atividade produzirá um memorando com “antes”, devolutiva, decisão, “depois” e justificativa.</p>
-<aside class="pause-box">
-<h4>Pausa 1 — localizar</h4>
-<p>Que informação uma devolutiva precisa conter para orientar mudança verificável, em vez de apenas dizer “ficou bom” ou “não concordo”?</p>
-</aside>
-</div>
-      <div class="base-subsection" id="texto-classificar">
-<h3>2. Classificar antes de responder</h3>
-<p>Comentários diferentes pedem respostas diferentes. Um <strong>pedido de clareza</strong> indica termo, passagem ou relação que não foi compreendida. Pode ser resolvido por definição, exemplo ou reorganização, sem alterar a tese. Uma <strong>objeção</strong> apresenta uma razão para rejeitar um passo do argumento. Ela exige avaliar a premissa ou a inferência contestada.</p>
-<p>Uma <strong>questão de fonte</strong> pergunta origem, recorte ou confiabilidade do material. Uma <strong>questão de alcance</strong> mostra que a conclusão talvez valha apenas para determinado grupo, tempo ou território. Um <strong>contraexemplo</strong> é um caso pertinente que desafia uma afirmação geral; evidência contrária é material produzido por procedimento identificável que sustenta conclusão incompatível ou concorrente.</p>
-<p>Classificar não serve para encaixar comentários à força. O mesmo enunciado pode conter mais de uma dimensão. “Vocês dizem que a campanha digital aumentou a participação, mas houve uma reportagem na mesma semana” questiona inferência causal e oferece explicação alternativa. O memorando deve registrar as duas funções.</p>
-<p>Também existem comentários normativos: “essa política deveria ser diferente”. Eles podem enriquecer o debate, mas não refutam automaticamente uma descrição ou explicação. A equipe precisa distinguir se a divergência trata do que ocorreu, de por que ocorreu, do sentido atribuído pelos atores ou do que deveria ocorrer. Misturar planos produz respostas que não encontram a pergunta.</p>
-</div>
-      <div class="base-subsection" id="texto-objecao">
-<h3>3. Objeção e resposta</h3>
-<p>Uma objeção forte reconstrói a tese com fidelidade, identifica um passo vulnerável e oferece razão. “Vocês estão errados” não basta. “O dado mostra aumento depois da campanha, mas não controla outras mudanças; portanto, não sustenta causalidade” localiza evidência e inferência. A resposta pode aceitar, rejeitar ou incorporar parcialmente a crítica.</p>
-<p>Responder não significa vencer. Primeiro, a equipe verifica se entendeu: “a objeção questiona a causa ou o tamanho do efeito?”. Depois, retorna ao material. Se a fonte não resolve a questão, a resposta adequada pode ser limitar a conclusão. Improvisar fatos para preservar a tese rompe o compromisso de verificabilidade.</p>
-<p>Algumas objeções partem de premissas incompatíveis com a pergunta original. Nesse caso, manter a tese pode ser justificável, desde que a equipe explique por que o comentário não incide sobre seu argumento. Outras revelam ambiguidade real. Uma palavra como “impacto” pode significar alcance, mudança de atitude ou participação; definir o termo pode alterar a conclusão.</p>
-<p>A melhor resposta frequentemente inclui concessão delimitada: reconhecer o ponto válido sem abandonar o que continua sustentado. “A evidência não permite afirmar causa, mas mostra associação temporal neste caso” preserva uma conclusão mais modesta. Concessões tornam o argumento mais preciso e oferecem ao leitor os critérios da decisão.</p>
-<aside class="pause-box">
-<h4>Pausa 2 — responder</h4>
-<p>Como transformar uma reação defensiva em resposta que cite o trecho contestado, a evidência disponível e o limite reconhecido?</p>
-</aside>
-</div>
-      <div class="base-subsection" id="texto-contraexemplo">
-<h3>4. Contraexemplo e evidência contrária</h3>
-<p>Contraexemplos testam afirmações gerais. Se a tese diz “todas as organizações com regras formais distribuem igualmente a fala”, um conselho em que turnos iguais coexistem com participação desigual basta para refutar a universalidade. O caso não explica sozinho por que a desigualdade ocorre; mostra que a regra precisa ser reformulada.</p>
-<p>Nem todo caso diferente é contraexemplo. Ele precisa pertencer ao domínio da afirmação e contrariar uma expectativa derivada dela. Comparar uma associação voluntária com uma repartição pública pode ser inadequado se a tese tratava apenas de organizações estatais. Antes de revisar, a equipe confere unidade, período e conceito.</p>
-<p>Evidência contrária merece o mesmo exame aplicado à evidência favorável: autoria, produção, universo e pertinência. Um relato anônimo sem contexto não deve derrubar automaticamente observações sistemáticas; tampouco deve ser apagado. Pode gerar pergunta para investigação futura. A força relativa das fontes precisa aparecer na justificativa.</p>
-<p>Quando o contraexemplo procede, há opções: abandonar a generalização, acrescentar condição ou propor explicação para a variação. “Regras formais favorecem igualdade apenas quando há mecanismos de facilitação e acesso” é uma hipótese revisada, não conclusão automaticamente comprovada. Ela precisará de novas comparações.</p>
-</div>
-      <div class="base-subsection" id="texto-alcance">
-<h3>5. Revisar o alcance</h3>
-<p>O alcance responde: para quais casos, tempos e lugares a conclusão é sustentada? Uma pesquisa com oito famílias acompanha experiências dessas participantes; não estima efeitos sobre todas as famílias. Uma enquete aberta descreve respondentes, não uma população inteira. Revisar o alcance alinha a força da frase à força da evidência.</p>
-<p>Há diferença entre limitar e esvaziar. Dizer “nada pode ser concluído” pode ser tão impreciso quanto generalizar. Mesmo uma fonte pequena pode documentar práticas, sentidos ou mecanismos possíveis. A formulação deve indicar o tipo de conhecimento: padrão observado, interpretação dos participantes, associação ou hipótese causal.</p>
-<p>Escalas se articulam sem serem equivalentes. Uma interação local pode ser condicionada por instituição, desigualdade territorial ou norma nacional. Entretanto, não se deduz a estrutura diretamente de uma cena. O argumento precisa explicitar quais ligações foram observadas e quais são inferidas com apoio teórico.</p>
-<p>Marcadores sociais também não funcionam como explicações automáticas. Raça, gênero, classe e território organizam relações e classificações, mas seus efeitos dependem de contextos, instituições e práticas. Uma revisão rigorosa evita transformar categorias em atributos fixos de pessoas e mostra mecanismos que distribuem recursos ou reconhecimento.</p>
-<aside class="pause-box">
-<h4>Pausa 3 — calibrar</h4>
-<p>Reescreva uma conclusão sobre “todos os estudantes” para que ela corresponda a uma enquete voluntária feita numa única turma.</p>
-</aside>
-</div>
-      <div class="base-subsection" id="texto-decidir">
-<h3>6. Manter, qualificar ou substituir</h3>
-<p>Depois de classificar e examinar a devolutiva, a equipe decide. <strong>Manter</strong> é apropriado quando a crítica não incide sobre a tese ou se baseia em leitura corrigida pelo próprio texto. A justificativa deve apontar evidência, não autoridade. <strong>Qualificar</strong> preserva o núcleo e acrescenta condição, recorte, exceção ou grau de incerteza.</p>
-<p>
-<strong>Substituir</strong> é necessário quando uma premissa central é falsa, a evidência não sustenta a conclusão ou um contraexemplo refuta sua forma universal. A nova tese deve responder à mesma pergunta ou explicar por que a pergunta também mudou. Apenas trocar palavras sem alterar a inferência não constitui revisão.</p>
-<p>Pode haver decisão de suspender: o material não permite escolher entre explicações. Nesse caso, o memorando registra o que seria preciso investigar. Suspensão fundamentada é resultado legítimo, sobretudo quando alternativas continuam compatíveis com os dados.</p>
-<p>Os critérios devem ser consistentes. Se a equipe exige fonte identificada para uma objeção, deve exigir o mesmo de sua tese. Se aceita um caso singular como ilustração favorável, não pode recusá-lo automaticamente quando desafia uma generalização universal. Revisão responsável aplica padrões simétricos.</p>
-</div>
-      <div class="base-subsection" id="texto-rastrear">
-<h3>7. Rastrear a mudança</h3>
-<p>O memorando torna a revisão auditável. Primeiro, copia a tese original sem reescrevê-la. Depois, registra a devolutiva de forma fiel e a classifica. Em seguida, lista a evidência consultada, decide manter, qualificar, substituir ou suspender e apresenta a nova redação. Por fim, explica por que a mudança responde ao comentário.</p>
-<p>Rastreabilidade não exige narrativa longa. Uma tabela com campos fixos evita que a versão anterior desapareça. Também permite distinguir mudança substantiva de correção estilística. Trocar “causou” por “esteve associado” é substantivo porque altera a inferência; corrigir pontuação melhora forma, mas não responde à objeção causal.</p>
-<p>Quando houver mais de uma devolutiva, a equipe deve priorizar as que afetam pergunta, evidência e inferência. Comentários de acabamento vêm depois. Contradições entre devolutivas não são resolvidas por votação: retornam aos critérios e materiais. O memorando pode justificar por que uma foi incorporada e outra não.</p>
-<p>Uma justificativa completa contém três elos. Primeiro, identifica o critério: causalidade, alcance, definição ou qualidade da fonte. Segundo, mostra como o comentário se relaciona ao material existente. Terceiro, explica a consequência textual. “Acrescentamos ‘entre respondentes’ porque a enquete foi voluntária” é rastreável; “melhoramos a frase” não informa o que mudou.</p>
-<p>A versão anterior deve permanecer legível. Sem ela, não é possível avaliar se a revisão respondeu à devolutiva ou apenas substituiu o tema. Marcas simples — trecho original e trecho revisado — bastam. Não é necessário expor nomes de estudantes; códigos dos materiais e comentários preservam o foco analítico.</p>
-<p>Priorizar envolve dependência lógica. Se a pergunta muda, tese e evidências precisam ser revistas depois. Se apenas uma definição fica mais clara, não é preciso reconstruir todo o argumento. A equipe começa pelos elementos de maior alcance e verifica efeitos nos demais, evitando correções contraditórias.</p>
-<p>O memorando distingue revisão de acumulação. Adicionar parágrafos, autores ou números não melhora necessariamente o argumento. Informação nova só entra quando responde à pergunta, sustenta uma inferência ou esclarece um limite. Caso contrário, aumenta volume e dificulta que o leitor reconheça a linha central.</p>
-<p>É possível registrar incerteza com precisão. Expressões como “os dados disponíveis são compatíveis com” ou “não permitem distinguir” devem vir acompanhadas das alternativas em jogo. Linguagem cautelosa sem objeto vira evasão; cautela fundamentada mostra exatamente onde termina a evidência.</p>
-<p>Esse registro prepara a síntese da Aula 30. Ele mostra uma operação transversal ao curso: conceitos não são respostas decorativas, e evidências não encerram interpretação. A análise avança por perguntas, comparação, contestação e limites reconhecidos.</p>
-</div>
-      <div class="base-subsection" id="texto-etica">
-<h3>8. Crítica ao argumento, não à pessoa</h3>
-<p>Uma devolutiva deve incidir sobre afirmação, fonte ou inferência, nunca sobre inteligência, identidade ou intenção de quem apresentou. “A conclusão ultrapassa as entrevistas” é verificável; “o grupo não entende o tema” personaliza a crítica. A regra protege participantes e melhora a qualidade analítica.</p>
-<p>Ninguém deve ser obrigado a relatar renda, discriminação, sexualidade, religião ou posição política para exemplificar conceitos. Os seis materiais da atividade são fictícios. Caso uma fala pessoal surja espontaneamente, o professor interrompe qualquer interrogatório e retorna ao documento comum.</p>
-<p>Há assimetrias na circulação de comentários: algumas vozes recebem mais atenção, certas formas de falar são tratadas como mais legítimas e interrupções podem se distribuir desigualmente. O protocolo prevê tempo de leitura, escrita e fala, permitindo contribuição sem exposição oral obrigatória.</p>
-<p>Reconhecer autoria também importa. Se uma objeção leva à revisão, o memorando registra a contribuição sem transformar a atividade em disputa por crédito. O objetivo é tornar o conhecimento coletivamente examinável e preservar responsabilidade pela decisão final.</p>
-<aside class="pause-box">
-<h4>Pausa 4 — formular</h4>
-<p>Transforme “o grupo está confuso” em uma devolutiva específica sobre conceito, evidência ou inferência.</p>
-</aside>
-</div>
-      <div class="base-subsection" id="texto-sintese">
-<h3>9. Síntese rumo à Aula 30</h3>
-<p>A Aula 29 transforma escuta em revisão. O percurso é: localizar o comentário, classificá-lo, retornar às fontes, avaliar sua força, decidir e registrar. Uma boa revisão pode mudar a tese, limitar seu alcance ou mantê-la com justificativa. O critério não é agradar ao público, mas aumentar coerência e verificabilidade.</p>
-<p>Objeção, evidência contrária e contraexemplo não são sinônimos. A objeção oferece razão; a evidência contrária sustenta interpretação rival; o contraexemplo desafia uma generalização. Separá-los permite resposta adequada e impede que mera discordância seja tratada como refutação.</p>
-<p>Revisar também evidencia a relação entre poder e conhecimento. Instituições definem quais registros existem, categorias tornam algumas experiências visíveis e recursos desiguais afetam quem consegue produzir e circular argumentos. Reconhecer essas condições não elimina critérios de evidência; exige perguntar como as fontes foram formadas e quais vozes ficaram ausentes.</p>
-<p>Ao mesmo tempo, sujeitos interpretam, contestam e modificam classificações. A agência não significa liberdade sem condições, assim como estrutura não significa resultado inevitável. Um memorando pode mostrar precisamente onde uma regra condiciona uma ação e onde participantes criam respostas inesperadas. Essa tensão acompanhará a síntese final.</p>
-<p>A revisão ensina ainda que conceitos operam em escalas distintas. Fato social, ação, classe, cultura, instituição, desigualdade e movimento não formam uma teoria única. Eles organizam perguntas diferentes e podem produzir interpretações concorrentes. O próximo encontro conectará operações sem apagar divergências entre perspectivas.</p>
-<p>Uma revisão concluída deve poder ser lida por quem não participou da conversa. Essa pessoa precisa reconhecer o argumento original, entender a crítica, localizar a fonte usada e avaliar a nova conclusão. Se a justificativa depende de lembranças privadas da discussão, falta informação no registro. A autonomia do documento é um teste simples de completude e acessibilidade.</p>
-<p>O registro final não precisa simular consenso. Duas equipes podem responder de modos diferentes à mesma devolutiva quando tornam explícitos seus critérios e respeitam as fontes. Comparar decisões revela quais premissas orientam cada interpretação e prepara uma síntese que preserve divergências teóricas sem transformar diferença analítica em erro automático.</p>
-<p>O memorando produzido será um dos documentos da Aula 30. Ele não será convertido em nota nem em entrega presumida. Servirá para reconhecer a progressão do curso: formular problemas, usar conceitos, reunir evidências, explicar mecanismos, confrontar limites e revisar conclusões.</p>
-</div>
-    </div>
-  </section>
-
-
-  <section id="plano-aula">
-    <div class="section-title">Plano de Aula com Tempo</div>
-    <div class="timeline">
-      <div class="tl-item">
-<span class="tl-duration">10 min</span>
-<span class="tl-text">
-<strong>Retomada</strong> — Recuperar registros da Aula 28, apresentar o protocolo e realizar a Pausa 1.</span>
-</div>
-      <div class="tl-item">
-<span class="tl-duration">20 min</span>
-<span class="tl-text">
-<strong>Modelagem</strong> — Classificar uma devolutiva, comparar respostas e realizar a Pausa 2.</span>
-</div>
-      <div class="tl-item">
-<span class="tl-duration">45 min</span>
-<span class="tl-text">
-<strong>Oficina</strong> — Analisar seis devolutivas e produzir o memorando em grupos.</span>
-</div>
-      <div class="tl-item">
-<span class="tl-duration">20 min</span>
-<span class="tl-text">
-<strong>Revisão cruzada</strong> — Outro grupo verifica rastreabilidade e alcance; realizar a Pausa 3.</span>
-</div>
-      <div class="tl-item">
-<span class="tl-duration">20 min</span>
-<span class="tl-text">
-<strong>Socialização</strong> — Comparar decisões justificadas e discutir crítica impessoal; realizar a Pausa 4.</span>
-</div>
-      <div class="tl-item">
-<span class="tl-duration">5 min</span>
-<span class="tl-text">
-<strong>Saída</strong> — Preservar memorandos para a síntese da Aula 30.</span>
-</div>
-    </div>
-  </section>
-
-  <section id="leituras">
-    <div class="section-title">Referências verificáveis</div>
-    <div class="ref-card">
-      <div class="ref-author">Wayne C. Booth; Gregory G. Colomb; Joseph M. Williams</div>
-<div class="ref-title">A arte da pesquisa. 2. ed. São Paulo: Martins Fontes, 2005.</div>
-<div class="ref-pages">Afirmações, objeções e respostas.</div>
-    </div>
-    <div class="ref-card">
-<div class="ref-author">Howard S. Becker</div>
-<div class="ref-title">Truques da escrita. Rio de Janeiro: Zahar, 2015.</div>
-<div class="ref-pages">Revisão como parte da produção intelectual.</div>
-</div>
-  </section>
-
-  <section id="atividade">
-    <div class="section-title">Atividades em Sala</div>
-    <div class="activity-card">
-<h3>Laboratório de revisão rastreável</h3>
-<p>
-<strong>Produto:</strong> memorando com tese original, devolutiva, classificação, evidência consultada, decisão, versão revisada e justificativa. Todos os casos são fictícios.</p>
-<div class="material-grid">
-      <article class="material-card">
-<h4>A — Causalidade</h4>
-<p>Tese: “A campanha digital causou maior presença.” Devolutiva: uma reportagem local saiu na mesma semana; os registros só mostram sequência temporal.</p>
-</article>
-      <article class="material-card">
-<h4>B — Alcance</h4>
-<p>Tese: “As famílias reduziram faltas ao trabalho.” Devolutiva: os diários acompanham oito participantes e não incluem quem saiu da rede.</p>
-</article>
-      <article class="material-card">
-<h4>C — Conceito</h4>
-<p>Tese: “A enquete formou um movimento social.” Devolutiva: há opinião agregada, mas não evidência de demanda coletiva, organização ou continuidade.</p>
-</article>
-      <article class="material-card">
-<h4>D — Contraexemplo</h4>
-<p>Tese: “Turnos formais garantem igualdade de fala.” Devolutiva: atas mostram duas ruas falando em todas as reuniões e seis quase nunca.</p>
-</article>
-      <article class="material-card">
-<h4>E — Clareza</h4>
-<p>Tese: “O coletivo teve impacto.” Devolutiva: impacto pode significar visibilidade, decisão pública, adesão ou mudança de prática.</p>
-</article>
-      <article class="material-card">
-<h4>F — Juízo normativo</h4>
-<p>Tese: “Entrevistados interpretaram a regra como injusta.” Devolutiva: “a regra deveria acabar”. O comentário avalia a regra, mas não contesta a interpretação registrada.</p>
-</article>
-</div>
-      <h4>Perguntas</h4>
-<ol>
-<li>Qual trecho exato foi contestado?</li>
-<li>Que tipo de devolutiva aparece?</li>
-<li>Ela traz evidência, razão ou apenas preferência?</li>
-<li>Que fonte original deve ser consultada?</li>
-<li>A decisão é manter, qualificar, substituir ou suspender?</li>
-<li>Como fica a nova tese?</li>
-<li>Que mudança é substantiva e qual seria apenas estilística?</li>
-<li>Qual limite deve permanecer explícito?</li>
-</ol>
-<p>
-<strong>Procedimento:</strong> 20 minutos para memorando, 10 para revisão cruzada e 5 para incorporar observações. Participação pode ser oral ou escrita; não use experiências pessoais como prova.</p>
-      <details>
-<summary>Gabarito orientador — abrir após a oficina</summary>
-<p>A pede qualificar “causou” como associação ou suspender a causalidade, pois a reportagem é explicação alternativa. B exige restringir a conclusão às famílias acompanhadas e reconhecer seleção. C substitui a classificação: enquete registra respostas, mas não demonstra movimento social. D oferece contraexemplo pertinente à tese universal; a versão revisada deve incluir condições ou abandonar “garantem”. E é pedido de clareza conceitual: definir qual resultado foi observado antes de decidir. F distingue interpretação empírica de avaliação normativa; a tese pode ser mantida se as entrevistas a sustentam, registrando que a proposta não a refuta.</p>
-<p>Em todos os memorandos, a justificativa deve citar o material e tornar a inferência visível. Não basta trocar “todos” por “alguns” sem identificar universo. Uma resposta pode manter a tese quando a crítica não incide sobre ela, mas deve explicar por quê. Novos fatos não podem ser inventados. O limite final deve dizer o que a fonte não permite concluir e indicar, quando pertinente, que investigação adicional seria necessária.</p>
-</details>
-</div>
-  </section>
-
-  <section id="recursos">
-    <div class="section-title">Recursos Necessários</div>
-    <div class="resources-list">
-      <span class="res-tag">Seis devolutivas integrais desta página</span>
-<span class="res-tag">Modelo de memorando reproduzido nas instruções</span>
-<span class="res-tag">Papel ou editor de texto</span>
-<span class="res-tag">Quadro e marcadores</span>
-<span class="res-tag">Cronômetro opcional</span>
-    </div>
-  </section>
-
-</main>
-
-<footer>
-  <a href="/introducao-sociologia/">← Página principal</a>
-  &nbsp;·&nbsp; Introdução à Sociologia 2026.2
-</footer>
-
-</body>
-</html>
+body {max-width:100%; overflow-x:hidden; overflow-wrap:anywhere;} main{max-width:960px;margin:auto} .base-text{max-width:72ch} .base-subsection{margin-bottom:24px} table{width:100%;border-collapse:collapse}th,td{padding:8px;border:1px solid var(--border);overflow-wrap:anywhere} .table-wrap,.table-region{overflow-x:auto;max-width:100%} .teacher-guidance{margin-top:20px;padding:16px;border:1px solid var(--border)} summary{cursor:pointer;font-weight:bold} .skip{position:absolute;left:-9999px}.skip:focus{left:12px;top:12px;z-index:300;background:var(--bg);padding:10px} a{overflow-wrap:anywhere} @media(max-width:640px){nav{position:static;flex-wrap:wrap;height:auto;padding:12px}.nav-center{display:none}.section-nav{position:static;flex-wrap:wrap}main{padding:20px 14px}.tl-item{flex-direction:column}.aula-header{padding:20px 14px}} @media print{nav,.section-nav,.skip{display:none!important}body,main,section,.aula-header,.activity-card,.pause-box,details{background:white!important;color:black!important}*{color:inherit!important;text-shadow:none!important;box-shadow:none!important}main{max-width:none;padding:0}.base-text{max-width:none}h1,h2,h3,summary{break-after:avoid}p{orphans:3;widows:3}table{font-size:9pt}.teacher-guidance{break-inside:auto}}
+</style></head><body>
+<a class="skip" href="#objetivos">Pular para o conteúdo</a>
+<nav aria-label="Navegação entre aulas"><div class="nav-left"><a href="../../index.html">Voltar ao curso</a></div><span class="nav-center">Encontro 08 de 15 · Aula 29 de 60</span><div class="nav-right"><a href="aula-28.html">← Aula anterior</a><a href="aula-30.html">Próxima aula →</a></div></nav>
+<div class="section-nav" aria-label="Seções"><a href="#objetivos">Objetivos</a><a href="#texto-base">Texto-base</a><a href="#plano-aula">Plano</a><a href="#atividade">Discussão</a><a href="#sintese">Síntese</a><a href="#leituras">Referências</a></div>
+<main><header class="aula-header"><div class="header-meta"><span class="meta-chip">Encontro <strong>08</strong> de 15 — 28/10/2026, quarta-feira</span><span class="meta-chip">Aula <strong>29</strong> de 60</span><span class="meta-chip">1ª aula do encontro</span><span class="meta-chip">Aproximadamente 1 hora-aula</span></div><h1>Cultura como produção social de sentidos</h1><p>Introdução à Sociologia · T01 · 2026.2 · Código 2101000 · SIGAA 4M1234</p></header>
+<section id="objetivos"><h2>Objetivos</h2><ul class="obj-list"><li>Definir cultura sem confundi-la com erudição.</li><li>Distinguir símbolos, valores, normas e práticas.</li><li>Relacionar linguagem, contexto e classificação.</li></ul></section>
+<section id="texto-base" aria-labelledby="texto-base-title"><h2 id="texto-base-title">Texto-base</h2><div class="base-text"><p class="base-intro">Uma mensagem “ok” pode indicar concordância, ironia ou pressa. Como uma interpretação se torna compartilhada?</p><div class="base-subsection" id="a29-conceito-1"><h3>1. Cultura além da erudição</h3>
+<p>No uso cotidiano, “ter cultura” pode significar conhecer livros, artes ou informações valorizadas. A Sociologia amplia radicalmente o foco. Cultura designa os processos pelos quais pessoas produzem, aprendem, compartilham, contestam e fazem circular sentidos para agir no mundo. Inclui modos de falar, comer, vestir, celebrar, crer, usar tecnologias e reconhecer situações. Uma conversa familiar e uma cerimônia universitária são tão analisáveis quanto uma obra artística.</p>
+<p>Isso não transforma cultura numa coleção de costumes. Uma lista registra itens, mas não explica quem os pratica, o que significam, como foram aprendidos nem por que mudam. Também não basta opor absolutamente natureza e cultura. Seres humanos têm corpos, necessidades e capacidades biológicas, mas alimentação, cuidado, emoções e convivência assumem formas sociais. A pergunta produtiva é como dimensões corporais, ambientais e sociais se articulam em cada contexto.</p>
+<aside class="pause-box"><h4>Pausa 1 — estranhar o familiar</h4><p>Escolha uma regra informal da sala. O que precisaríamos saber para explicá-la como prática aprendida, e não como comportamento “natural”?</p></aside>
+</div><div class="base-subsection" id="a29-conceito-2"><h3>2. Cultura como produção social de sentidos</h3>
+<p>Sentidos não ficam guardados apenas na mente. Eles surgem e ganham alguma estabilidade nas relações. Um alimento oferecido pode expressar cuidado familiar, hospitalidade, celebração religiosa ou simples conveniência; ingredientes parecidos assumem sentidos diferentes conforme participantes, ocasião e forma de servir. Produção social significa que as interpretações dependem de convenções anteriores, mas são atualizadas por pessoas concretas.</p>
+<p><strong>Cultura, sociedade e identidade</strong> se relacionam, porém não são sinônimos. Cultura refere-se a sentidos, classificações e modos aprendidos de agir. Sociedade indica redes de relações, posições, grupos e instituições pelas quais a vida coletiva se organiza. Identidade é uma identificação de si e dos outros, situada e relacional: ser estudante, integrante de uma família ou participante de uma religião pode tornar-se relevante em algumas interações e não em outras. Uma sociedade comporta repertórios culturais diversos, e uma pessoa combina identificações que podem mudar.</p>
+</div><div class="base-subsection" id="a29-conceito-3"><h3>3. Símbolos, linguagem e classificação</h3>
+<p>Símbolos são gestos, sons, objetos ou imagens cujo sentido depende de convenções. Uma beca não é apenas tecido: em certo ritual, marca uma passagem institucional. Uma reação numa mensagem digital pode sinalizar concordância, ironia ou apenas leitura. Não há significado automático; participantes interpretam indícios com base em repertórios compartilhados e no contexto.</p>
+<p>A linguagem permite nomear, comparar e classificar. Categorias como “formal”, “respeitoso”, “adequado” ou “competente” orientam julgamentos, mas suas fronteiras são aprendidas. Sotaques comunicam trajetórias e pertencimentos; quando um modo de falar é confundido com incapacidade, uma diferença linguística vira hierarquia social. Investigar essa classificação exige observar quem julga, em qual instituição, com quais efeitos e quais vozes contestam o julgamento.</p>
+<aside class="pause-box"><h4>Pausa 2 — sentidos em contexto</h4><p>Uma mensagem “ok” num grupo da turma expressa concordância, pressa ou incômodo? Que elementos da sequência e da relação entre participantes sustentariam cada leitura?</p></aside>
+</div><div class="base-subsection" id="a29-conceito-4"><h3>4. Valores, normas e práticas</h3>
+<p>Valores são ideias socialmente formuladas sobre o desejável, como respeito, autonomia, solidariedade ou pontualidade. Normas traduzem expectativas em orientações mais específicas: esperar a vez, entregar no prazo, usar certa forma de tratamento. Práticas são ações efetivamente realizadas. Os três planos não coincidem: uma instituição pode valorizar participação, estabelecer regras de fala e ainda produzir uma aula na qual poucas pessoas conseguem intervir.</p>
+<p>Normas variam em grau de formalização. Algumas aparecem em regulamentos; outras são percebidas pela aprovação, pelo constrangimento ou pela correção cotidiana. Atrasos podem ser avaliados diferentemente numa conversa familiar, numa aula, num atendimento e numa celebração. Em vez de atribuir o comportamento a uma “cultura do grupo”, a análise considera transporte, trabalho, cuidado de parentes, autoridade, convenções locais e negociações entre participantes.</p>
+</div><p>Esse exercício também prepara a leitura de respostas de inteligência artificial. Uma expressão de conselho, encorajamento ou advertência precisa ser interpretada na sequência em que aparece. Não basta contar palavras consideradas positivas: é necessário examinar o destinatário construído pelo texto, a situação apresentada e as alternativas oferecidas. A análise cultural liga linguagem e relações sociais, mantendo aberta a possibilidade de interpretações concorrentes.</p></div></section>
+<section id="plano-aula"><h2>Percurso da hora-aula</h2><div class="timeline"><div class="tl-item"><span class="tl-duration">10 min</span><span class="tl-text">Uma mensagem “ok” pode indicar concordância, ironia ou pressa. Como uma interpretação se torna compartilhada?</span></div><div class="tl-item"><span class="tl-duration">25 min</span><span class="tl-text">Leitura dialogada e desenvolvimento dos conceitos desta unidade.</span></div><div class="tl-item"><span class="tl-duration">20 min</span><span class="tl-text">Discussão e elaboração do registro proposto; comparação das justificativas com mediação docente.</span></div><div class="tl-item"><span class="tl-duration">5 min</span><span class="tl-text">Síntese e transição: A Aula 30 examinará como sentidos se sustentam em condições materiais e são disputados por grupos.</span></div></div></section>
+<section id="atividade"><h2>Discussão e registro</h2><div class="activity-card" data-gabarito="obrigatorio"><p>Compare o uso de “ok” numa conversa entre amigos, numa resposta a uma ordem e depois de um conflito. Registre três hipóteses de sentido e os indícios necessários para diferenciá-las.</p><details class="teacher-guidance"><summary>Orientação docente e resposta comentada</summary><p>O enunciado não oferece contexto suficiente para decidir o significado. Entre amigos, a expressão pode confirmar leitura; diante de uma ordem, pode indicar aceitação; depois de conflito, pode ser interpretada como encerramento ou ironia. Essas são hipóteses, não significados fixos. Solicite informações sobre sequência da conversa, relação entre participantes, convenções locais e reações posteriores. A cultura fornece repertórios compartilhados, mas não funciona como dicionário que elimina toda ambiguidade.</p><p>Uma resposta forte distingue o sinal observado da interpretação e da evidência necessária. Evite atribuir um modo de escrever à essência de uma geração, classe ou região. Pergunte como as convenções são aprendidas, quem pode corrigir um uso e quais consequências uma interpretação produz. O exercício não exige exposição de mensagens privadas: as situações são construídas didaticamente. Na socialização, compare justificativas, não preferências estilísticas. Retome a diferença entre norma e prática: mesmo quando há uma convenção conhecida, participantes podem recusá-la ou usá-la de modo criativo.</p></details></div></section>
+<section id="sintese"><h2>Síntese e continuidade</h2><p>Cultura é produção e aprendizagem de sentidos. A mesma forma material pode assumir significados diferentes em relações distintas.</p><p>A Aula 30 examinará como sentidos se sustentam em condições materiais e são disputados por grupos.</p></section><section id="leituras"><div class="section-title">Textos para Leitura Prévia</div>
+<div class="ref-card"><div class="ref-author">LARAIA, Roque de Barros</div><div class="ref-title">Cultura: um conceito antropológico. Capítulos 1 e 2</div></div>
+<div class="ref-card"><div class="ref-author">GIDDENS, Anthony</div><div class="ref-title">Sociologia. Capítulo sobre cultura</div></div>
+</section>
+</main><footer>Introdução à Sociologia · T01 · 2026.2 · <a href="../../index.html">Voltar ao curso</a></footer></body></html>

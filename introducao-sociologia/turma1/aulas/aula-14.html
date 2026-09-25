@@ -1,16 +1,87 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aula 14 — Introdução à Sociologia | 2026.2</title>
-<style>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Aula 14 — Direito, anomia e os limites da divisão do trabalho · 2026.2</title><style>
   :root {
     --bg: #0a0a0f; --surface: #12121c; --card: #1a1a2e; --border: #2a2a4a;
     --purple: #7c3aed; --purple-lt: #a855f7; --blue: #4f46e5; --blue-lt: #818cf8;
     --teal-lt: #2dd4bf; --amber-lt: #fbbf24; --rose-lt: #fb7185;
     --text: #e2e8f0; --muted: #94a3b8; --radius: 12px;
-    --bloco-color: #0d9488; --bloco-lt: #2dd4bf;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { max-width: 100%; overflow-x: clip; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; min-height: 100vh; overflow-wrap: anywhere; }
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(18,18,28,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; white-space: nowrap; }
+  nav a:hover { color: var(--text); }
+  .nav-left { display: flex; align-items: center; gap: 10px; }
+  .nav-badge { background: var(--purple); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+  .nav-center { font-size: 0.875rem; color: var(--muted); }
+  .nav-right { display: flex; gap: 16px; align-items: center; }
+  main { max-width: 860px; margin: 0 auto; padding: 40px 24px 80px; }
+  .aula-header { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; margin-bottom: 32px; border-top: 4px solid var(--blue); }
+  .header-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; align-items: center; }
+  .bloco-badge { background: var(--blue); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .meta-chip { background: var(--surface); border: 1px solid var(--border); font-size: 0.8rem; color: var(--muted); padding: 4px 12px; border-radius: 20px; }
+  .meta-chip strong { color: var(--text); }
+  .aula-header h1 { font-size: 1.5rem; font-weight: 700; line-height: 1.3; color: var(--text); }
+  section { margin-bottom: 32px; scroll-margin-top: 112px; }
+  .section-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue-lt); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+  .obj-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .obj-list li { display: flex; gap: 12px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
+  .obj-list li::before { content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--blue-lt); margin-top: 7px; flex-shrink: 0; }
+  .content-topic { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 12px; }
+  .content-topic h3 { font-size: 0.95rem; font-weight: 600; color: var(--purple-lt); margin-bottom: 8px; }
+  .content-topic ul { list-style: none; padding: 0; }
+  .content-topic ul li { padding: 4px 0 4px 16px; position: relative; color: var(--muted); font-size: 0.9rem; }
+  .content-topic ul li::before { content: '—'; position: absolute; left: 0; color: var(--border); }
+  .timeline { display: flex; flex-direction: column; gap: 10px; }
+  .tl-item { display: flex; gap: 16px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; border-left: 3px solid var(--blue); }
+  .tl-duration { background: var(--surface); border: 1px solid var(--border); color: var(--amber-lt); font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+  .tl-text { font-size: 0.9rem; color: var(--text); }
+  .ref-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 10px; border-left: 3px solid var(--blue-lt); }
+  .ref-author { font-size: 0.8rem; font-weight: 700; color: var(--blue-lt); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+  .ref-title { font-size: 0.9rem; color: var(--text); }
+  .ref-pages { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
+  .activity-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; font-size: 0.9rem; line-height: 1.7; border-left: 3px solid var(--teal-lt); }
+  .teacher-guidance { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-top: 18px; }
+  .teacher-guidance summary { cursor: pointer; color: var(--amber-lt); font-weight: 700; padding: 15px 17px; }
+  .teacher-guidance[open] summary { border-bottom: 1px solid var(--border); }
+  .teacher-guidance-content { padding: 16px 18px; }
+  .resources-list { display: flex; flex-wrap: wrap; gap: 10px; }
+  .res-tag { max-width: 100%; min-width: 0; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; }
+  footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--muted); font-size: 0.85rem; }
+  footer a { color: var(--purple-lt); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .section-nav { position: sticky; top: 56px; z-index: 90; background: rgba(10,10,15,.97); border-bottom: 1px solid var(--border); padding: 8px 16px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: thin; }
+  .section-nav a { flex: 0 0 auto; min-height: 36px; display: inline-flex; align-items: center; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 5px 12px; text-decoration: none; font-size: .8rem; }
+  .base-text { max-width: 72ch; margin-inline: auto; }
+  .base-intro { color: var(--muted); font-size: .92rem; margin-bottom: 16px; }
+  .base-subsection { scroll-margin-top: 112px; margin-bottom: 28px; }
+  .base-subsection h3 { color: var(--blue-lt); font-size: 1.15rem; line-height: 1.35; margin-bottom: 12px; }
+  .base-subsection p { color: var(--text); margin-bottom: 14px; line-height: 1.78; }
+  .base-subsection strong { color: #f1f5f9; }
+  .pause-box { background: rgba(79,70,229,.1); border: 1px solid rgba(129,140,248,.4); border-left: 4px solid var(--blue-lt); border-radius: var(--radius); padding: 16px 18px; margin: 22px 0; }
+  .pause-box h4 { color: var(--amber-lt); font-size: .75rem; letter-spacing: .09em; text-transform: uppercase; margin-bottom: 6px; }
+  .pause-box p { margin: 0; color: var(--text); font-weight: 600; line-height: 1.6; }
+  a:focus-visible { outline: 3px solid var(--amber-lt); outline-offset: 3px; border-radius: 3px; }
+  @media (max-width: 640px) {
+    nav { height: auto; min-height: 56px; padding: 8px 12px; flex-wrap: wrap; }
+    .nav-left, .nav-right { min-width: 0; }
+    .nav-center { display: none; }
+    .nav-right { gap: 10px; }
+    .section-nav { top: 72px; padding-inline: 10px; }
+    main { padding: 24px 14px 60px; }
+    .aula-header { padding: 22px 18px; }
+    .tl-item { flex-direction: column; gap: 8px; }
+  }
+  @media print { .teacher-guidance { break-inside: avoid; } }
+
+
+  :root {
+    --bg: #0a0a0f; --surface: #12121c; --card: #1a1a2e; --border: #2a2a4a;
+    --purple: #7c3aed; --purple-lt: #a855f7; --blue: #4f46e5; --blue-lt: #818cf8;
+    --teal-lt: #2dd4bf; --amber-lt: #fbbf24; --rose-lt: #fb7185;
+    --text: #e2e8f0; --muted: #94a3b8; --radius: 12px;
+    --bloco-color: #4f46e5; --bloco-lt: #818cf8;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
@@ -46,7 +117,15 @@
   .ref-title { font-size: 0.9rem; color: var(--text); }
   .ref-pages { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
   .activity-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; font-size: 0.9rem; line-height: 1.7; border-left: 3px solid var(--teal-lt); }
-  .info-card { background: rgba(13,148,136,0.08); border: 1px solid rgba(45,212,191,0.25); border-radius: var(--radius); padding: 20px; font-size: 0.9rem; line-height: 1.7; margin-bottom: 12px; }
+  .activity-card h3 { color: var(--teal-lt); font-size: 1.05rem; margin: 0 0 12px; }
+  .activity-card ol, .activity-card ul { padding-left: 22px; margin: 10px 0; }
+  .activity-card li { margin: 6px 0; }
+  .case-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; margin: 12px 0; break-inside: avoid; }
+  .case-card h4 { color: var(--amber-lt); margin-bottom: 6px; }
+  .teacher-guidance { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-top: 18px; }
+  .teacher-guidance summary { cursor: pointer; color: var(--amber-lt); font-weight: 700; padding: 15px 17px; }
+  .teacher-guidance[open] summary { border-bottom: 1px solid var(--border); }
+  .teacher-guidance-content { padding: 16px 18px; }
   .resources-list { display: flex; flex-wrap: wrap; gap: 10px; }
   .res-tag { background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; }
   footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--muted); font-size: 0.85rem; }
@@ -86,191 +165,90 @@
     .base-toc ol { width: auto; columns: auto; padding-left: 0; list-style-position: inside; }
     .tl-item { flex-direction: column; gap: 8px; }
   }
+  @media print { .case-card, .teacher-guidance { break-inside: avoid; } }
 
-  /* activity-materials-2026-2 */
-  .activity-card h3 { color: var(--teal-lt); font-size: 1.05rem; margin: 0 0 12px; }
-  .activity-card h4 { color: var(--amber-lt); margin: 18px 0 8px; }
-  .activity-card ol, .activity-card ul { padding-left: 22px; margin: 10px 0; }
-  .activity-card li { margin: 7px 0; }
-  .material-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 15px 17px; margin: 14px 0; break-inside: avoid; overflow-x: auto; }
-  .material-box table { width: 100%; min-width: 680px; table-layout: fixed; border-collapse: collapse; font-size: .82rem; }
-  .material-box caption { color: var(--text); text-align: left; font-weight: 700; padding-bottom: 8px; }
-  .material-box th, .material-box td { border: 1px solid var(--border); padding: 8px; text-align: left; vertical-align: top; overflow-wrap: anywhere; }
-  .material-box th { color: var(--amber-lt); background: var(--card); }
-  .teacher-guidance { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-top: 18px; }
-  .teacher-guidance summary { cursor: pointer; color: var(--amber-lt); font-weight: 700; padding: 15px 17px; }
-  .teacher-guidance[open] summary { border-bottom: 1px solid var(--border); }
-  .teacher-guidance-content { padding: 16px 18px; }
-  @media (max-width: 640px) { .material-box { padding: 12px; } }
-  @media print { nav, .section-nav { position: static; } .material-box, .teacher-guidance { break-inside: avoid; } .material-box { overflow: visible; } .material-box table { min-width: 0; font-size: 8pt; } }
-</style>
-</head>
-<body>
+body {max-width:100%; overflow-x:hidden; overflow-wrap:anywhere;} main{max-width:960px;margin:auto} .base-text{max-width:72ch} .base-subsection{margin-bottom:24px} table{width:100%;border-collapse:collapse}th,td{padding:8px;border:1px solid var(--border);overflow-wrap:anywhere} .table-wrap,.table-region{overflow-x:auto;max-width:100%} .teacher-guidance{margin-top:20px;padding:16px;border:1px solid var(--border)} summary{cursor:pointer;font-weight:bold} .skip{position:absolute;left:-9999px}.skip:focus{left:12px;top:12px;z-index:300;background:var(--bg);padding:10px} a{overflow-wrap:anywhere} @media(max-width:640px){nav{position:static;flex-wrap:wrap;height:auto;padding:12px}.nav-center{display:none}.section-nav{position:static;flex-wrap:wrap}main{padding:20px 14px}.tl-item{flex-direction:column}.aula-header{padding:20px 14px}} @media print{nav,.section-nav,.skip{display:none!important}body,main,section,.aula-header,.activity-card,.pause-box,details{background:white!important;color:black!important}*{color:inherit!important;text-shadow:none!important;box-shadow:none!important}main{max-width:none;padding:0}.base-text{max-width:none}h1,h2,h3,summary{break-after:avoid}p{orphans:3;widows:3}table{font-size:9pt}.teacher-guidance{break-inside:auto}}
+</style></head><body>
+<a class="skip" href="#objetivos">Pular para o conteúdo</a>
+<nav aria-label="Navegação entre aulas"><div class="nav-left"><a href="../../index.html">Voltar ao curso</a></div><span class="nav-center">Encontro 04 de 15 · Aula 14 de 60</span><div class="nav-right"><a href="aula-13.html">← Aula anterior</a><a href="aula-15.html">Próxima aula →</a></div></nav>
+<div class="section-nav" aria-label="Seções"><a href="#objetivos">Objetivos</a><a href="#texto-base">Texto-base</a><a href="#plano-aula">Plano</a><a href="#atividade">Discussão</a><a href="#sintese">Síntese</a><a href="#leituras">Referências</a></div>
+<main><header class="aula-header"><div class="header-meta"><span class="meta-chip">Encontro <strong>04</strong> de 15 — 30/09/2026, quarta-feira</span><span class="meta-chip">Aula <strong>14</strong> de 60</span><span class="meta-chip">2ª aula do encontro</span><span class="meta-chip">Aproximadamente 1 hora-aula</span></div><h1>Direito, anomia e os limites da divisão do trabalho</h1><p>Introdução à Sociologia · T01 · 2026.2 · Código 2101000 · SIGAA 4M1234</p></header>
+<section id="objetivos"><h2>Objetivos</h2><ul class="obj-list"><li>Relacionar sanções repressivas e restitutivas aos tipos de solidariedade.</li><li>Distinguir divisão anômica e divisão forçada do trabalho.</li><li>Analisar combinações de vínculos sem classificar sociedades como tipos puros.</li></ul></section>
+<section id="texto-base" aria-labelledby="texto-base-title"><h2 id="texto-base-title">Texto-base</h2><div class="base-text"><p class="base-intro">Se uma rede de trabalhadores depende de cooperação, por que a especialização também pode produzir conflito? O direito oferece indícios dos vínculos, mas não dispensa a investigação das condições de trabalho.</p><div class="base-subsection" id="a14-conceito-1">
+<h3>1. Direito repressivo e restitutivo como indicadores</h3>
+<p>Como observar empiricamente algo tão amplo quanto a solidariedade? Durkheim procura um indicador visível: o <strong>direito</strong>. As normas jurídicas condensam obrigações que uma sociedade considera importantes e registram modos de reagir à sua violação. Ele distingue a predominância de sanções repressivas e restitutivas, sem afirmar que um sistema jurídico real contenha apenas uma delas.</p>
+<p>O <strong>direito repressivo</strong> responde à infração com pena, censura ou privação imposta ao autor. Sua força é especialmente compreensível quando a conduta atinge sentimentos coletivos intensos. A punição não apenas produz consequência para quem infringiu; ela reafirma diante do grupo que determinada fronteira continua válida. Por isso Durkheim associa sua maior presença à solidariedade mecânica.</p>
+<p>O <strong>direito restitutivo</strong> procura recompor relações, restaurar obrigações ou colocar as partes em situação juridicamente regulada. Contratos, relações administrativas, comerciais e profissionais frequentemente exigem correção, reparação ou cumprimento, e não uma reação emocional de toda a comunidade. Esse direito acompanha a multiplicação de funções especializadas e é associado à solidariedade orgânica.</p>
+<p>A distinção descreve tendências, não caixas fechadas. Sociedades contemporâneas mantêm amplo direito penal repressivo, enquanto comunidades com forte semelhança também resolvem obrigações por restituição. Além disso, uma reparação pode envolver coerção estatal, e uma pena pode ter objetivos diversos. O valor metodológico está em comparar quais tipos de regra e sanção predominam em diferentes domínios e o que revelam sobre os vínculos sociais.</p>
+<aside class="pause-box"><h4>Pausa para discussão</h4><p>Compare uma pena por agressão e uma decisão que determina o cumprimento de um contrato. Que relação social cada resposta procura proteger? Em que sentido uma é predominantemente repressiva e a outra restitutiva?</p></aside>
+</div><div class="base-subsection" id="a14-conceito-2">
+<h3>2. Coexistências, combinações e passagens históricas</h3>
+<p>Falar em passagem da solidariedade mecânica para a orgânica não autoriza contar uma história linear na qual todas as sociedades percorrem a mesma escada. Durkheim examinava uma tendência associada ao aumento da diferenciação. Processos históricos são irregulares: regiões, instituições e grupos combinam formas diversas; mudanças podem avançar em um domínio e recuar em outro; vínculos tradicionais podem ser recriados por tecnologias modernas.</p>
+<p>Uma metrópole oferece bom exemplo. O abastecimento de alimentos depende de longa cadeia especializada, característica da solidariedade orgânica. Ao mesmo tempo, bairros, religiões, torcidas e movimentos constroem pertencimento pela partilha de símbolos. A própria categoria de cidadania combina diferenciação de funções com a afirmação de direitos comuns. Não se trata de escolher qual tipo “é” a cidade, mas de identificar onde cada mecanismo atua e como se articula aos demais.</p>
+<p>A escola permite observar a mesma composição em escala menor. Docência, gestão, alimentação, limpeza, transporte e apoio especializado formam uma rede de funções complementares. Paralelamente, calendário, hino, formatura, regras de convivência e memória institucional criam referências comuns. Quando estudantes defendem simultaneamente o respeito às diferenças e um princípio compartilhado de igualdade, diferenciação e semelhança não aparecem como forças incompatíveis: uma sustenta a singularidade das posições e a outra oferece linguagem comum para reivindicar reconhecimento.</p>
+<p>O Contexto C da atividade — uma empresa tecnológica com equipes multidisciplinares, trabalho remoto e participantes de diferentes culturas — também não admite classificação automática. A complementaridade de funções aponta para solidariedade orgânica. Entretanto, rituais corporativos, vocabulário interno e valores compartilhados podem produzir semelhança. A análise precisa verificar se a diversidade é acompanhada por coordenação justa ou se hierarquias bloqueiam pessoas de ocupar funções compatíveis com suas capacidades.</p>
+<p>Essa observação impede usar os tipos como retratos completos. Eles funcionam como instrumentos para decompor vínculos. A pergunta adequada não é “qual solidariedade existe?”, no singular, mas quais mecanismos criam obrigações em cada domínio, qual deles predomina e como mudam ao longo do tempo. Documentos jurídicos, rituais, trajetórias ocupacionais e conflitos oferecem evidências distintas para essa reconstrução.</p>
+</div><div class="base-subsection" id="a14-conceito-3">
+<h3>3. Quando a divisão não produz solidariedade</h3>
+<p>A divisão do trabalho pode deixar de cumprir sua função moral. Na <strong>divisão anômica</strong>, as atividades se especializam sem que regras e contatos suficientes coordenem as partes. Objetivos se tornam ilimitados, responsabilidades ficam obscuras e crises rompem expectativas. Pense em uma plataforma que altera unilateralmente critérios de remuneração: trabalhadores, usuários e empresa permanecem conectados, mas a regulação da relação pode ser insuficiente ou imprevisível.</p>
+<p>Na <strong>divisão forçada</strong>, posições não correspondem livremente a capacidades e vocações porque desigualdades herdadas, discriminações ou concentração de recursos restringem oportunidades. Uma pessoa pode estar formalmente livre para concorrer a uma profissão, mas enfrentar escolarização desigual, barreiras raciais, responsabilidades de cuidado ou redes de indicação fechadas. A crítica mostra que Durkheim não legitima qualquer ordem existente: uma divisão imposta por privilégios produz tensão em vez de cooperação moral.</p>
+<p>Há ainda situações de coordenação inadequada, nas quais a especialização extrema enfraquece a percepção do resultado comum. Um trabalhador pode executar uma tarefa fragmentada sem compreender como ela se liga às demais; departamentos podem proteger metas próprias e prejudicar o serviço inteiro. A interdependência objetiva existe, mas não basta. São necessárias regras legítimas, comunicação e algum reconhecimento da contribuição recíproca.</p>
+<aside class="pause-box"><h4>Pausa para discussão</h4><p>Uma rede de trabalho pode ser muito interdependente e, ainda assim, pouco solidária? Que evidências permitiriam distinguir falta de regulação, divisão forçada e simples conflito de interesses?</p></aside>
+</div><div class="base-subsection" id="a14-conceito-4">
+<h3>4. Síntese: da interdependência à anomia</h3>
+<p><strong>Síntese.</strong> A manhã sustentada por desconhecidos revelou que divisão social do trabalho não é somente técnica econômica. Ela distribui funções, cria obrigações e modifica a base da coesão. A solidariedade mecânica liga sobretudo pela semelhança e pela força de crenças comuns; a orgânica liga pela diferenciação e dependência entre funções. Direito repressivo e restitutivo oferecem indicadores dessas formas, sem representar sistemas puros.</p>
+<p>Sociedades reais combinam semelhança e diferenciação. Nenhum dos tipos constitui medida simples de atraso ou superioridade. A questão decisiva é saber em que condições a especialização se converte em cooperação regulada. Quando faltam normas capazes de coordenar expectativas, surge a divisão anômica; quando desigualdades impõem posições, aparece a divisão forçada. Assim, ordem social não é aceita como dado: suas condições e patologias tornam-se objeto de investigação.</p>
+<p>A Aula 15 partirá exatamente desse limite. Se vínculos podem ser insuficientes ou excessivos, e se a regulação pode falhar em períodos de transformação, como reconhecer efeitos coletivos em fenômenos vividos individualmente? O passo seguinte será examinar <strong>integração, regulação e anomia</strong> por meio da comparação de taxas, aprendendo tanto a força quanto os limites das inferências sociológicas.</p>
+</div></div></section>
+<section id="plano-aula"><h2>Percurso da hora-aula</h2><div class="timeline"><div class="tl-item"><span class="tl-duration">5 min</span><span class="tl-text">Se uma rede de trabalhadores depende de cooperação, por que a especialização também pode produzir conflito? O direito oferece indícios dos vínculos, mas não dispensa a investigação das condições de trabalho.</span></div><div class="tl-item"><span class="tl-duration">20 min</span><span class="tl-text">Leitura dialogada e desenvolvimento dos conceitos desta unidade.</span></div><div class="tl-item"><span class="tl-duration">30 min</span><span class="tl-text">Discussão e elaboração do registro proposto; comparação das justificativas com mediação docente.</span></div><div class="tl-item"><span class="tl-duration">5 min</span><span class="tl-text">Síntese e transição: A Aula 15 investigará como integração e regulação se tornam hipóteses para explicar variações coletivas em O suicídio.</span></div></div></section>
+<section id="atividade">
+<div class="section-title">Atividades em Sala</div>
+<div class="activity-card" data-gabarito="obrigatorio">
+<h3>Exercício escrito — vínculos sociais em três contextos</h3>
+<p>Analise individualmente os três contextos. Em cada resposta, identifique o mecanismo predominante de solidariedade, apresente duas evidências do caso e indique elementos que impedem tratar o contexto como tipo puro.</p>
+<article class="case-card"><h4>Contexto A — Comunidade rural no século XIX</h4><p>A maioria das famílias trabalha na agricultura, participa das mesmas celebrações religiosas e transmite costumes comuns. Há divisão de tarefas por idade, gênero e ofício; ferramentas são reparadas por artesãos especializados e parte da produção circula em mercados regionais. Violações de rituais centrais provocam forte reprovação coletiva.</p></article>
+<article class="case-card"><h4>Contexto B — Abastecimento de uma metrópole</h4><p>Alimentos chegam diariamente por meio de produtores, transportadores, centrais de distribuição, vigilância sanitária, comércio e serviços de limpeza. Os participantes não compartilham necessariamente as mesmas crenças, mas dependem de contratos, licenças, horários e padrões técnicos. Uma paralisação em um elo repercute nos demais.</p></article>
+<section aria-labelledby="guided-tech-example" class="case-card">
+<h4 id="guided-tech-example">Exemplo guiado — como funciona a interdependência numa empresa de tecnologia</h4>
+<p>Uma plataforma educacional depende de profissionais de programação, design, produção de conteúdo, suporte aos usuários, segurança dos dados, administração, atendimento e comercialização. A programação mantém as funções técnicas; o design organiza a experiência de uso; a produção de conteúdo prepara o material pedagógico; suporte e atendimento recebem dificuldades dos usuários; segurança protege informações; administração coordena recursos; e comercialização conecta o serviço a escolas e estudantes. Nenhum desses profissionais produz sozinho o serviço completo. A especialização aumenta a diferenciação entre as tarefas, mas também aumenta a dependência recíproca.</p>
+<p>Essa interdependência não significa automaticamente harmonia. Podem existir desigualdade salarial, falta de reconhecimento, metas contraditórias, decisões tomadas sem participação, mudanças imprevistas nas regras e conflitos entre qualidade, prazo e lucro. O funcionamento conjunto precisa, portanto, ser investigado tanto pela complementaridade das funções quanto pelas relações de poder, reconhecimento, proteção e controle existentes entre os trabalhadores.</p>
+<ol>
+<li>Quais funções são diferentes, mas dependem umas das outras?</li>
+<li>Que regras ou contratos coordenam essa cooperação?</li>
+<li>Em que situação a divisão do trabalho poderia se tornar anômica ou forçada?</li>
+</ol>
+</section>
+<article class="case-card"><h4>Contexto C — Empresa de tecnologia</h4><p>Equipes de programação, design, suporte, vendas e proteção de dados trabalham presencialmente e a distância. A empresa promove valores e rituais comuns, mas terceirizados recebem menos proteção, algoritmos distribuem tarefas sem transparência e indicações pessoais influenciam promoções.</p></article>
+<ol>
+<li>Que solidariedade predomina em cada contexto? Justifique sem usar apenas “antigo” ou “moderno”.</li>
+<li>Que evidências mostram semelhança, diferenciação ou interdependência?</li>
+<li>Que forma de direito ou sanção seria mais provável em cada relação: repressiva, restitutiva ou uma combinação?</li>
+<li>Há indícios de divisão anômica ou forçada? O que ainda seria necessário investigar?</li>
+<li>Escolha um contexto e explique como solidariedade mecânica e orgânica coexistem nele.</li>
+</ol>
+<details class="teacher-guidance">
+<summary>Orientações para a mediação — uso do professor</summary>
+<div class="teacher-guidance-content">
+<p><strong>Critério geral:</strong> avaliar o raciocínio e as evidências, não a simples escolha de um rótulo. Respostas devem distinguir tipo predominante de tipo exclusivo e reconhecer que interdependência não prova, sozinha, regulação justa.</p>
+<p><strong>Contexto A:</strong> a partilha de crenças e a reprovação coletiva sustentam a hipótese de predomínio mecânico. Artesanato, mercados e divisão de tarefas mostram diferenciação; por isso, “mecânico puro” seria inadequado.</p>
+<p><strong>Contexto B:</strong> a complementaridade de funções e as regras contratuais favorecem a classificação orgânica. A turma deve relacionar restituição ao restabelecimento de obrigações, sem concluir que não existe direito repressivo na metrópole.</p>
+<p><strong>Contexto C:</strong> há solidariedade orgânica nas equipes especializadas e componentes mecânicos nos rituais corporativos. Falta de transparência pode sugerir regulação insuficiente; proteção desigual e promoções por redes fechadas podem sugerir divisão forçada. São hipóteses, não conclusões automáticas.</p>
+<p><strong>Mediação:</strong> peça que cada afirmação aponte uma frase do caso. Quando houver divergência, separe três perguntas: qual vínculo predomina, quais mecanismos coexistem e quais informações faltam. Não trate comunidade rural como inferior nem empresa tecnológica como moralmente superior.</p>
+</div>
+</details>
+</div>
+</section>
+<section id="sintese"><h2>Síntese e continuidade</h2><p>O direito torna aspectos da solidariedade observáveis. Interdependência só produz coesão sob determinadas condições; ausência de coordenação e imposição desigual das posições podem comprometer esse vínculo.</p><p>A Aula 15 investigará como integração e regulação se tornam hipóteses para explicar variações coletivas em O suicídio.</p></section><section id="leituras">
+<div class="section-title">Textos para Leitura Prévia</div>
+<div class="ref-card">
+<div class="ref-author">DURKHEIM, Émile</div>
+<div class="ref-title">Da divisão do trabalho social. Prefácio da 1ª edição e Livro I, Cap. 1</div>
 
-<nav>
-  <div class="nav-left">
-    <a href="/introducao-sociologia/">← Página principal</a>
-    <span class="nav-badge">Aula 14</span>
-  </div>
-  <span class="nav-center">Aula 14 / 30</span>
-  <div class="nav-right">
-    <a href="aula-13.html">← Anterior</a>
-    <a href="aula-15.html">Próxima →</a>
-  </div>
-</nav>
-<div class="section-nav" aria-label="Seções da aula"><a href="#objetivos">Objetivos</a><a href="#conteudo-programatico">Conteúdo</a><a href="#texto-base">Texto-base</a><a href="#plano-aula">Plano da aula</a><a href="#leituras">Leituras</a><a href="#atividade">Atividade</a><a href="#recursos">Recursos</a></div>
+</div>
+<div class="ref-card">
+<div class="ref-author">GIDDENS, Anthony</div>
+<div class="ref-title">Sociologia. Seção sobre Durkheim</div>
 
-<main>
-  <div class="aula-header"><div class="header-meta"><span class="bloco-badge">Bloco III</span><span class="meta-chip">Aula 14</span><span class="meta-chip">Encontro 7 · Parte 2 de 2</span><span class="meta-chip">21/10/2026 — Quarta-feira</span><span class="meta-chip">Percurso completo do encontro: 4 horas-aula</span><span class="meta-chip">Esta página: aproximadamente 2 horas</span></div><h1>Orientação para o Seminário. Formação dos grupos e entrega da pesquisa bibliográfica.</h1></div>
-
-  <section id="objetivos"><div class="section-title">Objetivos da Aula</div><ul class="obj-list"><li>Compreender a função das quatro etapas do seminário e os critérios de qualidade comuns às produções.</li><li>Formar grupos de até cinco integrantes com responsabilidades explícitas e participação compartilhada.</li><li>Transformar um tema amplo em problema sociológico delimitado, relacionando pergunta, conceitos e fontes.</li><li>Consolidar as preparações individuais em uma base bibliográfica inicial do grupo e produzir uma ficha de projeto pronta para orientação.</li></ul></section>
-
-  <section id="conteudo-programatico"><div class="section-title">Conteúdo Programático</div>
-    <div class="content-topic"><h3>1. Do tema ao problema sociológico</h3><ul><li>Tema, recorte, pergunta e hipótese de trabalho</li><li>Pertinência sociológica e relação entre conceito e evidência</li><li>Viabilidade, ética e limites da investigação</li></ul></div>
-    <div class="content-topic"><h3>2. Trabalho coletivo e percurso do seminário</h3><ul><li>Pesquisa bibliográfica, proposta analítica, apresentação e relatório/produto final</li><li>Divisão responsável do trabalho e autoria coletiva</li><li>Critérios: pertinência, fundamentação, clareza e participação</li></ul></div>
-    <div class="content-topic"><h3>3. Pesquisa bibliográfica e planejamento</h3><ul><li>Busca, seleção, registro e uso responsável de fontes</li><li>Diferença entre referência, resumo, paráfrase e citação</li><li>Ficha de projeto, devolutiva e revisão</li></ul></div>
-  </section>
-
-  <section id="texto-base" aria-labelledby="texto-base-title"><div class="section-title" id="texto-base-title">Texto-base para acompanhamento da aula</div><div class="base-text">
-    <p class="base-intro">Esta aula é um laboratório de passagem: a comparação teórica da Aula 13 torna-se decisão de pesquisa. O texto acompanha a formação dos grupos e oferece critérios para que uma curiosidade ampla se converta em projeto realizável.</p>
-    <nav class="base-toc" aria-label="Sumário do texto-base"><h3>Nesta leitura</h3><ol><li><a href="#tema-problema">Tema não é problema</a></li><li><a href="#recorte-pergunta">Recortar e perguntar</a></li><li><a href="#referencial-conceitos">Escolher conceitos pelo problema</a></li><li><a href="#fontes-bibliografia">Construir a pesquisa bibliográfica</a></li><li><a href="#quatro-etapas">Quatro etapas de elaboração</a></li><li><a href="#grupo-autoria">Grupo, autoria e responsabilidades</a></li><li><a href="#viabilidade-etica">Viabilidade, ética e proteção</a></li><li><a href="#criterios-revisao">Critérios e revisão orientada</a></li><li><a href="#ponte-cultura">Síntese e passagem à cultura</a></li></ol></nav>
-
-    <div class="base-subsection" id="tema-problema"><h3>1. Tema não é problema</h3>
-      <p>“Desigualdade”, “religião”, “trabalho” e “redes sociais” são temas, não perguntas de pesquisa. Eles nomeiam territórios extensos nos quais cabem muitos fenômenos, períodos e populações. Um seminário começa a ganhar forma quando o grupo identifica uma relação problemática: desigualdade em quê, produzida por quais mecanismos, observável onde e durante qual período?</p>
-      <p>O problema sociológico não precisa ser um problema social no sentido de algo condenável. Pode investigar uma prática cotidiana, uma instituição estável ou uma classificação aparentemente banal. “Como estudantes conciliam trabalho e aulas?” é sociológico porque relaciona orientações, regras e condições. “O trabalho é ruim?” é uma avaliação ampla; “por que as pessoas trabalham?” permanece abstrata demais.</p>
-      <p>A relevância também precisa ser demonstrada. Um tema não se torna sociológico por ser popular ou urgente. O grupo deve mostrar como conecta experiência e relações sociais, que conhecimento já existe e que pergunta delimitada pretende responder. Interesse pessoal é um ponto de partida legítimo, mas não substitui justificativa conceitual.</p>
-      <p>A Aula 13 ensinou que referenciais formulam perguntas distintas. Agora a escolha deixa de ser “qual autor preferimos?” e passa a ser “qual conceito ajuda a construir este objeto?”. A teoria não enfeita uma opinião já pronta; ela modifica o que observamos e que evidência buscamos.</p>
-      <p>Um tema pode nascer de notícia, experiência ou controvérsia, mas o projeto precisa separar motivação e demonstração. Ter vivido uma situação oferece acesso a perguntas e também pode produzir pressupostos. A pesquisa transforma familiaridade em objeto ao explicitar categorias, buscar contraste e admitir resultados inesperados.</p>
-      <aside class="pause-box"><h4>Pausa 1 — teste do tema</h4><p>Compare “uso de plataformas” e “como regras de visibilidade de uma plataforma orientam a participação de estudantes”. O que a segunda formulação permite investigar que a primeira ainda não define?</p></aside>
-    </div>
-
-    <div class="base-subsection" id="recorte-pergunta"><h3>2. Recortar e perguntar</h3>
-      <p>Recortar significa estabelecer fronteiras justificadas. População, lugar, período e dimensão do fenômeno precisam caber no tempo e nos recursos disponíveis. “Juventude brasileira” dificilmente é observável por um grupo introdutório; “experiências de deslocamento de estudantes do turno noturno desta instituição” define uma unidade possível. O recorte não afirma que o caso represente todo o país.</p>
-      <p>Uma pergunta investigável evita respostas embutidas. “Como a burocracia exclui estudantes?” presume o efeito antes de examiná-lo. “Como procedimentos de inscrição facilitam ou dificultam o acesso?” admite variação. Perguntas iniciadas por como, em que condições ou por quais processos costumam favorecer relações; perguntas meramente opinativas ou que pedem uma causa única tendem a empobrecer a análise.</p>
-      <p>Hipótese de trabalho é resposta provisória, não convicção a defender a qualquer custo. Ela conecta conceitos e indica o que procurar. Se o grupo supõe que horários de atendimento afetam acesso, precisa definir “acesso”, identificar registros ou relatos pertinentes e aceitar resultados contrários. Uma hipótese pode ser reformulada depois da leitura.</p>
-      <p>Um teste simples contém quatro perguntas: o grupo consegue dizer quem ou o quê será estudado? Sabe qual relação observará? Consegue imaginar evidência que contradiga sua hipótese? Pode realizar o trabalho sem prometer levantamento impossível? Se alguma resposta for negativa, o recorte ainda precisa de revisão.</p>
-      <p>Palavras como “impacto”, “influência” e “conscientização” exigem atenção. Elas podem ocultar mecanismo, direção e critério de observação. Em vez de perguntar pelo “impacto das redes”, o grupo pode investigar como determinadas regras de recomendação alteram práticas de busca ou apresentação de si em um público delimitado.</p>
-    </div>
-
-    <div class="base-subsection" id="referencial-conceitos"><h3>3. Escolher conceitos pelo problema</h3>
-      <p>Referencial teórico é um conjunto delimitado de conceitos e argumentos, não uma lista de autores célebres. Em trabalho introdutório, dois conceitos bem definidos costumam ser mais produtivos que dez palavras sem função. O grupo deve explicar o sentido empregado, a pergunta que o conceito ajuda a formular e o aspecto do caso que permanece fora de seu alcance.</p>
-      <p>Durkheim pode ajudar a investigar regras, socialização, integração e regulação; Marx, relações de produção, classe, trabalho e contradição; Weber, ação social, dominação, burocracia e racionalização. Essas possibilidades não autorizam aplicações automáticas. “Coerção” precisa ser mostrada em uma maneira coletiva de agir; “classe” requer posição em relações sociais, não somente renda; “tipo ideal” é ferramenta comparativa, não modelo perfeito.</p>
-      <p>É possível mobilizar mais de uma perspectiva quando o grupo separa níveis e justifica a articulação. Um estudo sobre trabalho em plataforma pode examinar relação contratual e controle do processo, além dos sentidos atribuídos por trabalhadores. Isso não prova que Marx e Weber dizem a mesma coisa. Cada conceito deve manter seu critério, e divergências não precisam ser dissolvidas.</p>
-      <p>A escolha teórica também define o que não será feito. Um projeto sobre regras universitárias não precisa explicar toda a educação brasileira. Declarar limites protege contra conclusões grandiosas e torna o argumento verificável. O melhor referencial não é o mais amplo; é o que produz uma boa pergunta e orienta o uso de fontes.</p>
-      <p>Definições provisórias devem ser escritas com precisão suficiente para orientar a leitura. Se o grupo utiliza “alienação”, precisa indicar a relação analisada, e não empregar a palavra como sinônimo de tristeza. Se usa “anomia”, deve examinar regulação, e não chamar qualquer desordem de anômica. Se fala em “racionalização”, precisa identificar cálculo, regra ou previsibilidade, evitando confundi-la com inteligência. A ficha permite corrigir esses usos antes que se espalhem por todo o trabalho.</p>
-      <aside class="pause-box"><h4>Pausa 2 — conceito com função</h4><p>Se um grupo escreve apenas “usaremos Weber para falar de burocracia”, que definição, pergunta e evidência ainda faltam para transformar a menção em referencial?</p></aside>
-    </div>
-
-    <div class="base-subsection" id="fontes-bibliografia"><h3>4. Construir a pesquisa bibliográfica</h3>
-      <p>Pesquisa bibliográfica não é coleção de links. Ela localiza trabalhos relevantes, registra dados de identificação e reconstrói argumentos úteis ao problema. Livros acadêmicos, capítulos, artigos e documentos institucionais têm funções diferentes. Uma página de divulgação pode orientar vocabulário inicial, mas não substitui literatura especializada quando o grupo atribui um conceito a um autor.</p>
-      <p>A seleção pede autoria identificada, título, veículo, data e relação com a pergunta. Atualidade não é o único critério: textos clássicos fundamentam conceitos; estudos recentes podem mostrar debates ou casos. Resultados de busca e resumos automáticos não são fontes. O grupo precisa acessar o material, distinguir o que leu integralmente e registrar limites de acesso.</p>
-      <p>Para cada referência, a ficha deve conter: identificação bibliográfica; problema do texto; argumento central reconstruído com palavras do grupo; conceito útil; relação com o projeto; e dúvida restante. Paráfrase exige atribuição, mesmo sem aspas. Citação literal deve ser breve, fiel e acompanhada da localização na edição efetivamente consultada. Não se deve inventar página nem copiar trecho sem indicar fonte.</p>
-      <p>Comparar fontes evita que uma afirmação isolada vire consenso. Dois textos podem definir um conceito de modos diferentes, estudar contextos distintos ou discordar. A revisão bibliográfica organiza esse diálogo. Seu produto não é “tudo que encontramos”, mas um mapa argumentado do que ajuda a responder à pergunta.</p>
-      <p>O registro bibliográfico precisa acompanhar a leitura desde o início. Anotar depois, confiando na memória, aumenta o risco de atribuir ideia ao texto errado ou perder a edição consultada. Uma ficha simples permite voltar ao argumento e separar palavras do autor, paráfrase do grupo e aplicação ao caso.</p>
-    </div>
-
-    <div class="base-subsection" id="quatro-etapas"><h3>5. Quatro etapas de elaboração</h3>
-      <p>O percurso do seminário pode ser compreendido em quatro etapas articuladas. A primeira é a <strong>pesquisa bibliográfica</strong>: levantamento, seleção e fichamento inicial. Na Aula 14, o material trazido pelo grupo é recebido e transformado em diagnóstico. Uma lista extensa não compensa referências sem relação com o problema.</p>
-      <p>A segunda é a <strong>proposta analítica</strong>: composição do grupo, tema recortado, pergunta, justificativa, conceitos, fontes iniciais e plano de trabalho. Essa etapa converte curiosidade em compromisso verificável. A ficha produzida na oficina desta página entrega exatamente esse núcleo, sem depender de modelo externo.</p>
-      <p>A terceira é a <strong>apresentação</strong>: comunicação oral organizada por problema, argumento, evidência e conclusão. Apresentar não é ler relatório nem dividir cinco partes desconectadas entre cinco pessoas. Recursos visuais devem apoiar a explicação, com legibilidade e identificação de fontes. Perguntas da turma fazem parte da análise.</p>
-      <p>A quarta reúne <strong>relatório escrito e produto audiovisual</strong> como reelaboração. O relatório explicita conceitos, método, análise, conclusão e referências; o vídeo traduz o argumento para linguagem audiovisual sem perder rigor e créditos. Os formatos específicos e o calendário devem seguir o instrumento oficial da disciplina vigente; esta página não inventa datas, duração ou normas que não estejam confirmadas.</p>
-      <p>As etapas não são caixas independentes. Uma leitura pode exigir mudança na pergunta; uma pergunta recebida na apresentação pode melhorar o relatório; uma dificuldade no roteiro do vídeo pode revelar que o argumento ainda não está claro. Revisão é parte do conhecimento, não simples correção final.</p>
-      <aside class="pause-box"><h4>Pausa 3 — sequência com retorno</h4><p>Em que situação uma nova fonte deveria levar o grupo a reformular a pergunta, e não apenas acrescentar mais um parágrafo ao trabalho?</p></aside>
-    </div>
-
-    <div class="base-subsection" id="grupo-autoria"><h3>6. Grupo, autoria e responsabilidades</h3>
-      <p>Trabalho em grupo não significa repartir tópicos no primeiro dia e reunir arquivos no último. O argumento precisa ser coletivo: integrantes conhecem a pergunta, os conceitos, as fontes e a conclusão. Dividir tarefas é necessário, mas toda parte deve passar por leitura cruzada. A autoria compartilhada implica responsabilidade pelo conjunto.</p>
-      <p>Uma organização mínima prevê funções rotativas: coordenação do cronograma, registro de decisões, busca bibliográfica, revisão conceitual e preparação da comunicação. Em grupos menores, uma pessoa assume mais de uma função; nenhuma função confere autoridade permanente. Condições de trabalho, cuidado, acessibilidade e acesso digital devem ser consideradas na distribuição.</p>
-      <p>Conflito não é sinal automático de fracasso. Divergências sobre recorte ou interpretação podem melhorar o projeto quando critérios são explicitados. O grupo registra decisão, justificativa e tarefa seguinte. Problemas de participação não devem ser ocultados até a avaliação: precisam ser comunicados cedo, com descrição objetiva, para mediação.</p>
-      <p>O contato responsável centraliza comunicação administrativa, mas não se torna autor exclusivo. Cada integrante registra contribuições e confirma decisões. Essa rotina reduz dependência de memória, evita versões incompatíveis e aproxima o trabalho das práticas de pesquisa coletiva.</p>
-      <p>Participação não se mede apenas por tempo de fala. Localizar fonte, testar coerência, revisar acessibilidade, organizar dados e formular pergunta são contribuições intelectuais. O grupo deve distribuir também as tarefas menos visíveis e assegurar que todas as pessoas consigam explicar o argumento comum.</p>
-    </div>
-
-    <div class="base-subsection" id="viabilidade-etica"><h3>7. Viabilidade, ética e proteção</h3>
-      <p>Um seminário didático não autoriza coleta invasiva. Projetos devem priorizar materiais públicos, bibliografia e observações de baixo risco. Entrevistas, formulários, imagens ou relatos identificáveis exigem orientação específica antes de qualquer contato. Não se coletam dados pessoais sensíveis apenas porque seriam interessantes.</p>
-      <p>Consentimento não se resume a obter um “sim”. A pessoa precisa entender finalidade, uso, circulação e possibilidade de recusa. Relações de dependência — colegas, trabalhadores subordinados ou usuários de serviço — exigem cuidado adicional. Expor alguém para ilustrar conceito é incompatível com formação sociológica responsável.</p>
-      <p>Viabilidade inclui tempo e acesso. Uma pergunta pode ser relevante e ainda assim impossível neste semestre. Prometer representar uma comunidade inteira com duas conversas produz falsa autoridade. É preferível analisar um conjunto delimitado de documentos e reconhecer alcance do que anunciar pesquisa grandiosa sem base.</p>
-      <p>Fontes digitais também requerem ética. Conteúdo publicamente visível não perde contexto nem direitos. Capturas podem identificar usuários; algoritmos de recomendação não tornam informação automaticamente confiável. O grupo registra origem, preserva contexto e evita reproduzir exposição desnecessária.</p>
-      <p>O princípio de minimização oferece uma regra prática: coletar apenas o necessário para a pergunta e compartilhar apenas o necessário para sustentar o argumento. Nomes fictícios não bastam se detalhes permitirem reconhecer alguém. Quando houver dúvida, o grupo deve interromper a coleta, registrar a questão e buscar orientação. Uma fonte menos invasiva pode responder melhor e com menor risco.</p>
-    </div>
-
-    <div class="base-subsection" id="criterios-revisao"><h3>8. Critérios e revisão orientada</h3>
-      <p>Quatro critérios organizam a devolutiva. <strong>Pertinência</strong> verifica relação entre tema, pergunta e abordagem sociológica. <strong>Fundamentação</strong> examina conceitos e fontes. <strong>Clareza</strong> observa encadeamento entre problema, evidência e conclusão. <strong>Participação</strong> considera contribuição compartilhada e domínio coletivo.</p>
-      <p>Os critérios se tornam úteis quando indicam revisão. Dizer “tema interessante” não mostra o próximo passo; registrar “a população ainda não está delimitada” orienta uma decisão. Da mesma forma, “falta teoria” deve ser convertido em pergunta: qual conceito precisa ser definido e em que parte da análise será utilizado?</p>
-      <p>A oficina usa três marcas: aprovado, revisar e verificar. “Aprovado” significa que o elemento pode orientar o trabalho; não que seja imutável. “Revisar” identifica formulação ampla ou incoerente. “Verificar” indica informação ou referência que exige confirmação. O professor não escolhe o argumento pelo grupo, mas ajuda a reconhecer critérios.</p>
-      <p>Uma ficha pronta ao final da aula contém pergunta clara, recorte viável, dois conceitos definidos provisoriamente, três fontes identificadas e divisão inicial de responsabilidades. Lacunas ficam registradas como tarefas, não escondidas em frases genéricas.</p>
-      <p>A devolutiva entre pares não substitui a orientação docente, mas oferece um primeiro teste de inteligibilidade. Se outro grupo não consegue identificar a relação investigada ou a função do conceito, a formulação ainda depende de conhecimento implícito. Explicar o projeto a leitores externos revela saltos que seus autores já não percebiam.</p>
-      <p>Revisar não significa aceitar automaticamente toda sugestão. O grupo compara a devolutiva com sua pergunta, registra se a incorporará e justifica a decisão. Esse registro permite distinguir mudança argumentada de alteração feita apenas para satisfazer uma opinião momentânea.</p>
-      <aside class="pause-box"><h4>Pausa 4 — devolutiva acionável</h4><p>Qual comentário ajuda mais um projeto: “melhore a fundamentação” ou “defina ação social e indique qual evidência permitirá reconstruir o sentido visado”? Por quê?</p></aside>
-    </div>
-
-    <div class="base-subsection" id="ponte-cultura"><h3>9. Síntese e passagem à cultura</h3>
-      <p>Um projeto sociológico nasce da articulação entre tema, recorte, pergunta, conceitos e evidências. Bibliografia é diálogo de argumentos, não lista; grupo é autoria coordenada, não soma de partes; avaliação é critério de revisão, não surpresa final. As quatro etapas formam um processo com retornos.</p>
-      <p>A atividade desta aula entrega todos os instrumentos necessários para iniciar: menu de campos temáticos, ficha de projeto, roteiro de revisão e critérios de socialização. O resultado não precisa antecipar conclusões. Precisa demonstrar que a pergunta é sociológica, viável e eticamente responsável.</p>
-      <p>A Aula 15 abrirá o estudo sociológico da cultura. A ponte é direta: escolher um tema, nomear uma prática e formular uma pergunta já envolve classificações culturais. O próximo encontro examinará como símbolos, valores, normas e artefatos são aprendidos e disputados. Os projetos poderão então revisar usos cotidianos de “cultura” e evitar tratá-la como erudição, essência ou atributo fixo de um grupo.</p>
-    </div>
-  </div></section>
-
-  <section id="preparacao-individual">
-    <div class="section-title">Preparação individual para a Aula 14</div>
-    <div class="material-box"><p>Cada estudante deverá trazer: um campo temático de interesse; uma pergunta inicial, ainda provisória; uma referência acadêmica ou um capítulo do Bloco II efetivamente consultado; a identificação bibliográfica desse material; e três ou quatro frases sobre sua contribuição possível para a pergunta.</p><p>Essa preparação é <strong>individual</strong> e ainda não constitui a bibliografia definitiva de um grupo. Estudantes sem material próprio poderão iniciar o trabalho com textos do Bloco II disponíveis no curso. Durante a aula, os grupos serão formados por aproximação entre interesses e perguntas; depois, consolidarão as contribuições individuais e registrarão lacunas bibliográficas a preencher posteriormente.</p></div>
-  </section>
-
-  <section id="plano-aula"><div class="section-title">Plano de Aula com Tempo</div><div class="timeline">
-    <div class="tl-item"><span class="tl-duration">10 min</span><span class="tl-text"><strong>Retomada</strong> — Da comparação teórica à escolha justificada de um referencial.</span></div><div class="tl-item"><span class="tl-duration">20 min</span><span class="tl-text"><strong>Formação dos grupos e inventário individual</strong> — Aproximação entre interesses, perguntas e fontes trazidas por cada estudante; consolidação inicial e registro de lacunas.</span></div><div class="tl-item"><span class="tl-duration">20 min</span><span class="tl-text"><strong>Leitura orientada</strong> — Tema, recorte, pergunta, conceitos, fontes, autoria e ética.</span></div><div class="tl-item"><span class="tl-duration">40 min</span><span class="tl-text"><strong>Laboratório de projeto</strong> — Preenchimento integral da ficha, distinguindo materiais consultados e materiais a verificar.</span></div><div class="tl-item"><span class="tl-duration">20 min</span><span class="tl-text"><strong>Clínica entre pares e socialização seletiva</strong> — 10 min para troca e devolutiva entre grupos vizinhos; 6 min para três grupos selecionados, com até 2 min cada; 4 min para síntese docente. Todos registram a devolutiva; nem todos apresentam oralmente.</span></div><div class="tl-item"><span class="tl-duration">10 min</span><span class="tl-text"><strong>Síntese e encaminhamento</strong> — Registro das decisões, lacunas e tarefas posteriores; ponte para cultura.</span></div>
-  </div></section>
-
-  <section id="leituras"><div class="section-title">Textos para Leitura Prévia</div><div class="info-card"><strong>Material individual de trabalho:</strong> uma referência acadêmica ou capítulo do Bloco II efetivamente consultado por cada estudante, conforme a preparação indicada nesta página. Quem não tiver material próprio poderá trabalhar inicialmente com os textos do Bloco II disponíveis no curso. A bibliografia coletiva será consolidada somente depois da formação dos grupos.</div></section>
-
-  <section id="atividade"><div class="section-title">Atividades em Sala</div><div class="activity-card">
-    <h3>Laboratório — ficha de projeto sociológico</h3><p><strong>Finalidade:</strong> formar grupos de até cinco integrantes, consolidar as preparações individuais e produzir uma proposta delimitada, fundamentada, viável e revisável.</p><p><strong>Etapas do laboratório:</strong> composição e funções, 5 min; escolha e recorte, 10 min; pergunta, conceitos e fontes, 15 min; ética, tarefas e revisão, 10 min. Depois, a clínica e a socialização seletiva ocupam 20 minutos: 10 min de troca entre grupos vizinhos, 6 min para três apresentações de até 2 min e 4 min de síntese docente. Todos os grupos entregam ou registram a devolutiva recebida, embora apenas três apresentem oralmente.</p>
-    <div class="material-box"><h4>Menu de campos temáticos</h4><ul><li>Trabalho, profissão e plataformas</li><li>Educação, permanência e regras institucionais</li><li>Religião, pertencimento e ação coletiva</li><li>Consumo, distinção e publicidade</li><li>Mobilidade, território e acesso a serviços</li><li>Família, cuidado e divisão de responsabilidades</li><li>Tecnologia, sociabilidade e vigilância</li><li>Cultura, linguagem e identidade</li></ul><p>O grupo pode propor outro campo, desde que produza recorte viável e justificativa sociológica.</p></div>
-    <div class="material-box"><h4>Ficha integral do grupo</h4><ol><li><strong>Composição e funções:</strong> integrantes, contato responsável e função inicial de cada pessoa.</li><li><strong>Tema e recorte:</strong> população ou unidade, lugar, período e dimensão observada.</li><li><strong>Pergunta:</strong> uma pergunta aberta, sem resposta embutida.</li><li><strong>Justificativa:</strong> relação entre experiência concreta e problema sociológico.</li><li><strong>Hipótese provisória:</strong> resposta que possa ser contrariada.</li><li><strong>Referencial:</strong> dois conceitos, definição provisória e função no argumento.</li><li><strong>Fontes:</strong> até três referências iniciais identificadas, incluindo pelo menos uma efetivamente consultada por algum integrante ou pelo grupo. Indicar claramente o que já foi lido e a contribuição possível de cada referência; marcar como <em>verificar</em> os materiais ainda não consultados integralmente. Resultado de busca, resumo automático ou texto apenas indicado não pode ser apresentado como fonte já lida. A bibliografia poderá ser ampliada depois da aula: o produto desta oficina é uma base inicial verificável, não uma revisão concluída.</li><li><strong>Evidências possíveis:</strong> documentos, dados ou materiais acessíveis, sem prometer coleta não autorizada.</li><li><strong>Ética e limites:</strong> riscos, proteção e alcance da conclusão.</li><li><strong>Plano de trabalho:</strong> três próximas tarefas, responsáveis e forma de registro.</li></ol></div>
-    <h4>Roteiro da clínica entre pares</h4><ol><li>A pergunta identifica relação, recorte e unidade observável?</li><li>Os conceitos têm função ou aparecem apenas como nomes?</li><li>As fontes são identificadas e pertinentes?</li><li>A hipótese pode ser contrariada?</li><li>O plano é realizável e eticamente seguro?</li><li>Qual elemento está aprovado, qual precisa ser revisado e qual precisa ser verificado?</li></ol>
-    <p><strong>Produto esperado:</strong> ficha preenchida e devolutiva registrada do grupo vizinho com três marcas — aprovado, revisar e verificar. Na socialização seletiva, três grupos apresentam em até dois minutos a pergunta, um conceito, uma fonte e a revisão prioritária. Os demais grupos não apresentam oralmente nesta aula, mas devem entregar ou registrar a devolutiva recebida.</p>
-    <details class="teacher-guidance">
-      <summary>Possibilidades comentadas e orientações de mediação — uso do professor</summary>
-      <div class="teacher-guidance-content">
-        <h4>A. Exemplo completo de transformação de tema em projeto</h4>
-        <p>Esta é uma possibilidade didática, não um modelo obrigatório. <strong>Campo:</strong> Educação, permanência e regras institucionais. <strong>Tema amplo:</strong> permanência universitária. <strong>Recorte:</strong> regras de frequência e estudantes que trabalham no turno noturno desta instituição. <strong>Pergunta:</strong> como as regras de frequência condicionam a permanência de estudantes que trabalham no turno noturno?</p>
-        <p><strong>Justificativa sociológica:</strong> a pergunta relaciona uma regra institucional coletiva a condições de trabalho e trajetórias estudantis, evitando explicar permanência apenas por esforço individual. <strong>Hipótese provisória:</strong> regras uniformes podem produzir dificuldades distintas quando horários acadêmicos e jornadas de trabalho se sobrepõem; a hipótese poderá ser contrariada se as evidências mostrarem que outros mecanismos explicam melhor as interrupções.</p>
-        <p><strong>Conceitos com função:</strong> fato social, para investigar a regra como maneira coletiva e coercitiva de agir; e regulação, para examinar como a instituição organiza condutas e quais efeitos aparecem quando suas normas não correspondem às condições vividas.</p>
-        <p><strong>Referência efetivamente consultada:</strong> QUINTANEIRO, Tania; BARBOSA, Maria Ligia de Oliveira; OLIVEIRA, Márcia Gardênia Monteiro de. <em>Um toque de clássicos: Marx, Durkheim e Weber</em>. 2. ed. rev. ampl. Belo Horizonte: Editora UFMG, 2002. Sua contribuição possível é revisar os conceitos usados no recorte. <strong>Referências candidatas — verificar:</strong> textos de Durkheim disponíveis no Bloco II que ainda não tenham sido lidos integralmente pelo grupo. A identificação bibliográfica será registrada apenas depois da consulta e da confirmação dos dados.</p>
-        <p><strong>Evidências possíveis:</strong> regulamento de frequência, calendário, documentos públicos de apoio estudantil e bibliografia sobre permanência. <strong>Limites:</strong> o caso não representa toda a educação superior nem permite inferir motivos individuais sem evidência. <strong>Cuidados éticos:</strong> priorizar documentos; não entrevistar nem identificar colegas ou trabalhadores sem orientação prévia.</p>
-        <p><strong>Três próximas tarefas:</strong> localizar e ler o regulamento; confirmar e consultar uma referência candidata; revisar a pergunta depois de relacionar regra, conceito e documentação.</p>
-
-        <h4>B. Diagnóstico de perguntas</h4>
-        <ul><li><strong>Tema ainda amplo:</strong> “Educação no Brasil”. Pedir população, lugar, período e relação específica, sem escolher o recorte pelo grupo.</li><li><strong>Resposta embutida:</strong> “Como a burocracia exclui estudantes?”. Reformular para investigar como procedimentos facilitam ou dificultam acesso, permitindo resultados diferentes.</li><li><strong>Pergunta moral ou opinativa:</strong> “É justo exigir frequência?”. Separar o julgamento de uma pergunta empírica sobre funcionamento e efeitos da regra.</li><li><strong>Causa excessivamente ampla:</strong> “Por que estudantes abandonam a universidade?”. Delimitar grupo, contexto, período e mecanismo possível.</li><li><strong>Pergunta sociológica delimitada:</strong> “Como regras de frequência condicionam a permanência de estudantes que trabalham no turno noturno desta instituição?”. Ela define relação, população e contexto sem antecipar conclusão.</li></ul>
-
-        <h4>C. Função dos conceitos</h4>
-        <p>Verifique se o conceito foi definido, se altera a pergunta e se existe evidência compatível com seu uso. “Anomia” não pode decorar qualquer desorganização; deve orientar o exame da regulação. “Classe” não equivale apenas a renda; “ação social” requer orientação pela conduta de outros; “burocracia” exige cargos, regras, competências, hierarquia e registros.</p>
-        <p>Dois conceitos podem ser articulados quando o grupo preserva seus critérios e explica a função de cada um. Solicite revisão quando vários termos aparecem numa frase sem mecanismo, escala ou evidência, ou quando o conceito funciona apenas como palavra decorativa.</p>
-
-        <h4>D. Avaliação das fontes</h4>
-        <ul><li><strong>Fonte efetivamente consultada:</strong> material acessado e lido, com identificação registrada e contribuição reconstruída.</li><li><strong>Fonte apenas localizada:</strong> material encontrado, mas ainda não lido; marcar <em>verificar</em>.</li><li><strong>Referência incompleta:</strong> falta autoria, título, edição ou outro dado necessário; não completar por suposição e marcar <em>verificar</em>.</li><li><strong>Material de divulgação:</strong> pode introduzir um tema, mas não substitui texto acadêmico na fundamentação conceitual.</li><li><strong>Texto acadêmico:</strong> possui autoria e contexto de publicação identificáveis e apresenta argumento a reconstruir.</li><li><strong>Documento institucional:</strong> informa regras, decisões ou procedimentos; não equivale à análise sociológica deles.</li><li><strong>Paráfrase:</strong> argumento reescrito com atribuição clara, sem simular citação.</li><li><strong>Citação literal:</strong> reprodução fiel, entre aspas, com localização na edição realmente consultada.</li></ul>
-        <p>Resultado de busca, resumo automático e texto apenas indicado não contam como leitura. Marque como <em>verificar</em> toda informação bibliográfica não confirmada e não invente paginação.</p>
-
-        <h4>E. Ética e viabilidade</h4>
-        <p>Peça redução de escala quando o projeto promete representar população muito ampla. Interrompa coleta de dados pessoais sem necessidade, entrevistas ou formulários sem orientação prévia, exposição de colegas ou trabalhadores e reprodução descontextualizada de conteúdo digital. Procure uma alternativa documental ou bibliográfica de menor risco antes de autorizar contato com participantes.</p>
-
-        <h4>F. Clínica entre pares</h4>
-        <p><strong>Aprovado:</strong> elemento suficientemente claro para orientar a etapa seguinte. <strong>Revisar:</strong> formulação ampla, incoerente ou sem função definida. <strong>Verificar:</strong> dado, referência, conceito ou procedimento que exige confirmação.</p>
-        <p>A devolutiva deve localizar o elemento examinado, explicar o problema e propor uma ação concreta. Substitua comentários vagos como “melhorar a teoria” ou “aprofundar” por orientações como “definir regulação e indicar qual documento permitirá observar seu funcionamento”.</p>
-
-        <h4>G. Mediação docente</h4>
-        <ul><li>Não escolha o tema pelo grupo nem transforme hipótese em conclusão antecipada.</li><li>Exija relação demonstrável entre pergunta, conceito e evidência.</li><li>Verifique se todas as pessoas conhecem o argumento comum.</li><li>Registre problemas de participação sem exposição pública.</li><li>Interrompa propostas de coleta potencialmente invasiva.</li><li>Aceite projetos diferentes quando forem viáveis e sociologicamente justificados.</li><li>Registre tarefas pendentes para orientação posterior.</li></ul>
-      </div>
-    </details>
-  </div></section>
-
-  <section id="recursos"><div class="section-title">Recursos Necessários</div><div class="resources-list"><span class="res-tag">Menu e ficha disponíveis nesta página</span><span class="res-tag">Preparações individuais e textos do Bloco II</span><span class="res-tag">Folhas A4</span><span class="res-tag">Canetas</span><span class="res-tag">Quadro</span></div></section>
-</main>
-
-<footer>
-  <a href="/introducao-sociologia/">← Página principal</a>
-  <span style="margin: 0 12px; color: var(--border);">|</span>
-  <span>Introdução à Sociologia — 2026.2</span>
-</footer>
-
-</body>
-</html>
+</div>
+</section>
+</main><footer>Introdução à Sociologia · T01 · 2026.2 · <a href="../../index.html">Voltar ao curso</a></footer></body></html>

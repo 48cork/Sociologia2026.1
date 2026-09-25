@@ -1,13 +1,14 @@
 {
   "schema_version": 1,
   "texto_base": {
-    "palavras_minimas": 2300,
-    "palavras_maximas": 2800,
-    "subsecoes_esperadas": 9,
+    "palavras_minimas": 600,
+    "palavras_maximas": 1600,
+    "subsecoes_esperadas": 4,
     "subsecoes_excecao_exige_justificativa": true,
-    "pausas_exatas": 4
+    "pausas_minimas": 0,
+    "pausas_maximas": 3
   },
-  "plano": {"minutos_exatos": 120},
+  "plano": {"minutos_exatos": 60},
   "atividade": {
     "integral_na_pagina": true,
     "materiais_prometidos_devem_existir": true,

@@ -12,7 +12,8 @@
     --text: #e2e8f0; --muted: #94a3b8; --radius: 12px;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
+  html, body { max-width: 100%; overflow-x: clip; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; min-height: 100vh; overflow-wrap: anywhere; }
   nav { position: sticky; top: 0; z-index: 100; background: rgba(18,18,28,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
   nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; white-space: nowrap; }
   nav a:hover { color: var(--text); }
@@ -21,24 +22,24 @@
   .nav-center { font-size: 0.875rem; color: var(--muted); }
   .nav-right { display: flex; gap: 16px; align-items: center; }
   main { max-width: 860px; margin: 0 auto; padding: 40px 24px 80px; }
-  .aula-header { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; margin-bottom: 32px; border-top: 4px solid var(--purple); }
+  .aula-header { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; margin-bottom: 32px; border-top: 4px solid var(--blue); }
   .header-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; align-items: center; }
-  .bloco-badge { background: var(--purple); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .bloco-badge { background: var(--blue); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
   .meta-chip { background: var(--surface); border: 1px solid var(--border); font-size: 0.8rem; color: var(--muted); padding: 4px 12px; border-radius: 20px; }
+  .meta-chip strong { color: var(--text); }
   .aula-header h1 { font-size: 1.5rem; font-weight: 700; line-height: 1.3; color: var(--text); }
-  section { margin-bottom: 32px; }
-  .section-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--purple-lt); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
-  .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; margin-bottom: 12px; }
+  section { margin-bottom: 32px; scroll-margin-top: 112px; }
+  .section-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue-lt); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
   .obj-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
   .obj-list li { display: flex; gap: 12px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
-  .obj-list li::before { content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--purple-lt); margin-top: 7px; flex-shrink: 0; }
+  .obj-list li::before { content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--blue-lt); margin-top: 7px; flex-shrink: 0; }
   .content-topic { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 12px; }
   .content-topic h3 { font-size: 0.95rem; font-weight: 600; color: var(--purple-lt); margin-bottom: 8px; }
   .content-topic ul { list-style: none; padding: 0; }
   .content-topic ul li { padding: 4px 0 4px 16px; position: relative; color: var(--muted); font-size: 0.9rem; }
   .content-topic ul li::before { content: '—'; position: absolute; left: 0; color: var(--border); }
   .timeline { display: flex; flex-direction: column; gap: 10px; }
-  .tl-item { display: flex; gap: 16px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; border-left: 3px solid var(--purple); }
+  .tl-item { display: flex; gap: 16px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; border-left: 3px solid var(--blue); }
   .tl-duration { background: var(--surface); border: 1px solid var(--border); color: var(--amber-lt); font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
   .tl-text { font-size: 0.9rem; color: var(--text); }
   .ref-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 10px; border-left: 3px solid var(--blue-lt); }
@@ -46,44 +47,26 @@
   .ref-title { font-size: 0.9rem; color: var(--text); }
   .ref-pages { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
   .activity-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; font-size: 0.9rem; line-height: 1.7; border-left: 3px solid var(--teal-lt); }
-  .activity-card h3 { color: var(--teal-lt); font-size: 1.05rem; margin: 0 0 12px; }
-  .activity-card h4 { color: var(--amber-lt); margin: 18px 0 8px; }
-  .activity-card ol, .activity-card ul { padding-left: 22px; margin: 10px 0; }
-  .activity-card li { margin: 7px 0; }
-  .situation-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 16px 0; }
-  .situation-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; break-inside: avoid; }
-  .situation-card h4 { margin: 0 0 7px; }
   .teacher-guidance { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-top: 18px; }
   .teacher-guidance summary { cursor: pointer; color: var(--amber-lt); font-weight: 700; padding: 15px 17px; }
   .teacher-guidance[open] summary { border-bottom: 1px solid var(--border); }
   .teacher-guidance-content { padding: 16px 18px; }
   .resources-list { display: flex; flex-wrap: wrap; gap: 10px; }
-  .res-tag { background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; }
+  .res-tag { max-width: 100%; min-width: 0; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; }
   footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--muted); font-size: 0.85rem; }
   footer a { color: var(--purple-lt); text-decoration: none; }
   footer a:hover { text-decoration: underline; }
-
-  html, body { max-width: 100%; overflow-x: clip; }
-  body { overflow-wrap: anywhere; }
-  section { scroll-margin-top: 112px; }
   .section-nav { position: sticky; top: 56px; z-index: 90; background: rgba(10,10,15,.97); border-bottom: 1px solid var(--border); padding: 8px 16px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: thin; }
   .section-nav a { flex: 0 0 auto; min-height: 36px; display: inline-flex; align-items: center; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 5px 12px; text-decoration: none; font-size: .8rem; }
   .base-text { max-width: 72ch; margin-inline: auto; }
   .base-intro { color: var(--muted); font-size: .92rem; margin-bottom: 16px; }
-  .base-toc { position: static; height: auto; display: block; max-width: 100%; overflow: clip; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; margin-bottom: 28px; }
-  .base-toc h3 { color: var(--bloco-lt, var(--purple-lt)); font-size: .95rem; margin-bottom: 10px; }
-  .base-toc ol { width: 100%; max-width: 100%; padding-left: 22px; columns: 2; column-gap: 32px; }
-  .base-toc li { break-inside: avoid; margin: 5px 0; }
-  .base-toc a { color: var(--text); text-decoration-thickness: 1px; text-underline-offset: 3px; white-space: normal; }
   .base-subsection { scroll-margin-top: 112px; margin-bottom: 28px; }
-  .base-subsection h3 { color: var(--bloco-lt, var(--purple-lt)); font-size: 1.15rem; line-height: 1.35; margin-bottom: 12px; }
+  .base-subsection h3 { color: var(--blue-lt); font-size: 1.15rem; line-height: 1.35; margin-bottom: 12px; }
   .base-subsection p { color: var(--text); margin-bottom: 14px; line-height: 1.78; }
   .base-subsection strong { color: #f1f5f9; }
-  .pause-box { background: rgba(79,70,229,.1); border: 1px solid rgba(129,140,248,.4); border-left: 4px solid var(--bloco-lt, var(--purple-lt)); border-radius: var(--radius); padding: 16px 18px; margin: 22px 0; }
+  .pause-box { background: rgba(79,70,229,.1); border: 1px solid rgba(129,140,248,.4); border-left: 4px solid var(--blue-lt); border-radius: var(--radius); padding: 16px 18px; margin: 22px 0; }
   .pause-box h4 { color: var(--amber-lt); font-size: .75rem; letter-spacing: .09em; text-transform: uppercase; margin-bottom: 6px; }
   .pause-box p { margin: 0; color: var(--text); font-weight: 600; line-height: 1.6; }
-  .legacy-note { border: 1px solid var(--amber-lt); background: rgba(251,191,36,.08); border-radius: var(--radius); padding: 16px 18px; margin: 0 0 24px; }
-  .res-tag { max-width: 100%; min-width: 0; }
   a:focus-visible { outline: 3px solid var(--amber-lt); outline-offset: 3px; border-radius: 3px; }
   @media (max-width: 640px) {
     nav { height: auto; min-height: 56px; padding: 8px 12px; flex-wrap: wrap; }
@@ -93,75 +76,64 @@
     .section-nav { top: 72px; padding-inline: 10px; }
     main { padding: 24px 14px 60px; }
     .aula-header { padding: 22px 18px; }
-    .base-toc ol { width: auto; columns: auto; padding-left: 0; list-style-position: inside; }
     .tl-item { flex-direction: column; gap: 8px; }
-    .situation-grid { grid-template-columns: 1fr; }
   }
-  @media print { .situation-card, .teacher-guidance { break-inside: avoid; } }
+  @media print { .teacher-guidance { break-inside: avoid; } }
 </style>
 </head>
 <body>
+
 <nav>
   <div class="nav-left">
-    <a href="/introducao-sociologia/">← Página principal</a>
+    <a href="../../index.html">← Voltar ao curso</a>
     <span class="nav-badge">Aula 11</span>
   </div>
-  <span class="nav-center">Aula 11 / 30</span>
+  <span class="nav-center">Encontro 03 de 15 · Aula 11 de 60</span>
   <div class="nav-right">
-    <a href="aula-10.html">← Anterior</a>
-    <a href="aula-12.html">Próxima →</a>
+    <a href="aula-10.html">← Aula anterior</a>
+    <a href="aula-12.html">Próxima aula →</a>
   </div>
 </nav>
 <div class="section-nav" aria-label="Seções da aula"><a href="#objetivos">Objetivos</a><a href="#conteudo-programatico">Conteúdo</a><a href="#texto-base">Texto-base</a><a href="#plano-aula">Plano da aula</a><a href="#leituras">Leituras</a><a href="#atividade">Atividade</a><a href="#recursos">Recursos</a></div>
+
 <main>
+
   <div class="aula-header">
     <div class="header-meta">
-      <span class="bloco-badge">Bloco II — Pensamento Clássico</span>
-      <span class="meta-chip">Aula 11</span>
-      <span class="meta-chip">Encontro 6 · Parte 1 de 2</span>
-      <span class="meta-chip">14/10/2026 — Quarta-feira</span>
-      <span class="meta-chip">Percurso completo do encontro: 4 horas-aula</span>
-      <span class="meta-chip">Esta página: aproximadamente 2 horas</span>
+      <span class="bloco-badge">Bloco II</span>
+      <span class="meta-chip">Encontro <strong>03</strong> de 15 — 23/09/2026, quarta-feira</span>
+      <span class="meta-chip">Aula <strong>11</strong> de 60</span>
+      <span class="meta-chip">3ª aula do encontro</span>
+      <span class="meta-chip">Esta aula: aproximadamente 1 hora-aula</span>
     </div>
-    <h1>Max Weber: ação social e tipos ideais.</h1>
+    <h1>Émile Durkheim e o conceito de fato social.</h1>
   </div>
 
   <section id="objetivos">
-    <div class="section-title">Objetivos de Aprendizagem</div>
+    <div class="section-title">Objetivos da Aula</div>
     <ul class="obj-list">
-      <li>Compreender a proposta da sociologia compreensiva de Weber e seu método do Verstehen.</li>
-      <li>Distinguir os quatro tipos de ação social weberianos e suas características.</li>
-      <li>Entender o conceito de tipo ideal como ferramenta metodológica de abstração da realidade.</li>
-      <li>Utilizar os tipos ideais para interpretar orientações predominantes em situações concretas, reconhecendo combinações, ambiguidades e a necessidade de evidências.</li>
+      <li>Reconhecer o problema durkheimiano: por que escolhas aparentemente individuais formam padrões coletivos regulares.</li>
+      <li>Situar o projeto científico de Durkheim no contexto histórico da industrialização e da urbanização europeias.</li>
+      <li>Definir fato social pela articulação entre exterioridade, coercitividade e generalidade.</li>
+      <li>Compreender o sentido metodológico de "tratar os fatos sociais como coisas".</li>
     </ul>
   </section>
 
   <section id="conteudo-programatico">
     <div class="section-title">Conteúdo Programático</div>
     <div class="content-topic">
-      <h3>1. A sociologia compreensiva</h3>
+      <h3>1. O problema durkheimiano e o projeto científico</h3>
       <ul>
-        <li>Método compreensivo (Verstehen): interpretar e reconstruir analiticamente o sentido visado pelos agentes</li>
-        <li>Articulação entre interpretação controlada do sentido e explicação causal do curso e dos efeitos da ação</li>
-        <li>Diálogo metodológico com as ciências naturais e histórico-culturais, sem separação absoluta entre compreender e explicar</li>
-        <li>Ação social vs. mero comportamento: o critério da orientação pelo outro</li>
+        <li>Padrões coletivos por trás de escolhas aparentemente individuais</li>
+        <li>Contexto histórico: industrialização, urbanização e coesão social</li>
+        <li>Principais obras: As regras do método, Da divisão do trabalho social, O suicídio</li>
       </ul>
     </div>
     <div class="content-topic">
-      <h3>2. Tipos de ação social</h3>
+      <h3>2. O conceito de fato social</h3>
       <ul>
-        <li>Ação racional com relação a fins (zweckrational): cálculo meios-fins</li>
-        <li>Ação racional com relação a valores (wertrational): dever, honra, convicção</li>
-        <li>Ação afetiva: determinada por estados emocionais</li>
-        <li>Ação tradicional: determinada por costumes arraigados</li>
-      </ul>
-    </div>
-    <div class="content-topic">
-      <h3>3. Tipo ideal como método</h3>
-      <ul>
-        <li>Construção conceitual por acentuação unilateral de traços da realidade</li>
-        <li>O tipo ideal não descreve a realidade: é instrumento de comparação e análise</li>
-        <li>A burocracia como exemplo paradigmático de tipo ideal</li>
+        <li>Exterioridade, coercitividade e generalidade</li>
+        <li>Tratar os fatos sociais como coisas: o sentido metodológico da expressão</li>
       </ul>
     </div>
   </section>
@@ -169,118 +141,64 @@
   <section id="texto-base" aria-labelledby="texto-base-title">
     <div class="section-title" id="texto-base-title">Texto-base para acompanhamento da aula</div>
     <div class="base-text">
-      <p class="base-intro">Percurso de leitura para reconstruir sentidos, comparar tipos ideais e relacionar ações a condições institucionais. As quatro pausas propõem perguntas de passagem entre os movimentos do argumento.</p>
-      <nav class="base-toc" aria-label="Sumário do texto-base"><h3>Nesta leitura</h3><ol><li><a href="#weber-contexto">Weber e o problema de uma ciência da cultura</a></li><li><a href="#conduta-acao">Comportamento, ação e ação social</a></li><li><a href="#compreender-explicar">Compreender sentidos e explicar causalmente</a></li><li><a href="#tipo-ideal">Tipo ideal: construção e comparação</a></li><li><a href="#acoes-racionais">Ações racionais: fins e valores</a></li><li><a href="#afetiva-tradicional">Ações afetivas, tradicionais e combinações</a></li><li><a href="#valores-pesquisa">Valores, objetividade e consequências</a></li><li><a href="#sintese-aula-11">Síntese e passagem à racionalização</a></li></ol></nav>
+      <p class="base-intro">A Aula 10 fechou a oficina de pesquisa reconhecendo os limites e os alcances dos métodos sociológicos, e anunciou a entrada de Durkheim. Este texto começa exatamente onde a síntese anterior parou: por que escolhas que parecem inteiramente pessoais formam, quando observadas em conjunto, padrões surpreendentemente regulares?</p>
 
-      <div class="base-subsection" id="weber-contexto">
-        <h3>1. Weber e o problema de uma ciência da cultura</h3>
-        <p>A Aula 10 terminou distinguindo posição de classe, renda, profissão e consciência. Saber que duas pessoas vendem força de trabalho não revela, sozinho, como interpretam sua atividade, quais expectativas consideram ou por que agem de modos diferentes. Weber parte de outra pergunta, sem negar relações materiais: como explicar ações quando seus agentes lhes atribuem sentidos e orientam-se por outras pessoas, regras e instituições?</p>
-        <p>Max Weber nasceu em 1864 e morreu em 1920, no Império Alemão e na Alemanha do pós-guerra. Viveu industrialização acelerada, expansão das cidades, conflitos trabalhistas, formação de partidos de massa, crescimento da administração estatal e disputas sobre ciência, religião e política. Jurista de formação, trabalhou com história econômica, economia, sociologia da religião, metodologia e política. Seus problemas não cabem na imagem de um autor interessado apenas em escolhas individuais.</p>
-        <p>No ambiente intelectual alemão, discutia-se como estudar fenômenos culturais e históricos sem simplesmente copiar métodos das ciências naturais nem abandonar explicações rigorosas. Weber rejeita tanto leis universais que dissolvem particularidades quanto a ideia de que compreender um sentido dispensa causalidade. A Sociologia deve interpretar ações sociais e, ao mesmo tempo, explicar seu curso e seus efeitos.</p>
-        <p>Essa abordagem também examina relações, ordens e instituições. Mercados dependem de expectativas recíprocas; Estados reivindicam autoridade; igrejas organizam condutas; empresas distribuem competências; grupos disputam poder. Todas essas estruturas persistem porque ações se orientam por regras, crenças, interesses e previsões sobre outros, embora produzam consequências que ninguém planejou integralmente.</p>
-        <p>A noção de cultura aqui não significa apenas artes ou costumes refinados. Abrange fragmentos da realidade aos quais atribuímos significação e que transformamos em objeto de pesquisa. Uma eleição, um ritual, uma tabela administrativa ou uma greve podem ser estudados porque representam problemas historicamente relevantes. A seleção é inevitável: nenhuma ciência descreve toda a realidade.</p>
-        <p>Comparar Marx e Weber, portanto, não significa opor estrutura a indivíduo. Marx investigou como relações históricas condicionam e são transformadas pela ação. Weber investiga como ordens e processos se tornam operantes por ações dotadas de sentido. As perguntas e conceitos diferem, mas ambos recusam explicar a sociedade como soma de vontades isoladas.</p>
-        <aside class="pause-box"><h4>Pausa 1 — continuidade entre perguntas</h4><p>Que informação sobre o sentido do trabalho falta quando conhecemos apenas salário, contrato e posição de classe? E que condições objetivas faltam quando conhecemos apenas a justificativa do trabalhador?</p></aside>
+      <div class="base-subsection" id="a11-problema-inicial">
+        <h3>1. O problema inicial: escolhas pessoais e padrões sociais</h3>
+        <p>Ao chegar à universidade, cada estudante parece realizar uma série de escolhas individuais. Decide a roupa que vai vestir, o modo de cumprimentar colegas, as palavras que considera adequadas em sala e o momento de consultar o celular. Também organiza o dia conforme horários de aula, transporte, refeições e trabalho. Muitas dessas ações são vividas como decisões pessoais. Ainda assim, quando observamos uma turma inteira, encontramos regularidades: quase todos reconhecem o significado do sinal, entendem que certas roupas são apropriadas em algumas situações e inadequadas em outras, usam formas parecidas de escrever uma mensagem ao professor e esperam comportamentos diferentes numa sala de aula, numa festa ou numa cerimônia.</p>
+        <p>Esses padrões não se limitam à universidade. As famílias comunicam expectativas sobre estudo, profissão, casamento, cuidado e sucesso. A língua oferece palavras e regras que já existiam antes de nascermos. Nas redes sociais, aprendemos rapidamente quais imagens recebem aprovação, qual velocidade de resposta parece aceitável e quais opiniões podem gerar apoio, silêncio ou hostilidade. Mesmo quando discordamos dessas expectativas, precisamos reconhecê-las para saber que estamos discordando. Surge, então, uma pergunta decisiva: <strong>se muitas de nossas escolhas parecem individuais, por que elas apresentam padrões tão semelhantes dentro de uma sociedade?</strong></p>
+        <p>Essa pergunta introduz o problema sociológico de Émile Durkheim. Ele não pretende negar a individualidade nem afirmar que todas as pessoas agem da mesma maneira. Seu ponto de partida é outro: existem modos coletivos de agir, pensar e sentir que não podem ser explicados apenas pelas características psicológicas ou pelas intenções particulares de cada pessoa. Para compreendê-los, precisamos investigar a sociedade como uma realidade com propriedades próprias.</p>
+        <aside class="pause-box"><h4>Pausa para discussão</h4><p>Que comportamento aparentemente individual, dentro ou fora da universidade, revela uma pressão coletiva?</p></aside>
       </div>
 
-      <div class="base-subsection" id="conduta-acao">
-        <h3>2. Comportamento, ação e ação social</h3>
-        <p>Nem todo acontecimento corporal é ação no sentido sociológico. Piscar por irritação nos olhos é comportamento reativo; piscar para sinalizar cumplicidade envolve um sentido visado. <strong>Ação</strong> é uma conduta à qual o agente associa um sentido. Esse sentido não precisa ser formulado em discurso elaborado, inteiramente consciente ou moralmente defensável. Pode ser aproximado, contraditório e reconstruído por evidências.</p>
-        <p>Uma ação se torna <strong>social</strong> quando seu sentido se orienta pela conduta passada, presente ou esperada de outras pessoas. O outro pode estar presente ou distante, ser conhecido ou anônimo, indivíduo ou coletividade. Guardar silêncio numa biblioteca pode orientar-se pelos demais usuários e pela expectativa de sanção institucional. Abrir um guarda-chuva diante da chuva, isoladamente, não é ação social; abrir vários guarda-chuvas para formar uma barreira num protesto pode ser.</p>
-        <p>A orientação pelo outro não exige cooperação. Competição, conflito, fuga, obediência e tentativa de enganar também são sociais quando consideram ações alheias. Um vendedor ajusta preços esperando movimentos de concorrentes; uma estudante cumpre prazo prevendo a decisão de uma banca; um grupo bloqueia uma rua para ser percebido por autoridades e público. A relação pode ser desigual e mediada por normas ou tecnologias.</p>
-        <p>O <strong>sentido visado</strong> não é uma essência escondida na mente. É o sentido que agentes associam à conduta em uma situação, reconstruído por falas, documentos, observação e contexto. Motivos declarados importam, mas não encerram a análise: pessoas podem desconhecer condições relevantes, adaptar narrativas depois do fato ou apresentar razões diferentes a públicos distintos.</p>
-        <p>Há também sentidos compartilhados sem consenso completo. Uma regra universitária pode ser entendida como obrigação válida, obstáculo ou simples rotina. Mesmo assim, pessoas coordenam-se porque antecipam como secretaria, docentes e colegas agirão. A ordem social não exige que todos tenham a mesma motivação; pode resultar de orientações diversas convergindo provisoriamente para a mesma conduta.</p>
-        <p>A mesma conduta observável pode constituir ações diversas. Duas pessoas votam no mesmo candidato: uma espera benefício, outra cumpre dever religioso, outra acompanha tradição familiar e outra reage afetivamente a um acontecimento. Inversamente, sentidos parecidos podem produzir condutas diferentes quando recursos e regras variam. Por isso, a classificação não pode partir apenas do gesto.</p>
-        <p>As evidências devem acompanhar a escala da pergunta sociológica formulada. Entrevistas revelam justificativas; observação mostra rotinas e interações; mensagens e regulamentos registram expectativas; comparações indicam variações. Nenhuma fonte acessa diretamente uma intenção pura. A interpretação ganha força quando materiais diferentes convergem e quando hipóteses alternativas são consideradas.</p>
+      <div class="base-subsection" id="a11-projeto-cientifico">
+        <h3>2. Contexto histórico e projeto científico</h3>
+        <p>Émile Durkheim foi um sociólogo francês que viveu entre 1858 e 1917. Ele escreveu num período em que a Europa atravessava mudanças profundas. A industrialização reorganizava o trabalho, ampliava as fábricas e alterava as relações entre empregadores e trabalhadores. A urbanização reunia populações numerosas nas cidades, muitas vezes em condições precárias. Antigas comunidades perdiam parte de sua força, enquanto mercados, administrações públicas e instituições nacionais alcançavam um número crescente de pessoas. Conflitos políticos, desigualdades e novas formas de vida colocavam em questão como uma sociedade moderna poderia permanecer unida.</p>
+        <p>A preocupação de Durkheim com a ordem social não deve ser confundida com uma defesa simples de toda ordem existente. Ele queria compreender as condições da <strong>coesão social</strong>: o que conecta indivíduos diferentes, como surgem obrigações recíprocas e o que ocorre quando regras e vínculos coletivos se enfraquecem. Em <em>Da divisão do trabalho social</em>, investigou como a especialização das atividades transforma os laços que unem as pessoas. Essa discussão será aprofundada num encontro futuro, quando o curso estudar solidariedade mecânica e solidariedade orgânica.</p>
+        <p>Durkheim também participou do esforço de constituir a Sociologia como ciência autônoma. Isso significava definir um objeto próprio e estabelecer procedimentos de investigação. Em <em>As regras do método sociológico</em>, apresentou os fatos sociais como objeto específico da Sociologia e discutiu como estudá-los. Em <em>O suicídio</em>, analisou variações nas taxas de suicídio entre grupos e períodos, demonstrando que até um ato extremamente pessoal pode apresentar regularidades relacionadas à integração e à regulação sociais. Em <em>As formas elementares da vida religiosa</em>, examinou rituais, crenças e classificações coletivas para compreender como a vida social produz símbolos e formas compartilhadas de pensar.</p>
+        <p>Uma explicação sociológica, nesse projeto, não se reduz a dizer se um comportamento é moralmente bom ou ruim. Tampouco se satisfaz com frases como "isso acontece porque as pessoas querem" ou "porque alguém tem determinada personalidade". Opiniões morais podem participar do debate público, e motivações individuais são reais, mas não substituem a investigação das condições coletivas. Se uma prática aparece regularmente em muitos indivíduos, atravessa gerações e é apoiada por instituições, normas ou sanções, é necessário procurar causas e funções no plano social.</p>
       </div>
 
-      <div class="base-subsection" id="compreender-explicar">
-        <h3>3. Compreender sentidos e explicar causalmente</h3>
-        <p><strong>Compreender</strong> significa reconstruir de modo controlado o sentido que orienta uma ação. Não significa sentir o mesmo, aprovar a conduta ou tomar toda declaração como verdadeira. É possível compreender como alguém orientou uma agressão por honra e, simultaneamente, condená-la. Empatia pode ajudar a formular perguntas, mas não substitui evidências.</p>
-        <p>Weber não separa compreensão e explicação em campos inimigos. Uma interpretação torna a ação inteligível; uma explicação causal pergunta por que ela ocorreu daquele modo e quais efeitos produziu. Para explicar baixa participação numa eleição universitária, entrevistas podem revelar descrença, cálculo ou desconhecimento, enquanto regras, horários, acesso digital e trajetórias mostram condições que tornam motivos mais ou menos eficazes.</p>
-        <p>Adequação de sentido e adequação causal precisam caminhar juntas. Uma narrativa pode parecer coerente e ainda não explicar a regularidade observada. Também é possível encontrar associação estatística sem saber o mecanismo. Comparações entre casos, sequências temporais, documentos, entrevistas e observação ajudam a avaliar se determinada orientação contribuiu para um resultado entre outras condições.</p>
-        <p>Uma estratégia é comparar o que aconteceria na ausência de certa condição, sem imaginar experimento perfeito. Se estudantes que recebem a mesma mensagem reagem de modos distintos, podem importar trajetórias e recursos; se mudanças de regra alteram condutas mantendo outros aspectos semelhantes, cresce a plausibilidade de um efeito. Explicações são probabilísticas e historicamente delimitadas.</p>
-        <p>O <strong>individualismo metodológico</strong> propõe explicar fenômenos coletivos reconstruindo ações e orientações dos participantes. Ele não é individualismo moral nem redução psicológica. “Universidade”, “mercado” e “Estado” não agem como pessoas; porém possuem regras, cargos, recursos e histórias que moldam o que agentes podem fazer. Explicá-los requer mostrar como ações coordenadas reproduzem ou transformam essas ordens.</p>
-        <p>Consequências não pretendidas são decisivas. Cada estudante que busca a disciplina mais conveniente pode contribuir para lotação que ninguém desejou. Bancos que protegem seus ativos podem ampliar uma crise. O resultado coletivo não revela automaticamente o motivo individual, e o motivo individual não prevê sozinho o resultado. A Sociologia conecta níveis sem confundi-los.</p>
-        <aside class="pause-box"><h4>Pausa 2 — compreender não é concordar</h4><p>Que evidências permitiriam compreender a adesão a uma regra que você considera injusta? O que ainda seria necessário para explicar causalmente sua permanência?</p></aside>
+      <div class="base-subsection" id="a11-fato-social">
+        <h3>3. O conceito de fato social</h3>
+        <p>Para Durkheim, fato social não é simplesmente qualquer coisa que acontece na sociedade. Uma conversa particular ou uma decisão isolada acontece socialmente, mas isso não basta para classificá-la como fato social. O conceito se refere a modos de agir, pensar e sentir que apresentam três características relacionadas: <strong>exterioridade, coercitividade e generalidade</strong>. Separadas, elas ajudam a análise; compreendidas em conjunto, mostram por que certos fenômenos formam uma realidade propriamente social.</p>
+        <p>A <strong>exterioridade</strong> significa que essas maneiras coletivas de agir e pensar existem antes e além de cada indivíduo. Nenhum de nós inventou a língua portuguesa, o calendário, o dinheiro ou as normas escolares que encontrou ao nascer ou ao entrar numa instituição. Podemos aprender essas regras, modificá-las em alguma medida e participar de suas transformações, mas não as criamos individualmente. Elas são transmitidas por famílias, escolas, meios de comunicação, leis, organizações e práticas cotidianas. A exterioridade não quer dizer que a norma permaneça para sempre fora de nós. Ao sermos socializados, incorporamos vocabulários, gestos, valores e expectativas. O que começou como uma realidade exterior passa a orientar também nossa maneira de perceber e escolher.</p>
+        <p>A <strong>coercitividade</strong> é a capacidade que um fato social tem de exercer pressão sobre os indivíduos. Essa pressão fica especialmente visível quando alguém tenta agir de modo diferente. Quem ignora uma lei pode receber uma sanção jurídica. Entretanto, coerção não significa apenas violência física, polícia ou punição legal. Uma pessoa pode ser constrangida, ridicularizada, reprovada, excluída de um grupo ou considerada incompetente por não seguir um costume. Um estudante que utiliza uma linguagem totalmente inadequada ao contexto acadêmico talvez não viole uma lei, mas pode perder credibilidade. Alguém que não responde mensagens no ritmo esperado pode ser chamado de desinteressado. A sanção pode ser formal ou informal, intensa ou sutil.</p>
+        <p>A <strong>generalidade</strong> indica que o fenômeno se encontra difundido num grupo ou numa sociedade. O uso do dinheiro, a organização semanal do tempo, certas expectativas profissionais e determinados padrões de conduta nas plataformas digitais não pertencem a uma única pessoa. Sua presença ampla revela uma origem coletiva. Porém, frequência por si só não é suficiente. Uma prática não se torna fato social apenas porque muitas pessoas a repetem por coincidência. Ela é geral porque está apoiada em regras, valores, instituições e formas compartilhadas de vida; não é coletiva apenas porque foi somada depois de ocorrer individualmente.</p>
+        <p>As três características precisam, portanto, ser articuladas. A língua é exterior porque recebemos um sistema já constituído; é coercitiva porque precisamos respeitar convenções mínimas para sermos compreendidos e podemos sofrer correções ou exclusões; é geral porque circula amplamente numa comunidade. O calendário organiza compromissos antes de nossa decisão particular, pressiona-nos por meio de prazos e horários e é usado coletivamente. Leis, costumes e normas escolares apresentam combinações semelhantes. Já um gosto muito particular, sem expectativa coletiva ou consequência social reconhecível, dificilmente será explicado do mesmo modo.</p>
+        <aside class="pause-box"><h4>Pausa para discussão</h4><p>O que acontece quando alguém se recusa a seguir determinada norma? Que sanções formais ou informais aparecem?</p></aside>
+        <p>Os fatos sociais não eliminam toda liberdade. Eles delimitam possibilidades, oferecem referências e tornam a coordenação entre pessoas possível. O dinheiro restringe maneiras de trocar bens, mas também permite transações entre desconhecidos. A língua impõe convenções, mas torna a comunicação possível. Uma regra pode ser contestada e transformada coletivamente. O conceito durkheimiano convida a observar como escolhas individuais se realizam dentro de condições sociais que não foram escolhidas individualmente.</p>
       </div>
 
-      <div class="base-subsection" id="tipo-ideal">
-        <h3>4. Tipo ideal: construção e comparação</h3>
-        <p><strong>Tipo ideal</strong> é uma construção conceitual que acentua certos traços para tornar comparações possíveis. “Ideal” não significa perfeito, desejável ou moralmente superior. Tampouco é média estatística. Uma burocracia típica ideal reúne regras impessoais, hierarquia, competências e registros de forma logicamente nítida, ainda que nenhuma organização empírica realize todos os traços.</p>
-        <p>O pesquisador seleciona aspectos relevantes segundo um problema. Para estudar orientação por cálculo, constrói uma ação racional com relação a fins mais coerente do que muitas ações concretas. Depois compara o caso: em que se aproxima, onde se afasta e por quê? O desvio não é erro da realidade; é informação que pode revelar hábitos, afetos, desigualdades ou conflitos entre regras.</p>
-        <p>Tipos ideais também não são caixas em que pessoas permanecem. Eles classificam orientações analíticas de ações, não identidades fixas. Uma mesma pessoa age tradicionalmente numa cerimônia, calcula meios numa inscrição e orienta-se por valor numa mobilização. Até uma única ação pode combinar elementos que o conceito separa.</p>
-        <p>Construir um tipo exige decisões transparentes. O pesquisador escolhe traços, relaciona-os coerentemente e informa para qual comparação servem. Outro problema pode exigir construção diferente. Por isso, “tipo ideal de estudante”, por exemplo, só faria sentido se fossem especificados o aspecto investigado e os critérios; não pode funcionar como padrão moral para avaliar pessoas.</p>
-        <p>A qualidade do tipo depende de clareza e fecundidade. Ele deve explicitar critérios, servir ao problema e permitir investigação. Um rótulo tão amplo que explica qualquer coisa não compara nada; um tipo tratado como fotografia confunde ferramenta e realidade. Na atividade, respostas fortes indicarão tipo predominante, alternativas e evidências faltantes.</p>
-      </div>
-
-      <div class="base-subsection" id="acoes-racionais">
-        <h3>5. Ações racionais com relação a fins e a valores</h3>
-        <p>Na ação <strong>racional com relação a fins</strong>, o agente compara objetivos, meios, custos, efeitos e alternativas. Uma estudante pode escolher curso considerando horários, deslocamento e oportunidades; um sindicato pode selecionar estratégia segundo apoio e risco; uma empresa pode ajustar produção esperando concorrentes. O resultado pode fracassar: racionalidade do procedimento não garante informação perfeita nem sucesso.</p>
-        <p>Na ação <strong>racional com relação a valores</strong>, a conduta se orienta pela crença consciente no valor de agir de certo modo, independentemente de vantagens previsíveis. Alguém denuncia irregularidade por compromisso com transparência; participa de rito por dever religioso; recusa compra por convicção ambiental. Ainda há escolha de meios, mas o valor define o compromisso central.</p>
-        <p>“Valor” não significa bondade. Uma ação orientada por valor pode servir a princípios democráticos ou autoritários. O conceito descreve a relação entre convicção e conduta, não oferece aprovação moral. Do mesmo modo, ação orientada a fins não é egoísmo: calcular rotas para distribuir doações é racional com relação a fins e pode buscar finalidade solidária.</p>
-        <p>Os tipos podem combinar-se. Um eleitor apoia candidatura por convicção e também avalia chance de vitória. Uma pessoa escolhe profissão por vocação, remuneração, expectativa familiar e lembranças afetivas. A pergunta não é “qual palavra entrega a resposta?”, mas quais orientações aparecem, como se hierarquizam e em que contexto.</p>
-        <p>Condições objetivas limitam alternativas. Calcular uma escolha profissional requer informação, renda e possibilidade de deslocamento. A ação continua dotada de sentido mesmo sob restrições. Explicá-la apenas como escolha livre ignora condições; explicá-la apenas por condições ignora como agentes interpretam possibilidades.</p>
-        <p>Meios e fins podem ainda entrar em tensão. Uma organização dedicada à transparência escolhe comunicação enganosa para obter apoio; alguém comprometido com cuidado calcula estratégia que sobrecarrega outra pessoa. O tipo com relação a valores identifica a orientação central, não declara coerência perfeita entre princípio, meio e consequência.</p>
-      </div>
-
-      <div class="base-subsection" id="afetiva-tradicional">
-        <h3>6. Ações afetivas, tradicionais e combinações</h3>
-        <p>A ação <strong>afetiva</strong> orienta-se predominantemente por estados emocionais, como entusiasmo, medo, raiva, luto ou afeição. Isso não significa ausência de sentido. Abraçar alguém ao reencontrá-lo, abandonar discussão por indignação ou participar de homenagem por emoção são condutas inteligíveis em relações sociais. Afetos possuem expressão cultural e história; não são impulsos biológicos isolados.</p>
-        <p>A ação <strong>tradicional</strong> orienta-se por hábito arraigado. Cumprimentar colegas de certo modo ou repetir prática familiar pode ocorrer sem deliberação a cada ocasião. Entretanto, tradição não é ausência absoluta de reflexão. Agentes podem justificar, adaptar ou contestar hábitos; uma prática repetida pode tornar-se ação orientada por valor quando passa a ser defendida conscientemente.</p>
-        <p>Esses dois tipos também ajudam a marcar os limites do conceito. Uma expressão afetiva é ação social quando está significativamente orientada para outras pessoas; uma descarga emocional puramente reativa ou automática pode permanecer no limite ou fora da ação social. De modo semelhante, a ação tradicional pode aproximar-se desse limite quando ocorre como reação habitual quase automática. A ressalva não elimina a importância analítica dos tipos, mas impede que todo sentimento ou hábito seja classificado automaticamente como ação social.</p>
-        <p>As fronteiras são graduais. Uma manifestação começa por indignação, organiza estratégias, invoca justiça e repete repertórios aprendidos. Afeto, fins, valores e tradição aparecem juntos. O tipo ideal selecionado depende da pergunta e da evidência sobre a orientação predominante, não de uma essência da manifestação.</p>
-        <p>Motivos declarados podem divergir das condições e consequências. Uma plataforma apresenta notificações como incentivo à autonomia; usuários podem buscar renda, reconhecimento ou hábito; o desenho técnico favorece permanência; o uso coletivo gera congestionamento ou pressão competitiva não pretendida. Reconstruir sentido não elimina o exame do dispositivo, do contrato e do mercado.</p>
-        <p>A ambiguidade é produtiva quando justificada. Se grupos classificam um ritual como tradicional e racional com relação a valores, devem indicar sinais: repetição irrefletida, doutrina explicitada, expectativa comunitária, emoção ou cálculo. Divergência sem critério é opinião; divergência apoiada em evidências é análise.</p>
-        <aside class="pause-box"><h4>Pausa 3 — uma ação, várias orientações</h4><p>Uma pessoa participa de protesto organizado por amigos. Que perguntas distinguiriam hábito, afeto, convicção e cálculo sem presumir uma resposta?</p></aside>
-      </div>
-
-      <div class="base-subsection" id="valores-pesquisa">
-        <h3>7. Valores do pesquisador, análise empírica e julgamento</h3>
-        <p>Pesquisadores não escolhem objetos a partir de lugar vazio. Problemas tornam-se relevantes em relação a valores culturais, debates públicos e interesses científicos. Essa <strong>relação com valores</strong> orienta a seleção: estudar evasão, voto ou cuidado envolve considerar certas questões significativas. Ela não autoriza ajustar resultados à preferência do pesquisador.</p>
-        <p>Na análise empírica, é preciso distinguir afirmações sobre o que acontece, explicações de por que acontece e julgamentos sobre o que deveria acontecer. Dados podem mostrar efeitos prováveis de uma política; não decidem sozinhos qual finalidade deve ser escolhida. Valores podem ser explicitados e discutidos, mas não apresentados como conclusão inevitável dos fatos.</p>
-        <p>A chamada neutralidade axiológica não exige indiferença moral nem silêncio público. Exige disciplina para não ocultar juízos em linguagem científica, apresentar evidências contrárias e esclarecer limites. Um professor pode defender uma posição e ainda reconstruir corretamente argumentos concorrentes. Compreender uma conduta não implica concordar com ela.</p>
-        <p>Também é necessário distinguir o sentido que o pesquisador atribui ao objeto daquele visado pelo agente. Chamar uma prática de “resistência” pode ser hipótese analítica, enquanto participantes a descrevem como sobrevivência ou dever. A diferença não invalida a pesquisa, mas deve ser demonstrada, e não projetada. Conceitos científicos reorganizam experiências sem substituir as vozes estudadas.</p>
-        <p>Essa distinção melhora a atividade. O grupo pode avaliar uma ação como injusta, mas primeiro deve indicar conduta, outros considerados, sentido, tipo ideal, condições e evidências. Só então poderá formular julgamento separado. A sequência evita que simpatia ou rejeição substituam interpretação.</p>
-      </div>
-
-      <div class="base-subsection" id="sintese-aula-11">
-        <h3>8. Síntese e passagem à racionalização</h3>
-        <p><strong>Síntese.</strong> A Sociologia compreensiva interpreta sentidos e explica causalmente cursos e efeitos da ação. Ação social orienta-se pela conduta de outros; compreender não é concordar. Individualismo metodológico reconstrói fenômenos coletivos por ações sem reduzi-los a psicologia, pois regras, recursos e instituições condicionam possibilidades.</p>
-        <p>Tipos ideais são construções comparativas, não modelos perfeitos ou médias. Fins, valores, afetos e tradições podem combinar-se. Motivos declarados precisam ser confrontados com condições objetivas e consequências não pretendidas. Valores selecionam problemas, enquanto análise empírica e julgamento normativo devem permanecer distinguíveis.</p>
-        <p>A Aula 12 mudará a escala. Em vez de classificar orientações pontuais, acompanhará um processo histórico no qual cálculo, formalização, especialização e previsibilidade reorganizam instituições. A burocracia mostrará como ações orientadas por regras formam ordens duradouras; a religião mostrará como sentidos podem participar de transformações econômicas sem funcionar como causa única.</p>
-        <aside class="pause-box"><h4>Pausa 4 — da ação à ordem</h4><p>Como muitas ações orientadas por regras podem formar uma organização que passa a limitar escolhas individuais, mesmo sem plano central para produzir esse resultado?</p></aside>
+      <div class="base-subsection" id="a11-tratar-como-coisas">
+        <h3>4. Tratar os fatos sociais como coisas</h3>
+        <p>Ao recomendar que o pesquisador trate os fatos sociais como coisas, Durkheim não afirma que relações humanas sejam literalmente objetos materiais. A expressão tem um sentido metodológico. Significa abordar o fenômeno como uma realidade exterior ao pesquisador, que precisa ser observada e investigada, em vez de ser definida apenas por impressões pessoais, preconceitos ou ideias do senso comum. O pesquisador não deve concluir antecipadamente que já conhece a família, a religião, a escola ou o crime simplesmente porque convive com palavras e opiniões sobre esses temas.</p>
+        <p>Tratar como coisa exige construir o objeto de pesquisa com critérios explícitos e buscar indícios que outras pessoas possam examinar. Para estudar regras escolares, seria possível reunir regulamentos, observar rotinas, comparar sanções e entrevistar diferentes participantes. Para pesquisar taxas de evasão, seria necessário definir o que conta como evasão, examinar séries históricas e comparar cursos, grupos ou instituições. Padrões de casamento poderiam ser investigados por registros, legislação, mudanças de costumes e distribuição entre diferentes grupos sociais.</p>
+        <p>O mesmo procedimento vale para temas estudados por Durkheim. Índices de suicídio não explicam sozinhos cada morte individual, mas permitem observar variações coletivas que exigem interpretação sociológica. Práticas religiosas podem ser analisadas por rituais, calendários, símbolos, regras e formas de participação. Comportamentos coletivos nas redes sociais podem ser estudados por padrões de publicação, normas das plataformas, campanhas coordenadas, métricas de engajamento e sanções entre usuários. Dados não falam sozinhos: precisam de conceitos e comparação. Ao mesmo tempo, os conceitos devem ser confrontados com evidências.</p>
+        <aside class="pause-box"><h4>Pausa para discussão</h4><p>Toda prática frequente pode ser considerada fato social? Que outras evidências seriam necessárias além da frequência?</p></aside>
+        <p>Essas três características e esse compromisso metodológico são exatamente o que a turma vai testar na atividade desta aula, ao ler o primeiro capítulo d'<em>As regras do método sociológico</em> e localizar, no próprio texto de Durkheim, a definição de fato social e os exemplos com que ele a ilustra. A próxima aula retomará esse mesmo capítulo para propor um exemplo contemporâneo e discutir consciência coletiva e representações coletivas.</p>
       </div>
     </div>
   </section>
-
 
   <section id="plano-aula">
     <div class="section-title">Plano de Aula com Tempo</div>
     <div class="timeline">
       <div class="tl-item">
         <span class="tl-duration">10 min</span>
-        <span class="tl-text"><strong>Retomada sem oposição caricatural</strong> — Da posição objetiva e consciência de classe ao problema do sentido, das condições e das consequências da ação.</span>
-      </div>
-      <div class="tl-item">
-        <span class="tl-duration">30 min</span>
-        <span class="tl-text"><strong>Exposição dialogada</strong> — Contexto de Weber, comportamento, ação, ação social, sentido visado, compreensão e explicação causal.</span>
-      </div>
-      <div class="tl-item">
-        <span class="tl-duration">25 min</span>
-        <span class="tl-text"><strong>Construção conceitual</strong> — Tipo ideal, individualismo metodológico e quatro orientações da ação, com combinações e limites.</span>
-      </div>
-      <div class="tl-item">
-        <span class="tl-duration">30 min</span>
-        <span class="tl-text"><strong>Oficina em grupos</strong> — Análise de uma situação principal por grupo e comparação breve com um grupo vizinho.</span>
+        <span class="tl-text"><strong>Retomada</strong> — Da oficina de pesquisa ao problema durkheimiano: por que escolhas individuais formam padrões coletivos regulares.</span>
       </div>
       <div class="tl-item">
         <span class="tl-duration">15 min</span>
-        <span class="tl-text"><strong>Socialização</strong> — Comparação de interpretações alternativas, motivos declarados, condições objetivas e consequências não pretendidas.</span>
+        <span class="tl-text"><strong>Exposição: projeto científico de Durkheim</strong> — Contexto histórico da industrialização e urbanização europeias; principais obras e o problema da coesão social.</span>
       </div>
       <div class="tl-item">
-        <span class="tl-duration">10 min</span>
-        <span class="tl-text"><strong>Síntese e passagem</strong> — Valores do pesquisador, julgamento de valor e transição das ações para racionalização e ordens institucionais.</span>
+        <span class="tl-duration">20 min</span>
+        <span class="tl-text"><strong>Leitura dialogada: o conceito de fato social</strong> — Exterioridade, coercitividade e generalidade; o sentido metodológico de tratar fatos sociais como coisas.</span>
+      </div>
+      <div class="tl-item">
+        <span class="tl-duration">15 min</span>
+        <span class="tl-text"><strong>Atividade em grupo: leitura d'As regras do método (parte 1)</strong> — Definição do fato social e identificação de exemplos citados pelo próprio Durkheim.</span>
       </div>
     </div>
   </section>
@@ -288,59 +206,20 @@
   <section id="leituras">
     <div class="section-title">Textos para Leitura Prévia</div>
     <div class="ref-card">
-      <div class="ref-author">Weber, Max</div>
-      <div class="ref-title"><em>Economia e sociedade</em>, v. 1 — conceitos sociológicos fundamentais: ação social e tipos</div>
-    </div>
-    <div class="ref-card">
-      <div class="ref-author">Quintaneiro, Tania; Barbosa, Maria Ligia; Oliveira, Márcia</div>
-      <div class="ref-title"><em>Um toque de clássicos</em> — capítulo dedicado a Weber</div>
-      <div class="ref-pages">2. ed. rev. e ampl. Belo Horizonte: Editora UFMG, 2002. ISBN 85-7041-317-3.</div>
+      <div class="ref-author">DURKHEIM, Émile</div>
+      <div class="ref-title">As regras do método sociológico. Cap. 1 — "O que é um fato social?"</div>
+      <div class="ref-pages">Consultar a seção indicada na edição disponível; a paginação varia por edição.</div>
     </div>
   </section>
 
   <section id="atividade">
     <div class="section-title">Atividades em Sala</div>
-    <div class="activity-card">
-      <h3>Oficina — sentidos, tipos ideais e condições da ação</h3>
-      <p><strong>Organização:</strong> grupos de três ou quatro estudantes. Cada grupo recebe uma situação principal e responde às sete questões sobre ela. Em seguida, compara brevemente sua interpretação com a de um grupo vizinho, observando somente: (1) o tipo predominante escolhido; (2) as evidências utilizadas; e (3) uma possível interpretação alternativa. Os relatos são hipotéticos e não contêm resposta única. As situações não distribuídas permanecem disponíveis para ampliação, outra turma ou atividade posterior.</p>
-      <div class="situation-grid">
-        <article class="situation-card"><h4>Situação 1 — escolha profissional</h4><p>Depois de conversar com familiares, comparar bolsas e acompanhar profissionais nas redes, Joana escolhe licenciatura. Diz que quer contribuir com a escola pública, mas também precisa estudar perto de casa e espera estabilidade.</p></article>
-        <article class="situation-card"><h4>Situação 2 — participação religiosa</h4><p>Ravi ajuda semanalmente numa cozinha mantida por sua comunidade religiosa. Aprendeu a prática com os avós, sente-se ligado ao grupo e afirma que servir aos outros expressa um compromisso de fé.</p></article>
-        <article class="situation-card"><h4>Situação 3 — voto</h4><p>Caio decide o voto após comparar propostas, observar pesquisas e conversar com colegas. Evita explicar sua decisão em casa porque teme conflito e admite que a possibilidade de vitória influenciou sua escolha.</p></article>
-        <article class="situation-card"><h4>Situação 4 — regra universitária</h4><p>Mesmo discordando da exigência de registrar presença num sistema, Lina faz o procedimento em todas as aulas. Ela teme perder a vaga, reconhece que a regra facilita auditorias e começa a repeti-la sem pensar.</p></article>
-        <article class="situation-card"><h4>Situação 5 — mobilização coletiva</h4><p>Após cortes no transporte, estudantes organizam abaixo-assinado. Bruno participa porque depende do ônibus, porque amigos o convidaram e porque considera injusto que bairros distantes tenham menos horários.</p></article>
-        <article class="situation-card"><h4>Situação 6 — consumo</h4><p>Ana troca de celular após comparar preço, duração da bateria e reputação das marcas. Também evita uma empresa criticada por condições de trabalho, embora o aparelho escolhido custe mais.</p></article>
-        <article class="situation-card"><h4>Situação 7 — plataforma digital</h4><p>Uma plataforma envia a Miguel uma sequência de alertas informando que amigos concluíram metas. Ele retorna ao aplicativo, prolonga o uso para manter sua posição no ranking e diz que não gosta de “ficar para trás”.</p></article>
-        <article class="situation-card"><h4>Situação 8 — cuidado familiar</h4><p>Teresa reorganiza horários para acompanhar um parente em consultas. Diz que “na família sempre foi assim”, sente afeição e culpa, e calcula turnos com irmãos para não perder o emprego.</p></article>
-        <article class="situation-card"><h4>Situação 9 — trabalho</h4><p>Num restaurante, Paulo segue um roteiro de atendimento que considera artificial. Ele o utiliza porque facilita o trabalho em horários cheios, evita advertências e aumenta a chance de receber gorjeta.</p></article>
-        <article class="situation-card"><h4>Situação 10 — protesto</h4><p>Ao ver a prisão de uma liderança local, Sara junta-se a um protesto. Está indignada, acredita ser dever defender o direito de manifestação e combina com o grupo uma rota para obter visibilidade sem bloquear ambulâncias.</p></article>
-      </div>
-      <h4>Roteiro de análise</h4>
-      <ol>
-        <li>Qual é a conduta analisada?</li>
-        <li>Quem são os outros considerados pelo agente?</li>
-        <li>Qual sentido parece orientar a ação?</li>
-        <li>Qual tipo ideal ajuda a interpretá-la?</li>
-        <li>Que outros tipos também podem aparecer?</li>
-        <li>Que evidências seriam necessárias para sustentar a interpretação?</li>
-        <li>Que condições sociais limitam ou possibilitam a ação?</li>
-      </ol>
-      <details class="teacher-guidance">
-        <summary>Gabarito comentado e orientações de mediação — uso do professor</summary>
-        <div class="teacher-guidance-content">
-          <p><strong>Critério geral:</strong> não corrigir pela escolha de uma única etiqueta. Exigir vínculo entre conduta, outros considerados, sentido, evidência e condição. Aceitar alternativas justificadas.</p>
-          <p><strong>1 — escolha profissional:</strong> valores aparecem no compromisso com escola pública; fins, em bolsa, proximidade e estabilidade; família e profissionais são outros relevantes. Entrevista e comparação das opções esclareceriam a hierarquia dos motivos.</p>
-          <p><strong>2 — participação religiosa:</strong> valor, tradição e afeto podem combinar-se. A prática aprendida não prova ausência de reflexão. Seriam úteis fala do agente, história da comunidade e observação da participação.</p>
-          <p><strong>3 — voto:</strong> comparação de propostas e viabilidade sugere fins; convicções podem aparecer no conteúdo das propostas; medo do conflito orienta a apresentação pública da escolha. Voto igual não implica motivo igual.</p>
-          <p><strong>4 — regra universitária:</strong> cálculo de sanção, reconhecimento funcional e habituação coexistem. Com o tempo, uma ação inicialmente orientada a fins pode ganhar componente tradicional.</p>
-          <p><strong>5 — mobilização:</strong> interesse no transporte, convite de amigos e convicção de justiça sugerem fins, afeto e valor. Regulamentos, tempo disponível e território condicionam a adesão.</p>
-          <p><strong>6 — consumo:</strong> preço e bateria indicam fins; recusa da empresa pode indicar valor. É preciso verificar informação disponível, orçamento e peso efetivo do critério trabalhista.</p>
-          <p><strong>7 — plataforma:</strong> comparação no ranking e receio de ficar para trás orientam-se por outros ausentes, mediados tecnicamente. Afeto e fins podem coexistir; o design e as regras são condições objetivas.</p>
-          <p><strong>8 — cuidado:</strong> tradição, afeto, valor e cálculo aparecem de modo especialmente misto. Não transformar cuidado familiar em disposição natural; examinar gênero, trabalho, renda e divisão entre irmãos.</p>
-          <p><strong>9 — trabalho:</strong> evitar advertência, administrar fluxo e obter gorjeta sugerem fins; a repetição pode tornar-se hábito. Roteiro, supervisão e mercado condicionam a ação sem apagar seu sentido.</p>
-          <p><strong>10 — protesto:</strong> indignação, dever e planejamento tornam plausíveis afeto, valor e fins. O repertório de protesto também pode ter componente tradicional. Nenhum tipo é moralmente superior.</p>
-        </div>
-      </details>
+    <div class="activity-card" data-gabarito="dispensado">
+      <strong>Leitura analítica d'As regras do método sociológico — parte 1</strong><br><br>
+      Os alunos se organizam em grupos de 4–5 pessoas para a leitura do Capítulo 1 de <em>As regras do método</em>. Nesta aula, cada grupo responde às duas primeiras questões de um roteiro de três perguntas que será concluído na Aula 12:<br><br>
+      <strong>(1) Definição:</strong> Como Durkheim define o fato social? Reproduzir a definição com as próprias palavras do grupo.<br><br>
+      <strong>(2) Exemplos do autor:</strong> Identificar pelo menos três exemplos de fatos sociais citados pelo próprio Durkheim no texto, apontando qual característica (exterioridade, coercitividade ou generalidade) cada exemplo ilustra.<br><br>
+      Cada grupo deve registrar por escrito suas respostas às duas questões, guardando o material: na Aula 12, o mesmo grupo retomará esse registro para propor um exemplo contemporâneo de fato social e testá-lo coletivamente com toda a turma, quando o gabarito comentado das três questões será apresentado de uma só vez.
     </div>
   </section>
 
@@ -348,17 +227,18 @@
     <div class="section-title">Recursos Necessários</div>
     <div class="resources-list">
       <span class="res-tag">Projetor</span>
-      <span class="res-tag">Mapa conceitual projetado</span>
-      <span class="res-tag">Dez fichas recortáveis desta página</span>
-      <span class="res-tag">Roteiro de análise por grupo</span>
+      <span class="res-tag">Texto impresso d'As regras do método (Cap. 1)</span>
       <span class="res-tag">Quadro branco</span>
     </div>
   </section>
+
 </main>
+
 <footer>
-  <a href="/introducao-sociologia/">← Página principal</a>
+  <a href="../../index.html">← Voltar ao curso</a>
   <span style="margin: 0 12px; color: var(--border);">|</span>
   <span>Introdução à Sociologia — 2026.2</span>
 </footer>
+
 </body>
 </html>

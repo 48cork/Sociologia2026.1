@@ -1,0 +1,98 @@
+[
+  {
+    "aula": 37,
+    "fonte": 19,
+    "secoes": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "titulo": "Grupos sociais: primários e secundários",
+    "abertura": "Passageiros no mesmo ponto de ônibus já formam um grupo? Vamos distinguir proximidade, categoria e relações continuadas.",
+    "objetivos": [
+      "Distinguir grupo, agregado e categoria.",
+      "Caracterizar vínculos primários e secundários com evidências.",
+      "Reconhecer conflito e afeto em diferentes formas de grupo."
+    ],
+    "sintese": "Grupo exige relações e expectativas recíprocas; tipos primário e secundário destacam qualidades dos vínculos. Tamanho ou local não decidem a classificação.",
+    "transicao": "A Aula 38 examinará pertencimento, referência e poder dentro dos grupos.",
+    "atividade": "Compare uma fila sem reencontro, uma equipe remota com tarefas semanais e uma rede de cuidado entre pessoas de casas diferentes. Indique continuidade, reconhecimento, finalidade e intimidade. Que caso permite identificar grupo sem proximidade física?",
+    "gabarito": "<p>A fila descrita funciona como agregado: há copresença, mas não foram informadas relações continuadas ou compromissos posteriores. A equipe remota mantém tarefas e expectativas recíprocas, permitindo reconhecer grupo mesmo sem encontro físico. A rede de cuidado também apresenta continuidade, e pode ter qualidades primárias quando seus integrantes se conhecem em múltiplas dimensões e valorizam os vínculos além de uma tarefa. O nome do arranjo ou o uso de tecnologia não decide a interpretação.</p><p>Solicite que estudantes sustentem cada classificação com critérios. Uma equipe pode abrigar amizade; uma rede íntima pode distribuir autoridade de modo desigual. Não associe secundário a irrelevante ou primário a harmonioso. Se alguém apontar que a fila poderia dar origem a uma mobilização, reconheça a possibilidade e diferencie o estado descrito da transformação hipotética. A resposta deve mostrar o que precisaria mudar: comunicação continuada, reconhecimento e compromissos. Esse cuidado evita tratar categorias como propriedades fixas das pessoas e prepara a análise de fronteiras do pertencimento.</p>"
+  },
+  {
+    "aula": 38,
+    "fonte": 19,
+    "secoes": [
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "titulo": "Grupos de referência, pertencimento e poder",
+    "abertura": "Podemos usar como referência um grupo do qual não fazemos parte. Como essa comparação orienta aspirações e como os recursos condicionam a participação?",
+    "objetivos": [
+      "Distinguir grupo de pertencimento e referência normativa ou comparativa.",
+      "Mapear fronteiras, posições e recursos.",
+      "Explicar agência sem ignorar desigualdade."
+    ],
+    "sintese": "Pertencer e tomar como referência são relações diferentes, que podem coincidir. Regras, prestígio, informação e condições materiais distribuem possibilidades dentro dos grupos.",
+    "transicao": "A Aula 39 investigará como expectativas se tornam normas e ganham força por sanções.",
+    "tempos": [
+      5,
+      15,
+      35,
+      5
+    ],
+    "atividade_fonte": true
+  },
+  {
+    "aula": 39,
+    "fonte": 20,
+    "secoes": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "titulo": "Normas, sanções e controle social",
+    "abertura": "Por que um elogio também pode orientar comportamento? Controle social envolve mais do que proibição e punição.",
+    "objetivos": [
+      "Distinguir normas formais e informais em contexto.",
+      "Classificar sanções positivas e negativas.",
+      "Analisar controle difuso e institucional."
+    ],
+    "sintese": "Normas são expectativas sustentadas socialmente. Sanções e rotinas orientam condutas, mas sua força não elimina interpretação ou contestação.",
+    "transicao": "A Aula 40 examinará quem define o desvio e como rótulos podem alterar trajetórias.",
+    "atividade": "Num projeto, cumprir o prazo rende certificado e reconhecimento dos colegas; descumpri-lo pode gerar advertência prevista no regulamento e comentários de reprovação. Classifique as quatro reações e discuta por que conhecer a norma não garante obediência.",
+    "gabarito": "<p>Certificado e advertência prevista são sanções formalizadas, respectivamente positiva e negativa. Reconhecimento e reprovação dos colegas podem funcionar como sanções informais, também positiva e negativa. As dimensões formalidade e valência são independentes: formal não significa punitivo, e informal não significa positivo ou pouco importante. Peça que o grupo explique qual expectativa cada reação reforça e quem possui capacidade de produzi-la.</p><p>Conhecimento da norma não assegura cumprimento. Podem existir dificuldades de transporte, conflito de tarefas, discordância, estratégias ou esquecimento; cada explicação exige evidências. O exercício não afirma que toda advertência seja injusta nem que todo elogio seja manipulação. Uma resposta adequada distingue descrição do mecanismo e avaliação de seus efeitos. Discuta como as reações podem tornar-se rotineiras e como regras podem ser negociadas. Para avaliar tratamento desigual, seria necessário comparar situações pertinentes e procedimentos, tema da unidade seguinte. Evite pedir a estudantes relatos de transgressão ou classificar colegas como obedientes e desviantes.</p>"
+  },
+  {
+    "aula": 40,
+    "fonte": 20,
+    "secoes": [
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "titulo": "Desvio, etiquetamento e a seletividade do controle social",
+    "abertura": "Dois atrasos semelhantes recebem reações diferentes. Como demonstrar seletividade sem tomar reputação como prova?",
+    "objetivos": [
+      "Analisar desvio como relação entre conduta, norma e reação.",
+      "Explicar efeitos do etiquetamento sem determinismo.",
+      "Comparar aplicação de regras e possibilidades de recurso."
+    ],
+    "sintese": "Rótulos podem alterar vigilância, confiança e oportunidades, mas não explicam sozinhos condutas nem definem destinos. Seletividade precisa de comparação e evidências.",
+    "transicao": "A Aula 41 amplia a escala para instituições e para a organização das relações familiares.",
+    "tempos": [
+      5,
+      15,
+      35,
+      5
+    ],
+    "atividade_fonte": true
+  }
+]

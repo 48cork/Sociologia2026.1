@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Aula 46 — Classes sociais e mobilidade: Marx e Weber em diálogo · 2026.2</title><style>
+  :root {
+    --bg: #0a0a0f; --surface: #12121c; --card: #1a1a2e; --border: #2a2a4a;
+    --purple: #7c3aed; --purple-lt: #a855f7; --blue: #4f46e5; --blue-lt: #818cf8;
+    --teal-lt: #2dd4bf; --amber-lt: #fbbf24; --rose-lt: #fb7185;
+    --text: #e2e8f0; --muted: #94a3b8; --radius: 12px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { max-width: 100%; overflow-x: clip; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; min-height: 100vh; overflow-wrap: anywhere; }
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(18,18,28,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; white-space: nowrap; }
+  nav a:hover { color: var(--text); }
+  .nav-left { display: flex; align-items: center; gap: 10px; }
+  .nav-badge { background: var(--purple); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+  .nav-center { font-size: 0.875rem; color: var(--muted); }
+  .nav-right { display: flex; gap: 16px; align-items: center; }
+  main { max-width: 860px; margin: 0 auto; padding: 40px 24px 80px; }
+  .aula-header { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; margin-bottom: 32px; border-top: 4px solid var(--blue); }
+  .header-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; align-items: center; }
+  .bloco-badge { background: var(--blue); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .meta-chip { background: var(--surface); border: 1px solid var(--border); font-size: 0.8rem; color: var(--muted); padding: 4px 12px; border-radius: 20px; }
+  .meta-chip strong { color: var(--text); }
+  .aula-header h1 { font-size: 1.5rem; font-weight: 700; line-height: 1.3; color: var(--text); }
+  section { margin-bottom: 32px; scroll-margin-top: 112px; }
+  .section-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue-lt); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+  .obj-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .obj-list li { display: flex; gap: 12px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
+  .obj-list li::before { content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--blue-lt); margin-top: 7px; flex-shrink: 0; }
+  .content-topic { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 12px; }
+  .content-topic h3 { font-size: 0.95rem; font-weight: 600; color: var(--purple-lt); margin-bottom: 8px; }
+  .content-topic ul { list-style: none; padding: 0; }
+  .content-topic ul li { padding: 4px 0 4px 16px; position: relative; color: var(--muted); font-size: 0.9rem; }
+  .content-topic ul li::before { content: '—'; position: absolute; left: 0; color: var(--border); }
+  .timeline { display: flex; flex-direction: column; gap: 10px; }
+  .tl-item { display: flex; gap: 16px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; border-left: 3px solid var(--blue); }
+  .tl-duration { background: var(--surface); border: 1px solid var(--border); color: var(--amber-lt); font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+  .tl-text { font-size: 0.9rem; color: var(--text); }
+  .ref-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 10px; border-left: 3px solid var(--blue-lt); }
+  .ref-author { font-size: 0.8rem; font-weight: 700; color: var(--blue-lt); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+  .ref-title { font-size: 0.9rem; color: var(--text); }
+  .ref-pages { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
+  .activity-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; font-size: 0.9rem; line-height: 1.7; border-left: 3px solid var(--teal-lt); }
+  .teacher-guidance { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-top: 18px; }
+  .teacher-guidance summary { cursor: pointer; color: var(--amber-lt); font-weight: 700; padding: 15px 17px; }
+  .teacher-guidance[open] summary { border-bottom: 1px solid var(--border); }
+  .teacher-guidance-content { padding: 16px 18px; }
+  .resources-list { display: flex; flex-wrap: wrap; gap: 10px; }
+  .res-tag { max-width: 100%; min-width: 0; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; }
+  footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--muted); font-size: 0.85rem; }
+  footer a { color: var(--purple-lt); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .section-nav { position: sticky; top: 56px; z-index: 90; background: rgba(10,10,15,.97); border-bottom: 1px solid var(--border); padding: 8px 16px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: thin; }
+  .section-nav a { flex: 0 0 auto; min-height: 36px; display: inline-flex; align-items: center; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 5px 12px; text-decoration: none; font-size: .8rem; }
+  .base-text { max-width: 72ch; margin-inline: auto; }
+  .base-intro { color: var(--muted); font-size: .92rem; margin-bottom: 16px; }
+  .base-subsection { scroll-margin-top: 112px; margin-bottom: 28px; }
+  .base-subsection h3 { color: var(--blue-lt); font-size: 1.15rem; line-height: 1.35; margin-bottom: 12px; }
+  .base-subsection p { color: var(--text); margin-bottom: 14px; line-height: 1.78; }
+  .base-subsection strong { color: #f1f5f9; }
+  .pause-box { background: rgba(79,70,229,.1); border: 1px solid rgba(129,140,248,.4); border-left: 4px solid var(--blue-lt); border-radius: var(--radius); padding: 16px 18px; margin: 22px 0; }
+  .pause-box h4 { color: var(--amber-lt); font-size: .75rem; letter-spacing: .09em; text-transform: uppercase; margin-bottom: 6px; }
+  .pause-box p { margin: 0; color: var(--text); font-weight: 600; line-height: 1.6; }
+  a:focus-visible { outline: 3px solid var(--amber-lt); outline-offset: 3px; border-radius: 3px; }
+  @media (max-width: 640px) {
+    nav { height: auto; min-height: 56px; padding: 8px 12px; flex-wrap: wrap; }
+    .nav-left, .nav-right { min-width: 0; }
+    .nav-center { display: none; }
+    .nav-right { gap: 10px; }
+    .section-nav { top: 72px; padding-inline: 10px; }
+    main { padding: 24px 14px 60px; }
+    .aula-header { padding: 22px 18px; }
+    .tl-item { flex-direction: column; gap: 8px; }
+  }
+  @media print { .teacher-guidance { break-inside: avoid; } }
+
+
+:root{--bg:#0a0a0f;--s:#12121c;--c:#1a1a2e;--b:#2a2a4a;--v:#c084fc;--u:#818cf8;--t:#2dd4bf;--a:#fbbf24;--x:#e2e8f0;--m:#94a3b8;--r:12px}*{box-sizing:border-box;margin:0;padding:0}html,body{max-width:100%;overflow-x:clip}body{background:var(--bg);color:var(--x);font:16px/1.65 "Segoe UI",system-ui,sans-serif;overflow-wrap:anywhere}nav{position:sticky;top:0;z-index:10;height:56px;padding:0 24px;background:#12121cf2;border-bottom:1px solid var(--b);display:flex;align-items:center;justify-content:space-between;gap:14px}nav a{color:var(--m);text-decoration:none;white-space:nowrap}.nl,.nr{display:flex;gap:12px;align-items:center}.badge,.block{background:var(--v);color:#080810;font-weight:700}.badge,.chip{padding:3px 10px;border-radius:20px;font-size:.78rem}.sn{top:56px;height:auto;padding:8px 16px;justify-content:flex-start;overflow-x:auto}.sn a,.chip{background:var(--s);border:1px solid var(--b)}main{max-width:860px;margin:auto;padding:40px 24px 80px}section{margin-bottom:32px;scroll-margin-top:110px}.head,.topic,.tl,.ref,.activity{background:var(--c);border:1px solid var(--b);border-radius:var(--r)}.head{border-top:4px solid var(--v);padding:32px;margin-bottom:32px}.meta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:15px}.block{text-transform:uppercase}.head h1{font-size:1.5rem}.st{color:var(--v);font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border-bottom:1px solid var(--b);padding-bottom:8px;margin-bottom:16px}.objs{list-style:none;display:grid;gap:10px}.objs li,.topic{padding:14px 18px}.objs li{background:var(--c);border:1px solid var(--b);border-radius:var(--r)}.topic{margin-bottom:12px}.topic h3,.base h3{color:var(--v);margin-bottom:8px}.topic ul{padding-left:20px;color:var(--m)}.base{max-width:72ch;margin:auto}.intro{color:var(--m)}.toc{position:static;height:auto;display:block;background:var(--s);border:1px solid var(--b);border-radius:var(--r);padding:18px 22px;margin:18px 0 28px}.toc ol{columns:2;padding-left:22px}.toc a{color:var(--x);white-space:normal}.sub{margin-bottom:28px;scroll-margin-top:110px}.sub p{margin-bottom:14px}.pause{background:#7c3aed18;border:1px solid #c084fc66;border-left:4px solid var(--v);border-radius:var(--r);padding:15px 18px;margin:20px 0}.pause h4{color:var(--a);text-transform:uppercase;font-size:.76rem}.timeline{display:grid;gap:10px}.tl{padding:14px 18px;border-left:3px solid var(--v);display:flex;gap:14px}.time{color:var(--a);font-weight:700;white-space:nowrap}.ref{padding:15px 18px;margin-bottom:10px;border-left:3px solid var(--u)}.ref strong{color:var(--u)}.activity{padding:20px;border-left:3px solid var(--t)}.activity h3,.activity h4{color:var(--t);margin:14px 0 7px}.activity ol{padding-left:22px}.materials{display:grid;grid-template-columns:1fr 1fr;gap:10px}.material,.questions,details{background:var(--s);border:1px solid var(--b);border-radius:var(--r);padding:13px}.material h4{margin:0;color:var(--a)}.material dl{display:grid;grid-template-columns:auto 1fr;gap:3px 8px}.material dt{font-weight:700;color:var(--m)}.questions{padding-left:34px!important}details{margin-top:18px}summary{cursor:pointer;color:var(--a);font-weight:700}.answer{padding-top:10px}.answer h4{color:var(--t)}.resources{display:flex;flex-wrap:wrap;gap:8px}footer{text-align:center;border-top:1px solid var(--b);padding:28px;color:var(--m)}footer a{color:var(--v)}a:focus-visible,summary:focus-visible{outline:3px solid var(--a)}@media(max-width:640px){nav{height:auto;min-height:56px;padding:8px 12px;flex-wrap:wrap}.nc{display:none}.sn{top:72px;flex-wrap:nowrap}main{padding:24px 14px 60px}.head{padding:20px 17px}.toc ol{columns:1;padding-left:0;list-style-position:inside}.materials{grid-template-columns:1fr}.tl{flex-direction:column}.material dl{grid-template-columns:1fr}}@media print{:root{--bg:#fff;--s:#fff;--c:#fff;--b:#999;--x:#111;--m:#333;--v:#222;--u:#222;--t:#222;--a:#222}nav{position:static}.sn{display:none}main{max-width:none;padding:10mm}.material,.ref,.tl,details{break-inside:avoid}details>.answer{display:block!important}}
+
+body {max-width:100%; overflow-x:hidden; overflow-wrap:anywhere;} main{max-width:960px;margin:auto} .base-text{max-width:72ch} .base-subsection{margin-bottom:24px} table{width:100%;border-collapse:collapse}th,td{padding:8px;border:1px solid var(--border);overflow-wrap:anywhere} .table-wrap,.table-region{overflow-x:auto;max-width:100%} .teacher-guidance{margin-top:20px;padding:16px;border:1px solid var(--border)} summary{cursor:pointer;font-weight:bold} .skip{position:absolute;left:-9999px}.skip:focus{left:12px;top:12px;z-index:300;background:var(--bg);padding:10px} a{overflow-wrap:anywhere} @media(max-width:640px){nav{position:static;flex-wrap:wrap;height:auto;padding:12px}.nav-center{display:none}.section-nav{position:static;flex-wrap:wrap}main{padding:20px 14px}.tl-item{flex-direction:column}.aula-header{padding:20px 14px}} @media print{nav,.section-nav,.skip{display:none!important}body,main,section,.aula-header,.activity-card,.pause-box,details{background:white!important;color:black!important}*{color:inherit!important;text-shadow:none!important;box-shadow:none!important}main{max-width:none;padding:0}.base-text{max-width:none}h1,h2,h3,summary{break-after:avoid}p{orphans:3;widows:3}table{font-size:9pt}.teacher-guidance{break-inside:auto}}
+</style></head><body>
+<a class="skip" href="#objetivos">Pular para o conteúdo</a>
+<nav aria-label="Navegação entre aulas"><div class="nav-left"><a href="../../index.html">Voltar ao curso</a></div><span class="nav-center">Encontro 12 de 15 · Aula 46 de 60</span><div class="nav-right"><a href="aula-45.html">← Aula anterior</a><a href="aula-47.html">Próxima aula →</a></div></nav>
+<div class="section-nav" aria-label="Seções"><a href="#objetivos">Objetivos</a><a href="#texto-base">Texto-base</a><a href="#plano-aula">Plano</a><a href="#atividade">Discussão</a><a href="#sintese">Síntese</a><a href="#leituras">Referências</a></div>
+<main><header class="aula-header"><div class="header-meta"><span class="meta-chip">Encontro <strong>12</strong> de 15 — 25/11/2026, quarta-feira</span><span class="meta-chip">Aula <strong>46</strong> de 60</span><span class="meta-chip">2ª aula do encontro</span><span class="meta-chip">Aproximadamente 1 hora-aula</span></div><h1>Classes sociais e mobilidade: Marx e Weber em diálogo</h1><p>Introdução à Sociologia · T01 · 2026.2 · Código 2101000 · SIGAA 4M1234</p></header>
+<section id="objetivos"><h2>Objetivos</h2><ul class="obj-list"><li>Distinguir relações de produção, situação de mercado e status.</li><li>Definir mobilidade intra e intergeracional.</li><li>Analisar trajetórias sem confundir mobilidade e igualdade de oportunidades.</li></ul></section>
+<section id="texto-base" aria-labelledby="texto-base-title"><h2 id="texto-base-title">Texto-base</h2><div class="base-text"><p class="base-intro">Uma pessoa recebe promoção e perde estabilidade. Isso é ascensão social em todas as dimensões?</p><div class="base-subsection sub" id="a46-conceito-1">
+<h3>1. Classes e relações econômicas</h3>
+<p>Classes ganham centralidade em sociedades capitalistas, nas quais propriedade, trabalho assalariado e mercados estruturam posições. Dizer que há mobilidade possível não significa fronteiras abertas em igual medida. Origem, patrimônio, credenciais, redes e conjuntura distribuem chances diferentes.</p>
+<p>Faixas de renda são úteis para descrever distribuição, mas não esgotam classe. Pessoas com renda mensal semelhante podem diferir em propriedade, estabilidade, autonomia e autoridade no trabalho. Patrimônio amortece riscos; contrato define proteção; posição organizacional permite controlar tarefas alheias.</p>
+<p>Classe é relação: proprietários dependem de trabalho e mercados; trabalhadores ocupam posições diferenciadas e podem exercer supervisão. Pequenos proprietários e profissionais mostram situações intermediárias. Modelos simplificam para responder perguntas, não para encaixar identidades.</p>
+<p>Condições semelhantes podem favorecer interesses comuns, mas não produzem consciência ou ação coletiva automaticamente. Organização, linguagem política, experiência e alianças mediam a passagem de posição a identidade.</p>
+<aside class="pause">
+<h4>Pausa 3 — Renda não basta</h4>
+<p>Duas personagens recebem o mesmo valor mensal, mas uma possui patrimônio e outra contrato instável. Que dimensões mudam a análise de classe?</p>
+</aside>
+</div><div class="base-subsection sub" id="a46-conceito-2">
+<h3>2. Marx e Weber: perguntas diferentes</h3>
+<p>Em Marx, classes são compreendidas a partir das relações de produção, especialmente controle dos meios de produção e venda da força de trabalho. A oposição entre capital e trabalho revela exploração e conflito estrutural, mas análises marxianas também consideram frações, situações intermediárias e formação histórica da ação de classe.</p>
+<p>Em Weber, situação de classe refere-se às oportunidades de obter bens e renda no mercado. Grupos de status se organizam por honra e estilos de vida; partidos buscam poder. Classe, status e poder se relacionam sem coincidirem. “Chance de vida” indica probabilidades socialmente distribuídas, não destino pessoal.</p>
+<p>As abordagens não são listas concorrentes em que uma “só vê economia” e outra “vê tudo”. Elas constroem problemas distintos: relações de produção e conflito; situações de mercado e ordens de status e poder. Aplicar exige dizer que pergunta está sendo respondida.</p>
+<p>Autores não substituem evidências. Um contrato pode informar relação de trabalho; propriedade, posição produtiva; credencial, chance de mercado; reconhecimento, status. Nenhum dado isolado classifica toda trajetória.</p>
+</div><div class="base-subsection sub" id="a46-conceito-3">
+<h3>3. Mobilidade e mudança estrutural</h3>
+<p>
+<strong>Mobilidade social</strong> é mudança de posição num esquema definido. Pode ser intrageracional, ao longo da vida, ou intergeracional, entre responsáveis e descendentes. Pode ser vertical, quando muda o nível hierárquico, ou horizontal, quando há deslocamento sem mudança clara de nível.</p>
+<p>Medir mobilidade exige definir origem, destino, unidade e período. Ocupação, renda e escolaridade podem apontar direções diferentes. Promoção com perda de estabilidade não é ascensão inequívoca. Trajetórias não cabem sempre numa seta.</p>
+<p>Mobilidade estrutural ocorre quando a composição das posições muda: expansão do ensino ou redução de um setor cria destinos diferentes, mesmo sem alteração na vantagem relativa entre origens. Mobilidade individual não prova igualdade de oportunidades nem transforma necessariamente a estrutura.</p>
+<p>Mérito é avaliação sobre desempenho, não explicação suficiente. Esforço e escolhas participam das trajetórias, mas oportunidades de convertê-los em resultado variam. Explicar relaciona ação, regras, recursos e conjuntura.</p>
+<aside class="pause">
+<h4>Pausa 4 — Trajetória e estrutura</h4>
+<p>Se muitas vagas técnicas surgem, como distinguir esforço individual, mobilidade estrutural e mudança na desigualdade de oportunidades?</p>
+</aside>
+</div><div class="base-subsection sub" id="a46-conceito-4">
+<h3>4. Poder, identidades e agência</h3>
+<p>Poder opera também na produção das categorias. Limites de faixas ocupacionais, nomes de cargos e critérios de prestígio tornam algumas diferenças visíveis e outras secundárias. Pesquisadores precisam justificar sua classificação e testar alternativas. Uma categoria administrativa criada para executar política pode não ser adequada para explicar relações de classe, mesmo quando oferece dados úteis.</p>
+<p>Conflitos distributivos não envolvem somente repartir quantidade fixa. Decisões sobre tecnologia, jornada, propriedade e serviços alteram quais recursos existem e quem assume custos. A cooperação pode produzir ganhos e ainda distribuí-los desigualmente. Por isso, consenso num acordo não prova poder equivalente; pode refletir compromisso, dependência ou alternativas limitadas.</p>
+<p>A incerteza afeta posições de modo desigual. Quem possui reserva financeira suporta período sem renda e pode esperar oportunidade; quem depende do pagamento imediato aceita riscos maiores. Segurança é recurso que influencia escolha. Comparar apenas rendimentos atuais ignora vulnerabilidade, dívida e capacidade de planejar, dimensões importantes das chances de vida.</p>
+<p>Estratificação inclui poder para definir regras, controlar recursos e tornar classificações legítimas. Poder econômico, autoridade institucional e prestígio podem reforçar-se ou entrar em tensão. A análise localiza posições e mecanismos, evitando tratar “os ricos”, “os trabalhadores” ou qualquer grupo como sujeito único.</p>
+<p>Raça, gênero, território, geração e deficiência atravessam posições de classe e oportunidades, mas ficam para análises específicas quando necessário. Não são variáveis adicionadas mecanicamente. Instituições podem converter diferenças em barreiras, e as combinações variam historicamente.</p>
+<p>Identidade de classe não deriva automaticamente da renda. Pessoas interpretam posição por comparação, trajetória, família, ocupação e repertórios políticos. Podem formar solidariedades que atravessam posições ou conflitos internos. Pesquisa precisa distinguir categoria analítica, identificação declarada e ação coletiva.</p>
+<p>Agência aparece em negociação, organização, recusa e criação de alternativas. Recursos desiguais condicionam eficácia, mas resultados não são predeterminados. Mobilizações alteram direitos, credenciais e propriedade; também enfrentam resistência e efeitos imprevistos.</p>
+</div><p>Essa distinção volta ao experimento final. A diferença de renda declarada entre as personas não representa automaticamente duas classes completas. Uma resposta que presume patrimônio, estabilidade ou rede de contatos acrescenta informações que o grupo não forneceu. Tais pressupostos podem ser analisados, mas não devem ser incorporados às fichas como se fossem fatos. O controle da variável permite perguntar como uma indicação monetária orienta expectativas de oportunidades; a teoria impede confundir esse recorte com toda a estrutura de classes.</p></div></section>
+<section id="plano-aula"><h2>Percurso da hora-aula</h2><div class="timeline"><div class="tl-item"><span class="tl-duration">5 min</span><span class="tl-text">Uma pessoa recebe promoção e perde estabilidade. Isso é ascensão social em todas as dimensões?</span></div><div class="tl-item"><span class="tl-duration">15 min</span><span class="tl-text">Leitura dialogada e desenvolvimento dos conceitos desta unidade.</span></div><div class="tl-item"><span class="tl-duration">35 min</span><span class="tl-text">Discussão e elaboração do registro proposto; comparação das justificativas com mediação docente.</span></div><div class="tl-item"><span class="tl-duration">5 min</span><span class="tl-text">Síntese e transição: Na Aula 47, veremos como indicadores transformam dimensões da desigualdade em medidas.</span></div></div></section>
+<section id="atividade">
+<div class="st">Atividade em Sala</div>
+<div class="activity">
+<h3>Oficina — posições, recursos e trajetórias</h3>
+<p>
+<strong>Finalidade:</strong> analisar hierarquias e mobilidade com materiais fictícios, sem expor estudantes.</p>
+<h4>Organização e tempos (35 min)</h4>
+<ol>
+<li>3 min: grupos de 4 ou 5; leitura, registro, tempo e apresentação.</li>
+<li>8 min: ler seis materiais e marcar observações.</li>
+<li>17 min: responder às oito perguntas em matriz.</li>
+<li>7 min: preparar conclusão e alternativa.</li>
+</ol>
+<h4>Seis materiais completos</h4>
+<div class="materials">
+<article class="material">
+<h4>1 — Oficina e propriedade</h4>
+<dl>
+<dt>Observação</dt>
+<dd>Lina possui máquinas e contrata oito pessoas; Rui opera máquina por salário.</dd>
+<dt>Recurso</dt>
+<dd>Propriedade e contrato.</dd>
+<dt>Regra</dt>
+<dd>Lina decide investimento; acordo coletivo define jornada.</dd>
+<dt>Mudança</dt>
+<dd>Rui torna-se supervisor.</dd>
+<dt>Lacuna</dt>
+<dd>Patrimônio, autonomia e renda.</dd>
+</dl>
+</article>
+<article class="material">
+<h4>2 — Credencial escassa</h4>
+<dl>
+<dt>Observação</dt>
+<dd>Conselho exige licença para atuar; curso existe só na capital.</dd>
+<dt>Recurso</dt>
+<dd>Credencial e transporte.</dd>
+<dt>Regra</dt>
+<dd>Prova anual.</dd>
+<dt>Contestação</dt>
+<dd>Candidatos propõem polos regionais.</dd>
+<dt>Lacuna</dt>
+<dd>Competências avaliadas e aprovação por origem.</dd>
+</dl>
+</article>
+<article class="material">
+<h4>3 — Ordem jurídica</h4>
+<dl>
+<dt>Observação</dt>
+<dd>Documento fictício reserva isenção tributária e cargos a uma ordem hereditária.</dd>
+<dt>Recurso</dt>
+<dd>Privilégio legal e honra.</dd>
+<dt>Regra</dt>
+<dd>Pertencimento por nascimento, com raras concessões.</dd>
+<dt>Conflito</dt>
+<dd>Mercadores ricos pedem acesso.</dd>
+<dt>Lacuna</dt>
+<dd>Período, implementação e diferenças internas.</dd>
+</dl>
+</article>
+<article class="material">
+<h4>4 — Hierarquia atribuída</h4>
+<dl>
+<dt>Observação</dt>
+<dd>Registros atribuem ocupação e casamento por nascimento; reforma proíbe discriminação.</dd>
+<dt>Recurso</dt>
+<dd>Terra, redes e reconhecimento.</dd>
+<dt>Mudança</dt>
+<dd>Movimento reivindica aplicação da reforma.</dd>
+<dt>Comparação</dt>
+<dd>Práticas diferem entre duas regiões.</dd>
+<dt>Lacuna</dt>
+<dd>Trajetórias e fiscalização.</dd>
+</dl>
+</article>
+<article class="material">
+<h4>5 — Mesma renda, riscos distintos</h4>
+<dl>
+<dt>Observação</dt>
+<dd>Ana recebe salário estável; Beto obtém média igual em trabalho variável.</dd>
+<dt>Recurso</dt>
+<dd>Ana tem proteção; Beto possui ferramentas, mas dívida.</dd>
+<dt>Poder</dt>
+<dd>Ana segue chefia; Beto escolhe horários.</dd>
+<dt>Mudança</dt>
+<dd>Ambos buscam nova credencial.</dd>
+<dt>Lacuna</dt>
+<dd>Patrimônio, custos e trajetória.</dd>
+</dl>
+</article>
+<article class="material">
+<h4>6 — Expansão ocupacional</h4>
+<dl>
+<dt>Observação</dt>
+<dd>Em dez anos, vagas técnicas passam de 100 para 300; 180 são ocupadas por filhos de trabalhadores manuais.</dd>
+<dt>Recurso</dt>
+<dd>Curso público e vagas.</dd>
+<dt>Trajetória</dt>
+<dd>Há mobilidade intergeracional.</dd>
+<dt>Alternativa</dt>
+<dd>Expansão pode explicar parte do movimento.</dd>
+<dt>Lacuna</dt>
+<dd>Taxas por origem e destinos restantes.</dd>
+</dl>
+</article>
+</div>
+<h4>Oito perguntas</h4>
+<ol class="questions">
+<li>Quais fatos podem ser observados sem avaliação?</li>
+<li>Que posições e relações aparecem?</li>
+<li>Quais recursos e mecanismos de fechamento importam?</li>
+<li>Que dimensão — econômica, status ou poder — é pertinente?</li>
+<li>Qual tipo histórico ajuda e onde encontra limite?</li>
+<li>Há mobilidade individual, intergeracional ou estrutural?</li>
+<li>Que inferência alternativa deve ser considerada?</li>
+<li>Que evidência falta antes de explicar ou avaliar?</li>
+</ol>
+<h4>Produto, socialização e cuidado</h4>
+<p>Entregar matriz de seis linhas e oito eixos, com alternativa em dois casos. Socializar conclusão citando fato, conceito, mecanismo, lacuna e limite. Não solicitar renda, origem, discriminação ou trajetórias pessoais. Categorias analisam posições fictícias, não rotulam pessoas.</p>
+<details>
+<summary>Possibilidades comentadas e orientações de mediação</summary>
+<div class="answer">
+<h4>Material 1 — Oficina</h4>
+<p>Propriedade, trabalho assalariado e autoridade são observáveis. Marx orienta relação produtiva; promoção indica mudança organizacional, não necessariamente de classe. Weber permite investigar chances de mercado e poder. Faltam patrimônio, autonomia e renda. Outra leitura pode destacar posição contraditória do supervisor; exige dados.</p>
+<h4>Material 2 — Credencial</h4>
+<p>A licença é fechamento institucional, e distância distribui acesso. Pode proteger competência ou criar barreira excessiva; não há resposta automática. Credencial afeta mercado e status. Polos expressam agência. Aprovação por origem e validade da prova são evidências necessárias antes de explicar desigualdade.</p>
+<h4>Material 3 — Ordem</h4>
+<p>Privilégio jurídico, hereditariedade e honra sustentam leitura estamental. Riqueza mercantil não garante posição, mostrando dimensões distintas. Conflito contesta fechamento. Não rotular toda sociedade: faltam período, aplicação e grupos internos. Avaliar injustiça exige critério separado da classificação.</p>
+<h4>Material 4 — Hierarquia</h4>
+<p>Nascimento, ocupação e casamento aproximam o tipo casta, sem provar imobilidade total. Reforma e movimento mostram mudança e agência; diferenças regionais rejeitam homogeneização. Recursos podem manter efeitos apesar da lei. Faltam trajetórias e fiscalização para explicar persistência.</p>
+<h4>Material 5 — Riscos</h4>
+<p>Renda igual não encerra classe. Proteção, propriedade endividada, autonomia e autoridade diferem. Nenhuma posição é automaticamente superior. Nova credencial pode alterar chances, mas seu efeito é desconhecido. Custos, patrimônio e estabilidade sustentariam inferências; alternativas marxiana e weberiana são justificáveis.</p>
+<h4>Material 6 — Expansão</h4>
+<p>Há aumento de vagas e destinos intergeracionais observados. Isso sugere mobilidade estrutural, mas não igualdade relativa de oportunidades. Precisamos de taxas por origem e de todos os destinos. Agência individual pode coexistir com expansão. Não atribuir resultado só a mérito ou só à estrutura.</p>
+<h4>Mediação e transição</h4>
+<p>Exija oito eixos, distinguindo observação, inferência, evidência e avaliação. Aceite alternativas justificadas, impeça relatos financeiros ou discriminatórios e retorne aos casos. Encerre mostrando que a Aula 47 testará conceitos com indicadores de renda, raça e território no Brasil.</p>
+</div>
+</details>
+</div>
+</section>
+<section id="sintese"><h2>Síntese e continuidade</h2><p>Mobilidade depende da dimensão e do período comparados. Renda, patrimônio, segurança, credencial e poder podem seguir direções distintas.</p><p>Na Aula 47, veremos como indicadores transformam dimensões da desigualdade em medidas.</p></section><section id="leituras">
+<div class="st">Referências</div>
+<div class="ref">
+<strong>MARX, Karl.</strong> Capital: A Critique of Political Economy. Volume I. Translated by Ben Fowkes. London: Penguin, 1976.<p>Referência para relações capitalistas de produção; paráfrases didáticas, sem citação extensa.</p>
+</div>
+<div class="ref">
+<strong>WEBER, Max.</strong> Economy and Society: An Outline of Interpretive Sociology. Berkeley: University of California Press, 1978.<p>Referência para classe, status e poder; sem paginação por não haver trecho fixado.</p>
+</div>
+</section>
+</main><footer>Introdução à Sociologia · T01 · 2026.2 · <a href="../../index.html">Voltar ao curso</a></footer></body></html>

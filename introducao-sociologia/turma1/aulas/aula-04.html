@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aula 04 — Introdução à Sociologia | 2026.2</title>
+<title>Aula 04 — Da questão social ao projeto de uma ciência da sociedade | 2026.2</title>
 <style>
   :root {
     --bg: #0a0a0f; --surface: #12121c; --card: #1a1a2e; --border: #2a2a4a;
@@ -12,7 +12,8 @@
     --text: #e2e8f0; --muted: #94a3b8; --radius: 12px;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
+  html, body { max-width: 100%; overflow-x: clip; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; min-height: 100vh; overflow-wrap: anywhere; }
   nav { position: sticky; top: 0; z-index: 100; background: rgba(18,18,28,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
   nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; white-space: nowrap; }
   nav a:hover { color: var(--text); }
@@ -25,8 +26,9 @@
   .header-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; align-items: center; }
   .bloco-badge { background: var(--purple); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
   .meta-chip { background: var(--surface); border: 1px solid var(--border); font-size: 0.8rem; color: var(--muted); padding: 4px 12px; border-radius: 20px; }
+  .meta-chip strong { color: var(--text); }
   .aula-header h1 { font-size: 1.5rem; font-weight: 700; line-height: 1.3; color: var(--text); }
-  section { margin-bottom: 32px; }
+  section { margin-bottom: 32px; scroll-margin-top: 112px; }
   .section-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--purple-lt); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
   .obj-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
   .obj-list li { display: flex; gap: 12px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
@@ -45,51 +47,26 @@
   .ref-title { font-size: 0.9rem; color: var(--text); }
   .ref-pages { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
   .activity-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; font-size: 0.9rem; line-height: 1.7; border-left: 3px solid var(--teal-lt); }
-  .activity-card h3 { color: var(--teal-lt); font-size: 1.25rem; margin-bottom: 12px; }
-  .activity-card h4 { color: var(--amber-lt); font-size: 1rem; margin: 24px 0 8px; }
-  .activity-card p { margin-bottom: 12px; }
-  .activity-card ol, .activity-card ul { padding-left: 24px; margin: 8px 0 16px; }
-  .activity-card li { margin-bottom: 6px; }
-  .activity-note { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; margin: 18px 0; }
-  .thesis-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin: 20px 0 24px; }
-  .thesis-card { min-width: 0; break-inside: avoid; page-break-inside: avoid; background: var(--surface); border: 1px dashed var(--blue-lt); border-radius: 10px; padding: 16px; }
-  .thesis-number { display: inline-block; color: #0a0a0f; background: var(--amber-lt); border-radius: 999px; padding: 2px 10px; margin-bottom: 10px; font-size: .78rem; font-weight: 800; }
-  .thesis-card p { margin: 0; color: var(--text); }
-  .teacher-key { margin-top: 24px; border: 1px solid var(--amber-lt); border-radius: 10px; background: rgba(251,191,36,.06); }
-  .teacher-key summary { cursor: pointer; min-height: 48px; display: flex; align-items: center; padding: 12px 16px; color: var(--amber-lt); font-weight: 800; }
-  .teacher-key summary::marker { color: var(--amber-lt); }
-  .teacher-key-body { padding: 0 18px 18px; }
-  .teacher-key-body > p { color: var(--muted); }
-  .answer-list { display: grid; gap: 12px; padding-left: 24px; }
-  .answer-list li { padding-left: 4px; }
-  .concept-care { border-left: 3px solid var(--rose-lt); background: rgba(251,113,133,.07); border-radius: 8px; padding: 14px 16px; margin-top: 20px; }
+  .teacher-guidance { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-top: 18px; }
+  .teacher-guidance summary { cursor: pointer; color: var(--amber-lt); font-weight: 700; padding: 15px 17px; }
+  .teacher-guidance[open] summary { border-bottom: 1px solid var(--border); }
+  .teacher-guidance-content { padding: 16px 18px; }
   .resources-list { display: flex; flex-wrap: wrap; gap: 10px; }
-  .res-tag { background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; }
+  .res-tag { max-width: 100%; min-width: 0; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; }
   footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--muted); font-size: 0.85rem; }
   footer a { color: var(--purple-lt); text-decoration: none; }
   footer a:hover { text-decoration: underline; }
-
-  html, body { max-width: 100%; overflow-x: clip; }
-  body { overflow-wrap: anywhere; }
-  section { scroll-margin-top: 112px; }
   .section-nav { position: sticky; top: 56px; z-index: 90; background: rgba(10,10,15,.97); border-bottom: 1px solid var(--border); padding: 8px 16px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: thin; }
   .section-nav a { flex: 0 0 auto; min-height: 36px; display: inline-flex; align-items: center; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 5px 12px; text-decoration: none; font-size: .8rem; }
   .base-text { max-width: 72ch; margin-inline: auto; }
   .base-intro { color: var(--muted); font-size: .92rem; margin-bottom: 16px; }
-  .base-toc { position: static; height: auto; display: block; max-width: 100%; overflow: clip; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; margin-bottom: 28px; }
-  .base-toc h3 { color: var(--bloco-lt, var(--purple-lt)); font-size: .95rem; margin-bottom: 10px; }
-  .base-toc ol { width: 100%; max-width: 100%; padding-left: 22px; columns: 2; column-gap: 32px; }
-  .base-toc li { break-inside: avoid; margin: 5px 0; }
-  .base-toc a { color: var(--text); text-decoration-thickness: 1px; text-underline-offset: 3px; white-space: normal; }
   .base-subsection { scroll-margin-top: 112px; margin-bottom: 28px; }
-  .base-subsection h3 { color: var(--bloco-lt, var(--purple-lt)); font-size: 1.15rem; line-height: 1.35; margin-bottom: 12px; }
+  .base-subsection h3 { color: var(--purple-lt); font-size: 1.15rem; line-height: 1.35; margin-bottom: 12px; }
   .base-subsection p { color: var(--text); margin-bottom: 14px; line-height: 1.78; }
   .base-subsection strong { color: #f1f5f9; }
-  .pause-box { background: rgba(79,70,229,.1); border: 1px solid rgba(129,140,248,.4); border-left: 4px solid var(--bloco-lt, var(--purple-lt)); border-radius: var(--radius); padding: 16px 18px; margin: 22px 0; }
+  .pause-box { background: rgba(79,70,229,.1); border: 1px solid rgba(129,140,248,.4); border-left: 4px solid var(--purple-lt); border-radius: var(--radius); padding: 16px 18px; margin: 22px 0; }
   .pause-box h4 { color: var(--amber-lt); font-size: .75rem; letter-spacing: .09em; text-transform: uppercase; margin-bottom: 6px; }
   .pause-box p { margin: 0; color: var(--text); font-weight: 600; line-height: 1.6; }
-  .legacy-note { border: 1px solid var(--amber-lt); background: rgba(251,191,36,.08); border-radius: var(--radius); padding: 16px 18px; margin: 0 0 24px; }
-  .res-tag { max-width: 100%; min-width: 0; }
   a:focus-visible { outline: 3px solid var(--amber-lt); outline-offset: 3px; border-radius: 3px; }
   @media (max-width: 640px) {
     nav { height: auto; min-height: 56px; padding: 8px 12px; flex-wrap: wrap; }
@@ -99,331 +76,216 @@
     .section-nav { top: 72px; padding-inline: 10px; }
     main { padding: 24px 14px 60px; }
     .aula-header { padding: 22px 18px; }
-    .base-toc ol { width: auto; columns: auto; padding-left: 0; list-style-position: inside; }
     .tl-item { flex-direction: column; gap: 8px; }
-    .activity-card { padding: 16px; }
-    .thesis-grid { grid-template-columns: 1fr; }
   }
+  @media print { .teacher-guidance { break-inside: avoid; } }
+
+  /* Leitura em sala, teclado, telas estreitas e impressão. */
+  .skip-link { position: absolute; left: -9999px; }
+  .skip-link:focus { left: 12px; top: 12px; z-index: 200; padding: 12px; background: var(--bg); color: var(--text); }
+  .section-title { font-size: .9rem; }
+  .activity-card p, .teacher-guidance-content p, .lesson-synthesis p { margin-bottom: 12px; }
+  .activity-card ol { padding-left: 24px; margin: 12px 0; }
+  .activity-card li { margin-bottom: 8px; }
+  .case-card { padding: 16px; margin: 16px 0; border: 1px solid var(--border); border-radius: var(--radius); }
+  .case-card h3 { color: var(--blue-lt); margin-bottom: 8px; font-size: 1rem; }
+  .teacher-note { margin-top: 14px; padding: 12px; border-left: 3px solid var(--amber-lt); }
+  .print-note { color: var(--muted); margin-top: 12px; font-size: .85rem; }
+  .reading-note { margin-bottom: 12px; color: var(--muted); }
+  summary:focus-visible { outline: 3px solid var(--amber-lt); outline-offset: 3px; }
+  @media (max-width: 640px) {
+    nav, .section-nav { position: static; }
+    nav a { min-height: 44px; display: inline-flex; align-items: center; white-space: normal; }
+    .nav-right { flex-wrap: wrap; }
+    .section-nav { flex-wrap: wrap; }
+    .section-nav a { min-height: 44px; }
+    .activity-card { padding: 16px; }
+    .teacher-guidance-content { padding: 12px; }
+    .case-card { padding: 12px; }
+    section, .base-subsection { scroll-margin-top: 16px; }
+  }
+  @page { size: A4; margin: 16mm; }
   @media print {
-    nav, .section-nav, footer, #objetivos, #conteudo-programatico, #texto-base, #plano-aula, #leituras, #recursos, .activity-note, .activity-steps, .teacher-key, .concept-care { display: none !important; }
-    html, body { background: #fff; color: #000; overflow: visible; }
+    :root { --bg: #fff; --surface: #fff; --card: #fff; --border: #888; --text: #111; --muted: #333; --purple: #333; --purple-lt: #222; --blue-lt: #222; --teal-lt: #333; --amber-lt: #222; }
+    html, body { overflow: visible; min-height: 0; background: #fff; color: #111; font-size: 10pt; }
+    * { color: #111 !important; background: transparent !important; box-shadow: none !important; text-shadow: none !important; }
+    nav, .section-nav, .skip-link, .print-note { display: none !important; }
     main { max-width: none; padding: 0; }
-    #atividade { display: block; margin: 0; }
-    #atividade .section-title { color: #000; border-color: #000; }
-    .activity-card { border: 0; padding: 0; background: #fff; color: #000; }
-    .activity-card h3 { color: #000; }
-    .thesis-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10mm; }
-    .thesis-card { min-height: 50mm; border: 1px dashed #000; border-radius: 0; background: #fff; color: #000; padding: 8mm; }
-    .thesis-card p { color: #000; }
-    .thesis-number { color: #000; background: #fff; border: 1px solid #000; }
+    .base-text { max-width: none; }
+    .aula-header { padding: 12px; margin-bottom: 18px; }
+    .header-meta { gap: 6px; }
+    .meta-chip { font-size: 8pt; }
+    h1, h2, h3, h4, summary { break-after: avoid; }
+    p, li { orphans: 3; widows: 3; }
+    section, .activity-card, .teacher-guidance { break-inside: auto; }
+    .tl-item, .ref-card, .case-card { break-inside: avoid; }
+    .obj-list, .timeline { display: block; }
+    .obj-list li, .tl-item { margin-bottom: 8px; }
+    .teacher-guidance:not([open]) { display: none; }
+    .teacher-guidance[open] { display: block; }
+    a { text-decoration: underline; }
+    footer { padding: 12px 0; }
   }
 </style>
 </head>
 <body>
+<a class="skip-link" href="#conteudo-aula">Pular para o conteúdo da aula</a>
 
-<nav>
+<nav aria-label="Navegação entre aulas">
   <div class="nav-left">
-    <a href="/introducao-sociologia/">← Página principal</a>
+    <a href="../../index.html">← Voltar ao curso</a>
     <span class="nav-badge">Aula 04</span>
   </div>
-  <span class="nav-center">Aula 04 / 30</span>
+  <span class="nav-center">Encontro 01 de 15 · Aula 04 de 60</span>
   <div class="nav-right">
-    <a href="aula-03.html">← Anterior</a>
-    <a href="aula-05.html">Próxima →</a>
+    <a href="aula-03.html">← Aula anterior</a>
+    <a href="aula-05.html">Próxima aula →</a>
   </div>
 </nav>
-<div class="section-nav" aria-label="Seções da aula"><a href="#objetivos">Objetivos</a><a href="#conteudo-programatico">Conteúdo</a><a href="#texto-base">Texto-base</a><a href="#plano-aula">Plano da aula</a><a href="#leituras">Leituras</a><a href="#atividade">Atividade</a><a href="#recursos">Recursos</a></div>
+<div class="section-nav" aria-label="Seções da aula"><a href="#objetivos">Objetivos</a><a href="#conteudo-programatico">Conteúdo</a><a href="#texto-base">Texto-base</a><a href="#plano-aula">Plano da aula</a><a href="#leituras">Leituras</a><a href="#atividade">Atividade</a><a href="#sintese">Síntese</a><a href="#recursos">Recursos</a></div>
 
-<main>
+<main id="conteudo-aula" tabindex="-1">
 
   <div class="aula-header">
     <div class="header-meta">
       <span class="bloco-badge">Bloco I</span>
-      <span class="meta-chip">Aula 04</span>
-      <span class="meta-chip">Encontro 2 · Parte 2 de 2</span>
-      <span class="meta-chip">16/09/2026 — Quarta-feira</span>
-      <span class="meta-chip">Percurso completo do encontro: 4 horas-aula</span>
-      <span class="meta-chip">Esta página: aproximadamente 2 horas</span>
+      <span class="meta-chip">Encontro <strong>01</strong> de 15 — 09/09/2026, quarta-feira</span>
+      <span class="meta-chip">Aula <strong>04</strong> de 60</span>
+      <span class="meta-chip">4ª aula do encontro</span>
+      <span class="meta-chip">Esta aula: aproximadamente 1 hora-aula</span>
     </div>
-    <h1>Auguste Comte: positivismo e hierarquia das ciências. Herbert Spencer e o evolucionismo social.</h1>
+    <h1>Da questão social ao projeto de uma ciência da sociedade.</h1>
   </div>
 
   <section id="objetivos">
-    <div class="section-title">Objetivos da Aula</div>
+    <h2 class="section-title">Objetivos da Aula</h2>
     <ul class="obj-list">
-      <li>Apresentar o pensamento positivista de Auguste Comte e sua lei dos três estados.</li>
-      <li>Compreender a hierarquia das ciências proposta por Comte e o lugar da Sociologia nessa hierarquia.</li>
-      <li>Discutir o evolucionismo social de Herbert Spencer e sua relação com o darwinismo.</li>
-      <li>Identificar as contribuições e os limites dessas perspectivas teóricas pioneiras.</li>
+      <li>Explicar como a industrialização produziu o proletariado e novas formas de urbanização e classe.</li>
+      <li>Definir questão social como problema coletivo, não soma de infortúnios individuais.</li>
+      <li>Distinguir observação, hipótese e limite na leitura de materiais sobre trabalho e vida urbana.</li>
+      <li>Compreender como esse contexto favoreceu projetos de uma ciência da sociedade.</li>
     </ul>
   </section>
 
   <section id="conteudo-programatico">
-    <div class="section-title">Conteúdo Programático</div>
+    <h2 class="section-title">Conteúdo Programático</h2>
     <div class="content-topic">
-      <h3>1. Auguste Comte: lei dos três estados, hierarquia das ciências, ordem e progresso</h3>
+      <h3>1. Trabalho, urbanização e a questão social</h3>
       <ul>
-        <li>A lei dos três estados: teológico, metafísico e positivo</li>
-        <li>A hierarquia das ciências e a Sociologia como "rainha das ciências"</li>
-        <li>Ordem e progresso como fundamentos do positivismo comtiano</li>
+        <li>Formação do proletariado e da burguesia industrial</li>
+        <li>Quando a pobreza deixa de ser infortúnio individual e vira questão social</li>
       </ul>
     </div>
     <div class="content-topic">
-      <h3>2. Herbert Spencer: evolucionismo, organicismo social, sobrevivência do mais apto</h3>
+      <h3>2. Por que uma ciência da sociedade?</h3>
       <ul>
-        <li>A sociedade como organismo: analogia biológica</li>
-        <li>Evolução social e diferenciação progressiva</li>
-        <li>O darwinismo social e suas implicações ideológicas</li>
-      </ul>
-    </div>
-    <div class="content-topic">
-      <h3>3. Críticas ao positivismo e ao evolucionismo</h3>
-      <ul>
-        <li>Limitações metodológicas e ideológicas do positivismo</li>
-        <li>Problemas éticos e políticos do evolucionismo social</li>
-        <li>Superação dessas perspectivas pela Sociologia contemporânea</li>
+        <li>Materiais, imagens e registros: evidências que exigem pergunta e contexto</li>
+        <li>O fortalecimento do Estado, o registro da população e o projeto de uma ciência social</li>
       </ul>
     </div>
   </section>
 
   <section id="texto-base" aria-labelledby="texto-base-title">
-    <div class="section-title" id="texto-base-title">Texto-base para acompanhamento da aula</div>
+    <h2 class="section-title" id="texto-base-title">Texto-base para acompanhamento da aula</h2>
     <div class="base-text">
-      <p class="base-intro">A segunda parte do encontro acompanha duas respostas pioneiras ao problema da modernidade. Comte e Spencer buscaram regularidades científicas para explicar a sociedade, mas construíram projetos diferentes e produziram limites que precisam ser examinados historicamente.</p>
-      <nav class="base-toc" aria-label="Sumário do texto-base"><h3>Nesta leitura</h3><ol>
-        <li><a href="#a04-problema">É possível descobrir leis da sociedade?</a></li>
-        <li><a href="#a04-comte">Comte: ciência para reorganizar a ordem</a></li>
-        <li><a href="#a04-estados">A lei dos três estados</a></li>
-        <li><a href="#a04-hierarquia">Hierarquia das ciências e Sociologia</a></li>
-        <li><a href="#a04-ordem">Ordem e progresso — inclusive no Brasil</a></li>
-        <li><a href="#a04-spencer">Spencer: organismo, diferenciação e evolução</a></li>
-        <li><a href="#a04-darwinismo">Do evolucionismo ao darwinismo social</a></li>
-        <li><a href="#a04-comparacao">Comparar sem fundir os autores</a></li>
-        <li><a href="#a04-critica">Contribuições, limites e atividade</a></li>
-        <li><a href="#a04-sintese">Síntese: do sistema geral à pesquisa</a></li>
-      </ol></nav>
+      <p class="base-intro">A Aula 03 mostrou que a Revolução Francesa e a Revolução Industrial abriram, juntas, uma pergunta sobre que vínculos poderiam sustentar a vida coletiva. Este texto segue essa pergunta até os projetos de uma ciência da sociedade, sem tratá-los como desfecho inevitável.</p>
 
-      <div class="base-subsection" id="a04-problema"><h3>1. É possível descobrir leis da sociedade?</h3>
-        <p>A Aula 03 mostrou que o Iluminismo tornou a razão e a ciência critérios importantes de legitimidade. Depois das revoluções, essa confiança encontrou um problema concreto: como compreender uma sociedade marcada por instabilidade política, industrialização e conflitos? Alguns pensadores imaginaram que o conhecimento científico poderia identificar a direção da mudança e orientar uma nova ordem.</p>
-        <p>Esse projeto parecia promissor porque as ciências da natureza haviam produzido explicações sistemáticas e aplicações técnicas. Se os fenômenos sociais também apresentassem regularidades, seria possível substituir disputas consideradas especulativas por conhecimento positivo. Mas sociedade e natureza não são objetos idênticos. Pessoas interpretam regras, disputam interesses e transformam as instituições estudadas.</p>
-        <p>Auguste Comte e Herbert Spencer participam desse esforço de construir uma ciência social, porém não são versões de uma mesma teoria. Comte formulou o positivismo como projeto intelectual e político de reorganização. Spencer desenvolveu um evolucionismo baseado em diferenciação e analogia entre sociedade e organismo. A comparação exige reconhecer aproximações e diferenças.</p>
+      <div class="base-subsection" id="a04-trabalho">
+        <h3>1. Trabalho, urbanização e formação de classes</h3>
+        <p>A industrialização impulsionou deslocamentos populacionais e o crescimento de cidades. Pessoas que deixavam áreas rurais procuravam trabalho e renda, mas encontravam habitação cara, infraestrutura insuficiente e vínculos sociais diferentes daqueles de suas comunidades de origem. A cidade ampliava contatos, circulação de informações e possibilidades de organização; também concentrava pobreza, doenças, insegurança e conflito.</p>
+        <p>O <strong>proletariado</strong> formou-se historicamente como classe de trabalhadores dependentes da venda de sua força de trabalho. A <strong>burguesia industrial</strong> controlava capital, fábricas e decisões sobre a produção. Esses nomes não apagam diferenças internas: trabalhadores possuíam qualificações, rendas e trajetórias diversas, enquanto proprietários variavam em riqueza e poder. Ainda assim, as posições distintas diante da propriedade e do trabalho produziam interesses e conflitos reconhecíveis.</p>
+        <p>A concentração de trabalhadores favoreceu experiências comuns e formas coletivas de reação. Associações, protestos e organizações trabalhistas não surgiram automaticamente; dependeram de aprendizagem, comunicação e enfrentamento da repressão. As classes não eram apenas faixas de renda: expressavam posições nas relações de produção, possibilidades de influência e experiências compartilhadas. Essa complexidade preparará a discussão posterior sobre como Marx e Weber conceituam classe por caminhos diferentes.</p>
+        <aside class="pause-box"><h4>Pausa para discussão</h4><p>Por que o crescimento das cidades pode produzir simultaneamente liberdade, anonimato, oportunidade e precariedade?</p></aside>
       </div>
 
-      <div class="base-subsection" id="a04-comte"><h3>2. Comte: ciência para reorganizar a ordem</h3>
-        <p>Comte escreveu na França do século XIX, sob o impacto prolongado da Revolução Francesa e de sucessivas mudanças políticas. Seu problema não era apenas descrever desordem. Ele buscava compreender como a humanidade chegara à ciência e como um conhecimento seguro poderia fornecer bases intelectuais e morais para reorganizar a sociedade.</p>
-        <p>O <strong>positivismo</strong> comtiano defendia que o conhecimento válido deveria apoiar-se em fenômenos observáveis e em suas relações regulares, abandonando a busca de causas absolutas inacessíveis. “Positivo” não queria dizer simplesmente otimista. Indicava um saber relativo aos fenômenos, orientado pela investigação de leis e capaz de substituir explicações consideradas teológicas ou metafísicas.</p>
-        <p>Comte inicialmente chamou a nova ciência de física social e posteriormente utilizou o nome Sociologia. Seu projeto reunia uma dimensão de ordem — estudar condições de coexistência — e uma dimensão de progresso — estudar a sucessão histórica. Essa articulação mostra que ciência e política não estavam separadas em sua proposta: conhecer a sociedade deveria contribuir para reorganizá-la.</p>
-        <p>Em sua visão, a crise moderna era também uma crise intelectual: explicações teológicas, metafísicas e positivas coexistiam sem formar consenso. A reorganização dependeria de um sistema comum de ideias. Essa preocupação ajuda a entender por que Comte não concebeu a Sociologia apenas como técnica de pesquisa; ela ocupava posição central numa filosofia da história e numa proposta moral.</p>
-        <p>O projeto revela uma tensão. Se a ciência deveria substituir disputas improdutivas por conhecimento, quem determinaria quais conflitos eram apenas desordem e quais expressavam injustiças reais? A busca de consenso pode esclarecer condições de cooperação, mas também pode silenciar antagonismos. Essa questão reaparecerá quando compararmos teorias de coesão e conflito.</p>
-        <aside class="pause-box"><h4>Pausa para discussão</h4><p>Que riscos aparecem quando uma teoria afirma conhecer não apenas como a sociedade funciona, mas também a direção necessária de sua reorganização?</p></aside>
+      <div class="base-subsection" id="a04-questao">
+        <h3>2. Quando a pobreza se torna questão social</h3>
+        <p>Pobreza e desigualdade existiam antes da industrialização. A novidade não foi o aparecimento súbito do sofrimento, mas sua configuração e visibilidade numa sociedade que proclamava igualdade jurídica e produzia riqueza em escala crescente. A concentração urbana tornava contrastes mais evidentes. Problemas de moradia, saúde, trabalho infantil, desemprego e conflito trabalhista exigiam respostas de governos, empregadores, organizações religiosas e movimentos de trabalhadores.</p>
+        <p>A expressão <strong>questão social</strong> permite reunir esses problemas sem tratá-los como simples soma de infortúnios individuais. Se muitas famílias enfrentavam condições semelhantes, não bastava atribuir cada caso a falha moral ou azar. Era necessário examinar salários, propriedade, mercados, legislação, formas de assistência e relações de poder. A sociedade industrial produzia regularidades que pediam explicações coletivas — e as respostas eram conflitantes: alguns defendiam maior disciplina e assistência aos pobres; outros exigiam direitos, organização trabalhista ou transformação das relações de propriedade.</p>
+        <p>Transformar uma condição em questão pública depende de linguagem, organização e disputa. Problemas vividos privadamente precisam ser nomeados, comparados e apresentados como responsabilidade coletiva. Relatórios sobre condições urbanas, debates parlamentares, jornais e mobilizações trabalhistas participavam dessa construção.</p>
       </div>
 
-      <div class="base-subsection" id="a04-estados"><h3>3. A lei dos três estados</h3>
-        <p>A <strong>lei dos três estados</strong> descreve, para Comte, uma evolução do espírito humano. No estado teológico, fenômenos são explicados por vontades sobrenaturais. No estado metafísico, entidades abstratas e essências substituem agentes sobrenaturais. No estado positivo, a investigação renuncia a causas absolutas e procura relações regulares entre fenômenos.</p>
-        <p>Os estados são uma classificação do desenvolvimento do conhecimento, não três calendários que mudam no mesmo dia para toda a população. Comte entendia que diferentes áreas poderiam avançar em ritmos distintos e que modos anteriores de pensar poderiam permanecer. Ainda assim, sua formulação estabelece uma direção universal, da teologia à ciência positiva.</p>
-        <p>Um exemplo ajuda a compreender sem validar automaticamente a sequência. Diante de uma epidemia, explicações podem atribuí-la à vontade sobrenatural, recorrer a uma essência abstrata ou investigar transmissão e condições observáveis. A pesquisa científica produz ganhos evidentes. O problema começa quando essa passagem é usada para classificar povos inteiros como estágios inferiores, ignorando a pluralidade de conhecimentos e trajetórias históricas.</p>
-        <p>A lei também contém uma filosofia da história: a humanidade seria conduzida a uma maturidade positiva. Essa confiança prepara a noção de progresso comtiana, mas transforma a experiência intelectual europeia em modelo universal. A crítica contemporânea precisa separar a defesa da investigação empírica da hierarquia civilizacional associada ao sistema.</p>
-        <p>Os estados não correspondem simplesmente a religião, filosofia e ciência entendidas como instituições que jamais poderiam coexistir. Uma pessoa pode recorrer à medicina científica e manter crenças religiosas; uma sociedade tecnologicamente complexa pode sustentar explicações metafísicas na política. Essa coexistência mostra o limite de usar a classificação como retrato literal de toda consciência.</p>
-        <p>A formulação continua pedagogicamente útil para perguntar como diferentes tipos de explicação justificam afirmações. Seu uso responsável, entretanto, abandona a pretensão de classificar sociedades inteiras por um único estágio. O conceito deve ser reconstruído como parte do sistema de Comte e submetido à crítica histórica.</p>
+      <div class="base-subsection" id="a04-imagens">
+        <h3>3. Imagens como vestígios históricos</h3>
+        <p>Gravuras e fotografias de fábricas, habitações e ruas podem ser fontes para uma investigação histórica. Essas imagens não são janelas transparentes para o passado. Elas foram produzidas por alguém, a partir de uma posição e para determinado público. O enquadramento seleciona pessoas e espaços; uma legenda orienta a interpretação; aquilo que ficou fora do quadro também importa.</p>
+        <p>Uma fotografia de trabalhadores pode informar sobre vestimentas, presença de crianças, organização do espaço ou proximidade das máquinas. Sozinha, não revela salários, duração da jornada, sentimentos dos retratados ou frequência daquela situação. Ao analisar cada imagem, convém perguntar quem aparece, que atividade realiza, como o espaço distribui posições e que sinais de hierarquia ou precariedade são visíveis — separando sempre observação e interpretação.</p><p>Hoje exercitaremos essa distinção com três casos didáticos integralmente disponíveis abaixo. São construções fictícias inspiradas nos problemas estudados, não documentos de arquivo nem prova de uma cidade real. Eles permitem formular hipóteses e indicar quais fontes históricas seriam necessárias para testá-las. Uma gravura isolada, assim como um relato isolado, não comprova a frequência de uma condição.</p>
       </div>
 
-      <div class="base-subsection" id="a04-hierarquia"><h3>4. Hierarquia das ciências e o lugar da Sociologia</h3>
-        <p>Comte organizou as ciências segundo uma ordem de crescente complexidade e menor generalidade. Matemática, astronomia, física, química e biologia preparariam o estudo da sociedade. A Sociologia ocuparia o ponto mais complexo porque seu objeto depende de múltiplas condições e envolve fenômenos que não podem ser isolados com a mesma facilidade.</p>
-        <p>Chamá-la de ciência culminante não significa que poderia ignorar as anteriores. O conhecimento avançaria do mais simples ao mais complexo, e cada ciência dependeria de aquisições precedentes sem reduzir-se a elas. A vida não seria explicada apenas pela química; a sociedade não seria explicada apenas pela biologia.</p>
-        <p>Essa tentativa contribuiu para definir um lugar autônomo para o estudo científico do social. Contudo, uma hierarquia rígida pode apresentar a história das ciências como caminho linear e consensual. Disciplinas reais desenvolvem-se por intercâmbios, conflitos e revisões; novos conhecimentos numa área podem transformar problemas de outra.</p>
-        <p>A posição da Sociologia levanta ainda uma questão metodológica: complexidade maior não autoriza menor rigor. Como fenômenos sociais possuem muitas condições e não podem ser reproduzidos livremente em laboratório, comparação histórica, observação e análise de variações tornam-se importantes. Comte ofereceu uma resposta geral; a disciplina posterior desenvolveria métodos mais específicos.</p>
-        <aside class="pause-box"><h4>Pausa para discussão</h4><p>Considerar a Sociologia mais complexa que a biologia significa considerá-la superior? Que diferença existe entre dependência, complexidade e hierarquia?</p></aside>
-      </div>
-
-      <div class="base-subsection" id="a04-ordem"><h3>5. Ordem e progresso — inclusive no Brasil</h3>
-        <p>Para Comte, <strong>ordem</strong> e <strong>progresso</strong> deveriam ser articulados. Uma sociedade incapaz de coordenação não sustentaria mudanças; uma ordem sem desenvolvimento produziria estagnação. A fórmula respondia ao temor de que a ruptura revolucionária destruísse vínculos sem criar um consenso substituto.</p>
-        <p>O lema “Ordem e Progresso” da bandeira brasileira mostra a circulação internacional do positivismo. Setores republicanos brasileiros do final do século XIX foram influenciados por ideias positivistas, embora sua apropriação não correspondesse integralmente ao sistema de Comte. O lema tornou-se símbolo nacional e adquiriu sentidos próprios em disputas brasileiras.</p>
-        <p>Essa circulação ensina um cuidado: ideias não viajam intactas. Grupos selecionam conceitos conforme problemas locais. No Brasil, a linguagem de modernização e ordem conviveu com uma sociedade recém-saída formalmente da escravidão, marcada por exclusões políticas e raciais. Invocar progresso não garantia democratização das relações sociais.</p>
-        <p>O lema também demonstra como um fragmento pode sobreviver separado do sistema que o originou. Muitas pessoas reconhecem “Ordem e Progresso” sem conhecer a classificação das ciências ou a lei dos três estados. Símbolos políticos condensam ideias, mas sua repetição não prova fidelidade teórica. Estudar recepção exige distinguir autor, apropriação e uso posterior.</p>
-      </div>
-
-      <div class="base-subsection" id="a04-spencer"><h3>6. Spencer: organismo, diferenciação e evolução</h3>
-        <p>Herbert Spencer construiu na Inglaterra vitoriana um sistema evolucionista amplo. Para ele, processos de evolução envolveriam passagem de formas relativamente homogêneas para formas heterogêneas, diferenciadas e integradas. Nas sociedades, crescimento e diferenciação produziriam instituições e funções especializadas.</p>
-        <p>A analogia entre sociedade e <strong>organismo</strong> destaca interdependência. Assim como partes de um corpo exercem funções distintas, instituições sociais dependeriam umas das outras. Economia, governo, comunicação e outras esferas tornam-se mais especializadas à medida que a sociedade se diferencia.</p>
-        <p>Spencer também reconheceu diferenças entre organismo biológico e sociedade. Num organismo, a consciência concentra-se de modo particular; numa sociedade, indivíduos possuem consciência própria. Ainda assim, a analogia pode levar a tratar conflitos e desigualdades como necessidades funcionais, como se toda instituição existente contribuísse para o bem do conjunto.</p>
-        <p>Seu evolucionismo valorizou a passagem de formas consideradas simples para complexas e atribuiu grande peso à adaptação. Essa classificação influenciou comparações entre sociedades, mas frequentemente organizou diversidade histórica numa escala hierárquica. Complexidade institucional não equivale automaticamente a superioridade moral.</p>
-        <p>A diferenciação pode ser observada numa cidade em que transporte, saúde, educação e abastecimento dependem de organizações especializadas. Nenhuma pessoa domina todas as funções; a coordenação aumenta. Entretanto, especialização também pode produzir assimetrias, falhas e dependências. A existência de partes diferenciadas não demonstra que todas estejam integradas de maneira justa.</p>
-        <p>A metáfora orgânica tende a imaginar limites claros do corpo social. Sociedades, porém, mantêm migrações, comércio, conflitos e redes que atravessam fronteiras. Indivíduos podem sair de organizações, pertencer a grupos diferentes e contestar sua função. Essas diferenças restringem o alcance da comparação biológica.</p>
-        <aside class="pause-box"><h4>Pausa para discussão</h4><p>O que a metáfora da sociedade como organismo ajuda a perceber? O que ela oculta quando existem conflito, exploração ou transformação deliberada?</p></aside>
-      </div>
-
-      <div class="base-subsection" id="a04-darwinismo"><h3>7. Do evolucionismo ao darwinismo social</h3>
-        <p>Spencer utilizou a expressão “sobrevivência do mais apto” em seu próprio sistema evolucionista. A relação entre suas ideias e a teoria biológica de Darwin não deve ser narrada como simples cópia: Spencer já formulava um evolucionismo social e filosófico, e os dois projetos possuíam objetos e mecanismos distintos.</p>
-        <p>O termo <strong>darwinismo social</strong> reúne usos diversos de linguagens de competição, seleção e evolução para interpretar sociedades. Em versões políticas, desigualdade e dominação foram apresentadas como resultado natural da competição. Intervenções públicas em favor dos vulneráveis podiam ser condenadas por supostamente interferir numa seleção espontânea.</p>
-        <p>Esse raciocínio comete uma passagem indevida do descritivo para o normativo. Mesmo que um processo exista na natureza, disso não se conclui que seja moralmente desejável ou politicamente obrigatório. Além disso, posições sociais não resultam de competição em condições iguais: propriedade, leis, colonialismo e discriminação moldam oportunidades.</p>
-        <p>Classificações evolucionistas forneceram linguagem para justificar expansão colonial e racismo científico. Sociedades dominadas eram descritas como atrasadas, e o domínio aparecia como etapa civilizadora. A Sociologia posterior criticaria essas hierarquias e desenvolveria comparações mais atentas à história e ao poder.</p>
-        <p>“Aptidão” também pode tornar-se explicação circular: os vencedores seriam considerados mais aptos porque venceram, e sua vitória provaria a aptidão. Essa fórmula apaga herança, coerção e regras institucionais. Numa competição social, participantes não escolhem conjuntamente condições neutras; alguns contribuem para definir as próprias regras.</p>
-        <p>A crítica ao darwinismo social não exige negar a evolução biológica. Exige impedir que mecanismos de uma teoria científica sejam transportados sem mediação para relações humanas e convertidos em obrigação moral. Sociedade envolve leis e decisões coletivas precisamente porque pessoas podem avaliar e modificar condições de convivência.</p>
-      </div>
-
-      <div class="base-subsection" id="a04-comparacao"><h3>8. Comparar sem fundir os autores</h3>
-        <p>Comte e Spencer compartilham confiança na ciência, interesse por regularidades e concepções evolucionistas. Ambos procuram explicar diferenciação e mudança em grandes escalas. Essa proximidade justifica estudá-los juntos, mas não autoriza atribuir a um os conceitos do outro.</p>
-        <p>Comte organiza a evolução pelo desenvolvimento intelectual dos três estados e vincula a ciência positiva a uma reorganização moral. Spencer formula uma evolução mais abrangente, baseada em diferenciação, integração e adaptação, e emprega a analogia orgânica. “Lei dos três estados” é comtiana; “sobrevivência do mais apto” pertence ao vocabulário de Spencer.</p>
-        <p>A atividade de classificação das teses exige justificativa. Identificar uma frase pela presença de uma palavra-chave é insuficiente. O grupo deve reconstruir o problema: a tese trata de formas de conhecimento e ordem positiva ou de diferenciação e adaptação? Depois, a crítica precisa indicar qual pressuposto está em questão, e não apenas declarar que a teoria é antiga.</p>
-        <p>Uma ficha pode combinar ideias próximas para testar a compreensão. A defesa da ciência não identifica automaticamente Comte; o interesse por evolução não identifica automaticamente Spencer. A autoria deve ser inferida pelo mecanismo do argumento. Esse exercício treina uma habilidade que será necessária ao estudar os clássicos: não atribuir conceitos a um autor apenas porque pertencem ao mesmo período.</p>
-      </div>
-
-      <div class="base-subsection" id="a04-critica"><h3>9. Contribuições, limites e responsabilidade crítica</h3>
-        <p>Essas teorias contribuíram para afirmar que fenômenos sociais mereciam explicação sistemática e que instituições se relacionavam historicamente. Comte ajudou a nomear e legitimar a Sociologia; Spencer chamou atenção para diferenciação e interdependência. Reconhecer contribuições não exige aceitar seus sistemas completos.</p>
-        <p>A distância histórica permite ver ainda como conceitos ganham efeitos fora dos textos. Uma teoria pode orientar pesquisa, ensino, administração ou propaganda política. Esses usos não são todos controlados pelo autor, mas também não são irrelevantes para avaliar a circulação das ideias. Positivismo e evolucionismo tornaram-se linguagens públicas, muitas vezes simplificadas.</p>
-        <p>Seus limites incluem linearidade histórica, hierarquização de sociedades, confiança excessiva num progresso necessário e aproximações problemáticas entre processos sociais e biológicos. Tais limites não são apenas erros externos julgados depois: relacionam-se aos contextos europeus e imperiais em que as teorias foram produzidas.</p>
-        <p>Uma crítica fundamentada precisa evitar dois atalhos. O primeiro é rejeitar toda obra porque contém pressupostos hoje recusados; isso impede compreender sua influência. O segundo é apresentar conceitos como neutros, desligados de usos políticos. A leitura sociológica reconstrói argumento, contexto, efeitos e controvérsias.</p>
-        <aside class="pause-box"><h4>Pausa para discussão</h4><p>Escolha uma tese de Comte ou Spencer: que contribuição analítica pode ser preservada e que pressuposto histórico precisa ser recusado?</p></aside>
-      </div>
-
-      <div class="base-subsection" id="a04-sintese"><h3>10. Síntese: do sistema geral à pesquisa sociológica</h3>
-        <p>Comte transformou a confiança iluminista na ciência em positivismo: lei dos três estados, classificação das ciências e projeto de articular ordem e progresso. Spencer explicou evolução social por diferenciação e integração, utilizando a analogia orgânica. Suas formulações não são equivalentes e precisam conservar autoria e problema próprios.</p>
-        <p>Os dois projetos ajudaram a estabelecer a sociedade como objeto de ciência, mas organizaram a história em trajetórias lineares e hierárquicas. O evolucionismo social pôde naturalizar desigualdades e sustentar ideologias coloniais e racistas. A crítica contemporânea separa investigação de regularidades, que permanece relevante, da afirmação de uma única escala de civilização.</p>
-        <p>A comparação também mostrou que uma palavra compartilhada não garante teoria compartilhada. “Evolução”, “ciência” e “progresso” ocupam lugares diferentes em cada sistema. Ler com precisão exige identificar o mecanismo explicativo, a unidade analisada e a finalidade do argumento. Esse cuidado evitará que os autores clássicos sejam convertidos numa coleção indiferenciada de conceitos.</p>
-        <p>Comte e Spencer elaboraram sistemas extensos antes que a Sociologia consolidasse procedimentos hoje reconhecidos como pesquisa empírica. A pergunta que fica não é apenas qual teoria geral parece mais convincente, mas como construir evidências para um problema delimitado. Essa mudança de escala organiza a Aula 05.</p>
-        <p>A próxima aula deslocará a atenção dos grandes sistemas de evolução para a construção concreta de problemas e métodos. Perguntaremos o que torna um fenômeno objeto sociológico, como relacionar biografia e história e que evidências diferentes técnicas de pesquisa podem produzir. Esse passo preparará a entrada em Durkheim sem antecipar sua definição de fato social.</p>
+      <div class="base-subsection" id="a04-sociologia">
+        <h3>4. Por que uma ciência da sociedade?</h3>
+        <p>As revoluções não criaram automaticamente a Sociologia, como se a disciplina fosse consequência inevitável de dois acontecimentos. Elas compuseram um contexto no qual a ordem social se tornou objeto explícito de reflexão. Governos precisavam administrar populações e conflitos; reformadores procuravam responder à pobreza; trabalhadores organizavam demandas; intelectuais tentavam compreender a direção das mudanças.</p>
+        <p>O fortalecimento dos Estados nacionais ampliou a capacidade de produzir leis, administrar territórios e reunir informações sobre a população. Classificar ocupações, registrar nascimentos e acompanhar condições de vida fazia parte de necessidades administrativas, mas também fornecia materiais para perceber regularidades coletivas. Uma ciência da sociedade prometia identificar regularidades, comparar instituições e explicar como a vida coletiva era possível — projeto que assumiu formas diferentes, como o curso verá a partir da próxima aula.</p>
+        <p>A Sociologia nasceu, assim, ligada a uma dupla experiência moderna: a percepção de que a sociedade é construída e pode mudar, e o temor de que mudanças rápidas produzam desorganização, conflito e desigualdade. Na Aula 05, examinaremos o Iluminismo e a crítica da tradição como parte do contexto intelectual dessa mudança. O positivismo de Comte será estudado posteriormente.</p>
       </div>
     </div>
   </section>
 
-
-
   <section id="plano-aula">
-    <div class="section-title">Plano de Aula com Tempo</div>
+    <h2 class="section-title">Plano de Aula com Tempo</h2>
     <div class="timeline">
       <div class="tl-item">
         <span class="tl-duration">10 min</span>
-        <span class="tl-text"><strong>Retomada</strong> — Revisão do contexto intelectual do Iluminismo e da modernidade (Aula 03). Conexão com o surgimento do positivismo.</span>
+        <span class="tl-text"><strong>Exposição: trabalho, urbanização e questão social</strong> — Retomar duas anotações da Aula 03; explicar formação de classes e pobreza como questão coletiva.</span>
       </div>
       <div class="tl-item">
         <span class="tl-duration">30 min</span>
-        <span class="tl-text"><strong>Exposição: Comte e o positivismo</strong> — Apresentação da lei dos três estados, da hierarquia das ciências e do projeto positivista. Destaque para a influência do positivismo na cultura brasileira (bandeira nacional, "Ordem e Progresso").</span>
+        <span class="tl-text"><strong>Oficina — da dificuldade individual à questão social</strong> — Em duplas, comparar os três casos didáticos da página: 5 min de leitura, 15 de análise e 10 de revisão.</span>
       </div>
       <div class="tl-item">
-        <span class="tl-duration">20 min</span>
-        <span class="tl-text"><strong>Exposição: Spencer e o evolucionismo social</strong> — Apresentação do organicismo social, do conceito de evolução aplicado à sociedade e do darwinismo social. Contextualização histórica e ideológica.</span>
+        <span class="tl-duration">15 min</span>
+        <span class="tl-text"><strong>Socialização e síntese coletiva</strong> — Ouvir quatro duplas por até 2 min; usar os 7 min restantes para comparar evidências, limites e o surgimento de projetos de ciência social.</span>
       </div>
       <div class="tl-item">
-        <span class="tl-duration">25 min</span>
-        <span class="tl-text"><strong>Discussão: "O que há de problemático no evolucionismo social?"</strong> — Debate mediado sobre as implicações ideológicas do evolucionismo: justificação da desigualdade, colonialismo, racismo científico. O professor apresenta as críticas históricas a essas perspectivas.</span>
-      </div>
-      <div class="tl-item">
-        <span class="tl-duration">25 min</span>
-        <span class="tl-text"><strong>Atividade: comparação entre Comte e Spencer em duplas</strong> — Os alunos, em duplas, recebem fichas com teses dos dois autores embaralhadas e devem identificar a autoria e elaborar críticas.</span>
-      </div>
-      <div class="tl-item">
-        <span class="tl-duration">10 min</span>
-        <span class="tl-text"><strong>Síntese</strong> — Sistematização das semelhanças e diferenças entre Comte e Spencer. Indicação das leituras para a Aula 05.</span>
+        <span class="tl-duration">5 min</span>
+        <span class="tl-text"><strong>Encerramento</strong> — Indicação das leituras para a Aula 05.</span>
       </div>
     </div>
   </section>
 
   <section id="leituras">
-    <div class="section-title">Textos para Leitura Prévia</div>
+    <p class="reading-note">O texto-base e os materiais desta página permitem acompanhar a aula sem leitura prévia. As obras abaixo apoiam a retomada e o aprofundamento.</p>
+    <h2 class="section-title">Leituras de referência e aprofundamento</h2>
     <div class="ref-card">
       <div class="ref-author">QUINTANEIRO, Tania et al.</div>
-      <div class="ref-title">Um toque de clássicos. Cap. sobre Comte</div>
-      <div class="ref-pages">p. 21–35</div>
-    </div>
-    <div class="ref-card">
-      <div class="ref-author">SELL, Carlos Eduardo</div>
-      <div class="ref-title">Sociologia clássica. Cap. 1</div>
-      <div class="ref-pages">p. 15–40</div>
+      <div class="ref-title">Um toque de clássicos. Introdução</div>
+      <div class="ref-pages">Consultar a seção indicada na edição disponível; a paginação varia por edição.</div>
     </div>
   </section>
 
   <section id="atividade">
-    <div class="section-title">Atividades em Sala</div>
-    <div class="activity-card">
-      <h3>ATIVIDADE — Comte ou Spencer?</h3>
+    <h2 class="section-title">Atividades em Sala</h2>
+    <div class="activity-card" data-gabarito="obrigatorio">
+      <strong>Oficina — da dificuldade individual à questão social</strong><br><br>
+      <p><strong>Material completo para uso em sala:</strong> os três casos abaixo são fictícios, elaborados para comparar problemas associados à industrialização. Não são transcrições, estatísticas ou testemunhos históricos. A atividade pode ser feita sem internet, imagens externas ou leitura prévia.</p>
+      <article class="case-card"><h3>Caso A — Tempo de fábrica</h3><p>Uma oficina é incorporada a uma fábrica. Antes, trabalhadores organizavam parte da sequência das tarefas; agora, a direção fixa entrada, saída e ritmo comum. Uma trabalhadora perde o início do turno quando o transporte atrasa. O supervisor atribui o problema à falta de disciplina. O caso não informa salário, duração total da jornada nem frequência dos atrasos.</p></article>
+      <article class="case-card"><h3>Caso B — Moradia e crescimento urbano</h3><p>Famílias chegam a uma cidade em busca de trabalho. Várias dividem casas próximas às fábricas; o abastecimento de água é irregular. Um proprietário explica a precariedade pelos hábitos dos moradores. O caso não informa preços de aluguel, renda das famílias, investimento público ou condições de outros bairros.</p></article>
+      <article class="case-card"><h3>Caso C — Uma demanda coletiva</h3><p>Trabalhadores de estabelecimentos diferentes se reúnem para pedir regras de segurança e apresentam uma petição à administração local. Argumentam que os riscos não dependem apenas do cuidado de cada pessoa. Alguns empregadores contestam a proposta. O caso não informa o número de acidentes nem o resultado da mobilização.</p></article>
+      <p><strong>Organização — 30 minutos:</strong> 5 para ler, 15 para responder e 10 para revisar uma conclusão. Usem uma folha com as colunas “informação do caso”, “hipótese”, “fonte necessária” e “limite”.</p>
+      <ol><li>Em cada caso, o que está informado e o que seria apenas suposição?</li><li>Que relações de trabalho, propriedade, infraestrutura ou poder ajudam a formular uma explicação coletiva?</li><li>Que fonte histórica permitiria testar uma hipótese: registros de jornada, contratos, relatórios urbanos, jornais ou petições? Explique sua função.</li><li>Compare B e C: qual a diferença entre existir uma dificuldade compartilhada e ela se tornar uma demanda pública?</li></ol>
+      <p><strong>Produto:</strong> três linhas de análise e uma conclusão de até quatro frases ligando os casos à questão social. Na socialização, quatro duplas voluntárias apresentam uma hipótese e seu limite; as demais confrontam com seus registros.</p>
 
-      <div class="activity-note">
-        <p>Você receberá dez fichas com teses e proposições inspiradas nas formulações de Auguste Comte e Herbert Spencer. As fichas estão embaralhadas. Trabalhe em dupla. Não identifique o autor apenas por palavras isoladas como “ciência”, “ordem” ou “evolução”. Examine o mecanismo explicativo, o problema central e o modo como a transformação social é compreendida.</p>
-        <p><strong>Nota:</strong> as fichas são paráfrases didáticas, não citações literais dos autores.</p>
-      </div>
-
-      <div class="activity-steps">
-        <h4>Etapa 1 — Identificação e justificativa — 15 minutos</h4>
-        <p>Para cada ficha, a dupla deverá responder:</p>
-        <ol>
-          <li>A tese se aproxima de Comte ou de Spencer?</li>
-          <li>Que elemento do argumento justifica a classificação?</li>
-          <li>Que conceito estudado na aula está presente?</li>
-        </ol>
-
-        <h4>Etapa 2 — Comparação — 10 minutos</h4>
-        <p>Depois de classificar as dez fichas, a dupla deverá escolher uma ficha atribuída a Comte e uma ficha atribuída a Spencer. Em seguida, deverá explicar:</p>
-        <ol>
-          <li>Em que os dois argumentos se aproximam?</li>
-          <li>Em que diferem?</li>
-          <li>Qual mecanismo de transformação social aparece em cada um?</li>
-        </ol>
-
-        <h4>Etapa 3 — Crítica — 10 minutos</h4>
-        <p>Escolha duas fichas e responda:</p>
-        <ol>
-          <li>Que contribuição analítica a tese oferece?</li>
-          <li>Que pressuposto histórico, normativo ou ideológico precisa ser questionado?</li>
-          <li>A crítica aponta uma incoerência interna do argumento ou questiona seus pressupostos a partir de conhecimentos históricos e sociológicos posteriores?</li>
-        </ol>
-
-        <h4>Socialização — 10 minutos</h4>
-        <p>Cada dupla apresenta uma classificação ou crítica que tenha provocado dúvida. O professor organiza no quadro duas colunas — Comte e Spencer — e sistematiza aproximações, diferenças, contribuições e limites.</p>
-      </div>
-
-      <h4 id="fichas-title">Dez fichas embaralhadas</h4>
-      <div class="thesis-grid" aria-labelledby="fichas-title">
-        <article class="thesis-card"><span class="thesis-number">Ficha 1</span><p>As sociedades se transformam quando suas partes se tornam mais diferenciadas e especializadas, ao mesmo tempo que cresce a dependência entre elas.</p></article>
-        <article class="thesis-card"><span class="thesis-number">Ficha 2</span><p>O conhecimento humano atravessa formas teológicas e abstratas antes de alcançar uma etapa baseada na observação e na descoberta de regularidades.</p></article>
-        <article class="thesis-card"><span class="thesis-number">Ficha 3</span><p>A sociedade pode ser comparada a um organismo: suas instituições desempenham funções distintas, mas permanecem interdependentes.</p></article>
-        <article class="thesis-card"><span class="thesis-number">Ficha 4</span><p>Uma ciência da sociedade deve investigar as relações constantes entre os fenômenos, evitando explicações baseadas em causas absolutas ou entidades não observáveis.</p></article>
-        <article class="thesis-card"><span class="thesis-number">Ficha 5</span><p>A reconstrução da sociedade moderna depende de uma reorganização intelectual e moral orientada pelo conhecimento científico.</p></article>
-        <article class="thesis-card"><span class="thesis-number">Ficha 6</span><p>As sociedades podem passar de organizações predominantemente militares, baseadas em coerção e centralização, para organizações industriais, apoiadas em contratos e cooperação voluntária.</p></article>
-        <article class="thesis-card"><span class="thesis-number">Ficha 7</span><p>O estudo da sociedade deve articular as condições de manutenção da ordem com as leis que orientam sua transformação.</p></article>
-        <article class="thesis-card"><span class="thesis-number">Ficha 8</span><p>A persistência de determinadas instituições e grupos pode ser explicada por sua maior capacidade de adaptação às condições do ambiente social.</p></article>
-        <article class="thesis-card"><span class="thesis-number">Ficha 9</span><p>As ciências formam uma hierarquia conforme a complexidade de seus objetos, e o estudo científico da sociedade ocupa a posição mais complexa.</p></article>
-        <article class="thesis-card"><span class="thesis-number">Ficha 10</span><p>A transformação social não deve ser compreendida apenas como decisão consciente de governantes; instituições também resultam de processos graduais de adaptação e diferenciação.</p></article>
-      </div>
-
-      <details class="teacher-key">
-        <summary>Gabarito comentado — uso do professor</summary>
-        <div class="teacher-key-body">
-          <p><strong>Abra somente durante a correção e a socialização.</strong></p>
-          <ol class="answer-list">
-            <li><strong>Ficha 1 — Spencer:</strong> diferenciação, especialização e interdependência. A transformação ocorre pelo desenvolvimento de partes funcionalmente distintas que permanecem integradas. A presença de interdependência não deve levar à atribuição automática a Comte por associação com “ordem”.</li>
-            <li><strong>Ficha 2 — Comte:</strong> lei dos três estados. A sequência entre explicações teológicas, metafísicas ou abstratas e positivas organiza o desenvolvimento intelectual. “Evolução” do conhecimento não torna a ficha spenceriana.</li>
-            <li><strong>Ficha 3 — Spencer:</strong> analogia orgânica e diferenciação funcional. A sociedade é comparada a um organismo composto por partes especializadas e interdependentes. A analogia ajuda a perceber integração, mas não elimina conflito nem transforma instituições em órgãos biológicos literais.</li>
-            <li><strong>Ficha 4 — Comte:</strong> conhecimento positivo e busca de relações regulares entre fenômenos. O argumento recusa causas absolutas e concentra a investigação em regularidades observáveis. A palavra “ciência” isolada seria insuficiente, pois Spencer também buscava uma explicação científica.</li>
-            <li><strong>Ficha 5 — Comte:</strong> reorganização intelectual e moral da sociedade. O conhecimento científico participa de um projeto de reconstrução da ordem moderna. A referência à reorganização dirigida distingue a tese do evolucionismo mais gradual de Spencer.</li>
-            <li><strong>Ficha 6 — Spencer:</strong> distinção entre sociedades militares e industriais. O mecanismo é uma passagem evolutiva de coerção e centralização para contratos e cooperação voluntária. “Industrial” aqui nomeia um tipo de organização social e não apenas a existência de fábricas.</li>
-            <li><strong>Ficha 7 — Comte:</strong> estática social, dinâmica social, ordem e progresso. A tese combina condições de coexistência da sociedade e leis de transformação histórica. A palavra “ordem” ajuda, mas a classificação depende da articulação entre manutenção e progresso.</li>
-            <li><strong>Ficha 8 — Spencer:</strong> a tese mobiliza adaptação e persistência diferencial para explicar por que determinadas instituições e grupos permaneceriam em certas condições sociais. Essa formulação precisa ser criticada quando é empregada para naturalizar hierarquias e desigualdades sociais, como se posições historicamente produzidas demonstrassem maior aptidão.</li>
-            <li><strong>Ficha 9 — Comte:</strong> classificação e hierarquia das ciências, culminando na Sociologia. A posição da disciplina decorre da maior complexidade de seu objeto. Complexidade não deve ser confundida automaticamente com superioridade moral ou importância absoluta.</li>
-            <li><strong>Ficha 10 — Spencer:</strong> evolução social gradual, diferenciação institucional e restrição à direção centralizada da sociedade. Instituições emergem de processos acumulativos que não se reduzem ao planejamento de governantes. A crítica pode questionar se a ênfase na adaptação subestima conflitos e decisões políticas.</li>
-          </ol>
+      <p class="print-note">Para incluir a orientação docente na impressão, abra o gabarito antes de imprimir. Fechado, ele não integra a versão dos estudantes.</p>
+      <details class="teacher-guidance">
+        <summary>Gabarito comentado e orientações de mediação — uso do professor</summary>
+        <div class="teacher-guidance-content">
+          <p><strong>Critério geral:</strong> avaliar a passagem da descrição à hipótese, sem tratar os casos fictícios como evidência de uma população real. Uma resposta forte cita a informação disponível, explicita uma relação social e indica o que falta saber. Nenhum caso autoriza calcular frequência ou afirmar uma causa única.</p>
+          <p><strong>Caso A:</strong> estão descritos o controle dos horários pela direção e um atraso associado ao transporte. É possível formular hipótese sobre tensão entre disciplina fabril e condições de deslocamento. Não se pode concluir salário, jornada longa ou desinteresse. Registros de entrada, regras da fábrica e informações de transporte ajudariam a investigar padrões e alternativas.</p>
+          <p><strong>Caso B:</strong> moradia compartilhada e abastecimento irregular são dados do enunciado. Atribuir a precariedade aos hábitos é uma interpretação do proprietário, não uma explicação comprovada. Contratos de aluguel, rendimentos, relatórios de abastecimento e comparação entre bairros ajudariam a relacionar condições habitacionais, mercado e infraestrutura. Não presumir que todos os moradores tenham a mesma situação.</p>
+          <p><strong>Caso C:</strong> a reunião e a petição mostram organização de uma demanda coletiva. O material não informa sua vitória nem prova que toda mobilização produz reforma. Petições, jornais e respostas administrativas permitiriam reconstruir argumentos e conflitos; registros de acidentes responderiam a outra pergunta. Distinguir o que cada fonte permite saber.</p>
+          <p><strong>Comparação e síntese:</strong> em B, uma condição é compartilhada; em C, participantes a nomeiam e disputam uma resposta pública. Esse processo depende de organização e linguagem, não apenas da existência de sofrimento. Relacionar a questão social a trabalho, propriedade, instituições e direitos ajuda a compreender a busca por explicações sistemáticas.</p>
+          <p><strong>Mediação:</strong> quando a resposta apenas condenar uma injustiça, perguntar qual mecanismo e qual evidência sustentam a análise. Quando generalizar, retomar o limite do caso. Não pedir relatos pessoais. Encerrar com a conexão entre transformações sociais e debates intelectuais, preparando o Iluminismo na Aula 05.</p>
         </div>
       </details>
-
-      <div class="concept-care">
-        <h4>Cuidados conceituais</h4>
-        <ul>
-          <li>Comte e Spencer compartilham a busca de explicações científicas para a sociedade, mas não possuem teorias idênticas.</li>
-          <li>“Evolução” não identifica automaticamente Spencer; “ordem” não identifica automaticamente Comte.</li>
-          <li>Spencer não deve ser confundido com Charles Darwin.</li>
-          <li>Evolução biológica, evolucionismo social e darwinismo social não são sinônimos.</li>
-          <li>A analogia entre sociedade e organismo possui alcance e limites.</li>
-          <li>Contribuições analíticas não eliminam os pressupostos históricos e ideológicos das teorias.</li>
-          <li>As fichas são paráfrases didáticas, não citações literais dos autores.</li>
-        </ul>
-      </div>
     </div>
   </section>
 
+  <section id="sintese" class="lesson-synthesis"><h2 class="section-title">Síntese e continuidade</h2><p>Questão social designa problemas coletivos cuja explicação exige relacionar trabalho, propriedade, instituições e poder. A Sociologia emerge de condições históricas e disputas intelectuais; não é uma consequência automática das revoluções.</p><p>O Encontro 01 termina aqui. Na Aula 05, o Iluminismo e a crítica da tradição aprofundarão o contexto intelectual desse projeto; Comte será estudado posteriormente.</p></section>
+
   <section id="recursos">
-    <div class="section-title">Recursos Necessários</div>
+    <h2 class="section-title">Recursos Necessários</h2>
     <div class="resources-list">
       <span class="res-tag">Projetor</span>
-      <span class="res-tag">Fichas impressas com teses dos autores</span>
+      <span class="res-tag">Casos didáticos desta página, projetados ou impressos</span>
       <span class="res-tag">Quadro branco</span>
     </div>
   </section>
@@ -431,7 +293,7 @@
 </main>
 
 <footer>
-  <a href="/introducao-sociologia/">← Página principal</a>
+  <a href="../../index.html">← Voltar ao curso</a>
   <span style="margin: 0 12px; color: var(--border);">|</span>
   <span>Introdução à Sociologia — 2026.2</span>
 </footer>

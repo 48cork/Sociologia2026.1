@@ -1,0 +1,101 @@
+[
+  {
+    "aula": 33,
+    "fonte": 17,
+    "secoes": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "titulo": "Identidade cultural: pertencimento, diferença e fronteiras",
+    "abertura": "Uma pessoa pode pertencer ao mesmo coletivo e discordar de seus símbolos? Identidades são relações de reconhecimento, não essências.",
+    "objetivos": [
+      "Distinguir identificação, posição e reconhecimento.",
+      "Analisar fronteiras e pertencimentos sem presumir homogeneidade.",
+      "Reconhecer articulações entre identificações em diferentes contextos."
+    ],
+    "sintese": "Identidades se formam em relações e podem ser reivindicadas ou impostas. Fronteiras organizam pertencimento sem tornar iguais todos os integrantes.",
+    "transicao": "A Aula 34 conecta apresentação de si, indústria cultural e visibilidade nas plataformas.",
+    "texto": "<p>Na investigação final, as personas não devem ganhar identidades diferentes apenas porque declaram rendas diferentes. Se uma resposta atribuir automaticamente gostos, capacidades ou aspirações a um perfil, essa atribuição será parte do material a interpretar. A pergunta sociológica não é se pessoas reais de certa renda compartilham uma essência, mas como uma classificação apresentada no comando se converte em expectativas no texto produzido. O controle das fichas ajuda a tornar essa passagem observável.</p>",
+    "atividade": "Duas integrantes de um coletivo regional discordam sobre a música que o representa. Uma comissão escolhe apenas o repertório de uma delas para um evento público. Identifique pertencimento, disputa de representação e poder de reconhecimento. Que informação impede decidir quem é “mais autêntica”?",
+    "gabarito": "<p>Ambas reivindicam o mesmo pertencimento, mas divergem sobre a representação pública. A comissão ocupa uma posição com recursos para tornar uma versão mais visível. Isso não prova que a música escolhida seja ilegítima nem que a outra integrante não pertença ao coletivo. O caso permite investigar como uma fronteira é narrada, quem decide e quais vozes permanecem menos reconhecidas. A identidade regional não é um conjunto uniforme de preferências.</p><p>Solicite informações sobre critérios da comissão, participação na decisão, história dos repertórios e formas de contestação. A noção de autenticidade também deve ser investigada: quem a define e com quais efeitos? Evite que estudantes substituam análise por preferência musical. Uma resposta forte relaciona posição institucional e produção de reconhecimento sem deduzir toda conduta de uma categoria identitária. Retome a possibilidade de pertencimentos múltiplos e de circulação cultural. O material é fictício; ninguém deve assumir o papel de representante obrigatório de sua região ou de qualquer grupo social.</p>"
+  },
+  {
+    "aula": 34,
+    "fonte": 17,
+    "secoes": [
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "titulo": "Indústria cultural e apresentação de si nas redes digitais",
+    "abertura": "Escolhemos o que vemos, mas quem organiza as opções que chegam até nós? O problema articula produção cultural, recepção e visibilidade.",
+    "objetivos": [
+      "Relacionar produção cultural, mercado e padronização.",
+      "Reconhecer apropriação e contestação por públicos.",
+      "Investigar como métricas e recomendações organizam visibilidade."
+    ],
+    "sintese": "Públicos interpretam e agem em ambientes cujos recursos e regras são desigualmente controlados. A visibilidade conecta escolhas, infraestrutura e organização econômica.",
+    "transicao": "A Aula 35 examinará como repertórios e formas de participação são aprendidos.",
+    "tempos": [
+      5,
+      15,
+      35,
+      5
+    ],
+    "texto": "<div class=\"base-subsection\" id=\"a34-algoritmos\"><h3>6. Algoritmos como mediação social</h3><p>Um algoritmo estabelece procedimentos para realizar uma tarefa. Em sistemas de recomendação, dados e critérios ajudam a ordenar quais conteúdos serão apresentados. Essa operação envolve escolhas: o que medir, qual resultado priorizar e quais registros considerar relevantes. Uma métrica de interação não mede automaticamente qualidade cultural ou interesse público. O conteúdo mais visível pode ser aquele favorecido por um objetivo específico da plataforma.</p><p>Essa mediação pode produzir ciclos: uma recomendação amplia exposição; a exposição gera interações; novas interações informam futuras recomendações. O efeito concreto precisa ser investigado, porque públicos, produtores e organizações também interferem no circuito. Desigualdade de visibilidade não demonstra, sozinha, intenção discriminatória. Para explicar o mecanismo, seria necessário conhecer critérios, comparar condições e observar quem tem recursos para produzir, promover ou contestar classificações. A IA generativa do experimento é outro objeto: produzir respostas e ordenar um feed são operações distintas, embora ambas possam mobilizar classificações socialmente relevantes.</p></div>",
+    "atividade_fonte": true
+  },
+  {
+    "aula": 35,
+    "fonte": 18,
+    "secoes": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "titulo": "Socialização primária e secundária: como nos tornamos sociais",
+    "abertura": "Como aprendemos uma regra que ninguém ensinou formalmente? A socialização ocorre também por rotinas, expectativas e reações.",
+    "objetivos": [
+      "Explicar socialização como aprendizagem participativa.",
+      "Distinguir vínculos primários e entrada em contextos especializados.",
+      "Reconhecer continuidade, interpretação e conflito."
+    ],
+    "sintese": "Socialização torna a participação possível e forma individualidades. Vínculos e instituições oferecem repertórios, mas não determinam respostas idênticas.",
+    "transicao": "Na Aula 36, agentes, sanções e ressocialização permitirão mapear os mecanismos dessa aprendizagem.",
+    "texto": "<p>A aprendizagem institucional também depende de acesso. Duas pessoas podem receber o mesmo regulamento, mas uma contar com orientação informal e a outra precisar decifrar sozinha os procedimentos. Essa diferença ajuda a compreender por que a igualdade de instruções não garante condições equivalentes de participação. A pergunta deixa de ser quem tem uma disposição naturalmente adequada e passa a examinar redes, oportunidades de prática e formas de correção. Socialização e desigualdade se conectam por mecanismos concretos, que podem ser modificados por acolhimento, transparência e apoio entre participantes.</p>",
+    "atividade": "Uma pessoa aprende com responsáveis a evitar interrupções e, ao ingressar numa equipe, encontra incentivo para intervir rapidamente. Descreva os contextos de aprendizagem e duas respostas possíveis ao conflito. Por que não basta afirmar que a família determinou sua conduta?",
+    "gabarito": "<p>O caso articula aprendizagens iniciais em relações de cuidado e entrada num contexto especializado. A distinção primária e secundária ajuda a localizar os vínculos, mas não implica uma ruptura absoluta entre infância e vida adulta. A pessoa pode aprender a distinguir situações, negociar turnos de fala ou questionar a expectativa da equipe. Também pode manter o silêncio por receio de sanção. As respostas são possibilidades, não destinos deduzidos da formação familiar.</p><p>Peça que estudantes identifiquem como a norma foi transmitida e quais consequências acompanham cada modo de agir. Informações sobre acolhimento da equipe, hierarquia, experiências anteriores e oportunidades de participação ajudariam a explicar o resultado. Corrija a ideia de socialização como programação de um indivíduo passivo. A internalização pode tornar práticas familiares sem impedir reflexão ou mudança. Uma análise adequada reconhece a força dos vínculos e as condições de agência. Não solicite relatos familiares pessoais; use o conflito fictício para comparar mecanismos e formular hipóteses verificáveis.</p>"
+  },
+  {
+    "aula": 36,
+    "fonte": 18,
+    "secoes": [
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "titulo": "Agentes de socialização, conflito e ressocialização",
+    "abertura": "O mesmo comportamento pode ser premiado no trabalho e criticado em casa. Como as pessoas agem entre expectativas diferentes?",
+    "objetivos": [
+      "Identificar mecanismos de socialização em diferentes agentes.",
+      "Analisar papéis e sanções como relações.",
+      "Explicar ressocialização sem apagar continuidades biográficas."
+    ],
+    "sintese": "Agentes socializadores são internamente diversos. Recompensas, coerções e negociações produzem aprendizagens, mas também conflitos e transformações.",
+    "transicao": "A Aula 37 perguntará quando relações de participação se tornam grupos sociais.",
+    "tempos": [
+      5,
+      15,
+      35,
+      5
+    ],
+    "atividade_fonte": true
+  }
+]

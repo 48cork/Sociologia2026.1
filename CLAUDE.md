@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Site estático de materiais acadêmicos para o semestre 2026.1, com duas disciplinas ministradas pelo professor Sergio Farias:
 
-- **Introdução à Sociologia** — Turma 1 (Ter/Qua, 2h/aula, 30 encontros) e Turma 2 (Seg noite, 3h20/aula, 18 encontros)
+- **Introdução à Sociologia** — Turma 1 (2026.2: 60 aulas de uma hora-aula em 15 encontros de 4 aulas, reconstrução em curso) e Turma 2 (Seg noite, 3h20/aula, 18 encontros)
 - **Fundamentos do Pensamento Sociológico** — Turma 3 (Seg manhã, 3h20/aula, 18 encontros)
 
 Não há framework, build system, servidor ou dependências externas. Tudo é HTML + CSS inline. Para visualizar, basta abrir qualquer `.html` diretamente no browser.
@@ -19,7 +19,8 @@ introducao-sociologia/
   turma1/
     index.html                                    ← plano de aulas da turma (cronograma completo)
     plano_aulas.md                                ← fonte em Markdown do plano
-    aulas/aula-01.html … aula-30.html            ← roteiros individuais (30 aulas × 2h)
+    aulas/aula-01.html … aula-60.html            ← roteiros individuais (60 aulas × 1 hora-aula; parte ainda não existe)
+    reconstrucao/                                ← estado da reconstrução 60 aulas (retomada.md, encontro-NN.json, scripts/compor.py)
   turma2/
     index.html
     plano_aulas.md
@@ -54,10 +55,12 @@ Ao criar ou editar arquivos, copie as variáveis CSS do arquivo mais próximo do
 
 ## Padrões dos roteiros de aula (`aulas/aula-NN.html`)
 
-Cada roteiro tem sempre estas seções, nesta ordem:
+Turma 1 segue o template de 60 aulas: Objetivos, Texto-base, Percurso da hora-aula (60 min), Discussão e registro, Síntese e continuidade. Os limites numéricos ficam em `squad-revisao-aulas/config/criterios.yaml`, conferidos por `squad-revisao-aulas/scripts/auditar_aulas.py`.
+
+Turmas 2 e 3 têm estas seções, nesta ordem:
 1. **Objetivos da Aula** (3–4 itens)
 2. **Conteúdo Programático** (tópicos com subtópicos)
-3. **Plano de Aula com Tempo** (timeline com minutos — total: 120 min para Turma 1; 200 min para Turmas 2 e 3, incluindo 10 min de intervalo)
+3. **Plano de Aula com Tempo** (timeline com minutos — total: 200 min, incluindo 10 min de intervalo)
 4. **Textos para Leitura Prévia** (2–3 referências reais)
 5. **Atividades em Sala** (descrição pedagógica detalhada)
 6. **Recursos Necessários** (tags)
@@ -106,13 +109,19 @@ Nota mínima: 6,0 | Frequência mínima: 75%
 ## Convenções ao editar
 
 - Sempre leia o arquivo existente mais similar antes de criar um novo (mesma turma, bloco próximo).
-- Os `plano_aulas.md` de cada turma são a fonte canônica dos dados (datas, conteúdos, carga horária). Consulte-os antes de editar datas ou ementas nos HTMLs.
+- Os `plano_aulas.md` das Turmas 2 e 3 são a fonte canônica dos dados (datas, conteúdos, carga horária). Consulte-os antes de editar datas ou ementas nos HTMLs.
+- Na Turma 1, o `plano_aulas.md` ainda descreve 2026.1 e aguarda reconciliação. Datas e conteúdos vêm de `squad-revisao-aulas/reconstrucao-60-aulas/mapa-60-aulas.md`, e a avaliação de `introducao-sociologia/index.html#avaliacao` deve permanecer idêntica.
 - Não crie arquivos CSS, JS ou de configuração separados — o projeto é intencionalmente self-contained por arquivo.
 
-## Squad local de revisão das Aulas 24–30
+## Reconstrução da Turma 1 e squad de revisão
 
-Para reconstrução ou revisão em lote das Aulas 24–30 da Turma 1, use o ponto de entrada
-documental em `squad-revisao-aulas/README.md` e siga
-`squad-revisao-aulas/workflows/revisar-lote.md`. As Aulas 01–23 são contexto aprovado e
-somente leitura. O workflow permite apenas commits locais nos gates definidos; push,
-merge, pull request, deploy e publicação exigem autorização humana explícita separada.
+A reconstrução para 60 aulas está em curso. Antes de editar aulas da Turma 1, leia
+`introducao-sociologia/turma1/reconstrucao/retomada.md`, que registra o estado e as
+decisões de cada unidade.
+
+O squad em `squad-revisao-aulas/` concluiu o lote das Aulas 24–30 da arquitetura de 30
+aulas (todas `COMMITADO` em `config/estado.yaml`). Para usá-lo num novo lote, atualize
+antes `config/curso.yaml` com o intervalo e as aulas protegidas desse lote.
+
+Commits locais são permitidos. Push, merge, pull request, deploy e publicação exigem
+autorização humana explícita separada.

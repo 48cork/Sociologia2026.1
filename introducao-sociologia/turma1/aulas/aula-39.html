@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Aula 39 — Normas, sanções e controle social · 2026.2</title><style>
+  :root {
+    --bg: #0a0a0f; --surface: #12121c; --card: #1a1a2e; --border: #2a2a4a;
+    --purple: #7c3aed; --purple-lt: #a855f7; --blue: #4f46e5; --blue-lt: #818cf8;
+    --teal-lt: #2dd4bf; --amber-lt: #fbbf24; --rose-lt: #fb7185;
+    --text: #e2e8f0; --muted: #94a3b8; --radius: 12px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { max-width: 100%; overflow-x: clip; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; min-height: 100vh; overflow-wrap: anywhere; }
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(18,18,28,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; white-space: nowrap; }
+  nav a:hover { color: var(--text); }
+  .nav-left { display: flex; align-items: center; gap: 10px; }
+  .nav-badge { background: var(--purple); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+  .nav-center { font-size: 0.875rem; color: var(--muted); }
+  .nav-right { display: flex; gap: 16px; align-items: center; }
+  main { max-width: 860px; margin: 0 auto; padding: 40px 24px 80px; }
+  .aula-header { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; margin-bottom: 32px; border-top: 4px solid var(--blue); }
+  .header-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; align-items: center; }
+  .bloco-badge { background: var(--blue); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .meta-chip { background: var(--surface); border: 1px solid var(--border); font-size: 0.8rem; color: var(--muted); padding: 4px 12px; border-radius: 20px; }
+  .meta-chip strong { color: var(--text); }
+  .aula-header h1 { font-size: 1.5rem; font-weight: 700; line-height: 1.3; color: var(--text); }
+  section { margin-bottom: 32px; scroll-margin-top: 112px; }
+  .section-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue-lt); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+  .obj-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .obj-list li { display: flex; gap: 12px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
+  .obj-list li::before { content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--blue-lt); margin-top: 7px; flex-shrink: 0; }
+  .content-topic { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 12px; }
+  .content-topic h3 { font-size: 0.95rem; font-weight: 600; color: var(--purple-lt); margin-bottom: 8px; }
+  .content-topic ul { list-style: none; padding: 0; }
+  .content-topic ul li { padding: 4px 0 4px 16px; position: relative; color: var(--muted); font-size: 0.9rem; }
+  .content-topic ul li::before { content: '—'; position: absolute; left: 0; color: var(--border); }
+  .timeline { display: flex; flex-direction: column; gap: 10px; }
+  .tl-item { display: flex; gap: 16px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; border-left: 3px solid var(--blue); }
+  .tl-duration { background: var(--surface); border: 1px solid var(--border); color: var(--amber-lt); font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+  .tl-text { font-size: 0.9rem; color: var(--text); }
+  .ref-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 10px; border-left: 3px solid var(--blue-lt); }
+  .ref-author { font-size: 0.8rem; font-weight: 700; color: var(--blue-lt); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+  .ref-title { font-size: 0.9rem; color: var(--text); }
+  .ref-pages { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
+  .activity-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; font-size: 0.9rem; line-height: 1.7; border-left: 3px solid var(--teal-lt); }
+  .teacher-guidance { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-top: 18px; }
+  .teacher-guidance summary { cursor: pointer; color: var(--amber-lt); font-weight: 700; padding: 15px 17px; }
+  .teacher-guidance[open] summary { border-bottom: 1px solid var(--border); }
+  .teacher-guidance-content { padding: 16px 18px; }
+  .resources-list { display: flex; flex-wrap: wrap; gap: 10px; }
+  .res-tag { max-width: 100%; min-width: 0; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; }
+  footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--muted); font-size: 0.85rem; }
+  footer a { color: var(--purple-lt); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .section-nav { position: sticky; top: 56px; z-index: 90; background: rgba(10,10,15,.97); border-bottom: 1px solid var(--border); padding: 8px 16px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: thin; }
+  .section-nav a { flex: 0 0 auto; min-height: 36px; display: inline-flex; align-items: center; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 5px 12px; text-decoration: none; font-size: .8rem; }
+  .base-text { max-width: 72ch; margin-inline: auto; }
+  .base-intro { color: var(--muted); font-size: .92rem; margin-bottom: 16px; }
+  .base-subsection { scroll-margin-top: 112px; margin-bottom: 28px; }
+  .base-subsection h3 { color: var(--blue-lt); font-size: 1.15rem; line-height: 1.35; margin-bottom: 12px; }
+  .base-subsection p { color: var(--text); margin-bottom: 14px; line-height: 1.78; }
+  .base-subsection strong { color: #f1f5f9; }
+  .pause-box { background: rgba(79,70,229,.1); border: 1px solid rgba(129,140,248,.4); border-left: 4px solid var(--blue-lt); border-radius: var(--radius); padding: 16px 18px; margin: 22px 0; }
+  .pause-box h4 { color: var(--amber-lt); font-size: .75rem; letter-spacing: .09em; text-transform: uppercase; margin-bottom: 6px; }
+  .pause-box p { margin: 0; color: var(--text); font-weight: 600; line-height: 1.6; }
+  a:focus-visible { outline: 3px solid var(--amber-lt); outline-offset: 3px; border-radius: 3px; }
+  @media (max-width: 640px) {
+    nav { height: auto; min-height: 56px; padding: 8px 12px; flex-wrap: wrap; }
+    .nav-left, .nav-right { min-width: 0; }
+    .nav-center { display: none; }
+    .nav-right { gap: 10px; }
+    .section-nav { top: 72px; padding-inline: 10px; }
+    main { padding: 24px 14px 60px; }
+    .aula-header { padding: 22px 18px; }
+    .tl-item { flex-direction: column; gap: 8px; }
+  }
+  @media print { .teacher-guidance { break-inside: avoid; } }
+
+
+:root{--bg:#0a0a0f;--surface:#12121c;--card:#1a1a2e;--border:#2a2a4a;--sky:#38bdf8;--blue:#818cf8;--teal:#2dd4bf;--amber:#fbbf24;--text:#e2e8f0;--muted:#94a3b8;--r:12px}*{box-sizing:border-box;margin:0;padding:0}html,body{max-width:100%;overflow-x:clip}body{background:var(--bg);color:var(--text);font:16px/1.65 "Segoe UI",system-ui,sans-serif;overflow-wrap:anywhere}nav{position:sticky;top:0;z-index:10;height:56px;padding:0 24px;background:#12121cf2;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:14px}nav a{color:var(--muted);text-decoration:none;white-space:nowrap}.nav-left,.nav-right{display:flex;gap:12px;align-items:center}.badge{background:var(--sky);color:#080810;padding:3px 10px;border-radius:20px;font-size:.75rem;font-weight:700}.section-nav{top:56px;z-index:9;height:auto;padding:8px 16px;justify-content:flex-start;overflow-x:auto}.section-nav a,.chip{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:4px 11px;font-size:.8rem}main{max-width:860px;margin:auto;padding:40px 24px 80px}section{margin-bottom:32px;scroll-margin-top:110px}.header,.topic,.tl,.ref,.activity{background:var(--card);border:1px solid var(--border);border-radius:var(--r)}.header{border-top:4px solid var(--sky);padding:32px;margin-bottom:32px}.meta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:15px}.block{background:var(--sky);color:#080810;font-weight:700;text-transform:uppercase}.header h1{font-size:1.5rem}.st{color:var(--sky);font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border-bottom:1px solid var(--border);padding-bottom:8px;margin-bottom:16px}.objs{list-style:none;display:grid;gap:10px}.objs li,.topic{padding:14px 18px}.objs li{background:var(--card);border:1px solid var(--border);border-radius:var(--r)}.topic{margin-bottom:12px}.topic h3,.base h3{color:var(--blue);margin-bottom:8px}.topic ul{padding-left:20px;color:var(--muted)}.base{max-width:72ch;margin:auto}.intro{color:var(--muted)}.toc{position:static;height:auto;display:block;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:18px 22px;margin:18px 0 28px}.toc ol{columns:2;padding-left:22px}.toc a{color:var(--text);white-space:normal}.sub{margin-bottom:28px;scroll-margin-top:110px}.sub p{margin-bottom:14px}.pause{background:#4f46e51a;border:1px solid #818cf866;border-left:4px solid var(--blue);border-radius:var(--r);padding:15px 18px;margin:20px 0}.pause h4{color:var(--amber);text-transform:uppercase;font-size:.76rem}.timeline{display:grid;gap:10px}.tl{padding:14px 18px;border-left:3px solid var(--sky);display:flex;gap:14px}.time{color:var(--amber);font-weight:700;white-space:nowrap}.ref{padding:15px 18px;margin-bottom:10px;border-left:3px solid var(--blue)}.ref strong{color:var(--blue)}.activity{padding:20px;border-left:3px solid var(--teal)}.activity h3,.activity h4{color:var(--teal);margin:14px 0 7px}.activity ol,.activity ul{padding-left:22px}.cases{display:grid;grid-template-columns:1fr 1fr;gap:10px}.case,.questions,details{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:13px}.case h4{margin:0;color:var(--amber)}.case dl{display:grid;grid-template-columns:auto 1fr;gap:3px 8px}.case dt{font-weight:700;color:var(--muted)}.questions{padding-left:34px!important}details{margin-top:18px}summary{cursor:pointer;color:var(--amber);font-weight:700}.answer{padding-top:10px}.answer h4{color:var(--teal)}.resources{display:flex;flex-wrap:wrap;gap:8px}footer{text-align:center;border-top:1px solid var(--border);padding:28px;color:var(--muted)}footer a{color:var(--sky)}a:focus-visible,summary:focus-visible{outline:3px solid var(--amber)}@media(max-width:640px){nav{height:auto;min-height:56px;padding:8px 12px;flex-wrap:wrap}.nav-center{display:none}.section-nav{top:72px;flex-wrap:nowrap}main{padding:24px 14px 60px}.header{padding:20px 17px}.toc ol{columns:1;padding-left:0;list-style-position:inside}.cases{grid-template-columns:1fr}.tl{flex-direction:column;gap:3px}.case dl{grid-template-columns:1fr}}@media print{:root{--bg:#fff;--surface:#fff;--card:#fff;--border:#999;--text:#111;--muted:#333;--sky:#222;--blue:#222;--teal:#222;--amber:#222}nav{position:static}.section-nav{display:none}main{max-width:none;padding:10mm}.case,.ref,.tl,details{break-inside:avoid}details>.answer{display:block!important}}
+
+body {max-width:100%; overflow-x:hidden; overflow-wrap:anywhere;} main{max-width:960px;margin:auto} .base-text{max-width:72ch} .base-subsection{margin-bottom:24px} table{width:100%;border-collapse:collapse}th,td{padding:8px;border:1px solid var(--border);overflow-wrap:anywhere} .table-wrap,.table-region{overflow-x:auto;max-width:100%} .teacher-guidance{margin-top:20px;padding:16px;border:1px solid var(--border)} summary{cursor:pointer;font-weight:bold} .skip{position:absolute;left:-9999px}.skip:focus{left:12px;top:12px;z-index:300;background:var(--bg);padding:10px} a{overflow-wrap:anywhere} @media(max-width:640px){nav{position:static;flex-wrap:wrap;height:auto;padding:12px}.nav-center{display:none}.section-nav{position:static;flex-wrap:wrap}main{padding:20px 14px}.tl-item{flex-direction:column}.aula-header{padding:20px 14px}} @media print{nav,.section-nav,.skip{display:none!important}body,main,section,.aula-header,.activity-card,.pause-box,details{background:white!important;color:black!important}*{color:inherit!important;text-shadow:none!important;box-shadow:none!important}main{max-width:none;padding:0}.base-text{max-width:none}h1,h2,h3,summary{break-after:avoid}p{orphans:3;widows:3}table{font-size:9pt}.teacher-guidance{break-inside:auto}}
+</style></head><body>
+<a class="skip" href="#objetivos">Pular para o conteúdo</a>
+<nav aria-label="Navegação entre aulas"><div class="nav-left"><a href="../../index.html">Voltar ao curso</a></div><span class="nav-center">Encontro 10 de 15 · Aula 39 de 60</span><div class="nav-right"><a href="aula-38.html">← Aula anterior</a><a href="aula-40.html">Próxima aula →</a></div></nav>
+<div class="section-nav" aria-label="Seções"><a href="#objetivos">Objetivos</a><a href="#texto-base">Texto-base</a><a href="#plano-aula">Plano</a><a href="#atividade">Discussão</a><a href="#sintese">Síntese</a><a href="#leituras">Referências</a></div>
+<main><header class="aula-header"><div class="header-meta"><span class="meta-chip">Encontro <strong>10</strong> de 15 — 11/11/2026, quarta-feira</span><span class="meta-chip">Aula <strong>39</strong> de 60</span><span class="meta-chip">3ª aula do encontro</span><span class="meta-chip">Aproximadamente 1 hora-aula</span></div><h1>Normas, sanções e controle social</h1><p>Introdução à Sociologia · T01 · 2026.2 · Código 2101000 · SIGAA 4M1234</p></header>
+<section id="objetivos"><h2>Objetivos</h2><ul class="obj-list"><li>Distinguir normas formais e informais em contexto.</li><li>Classificar sanções positivas e negativas.</li><li>Analisar controle difuso e institucional.</li></ul></section>
+<section id="texto-base" aria-labelledby="texto-base-title"><h2 id="texto-base-title">Texto-base</h2><div class="base-text"><p class="base-intro">Por que um elogio também pode orientar comportamento? Controle social envolve mais do que proibição e punição.</p><div class="sub base-subsection" id="a39-conceito-1">
+<h3>1. Da expectativa à norma social</h3>
+<p>Na aula anterior, vimos que participantes de grupos antecipam ações uns dos outros. Quando uma expectativa é compartilhada, comunicada e sustentada por reações sociais, podemos falar em <strong>norma social</strong>. Norma não é apenas lei escrita. É um padrão que indica o que costuma ser esperado, permitido ou reprovado numa situação: aguardar o turno de fala, cumprir horário combinado ou reconhecer determinada autoridade.</p>
+<p>Nem toda regularidade é norma. Muitas pessoas levam guarda-chuva quando chove, mas isso pode ser resposta prática, sem cobrança coletiva. Para reconhecer uma norma, procuramos linguagem de obrigação, aprovação ou reprovação, tentativas de correção e justificativas. Também distinguimos norma declarada e prática: um grupo afirma valorizar participação igual, mas interrompe sempre as mesmas pessoas. A distância é dado sociológico, não simples erro individual.</p>
+<p>Pessoas podem conhecer uma norma e discordar dela. Podem cumpri-la por identificação, conveniência, receio de reação ou falta de alternativa; podem negociá-la, contorná-la ou contestá-la. Conformidade observável não prova concordância interna. Assim como na Aula 37, agência é situada: respostas dependem de posições, vínculos, recursos e consequências previstas.</p>
+<p>Normas coordenam expectativas e tornam interações previsíveis, mas não expressam necessariamente consenso absoluto. Grupos possuem conflitos, interpretações concorrentes e integrantes com capacidades desiguais de fazer sua leitura prevalecer. Perguntar “qual é a norma?” exige perguntar também “segundo quem, em qual situação e sustentada por quais reações?”.</p>
+<aside class="pause">
+<h4>Pausa 1 — Uma regra informal de grupo</h4>
+<p>Num grupo fictício, ninguém escreveu que mensagens devem ser respondidas em uma hora, mas respostas tardias recebem ironias. Que evidências indicam uma norma informal, e que informação ainda falta?</p>
+</aside>
+</div><div class="sub base-subsection" id="a39-conceito-2">
+<h3>2. Normas formais, informais e contextuais</h3>
+<p>Identificar uma norma exige cuidado com a evidência. Uma frase isolada pode expressar preferência pessoal, tentativa de criar regra ou expectativa já compartilhada. Repetição das cobranças, justificativas usadas, reconhecimento da autoridade e reações a casos semelhantes ajudam a distinguir essas possibilidades. Também é preciso verificar alcance: uma orientação válida para laboratório com equipamento não se estende automaticamente a qualquer sala ou atividade.</p>
+<p>Quando uma norma não foi comunicada com clareza, isso afeta a previsibilidade e a possibilidade de contestação, mas não prova que nenhuma expectativa existia. Participantes antigos podem conhecê-la por socialização informal, enquanto recém-chegados não dispõem da mesma informação. A distribuição desigual desse conhecimento é parte da análise e pode produzir diferenças que parecem falhas individuais.</p>
+<p>Normas <strong>formais</strong> são registradas e associadas a procedimentos reconhecidos: regulamento universitário, contrato, código profissional ou lei. Normas <strong>informais</strong> circulam por costumes, exemplos, comentários, gestos e expectativas não codificadas. A distinção não equivale a forte e fraco. Uma regra escrita pode ser ignorada; uma expectativa informal pode regular intensamente porque pertencimento e reputação estão em jogo.</p>
+<p>As duas formas interagem. Um regulamento determina horário, enquanto o grupo tolera informalmente certa margem. Um costume pode tornar-se regra escrita após conflito; uma norma formal pode mudar práticas aos poucos. Para analisar um caso, localizamos texto, autoridade e procedimento, mas também observamos como participantes interpretam e aplicam a regra.</p>
+<p>Normas são <strong>contextuais</strong>: o mesmo gesto pode ser esperado numa situação, indiferente em outra e inadequado numa terceira. Falar durante apresentação difere de falar durante debate; vestuário considerado adequado varia conforme atividade, instituição, período e grupo. Variação não significa que “tudo vale”, e sim que classificações precisam de recorte histórico e social.</p>
+<p>Há ainda pluralidade dentro do mesmo contexto. Gerações, setores e posições podem sustentar leituras distintas. Uma regra ambígua não desaparece por ser ambígua: a disputa sobre seu sentido pode favorecer quem controla o procedimento. Descrever com precisão evita converter uma interpretação particular em consenso do grupo inteiro.</p>
+</div><div class="sub base-subsection" id="a39-conceito-3">
+<h3>3. Sanções positivas, negativas, formais e informais</h3>
+<p>
+<strong>Sanção</strong> é uma reação que reforça, desencoraja ou marca condutas em relação a uma norma. Pode ser positiva: elogio, certificado, confiança, convite ou prestígio. Pode ser negativa: crítica, perda de acesso, advertência ou afastamento. Pode ser formal, quando segue procedimento institucional, ou informal, quando aparece em aprovação, silêncio, piada, convite ou recusa cotidiana.</p>
+<p>Essas dimensões combinam-se. Uma bolsa por desempenho é positiva e formal; elogio do grupo, positivo e informal; advertência registrada, negativa e formal; desaprovação por olhares, negativa e informal. A mesma reação pode ter sentidos diversos. Não ser convidado pode ser sanção, acaso ou resultado de limite material. Para afirmar que regula conduta, precisamos relacioná-lo a uma expectativa e observar padrões.</p>
+<p>Aprovação, prestígio e pertencimento regulam tanto quanto ameaças em muitos contextos. Pessoas aprendem quais condutas recebem reconhecimento e orientam-se também pela expectativa de inclusão. Isso amplia o conceito além de punição. Ao mesmo tempo, não devemos imaginar sujeitos passivos: uma crítica pode levar à conformidade, à negociação, à saída ou à contestação.</p>
+<p>A intensidade da sanção não depende apenas de sua forma. Uma reação informal pode afetar fortemente quem valoriza o grupo; uma medida formal pode ser revertida por recurso. Posição institucional e recursos alteram tanto exposição à sanção quanto possibilidade de respondê-la.</p>
+<aside class="pause">
+<h4>Pausa 2 — A mesma conduta julgada diferentemente</h4>
+<p>Duas personagens fazem comentário semelhante em reuniões diferentes; uma recebe elogio e outra, reprovação. Que públicos, posições, contextos e comparações precisam ser examinados?</p>
+</aside>
+</div><div class="sub base-subsection" id="a39-conceito-4">
+<h3>4. Controle social e produção da conformidade</h3>
+<p>
+<strong>Controle social</strong> reúne processos pelos quais condutas são orientadas, monitoradas e respondidas em relação a normas. Inclui instituições estatais, mas não se reduz a polícia, tribunal ou punição. Famílias, escolas, associações, profissões, mercados, meios de comunicação e plataformas participam por rotinas, avaliações, incentivos, arquitetura, reputação e acesso a recursos.</p>
+<p>O controle pode ser difuso, quando inúmeras interações comunicam aprovação e reprovação, ou institucional, quando agentes, competências e procedimentos são definidos. As formas se cruzam: um regulamento formal ganha força por comentários informais; uma expectativa difundida pode orientar decisão administrativa. Tecnologias também incorporam escolhas: permissões de um sistema facilitam algumas ações e impedem outras.</p>
+<p>Produzir conformidade não é fabricar obediência automática. Participantes interpretam o que se espera, calculam consequências, negociam exceções e podem cumprir exteriormente sem concordar. Algumas rotinas tornam-se habituais e dispensam vigilância constante; outras permanecem disputadas. Explicação adequada conecta motivos, relações, recursos e instituições, sem atribuir todo resultado à vontade ou à coerção.</p>
+<p>Controle social pode coordenar cooperação, proteger direitos ou reproduzir desigualdades. A análise sociológica descreve mecanismos e efeitos antes de avaliá-los. Compreender como uma regra funciona não implica aprová-la; criticá-la não dispensa demonstrar quem a aplica e quais consequências produz.</p>
+</div></div></section>
+<section id="plano-aula"><h2>Percurso da hora-aula</h2><div class="timeline"><div class="tl-item"><span class="tl-duration">10 min</span><span class="tl-text">Por que um elogio também pode orientar comportamento? Controle social envolve mais do que proibição e punição.</span></div><div class="tl-item"><span class="tl-duration">25 min</span><span class="tl-text">Leitura dialogada e desenvolvimento dos conceitos desta unidade.</span></div><div class="tl-item"><span class="tl-duration">20 min</span><span class="tl-text">Discussão e elaboração do registro proposto; comparação das justificativas com mediação docente.</span></div><div class="tl-item"><span class="tl-duration">5 min</span><span class="tl-text">Síntese e transição: A Aula 40 examinará quem define o desvio e como rótulos podem alterar trajetórias.</span></div></div></section>
+<section id="atividade"><h2>Discussão e registro</h2><div class="activity-card" data-gabarito="obrigatorio"><p>Num projeto, cumprir o prazo rende certificado e reconhecimento dos colegas; descumpri-lo pode gerar advertência prevista no regulamento e comentários de reprovação. Classifique as quatro reações e discuta por que conhecer a norma não garante obediência.</p><details class="teacher-guidance"><summary>Orientação docente e resposta comentada</summary><p>Certificado e advertência prevista são sanções formalizadas, respectivamente positiva e negativa. Reconhecimento e reprovação dos colegas podem funcionar como sanções informais, também positiva e negativa. As dimensões formalidade e valência são independentes: formal não significa punitivo, e informal não significa positivo ou pouco importante. Peça que o grupo explique qual expectativa cada reação reforça e quem possui capacidade de produzi-la.</p><p>Conhecimento da norma não assegura cumprimento. Podem existir dificuldades de transporte, conflito de tarefas, discordância, estratégias ou esquecimento; cada explicação exige evidências. O exercício não afirma que toda advertência seja injusta nem que todo elogio seja manipulação. Uma resposta adequada distingue descrição do mecanismo e avaliação de seus efeitos. Discuta como as reações podem tornar-se rotineiras e como regras podem ser negociadas. Para avaliar tratamento desigual, seria necessário comparar situações pertinentes e procedimentos, tema da unidade seguinte. Evite pedir a estudantes relatos de transgressão ou classificar colegas como obedientes e desviantes.</p></details></div></section>
+<section id="sintese"><h2>Síntese e continuidade</h2><p>Normas são expectativas sustentadas socialmente. Sanções e rotinas orientam condutas, mas sua força não elimina interpretação ou contestação.</p><p>A Aula 40 examinará quem define o desvio e como rótulos podem alterar trajetórias.</p></section><section id="leituras">
+<div class="st">Referências</div>
+<div class="ref">
+<strong>BECKER, Howard S.</strong> Outsiders: Studies in the Sociology of Deviance. New York: Free Press of Glencoe, 1963.<p>Referência para criação e aplicação de regras; o texto usa paráfrases didáticas, não citações literais.</p>
+</div>
+<div class="ref">
+<strong>LEMERT, Edwin M.</strong> Social Pathology: A Systematic Approach to the Theory of Sociopathic Behavior. New York: McGraw-Hill, 1951.<p>Referência histórica da abordagem interacionista; conceitos posteriores não são atribuídos como formulações literais.</p>
+</div>
+</section>
+</main><footer>Introdução à Sociologia · T01 · 2026.2 · <a href="../../index.html">Voltar ao curso</a></footer></body></html>
