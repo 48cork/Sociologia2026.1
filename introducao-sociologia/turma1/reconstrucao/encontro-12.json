@@ -1,0 +1,98 @@
+[
+  {
+    "aula": 45,
+    "fonte": 23,
+    "secoes": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "titulo": "Estratificação social: castas e estamentos",
+    "abertura": "Nem toda diferença é uma hierarquia durável. Que regras tornam posições e oportunidades desiguais ao longo de gerações?",
+    "objetivos": [
+      "Definir estratificação e fechamento social.",
+      "Distinguir mecanismos de castas e estamentos.",
+      "Comparar tipos históricos sem criar uma escala de progresso."
+    ],
+    "sintese": "Estratificação articula recursos, reconhecimento e oportunidades. Tipos históricos destacam mecanismos, não sociedades homogêneas ou etapas inevitáveis.",
+    "transicao": "Na Aula 46, classes e mobilidade serão examinadas a partir das perguntas de Marx e Weber.",
+    "atividade": "Compare dois documentos fictícios: um reserva cargos e isenção tributária a uma ordem hereditária; outro informa diferença salarial entre ocupações, sem explicar acesso ou permanência. Qual permite discutir privilégio estamental? O que falta para analisar a segunda hierarquia?",
+    "gabarito": "<p>O primeiro documento fornece indícios de privilégio jurídico associado a uma ordem, sustentando comparação com relações estamentais. A transmissão hereditária importa, mas não basta sozinha para afirmar sistema de castas: seria necessário investigar outros critérios de pertencimento, casamento, separação ou ocupação. O segundo registra diferença de remuneração. Sem informação sobre duração, recrutamento, autoridade e recursos, não explica o mecanismo que mantém a desigualdade.</p><p>Peça que estudantes distingam categoria comparativa e descrição de uma sociedade inteira. Documentos podem apresentar regras que não são aplicadas de modo uniforme; por isso, implementação e diferenças internas também devem ser examinadas. Não aceite o uso de casta como sinônimo de qualquer elite nem a suposição de que mercados eliminam toda barreira herdada. Uma resposta adequada explicita o aspecto comparado e a evidência ausente. Retome como credenciais, patrimônio e redes podem restringir oportunidades por meios distintos, preparando o estudo das classes sem anunciar uma evolução linear dos sistemas históricos.</p>"
+  },
+  {
+    "aula": 46,
+    "fonte": 23,
+    "secoes": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "titulo": "Classes sociais e mobilidade: Marx e Weber em diálogo",
+    "abertura": "Uma pessoa recebe promoção e perde estabilidade. Isso é ascensão social em todas as dimensões?",
+    "objetivos": [
+      "Distinguir relações de produção, situação de mercado e status.",
+      "Definir mobilidade intra e intergeracional.",
+      "Analisar trajetórias sem confundir mobilidade e igualdade de oportunidades."
+    ],
+    "sintese": "Mobilidade depende da dimensão e do período comparados. Renda, patrimônio, segurança, credencial e poder podem seguir direções distintas.",
+    "transicao": "Na Aula 47, veremos como indicadores transformam dimensões da desigualdade em medidas.",
+    "tempos": [
+      5,
+      15,
+      35,
+      5
+    ],
+    "texto": "<p>Essa distinção volta ao experimento final. A diferença de renda declarada entre as personas não representa automaticamente duas classes completas. Uma resposta que presume patrimônio, estabilidade ou rede de contatos acrescenta informações que o grupo não forneceu. Tais pressupostos podem ser analisados, mas não devem ser incorporados às fichas como se fossem fatos. O controle da variável permite perguntar como uma indicação monetária orienta expectativas de oportunidades; a teoria impede confundir esse recorte com toda a estrutura de classes.</p>",
+    "atividade_fonte": true
+  },
+  {
+    "aula": 47,
+    "fonte": 24,
+    "secoes": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "titulo": "Medir a desigualdade: indicadores, renda e coeficiente de Gini",
+    "abertura": "Dois municípios têm o mesmo Gini: suas condições de vida são iguais? A pergunta revela o que um indicador mede e o que deixa de fora.",
+    "objetivos": [
+      "Distinguir renda, riqueza e condições de vida.",
+      "Ler média, mediana e Gini com metadados.",
+      "Identificar limites da comparação."
+    ],
+    "sintese": "Indicadores são medidas construídas para perguntas específicas. Gini resume concentração de uma variável, sem identificar sozinho níveis de renda, bem-estar ou mecanismos.",
+    "transicao": "A Aula 48 cruzará dimensões e escalas para formular explicações da desigualdade.",
+    "atividade": "Dados fictícios: município Ipê tem Gini 0,40 e renda mediana de 120 unidades monetárias; Jatobá tem Gini 0,40 e mediana de 75, no mesmo ano e definição. Escreva duas conclusões permitidas, uma proibida e três informações adicionais sobre condições de vida.",
+    "gabarito": "<p>Os municípios apresentam a mesma concentração resumida pelo Gini e medianas diferentes. Isso não significa distribuições inteiramente idênticas nem condições de vida equivalentes. Também não permite concluir qual política produziu os valores. A mediana maior informa uma posição central mais elevada na variável observada, mas não esclarece preços, serviços ou desigualdades internas. Peça formulações que preservem unidade, período e natureza fictícia dos dados.</p><p>Informações pertinentes incluem custos de moradia, acesso a saneamento, saúde, transporte e estabilidade da renda. Para estudar mecanismos, seriam necessários séries históricas, composição da população e decisões institucionais. Corrija a confusão entre renda como fluxo e riqueza como estoque, bem como a ideia de que Gini mede pobreza por definição. Uma resposta forte sabe parar onde termina a evidência. Na comparação, não se exige escolher o município melhor; exige-se explicar o que cada medida permite observar e qual pergunta permanece sem resposta, preparando o cruzamento de dimensões da próxima aula.</p>"
+  },
+  {
+    "aula": 48,
+    "fonte": 24,
+    "secoes": [
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "titulo": "Desigualdade no Brasil: raça, território e explicação",
+    "abertura": "Uma média municipal pode esconder diferenças entre bairros e grupos. Como desagregar dados sem transformar categorias em causas?",
+    "objetivos": [
+      "Relacionar raça, renda e território sem determinismo.",
+      "Distinguir composição, contexto e mecanismo.",
+      "Construir inferências proporcionais aos dados."
+    ],
+    "sintese": "Desagregar localiza padrões; explicar exige processos, instituições e evidências adicionais. Categorias de grupo não autorizam previsões individuais.",
+    "transicao": "A Aula 49 aprofundará a construção social das classificações raciais e seus efeitos.",
+    "tempos": [
+      5,
+      15,
+      35,
+      5
+    ],
+    "atividade_fonte": true
+  }
+]
