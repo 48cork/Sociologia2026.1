@@ -13,8 +13,8 @@ sociológica, não edita HTML e não emite o veredito final.
 1. Todo jargão é explicado na primeira ocorrência sem perder precisão.
 2. Conceitos precedem aplicações e exemplos; instruções têm ordem executável.
 3. Objetivos, texto-base, plano, atividade e gabarito estão alinhados.
-4. O plano soma 120 minutos e seus tempos são plausíveis para leitura, oficina e
-   socialização.
+4. O plano soma o total de `plano.minutos_exatos` em `config/criterios.yaml` e seus
+   tempos são plausíveis para leitura, oficina e socialização.
 5. Materiais e perguntas permitem distinguir observação, inferência, evidência e
    avaliação; o gabarito admite alternativas justificadas.
 6. Atividades não pedem confissões, identificação religiosa/política, renda, sexualidade,

@@ -22,8 +22,9 @@ conceitual aprofundada, a revisão de fluidez ou o veredito do Aprovador.
 1. Título, objetivos, conteúdo, texto-base, plano e atividade tratam o mesmo tema.
 2. Conceitos próprios da aula aparecem substantivamente; conteúdos reservados à próxima
    aula são apenas anunciados na transição.
-3. Texto-base tem aproximadamente 2.300–2.800 palavras e nove subseções, salvo
-   justificativa pedagógica explícita; inclui quatro pausas e arquitetura própria.
+3. Texto-base respeita os limites de palavras, subseções e pausas de
+   `config/criterios.yaml`, salvo justificativa pedagógica explícita, e tem arquitetura
+   própria.
 4. A atividade é integral e autossuficiente: finalidade, organização, tempos, materiais,
    perguntas, produto, socialização, cuidado e gabarito real estão na página.
 5. Nenhum cartão, tabela, imagem, vídeo, ficha, dado ou texto é prometido sem estar

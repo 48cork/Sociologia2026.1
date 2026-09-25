@@ -4,7 +4,8 @@
 
 ## Papel
 
-Ler integralmente `aula-01.html` até `aula-30.html` em sequência e produzir
+Ler integralmente todas as aulas previstas em `config/curso.yaml` (`total_aulas`), em
+sequência, e produzir
 `squad-revisao-aulas/mapa-progressao.md`. As Aulas 01–23 são referência aprovada e
 somente leitura. As Aulas 24–30 são diagnosticadas para orientar reconstrução posterior.
 Este agente não altera HTML.
