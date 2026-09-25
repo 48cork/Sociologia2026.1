@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aula 03 — Introdução à Sociologia | 2026.2</title>
+<title>Aula 03 — A dupla revolução: Revolução Francesa e Revolução Industrial | 2026.2</title>
 <style>
   :root {
     --bg: #0a0a0f; --surface: #12121c; --card: #1a1a2e; --border: #2a2a4a;
@@ -79,11 +79,59 @@
     .tl-item { flex-direction: column; gap: 8px; }
   }
   @media print { .teacher-guidance { break-inside: avoid; } }
+
+  /* Leitura em sala, teclado, telas estreitas e impressão. */
+  .skip-link { position: absolute; left: -9999px; }
+  .skip-link:focus { left: 12px; top: 12px; z-index: 200; padding: 12px; background: var(--bg); color: var(--text); }
+  .section-title { font-size: .9rem; }
+  .activity-card p, .teacher-guidance-content p, .lesson-synthesis p { margin-bottom: 12px; }
+  .activity-card ol { padding-left: 24px; margin: 12px 0; }
+  .activity-card li { margin-bottom: 8px; }
+  .case-card { padding: 16px; margin: 16px 0; border: 1px solid var(--border); border-radius: var(--radius); }
+  .case-card h3 { color: var(--blue-lt); margin-bottom: 8px; font-size: 1rem; }
+  .teacher-note { margin-top: 14px; padding: 12px; border-left: 3px solid var(--amber-lt); }
+  .print-note { color: var(--muted); margin-top: 12px; font-size: .85rem; }
+  .reading-note { margin-bottom: 12px; color: var(--muted); }
+  summary:focus-visible { outline: 3px solid var(--amber-lt); outline-offset: 3px; }
+  @media (max-width: 640px) {
+    nav, .section-nav { position: static; }
+    nav a { min-height: 44px; display: inline-flex; align-items: center; white-space: normal; }
+    .nav-right { flex-wrap: wrap; }
+    .section-nav { flex-wrap: wrap; }
+    .section-nav a { min-height: 44px; }
+    .activity-card { padding: 16px; }
+    .teacher-guidance-content { padding: 12px; }
+    .case-card { padding: 12px; }
+    section, .base-subsection { scroll-margin-top: 16px; }
+  }
+  @page { size: A4; margin: 16mm; }
+  @media print {
+    :root { --bg: #fff; --surface: #fff; --card: #fff; --border: #888; --text: #111; --muted: #333; --purple: #333; --purple-lt: #222; --blue-lt: #222; --teal-lt: #333; --amber-lt: #222; }
+    html, body { overflow: visible; min-height: 0; background: #fff; color: #111; font-size: 10pt; }
+    * { color: #111 !important; background: transparent !important; box-shadow: none !important; text-shadow: none !important; }
+    nav, .section-nav, .skip-link, .print-note { display: none !important; }
+    main { max-width: none; padding: 0; }
+    .base-text { max-width: none; }
+    .aula-header { padding: 12px; margin-bottom: 18px; }
+    .header-meta { gap: 6px; }
+    .meta-chip { font-size: 8pt; }
+    h1, h2, h3, h4, summary { break-after: avoid; }
+    p, li { orphans: 3; widows: 3; }
+    section, .activity-card, .teacher-guidance { break-inside: auto; }
+    .tl-item, .ref-card, .case-card { break-inside: avoid; }
+    .obj-list, .timeline { display: block; }
+    .obj-list li, .tl-item { margin-bottom: 8px; }
+    .teacher-guidance:not([open]) { display: none; }
+    .teacher-guidance[open] { display: block; }
+    a { text-decoration: underline; }
+    footer { padding: 12px 0; }
+  }
 </style>
 </head>
 <body>
+<a class="skip-link" href="#conteudo-aula">Pular para o conteúdo da aula</a>
 
-<nav>
+<nav aria-label="Navegação entre aulas">
   <div class="nav-left">
     <a href="../../index.html">← Voltar ao curso</a>
     <span class="nav-badge">Aula 03</span>
@@ -94,9 +142,9 @@
     <a href="aula-04.html">Próxima aula →</a>
   </div>
 </nav>
-<div class="section-nav" aria-label="Seções da aula"><a href="#objetivos">Objetivos</a><a href="#conteudo-programatico">Conteúdo</a><a href="#texto-base">Texto-base</a><a href="#plano-aula">Plano da aula</a><a href="#leituras">Leituras</a><a href="#atividade">Atividade</a><a href="#recursos">Recursos</a></div>
+<div class="section-nav" aria-label="Seções da aula"><a href="#objetivos">Objetivos</a><a href="#conteudo-programatico">Conteúdo</a><a href="#texto-base">Texto-base</a><a href="#plano-aula">Plano da aula</a><a href="#leituras">Leituras</a><a href="#atividade">Atividade</a><a href="#sintese">Síntese</a><a href="#recursos">Recursos</a></div>
 
-<main>
+<main id="conteudo-aula" tabindex="-1">
 
   <div class="aula-header">
     <div class="header-meta">
@@ -110,16 +158,16 @@
   </div>
 
   <section id="objetivos">
-    <div class="section-title">Objetivos da Aula</div>
+    <h2 class="section-title">Objetivos da Aula</h2>
     <ul class="obj-list">
-      <li>Compreender a Revolução Francesa e a Revolução Industrial como duas rupturas distintas que, juntas, formam a modernidade.</li>
+      <li>Compreender a Revolução Francesa e a Revolução Industrial como duas rupturas distintas que contribuíram para a formação da sociedade moderna.</li>
       <li>Distinguir a ruptura política (privilégios, cidadania, soberania) da ruptura produtiva (fábrica, trabalho assalariado, mercado).</li>
       <li>Evitar tratar "revolução" ou "modernidade" como blocos homogêneos que apagam diferenças entre lugares e grupos.</li>
     </ul>
   </section>
 
   <section id="conteudo-programatico">
-    <div class="section-title">Conteúdo Programático</div>
+    <h2 class="section-title">Conteúdo Programático</h2>
     <div class="content-topic">
       <h3>1. Duas revoluções, rupturas diferentes</h3>
       <ul>
@@ -137,7 +185,7 @@
   </section>
 
   <section id="texto-base" aria-labelledby="texto-base-title">
-    <div class="section-title" id="texto-base-title">Texto-base para acompanhamento da aula</div>
+    <h2 class="section-title" id="texto-base-title">Texto-base para acompanhamento da aula</h2>
     <div class="base-text">
       <p class="base-intro">As Aulas 01 e 02 apresentaram o olhar sociológico e o vocabulário para desnaturalizar o familiar. Este texto reconstrói as transformações políticas, econômicas e sociais que fizeram da própria sociedade moderna um novo problema de conhecimento.</p>
 
@@ -178,7 +226,7 @@
   </section>
 
   <section id="plano-aula">
-    <div class="section-title">Plano de Aula com Tempo</div>
+    <h2 class="section-title">Plano de Aula com Tempo</h2>
     <div class="timeline">
       <div class="tl-item">
         <span class="tl-duration">10 min</span>
@@ -186,7 +234,7 @@
       </div>
       <div class="tl-item">
         <span class="tl-duration">25 min</span>
-        <span class="tl-text"><strong>Exposição: a dupla revolução</strong> — Revolução Francesa e Revolução Industrial como rupturas distintas que juntas tornam a Sociologia necessária.</span>
+        <span class="tl-text"><strong>Exposição: a dupla revolução</strong> — Revolução Francesa e Revolução Industrial como rupturas distintas que criam condições históricas para o surgimento da Sociologia.</span>
       </div>
       <div class="tl-item">
         <span class="tl-duration">15 min</span>
@@ -200,7 +248,8 @@
   </section>
 
   <section id="leituras">
-    <div class="section-title">Textos para Leitura Prévia</div>
+    <p class="reading-note">O texto-base e os materiais desta página permitem acompanhar a aula sem leitura prévia. As obras abaixo apoiam a retomada e o aprofundamento.</p>
+    <h2 class="section-title">Leituras de referência e aprofundamento</h2>
     <div class="ref-card">
       <div class="ref-author">GIDDENS, Anthony</div>
       <div class="ref-title">Sociologia. Cap. 1 — "O que é Sociologia?"</div>
@@ -209,15 +258,18 @@
   </section>
 
   <section id="atividade">
-    <div class="section-title">Atividade / Questão de Discussão</div>
+    <h2 class="section-title">Atividade / Questão de Discussão</h2>
     <div class="activity-card" data-gabarito="dispensado">
       <strong>Antes da próxima aula</strong><br><br>
-      Escolha uma revolução (a Francesa ou a Industrial) e anote, em duas frases, um efeito que ela teve sobre pessoas comuns — não sobre reis, generais ou grandes empresários. Traga essa anotação para a Aula 04, que vai usar imagens históricas para examinar exatamente esse tipo de efeito.
+      Escolha uma revolução (a Francesa ou a Industrial) e anote, em duas frases, um efeito que ela teve sobre pessoas comuns — não sobre reis, generais ou grandes empresários. Traga essa anotação para a Aula 04, que vai usar casos didáticos de trabalho e vida urbana para examinar esse tipo de efeito.
+      <p class="teacher-note"><strong>Orientação docente:</strong> usar os três minutos finais da síntese para o registro. Um exemplo político é a contestação de privilégios de nascimento; um exemplo produtivo é a reorganização do tempo de trabalho pela fábrica. Pedir a relação entre mudança e vida cotidiana, sem pressupor igualdade efetiva ou melhoria universal. As anotações serão retomadas na abertura da Aula 04.</p>
     </div>
   </section>
 
+  <section id="sintese" class="lesson-synthesis"><h2 class="section-title">Síntese e continuidade</h2><p>A Revolução Francesa reorganizou o debate sobre direitos e autoridade; a Revolução Industrial transformou produção, trabalho e vida urbana. Seus processos foram distintos, desiguais e articulados, sem tornar a Sociologia inevitável.</p><p>Na Aula 04, vamos examinar como esses conflitos ganharam a forma de questão social e estimularam projetos de uma ciência da sociedade.</p></section>
+
   <section id="recursos">
-    <div class="section-title">Recursos Necessários</div>
+    <h2 class="section-title">Recursos Necessários</h2>
     <div class="resources-list">
       <span class="res-tag">Projetor</span>
       <span class="res-tag">Quadro branco</span>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aula 02 — Introdução à Sociologia | 2026.2</title>
+<title>Aula 02 — Estranhamento e desnaturalização: o método de olhar do sociólogo | 2026.2</title>
 <style>
   :root {
     --bg: #0a0a0f; --surface: #12121c; --card: #1a1a2e; --border: #2a2a4a;
@@ -79,11 +79,59 @@
     .tl-item { flex-direction: column; gap: 8px; }
   }
   @media print { .teacher-guidance { break-inside: avoid; } }
+
+  /* Leitura em sala, teclado, telas estreitas e impressão. */
+  .skip-link { position: absolute; left: -9999px; }
+  .skip-link:focus { left: 12px; top: 12px; z-index: 200; padding: 12px; background: var(--bg); color: var(--text); }
+  .section-title { font-size: .9rem; }
+  .activity-card p, .teacher-guidance-content p, .lesson-synthesis p { margin-bottom: 12px; }
+  .activity-card ol { padding-left: 24px; margin: 12px 0; }
+  .activity-card li { margin-bottom: 8px; }
+  .case-card { padding: 16px; margin: 16px 0; border: 1px solid var(--border); border-radius: var(--radius); }
+  .case-card h3 { color: var(--blue-lt); margin-bottom: 8px; font-size: 1rem; }
+  .teacher-note { margin-top: 14px; padding: 12px; border-left: 3px solid var(--amber-lt); }
+  .print-note { color: var(--muted); margin-top: 12px; font-size: .85rem; }
+  .reading-note { margin-bottom: 12px; color: var(--muted); }
+  summary:focus-visible { outline: 3px solid var(--amber-lt); outline-offset: 3px; }
+  @media (max-width: 640px) {
+    nav, .section-nav { position: static; }
+    nav a { min-height: 44px; display: inline-flex; align-items: center; white-space: normal; }
+    .nav-right { flex-wrap: wrap; }
+    .section-nav { flex-wrap: wrap; }
+    .section-nav a { min-height: 44px; }
+    .activity-card { padding: 16px; }
+    .teacher-guidance-content { padding: 12px; }
+    .case-card { padding: 12px; }
+    section, .base-subsection { scroll-margin-top: 16px; }
+  }
+  @page { size: A4; margin: 16mm; }
+  @media print {
+    :root { --bg: #fff; --surface: #fff; --card: #fff; --border: #888; --text: #111; --muted: #333; --purple: #333; --purple-lt: #222; --blue-lt: #222; --teal-lt: #333; --amber-lt: #222; }
+    html, body { overflow: visible; min-height: 0; background: #fff; color: #111; font-size: 10pt; }
+    * { color: #111 !important; background: transparent !important; box-shadow: none !important; text-shadow: none !important; }
+    nav, .section-nav, .skip-link, .print-note { display: none !important; }
+    main { max-width: none; padding: 0; }
+    .base-text { max-width: none; }
+    .aula-header { padding: 12px; margin-bottom: 18px; }
+    .header-meta { gap: 6px; }
+    .meta-chip { font-size: 8pt; }
+    h1, h2, h3, h4, summary { break-after: avoid; }
+    p, li { orphans: 3; widows: 3; }
+    section, .activity-card, .teacher-guidance { break-inside: auto; }
+    .tl-item, .ref-card, .case-card { break-inside: avoid; }
+    .obj-list, .timeline { display: block; }
+    .obj-list li, .tl-item { margin-bottom: 8px; }
+    .teacher-guidance:not([open]) { display: none; }
+    .teacher-guidance[open] { display: block; }
+    a { text-decoration: underline; }
+    footer { padding: 12px 0; }
+  }
 </style>
 </head>
 <body>
+<a class="skip-link" href="#conteudo-aula">Pular para o conteúdo da aula</a>
 
-<nav>
+<nav aria-label="Navegação entre aulas">
   <div class="nav-left">
     <a href="../../index.html">← Voltar ao curso</a>
     <span class="nav-badge">Aula 02</span>
@@ -94,9 +142,9 @@
     <a href="aula-03.html">Próxima aula →</a>
   </div>
 </nav>
-<div class="section-nav" aria-label="Seções da aula"><a href="#objetivos">Objetivos</a><a href="#conteudo-programatico">Conteúdo</a><a href="#texto-base">Texto-base</a><a href="#plano-aula">Plano da aula</a><a href="#leituras">Leituras</a><a href="#atividade">Atividade</a><a href="#recursos">Recursos</a></div>
+<div class="section-nav" aria-label="Seções da aula"><a href="#objetivos">Objetivos</a><a href="#conteudo-programatico">Conteúdo</a><a href="#texto-base">Texto-base</a><a href="#plano-aula">Plano da aula</a><a href="#leituras">Leituras</a><a href="#atividade">Atividade</a><a href="#sintese">Síntese</a><a href="#recursos">Recursos</a></div>
 
-<main>
+<main id="conteudo-aula" tabindex="-1">
 
   <div class="aula-header">
     <div class="header-meta">
@@ -110,7 +158,7 @@
   </div>
 
   <section id="objetivos">
-    <div class="section-title">Objetivos da Aula</div>
+    <h2 class="section-title">Objetivos da Aula</h2>
     <ul class="obj-list">
       <li>Definir estranhamento sociológico como suspensão temporária do óbvio.</li>
       <li>Praticar desnaturalização por meio de comparação histórica e entre sociedades.</li>
@@ -119,7 +167,7 @@
   </section>
 
   <section id="conteudo-programatico">
-    <div class="section-title">Conteúdo Programático</div>
+    <h2 class="section-title">Conteúdo Programático</h2>
     <div class="content-topic">
       <h3>1. Estranhar o familiar</h3>
       <ul>
@@ -137,7 +185,7 @@
   </section>
 
   <section id="texto-base" aria-labelledby="texto-base-title">
-    <div class="section-title" id="texto-base-title">Texto-base para acompanhamento da aula</div>
+    <h2 class="section-title" id="texto-base-title">Texto-base para acompanhamento da aula</h2>
     <div class="base-text">
       <p class="base-intro">A Aula 01 mostrou que o senso comum é necessário, mas insuficiente, e que práticas sociais costumam ser naturalizadas. Este texto apresenta o instrumento que a Sociologia usa para reagir a essa naturalização: o estranhamento.</p>
 
@@ -161,7 +209,7 @@
       <div class="base-subsection" id="a02-curso">
         <h3>3. O percurso da disciplina</h3>
         <p>As próximas aulas acrescentarão instrumentos a esse olhar. Primeiro, estudaremos as transformações históricas que tornaram necessária uma ciência da sociedade e algumas tentativas pioneiras de construí-la. Depois, examinaremos Durkheim, Marx e Weber, preservando as diferenças entre seus problemas e métodos. O curso avançará então para cultura, socialização, grupos, normas, instituições, estratificação, raça, gênero e movimentos sociais, até chegar à construção do experimento sociológico que organiza a avaliação do semestre.</p>
-        <p>As leituras prévias oferecem contato com argumentos que a exposição e as atividades deverão reconstruir, não apenas resumir. Participação, frequência e produção acadêmica fazem parte do percurso. A avaliação final de 2026.2 é um experimento sociológico sobre inteligência artificial e desigualdade, apresentado com sua metodologia completa na página principal do curso; ele será retomado organicamente a partir da segunda metade do semestre, quando os grupos já tiverem base teórica suficiente para formulá-lo com rigor.</p>
+        <p>As leituras prévias oferecem contato com argumentos que a exposição e as atividades deverão reconstruir, não apenas resumir. Participação, frequência e produção acadêmica fazem parte do percurso. A avaliação final de 2026.2 é um experimento sociológico sobre inteligência artificial e desigualdade, apresentado com sua metodologia completa na página principal do curso; sua preparação será retomada ao longo do semestre, articulada aos conceitos estudados.</p>
         <p>Nesta disciplina, aprender conceitos não será separado de usá-los. As atividades pedem que estudantes comparem situações, leiam textos, formulem problemas e justifiquem interpretações. O objetivo não é substituir uma opinião por uma palavra acadêmica, mas tornar claro o raciocínio que conecta a situação observada ao conceito escolhido.</p>
       </div>
 
@@ -174,7 +222,7 @@
   </section>
 
   <section id="plano-aula">
-    <div class="section-title">Plano de Aula com Tempo</div>
+    <h2 class="section-title">Plano de Aula com Tempo</h2>
     <div class="timeline">
       <div class="tl-item">
         <span class="tl-duration">10 min</span>
@@ -182,11 +230,11 @@
       </div>
       <div class="tl-item">
         <span class="tl-duration">25 min</span>
-        <span class="tl-text"><strong>Roda de conversa: "O óbvio que não é óbvio"</strong> — Retomada dos registros produzidos ao final da Aula 01. Cada estudante compartilha sua situação "natural"; o grupo problematiza.</span>
+        <span class="tl-text"><strong>Roda de conversa: "O óbvio que não é óbvio"</strong> — Retomada dos registros produzidos ao final da Aula 01. Duplas formulam perguntas; voluntários compartilham três ou quatro casos. É possível usar situações fictícias.</span>
       </div>
       <div class="tl-item">
         <span class="tl-duration">15 min</span>
-        <span class="tl-text"><strong>Apresentação do plano de curso e da avaliação</strong> — Estrutura em blocos, critérios avaliativos e panorama do experimento sociológico que organiza a avaliação de 2026.2.</span>
+        <span class="tl-text"><strong>Apresentação do plano de curso e da avaliação</strong> — Apresentar a questão “Como a inteligência artificial reproduz desigualdades sociais?” e consultar o instrumento aprovado em <a href="../../index.html">Avaliação na home</a>, sem modificar seus parâmetros. A hipótese pode ser confirmada, negada ou relativizada pelas evidências.</span>
       </div>
       <div class="tl-item">
         <span class="tl-duration">10 min</span>
@@ -196,11 +244,12 @@
   </section>
 
   <section id="leituras">
-    <div class="section-title">Textos para Leitura Prévia</div>
+    <p class="reading-note">O texto-base e os materiais desta página permitem acompanhar a aula sem leitura prévia. As obras abaixo apoiam a retomada e o aprofundamento.</p>
+    <h2 class="section-title">Leituras de referência e aprofundamento</h2>
     <div class="ref-card">
-      <div class="ref-author">BAUMAN, Zygmunt</div>
-      <div class="ref-title">Aprendendo a pensar com a Sociologia. Cap. 1</div>
-      <div class="ref-pages">Consultar a seção indicada na edição disponível; a paginação varia por edição.</div>
+      <div class="ref-author">BAUMAN, Zygmunt; MAY, Tim</div>
+      <div class="ref-title">Aprendendo a pensar com a sociologia. Discussão introdutória sobre o olhar sociológico</div>
+      <div class="ref-pages">Nova edição. Tradução de Alexandre Werneck. Rio de Janeiro: Zahar, 2022. <a href="https://www.companhiadasletras.com.br/livro/9786559790746/aprendendo-a-pensar-com-a-sociologia-nova-edicao">Referência na editora</a></div>
     </div>
     <div class="ref-card">
       <div class="ref-author">MARTINS, Carlos Benedito</div>
@@ -210,31 +259,34 @@
   </section>
 
   <section id="atividade">
-    <div class="section-title">Atividades em Sala</div>
+    <h2 class="section-title">Atividades em Sala</h2>
     <div class="activity-card" data-gabarito="obrigatorio">
       <strong>Roda de conversa: "O óbvio que não é óbvio"</strong><br><br>
-      Retomando o registro feito ao final da Aula 01, cada estudante compartilha a situação "óbvia" ou "natural" que anotou. A partir de cada relato, o grupo é instigado a problematizar: por que isso acontece assim? Poderia ser diferente? Quem se beneficia com essa forma de organização?<br><br>
+      Retomem os registros da Aula 01 em duplas, sem obrigação de compartilhar experiências pessoais. Quem não tiver registro pode usar o caso fictício: “uma turma considera que apenas quem fala em voz alta participa”. Em 25 minutos: 3 para escolher a situação, 8 para formular perguntas, 6 para indicar uma comparação e a evidência necessária, e 8 para ouvir três ou quatro duplas voluntárias. Para cada caso, problematizem: por que isso acontece assim? Poderia ser diferente? Quem se beneficia com essa forma de organização? <p><strong>Produto:</strong> registrar a prática, duas perguntas sociológicas, uma comparação possível e uma informação a buscar. A comparação é uma proposta de investigação, não uma prova já obtida.</p><br><br>
       O objetivo é mostrar que fenômenos que parecem naturais (papéis de gênero, hierarquias, divisão do trabalho, padrões de consumo) são, na verdade, construções sociais e históricas — e que o olhar sociológico consiste justamente em estranhar o familiar e problematizar o que parece dado.
 
+      <p class="print-note">Para incluir a orientação docente na impressão, abra o gabarito antes de imprimir. Fechado, ele não integra a versão dos estudantes.</p>
       <details class="teacher-guidance">
         <summary>Gabarito comentado e orientações de mediação — uso do professor</summary>
         <div class="teacher-guidance-content">
           <p><strong>Critério geral.</strong> Uma resposta apenas descritiva relata o costume ("os homens não lavam roupa em casa") e para aí. Uma resposta sociologicamente fundamentada usa a tríade estranhamento–naturalização–desnaturalização do texto-base: explica por que a prática parece óbvia, mostra que essa aparência depende de aprendizagem e repetição, e indica quem sustenta e quem paga o custo da organização atual.</p>
           <p><strong>"Por que isso acontece assim?"</strong> Recuse respostas que apenas repitam a naturalização ("é assim porque sempre foi", "é da natureza"). Aceite respostas que apontem uma origem histórica, institucional ou de aprendizagem: quem ensinou essa expectativa, que instituição a reforça (família, escola, mídia, lei), há quanto tempo ela vigora.</p>
           <p><strong>"Poderia ser diferente?"</strong> A resposta forte compara: cita outra família, geração, bairro, profissão ou período em que a mesma esfera da vida é organizada de outro modo. A resposta fraca apenas afirma que "sim, poderia" sem examinar nenhum caso concreto de variação.</p>
-          <p><strong>"Quem se beneficia com essa forma de organização?"</strong> Espera-se identificar uma distribuição desigual de vantagens e custos (tempo, reconhecimento, remuneração, autoridade), não um juízo moral genérico sobre "certo" ou "errado".</p>
+          <p><strong>"Quem se beneficia com essa forma de organização?"</strong> Espera-se investigar a distribuição de vantagens e custos, sem presumir desigualdade antes da evidência (tempo, reconhecimento, remuneração, autoridade), não um juízo moral genérico sobre "certo" ou "errado".</p>
           <p><strong>Erros prováveis.</strong> Confundir naturalização com biologia; generalizar a partir de um único caso familiar para "a sociedade brasileira"; reduzir a atividade a um debate de opiniões pessoais, sem estranhamento nem comparação.</p>
-          <p><strong>Mediação sugerida.</strong> Se um relato ficar apenas descritivo, pergunte: "desde quando funciona assim, e quem te ensinou que era assim?" Se a turma resvalar para o julgamento moral, redirecione: "independentemente de ser certo ou errado, quem ensina essa regra e quem seria punido por descumpri-la?"</p>
+          <p><strong>Mediação sugerida.</strong> Se um relato ficar apenas descritivo, pergunte: "desde quando a prática funciona assim e por quais meios essa expectativa é ensinada?" Se a turma resvalar para o julgamento moral, redirecione: "independentemente de ser certo ou errado, quem ensina essa regra e quem seria punido por descumpri-la?"</p>
         </div>
       </details>
     </div>
   </section>
 
+  <section id="sintese" class="lesson-synthesis"><h2 class="section-title">Síntese e continuidade</h2><p>Estranhar é suspender a evidência imediata; desnaturalizar é reconstruir como uma prática foi produzida e sustentada. Comparação e evidências permitem ir além de trocar uma opinião por outra.</p><p>Na Aula 03, essas operações serão aplicadas às transformações políticas e produtivas que tornaram a sociedade moderna um problema de conhecimento.</p></section>
+
   <section id="recursos">
-    <div class="section-title">Recursos Necessários</div>
+    <h2 class="section-title">Recursos Necessários</h2>
     <div class="resources-list">
       <span class="res-tag">Projetor</span>
-      <span class="res-tag">Plano de curso impresso</span>
+      <span class="res-tag">Papel ou caderno para registro</span>
       <span class="res-tag">Quadro branco</span>
       <span class="res-tag">Caneta para quadro</span>
     </div>

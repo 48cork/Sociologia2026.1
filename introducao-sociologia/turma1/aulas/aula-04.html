@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aula 04 — Introdução à Sociologia | 2026.2</title>
+<title>Aula 04 — Da questão social ao projeto de uma ciência da sociedade | 2026.2</title>
 <style>
   :root {
     --bg: #0a0a0f; --surface: #12121c; --card: #1a1a2e; --border: #2a2a4a;
@@ -79,11 +79,59 @@
     .tl-item { flex-direction: column; gap: 8px; }
   }
   @media print { .teacher-guidance { break-inside: avoid; } }
+
+  /* Leitura em sala, teclado, telas estreitas e impressão. */
+  .skip-link { position: absolute; left: -9999px; }
+  .skip-link:focus { left: 12px; top: 12px; z-index: 200; padding: 12px; background: var(--bg); color: var(--text); }
+  .section-title { font-size: .9rem; }
+  .activity-card p, .teacher-guidance-content p, .lesson-synthesis p { margin-bottom: 12px; }
+  .activity-card ol { padding-left: 24px; margin: 12px 0; }
+  .activity-card li { margin-bottom: 8px; }
+  .case-card { padding: 16px; margin: 16px 0; border: 1px solid var(--border); border-radius: var(--radius); }
+  .case-card h3 { color: var(--blue-lt); margin-bottom: 8px; font-size: 1rem; }
+  .teacher-note { margin-top: 14px; padding: 12px; border-left: 3px solid var(--amber-lt); }
+  .print-note { color: var(--muted); margin-top: 12px; font-size: .85rem; }
+  .reading-note { margin-bottom: 12px; color: var(--muted); }
+  summary:focus-visible { outline: 3px solid var(--amber-lt); outline-offset: 3px; }
+  @media (max-width: 640px) {
+    nav, .section-nav { position: static; }
+    nav a { min-height: 44px; display: inline-flex; align-items: center; white-space: normal; }
+    .nav-right { flex-wrap: wrap; }
+    .section-nav { flex-wrap: wrap; }
+    .section-nav a { min-height: 44px; }
+    .activity-card { padding: 16px; }
+    .teacher-guidance-content { padding: 12px; }
+    .case-card { padding: 12px; }
+    section, .base-subsection { scroll-margin-top: 16px; }
+  }
+  @page { size: A4; margin: 16mm; }
+  @media print {
+    :root { --bg: #fff; --surface: #fff; --card: #fff; --border: #888; --text: #111; --muted: #333; --purple: #333; --purple-lt: #222; --blue-lt: #222; --teal-lt: #333; --amber-lt: #222; }
+    html, body { overflow: visible; min-height: 0; background: #fff; color: #111; font-size: 10pt; }
+    * { color: #111 !important; background: transparent !important; box-shadow: none !important; text-shadow: none !important; }
+    nav, .section-nav, .skip-link, .print-note { display: none !important; }
+    main { max-width: none; padding: 0; }
+    .base-text { max-width: none; }
+    .aula-header { padding: 12px; margin-bottom: 18px; }
+    .header-meta { gap: 6px; }
+    .meta-chip { font-size: 8pt; }
+    h1, h2, h3, h4, summary { break-after: avoid; }
+    p, li { orphans: 3; widows: 3; }
+    section, .activity-card, .teacher-guidance { break-inside: auto; }
+    .tl-item, .ref-card, .case-card { break-inside: avoid; }
+    .obj-list, .timeline { display: block; }
+    .obj-list li, .tl-item { margin-bottom: 8px; }
+    .teacher-guidance:not([open]) { display: none; }
+    .teacher-guidance[open] { display: block; }
+    a { text-decoration: underline; }
+    footer { padding: 12px 0; }
+  }
 </style>
 </head>
 <body>
+<a class="skip-link" href="#conteudo-aula">Pular para o conteúdo da aula</a>
 
-<nav>
+<nav aria-label="Navegação entre aulas">
   <div class="nav-left">
     <a href="../../index.html">← Voltar ao curso</a>
     <span class="nav-badge">Aula 04</span>
@@ -94,9 +142,9 @@
     <a href="aula-05.html">Próxima aula →</a>
   </div>
 </nav>
-<div class="section-nav" aria-label="Seções da aula"><a href="#objetivos">Objetivos</a><a href="#conteudo-programatico">Conteúdo</a><a href="#texto-base">Texto-base</a><a href="#plano-aula">Plano da aula</a><a href="#leituras">Leituras</a><a href="#atividade">Atividade</a><a href="#recursos">Recursos</a></div>
+<div class="section-nav" aria-label="Seções da aula"><a href="#objetivos">Objetivos</a><a href="#conteudo-programatico">Conteúdo</a><a href="#texto-base">Texto-base</a><a href="#plano-aula">Plano da aula</a><a href="#leituras">Leituras</a><a href="#atividade">Atividade</a><a href="#sintese">Síntese</a><a href="#recursos">Recursos</a></div>
 
-<main>
+<main id="conteudo-aula" tabindex="-1">
 
   <div class="aula-header">
     <div class="header-meta">
@@ -110,17 +158,17 @@
   </div>
 
   <section id="objetivos">
-    <div class="section-title">Objetivos da Aula</div>
+    <h2 class="section-title">Objetivos da Aula</h2>
     <ul class="obj-list">
       <li>Explicar como a industrialização produziu o proletariado e novas formas de urbanização e classe.</li>
       <li>Definir questão social como problema coletivo, não soma de infortúnios individuais.</li>
-      <li>Analisar imagens históricas como vestígios que exigem interpretação, não provas autoevidentes.</li>
-      <li>Compreender por que esse contexto tornou necessária uma ciência da sociedade.</li>
+      <li>Distinguir observação, hipótese e limite na leitura de materiais sobre trabalho e vida urbana.</li>
+      <li>Compreender como esse contexto favoreceu projetos de uma ciência da sociedade.</li>
     </ul>
   </section>
 
   <section id="conteudo-programatico">
-    <div class="section-title">Conteúdo Programático</div>
+    <h2 class="section-title">Conteúdo Programático</h2>
     <div class="content-topic">
       <h3>1. Trabalho, urbanização e a questão social</h3>
       <ul>
@@ -131,16 +179,16 @@
     <div class="content-topic">
       <h3>2. Por que uma ciência da sociedade?</h3>
       <ul>
-        <li>Imagens como vestígios históricos que exigem pergunta, não descrição neutra</li>
+        <li>Materiais, imagens e registros: evidências que exigem pergunta e contexto</li>
         <li>O fortalecimento do Estado, o registro da população e o projeto de uma ciência social</li>
       </ul>
     </div>
   </section>
 
   <section id="texto-base" aria-labelledby="texto-base-title">
-    <div class="section-title" id="texto-base-title">Texto-base para acompanhamento da aula</div>
+    <h2 class="section-title" id="texto-base-title">Texto-base para acompanhamento da aula</h2>
     <div class="base-text">
-      <p class="base-intro">A Aula 03 mostrou que a Revolução Francesa e a Revolução Industrial abriram, juntas, uma pergunta sobre que vínculos poderiam sustentar a vida coletiva. Este texto segue essa pergunta até o ponto em que ela exige uma ciência da sociedade.</p>
+      <p class="base-intro">A Aula 03 mostrou que a Revolução Francesa e a Revolução Industrial abriram, juntas, uma pergunta sobre que vínculos poderiam sustentar a vida coletiva. Este texto segue essa pergunta até os projetos de uma ciência da sociedade, sem tratá-los como desfecho inevitável.</p>
 
       <div class="base-subsection" id="a04-trabalho">
         <h3>1. Trabalho, urbanização e formação de classes</h3>
@@ -159,33 +207,33 @@
 
       <div class="base-subsection" id="a04-imagens">
         <h3>3. Imagens como vestígios históricos</h3>
-        <p>A atividade desta aula utiliza gravuras e fotografias de fábricas, habitações e ruas. Essas imagens não são janelas transparentes para o passado. Elas foram produzidas por alguém, a partir de uma posição e para determinado público. O enquadramento seleciona pessoas e espaços; uma legenda orienta a interpretação; aquilo que ficou fora do quadro também importa.</p>
-        <p>Uma fotografia de trabalhadores pode informar sobre vestimentas, presença de crianças, organização do espaço ou proximidade das máquinas. Sozinha, não revela salários, duração da jornada, sentimentos dos retratados ou frequência daquela situação. Ao analisar cada imagem, convém perguntar quem aparece, que atividade realiza, como o espaço distribui posições e que sinais de hierarquia ou precariedade são visíveis — separando sempre observação e interpretação.</p>
+        <p>Gravuras e fotografias de fábricas, habitações e ruas podem ser fontes para uma investigação histórica. Essas imagens não são janelas transparentes para o passado. Elas foram produzidas por alguém, a partir de uma posição e para determinado público. O enquadramento seleciona pessoas e espaços; uma legenda orienta a interpretação; aquilo que ficou fora do quadro também importa.</p>
+        <p>Uma fotografia de trabalhadores pode informar sobre vestimentas, presença de crianças, organização do espaço ou proximidade das máquinas. Sozinha, não revela salários, duração da jornada, sentimentos dos retratados ou frequência daquela situação. Ao analisar cada imagem, convém perguntar quem aparece, que atividade realiza, como o espaço distribui posições e que sinais de hierarquia ou precariedade são visíveis — separando sempre observação e interpretação.</p><p>Hoje exercitaremos essa distinção com três casos didáticos integralmente disponíveis abaixo. São construções fictícias inspiradas nos problemas estudados, não documentos de arquivo nem prova de uma cidade real. Eles permitem formular hipóteses e indicar quais fontes históricas seriam necessárias para testá-las. Uma gravura isolada, assim como um relato isolado, não comprova a frequência de uma condição.</p>
       </div>
 
       <div class="base-subsection" id="a04-sociologia">
         <h3>4. Por que uma ciência da sociedade?</h3>
         <p>As revoluções não criaram automaticamente a Sociologia, como se a disciplina fosse consequência inevitável de dois acontecimentos. Elas compuseram um contexto no qual a ordem social se tornou objeto explícito de reflexão. Governos precisavam administrar populações e conflitos; reformadores procuravam responder à pobreza; trabalhadores organizavam demandas; intelectuais tentavam compreender a direção das mudanças.</p>
         <p>O fortalecimento dos Estados nacionais ampliou a capacidade de produzir leis, administrar territórios e reunir informações sobre a população. Classificar ocupações, registrar nascimentos e acompanhar condições de vida fazia parte de necessidades administrativas, mas também fornecia materiais para perceber regularidades coletivas. Uma ciência da sociedade prometia identificar regularidades, comparar instituições e explicar como a vida coletiva era possível — projeto que assumiu formas diferentes, como o curso verá a partir da próxima aula.</p>
-        <p>A Sociologia nasceu, assim, ligada a uma dupla experiência moderna: a percepção de que a sociedade é construída e pode mudar, e o temor de que mudanças rápidas produzam desorganização, conflito e desigualdade. Na Aula 05, veremos a primeira tentativa sistemática de responder a essa dupla experiência: o positivismo de Auguste Comte.</p>
+        <p>A Sociologia nasceu, assim, ligada a uma dupla experiência moderna: a percepção de que a sociedade é construída e pode mudar, e o temor de que mudanças rápidas produzam desorganização, conflito e desigualdade. Na Aula 05, examinaremos o Iluminismo e a crítica da tradição como parte do contexto intelectual dessa mudança. O positivismo de Comte será estudado posteriormente.</p>
       </div>
     </div>
   </section>
 
   <section id="plano-aula">
-    <div class="section-title">Plano de Aula com Tempo</div>
+    <h2 class="section-title">Plano de Aula com Tempo</h2>
     <div class="timeline">
       <div class="tl-item">
         <span class="tl-duration">10 min</span>
-        <span class="tl-text"><strong>Exposição: trabalho, urbanização e questão social</strong> — Formação de classes e o problema de tratar a pobreza como questão coletiva.</span>
+        <span class="tl-text"><strong>Exposição: trabalho, urbanização e questão social</strong> — Retomar duas anotações da Aula 03; explicar formação de classes e pobreza como questão coletiva.</span>
       </div>
       <div class="tl-item">
         <span class="tl-duration">30 min</span>
-        <span class="tl-text"><strong>Análise de imagens históricas da Revolução Industrial</strong> — Atividade em duplas com gravuras e fotografias do período.</span>
+        <span class="tl-text"><strong>Oficina — da dificuldade individual à questão social</strong> — Em duplas, comparar os três casos didáticos da página: 5 min de leitura, 15 de análise e 10 de revisão.</span>
       </div>
       <div class="tl-item">
         <span class="tl-duration">15 min</span>
-        <span class="tl-text"><strong>Socialização e síntese coletiva</strong> — Duplas apresentam conclusões; o professor articula os problemas identificados à necessidade histórica de uma ciência da sociedade.</span>
+        <span class="tl-text"><strong>Socialização e síntese coletiva</strong> — Ouvir quatro duplas por até 2 min; usar os 7 min restantes para comparar evidências, limites e o surgimento de projetos de ciência social.</span>
       </div>
       <div class="tl-item">
         <span class="tl-duration">5 min</span>
@@ -195,7 +243,8 @@
   </section>
 
   <section id="leituras">
-    <div class="section-title">Textos para Leitura Prévia</div>
+    <p class="reading-note">O texto-base e os materiais desta página permitem acompanhar a aula sem leitura prévia. As obras abaixo apoiam a retomada e o aprofundamento.</p>
+    <h2 class="section-title">Leituras de referência e aprofundamento</h2>
     <div class="ref-card">
       <div class="ref-author">QUINTANEIRO, Tania et al.</div>
       <div class="ref-title">Um toque de clássicos. Introdução</div>
@@ -204,32 +253,39 @@
   </section>
 
   <section id="atividade">
-    <div class="section-title">Atividades em Sala</div>
+    <h2 class="section-title">Atividades em Sala</h2>
     <div class="activity-card" data-gabarito="obrigatorio">
-      <strong>Análise de imagens históricas da Revolução Industrial</strong><br><br>
-      Os alunos recebem uma seleção de gravuras e fotografias históricas do período da Revolução Industrial: fábricas com trabalho infantil, habitações operárias precárias, ruas das cidades industriais, manifestações de trabalhadores.<br><br>
-      Em duplas, devem responder às seguintes questões: (1) Quais problemas sociais essas imagens revelam? (2) Quem são os sujeitos representados e qual é sua posição na sociedade? (3) O que nessas imagens poderia ter demandado a criação de uma ciência que estudasse a sociedade?<br><br>
-      As duplas socializam suas respostas na síntese coletiva, que serve de base para o professor introduzir a ideia da Sociologia como resposta intelectual à crise da modernidade industrial.
+      <strong>Oficina — da dificuldade individual à questão social</strong><br><br>
+      <p><strong>Material completo para uso em sala:</strong> os três casos abaixo são fictícios, elaborados para comparar problemas associados à industrialização. Não são transcrições, estatísticas ou testemunhos históricos. A atividade pode ser feita sem internet, imagens externas ou leitura prévia.</p>
+      <article class="case-card"><h3>Caso A — Tempo de fábrica</h3><p>Uma oficina é incorporada a uma fábrica. Antes, trabalhadores organizavam parte da sequência das tarefas; agora, a direção fixa entrada, saída e ritmo comum. Uma trabalhadora perde o início do turno quando o transporte atrasa. O supervisor atribui o problema à falta de disciplina. O caso não informa salário, duração total da jornada nem frequência dos atrasos.</p></article>
+      <article class="case-card"><h3>Caso B — Moradia e crescimento urbano</h3><p>Famílias chegam a uma cidade em busca de trabalho. Várias dividem casas próximas às fábricas; o abastecimento de água é irregular. Um proprietário explica a precariedade pelos hábitos dos moradores. O caso não informa preços de aluguel, renda das famílias, investimento público ou condições de outros bairros.</p></article>
+      <article class="case-card"><h3>Caso C — Uma demanda coletiva</h3><p>Trabalhadores de estabelecimentos diferentes se reúnem para pedir regras de segurança e apresentam uma petição à administração local. Argumentam que os riscos não dependem apenas do cuidado de cada pessoa. Alguns empregadores contestam a proposta. O caso não informa o número de acidentes nem o resultado da mobilização.</p></article>
+      <p><strong>Organização — 30 minutos:</strong> 5 para ler, 15 para responder e 10 para revisar uma conclusão. Usem uma folha com as colunas “informação do caso”, “hipótese”, “fonte necessária” e “limite”.</p>
+      <ol><li>Em cada caso, o que está informado e o que seria apenas suposição?</li><li>Que relações de trabalho, propriedade, infraestrutura ou poder ajudam a formular uma explicação coletiva?</li><li>Que fonte histórica permitiria testar uma hipótese: registros de jornada, contratos, relatórios urbanos, jornais ou petições? Explique sua função.</li><li>Compare B e C: qual a diferença entre existir uma dificuldade compartilhada e ela se tornar uma demanda pública?</li></ol>
+      <p><strong>Produto:</strong> três linhas de análise e uma conclusão de até quatro frases ligando os casos à questão social. Na socialização, quatro duplas voluntárias apresentam uma hipótese e seu limite; as demais confrontam com seus registros.</p>
 
+      <p class="print-note">Para incluir a orientação docente na impressão, abra o gabarito antes de imprimir. Fechado, ele não integra a versão dos estudantes.</p>
       <details class="teacher-guidance">
         <summary>Gabarito comentado e orientações de mediação — uso do professor</summary>
         <div class="teacher-guidance-content">
-          <p><strong>Critério geral.</strong> A atividade pede que a dupla trate as imagens como vestígios que precisam ser interrogados, não como janelas transparentes para o passado (ver subseção 3 do texto-base). Uma resposta descritiva apenas nomeia o que aparece na cena; uma resposta fundamentada distingue o que a imagem mostra do que ela não revela e liga a observação a um problema histórico.</p>
-          <p><strong>Questão 1 (problemas revelados).</strong> Aceite respostas que identifiquem trabalho infantil, jornadas longas sugeridas pela cena, precariedade da habitação ou aglomeração urbana, desde que a dupla indique o elemento visual que sustenta a leitura (postura, vestimenta, proximidade das máquinas, condição do edifício). Recuse inferências sem ancoragem na imagem, como afirmar salários ou horas de trabalho que a foto não mostra.</p>
-          <p><strong>Questão 2 (sujeitos e posição social).</strong> Espera-se que a dupla reconheça posições assimétricas: quem trabalha, quem supervisiona, quem está ausente do quadro (proprietários, autoridades). Uma resposta fraca apenas descreve roupas ou expressões sem relacioná-las a uma posição nas relações de produção ou de propriedade.</p>
-          <p><strong>Questão 3 (por que demandaria uma ciência da sociedade).</strong> A resposta forte liga o conteúdo da imagem à noção de questão social: sofrimento recorrente que exige explicação coletiva, não apenas individual. A resposta fraca apenas diz que "a imagem é triste" ou "mostra injustiça", sem indicar por que esse tipo de problema pede investigação sistemática e comparativa.</p>
-          <p><strong>Erros conceituais prováveis.</strong> Tratar a fotografia como prova completa e neutra do período, esquecendo que ela foi enquadrada por alguém para um público; e confundir a denúncia moral da pobreza com a explicação sociológica de sua origem e distribuição.</p>
-          <p><strong>Mediação sugerida.</strong> Se a dupla tratar a imagem como evidência autossuficiente, pergunte o que ela não permite saber (salário, duração da jornada, sentimento dos retratados) e que outras fontes seriam necessárias para responder a isso.</p>
+          <p><strong>Critério geral:</strong> avaliar a passagem da descrição à hipótese, sem tratar os casos fictícios como evidência de uma população real. Uma resposta forte cita a informação disponível, explicita uma relação social e indica o que falta saber. Nenhum caso autoriza calcular frequência ou afirmar uma causa única.</p>
+          <p><strong>Caso A:</strong> estão descritos o controle dos horários pela direção e um atraso associado ao transporte. É possível formular hipótese sobre tensão entre disciplina fabril e condições de deslocamento. Não se pode concluir salário, jornada longa ou desinteresse. Registros de entrada, regras da fábrica e informações de transporte ajudariam a investigar padrões e alternativas.</p>
+          <p><strong>Caso B:</strong> moradia compartilhada e abastecimento irregular são dados do enunciado. Atribuir a precariedade aos hábitos é uma interpretação do proprietário, não uma explicação comprovada. Contratos de aluguel, rendimentos, relatórios de abastecimento e comparação entre bairros ajudariam a relacionar condições habitacionais, mercado e infraestrutura. Não presumir que todos os moradores tenham a mesma situação.</p>
+          <p><strong>Caso C:</strong> a reunião e a petição mostram organização de uma demanda coletiva. O material não informa sua vitória nem prova que toda mobilização produz reforma. Petições, jornais e respostas administrativas permitiriam reconstruir argumentos e conflitos; registros de acidentes responderiam a outra pergunta. Distinguir o que cada fonte permite saber.</p>
+          <p><strong>Comparação e síntese:</strong> em B, uma condição é compartilhada; em C, participantes a nomeiam e disputam uma resposta pública. Esse processo depende de organização e linguagem, não apenas da existência de sofrimento. Relacionar a questão social a trabalho, propriedade, instituições e direitos ajuda a compreender a busca por explicações sistemáticas.</p>
+          <p><strong>Mediação:</strong> quando a resposta apenas condenar uma injustiça, perguntar qual mecanismo e qual evidência sustentam a análise. Quando generalizar, retomar o limite do caso. Não pedir relatos pessoais. Encerrar com a conexão entre transformações sociais e debates intelectuais, preparando o Iluminismo na Aula 05.</p>
         </div>
       </details>
     </div>
   </section>
 
+  <section id="sintese" class="lesson-synthesis"><h2 class="section-title">Síntese e continuidade</h2><p>Questão social designa problemas coletivos cuja explicação exige relacionar trabalho, propriedade, instituições e poder. A Sociologia emerge de condições históricas e disputas intelectuais; não é uma consequência automática das revoluções.</p><p>O Encontro 01 termina aqui. Na Aula 05, o Iluminismo e a crítica da tradição aprofundarão o contexto intelectual desse projeto; Comte será estudado posteriormente.</p></section>
+
   <section id="recursos">
-    <div class="section-title">Recursos Necessários</div>
+    <h2 class="section-title">Recursos Necessários</h2>
     <div class="resources-list">
       <span class="res-tag">Projetor</span>
-      <span class="res-tag">Seleção de imagens históricas impressas</span>
+      <span class="res-tag">Casos didáticos desta página, projetados ou impressos</span>
       <span class="res-tag">Quadro branco</span>
     </div>
   </section>
